@@ -11,18 +11,8 @@ import { GetApplicablePolicyRequirementsRequestBuilder } from './getApplicablePo
 import { IncompatibleAccessPackagesRequestBuilder } from './incompatibleAccessPackages/incompatibleAccessPackagesRequestBuilder';
 import { IncompatibleGroupsRequestBuilder } from './incompatibleGroups/incompatibleGroupsRequestBuilder';
 import { ResourceRoleScopesRequestBuilder } from './resourceRoleScopes/resourceRoleScopesRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface AccessPackageItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface AccessPackageItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -32,30 +22,6 @@ export interface AccessPackageItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface AccessPackageItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AccessPackageItemRequestBuilderGetQueryParameters;
-}
-export interface AccessPackageItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
@@ -112,11 +78,11 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an accessPackage object. You cannot delete an access package if it has any accessPackageAssignment. This API is available in the following national cloud deployments.
+     * Delete an accessPackage object. You cannot delete an access package if it has any accessPackageAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/accesspackage-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: AccessPackageItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -127,12 +93,12 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of an accessPackage object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an accessPackage object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackage
      * @see {@link https://learn.microsoft.com/graph/api/accesspackage-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AccessPackageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackage | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AccessPackageItemRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackage | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -143,13 +109,13 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackage>(requestInfo, createAccessPackageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update an existing accessPackage object to change one or more of its properties, such as the display name or description. This API is available in the following national cloud deployments.
+     * Update an existing accessPackage object to change one or more of its properties, such as the display name or description.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackage
      * @see {@link https://learn.microsoft.com/graph/api/accesspackage-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AccessPackage, requestConfiguration?: AccessPackageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackage | undefined> {
+    public patch(body: AccessPackage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackage | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -160,57 +126,38 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackage>(requestInfo, createAccessPackageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an accessPackage object. You cannot delete an access package if it has any accessPackageAssignment. This API is available in the following national cloud deployments.
+     * Delete an accessPackage object. You cannot delete an access package if it has any accessPackageAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: AccessPackageItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of an accessPackage object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an accessPackage object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AccessPackageItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AccessPackageItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, accessPackageItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update an existing accessPackage object to change one or more of its properties, such as the display name or description. This API is available in the following national cloud deployments.
+     * Update an existing accessPackage object to change one or more of its properties, such as the display name or description.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AccessPackage, requestConfiguration?: AccessPackageItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AccessPackage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackage);
         return requestInfo;
     };
@@ -224,5 +171,9 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         return new AccessPackageItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const accessPackageItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

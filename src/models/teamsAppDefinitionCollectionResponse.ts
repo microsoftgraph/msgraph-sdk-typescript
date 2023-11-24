@@ -17,7 +17,7 @@ export function deserializeIntoTeamsAppDefinitionCollectionResponse(teamsAppDefi
 }
 export function serializeTeamsAppDefinitionCollectionResponse(writer: SerializationWriter, teamsAppDefinitionCollectionResponse: TeamsAppDefinitionCollectionResponse | undefined = {} as TeamsAppDefinitionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, teamsAppDefinitionCollectionResponse)
-        writer.writeCollectionOfObjectValues<TeamsAppDefinition>("value", teamsAppDefinitionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<TeamsAppDefinition>("value", teamsAppDefinitionCollectionResponse.value, serializeTeamsAppDefinition);
 }
 export interface TeamsAppDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -17,7 +17,7 @@ export function deserializeIntoWorkflowVersionCollectionResponse(workflowVersion
 }
 export function serializeWorkflowVersionCollectionResponse(writer: SerializationWriter, workflowVersionCollectionResponse: WorkflowVersionCollectionResponse | undefined = {} as WorkflowVersionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, workflowVersionCollectionResponse)
-        writer.writeCollectionOfObjectValues<WorkflowVersion>("value", workflowVersionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<WorkflowVersion>("value", workflowVersionCollectionResponse.value, serializeWorkflowVersion);
 }
 export interface WorkflowVersionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

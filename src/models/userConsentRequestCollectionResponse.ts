@@ -17,7 +17,7 @@ export function deserializeIntoUserConsentRequestCollectionResponse(userConsentR
 }
 export function serializeUserConsentRequestCollectionResponse(writer: SerializationWriter, userConsentRequestCollectionResponse: UserConsentRequestCollectionResponse | undefined = {} as UserConsentRequestCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, userConsentRequestCollectionResponse)
-        writer.writeCollectionOfObjectValues<UserConsentRequest>("value", userConsentRequestCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<UserConsentRequest>("value", userConsentRequestCollectionResponse.value, serializeUserConsentRequest);
 }
 export interface UserConsentRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

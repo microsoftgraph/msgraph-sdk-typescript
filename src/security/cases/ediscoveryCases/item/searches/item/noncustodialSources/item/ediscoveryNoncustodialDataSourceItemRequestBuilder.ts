@@ -5,18 +5,8 @@ import { type ODataError } from '../../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { type EdiscoveryNoncustodialDataSource } from '../../../../../../../../models/security/';
 import { createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue } from '../../../../../../../../models/security/ediscoveryNoncustodialDataSource';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface EdiscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -26,20 +16,6 @@ export interface EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParam
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface EdiscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the noncustodialSources property of the microsoft.graph.security.ediscoverySearch entity.
@@ -58,7 +34,7 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-delete-noncustodialsources?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: EdiscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -73,7 +49,7 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryNoncustodialDataSource
      */
-    public get(requestConfiguration?: EdiscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryNoncustodialDataSource | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryNoncustodialDataSource | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -88,16 +64,10 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: EdiscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -105,17 +75,10 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: EdiscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, ediscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -128,5 +91,9 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder extends BaseRequ
         return new EdiscoveryNoncustodialDataSourceItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const ediscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

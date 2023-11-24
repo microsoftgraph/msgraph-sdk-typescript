@@ -8,35 +8,35 @@ import { type Parsable, type ParseNode, type SerializationWriter } from '@micros
 
 export interface CommunicationsIdentitySet extends IdentitySet, Parsable {
     /**
-     * The applicationInstance property
+     * The application instance associated with this action.
      */
     applicationInstance?: Identity;
     /**
-     * The assertedIdentity property
+     * An identity the participant would like to present itself as to the other participants in the call.
      */
     assertedIdentity?: Identity;
     /**
-     * The azureCommunicationServicesUser property
+     * The Azure Communication Services user associated with this action.
      */
     azureCommunicationServicesUser?: Identity;
     /**
-     * The encrypted property
+     * The encrypted user associated with this action.
      */
     encrypted?: Identity;
     /**
-     * The endpointType property
+     * Type of endpoint that the participant uses. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone, unknownFutureValue.
      */
     endpointType?: EndpointType;
     /**
-     * The guest property
+     * The guest user associated with this action.
      */
     guest?: Identity;
     /**
-     * The onPremises property
+     * The Skype for Business on-premises user associated with this action.
      */
     onPremises?: Identity;
     /**
-     * The phone property
+     * The phone user associated with this action.
      */
     phone?: Identity;
 }
@@ -59,14 +59,14 @@ export function deserializeIntoCommunicationsIdentitySet(communicationsIdentityS
 }
 export function serializeCommunicationsIdentitySet(writer: SerializationWriter, communicationsIdentitySet: CommunicationsIdentitySet | undefined = {} as CommunicationsIdentitySet) : void {
         serializeIdentitySet(writer, communicationsIdentitySet)
-        writer.writeObjectValue<Identity>("applicationInstance", communicationsIdentitySet.applicationInstance, );
-        writer.writeObjectValue<Identity>("assertedIdentity", communicationsIdentitySet.assertedIdentity, );
-        writer.writeObjectValue<Identity>("azureCommunicationServicesUser", communicationsIdentitySet.azureCommunicationServicesUser, );
-        writer.writeObjectValue<Identity>("encrypted", communicationsIdentitySet.encrypted, );
+        writer.writeObjectValue<Identity>("applicationInstance", communicationsIdentitySet.applicationInstance, serializeIdentity);
+        writer.writeObjectValue<Identity>("assertedIdentity", communicationsIdentitySet.assertedIdentity, serializeIdentity);
+        writer.writeObjectValue<Identity>("azureCommunicationServicesUser", communicationsIdentitySet.azureCommunicationServicesUser, serializeIdentity);
+        writer.writeObjectValue<Identity>("encrypted", communicationsIdentitySet.encrypted, serializeIdentity);
         writer.writeEnumValue<EndpointType>("endpointType", communicationsIdentitySet.endpointType);
-        writer.writeObjectValue<Identity>("guest", communicationsIdentitySet.guest, );
-        writer.writeObjectValue<Identity>("onPremises", communicationsIdentitySet.onPremises, );
-        writer.writeObjectValue<Identity>("phone", communicationsIdentitySet.phone, );
+        writer.writeObjectValue<Identity>("guest", communicationsIdentitySet.guest, serializeIdentity);
+        writer.writeObjectValue<Identity>("onPremises", communicationsIdentitySet.onPremises, serializeIdentity);
+        writer.writeObjectValue<Identity>("phone", communicationsIdentitySet.phone, serializeIdentity);
 }
 // tslint:enable
 // eslint-enable

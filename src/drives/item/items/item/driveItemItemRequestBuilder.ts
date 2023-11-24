@@ -27,6 +27,7 @@ import { PermanentDeleteRequestBuilder } from './permanentDelete/permanentDelete
 import { PermissionsRequestBuilder } from './permissions/permissionsRequestBuilder';
 import { PreviewRequestBuilder } from './preview/previewRequestBuilder';
 import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
+import { RetentionLabelRequestBuilder } from './retentionLabel/retentionLabelRequestBuilder';
 import { SearchWithQRequestBuilder } from './searchWithQ/searchWithQRequestBuilder';
 import { SubscriptionsRequestBuilder } from './subscriptions/subscriptionsRequestBuilder';
 import { ThumbnailsRequestBuilder } from './thumbnails/thumbnailsRequestBuilder';
@@ -34,18 +35,8 @@ import { UnfollowRequestBuilder } from './unfollow/unfollowRequestBuilder';
 import { ValidatePermissionRequestBuilder } from './validatePermission/validatePermissionRequestBuilder';
 import { VersionsRequestBuilder } from './versions/versionsRequestBuilder';
 import { WorkbookRequestBuilder } from './workbook/workbookRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface DriveItemItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface DriveItemItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -55,30 +46,6 @@ export interface DriveItemItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface DriveItemItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DriveItemItemRequestBuilderGetQueryParameters;
-}
-export interface DriveItemItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the items property of the microsoft.graph.drive entity.
@@ -211,6 +178,12 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the retentionLabel property of the microsoft.graph.driveItem entity.
+     */
+    public get retentionLabel(): RetentionLabelRequestBuilder {
+        return new RetentionLabelRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
      * Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity.
      */
     public get subscriptions(): SubscriptionsRequestBuilder {
@@ -255,11 +228,11 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a DriveItem by using its ID or path.Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item. This API is available in the following national cloud deployments.
+     * Delete a DriveItem by using its ID or path.Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/driveitem-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: DriveItemItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -283,7 +256,7 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveItem
      */
-    public get(requestConfiguration?: DriveItemItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DriveItem | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DriveItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<DriveItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -307,13 +280,13 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, interval, startDateTime);
     };
     /**
-     * Update the metadata for a driveItem by ID or path. You can also use update to move an item to another parent by updating the item's parentReference property. This API is available in the following national cloud deployments.
+     * Update the metadata for a driveItem by ID or path. You can also use update to move an item to another parent by updating the item's parentReference property.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveItem
      * @see {@link https://learn.microsoft.com/graph/api/driveitem-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DriveItem, requestConfiguration?: DriveItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DriveItem | undefined> {
+    public patch(body: DriveItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DriveItem | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -333,20 +306,14 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         return new SearchWithQRequestBuilder(this.pathParameters, this.requestAdapter, q);
     };
     /**
-     * Delete a DriveItem by using its ID or path.Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item. This API is available in the following national cloud deployments.
+     * Delete a DriveItem by using its ID or path.Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: DriveItemItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -354,36 +321,23 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DriveItemItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DriveItemItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, driveItemItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the metadata for a driveItem by ID or path. You can also use update to move an item to another parent by updating the item's parentReference property. This API is available in the following national cloud deployments.
+     * Update the metadata for a driveItem by ID or path. You can also use update to move an item to another parent by updating the item's parentReference property.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DriveItem, requestConfiguration?: DriveItemItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DriveItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDriveItem);
         return requestInfo;
     };
@@ -397,5 +351,9 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         return new DriveItemItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const driveItemItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

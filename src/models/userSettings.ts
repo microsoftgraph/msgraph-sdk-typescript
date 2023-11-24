@@ -21,7 +21,7 @@ export function serializeUserSettings(writer: SerializationWriter, userSettings:
         serializeEntity(writer, userSettings)
         writer.writeBooleanValue("contributionToContentDiscoveryAsOrganizationDisabled", userSettings.contributionToContentDiscoveryAsOrganizationDisabled);
         writer.writeBooleanValue("contributionToContentDiscoveryDisabled", userSettings.contributionToContentDiscoveryDisabled);
-        writer.writeObjectValue<ShiftPreferences>("shiftPreferences", userSettings.shiftPreferences, );
+        writer.writeObjectValue<ShiftPreferences>("shiftPreferences", userSettings.shiftPreferences, serializeShiftPreferences);
 }
 export interface UserSettings extends Entity, Parsable {
     /**

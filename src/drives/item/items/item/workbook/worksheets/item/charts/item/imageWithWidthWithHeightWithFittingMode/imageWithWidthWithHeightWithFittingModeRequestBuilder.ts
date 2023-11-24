@@ -5,18 +5,8 @@ import { type ODataError } from '../../../../../../../../../../models/oDataError
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
 import { createImageWithWidthWithHeightWithFittingModeGetResponseFromDiscriminatorValue } from './imageWithWidthWithHeightWithFittingModeGetResponse';
 import { type ImageWithWidthWithHeightWithFittingModeGetResponse } from './index';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface ImageWithWidthWithHeightWithFittingModeRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the image method.
  */
@@ -40,7 +30,7 @@ export class ImageWithWidthWithHeightWithFittingModeRequestBuilder extends BaseR
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ImageWithWidthWithHeightWithFittingModeGetResponse
      */
-    public get(requestConfiguration?: ImageWithWidthWithHeightWithFittingModeRequestBuilderGetRequestConfiguration | undefined) : Promise<ImageWithWidthWithHeightWithFittingModeGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ImageWithWidthWithHeightWithFittingModeGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -55,16 +45,10 @@ export class ImageWithWidthWithHeightWithFittingModeRequestBuilder extends BaseR
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ImageWithWidthWithHeightWithFittingModeRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**

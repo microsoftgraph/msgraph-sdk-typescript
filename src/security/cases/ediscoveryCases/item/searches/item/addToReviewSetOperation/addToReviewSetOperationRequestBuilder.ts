@@ -5,7 +5,7 @@ import { type ODataError } from '../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { type EdiscoveryAddToReviewSetOperation } from '../../../../../../../models/security/';
 import { createEdiscoveryAddToReviewSetOperationFromDiscriminatorValue } from '../../../../../../../models/security/ediscoveryAddToReviewSetOperation';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AddToReviewSetOperationRequestBuilderGetQueryParameters {
     /**
@@ -16,20 +16,6 @@ export interface AddToReviewSetOperationRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface AddToReviewSetOperationRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AddToReviewSetOperationRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the addToReviewSetOperation property of the microsoft.graph.security.ediscoverySearch entity.
@@ -48,7 +34,7 @@ export class AddToReviewSetOperationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryAddToReviewSetOperation
      */
-    public get(requestConfiguration?: AddToReviewSetOperationRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryAddToReviewSetOperation | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AddToReviewSetOperationRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryAddToReviewSetOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -63,17 +49,10 @@ export class AddToReviewSetOperationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AddToReviewSetOperationRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AddToReviewSetOperationRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, addToReviewSetOperationRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -86,5 +65,9 @@ export class AddToReviewSetOperationRequestBuilder extends BaseRequestBuilder {
         return new AddToReviewSetOperationRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const addToReviewSetOperationRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

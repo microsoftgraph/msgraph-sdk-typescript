@@ -9,7 +9,7 @@ import { createWorkbookPivotTableCollectionResponseFromDiscriminatorValue } from
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookPivotTableItemRequestBuilder } from './item/workbookPivotTableItemRequestBuilder';
 import { RefreshAllRequestBuilder } from './refreshAll/refreshAllRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PivotTablesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface PivotTablesRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface PivotTablesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PivotTablesRequestBuilderGetQueryParameters;
-}
-export interface PivotTablesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
@@ -105,12 +81,12 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/pivotTables{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of workbookpivottable objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of workbookpivottable objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookPivotTableCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/workbookworksheet-list-pivottables?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PivotTablesRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookPivotTableCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PivotTablesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookPivotTableCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -126,7 +102,7 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookPivotTable
      */
-    public post(body: WorkbookPivotTable, requestConfiguration?: PivotTablesRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookPivotTable | undefined> {
+    public post(body: WorkbookPivotTable, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookPivotTable | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -137,21 +113,14 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookPivotTable>(requestInfo, createWorkbookPivotTableFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of workbookpivottable objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of workbookpivottable objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PivotTablesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PivotTablesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, pivotTablesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -160,17 +129,11 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: WorkbookPivotTable, requestConfiguration?: PivotTablesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: WorkbookPivotTable, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookPivotTable);
         return requestInfo;
     };
@@ -184,5 +147,15 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
         return new PivotTablesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const pivotTablesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

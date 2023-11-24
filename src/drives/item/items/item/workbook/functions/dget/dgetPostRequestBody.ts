@@ -34,9 +34,9 @@ export interface DgetPostRequestBody extends AdditionalDataHolder, Parsable {
     field?: Json;
 }
 export function serializeDgetPostRequestBody(writer: SerializationWriter, dgetPostRequestBody: DgetPostRequestBody | undefined = {} as DgetPostRequestBody) : void {
-        writer.writeObjectValue<Json>("criteria", dgetPostRequestBody.criteria, );
-        writer.writeObjectValue<Json>("database", dgetPostRequestBody.database, );
-        writer.writeObjectValue<Json>("field", dgetPostRequestBody.field, );
+        writer.writeObjectValue<Json>("criteria", dgetPostRequestBody.criteria, serializeJson);
+        writer.writeObjectValue<Json>("database", dgetPostRequestBody.database, serializeJson);
+        writer.writeObjectValue<Json>("field", dgetPostRequestBody.field, serializeJson);
         writer.writeAdditionalData(dgetPostRequestBody.additionalData);
 }
 // tslint:enable

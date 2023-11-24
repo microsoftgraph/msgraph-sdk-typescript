@@ -61,13 +61,13 @@ export interface DocumentSet extends AdditionalDataHolder, Parsable {
     welcomePageUrl?: string;
 }
 export function serializeDocumentSet(writer: SerializationWriter, documentSet: DocumentSet | undefined = {} as DocumentSet) : void {
-        writer.writeCollectionOfObjectValues<ContentTypeInfo>("allowedContentTypes", documentSet.allowedContentTypes, );
-        writer.writeCollectionOfObjectValues<DocumentSetContent>("defaultContents", documentSet.defaultContents, );
+        writer.writeCollectionOfObjectValues<ContentTypeInfo>("allowedContentTypes", documentSet.allowedContentTypes, serializeContentTypeInfo);
+        writer.writeCollectionOfObjectValues<DocumentSetContent>("defaultContents", documentSet.defaultContents, serializeDocumentSetContent);
         writer.writeStringValue("@odata.type", documentSet.odataType);
         writer.writeBooleanValue("propagateWelcomePageChanges", documentSet.propagateWelcomePageChanges);
-        writer.writeCollectionOfObjectValues<ColumnDefinition>("sharedColumns", documentSet.sharedColumns, );
+        writer.writeCollectionOfObjectValues<ColumnDefinition>("sharedColumns", documentSet.sharedColumns, serializeColumnDefinition);
         writer.writeBooleanValue("shouldPrefixNameToFile", documentSet.shouldPrefixNameToFile);
-        writer.writeCollectionOfObjectValues<ColumnDefinition>("welcomePageColumns", documentSet.welcomePageColumns, );
+        writer.writeCollectionOfObjectValues<ColumnDefinition>("welcomePageColumns", documentSet.welcomePageColumns, serializeColumnDefinition);
         writer.writeStringValue("welcomePageUrl", documentSet.welcomePageUrl);
         writer.writeAdditionalData(documentSet.additionalData);
 }

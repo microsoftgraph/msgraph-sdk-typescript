@@ -8,7 +8,7 @@ import { createWorkbookCommentReplyFromDiscriminatorValue, deserializeIntoWorkbo
 import { createWorkbookCommentReplyCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/workbookCommentReplyCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookCommentReplyItemRequestBuilder } from './item/workbookCommentReplyItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RepliesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface RepliesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface RepliesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: RepliesRequestBuilderGetQueryParameters;
-}
-export interface RepliesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.
  */
@@ -98,11 +74,11 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/comments/{workbookComment%2Did}/replies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the properties and relationships of workbookCommentReply object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of workbookCommentReply object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookCommentReplyCollectionResponse
      */
-    public get(requestConfiguration?: RepliesRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookCommentReplyCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<RepliesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookCommentReplyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -118,7 +94,7 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookCommentReply
      */
-    public post(body: WorkbookCommentReply, requestConfiguration?: RepliesRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookCommentReply | undefined> {
+    public post(body: WorkbookCommentReply, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookCommentReply | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -129,21 +105,14 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookCommentReply>(requestInfo, createWorkbookCommentReplyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of workbookCommentReply object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of workbookCommentReply object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: RepliesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<RepliesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, repliesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -152,17 +121,11 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: WorkbookCommentReply, requestConfiguration?: RepliesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: WorkbookCommentReply, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookCommentReply);
         return requestInfo;
     };
@@ -176,5 +139,15 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         return new RepliesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const repliesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

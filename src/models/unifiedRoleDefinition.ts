@@ -27,11 +27,11 @@ export function serializeUnifiedRoleDefinition(writer: SerializationWriter, unif
         serializeEntity(writer, unifiedRoleDefinition)
         writer.writeStringValue("description", unifiedRoleDefinition.description);
         writer.writeStringValue("displayName", unifiedRoleDefinition.displayName);
-        writer.writeCollectionOfObjectValues<UnifiedRoleDefinition>("inheritsPermissionsFrom", unifiedRoleDefinition.inheritsPermissionsFrom, );
+        writer.writeCollectionOfObjectValues<UnifiedRoleDefinition>("inheritsPermissionsFrom", unifiedRoleDefinition.inheritsPermissionsFrom, serializeUnifiedRoleDefinition);
         writer.writeBooleanValue("isBuiltIn", unifiedRoleDefinition.isBuiltIn);
         writer.writeBooleanValue("isEnabled", unifiedRoleDefinition.isEnabled);
         writer.writeCollectionOfPrimitiveValues<string>("resourceScopes", unifiedRoleDefinition.resourceScopes);
-        writer.writeCollectionOfObjectValues<UnifiedRolePermission>("rolePermissions", unifiedRoleDefinition.rolePermissions, );
+        writer.writeCollectionOfObjectValues<UnifiedRolePermission>("rolePermissions", unifiedRoleDefinition.rolePermissions, serializeUnifiedRolePermission);
         writer.writeStringValue("templateId", unifiedRoleDefinition.templateId);
         writer.writeStringValue("version", unifiedRoleDefinition.version);
 }

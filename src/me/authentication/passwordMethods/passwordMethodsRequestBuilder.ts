@@ -8,7 +8,7 @@ import { createPasswordAuthenticationMethodFromDiscriminatorValue, deserializeIn
 import { createPasswordAuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../models/passwordAuthenticationMethodCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PasswordAuthenticationMethodItemRequestBuilder } from './item/passwordAuthenticationMethodItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PasswordMethodsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface PasswordMethodsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface PasswordMethodsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PasswordMethodsRequestBuilderGetQueryParameters;
-}
-export interface PasswordMethodsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.
  */
@@ -98,12 +74,12 @@ export class PasswordMethodsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/authentication/passwordMethods{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of the passwords registered to a user, represented by a passwordAuthenticationMethod object. This API returns exactly one object, as a user can have exactly one password. For security, the password itself will never be returned in the object and the password property is always null. This API is available in the following national cloud deployments.
+     * Retrieve a list of the passwords registered to a user, represented by a passwordAuthenticationMethod object. This API returns exactly one object, as a user can have exactly one password. For security, the password itself will never be returned in the object and the password property is always null.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PasswordAuthenticationMethodCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/authentication-list-passwordmethods?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PasswordMethodsRequestBuilderGetRequestConfiguration | undefined) : Promise<PasswordAuthenticationMethodCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PasswordMethodsRequestBuilderGetQueryParameters> | undefined) : Promise<PasswordAuthenticationMethodCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class PasswordMethodsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PasswordAuthenticationMethod
      */
-    public post(body: PasswordAuthenticationMethod, requestConfiguration?: PasswordMethodsRequestBuilderPostRequestConfiguration | undefined) : Promise<PasswordAuthenticationMethod | undefined> {
+    public post(body: PasswordAuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PasswordAuthenticationMethod | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -130,21 +106,14 @@ export class PasswordMethodsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PasswordAuthenticationMethod>(requestInfo, createPasswordAuthenticationMethodFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of the passwords registered to a user, represented by a passwordAuthenticationMethod object. This API returns exactly one object, as a user can have exactly one password. For security, the password itself will never be returned in the object and the password property is always null. This API is available in the following national cloud deployments.
+     * Retrieve a list of the passwords registered to a user, represented by a passwordAuthenticationMethod object. This API returns exactly one object, as a user can have exactly one password. For security, the password itself will never be returned in the object and the password property is always null.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PasswordMethodsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PasswordMethodsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, passwordMethodsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class PasswordMethodsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PasswordAuthenticationMethod, requestConfiguration?: PasswordMethodsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PasswordAuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePasswordAuthenticationMethod);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class PasswordMethodsRequestBuilder extends BaseRequestBuilder {
         return new PasswordMethodsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const passwordMethodsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

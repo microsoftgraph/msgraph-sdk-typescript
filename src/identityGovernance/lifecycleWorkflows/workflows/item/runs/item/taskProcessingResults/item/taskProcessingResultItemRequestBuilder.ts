@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { MicrosoftGraphIdentityGovernanceResumeRequestBuilder } from './microsoftGraphIdentityGovernanceResume/microsoftGraphIdentityGovernanceResumeRequestBuilder';
 import { SubjectRequestBuilder } from './subject/subjectRequestBuilder';
 import { TaskRequestBuilder } from './task/taskRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TaskProcessingResultItemRequestBuilderGetQueryParameters {
     /**
@@ -19,20 +19,6 @@ export interface TaskProcessingResultItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface TaskProcessingResultItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TaskProcessingResultItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.run entity.
@@ -69,7 +55,7 @@ export class TaskProcessingResultItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TaskProcessingResult
      */
-    public get(requestConfiguration?: TaskProcessingResultItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TaskProcessingResult | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TaskProcessingResultItemRequestBuilderGetQueryParameters> | undefined) : Promise<TaskProcessingResult | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -84,17 +70,10 @@ export class TaskProcessingResultItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TaskProcessingResultItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskProcessingResultItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, taskProcessingResultItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -107,5 +86,9 @@ export class TaskProcessingResultItemRequestBuilder extends BaseRequestBuilder {
         return new TaskProcessingResultItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const taskProcessingResultItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

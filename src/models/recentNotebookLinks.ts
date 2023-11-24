@@ -35,8 +35,8 @@ export interface RecentNotebookLinks extends AdditionalDataHolder, Parsable {
 }
 export function serializeRecentNotebookLinks(writer: SerializationWriter, recentNotebookLinks: RecentNotebookLinks | undefined = {} as RecentNotebookLinks) : void {
         writer.writeStringValue("@odata.type", recentNotebookLinks.odataType);
-        writer.writeObjectValue<ExternalLink>("oneNoteClientUrl", recentNotebookLinks.oneNoteClientUrl, );
-        writer.writeObjectValue<ExternalLink>("oneNoteWebUrl", recentNotebookLinks.oneNoteWebUrl, );
+        writer.writeObjectValue<ExternalLink>("oneNoteClientUrl", recentNotebookLinks.oneNoteClientUrl, serializeExternalLink);
+        writer.writeObjectValue<ExternalLink>("oneNoteWebUrl", recentNotebookLinks.oneNoteWebUrl, serializeExternalLink);
         writer.writeAdditionalData(recentNotebookLinks.additionalData);
 }
 // tslint:enable

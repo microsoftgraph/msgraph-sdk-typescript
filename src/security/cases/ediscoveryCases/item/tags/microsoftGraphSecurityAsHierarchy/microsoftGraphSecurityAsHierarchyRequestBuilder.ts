@@ -5,7 +5,7 @@ import { type ODataError } from '../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { createAsHierarchyGetResponseFromDiscriminatorValue } from './asHierarchyGetResponse';
 import { type AsHierarchyGetResponse } from './index';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParameters {
     /**
@@ -37,20 +37,6 @@ export interface MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParamete
      */
     top?: number;
 }
-export interface MicrosoftGraphSecurityAsHierarchyRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the asHierarchy method.
  */
@@ -68,7 +54,7 @@ export class MicrosoftGraphSecurityAsHierarchyRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AsHierarchyGetResponse
      */
-    public get(requestConfiguration?: MicrosoftGraphSecurityAsHierarchyRequestBuilderGetRequestConfiguration | undefined) : Promise<AsHierarchyGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParameters> | undefined) : Promise<AsHierarchyGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -83,17 +69,10 @@ export class MicrosoftGraphSecurityAsHierarchyRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: MicrosoftGraphSecurityAsHierarchyRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, microsoftGraphSecurityAsHierarchyRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -106,5 +85,14 @@ export class MicrosoftGraphSecurityAsHierarchyRequestBuilder extends BaseRequest
         return new MicrosoftGraphSecurityAsHierarchyRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const microsoftGraphSecurityAsHierarchyRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

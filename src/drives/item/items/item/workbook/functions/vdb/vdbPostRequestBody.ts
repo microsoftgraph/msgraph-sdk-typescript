@@ -20,13 +20,13 @@ export function deserializeIntoVdbPostRequestBody(vdbPostRequestBody: VdbPostReq
     }
 }
 export function serializeVdbPostRequestBody(writer: SerializationWriter, vdbPostRequestBody: VdbPostRequestBody | undefined = {} as VdbPostRequestBody) : void {
-        writer.writeObjectValue<Json>("cost", vdbPostRequestBody.cost, );
-        writer.writeObjectValue<Json>("endPeriod", vdbPostRequestBody.endPeriod, );
-        writer.writeObjectValue<Json>("factor", vdbPostRequestBody.factor, );
-        writer.writeObjectValue<Json>("life", vdbPostRequestBody.life, );
-        writer.writeObjectValue<Json>("noSwitch", vdbPostRequestBody.noSwitch, );
-        writer.writeObjectValue<Json>("salvage", vdbPostRequestBody.salvage, );
-        writer.writeObjectValue<Json>("startPeriod", vdbPostRequestBody.startPeriod, );
+        writer.writeObjectValue<Json>("cost", vdbPostRequestBody.cost, serializeJson);
+        writer.writeObjectValue<Json>("endPeriod", vdbPostRequestBody.endPeriod, serializeJson);
+        writer.writeObjectValue<Json>("factor", vdbPostRequestBody.factor, serializeJson);
+        writer.writeObjectValue<Json>("life", vdbPostRequestBody.life, serializeJson);
+        writer.writeObjectValue<Json>("noSwitch", vdbPostRequestBody.noSwitch, serializeJson);
+        writer.writeObjectValue<Json>("salvage", vdbPostRequestBody.salvage, serializeJson);
+        writer.writeObjectValue<Json>("startPeriod", vdbPostRequestBody.startPeriod, serializeJson);
         writer.writeAdditionalData(vdbPostRequestBody.additionalData);
 }
 export interface VdbPostRequestBody extends AdditionalDataHolder, Parsable {

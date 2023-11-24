@@ -8,7 +8,7 @@ import { createSwapShiftsChangeRequestFromDiscriminatorValue, deserializeIntoSwa
 import { createSwapShiftsChangeRequestCollectionResponseFromDiscriminatorValue } from '../../../../../models/swapShiftsChangeRequestCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SwapShiftsChangeRequestItemRequestBuilder } from './item/swapShiftsChangeRequestItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SwapShiftsChangeRequestsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface SwapShiftsChangeRequestsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SwapShiftsChangeRequestsRequestBuilderGetQueryParameters;
-}
-export interface SwapShiftsChangeRequestsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.
  */
@@ -98,12 +74,12 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/team/schedule/swapShiftsChangeRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of swapShiftsChangeRequest objects in the team. This API is available in the following national cloud deployments.
+     * Retrieve a list of swapShiftsChangeRequest objects in the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SwapShiftsChangeRequestCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/swapshiftschangerequest-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<SwapShiftsChangeRequestCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SwapShiftsChangeRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<SwapShiftsChangeRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SwapShiftsChangeRequestCollectionResponse>(requestInfo, createSwapShiftsChangeRequestCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create an instance of a swapShiftsChangeRequest object. This API is available in the following national cloud deployments.
+     * Create an instance of a swapShiftsChangeRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SwapShiftsChangeRequest
      * @see {@link https://learn.microsoft.com/graph/api/swapshiftschangerequest-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SwapShiftsChangeRequest, requestConfiguration?: SwapShiftsChangeRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<SwapShiftsChangeRequest | undefined> {
+    public post(body: SwapShiftsChangeRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SwapShiftsChangeRequest | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SwapShiftsChangeRequest>(requestInfo, createSwapShiftsChangeRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of swapShiftsChangeRequest objects in the team. This API is available in the following national cloud deployments.
+     * Retrieve a list of swapShiftsChangeRequest objects in the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SwapShiftsChangeRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, swapShiftsChangeRequestsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create an instance of a swapShiftsChangeRequest object. This API is available in the following national cloud deployments.
+     * Create an instance of a swapShiftsChangeRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SwapShiftsChangeRequest, requestConfiguration?: SwapShiftsChangeRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SwapShiftsChangeRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSwapShiftsChangeRequest);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return new SwapShiftsChangeRequestsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const swapShiftsChangeRequestsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

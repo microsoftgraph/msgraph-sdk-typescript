@@ -8,7 +8,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AgreementItemRequestBuilder } from './item/agreementItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AgreementsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface AgreementsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface AgreementsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AgreementsRequestBuilderGetQueryParameters;
-}
-export interface AgreementsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
  */
@@ -98,12 +74,12 @@ export class AgreementsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/termsOfUse/agreements{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of agreement objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of agreement objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AgreementCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/termsofusecontainer-list-agreements?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AgreementsRequestBuilderGetRequestConfiguration | undefined) : Promise<AgreementCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AgreementsRequestBuilderGetQueryParameters> | undefined) : Promise<AgreementCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class AgreementsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AgreementCollectionResponse>(requestInfo, createAgreementCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new agreement object. This API is available in the following national cloud deployments.
+     * Create a new agreement object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Agreement
      * @see {@link https://learn.microsoft.com/graph/api/termsofusecontainer-post-agreements?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: Agreement, requestConfiguration?: AgreementsRequestBuilderPostRequestConfiguration | undefined) : Promise<Agreement | undefined> {
+    public post(body: Agreement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Agreement | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class AgreementsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of agreement objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of agreement objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AgreementsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AgreementsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, agreementsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create a new agreement object. This API is available in the following national cloud deployments.
+     * Create a new agreement object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Agreement, requestConfiguration?: AgreementsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Agreement, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAgreement);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class AgreementsRequestBuilder extends BaseRequestBuilder {
         return new AgreementsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const agreementsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

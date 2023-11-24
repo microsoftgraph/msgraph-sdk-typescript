@@ -23,7 +23,7 @@ export interface IdentityUserFlowAttributeAssignmentCollectionResponse extends B
 }
 export function serializeIdentityUserFlowAttributeAssignmentCollectionResponse(writer: SerializationWriter, identityUserFlowAttributeAssignmentCollectionResponse: IdentityUserFlowAttributeAssignmentCollectionResponse | undefined = {} as IdentityUserFlowAttributeAssignmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, identityUserFlowAttributeAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignment>("value", identityUserFlowAttributeAssignmentCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignment>("value", identityUserFlowAttributeAssignmentCollectionResponse.value, serializeIdentityUserFlowAttributeAssignment);
 }
 // tslint:enable
 // eslint-enable

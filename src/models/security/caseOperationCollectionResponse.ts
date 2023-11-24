@@ -23,7 +23,7 @@ export function deserializeIntoCaseOperationCollectionResponse(caseOperationColl
 }
 export function serializeCaseOperationCollectionResponse(writer: SerializationWriter, caseOperationCollectionResponse: CaseOperationCollectionResponse | undefined = {} as CaseOperationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, caseOperationCollectionResponse)
-        writer.writeCollectionOfObjectValues<CaseOperation>("value", caseOperationCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<CaseOperation>("value", caseOperationCollectionResponse.value, serializeCaseOperation);
 }
 // tslint:enable
 // eslint-enable

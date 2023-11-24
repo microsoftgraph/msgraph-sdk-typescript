@@ -38,7 +38,7 @@ export interface RichLongRunningOperation extends LongRunningOperation, Parsable
 }
 export function serializeRichLongRunningOperation(writer: SerializationWriter, richLongRunningOperation: RichLongRunningOperation | undefined = {} as RichLongRunningOperation) : void {
         serializeLongRunningOperation(writer, richLongRunningOperation)
-        writer.writeObjectValue<PublicError>("error", richLongRunningOperation.errorEscaped, );
+        writer.writeObjectValue<PublicError>("error", richLongRunningOperation.errorEscaped, serializePublicError);
         writer.writeNumberValue("percentageComplete", richLongRunningOperation.percentageComplete);
         writer.writeStringValue("resourceId", richLongRunningOperation.resourceId);
         writer.writeStringValue("type", richLongRunningOperation.type);

@@ -6,18 +6,8 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { createEdiscoveryReviewSetQueryFromDiscriminatorValue, deserializeIntoEdiscoveryReviewSetQuery, serializeEdiscoveryReviewSetQuery, type EdiscoveryReviewSetQuery } from '../../../../../../../../models/security/ediscoveryReviewSetQuery';
 import { MicrosoftGraphSecurityApplyTagsRequestBuilder } from './microsoftGraphSecurityApplyTags/microsoftGraphSecurityApplyTagsRequestBuilder';
 import { MicrosoftGraphSecurityExportRequestBuilder } from './microsoftGraphSecurityExport/microsoftGraphSecurityExportRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface EdiscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface EdiscoveryReviewSetQueryItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -27,30 +17,6 @@ export interface EdiscoveryReviewSetQueryItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface EdiscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: EdiscoveryReviewSetQueryItemRequestBuilderGetQueryParameters;
-}
-export interface EdiscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
@@ -77,11 +43,11 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuild
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets/{ediscoveryReviewSet%2Did}/queries/{ediscoveryReviewSetQuery%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an ediscoveryReviewSetQuery object. This API is available in the following national cloud deployments.
+     * Delete an ediscoveryReviewSetQuery object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-delete-queries?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: EdiscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -92,12 +58,12 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuild
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an ediscoveryReviewSetQuery object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an ediscoveryReviewSetQuery object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewSetQuery
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewsetquery-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: EdiscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryReviewSetQuery | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<EdiscoveryReviewSetQueryItemRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryReviewSetQuery | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -108,13 +74,13 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuild
         return this.requestAdapter.sendAsync<EdiscoveryReviewSetQuery>(requestInfo, createEdiscoveryReviewSetQueryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an ediscoveryReviewSetQuery object. This API is available in the following national cloud deployments.
+     * Update the properties of an ediscoveryReviewSetQuery object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewSetQuery
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewsetquery-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: EdiscoveryReviewSetQuery, requestConfiguration?: EdiscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EdiscoveryReviewSetQuery | undefined> {
+    public patch(body: EdiscoveryReviewSetQuery, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoveryReviewSetQuery | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -125,57 +91,38 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuild
         return this.requestAdapter.sendAsync<EdiscoveryReviewSetQuery>(requestInfo, createEdiscoveryReviewSetQueryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an ediscoveryReviewSetQuery object. This API is available in the following national cloud deployments.
+     * Delete an ediscoveryReviewSetQuery object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: EdiscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an ediscoveryReviewSetQuery object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an ediscoveryReviewSetQuery object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: EdiscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<EdiscoveryReviewSetQueryItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, ediscoveryReviewSetQueryItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the properties of an ediscoveryReviewSetQuery object. This API is available in the following national cloud deployments.
+     * Update the properties of an ediscoveryReviewSetQuery object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EdiscoveryReviewSetQuery, requestConfiguration?: EdiscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EdiscoveryReviewSetQuery, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEdiscoveryReviewSetQuery);
         return requestInfo;
     };
@@ -189,5 +136,9 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuild
         return new EdiscoveryReviewSetQueryItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const ediscoveryReviewSetQueryItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

@@ -21,7 +21,7 @@ export function deserializeIntoSubjectRightsRequestHistory(subjectRightsRequestH
     }
 }
 export function serializeSubjectRightsRequestHistory(writer: SerializationWriter, subjectRightsRequestHistory: SubjectRightsRequestHistory | undefined = {} as SubjectRightsRequestHistory) : void {
-        writer.writeObjectValue<IdentitySet>("changedBy", subjectRightsRequestHistory.changedBy, );
+        writer.writeObjectValue<IdentitySet>("changedBy", subjectRightsRequestHistory.changedBy, serializeIdentitySet);
         writer.writeDateValue("eventDateTime", subjectRightsRequestHistory.eventDateTime);
         writer.writeStringValue("@odata.type", subjectRightsRequestHistory.odataType);
         writer.writeEnumValue<SubjectRightsRequestStage>("stage", subjectRightsRequestHistory.stage);

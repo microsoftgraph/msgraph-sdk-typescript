@@ -7,7 +7,7 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { EducationClassItemRequestBuilder } from './item/educationClassItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TaughtClassesRequestBuilderGetQueryParameters {
     /**
@@ -43,20 +43,6 @@ export interface TaughtClassesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface TaughtClassesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TaughtClassesRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
  */
@@ -87,12 +73,12 @@ export class TaughtClassesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/users/{educationUser%2Did}/taughtClasses{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the educationClass resources owned by an educationUser. This API is available in the following national cloud deployments.
+     * Get the educationClass resources owned by an educationUser.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationClassCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/educationuser-list-taughtclasses?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TaughtClassesRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationClassCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TaughtClassesRequestBuilderGetQueryParameters> | undefined) : Promise<EducationClassCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -103,21 +89,14 @@ export class TaughtClassesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationClassCollectionResponse>(requestInfo, createEducationClassCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the educationClass resources owned by an educationUser. This API is available in the following national cloud deployments.
+     * Get the educationClass resources owned by an educationUser.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TaughtClassesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaughtClassesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, taughtClassesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class TaughtClassesRequestBuilder extends BaseRequestBuilder {
         return new TaughtClassesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const taughtClassesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

@@ -89,18 +89,18 @@ export interface EntitlementManagement extends Entity, Parsable {
 }
 export function serializeEntitlementManagement(writer: SerializationWriter, entitlementManagement: EntitlementManagement | undefined = {} as EntitlementManagement) : void {
         serializeEntity(writer, entitlementManagement)
-        writer.writeCollectionOfObjectValues<Approval>("accessPackageAssignmentApprovals", entitlementManagement.accessPackageAssignmentApprovals, );
-        writer.writeCollectionOfObjectValues<AccessPackage>("accessPackages", entitlementManagement.accessPackages, );
-        writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicy>("assignmentPolicies", entitlementManagement.assignmentPolicies, );
-        writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequest>("assignmentRequests", entitlementManagement.assignmentRequests, );
-        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("assignments", entitlementManagement.assignments, );
-        writer.writeCollectionOfObjectValues<AccessPackageCatalog>("catalogs", entitlementManagement.catalogs, );
-        writer.writeCollectionOfObjectValues<ConnectedOrganization>("connectedOrganizations", entitlementManagement.connectedOrganizations, );
-        writer.writeCollectionOfObjectValues<AccessPackageResourceEnvironment>("resourceEnvironments", entitlementManagement.resourceEnvironments, );
-        writer.writeCollectionOfObjectValues<AccessPackageResourceRequest>("resourceRequests", entitlementManagement.resourceRequests, );
-        writer.writeCollectionOfObjectValues<AccessPackageResourceRoleScope>("resourceRoleScopes", entitlementManagement.resourceRoleScopes, );
-        writer.writeCollectionOfObjectValues<AccessPackageResource>("resources", entitlementManagement.resources, );
-        writer.writeObjectValue<EntitlementManagementSettings>("settings", entitlementManagement.settings, );
+        writer.writeCollectionOfObjectValues<Approval>("accessPackageAssignmentApprovals", entitlementManagement.accessPackageAssignmentApprovals, serializeApproval);
+        writer.writeCollectionOfObjectValues<AccessPackage>("accessPackages", entitlementManagement.accessPackages, serializeAccessPackage);
+        writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicy>("assignmentPolicies", entitlementManagement.assignmentPolicies, serializeAccessPackageAssignmentPolicy);
+        writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequest>("assignmentRequests", entitlementManagement.assignmentRequests, serializeAccessPackageAssignmentRequest);
+        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("assignments", entitlementManagement.assignments, serializeAccessPackageAssignment);
+        writer.writeCollectionOfObjectValues<AccessPackageCatalog>("catalogs", entitlementManagement.catalogs, serializeAccessPackageCatalog);
+        writer.writeCollectionOfObjectValues<ConnectedOrganization>("connectedOrganizations", entitlementManagement.connectedOrganizations, serializeConnectedOrganization);
+        writer.writeCollectionOfObjectValues<AccessPackageResourceEnvironment>("resourceEnvironments", entitlementManagement.resourceEnvironments, serializeAccessPackageResourceEnvironment);
+        writer.writeCollectionOfObjectValues<AccessPackageResourceRequest>("resourceRequests", entitlementManagement.resourceRequests, serializeAccessPackageResourceRequest);
+        writer.writeCollectionOfObjectValues<AccessPackageResourceRoleScope>("resourceRoleScopes", entitlementManagement.resourceRoleScopes, serializeAccessPackageResourceRoleScope);
+        writer.writeCollectionOfObjectValues<AccessPackageResource>("resources", entitlementManagement.resources, serializeAccessPackageResource);
+        writer.writeObjectValue<EntitlementManagementSettings>("settings", entitlementManagement.settings, serializeEntitlementManagementSettings);
 }
 // tslint:enable
 // eslint-enable

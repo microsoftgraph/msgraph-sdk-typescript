@@ -6,7 +6,7 @@ import { createManagedAndroidLobAppCollectionResponseFromDiscriminatorValue } fr
 import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GraphManagedAndroidLobAppRequestBuilderGetQueryParameters {
     /**
@@ -42,20 +42,6 @@ export interface GraphManagedAndroidLobAppRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface GraphManagedAndroidLobAppRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: GraphManagedAndroidLobAppRequestBuilderGetQueryParameters;
-}
 /**
  * Casts the previous resource to managedAndroidLobApp.
  */
@@ -79,7 +65,7 @@ export class GraphManagedAndroidLobAppRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAndroidLobAppCollectionResponse
      */
-    public get(requestConfiguration?: GraphManagedAndroidLobAppRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAndroidLobAppCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<GraphManagedAndroidLobAppRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedAndroidLobAppCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -94,17 +80,10 @@ export class GraphManagedAndroidLobAppRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: GraphManagedAndroidLobAppRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphManagedAndroidLobAppRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, graphManagedAndroidLobAppRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -117,5 +96,15 @@ export class GraphManagedAndroidLobAppRequestBuilder extends BaseRequestBuilder 
         return new GraphManagedAndroidLobAppRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const graphManagedAndroidLobAppRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

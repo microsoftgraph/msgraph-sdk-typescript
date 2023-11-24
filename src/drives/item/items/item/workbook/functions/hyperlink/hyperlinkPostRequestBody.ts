@@ -29,8 +29,8 @@ export interface HyperlinkPostRequestBody extends AdditionalDataHolder, Parsable
     linkLocation?: Json;
 }
 export function serializeHyperlinkPostRequestBody(writer: SerializationWriter, hyperlinkPostRequestBody: HyperlinkPostRequestBody | undefined = {} as HyperlinkPostRequestBody) : void {
-        writer.writeObjectValue<Json>("friendlyName", hyperlinkPostRequestBody.friendlyName, );
-        writer.writeObjectValue<Json>("linkLocation", hyperlinkPostRequestBody.linkLocation, );
+        writer.writeObjectValue<Json>("friendlyName", hyperlinkPostRequestBody.friendlyName, serializeJson);
+        writer.writeObjectValue<Json>("linkLocation", hyperlinkPostRequestBody.linkLocation, serializeJson);
         writer.writeAdditionalData(hyperlinkPostRequestBody.additionalData);
 }
 // tslint:enable

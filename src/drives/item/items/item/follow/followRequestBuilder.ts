@@ -5,18 +5,8 @@ import { type DriveItem } from '../../../../../models/';
 import { createDriveItemFromDiscriminatorValue } from '../../../../../models/driveItem';
 import { type ODataError } from '../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface FollowRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the follow method.
  */
@@ -30,12 +20,12 @@ export class FollowRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/follow");
     };
     /**
-     * Follow a driveItem. This API is available in the following national cloud deployments.
+     * Follow a driveItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveItem
      * @see {@link https://learn.microsoft.com/graph/api/driveitem-follow?view=graph-rest-1.0|Find more info here}
      */
-    public post(requestConfiguration?: FollowRequestBuilderPostRequestConfiguration | undefined) : Promise<DriveItem | undefined> {
+    public post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DriveItem | undefined> {
         const requestInfo = this.toPostRequestInformation(
             requestConfiguration
         );
@@ -46,20 +36,14 @@ export class FollowRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Follow a driveItem. This API is available in the following national cloud deployments.
+     * Follow a driveItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(requestConfiguration?: FollowRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**

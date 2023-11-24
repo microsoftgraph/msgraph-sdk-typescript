@@ -7,7 +7,7 @@ import { type HostComponentCollectionResponse } from '../../../../../models/secu
 import { createHostComponentCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/hostComponentCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { HostComponentItemRequestBuilder } from './item/hostComponentItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ComponentsRequestBuilderGetQueryParameters {
     /**
@@ -43,20 +43,6 @@ export interface ComponentsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface ComponentsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ComponentsRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to manage the components property of the microsoft.graph.security.host entity.
  */
@@ -87,12 +73,12 @@ export class ComponentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/components{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of hostComponent resources. This API is available in the following national cloud deployments.
+     * Get a list of hostComponent resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostComponentCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-host-list-components?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ComponentsRequestBuilderGetRequestConfiguration | undefined) : Promise<HostComponentCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ComponentsRequestBuilderGetQueryParameters> | undefined) : Promise<HostComponentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -103,21 +89,14 @@ export class ComponentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<HostComponentCollectionResponse>(requestInfo, createHostComponentCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of hostComponent resources. This API is available in the following national cloud deployments.
+     * Get a list of hostComponent resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ComponentsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ComponentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, componentsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class ComponentsRequestBuilder extends BaseRequestBuilder {
         return new ComponentsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const componentsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

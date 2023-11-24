@@ -5,18 +5,8 @@ import { createMailFolderFromDiscriminatorValue, deserializeIntoMailFolder, seri
 import { type ODataError } from '../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { deserializeIntoMovePostRequestBody, serializeMovePostRequestBody, type MovePostRequestBody } from './movePostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface MoveRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the move method.
  */
@@ -30,13 +20,13 @@ export class MoveRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/move");
     };
     /**
-     * Move a mailfolder and its contents to another mailfolder. This API is available in the following national cloud deployments.
+     * Move a mailfolder and its contents to another mailfolder.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MailFolder
      * @see {@link https://learn.microsoft.com/graph/api/mailfolder-move?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: MovePostRequestBody, requestConfiguration?: MoveRequestBuilderPostRequestConfiguration | undefined) : Promise<MailFolder | undefined> {
+    public post(body: MovePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MailFolder | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,22 +37,16 @@ export class MoveRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MailFolder>(requestInfo, createMailFolderFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Move a mailfolder and its contents to another mailfolder. This API is available in the following national cloud deployments.
+     * Move a mailfolder and its contents to another mailfolder.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: MovePostRequestBody, requestConfiguration?: MoveRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: MovePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMovePostRequestBody);
         return requestInfo;
     };

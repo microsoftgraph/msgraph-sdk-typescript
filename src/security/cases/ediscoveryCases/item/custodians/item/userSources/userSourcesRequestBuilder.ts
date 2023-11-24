@@ -8,7 +8,7 @@ import { createUserSourceFromDiscriminatorValue, deserializeIntoUserSource, seri
 import { createUserSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/userSourceCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserSourceItemRequestBuilder } from './item/userSourceItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserSourcesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface UserSourcesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface UserSourcesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: UserSourcesRequestBuilderGetQueryParameters;
-}
-export interface UserSourcesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity.
  */
@@ -98,12 +74,12 @@ export class UserSourcesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}/userSources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the userSource objects associated with an ediscoveryCustodian. This API is available in the following national cloud deployments.
+     * Get a list of the userSource objects associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserSourceCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-list-usersources?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: UserSourcesRequestBuilderGetRequestConfiguration | undefined) : Promise<UserSourceCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<UserSourcesRequestBuilderGetQueryParameters> | undefined) : Promise<UserSourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class UserSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UserSourceCollectionResponse>(requestInfo, createUserSourceCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new userSource object associated with an eDiscovery custodian. This API is available in the following national cloud deployments.
+     * Create a new userSource object associated with an eDiscovery custodian.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserSource
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-post-usersources?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: UserSource, requestConfiguration?: UserSourcesRequestBuilderPostRequestConfiguration | undefined) : Promise<UserSource | undefined> {
+    public post(body: UserSource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserSource | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class UserSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UserSource>(requestInfo, createUserSourceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the userSource objects associated with an ediscoveryCustodian. This API is available in the following national cloud deployments.
+     * Get a list of the userSource objects associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: UserSourcesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserSourcesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, userSourcesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create a new userSource object associated with an eDiscovery custodian. This API is available in the following national cloud deployments.
+     * Create a new userSource object associated with an eDiscovery custodian.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserSource, requestConfiguration?: UserSourcesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserSource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserSource);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class UserSourcesRequestBuilder extends BaseRequestBuilder {
         return new UserSourcesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const userSourcesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

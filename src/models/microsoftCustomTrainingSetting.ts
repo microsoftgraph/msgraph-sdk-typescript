@@ -20,22 +20,22 @@ export function deserializeIntoMicrosoftCustomTrainingSetting(microsoftCustomTra
 }
 export interface MicrosoftCustomTrainingSetting extends Parsable, TrainingSetting {
     /**
-     * The completionDateTime property
+     * The completion date and time of the training. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     completionDateTime?: Date;
     /**
-     * The trainingAssignmentMappings property
+     * The mapping details of the associated training.
      */
     trainingAssignmentMappings?: MicrosoftTrainingAssignmentMapping[];
     /**
-     * The trainingCompletionDuration property
+     * The training completion duration that needs to be provided before scheduling the training. Possible values are: week, fortnite, month, unknownFutureValue.
      */
     trainingCompletionDuration?: TrainingCompletionDuration;
 }
 export function serializeMicrosoftCustomTrainingSetting(writer: SerializationWriter, microsoftCustomTrainingSetting: MicrosoftCustomTrainingSetting | undefined = {} as MicrosoftCustomTrainingSetting) : void {
         serializeTrainingSetting(writer, microsoftCustomTrainingSetting)
         writer.writeDateValue("completionDateTime", microsoftCustomTrainingSetting.completionDateTime);
-        writer.writeCollectionOfObjectValues<MicrosoftTrainingAssignmentMapping>("trainingAssignmentMappings", microsoftCustomTrainingSetting.trainingAssignmentMappings, );
+        writer.writeCollectionOfObjectValues<MicrosoftTrainingAssignmentMapping>("trainingAssignmentMappings", microsoftCustomTrainingSetting.trainingAssignmentMappings, serializeMicrosoftTrainingAssignmentMapping);
         writer.writeEnumValue<TrainingCompletionDuration>("trainingCompletionDuration", microsoftCustomTrainingSetting.trainingCompletionDuration);
 }
 // tslint:enable

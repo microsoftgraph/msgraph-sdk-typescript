@@ -20,9 +20,9 @@ export function deserializeIntoShift(shift: Shift | undefined = {} as Shift) : R
 }
 export function serializeShift(writer: SerializationWriter, shift: Shift | undefined = {} as Shift) : void {
         serializeChangeTrackedEntity(writer, shift)
-        writer.writeObjectValue<ShiftItem>("draftShift", shift.draftShift, );
+        writer.writeObjectValue<ShiftItem>("draftShift", shift.draftShift, serializeShiftItem);
         writer.writeStringValue("schedulingGroupId", shift.schedulingGroupId);
-        writer.writeObjectValue<ShiftItem>("sharedShift", shift.sharedShift, );
+        writer.writeObjectValue<ShiftItem>("sharedShift", shift.sharedShift, serializeShiftItem);
         writer.writeStringValue("userId", shift.userId);
 }
 export interface Shift extends ChangeTrackedEntity, Parsable {

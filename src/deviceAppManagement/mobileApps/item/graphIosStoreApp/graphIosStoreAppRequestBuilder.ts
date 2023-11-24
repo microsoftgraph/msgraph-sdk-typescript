@@ -7,7 +7,7 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
 import { CategoriesRequestBuilder } from './categories/categoriesRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GraphIosStoreAppRequestBuilderGetQueryParameters {
     /**
@@ -18,20 +18,6 @@ export interface GraphIosStoreAppRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface GraphIosStoreAppRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: GraphIosStoreAppRequestBuilderGetQueryParameters;
 }
 /**
  * Casts the previous resource to iosStoreApp.
@@ -62,7 +48,7 @@ export class GraphIosStoreAppRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IosStoreApp
      */
-    public get(requestConfiguration?: GraphIosStoreAppRequestBuilderGetRequestConfiguration | undefined) : Promise<IosStoreApp | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<GraphIosStoreAppRequestBuilderGetQueryParameters> | undefined) : Promise<IosStoreApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -77,17 +63,10 @@ export class GraphIosStoreAppRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: GraphIosStoreAppRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphIosStoreAppRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, graphIosStoreAppRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -100,5 +79,9 @@ export class GraphIosStoreAppRequestBuilder extends BaseRequestBuilder {
         return new GraphIosStoreAppRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const graphIosStoreAppRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

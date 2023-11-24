@@ -8,7 +8,7 @@ import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { IdentityApiConnectorItemRequestBuilder } from './item/identityApiConnectorItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ApiConnectorsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface ApiConnectorsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface ApiConnectorsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ApiConnectorsRequestBuilderGetQueryParameters;
-}
-export interface ApiConnectorsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
  */
@@ -98,12 +74,12 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/apiConnectors{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Read the properties of an identityApiConnector object. This API is available in the following national cloud deployments.
+     * Read the properties of an identityApiConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityApiConnectorCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/identityapiconnector-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ApiConnectorsRequestBuilderGetRequestConfiguration | undefined) : Promise<IdentityApiConnectorCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ApiConnectorsRequestBuilderGetQueryParameters> | undefined) : Promise<IdentityApiConnectorCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<IdentityApiConnectorCollectionResponse>(requestInfo, createIdentityApiConnectorCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new identityApiConnector object. This API is available in the following national cloud deployments.
+     * Create a new identityApiConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityApiConnector
      * @see {@link https://learn.microsoft.com/graph/api/identityapiconnector-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: IdentityApiConnector, requestConfiguration?: ApiConnectorsRequestBuilderPostRequestConfiguration | undefined) : Promise<IdentityApiConnector | undefined> {
+    public post(body: IdentityApiConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IdentityApiConnector | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<IdentityApiConnector>(requestInfo, createIdentityApiConnectorFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Read the properties of an identityApiConnector object. This API is available in the following national cloud deployments.
+     * Read the properties of an identityApiConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ApiConnectorsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ApiConnectorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, apiConnectorsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create a new identityApiConnector object. This API is available in the following national cloud deployments.
+     * Create a new identityApiConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: IdentityApiConnector, requestConfiguration?: ApiConnectorsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: IdentityApiConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIdentityApiConnector);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
         return new ApiConnectorsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const apiConnectorsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

@@ -24,10 +24,10 @@ export function deserializeIntoSharedInsight(sharedInsight: SharedInsight | unde
 }
 export function serializeSharedInsight(writer: SerializationWriter, sharedInsight: SharedInsight | undefined = {} as SharedInsight) : void {
         serializeEntity(writer, sharedInsight)
-        writer.writeObjectValue<SharingDetail>("lastShared", sharedInsight.lastShared, );
-        writer.writeObjectValue<Entity>("lastSharedMethod", sharedInsight.lastSharedMethod, );
-        writer.writeObjectValue<Entity>("resource", sharedInsight.resource, );
-        writer.writeCollectionOfObjectValues<SharingDetail>("sharingHistory", sharedInsight.sharingHistory, );
+        writer.writeObjectValue<SharingDetail>("lastShared", sharedInsight.lastShared, serializeSharingDetail);
+        writer.writeObjectValue<Entity>("lastSharedMethod", sharedInsight.lastSharedMethod, serializeEntity);
+        writer.writeObjectValue<Entity>("resource", sharedInsight.resource, serializeEntity);
+        writer.writeCollectionOfObjectValues<SharingDetail>("sharingHistory", sharedInsight.sharingHistory, serializeSharingDetail);
 }
 export interface SharedInsight extends Entity, Parsable {
     /**

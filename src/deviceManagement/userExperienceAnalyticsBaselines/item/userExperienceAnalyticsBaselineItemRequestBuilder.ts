@@ -11,18 +11,8 @@ import { DeviceBootPerformanceMetricsRequestBuilder } from './deviceBootPerforma
 import { RebootAnalyticsMetricsRequestBuilder } from './rebootAnalyticsMetrics/rebootAnalyticsMetricsRequestBuilder';
 import { ResourcePerformanceMetricsRequestBuilder } from './resourcePerformanceMetrics/resourcePerformanceMetricsRequestBuilder';
 import { WorkFromAnywhereMetricsRequestBuilder } from './workFromAnywhereMetrics/workFromAnywhereMetricsRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface UserExperienceAnalyticsBaselineItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface UserExperienceAnalyticsBaselineItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -32,30 +22,6 @@ export interface UserExperienceAnalyticsBaselineItemRequestBuilderGetQueryParame
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface UserExperienceAnalyticsBaselineItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: UserExperienceAnalyticsBaselineItemRequestBuilderGetQueryParameters;
-}
-export interface UserExperienceAnalyticsBaselineItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.
@@ -115,7 +81,7 @@ export class UserExperienceAnalyticsBaselineItemRequestBuilder extends BaseReque
      * Delete navigation property userExperienceAnalyticsBaselines for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: UserExperienceAnalyticsBaselineItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -130,7 +96,7 @@ export class UserExperienceAnalyticsBaselineItemRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsBaseline
      */
-    public get(requestConfiguration?: UserExperienceAnalyticsBaselineItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsBaseline | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<UserExperienceAnalyticsBaselineItemRequestBuilderGetQueryParameters> | undefined) : Promise<UserExperienceAnalyticsBaseline | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -146,7 +112,7 @@ export class UserExperienceAnalyticsBaselineItemRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsBaseline
      */
-    public patch(body: UserExperienceAnalyticsBaseline, requestConfiguration?: UserExperienceAnalyticsBaselineItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsBaseline | undefined> {
+    public patch(body: UserExperienceAnalyticsBaseline, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserExperienceAnalyticsBaseline | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -161,16 +127,10 @@ export class UserExperienceAnalyticsBaselineItemRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: UserExperienceAnalyticsBaselineItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -178,17 +138,10 @@ export class UserExperienceAnalyticsBaselineItemRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: UserExperienceAnalyticsBaselineItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserExperienceAnalyticsBaselineItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, userExperienceAnalyticsBaselineItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -197,17 +150,11 @@ export class UserExperienceAnalyticsBaselineItemRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UserExperienceAnalyticsBaseline, requestConfiguration?: UserExperienceAnalyticsBaselineItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UserExperienceAnalyticsBaseline, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsBaseline);
         return requestInfo;
     };
@@ -221,5 +168,9 @@ export class UserExperienceAnalyticsBaselineItemRequestBuilder extends BaseReque
         return new UserExperienceAnalyticsBaselineItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const userExperienceAnalyticsBaselineItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

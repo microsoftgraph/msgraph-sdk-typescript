@@ -7,18 +7,8 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { AppsRequestBuilder } from './apps/appsRequestBuilder';
 import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
 import { DeploymentSummaryRequestBuilder } from './deploymentSummary/deploymentSummaryRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface AndroidManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface AndroidManagedAppProtectionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -28,30 +18,6 @@ export interface AndroidManagedAppProtectionItemRequestBuilderGetQueryParameters
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface AndroidManagedAppProtectionItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AndroidManagedAppProtectionItemRequestBuilderGetQueryParameters;
-}
-export interface AndroidManagedAppProtectionItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
@@ -88,7 +54,7 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: AndroidManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -104,7 +70,7 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
      * @returns a Promise of AndroidManagedAppProtection
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AndroidManagedAppProtectionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AndroidManagedAppProtection | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AndroidManagedAppProtectionItemRequestBuilderGetQueryParameters> | undefined) : Promise<AndroidManagedAppProtection | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -121,7 +87,7 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
      * @returns a Promise of AndroidManagedAppProtection
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AndroidManagedAppProtection, requestConfiguration?: AndroidManagedAppProtectionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AndroidManagedAppProtection | undefined> {
+    public patch(body: AndroidManagedAppProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AndroidManagedAppProtection | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -136,16 +102,10 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: AndroidManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +113,10 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AndroidManagedAppProtectionItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AndroidManagedAppProtectionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, androidManagedAppProtectionItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -172,17 +125,11 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AndroidManagedAppProtection, requestConfiguration?: AndroidManagedAppProtectionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AndroidManagedAppProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAndroidManagedAppProtection);
         return requestInfo;
     };
@@ -196,5 +143,9 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
         return new AndroidManagedAppProtectionItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const androidManagedAppProtectionItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

@@ -9,18 +9,8 @@ import { AssignRequestBuilder } from './assign/assignRequestBuilder';
 import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
 import { DeploymentSummaryRequestBuilder } from './deploymentSummary/deploymentSummaryRequestBuilder';
 import { TargetAppsRequestBuilder } from './targetApps/targetAppsRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface TargetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface TargetedManagedAppConfigurationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -30,30 +20,6 @@ export interface TargetedManagedAppConfigurationItemRequestBuilderGetQueryParame
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface TargetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TargetedManagedAppConfigurationItemRequestBuilderGetQueryParameters;
-}
-export interface TargetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
@@ -102,7 +68,7 @@ export class TargetedManagedAppConfigurationItemRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: TargetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -118,7 +84,7 @@ export class TargetedManagedAppConfigurationItemRequestBuilder extends BaseReque
      * @returns a Promise of TargetedManagedAppConfiguration
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TargetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TargetedManagedAppConfiguration | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TargetedManagedAppConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<TargetedManagedAppConfiguration | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -135,7 +101,7 @@ export class TargetedManagedAppConfigurationItemRequestBuilder extends BaseReque
      * @returns a Promise of TargetedManagedAppConfiguration
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: TargetedManagedAppConfiguration, requestConfiguration?: TargetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TargetedManagedAppConfiguration | undefined> {
+    public patch(body: TargetedManagedAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TargetedManagedAppConfiguration | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -150,16 +116,10 @@ export class TargetedManagedAppConfigurationItemRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: TargetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -167,17 +127,10 @@ export class TargetedManagedAppConfigurationItemRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TargetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TargetedManagedAppConfigurationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, targetedManagedAppConfigurationItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -186,17 +139,11 @@ export class TargetedManagedAppConfigurationItemRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TargetedManagedAppConfiguration, requestConfiguration?: TargetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TargetedManagedAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTargetedManagedAppConfiguration);
         return requestInfo;
     };
@@ -210,5 +157,9 @@ export class TargetedManagedAppConfigurationItemRequestBuilder extends BaseReque
         return new TargetedManagedAppConfigurationItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const targetedManagedAppConfigurationItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

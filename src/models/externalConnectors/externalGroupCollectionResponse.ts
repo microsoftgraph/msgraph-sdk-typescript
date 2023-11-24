@@ -23,7 +23,7 @@ export interface ExternalGroupCollectionResponse extends BaseCollectionPaginatio
 }
 export function serializeExternalGroupCollectionResponse(writer: SerializationWriter, externalGroupCollectionResponse: ExternalGroupCollectionResponse | undefined = {} as ExternalGroupCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, externalGroupCollectionResponse)
-        writer.writeCollectionOfObjectValues<ExternalGroup>("value", externalGroupCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ExternalGroup>("value", externalGroupCollectionResponse.value, serializeExternalGroup);
 }
 // tslint:enable
 // eslint-enable

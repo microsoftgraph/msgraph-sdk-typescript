@@ -7,7 +7,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { createSubscribedSkuFromDiscriminatorValue, deserializeIntoSubscribedSku, serializeSubscribedSku, type SubscribedSku } from '../models/subscribedSku';
 import { createSubscribedSkuCollectionResponseFromDiscriminatorValue } from '../models/subscribedSkuCollectionResponse';
 import { SubscribedSkuItemRequestBuilder } from './item/subscribedSkuItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SubscribedSkusRequestBuilderGetQueryParameters {
     /**
@@ -22,30 +22,6 @@ export interface SubscribedSkusRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface SubscribedSkusRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SubscribedSkusRequestBuilderGetQueryParameters;
-}
-export interface SubscribedSkusRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the collection of subscribedSku entities.
@@ -71,12 +47,12 @@ export class SubscribedSkusRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/subscribedSkus{?%24search,%24orderby,%24select}");
     };
     /**
-     * Get the list of commercial subscriptions that an organization has acquired. For the mapping of license names as displayed on the Microsoft Entra admin center or the Microsoft 365 admin center against their Microsoft Graph skuId and skuPartNumber properties, see Product names and service plan identifiers for licensing. This API is available in the following national cloud deployments.
+     * Get the list of commercial subscriptions that an organization has acquired. For the mapping of license names as displayed on the Microsoft Entra admin center or the Microsoft 365 admin center against their Microsoft Graph skuId and skuPartNumber properties, see Product names and service plan identifiers for licensing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubscribedSkuCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/subscribedsku-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SubscribedSkusRequestBuilderGetRequestConfiguration | undefined) : Promise<SubscribedSkuCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SubscribedSkusRequestBuilderGetQueryParameters> | undefined) : Promise<SubscribedSkuCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -92,7 +68,7 @@ export class SubscribedSkusRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubscribedSku
      */
-    public post(body: SubscribedSku, requestConfiguration?: SubscribedSkusRequestBuilderPostRequestConfiguration | undefined) : Promise<SubscribedSku | undefined> {
+    public post(body: SubscribedSku, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SubscribedSku | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -103,21 +79,14 @@ export class SubscribedSkusRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SubscribedSku>(requestInfo, createSubscribedSkuFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the list of commercial subscriptions that an organization has acquired. For the mapping of license names as displayed on the Microsoft Entra admin center or the Microsoft 365 admin center against their Microsoft Graph skuId and skuPartNumber properties, see Product names and service plan identifiers for licensing. This API is available in the following national cloud deployments.
+     * Get the list of commercial subscriptions that an organization has acquired. For the mapping of license names as displayed on the Microsoft Entra admin center or the Microsoft 365 admin center against their Microsoft Graph skuId and skuPartNumber properties, see Product names and service plan identifiers for licensing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SubscribedSkusRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SubscribedSkusRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, subscribedSkusRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -126,17 +95,11 @@ export class SubscribedSkusRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SubscribedSku, requestConfiguration?: SubscribedSkusRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SubscribedSku, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSubscribedSku);
         return requestInfo;
     };
@@ -150,5 +113,10 @@ export class SubscribedSkusRequestBuilder extends BaseRequestBuilder {
         return new SubscribedSkusRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const subscribedSkusRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

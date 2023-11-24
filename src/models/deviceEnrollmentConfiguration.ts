@@ -71,7 +71,7 @@ export interface DeviceEnrollmentConfiguration extends Entity, Parsable {
 }
 export function serializeDeviceEnrollmentConfiguration(writer: SerializationWriter, deviceEnrollmentConfiguration: DeviceEnrollmentConfiguration | undefined = {} as DeviceEnrollmentConfiguration) : void {
         serializeEntity(writer, deviceEnrollmentConfiguration)
-        writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignment>("assignments", deviceEnrollmentConfiguration.assignments, );
+        writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignment>("assignments", deviceEnrollmentConfiguration.assignments, serializeEnrollmentConfigurationAssignment);
         writer.writeDateValue("createdDateTime", deviceEnrollmentConfiguration.createdDateTime);
         writer.writeStringValue("description", deviceEnrollmentConfiguration.description);
         writer.writeStringValue("displayName", deviceEnrollmentConfiguration.displayName);

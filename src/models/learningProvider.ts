@@ -66,8 +66,8 @@ export function serializeLearningProvider(writer: SerializationWriter, learningP
         serializeEntity(writer, learningProvider)
         writer.writeStringValue("displayName", learningProvider.displayName);
         writer.writeBooleanValue("isCourseActivitySyncEnabled", learningProvider.isCourseActivitySyncEnabled);
-        writer.writeCollectionOfObjectValues<LearningContent>("learningContents", learningProvider.learningContents, );
-        writer.writeCollectionOfObjectValues<LearningCourseActivity>("learningCourseActivities", learningProvider.learningCourseActivities, );
+        writer.writeCollectionOfObjectValues<LearningContent>("learningContents", learningProvider.learningContents, serializeLearningContent);
+        writer.writeCollectionOfObjectValues<LearningCourseActivity>("learningCourseActivities", learningProvider.learningCourseActivities, serializeLearningCourseActivity);
         writer.writeStringValue("loginWebUrl", learningProvider.loginWebUrl);
         writer.writeStringValue("longLogoWebUrlForDarkTheme", learningProvider.longLogoWebUrlForDarkTheme);
         writer.writeStringValue("longLogoWebUrlForLightTheme", learningProvider.longLogoWebUrlForLightTheme);

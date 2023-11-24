@@ -9,7 +9,7 @@ import { B2xUserFlowsRequestBuilder } from './b2xUserFlows/b2xUserFlowsRequestBu
 import { ConditionalAccessRequestBuilder } from './conditionalAccess/conditionalAccessRequestBuilder';
 import { IdentityProvidersRequestBuilder } from './identityProviders/identityProvidersRequestBuilder';
 import { UserFlowAttributesRequestBuilder } from './userFlowAttributes/userFlowAttributesRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IdentityRequestBuilderGetQueryParameters {
     /**
@@ -20,30 +20,6 @@ export interface IdentityRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface IdentityRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: IdentityRequestBuilderGetQueryParameters;
-}
-export interface IdentityRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the identityContainer singleton.
@@ -92,7 +68,7 @@ export class IdentityRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityContainer
      */
-    public get(requestConfiguration?: IdentityRequestBuilderGetRequestConfiguration | undefined) : Promise<IdentityContainer | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<IdentityRequestBuilderGetQueryParameters> | undefined) : Promise<IdentityContainer | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -108,7 +84,7 @@ export class IdentityRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityContainer
      */
-    public patch(body: IdentityContainer, requestConfiguration?: IdentityRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityContainer | undefined> {
+    public patch(body: IdentityContainer, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IdentityContainer | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -123,17 +99,10 @@ export class IdentityRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: IdentityRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<IdentityRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, identityRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -142,17 +111,11 @@ export class IdentityRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: IdentityContainer, requestConfiguration?: IdentityRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: IdentityContainer, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIdentityContainer);
         return requestInfo;
     };
@@ -166,5 +129,9 @@ export class IdentityRequestBuilder extends BaseRequestBuilder {
         return new IdentityRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const identityRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

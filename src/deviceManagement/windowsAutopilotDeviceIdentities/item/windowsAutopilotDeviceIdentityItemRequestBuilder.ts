@@ -7,18 +7,8 @@ import { createWindowsAutopilotDeviceIdentityFromDiscriminatorValue, deserialize
 import { AssignUserToDeviceRequestBuilder } from './assignUserToDevice/assignUserToDeviceRequestBuilder';
 import { UnassignUserFromDeviceRequestBuilder } from './unassignUserFromDevice/unassignUserFromDeviceRequestBuilder';
 import { UpdateDevicePropertiesRequestBuilder } from './updateDeviceProperties/updateDevicePropertiesRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface WindowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -28,30 +18,6 @@ export interface WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParamet
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface WindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters;
-}
-export interface WindowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
@@ -88,7 +54,7 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: WindowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -104,7 +70,7 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseReques
      * @returns a Promise of WindowsAutopilotDeviceIdentity
      * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: WindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WindowsAutopilotDeviceIdentity | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters> | undefined) : Promise<WindowsAutopilotDeviceIdentity | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +86,7 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsAutopilotDeviceIdentity
      */
-    public patch(body: WindowsAutopilotDeviceIdentity, requestConfiguration?: WindowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WindowsAutopilotDeviceIdentity | undefined> {
+    public patch(body: WindowsAutopilotDeviceIdentity, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WindowsAutopilotDeviceIdentity | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -135,16 +101,10 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: WindowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -152,17 +112,10 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: WindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, windowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -171,17 +124,11 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WindowsAutopilotDeviceIdentity, requestConfiguration?: WindowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WindowsAutopilotDeviceIdentity, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWindowsAutopilotDeviceIdentity);
         return requestInfo;
     };
@@ -195,5 +142,9 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseReques
         return new WindowsAutopilotDeviceIdentityItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const windowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

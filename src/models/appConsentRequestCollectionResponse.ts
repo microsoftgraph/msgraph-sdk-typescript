@@ -23,7 +23,7 @@ export function deserializeIntoAppConsentRequestCollectionResponse(appConsentReq
 }
 export function serializeAppConsentRequestCollectionResponse(writer: SerializationWriter, appConsentRequestCollectionResponse: AppConsentRequestCollectionResponse | undefined = {} as AppConsentRequestCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, appConsentRequestCollectionResponse)
-        writer.writeCollectionOfObjectValues<AppConsentRequest>("value", appConsentRequestCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AppConsentRequest>("value", appConsentRequestCollectionResponse.value, serializeAppConsentRequest);
 }
 // tslint:enable
 // eslint-enable

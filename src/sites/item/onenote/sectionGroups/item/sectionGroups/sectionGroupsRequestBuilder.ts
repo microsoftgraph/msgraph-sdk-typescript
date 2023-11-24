@@ -7,7 +7,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { createSectionGroupCollectionResponseFromDiscriminatorValue } from '../../../../../../models/sectionGroupCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SectionGroupItemRequestBuilder } from './item/sectionGroupItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SectionGroupsRequestBuilderGetQueryParameters {
     /**
@@ -43,20 +43,6 @@ export interface SectionGroupsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface SectionGroupsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SectionGroupsRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
  */
@@ -87,12 +73,12 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/onenote/sectionGroups/{sectionGroup%2Did}/sectionGroups{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of section groups from the specified section group. This API is available in the following national cloud deployments.
+     * Retrieve a list of section groups from the specified section group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SectionGroupCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/sectiongroup-list-sectiongroups?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SectionGroupsRequestBuilderGetRequestConfiguration | undefined) : Promise<SectionGroupCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SectionGroupsRequestBuilderGetQueryParameters> | undefined) : Promise<SectionGroupCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -103,21 +89,14 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SectionGroupCollectionResponse>(requestInfo, createSectionGroupCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of section groups from the specified section group. This API is available in the following national cloud deployments.
+     * Retrieve a list of section groups from the specified section group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SectionGroupsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SectionGroupsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, sectionGroupsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
         return new SectionGroupsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const sectionGroupsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

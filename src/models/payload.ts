@@ -48,75 +48,75 @@ export function deserializeIntoPayload(payload: Payload | undefined = {} as Payl
 }
 export interface Payload extends Entity, Parsable {
     /**
-     * The brand property
+     * The branch of a payload. Possible values are: unknown, other, americanExpress, capitalOne, dhl, docuSign, dropbox, facebook, firstAmerican, microsoft, netflix, scotiabank, sendGrid, stewartTitle, tesco, wellsFargo, syrinxCloud, adobe, teams, zoom, unknownFutureValue.
      */
     brand?: PayloadBrand;
     /**
-     * The complexity property
+     * The complexity of a payload. Possible values are: unknown, low, medium, high, unknownFutureValue.
      */
     complexity?: PayloadComplexity;
     /**
-     * The createdBy property
+     * Identity of the user who created the attack simulation and training campaign payload.
      */
     createdBy?: EmailIdentity;
     /**
-     * The createdDateTime property
+     * Date and time when the attack simulation and training campaign payload. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     createdDateTime?: Date;
     /**
-     * The description property
+     * Description of the attack simulation and training campaign payload.
      */
     description?: string;
     /**
-     * The detail property
+     * Additional details about the payload.
      */
     detail?: PayloadDetail;
     /**
-     * The displayName property
+     * Display name of the attack simulation and training campaign payload. Supports $filter and $orderby.
      */
     displayName?: string;
     /**
-     * The industry property
+     * Industry of a payload. Possible values are: unknown, other, banking, businessServices, consumerServices, education, energy, construction, consulting, financialServices, government, hospitality, insurance, legal, courierServices, IT, healthcare, manufacturing, retail, telecom, realEstate, unknownFutureValue.
      */
     industry?: PayloadIndustry;
     /**
-     * The isAutomated property
+     * Indicates whether the attack simulation and training campaign payload was created from an automation flow. Supports $filter and $orderby.
      */
     isAutomated?: boolean;
     /**
-     * The isControversial property
+     * Indicates whether the payload is controversial.
      */
     isControversial?: boolean;
     /**
-     * The isCurrentEvent property
+     * Indicates whether the payload is from any recent event.
      */
     isCurrentEvent?: boolean;
     /**
-     * The language property
+     * Payload language.
      */
     language?: string;
     /**
-     * The lastModifiedBy property
+     * Identity of the user who most recently modified the attack simulation and training campaign payload.
      */
     lastModifiedBy?: EmailIdentity;
     /**
-     * The lastModifiedDateTime property
+     * Date and time when the attack simulation and training campaign payload was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     lastModifiedDateTime?: Date;
     /**
-     * The payloadTags property
+     * Free text tags for a payload.
      */
     payloadTags?: string[];
     /**
-     * The platform property
+     * The payload delivery platform for a simulation. Possible values are: unknown, sms, email, teams, unknownFutureValue.
      */
     platform?: PayloadDeliveryPlatform;
     /**
-     * The predictedCompromiseRate property
+     * Predicted probability for a payload to phish a targeted user.
      */
     predictedCompromiseRate?: number;
     /**
-     * The simulationAttackType property
+     * Attack type of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, social, cloud, endpoint, unknownFutureValue.
      */
     simulationAttackType?: SimulationAttackType;
     /**
@@ -124,15 +124,15 @@ export interface Payload extends Entity, Parsable {
      */
     source?: SimulationContentSource;
     /**
-     * The status property
+     * Simulation content status. Supports $filter and $orderby. Possible values are: unknown, draft, ready, archive, delete, unknownFutureValue.
      */
     status?: SimulationContentStatus;
     /**
-     * The technique property
+     * The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue, oAuthConsentGrant. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: oAuthConsentGrant. For more information on the types of social engineering attack techniques, see simulations.
      */
     technique?: SimulationAttackTechnique;
     /**
-     * The theme property
+     * The theme of a payload. Possible values are: unknown, other, accountActivation, accountVerification, billing, cleanUpMail, controversial, documentReceived, expense, fax, financeReport, incomingMessages, invoice, itemReceived, loginAlert, mailReceived, password, payment, payroll, personalizedOffer, quarantine, remoteWork, reviewMessage, securityUpdate, serviceSuspended, signatureRequired, upgradeMailboxStorage, verifyMailbox, voicemail, advertisement, employeeEngagement, unknownFutureValue.
      */
     theme?: PayloadTheme;
 }
@@ -140,17 +140,17 @@ export function serializePayload(writer: SerializationWriter, payload: Payload |
         serializeEntity(writer, payload)
         writer.writeEnumValue<PayloadBrand>("brand", payload.brand);
         writer.writeEnumValue<PayloadComplexity>("complexity", payload.complexity);
-        writer.writeObjectValue<EmailIdentity>("createdBy", payload.createdBy, );
+        writer.writeObjectValue<EmailIdentity>("createdBy", payload.createdBy, serializeEmailIdentity);
         writer.writeDateValue("createdDateTime", payload.createdDateTime);
         writer.writeStringValue("description", payload.description);
-        writer.writeObjectValue<PayloadDetail>("detail", payload.detail, );
+        writer.writeObjectValue<PayloadDetail>("detail", payload.detail, serializePayloadDetail);
         writer.writeStringValue("displayName", payload.displayName);
         writer.writeEnumValue<PayloadIndustry>("industry", payload.industry);
         writer.writeBooleanValue("isAutomated", payload.isAutomated);
         writer.writeBooleanValue("isControversial", payload.isControversial);
         writer.writeBooleanValue("isCurrentEvent", payload.isCurrentEvent);
         writer.writeStringValue("language", payload.language);
-        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", payload.lastModifiedBy, );
+        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", payload.lastModifiedBy, serializeEmailIdentity);
         writer.writeDateValue("lastModifiedDateTime", payload.lastModifiedDateTime);
         writer.writeCollectionOfPrimitiveValues<string>("payloadTags", payload.payloadTags);
         writer.writeEnumValue<PayloadDeliveryPlatform>("platform", payload.platform);

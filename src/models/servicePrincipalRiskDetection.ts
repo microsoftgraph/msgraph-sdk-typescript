@@ -52,7 +52,7 @@ export function serializeServicePrincipalRiskDetection(writer: SerializationWrit
         writer.writeStringValue("ipAddress", servicePrincipalRiskDetection.ipAddress);
         writer.writeCollectionOfPrimitiveValues<string>("keyIds", servicePrincipalRiskDetection.keyIds);
         writer.writeDateValue("lastUpdatedDateTime", servicePrincipalRiskDetection.lastUpdatedDateTime);
-        writer.writeObjectValue<SignInLocation>("location", servicePrincipalRiskDetection.location, );
+        writer.writeObjectValue<SignInLocation>("location", servicePrincipalRiskDetection.location, serializeSignInLocation);
         writer.writeStringValue("requestId", servicePrincipalRiskDetection.requestId);
         writer.writeEnumValue<RiskDetail>("riskDetail", servicePrincipalRiskDetection.riskDetail);
         writer.writeStringValue("riskEventType", servicePrincipalRiskDetection.riskEventType);

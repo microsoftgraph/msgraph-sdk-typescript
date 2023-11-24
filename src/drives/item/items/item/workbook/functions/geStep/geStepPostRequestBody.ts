@@ -29,8 +29,8 @@ export interface GeStepPostRequestBody extends AdditionalDataHolder, Parsable {
     step?: Json;
 }
 export function serializeGeStepPostRequestBody(writer: SerializationWriter, geStepPostRequestBody: GeStepPostRequestBody | undefined = {} as GeStepPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", geStepPostRequestBody.number, );
-        writer.writeObjectValue<Json>("step", geStepPostRequestBody.step, );
+        writer.writeObjectValue<Json>("number", geStepPostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("step", geStepPostRequestBody.step, serializeJson);
         writer.writeAdditionalData(geStepPostRequestBody.additionalData);
 }
 // tslint:enable

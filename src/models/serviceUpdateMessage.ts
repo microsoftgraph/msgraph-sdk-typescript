@@ -32,16 +32,16 @@ export function deserializeIntoServiceUpdateMessage(serviceUpdateMessage: Servic
 export function serializeServiceUpdateMessage(writer: SerializationWriter, serviceUpdateMessage: ServiceUpdateMessage | undefined = {} as ServiceUpdateMessage) : void {
         serializeServiceAnnouncementBase(writer, serviceUpdateMessage)
         writer.writeDateValue("actionRequiredByDateTime", serviceUpdateMessage.actionRequiredByDateTime);
-        writer.writeCollectionOfObjectValues<ServiceAnnouncementAttachment>("attachments", serviceUpdateMessage.attachments, );
+        writer.writeCollectionOfObjectValues<ServiceAnnouncementAttachment>("attachments", serviceUpdateMessage.attachments, serializeServiceAnnouncementAttachment);
         writer.writeStringValue("attachmentsArchive", serviceUpdateMessage.attachmentsArchive);
-        writer.writeObjectValue<ItemBody>("body", serviceUpdateMessage.body, );
+        writer.writeObjectValue<ItemBody>("body", serviceUpdateMessage.body, serializeItemBody);
         writer.writeEnumValue<ServiceUpdateCategory>("category", serviceUpdateMessage.category);
         writer.writeBooleanValue("hasAttachments", serviceUpdateMessage.hasAttachments);
         writer.writeBooleanValue("isMajorChange", serviceUpdateMessage.isMajorChange);
         writer.writeCollectionOfPrimitiveValues<string>("services", serviceUpdateMessage.services);
         writer.writeEnumValue<ServiceUpdateSeverity>("severity", serviceUpdateMessage.severity);
         writer.writeCollectionOfPrimitiveValues<string>("tags", serviceUpdateMessage.tags);
-        writer.writeObjectValue<ServiceUpdateMessageViewpoint>("viewPoint", serviceUpdateMessage.viewPoint, );
+        writer.writeObjectValue<ServiceUpdateMessageViewpoint>("viewPoint", serviceUpdateMessage.viewPoint, serializeServiceUpdateMessageViewpoint);
 }
 export interface ServiceUpdateMessage extends Parsable, ServiceAnnouncementBase {
     /**

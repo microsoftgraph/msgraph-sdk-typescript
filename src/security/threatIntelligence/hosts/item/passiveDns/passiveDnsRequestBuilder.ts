@@ -7,7 +7,7 @@ import { type PassiveDnsRecordCollectionResponse } from '../../../../../models/s
 import { createPassiveDnsRecordCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/passiveDnsRecordCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PassiveDnsRecordItemRequestBuilder } from './item/passiveDnsRecordItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PassiveDnsRequestBuilderGetQueryParameters {
     /**
@@ -43,20 +43,6 @@ export interface PassiveDnsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface PassiveDnsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PassiveDnsRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to manage the passiveDns property of the microsoft.graph.security.host entity.
  */
@@ -87,12 +73,12 @@ export class PassiveDnsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/passiveDns{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of passiveDnsRecord resources associated with a host. This is a forward DNS lookup which queries the IP address of the specified host using its hostname.  This API is available in the following national cloud deployments.
+     * Get a list of passiveDnsRecord resources associated with a host. This is a forward DNS lookup which queries the IP address of the specified host using its hostname. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PassiveDnsRecordCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-host-list-passivedns?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PassiveDnsRequestBuilderGetRequestConfiguration | undefined) : Promise<PassiveDnsRecordCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PassiveDnsRequestBuilderGetQueryParameters> | undefined) : Promise<PassiveDnsRecordCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -103,21 +89,14 @@ export class PassiveDnsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PassiveDnsRecordCollectionResponse>(requestInfo, createPassiveDnsRecordCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of passiveDnsRecord resources associated with a host. This is a forward DNS lookup which queries the IP address of the specified host using its hostname.  This API is available in the following national cloud deployments.
+     * Get a list of passiveDnsRecord resources associated with a host. This is a forward DNS lookup which queries the IP address of the specified host using its hostname. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PassiveDnsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PassiveDnsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, passiveDnsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class PassiveDnsRequestBuilder extends BaseRequestBuilder {
         return new PassiveDnsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const passiveDnsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

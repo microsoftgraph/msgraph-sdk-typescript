@@ -17,7 +17,7 @@ export function deserializeIntoSiteSource(siteSource: SiteSource | undefined = {
 }
 export function serializeSiteSource(writer: SerializationWriter, siteSource: SiteSource | undefined = {} as SiteSource) : void {
         serializeDataSource(writer, siteSource)
-        writer.writeObjectValue<Site>("site", siteSource.site, );
+        writer.writeObjectValue<Site>("site", siteSource.site, serializeSite);
 }
 export interface SiteSource extends DataSource, Parsable {
     /**

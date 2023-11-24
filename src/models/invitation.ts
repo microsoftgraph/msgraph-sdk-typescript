@@ -69,10 +69,10 @@ export interface Invitation extends Entity, Parsable {
 }
 export function serializeInvitation(writer: SerializationWriter, invitation: Invitation | undefined = {} as Invitation) : void {
         serializeEntity(writer, invitation)
-        writer.writeObjectValue<User>("invitedUser", invitation.invitedUser, );
+        writer.writeObjectValue<User>("invitedUser", invitation.invitedUser, serializeUser);
         writer.writeStringValue("invitedUserDisplayName", invitation.invitedUserDisplayName);
         writer.writeStringValue("invitedUserEmailAddress", invitation.invitedUserEmailAddress);
-        writer.writeObjectValue<InvitedUserMessageInfo>("invitedUserMessageInfo", invitation.invitedUserMessageInfo, );
+        writer.writeObjectValue<InvitedUserMessageInfo>("invitedUserMessageInfo", invitation.invitedUserMessageInfo, serializeInvitedUserMessageInfo);
         writer.writeStringValue("invitedUserType", invitation.invitedUserType);
         writer.writeStringValue("inviteRedeemUrl", invitation.inviteRedeemUrl);
         writer.writeStringValue("inviteRedirectUrl", invitation.inviteRedirectUrl);

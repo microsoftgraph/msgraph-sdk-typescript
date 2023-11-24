@@ -31,9 +31,9 @@ export function deserializeIntoUserExperienceAnalyticsWorkFromAnywhereDevicesSum
     }
 }
 export function serializeUserExperienceAnalyticsWorkFromAnywhereDevicesSummary(writer: SerializationWriter, userExperienceAnalyticsWorkFromAnywhereDevicesSummary: UserExperienceAnalyticsWorkFromAnywhereDevicesSummary | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereDevicesSummary) : void {
-        writer.writeObjectValue<UserExperienceAnalyticsAutopilotDevicesSummary>("autopilotDevicesSummary", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.autopilotDevicesSummary, );
-        writer.writeObjectValue<UserExperienceAnalyticsCloudIdentityDevicesSummary>("cloudIdentityDevicesSummary", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.cloudIdentityDevicesSummary, );
-        writer.writeObjectValue<UserExperienceAnalyticsCloudManagementDevicesSummary>("cloudManagementDevicesSummary", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.cloudManagementDevicesSummary, );
+        writer.writeObjectValue<UserExperienceAnalyticsAutopilotDevicesSummary>("autopilotDevicesSummary", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.autopilotDevicesSummary, serializeUserExperienceAnalyticsAutopilotDevicesSummary);
+        writer.writeObjectValue<UserExperienceAnalyticsCloudIdentityDevicesSummary>("cloudIdentityDevicesSummary", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.cloudIdentityDevicesSummary, serializeUserExperienceAnalyticsCloudIdentityDevicesSummary);
+        writer.writeObjectValue<UserExperienceAnalyticsCloudManagementDevicesSummary>("cloudManagementDevicesSummary", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.cloudManagementDevicesSummary, serializeUserExperienceAnalyticsCloudManagementDevicesSummary);
         writer.writeNumberValue("coManagedDevices", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.coManagedDevices);
         writer.writeNumberValue("devicesNotAutopilotRegistered", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.devicesNotAutopilotRegistered);
         writer.writeNumberValue("devicesWithoutAutopilotProfileAssigned", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.devicesWithoutAutopilotProfileAssigned);
@@ -44,7 +44,7 @@ export function serializeUserExperienceAnalyticsWorkFromAnywhereDevicesSummary(w
         writer.writeNumberValue("totalDevices", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.totalDevices);
         writer.writeNumberValue("unsupportedOSversionDevices", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.unsupportedOSversionDevices);
         writer.writeNumberValue("windows10Devices", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.windows10Devices);
-        writer.writeObjectValue<UserExperienceAnalyticsWindows10DevicesSummary>("windows10DevicesSummary", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.windows10DevicesSummary, );
+        writer.writeObjectValue<UserExperienceAnalyticsWindows10DevicesSummary>("windows10DevicesSummary", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.windows10DevicesSummary, serializeUserExperienceAnalyticsWindows10DevicesSummary);
         writer.writeNumberValue("windows10DevicesWithoutTenantAttach", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.windows10DevicesWithoutTenantAttach);
         writer.writeAdditionalData(userExperienceAnalyticsWorkFromAnywhereDevicesSummary.additionalData);
 }

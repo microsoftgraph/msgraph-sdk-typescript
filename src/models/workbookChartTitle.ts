@@ -20,7 +20,7 @@ export function deserializeIntoWorkbookChartTitle(workbookChartTitle: WorkbookCh
 }
 export function serializeWorkbookChartTitle(writer: SerializationWriter, workbookChartTitle: WorkbookChartTitle | undefined = {} as WorkbookChartTitle) : void {
         serializeEntity(writer, workbookChartTitle)
-        writer.writeObjectValue<WorkbookChartTitleFormat>("format", workbookChartTitle.format, );
+        writer.writeObjectValue<WorkbookChartTitleFormat>("format", workbookChartTitle.format, serializeWorkbookChartTitleFormat);
         writer.writeBooleanValue("overlay", workbookChartTitle.overlay);
         writer.writeStringValue("text", workbookChartTitle.text);
         writer.writeBooleanValue("visible", workbookChartTitle.visible);

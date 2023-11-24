@@ -23,7 +23,7 @@ export interface NotebookCollectionResponse extends BaseCollectionPaginationCoun
 }
 export function serializeNotebookCollectionResponse(writer: SerializationWriter, notebookCollectionResponse: NotebookCollectionResponse | undefined = {} as NotebookCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, notebookCollectionResponse)
-        writer.writeCollectionOfObjectValues<Notebook>("value", notebookCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Notebook>("value", notebookCollectionResponse.value, serializeNotebook);
 }
 // tslint:enable
 // eslint-enable

@@ -8,7 +8,7 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { BrowserSiteListItemRequestBuilder } from './item/browserSiteListItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SiteListsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface SiteListsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface SiteListsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SiteListsRequestBuilderGetQueryParameters;
-}
-export interface SiteListsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
  */
@@ -98,12 +74,12 @@ export class SiteListsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/edge/internetExplorerMode/siteLists{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the browserSiteList objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the browserSiteList objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSiteListCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/internetexplorermode-list-sitelists?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SiteListsRequestBuilderGetRequestConfiguration | undefined) : Promise<BrowserSiteListCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SiteListsRequestBuilderGetQueryParameters> | undefined) : Promise<BrowserSiteListCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class SiteListsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BrowserSiteListCollectionResponse>(requestInfo, createBrowserSiteListCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new browserSiteList object to support Internet Explorer mode. This API is available in the following national cloud deployments.
+     * Create a new browserSiteList object to support Internet Explorer mode.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSiteList
      * @see {@link https://learn.microsoft.com/graph/api/internetexplorermode-post-sitelists?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: BrowserSiteList, requestConfiguration?: SiteListsRequestBuilderPostRequestConfiguration | undefined) : Promise<BrowserSiteList | undefined> {
+    public post(body: BrowserSiteList, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BrowserSiteList | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class SiteListsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BrowserSiteList>(requestInfo, createBrowserSiteListFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the browserSiteList objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the browserSiteList objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SiteListsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SiteListsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, siteListsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create a new browserSiteList object to support Internet Explorer mode. This API is available in the following national cloud deployments.
+     * Create a new browserSiteList object to support Internet Explorer mode.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: BrowserSiteList, requestConfiguration?: SiteListsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: BrowserSiteList, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBrowserSiteList);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class SiteListsRequestBuilder extends BaseRequestBuilder {
         return new SiteListsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const siteListsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

@@ -8,18 +8,8 @@ import { GroupsRequestBuilder } from './groups/groupsRequestBuilder';
 import { ItemsRequestBuilder } from './items/itemsRequestBuilder';
 import { OperationsRequestBuilder } from './operations/operationsRequestBuilder';
 import { SchemaRequestBuilder } from './schema/schemaRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface ExternalConnectionItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface ExternalConnectionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -29,30 +19,6 @@ export interface ExternalConnectionItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface ExternalConnectionItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ExternalConnectionItemRequestBuilderGetQueryParameters;
-}
-export interface ExternalConnectionItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
@@ -91,11 +57,11 @@ export class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/external/connections/{externalConnection%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes an externalConnection object. This API is available in the following national cloud deployments.
+     * Deletes an externalConnection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: ExternalConnectionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -106,12 +72,12 @@ export class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an externalConnection object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an externalConnection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalConnection
      * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ExternalConnectionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ExternalConnection | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ExternalConnectionItemRequestBuilderGetQueryParameters> | undefined) : Promise<ExternalConnection | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -122,13 +88,13 @@ export class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ExternalConnection>(requestInfo, createExternalConnectionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an externalConnection object. This API is available in the following national cloud deployments.
+     * Update the properties of an externalConnection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalConnection
      * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ExternalConnection, requestConfiguration?: ExternalConnectionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ExternalConnection | undefined> {
+    public patch(body: ExternalConnection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ExternalConnection | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -139,57 +105,38 @@ export class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ExternalConnection>(requestInfo, createExternalConnectionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes an externalConnection object. This API is available in the following national cloud deployments.
+     * Deletes an externalConnection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: ExternalConnectionItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an externalConnection object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an externalConnection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ExternalConnectionItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ExternalConnectionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, externalConnectionItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the properties of an externalConnection object. This API is available in the following national cloud deployments.
+     * Update the properties of an externalConnection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ExternalConnection, requestConfiguration?: ExternalConnectionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ExternalConnection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeExternalConnection);
         return requestInfo;
     };
@@ -203,5 +150,9 @@ export class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder {
         return new ExternalConnectionItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const externalConnectionItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

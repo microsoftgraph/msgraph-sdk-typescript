@@ -5,18 +5,8 @@ import { createColumnDefinitionFromDiscriminatorValue, deserializeIntoColumnDefi
 import { type ODataError } from '../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { SourceColumnRequestBuilder } from './sourceColumn/sourceColumnRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface ColumnDefinitionItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface ColumnDefinitionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -26,30 +16,6 @@ export interface ColumnDefinitionItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface ColumnDefinitionItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ColumnDefinitionItemRequestBuilderGetQueryParameters;
-}
-export interface ColumnDefinitionItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the columns property of the microsoft.graph.contentType entity.
@@ -70,11 +36,11 @@ export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}{?%24select,%24expand}");
     };
     /**
-     * Remove a column][columndefinition] from a [site][], a [list][], or a [content type][contentType]. This API is available in the following [national cloud deployments.
+     * Remove a [column][columndefinition] from a [site][], a [list][], or a [content type][contentType].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/columndefinition-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: ColumnDefinitionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -85,12 +51,12 @@ export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the metadata for a site][], a [list][], or a [contentType][] [column][columnDefinition]. This API is available in the following [national cloud deployments.
+     * Retrieve the metadata for a [site][], a [list][], or a [contentType][] [column][columnDefinition].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ColumnDefinition
      * @see {@link https://learn.microsoft.com/graph/api/columndefinition-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ColumnDefinitionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ColumnDefinition | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ColumnDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<ColumnDefinition | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -101,13 +67,13 @@ export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ColumnDefinition>(requestInfo, createColumnDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update a site][], a [list][], or a [content type][contentType] [column][columnDefinition]. This API is available in the following [national cloud deployments.
+     * Update a [site][], a [list][], or a [content type][contentType] [column][columnDefinition].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ColumnDefinition
      * @see {@link https://learn.microsoft.com/graph/api/columndefinition-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ColumnDefinition, requestConfiguration?: ColumnDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ColumnDefinition | undefined> {
+    public patch(body: ColumnDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ColumnDefinition | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -118,57 +84,38 @@ export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ColumnDefinition>(requestInfo, createColumnDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Remove a column][columndefinition] from a [site][], a [list][], or a [content type][contentType]. This API is available in the following [national cloud deployments.
+     * Remove a [column][columndefinition] from a [site][], a [list][], or a [content type][contentType].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: ColumnDefinitionItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Retrieve the metadata for a site][], a [list][], or a [contentType][] [column][columnDefinition]. This API is available in the following [national cloud deployments.
+     * Retrieve the metadata for a [site][], a [list][], or a [contentType][] [column][columnDefinition].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ColumnDefinitionItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ColumnDefinitionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, columnDefinitionItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update a site][], a [list][], or a [content type][contentType] [column][columnDefinition]. This API is available in the following [national cloud deployments.
+     * Update a [site][], a [list][], or a [content type][contentType] [column][columnDefinition].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ColumnDefinition, requestConfiguration?: ColumnDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ColumnDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeColumnDefinition);
         return requestInfo;
     };
@@ -182,5 +129,9 @@ export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return new ColumnDefinitionItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const columnDefinitionItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

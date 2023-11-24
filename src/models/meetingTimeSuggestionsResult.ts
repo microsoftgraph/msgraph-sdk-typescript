@@ -35,7 +35,7 @@ export interface MeetingTimeSuggestionsResult extends AdditionalDataHolder, Pars
 }
 export function serializeMeetingTimeSuggestionsResult(writer: SerializationWriter, meetingTimeSuggestionsResult: MeetingTimeSuggestionsResult | undefined = {} as MeetingTimeSuggestionsResult) : void {
         writer.writeStringValue("emptySuggestionsReason", meetingTimeSuggestionsResult.emptySuggestionsReason);
-        writer.writeCollectionOfObjectValues<MeetingTimeSuggestion>("meetingTimeSuggestions", meetingTimeSuggestionsResult.meetingTimeSuggestions, );
+        writer.writeCollectionOfObjectValues<MeetingTimeSuggestion>("meetingTimeSuggestions", meetingTimeSuggestionsResult.meetingTimeSuggestions, serializeMeetingTimeSuggestion);
         writer.writeStringValue("@odata.type", meetingTimeSuggestionsResult.odataType);
         writer.writeAdditionalData(meetingTimeSuggestionsResult.additionalData);
 }

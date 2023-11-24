@@ -23,7 +23,7 @@ export interface IosLobAppCollectionResponse extends BaseCollectionPaginationCou
 }
 export function serializeIosLobAppCollectionResponse(writer: SerializationWriter, iosLobAppCollectionResponse: IosLobAppCollectionResponse | undefined = {} as IosLobAppCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, iosLobAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<IosLobApp>("value", iosLobAppCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<IosLobApp>("value", iosLobAppCollectionResponse.value, serializeIosLobApp);
 }
 // tslint:enable
 // eslint-enable

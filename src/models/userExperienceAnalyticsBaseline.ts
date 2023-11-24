@@ -26,16 +26,16 @@ export function deserializeIntoUserExperienceAnalyticsBaseline(userExperienceAna
 }
 export function serializeUserExperienceAnalyticsBaseline(writer: SerializationWriter, userExperienceAnalyticsBaseline: UserExperienceAnalyticsBaseline | undefined = {} as UserExperienceAnalyticsBaseline) : void {
         serializeEntity(writer, userExperienceAnalyticsBaseline)
-        writer.writeObjectValue<UserExperienceAnalyticsCategory>("appHealthMetrics", userExperienceAnalyticsBaseline.appHealthMetrics, );
-        writer.writeObjectValue<UserExperienceAnalyticsCategory>("batteryHealthMetrics", userExperienceAnalyticsBaseline.batteryHealthMetrics, );
-        writer.writeObjectValue<UserExperienceAnalyticsCategory>("bestPracticesMetrics", userExperienceAnalyticsBaseline.bestPracticesMetrics, );
+        writer.writeObjectValue<UserExperienceAnalyticsCategory>("appHealthMetrics", userExperienceAnalyticsBaseline.appHealthMetrics, serializeUserExperienceAnalyticsCategory);
+        writer.writeObjectValue<UserExperienceAnalyticsCategory>("batteryHealthMetrics", userExperienceAnalyticsBaseline.batteryHealthMetrics, serializeUserExperienceAnalyticsCategory);
+        writer.writeObjectValue<UserExperienceAnalyticsCategory>("bestPracticesMetrics", userExperienceAnalyticsBaseline.bestPracticesMetrics, serializeUserExperienceAnalyticsCategory);
         writer.writeDateValue("createdDateTime", userExperienceAnalyticsBaseline.createdDateTime);
-        writer.writeObjectValue<UserExperienceAnalyticsCategory>("deviceBootPerformanceMetrics", userExperienceAnalyticsBaseline.deviceBootPerformanceMetrics, );
+        writer.writeObjectValue<UserExperienceAnalyticsCategory>("deviceBootPerformanceMetrics", userExperienceAnalyticsBaseline.deviceBootPerformanceMetrics, serializeUserExperienceAnalyticsCategory);
         writer.writeStringValue("displayName", userExperienceAnalyticsBaseline.displayName);
         writer.writeBooleanValue("isBuiltIn", userExperienceAnalyticsBaseline.isBuiltIn);
-        writer.writeObjectValue<UserExperienceAnalyticsCategory>("rebootAnalyticsMetrics", userExperienceAnalyticsBaseline.rebootAnalyticsMetrics, );
-        writer.writeObjectValue<UserExperienceAnalyticsCategory>("resourcePerformanceMetrics", userExperienceAnalyticsBaseline.resourcePerformanceMetrics, );
-        writer.writeObjectValue<UserExperienceAnalyticsCategory>("workFromAnywhereMetrics", userExperienceAnalyticsBaseline.workFromAnywhereMetrics, );
+        writer.writeObjectValue<UserExperienceAnalyticsCategory>("rebootAnalyticsMetrics", userExperienceAnalyticsBaseline.rebootAnalyticsMetrics, serializeUserExperienceAnalyticsCategory);
+        writer.writeObjectValue<UserExperienceAnalyticsCategory>("resourcePerformanceMetrics", userExperienceAnalyticsBaseline.resourcePerformanceMetrics, serializeUserExperienceAnalyticsCategory);
+        writer.writeObjectValue<UserExperienceAnalyticsCategory>("workFromAnywhereMetrics", userExperienceAnalyticsBaseline.workFromAnywhereMetrics, serializeUserExperienceAnalyticsCategory);
 }
 export interface UserExperienceAnalyticsBaseline extends Entity, Parsable {
     /**

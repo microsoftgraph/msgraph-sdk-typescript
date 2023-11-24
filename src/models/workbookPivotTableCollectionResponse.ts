@@ -17,7 +17,7 @@ export function deserializeIntoWorkbookPivotTableCollectionResponse(workbookPivo
 }
 export function serializeWorkbookPivotTableCollectionResponse(writer: SerializationWriter, workbookPivotTableCollectionResponse: WorkbookPivotTableCollectionResponse | undefined = {} as WorkbookPivotTableCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, workbookPivotTableCollectionResponse)
-        writer.writeCollectionOfObjectValues<WorkbookPivotTable>("value", workbookPivotTableCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<WorkbookPivotTable>("value", workbookPivotTableCollectionResponse.value, serializeWorkbookPivotTable);
 }
 export interface WorkbookPivotTableCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

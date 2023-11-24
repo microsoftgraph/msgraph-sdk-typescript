@@ -35,9 +35,9 @@ export function deserializeIntoAppManagementConfiguration(appManagementConfigura
     }
 }
 export function serializeAppManagementConfiguration(writer: SerializationWriter, appManagementConfiguration: AppManagementConfiguration | undefined = {} as AppManagementConfiguration) : void {
-        writer.writeCollectionOfObjectValues<KeyCredentialConfiguration>("keyCredentials", appManagementConfiguration.keyCredentials, );
+        writer.writeCollectionOfObjectValues<KeyCredentialConfiguration>("keyCredentials", appManagementConfiguration.keyCredentials, serializeKeyCredentialConfiguration);
         writer.writeStringValue("@odata.type", appManagementConfiguration.odataType);
-        writer.writeCollectionOfObjectValues<PasswordCredentialConfiguration>("passwordCredentials", appManagementConfiguration.passwordCredentials, );
+        writer.writeCollectionOfObjectValues<PasswordCredentialConfiguration>("passwordCredentials", appManagementConfiguration.passwordCredentials, serializePasswordCredentialConfiguration);
         writer.writeAdditionalData(appManagementConfiguration.additionalData);
 }
 // tslint:enable

@@ -8,7 +8,7 @@ import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { CalendarGroupItemRequestBuilder } from './item/calendarGroupItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CalendarGroupsRequestBuilderGetQueryParameters {
     /**
@@ -35,30 +35,6 @@ export interface CalendarGroupsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface CalendarGroupsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: CalendarGroupsRequestBuilderGetQueryParameters;
-}
-export interface CalendarGroupsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
@@ -90,12 +66,12 @@ export class CalendarGroupsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/calendarGroups{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Get the user's calendar groups. This API is available in the following national cloud deployments.
+     * Get the user's calendar groups.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CalendarGroupCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/user-list-calendargroups?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: CalendarGroupsRequestBuilderGetRequestConfiguration | undefined) : Promise<CalendarGroupCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<CalendarGroupsRequestBuilderGetQueryParameters> | undefined) : Promise<CalendarGroupCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -106,13 +82,13 @@ export class CalendarGroupsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CalendarGroupCollectionResponse>(requestInfo, createCalendarGroupCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Use this API to create a new CalendarGroup. This API is available in the following national cloud deployments.
+     * Use this API to create a new CalendarGroup.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CalendarGroup
      * @see {@link https://learn.microsoft.com/graph/api/user-post-calendargroups?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CalendarGroup, requestConfiguration?: CalendarGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<CalendarGroup | undefined> {
+    public post(body: CalendarGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CalendarGroup | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -123,40 +99,27 @@ export class CalendarGroupsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CalendarGroup>(requestInfo, createCalendarGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the user's calendar groups. This API is available in the following national cloud deployments.
+     * Get the user's calendar groups.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: CalendarGroupsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<CalendarGroupsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, calendarGroupsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Use this API to create a new CalendarGroup. This API is available in the following national cloud deployments.
+     * Use this API to create a new CalendarGroup.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CalendarGroup, requestConfiguration?: CalendarGroupsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CalendarGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCalendarGroup);
         return requestInfo;
     };
@@ -170,5 +133,13 @@ export class CalendarGroupsRequestBuilder extends BaseRequestBuilder {
         return new CalendarGroupsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const calendarGroupsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

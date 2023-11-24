@@ -4,18 +4,42 @@
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { createWorkbookNamedItemFromDiscriminatorValue, deserializeIntoWorkbookNamedItem, serializeWorkbookNamedItem, type WorkbookNamedItem } from '../../../../../../../../../models/workbookNamedItem';
-import { deserializeIntoAddFormulaLocalPostRequestBody, serializeAddFormulaLocalPostRequestBody, type AddFormulaLocalPostRequestBody } from './addFormulaLocalPostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type AdditionalDataHolder, type Parsable, type ParsableFactory, type ParseNode, type RequestAdapter, type RequestConfiguration, type RequestOption, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface AddFormulaLocalRequestBuilderPostRequestConfiguration {
+export interface AddFormulaLocalPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
-     * Request headers
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
-    headers?: Record<string, string[]>;
+    additionalData?: Record<string, unknown>;
     /**
-     * Request options
+     * The comment property
      */
-    options?: RequestOption[];
+    comment?: string;
+    /**
+     * The formula property
+     */
+    formula?: string;
+    /**
+     * The name property
+     */
+    name?: string;
+}
+export function createAddFormulaLocalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoAddFormulaLocalPostRequestBody;
+}
+export function deserializeIntoAddFormulaLocalPostRequestBody(addFormulaLocalPostRequestBody: AddFormulaLocalPostRequestBody | undefined = {} as AddFormulaLocalPostRequestBody) : Record<string, (node: ParseNode) => void> {
+    return {
+        "comment": n => { addFormulaLocalPostRequestBody.comment = n.getStringValue(); },
+        "formula": n => { addFormulaLocalPostRequestBody.formula = n.getStringValue(); },
+        "name": n => { addFormulaLocalPostRequestBody.name = n.getStringValue(); },
+    }
+}
+export function serializeAddFormulaLocalPostRequestBody(writer: SerializationWriter, addFormulaLocalPostRequestBody: AddFormulaLocalPostRequestBody | undefined = {} as AddFormulaLocalPostRequestBody) : void {
+        writer.writeStringValue("comment", addFormulaLocalPostRequestBody.comment);
+        writer.writeStringValue("formula", addFormulaLocalPostRequestBody.formula);
+        writer.writeStringValue("name", addFormulaLocalPostRequestBody.name);
+        writer.writeAdditionalData(addFormulaLocalPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the addFormulaLocal method.
@@ -30,13 +54,13 @@ export class AddFormulaLocalRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/names/addFormulaLocal");
     };
     /**
-     * Adds a new name to the collection of the given scope using the user's locale for the formula. This API is available in the following national cloud deployments.
+     * Adds a new name to the collection of the given scope using the user's locale for the formula.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookNamedItem
      * @see {@link https://learn.microsoft.com/graph/api/nameditem-addformulalocal?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AddFormulaLocalPostRequestBody, requestConfiguration?: AddFormulaLocalRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookNamedItem | undefined> {
+    public post(body: AddFormulaLocalPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookNamedItem | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,22 +71,16 @@ export class AddFormulaLocalRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookNamedItem>(requestInfo, createWorkbookNamedItemFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Adds a new name to the collection of the given scope using the user's locale for the formula. This API is available in the following national cloud deployments.
+     * Adds a new name to the collection of the given scope using the user's locale for the formula.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AddFormulaLocalPostRequestBody, requestConfiguration?: AddFormulaLocalRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AddFormulaLocalPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddFormulaLocalPostRequestBody);
         return requestInfo;
     };

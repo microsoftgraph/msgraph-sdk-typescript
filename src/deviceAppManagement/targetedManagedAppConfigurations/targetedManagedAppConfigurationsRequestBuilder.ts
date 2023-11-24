@@ -8,7 +8,7 @@ import { createTargetedManagedAppConfigurationFromDiscriminatorValue, deserializ
 import { createTargetedManagedAppConfigurationCollectionResponseFromDiscriminatorValue } from '../../models/targetedManagedAppConfigurationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TargetedManagedAppConfigurationItemRequestBuilder } from './item/targetedManagedAppConfigurationItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TargetedManagedAppConfigurationsRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface TargetedManagedAppConfigurationsRequestBuilderGetQueryParameter
      * Show only the first n items
      */
     top?: number;
-}
-export interface TargetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TargetedManagedAppConfigurationsRequestBuilderGetQueryParameters;
-}
-export interface TargetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
@@ -103,7 +79,7 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
      * @returns a Promise of TargetedManagedAppConfigurationCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TargetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration | undefined) : Promise<TargetedManagedAppConfigurationCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TargetedManagedAppConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<TargetedManagedAppConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
      * @returns a Promise of TargetedManagedAppConfiguration
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: TargetedManagedAppConfiguration, requestConfiguration?: TargetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration | undefined) : Promise<TargetedManagedAppConfiguration | undefined> {
+    public post(body: TargetedManagedAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TargetedManagedAppConfiguration | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TargetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TargetedManagedAppConfigurationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, targetedManagedAppConfigurationsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: TargetedManagedAppConfiguration, requestConfiguration?: TargetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: TargetedManagedAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTargetedManagedAppConfiguration);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
         return new TargetedManagedAppConfigurationsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const targetedManagedAppConfigurationsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

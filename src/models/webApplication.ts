@@ -21,11 +21,11 @@ export function deserializeIntoWebApplication(webApplication: WebApplication | u
 }
 export function serializeWebApplication(writer: SerializationWriter, webApplication: WebApplication | undefined = {} as WebApplication) : void {
         writer.writeStringValue("homePageUrl", webApplication.homePageUrl);
-        writer.writeObjectValue<ImplicitGrantSettings>("implicitGrantSettings", webApplication.implicitGrantSettings, );
+        writer.writeObjectValue<ImplicitGrantSettings>("implicitGrantSettings", webApplication.implicitGrantSettings, serializeImplicitGrantSettings);
         writer.writeStringValue("logoutUrl", webApplication.logoutUrl);
         writer.writeStringValue("@odata.type", webApplication.odataType);
         writer.writeCollectionOfPrimitiveValues<string>("redirectUris", webApplication.redirectUris);
-        writer.writeCollectionOfObjectValues<RedirectUriSettings>("redirectUriSettings", webApplication.redirectUriSettings, );
+        writer.writeCollectionOfObjectValues<RedirectUriSettings>("redirectUriSettings", webApplication.redirectUriSettings, serializeRedirectUriSettings);
         writer.writeAdditionalData(webApplication.additionalData);
 }
 export interface WebApplication extends AdditionalDataHolder, Parsable {

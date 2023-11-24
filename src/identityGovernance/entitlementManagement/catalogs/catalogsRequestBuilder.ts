@@ -8,7 +8,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AccessPackageCatalogItemRequestBuilder } from './item/accessPackageCatalogItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CatalogsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface CatalogsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface CatalogsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: CatalogsRequestBuilderGetQueryParameters;
-}
-export interface CatalogsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
  */
@@ -98,12 +74,12 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/catalogs{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of accessPackageCatalog objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of accessPackageCatalog objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageCatalogCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-catalogs?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: CatalogsRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageCatalogCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<CatalogsRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageCatalogCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageCatalogCollectionResponse>(requestInfo, createAccessPackageCatalogCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new accessPackageCatalog object. This API is available in the following national cloud deployments.
+     * Create a new accessPackageCatalog object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageCatalog
      * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-post-catalogs?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AccessPackageCatalog, requestConfiguration?: CatalogsRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageCatalog | undefined> {
+    public post(body: AccessPackageCatalog, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackageCatalog | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageCatalog>(requestInfo, createAccessPackageCatalogFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of accessPackageCatalog objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of accessPackageCatalog objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: CatalogsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<CatalogsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, catalogsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create a new accessPackageCatalog object. This API is available in the following national cloud deployments.
+     * Create a new accessPackageCatalog object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AccessPackageCatalog, requestConfiguration?: CatalogsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AccessPackageCatalog, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageCatalog);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
         return new CatalogsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const catalogsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

@@ -29,8 +29,8 @@ export function deserializeIntoDec2BinPostRequestBody(dec2BinPostRequestBody: De
     }
 }
 export function serializeDec2BinPostRequestBody(writer: SerializationWriter, dec2BinPostRequestBody: Dec2BinPostRequestBody | undefined = {} as Dec2BinPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", dec2BinPostRequestBody.number, );
-        writer.writeObjectValue<Json>("places", dec2BinPostRequestBody.places, );
+        writer.writeObjectValue<Json>("number", dec2BinPostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("places", dec2BinPostRequestBody.places, serializeJson);
         writer.writeAdditionalData(dec2BinPostRequestBody.additionalData);
 }
 // tslint:enable

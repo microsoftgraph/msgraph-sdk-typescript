@@ -233,13 +233,13 @@ export function deserializeIntoAlert(alert: Alert | undefined = {} as Alert) : R
 export function serializeAlert(writer: SerializationWriter, alert: Alert | undefined = {} as Alert) : void {
         serializeEntity(writer, alert)
         writer.writeStringValue("activityGroupName", alert.activityGroupName);
-        writer.writeCollectionOfObjectValues<AlertDetection>("alertDetections", alert.alertDetections, );
+        writer.writeCollectionOfObjectValues<AlertDetection>("alertDetections", alert.alertDetections, serializeAlertDetection);
         writer.writeStringValue("assignedTo", alert.assignedTo);
         writer.writeStringValue("azureSubscriptionId", alert.azureSubscriptionId);
         writer.writeStringValue("azureTenantId", alert.azureTenantId);
         writer.writeStringValue("category", alert.category);
         writer.writeDateValue("closedDateTime", alert.closedDateTime);
-        writer.writeCollectionOfObjectValues<CloudAppSecurityState>("cloudAppStates", alert.cloudAppStates, );
+        writer.writeCollectionOfObjectValues<CloudAppSecurityState>("cloudAppStates", alert.cloudAppStates, serializeCloudAppSecurityState);
         writer.writeCollectionOfPrimitiveValues<string>("comments", alert.comments);
         writer.writeNumberValue("confidence", alert.confidence);
         writer.writeDateValue("createdDateTime", alert.createdDateTime);
@@ -247,30 +247,30 @@ export function serializeAlert(writer: SerializationWriter, alert: Alert | undef
         writer.writeCollectionOfPrimitiveValues<string>("detectionIds", alert.detectionIds);
         writer.writeDateValue("eventDateTime", alert.eventDateTime);
         writer.writeEnumValue<AlertFeedback>("feedback", alert.feedback);
-        writer.writeCollectionOfObjectValues<FileSecurityState>("fileStates", alert.fileStates, );
-        writer.writeCollectionOfObjectValues<AlertHistoryState>("historyStates", alert.historyStates, );
-        writer.writeCollectionOfObjectValues<HostSecurityState>("hostStates", alert.hostStates, );
+        writer.writeCollectionOfObjectValues<FileSecurityState>("fileStates", alert.fileStates, serializeFileSecurityState);
+        writer.writeCollectionOfObjectValues<AlertHistoryState>("historyStates", alert.historyStates, serializeAlertHistoryState);
+        writer.writeCollectionOfObjectValues<HostSecurityState>("hostStates", alert.hostStates, serializeHostSecurityState);
         writer.writeCollectionOfPrimitiveValues<string>("incidentIds", alert.incidentIds);
-        writer.writeCollectionOfObjectValues<InvestigationSecurityState>("investigationSecurityStates", alert.investigationSecurityStates, );
+        writer.writeCollectionOfObjectValues<InvestigationSecurityState>("investigationSecurityStates", alert.investigationSecurityStates, serializeInvestigationSecurityState);
         writer.writeDateValue("lastEventDateTime", alert.lastEventDateTime);
         writer.writeDateValue("lastModifiedDateTime", alert.lastModifiedDateTime);
-        writer.writeCollectionOfObjectValues<MalwareState>("malwareStates", alert.malwareStates, );
-        writer.writeCollectionOfObjectValues<MessageSecurityState>("messageSecurityStates", alert.messageSecurityStates, );
-        writer.writeCollectionOfObjectValues<NetworkConnection>("networkConnections", alert.networkConnections, );
-        writer.writeCollectionOfObjectValues<Process>("processes", alert.processes, );
+        writer.writeCollectionOfObjectValues<MalwareState>("malwareStates", alert.malwareStates, serializeMalwareState);
+        writer.writeCollectionOfObjectValues<MessageSecurityState>("messageSecurityStates", alert.messageSecurityStates, serializeMessageSecurityState);
+        writer.writeCollectionOfObjectValues<NetworkConnection>("networkConnections", alert.networkConnections, serializeNetworkConnection);
+        writer.writeCollectionOfObjectValues<Process>("processes", alert.processes, serializeProcess);
         writer.writeCollectionOfPrimitiveValues<string>("recommendedActions", alert.recommendedActions);
-        writer.writeCollectionOfObjectValues<RegistryKeyState>("registryKeyStates", alert.registryKeyStates, );
-        writer.writeCollectionOfObjectValues<SecurityResource>("securityResources", alert.securityResources, );
+        writer.writeCollectionOfObjectValues<RegistryKeyState>("registryKeyStates", alert.registryKeyStates, serializeRegistryKeyState);
+        writer.writeCollectionOfObjectValues<SecurityResource>("securityResources", alert.securityResources, serializeSecurityResource);
         writer.writeEnumValue<AlertSeverity>("severity", alert.severity);
         writer.writeCollectionOfPrimitiveValues<string>("sourceMaterials", alert.sourceMaterials);
         writer.writeEnumValue<AlertStatus>("status", alert.status);
         writer.writeCollectionOfPrimitiveValues<string>("tags", alert.tags);
         writer.writeStringValue("title", alert.title);
-        writer.writeCollectionOfObjectValues<AlertTrigger>("triggers", alert.triggers, );
-        writer.writeCollectionOfObjectValues<UriClickSecurityState>("uriClickSecurityStates", alert.uriClickSecurityStates, );
-        writer.writeCollectionOfObjectValues<UserSecurityState>("userStates", alert.userStates, );
-        writer.writeObjectValue<SecurityVendorInformation>("vendorInformation", alert.vendorInformation, );
-        writer.writeCollectionOfObjectValues<VulnerabilityState>("vulnerabilityStates", alert.vulnerabilityStates, );
+        writer.writeCollectionOfObjectValues<AlertTrigger>("triggers", alert.triggers, serializeAlertTrigger);
+        writer.writeCollectionOfObjectValues<UriClickSecurityState>("uriClickSecurityStates", alert.uriClickSecurityStates, serializeUriClickSecurityState);
+        writer.writeCollectionOfObjectValues<UserSecurityState>("userStates", alert.userStates, serializeUserSecurityState);
+        writer.writeObjectValue<SecurityVendorInformation>("vendorInformation", alert.vendorInformation, serializeSecurityVendorInformation);
+        writer.writeCollectionOfObjectValues<VulnerabilityState>("vulnerabilityStates", alert.vulnerabilityStates, serializeVulnerabilityState);
 }
 // tslint:enable
 // eslint-enable

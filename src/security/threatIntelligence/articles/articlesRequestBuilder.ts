@@ -8,7 +8,7 @@ import { createArticleFromDiscriminatorValue, deserializeIntoArticle, serializeA
 import { createArticleCollectionResponseFromDiscriminatorValue } from '../../../models/security/articleCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ArticleItemRequestBuilder } from './item/articleItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ArticlesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface ArticlesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface ArticlesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ArticlesRequestBuilderGetQueryParameters;
-}
-export interface ArticlesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the articles property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -98,12 +74,12 @@ export class ArticlesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/threatIntelligence/articles{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of article objects, including their properties and relationships. This API is available in the following national cloud deployments.
+     * Get a list of article objects, including their properties and relationships.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArticleCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-threatintelligence-list-articles?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ArticlesRequestBuilderGetRequestConfiguration | undefined) : Promise<ArticleCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ArticlesRequestBuilderGetQueryParameters> | undefined) : Promise<ArticleCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class ArticlesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Article
      */
-    public post(body: Article, requestConfiguration?: ArticlesRequestBuilderPostRequestConfiguration | undefined) : Promise<Article | undefined> {
+    public post(body: Article, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Article | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -130,21 +106,14 @@ export class ArticlesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Article>(requestInfo, createArticleFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of article objects, including their properties and relationships. This API is available in the following national cloud deployments.
+     * Get a list of article objects, including their properties and relationships.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ArticlesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ArticlesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, articlesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class ArticlesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Article, requestConfiguration?: ArticlesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Article, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeArticle);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class ArticlesRequestBuilder extends BaseRequestBuilder {
         return new ArticlesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const articlesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

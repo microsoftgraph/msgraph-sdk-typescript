@@ -8,7 +8,7 @@ import { createTargetDeviceGroupFromDiscriminatorValue, deserializeIntoTargetDev
 import { createTargetDeviceGroupCollectionResponseFromDiscriminatorValue } from '../../../../models/targetDeviceGroupCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TargetDeviceGroupItemRequestBuilder } from './item/targetDeviceGroupItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TargetDeviceGroupsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface TargetDeviceGroupsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface TargetDeviceGroupsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TargetDeviceGroupsRequestBuilderGetQueryParameters;
-}
-export interface TargetDeviceGroupsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the targetDeviceGroups property of the microsoft.graph.remoteDesktopSecurityConfiguration entity.
  */
@@ -98,11 +74,12 @@ export class TargetDeviceGroupsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/remoteDesktopSecurityConfiguration/targetDeviceGroups{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get targetDeviceGroups from servicePrincipals
+     * Get a list of the targetDeviceGroup objects and their properties on the remoteDesktopSecurityConfiguration resource on the servicePrincipal. Any user authenticating using the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to a Microsoft Entra joined or Microsoft Entra hybrid joined device that belongs to the targetDeviceGroup will get SSO.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TargetDeviceGroupCollectionResponse
+     * @see {@link https://learn.microsoft.com/graph/api/remotedesktopsecurityconfiguration-list-targetdevicegroups?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TargetDeviceGroupsRequestBuilderGetRequestConfiguration | undefined) : Promise<TargetDeviceGroupCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TargetDeviceGroupsRequestBuilderGetQueryParameters> | undefined) : Promise<TargetDeviceGroupCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -113,12 +90,13 @@ export class TargetDeviceGroupsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TargetDeviceGroupCollectionResponse>(requestInfo, createTargetDeviceGroupCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to targetDeviceGroups for servicePrincipals
+     * Create a new targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal. You can configure a maximum of 10 target device groups for the remoteDesktopSecurityConfiguraiton object on the servicePrincipal.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TargetDeviceGroup
+     * @see {@link https://learn.microsoft.com/graph/api/remotedesktopsecurityconfiguration-post-targetdevicegroups?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: TargetDeviceGroup, requestConfiguration?: TargetDeviceGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<TargetDeviceGroup | undefined> {
+    public post(body: TargetDeviceGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TargetDeviceGroup | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -129,40 +107,27 @@ export class TargetDeviceGroupsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TargetDeviceGroup>(requestInfo, createTargetDeviceGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get targetDeviceGroups from servicePrincipals
+     * Get a list of the targetDeviceGroup objects and their properties on the remoteDesktopSecurityConfiguration resource on the servicePrincipal. Any user authenticating using the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to a Microsoft Entra joined or Microsoft Entra hybrid joined device that belongs to the targetDeviceGroup will get SSO.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TargetDeviceGroupsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TargetDeviceGroupsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, targetDeviceGroupsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create new navigation property to targetDeviceGroups for servicePrincipals
+     * Create a new targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal. You can configure a maximum of 10 target device groups for the remoteDesktopSecurityConfiguraiton object on the servicePrincipal.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: TargetDeviceGroup, requestConfiguration?: TargetDeviceGroupsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: TargetDeviceGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTargetDeviceGroup);
         return requestInfo;
     };
@@ -176,5 +141,15 @@ export class TargetDeviceGroupsRequestBuilder extends BaseRequestBuilder {
         return new TargetDeviceGroupsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const targetDeviceGroupsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

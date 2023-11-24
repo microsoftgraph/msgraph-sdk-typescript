@@ -108,10 +108,10 @@ export interface Incident extends Entity, Parsable {
 }
 export function serializeIncident(writer: SerializationWriter, incident: Incident | undefined = {} as Incident) : void {
         serializeEntity(writer, incident)
-        writer.writeCollectionOfObjectValues<Alert>("alerts", incident.alerts, );
+        writer.writeCollectionOfObjectValues<Alert>("alerts", incident.alerts, serializeAlert);
         writer.writeStringValue("assignedTo", incident.assignedTo);
         writer.writeEnumValue<AlertClassification>("classification", incident.classification);
-        writer.writeCollectionOfObjectValues<AlertComment>("comments", incident.comments, );
+        writer.writeCollectionOfObjectValues<AlertComment>("comments", incident.comments, serializeAlertComment);
         writer.writeDateValue("createdDateTime", incident.createdDateTime);
         writer.writeCollectionOfPrimitiveValues<string>("customTags", incident.customTags);
         writer.writeStringValue("description", incident.description);

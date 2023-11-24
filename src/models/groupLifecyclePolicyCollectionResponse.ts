@@ -23,7 +23,7 @@ export interface GroupLifecyclePolicyCollectionResponse extends BaseCollectionPa
 }
 export function serializeGroupLifecyclePolicyCollectionResponse(writer: SerializationWriter, groupLifecyclePolicyCollectionResponse: GroupLifecyclePolicyCollectionResponse | undefined = {} as GroupLifecyclePolicyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, groupLifecyclePolicyCollectionResponse)
-        writer.writeCollectionOfObjectValues<GroupLifecyclePolicy>("value", groupLifecyclePolicyCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<GroupLifecyclePolicy>("value", groupLifecyclePolicyCollectionResponse.value, serializeGroupLifecyclePolicy);
 }
 // tslint:enable
 // eslint-enable

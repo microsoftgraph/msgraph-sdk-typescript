@@ -8,7 +8,7 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AudioRoutingGroupItemRequestBuilder } from './item/audioRoutingGroupItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AudioRoutingGroupsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface AudioRoutingGroupsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface AudioRoutingGroupsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AudioRoutingGroupsRequestBuilderGetQueryParameters;
-}
-export interface AudioRoutingGroupsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
  */
@@ -98,12 +74,12 @@ export class AudioRoutingGroupsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/audioRoutingGroups{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of audioRoutingGroup objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of audioRoutingGroup objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AudioRoutingGroupCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/call-list-audioroutinggroups?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AudioRoutingGroupsRequestBuilderGetRequestConfiguration | undefined) : Promise<AudioRoutingGroupCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AudioRoutingGroupsRequestBuilderGetQueryParameters> | undefined) : Promise<AudioRoutingGroupCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class AudioRoutingGroupsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AudioRoutingGroupCollectionResponse>(requestInfo, createAudioRoutingGroupCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new audioRoutingGroup. This API is available in the following national cloud deployments.
+     * Create a new audioRoutingGroup.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AudioRoutingGroup
      * @see {@link https://learn.microsoft.com/graph/api/call-post-audioroutinggroups?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AudioRoutingGroup, requestConfiguration?: AudioRoutingGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<AudioRoutingGroup | undefined> {
+    public post(body: AudioRoutingGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AudioRoutingGroup | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class AudioRoutingGroupsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AudioRoutingGroup>(requestInfo, createAudioRoutingGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of audioRoutingGroup objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of audioRoutingGroup objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AudioRoutingGroupsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AudioRoutingGroupsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, audioRoutingGroupsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create a new audioRoutingGroup. This API is available in the following national cloud deployments.
+     * Create a new audioRoutingGroup.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AudioRoutingGroup, requestConfiguration?: AudioRoutingGroupsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AudioRoutingGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAudioRoutingGroup);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class AudioRoutingGroupsRequestBuilder extends BaseRequestBuilder {
         return new AudioRoutingGroupsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const audioRoutingGroupsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

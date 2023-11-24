@@ -30,7 +30,7 @@ export interface PlayPromptPostRequestBody extends AdditionalDataHolder, Parsabl
 }
 export function serializePlayPromptPostRequestBody(writer: SerializationWriter, playPromptPostRequestBody: PlayPromptPostRequestBody | undefined = {} as PlayPromptPostRequestBody) : void {
         writer.writeStringValue("clientContext", playPromptPostRequestBody.clientContext);
-        writer.writeCollectionOfObjectValues<Prompt>("prompts", playPromptPostRequestBody.prompts, );
+        writer.writeCollectionOfObjectValues<Prompt>("prompts", playPromptPostRequestBody.prompts, serializePrompt);
         writer.writeAdditionalData(playPromptPostRequestBody.additionalData);
 }
 // tslint:enable

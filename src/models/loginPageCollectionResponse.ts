@@ -23,7 +23,7 @@ export interface LoginPageCollectionResponse extends BaseCollectionPaginationCou
 }
 export function serializeLoginPageCollectionResponse(writer: SerializationWriter, loginPageCollectionResponse: LoginPageCollectionResponse | undefined = {} as LoginPageCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, loginPageCollectionResponse)
-        writer.writeCollectionOfObjectValues<LoginPage>("value", loginPageCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<LoginPage>("value", loginPageCollectionResponse.value, serializeLoginPage);
 }
 // tslint:enable
 // eslint-enable

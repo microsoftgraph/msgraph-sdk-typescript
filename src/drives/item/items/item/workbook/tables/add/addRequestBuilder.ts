@@ -4,18 +4,36 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { createWorkbookTableFromDiscriminatorValue, deserializeIntoWorkbookTable, serializeWorkbookTable, type WorkbookTable } from '../../../../../../../models/workbookTable';
-import { deserializeIntoAddPostRequestBody, serializeAddPostRequestBody, type AddPostRequestBody } from './addPostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type AdditionalDataHolder, type Parsable, type ParsableFactory, type ParseNode, type RequestAdapter, type RequestConfiguration, type RequestOption, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface AddRequestBuilderPostRequestConfiguration {
+export interface AddPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
-     * Request headers
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
-    headers?: Record<string, string[]>;
+    additionalData?: Record<string, unknown>;
     /**
-     * Request options
+     * The address property
      */
-    options?: RequestOption[];
+    address?: string;
+    /**
+     * The hasHeaders property
+     */
+    hasHeaders?: boolean;
+}
+export function createAddPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoAddPostRequestBody;
+}
+export function deserializeIntoAddPostRequestBody(addPostRequestBody: AddPostRequestBody | undefined = {} as AddPostRequestBody) : Record<string, (node: ParseNode) => void> {
+    return {
+        "address": n => { addPostRequestBody.address = n.getStringValue(); },
+        "hasHeaders": n => { addPostRequestBody.hasHeaders = n.getBooleanValue(); },
+    }
+}
+export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: AddPostRequestBody | undefined = {} as AddPostRequestBody) : void {
+        writer.writeStringValue("address", addPostRequestBody.address);
+        writer.writeBooleanValue("hasHeaders", addPostRequestBody.hasHeaders);
+        writer.writeAdditionalData(addPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the add method.
@@ -30,13 +48,13 @@ export class AddRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/add");
     };
     /**
-     * Use this API to create a new Table. This API is available in the following national cloud deployments.
+     * Use this API to create a new Table.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTable
      * @see {@link https://learn.microsoft.com/graph/api/workbook-post-tables?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AddPostRequestBody, requestConfiguration?: AddRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookTable | undefined> {
+    public post(body: AddPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTable | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,22 +65,16 @@ export class AddRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookTable>(requestInfo, createWorkbookTableFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Use this API to create a new Table. This API is available in the following national cloud deployments.
+     * Use this API to create a new Table.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AddPostRequestBody, requestConfiguration?: AddRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AddPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddPostRequestBody);
         return requestInfo;
     };

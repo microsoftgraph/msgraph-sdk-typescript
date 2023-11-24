@@ -9,7 +9,7 @@ import { createUnifiedRoleEligibilityScheduleInstanceCollectionResponseFromDiscr
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder } from './item/unifiedRoleEligibilityScheduleInstanceItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameter
      * Show only the first n items
      */
     top?: number;
-}
-export interface RoleEligibilityScheduleInstancesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameters;
-}
-export interface RoleEligibilityScheduleInstancesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.
@@ -108,12 +84,12 @@ export class RoleEligibilityScheduleInstancesRequestBuilder extends BaseRequestB
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Get the instances of role eligibilities. This API is available in the following national cloud deployments.
+     * Get the instances of role eligibilities.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleEligibilityScheduleInstanceCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-list-roleeligibilityscheduleinstances?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: RoleEligibilityScheduleInstancesRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleEligibilityScheduleInstanceCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleEligibilityScheduleInstanceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -129,7 +105,7 @@ export class RoleEligibilityScheduleInstancesRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleEligibilityScheduleInstance
      */
-    public post(body: UnifiedRoleEligibilityScheduleInstance, requestConfiguration?: RoleEligibilityScheduleInstancesRequestBuilderPostRequestConfiguration | undefined) : Promise<UnifiedRoleEligibilityScheduleInstance | undefined> {
+    public post(body: UnifiedRoleEligibilityScheduleInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleEligibilityScheduleInstance | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -140,21 +116,14 @@ export class RoleEligibilityScheduleInstancesRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendAsync<UnifiedRoleEligibilityScheduleInstance>(requestInfo, createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the instances of role eligibilities. This API is available in the following national cloud deployments.
+     * Get the instances of role eligibilities.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: RoleEligibilityScheduleInstancesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, roleEligibilityScheduleInstancesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -163,17 +132,11 @@ export class RoleEligibilityScheduleInstancesRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UnifiedRoleEligibilityScheduleInstance, requestConfiguration?: RoleEligibilityScheduleInstancesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UnifiedRoleEligibilityScheduleInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnifiedRoleEligibilityScheduleInstance);
         return requestInfo;
     };
@@ -187,5 +150,15 @@ export class RoleEligibilityScheduleInstancesRequestBuilder extends BaseRequestB
         return new RoleEligibilityScheduleInstancesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const roleEligibilityScheduleInstancesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

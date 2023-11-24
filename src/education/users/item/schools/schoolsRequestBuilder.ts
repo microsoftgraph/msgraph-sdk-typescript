@@ -7,7 +7,7 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { EducationSchoolItemRequestBuilder } from './item/educationSchoolItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SchoolsRequestBuilderGetQueryParameters {
     /**
@@ -43,20 +43,6 @@ export interface SchoolsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface SchoolsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SchoolsRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to manage the schools property of the microsoft.graph.educationUser entity.
  */
@@ -87,12 +73,12 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/users/{educationUser%2Did}/schools{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of schools for a user. This API is available in the following national cloud deployments.
+     * Retrieve a list of schools for a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationSchoolCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/educationuser-list-schools?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SchoolsRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationSchoolCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SchoolsRequestBuilderGetQueryParameters> | undefined) : Promise<EducationSchoolCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -103,21 +89,14 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationSchoolCollectionResponse>(requestInfo, createEducationSchoolCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of schools for a user. This API is available in the following national cloud deployments.
+     * Retrieve a list of schools for a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SchoolsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SchoolsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, schoolsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
         return new SchoolsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const schoolsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

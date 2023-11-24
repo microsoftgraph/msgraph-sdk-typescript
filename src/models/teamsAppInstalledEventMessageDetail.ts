@@ -19,7 +19,7 @@ export function deserializeIntoTeamsAppInstalledEventMessageDetail(teamsAppInsta
 }
 export function serializeTeamsAppInstalledEventMessageDetail(writer: SerializationWriter, teamsAppInstalledEventMessageDetail: TeamsAppInstalledEventMessageDetail | undefined = {} as TeamsAppInstalledEventMessageDetail) : void {
         serializeEventMessageDetail(writer, teamsAppInstalledEventMessageDetail)
-        writer.writeObjectValue<IdentitySet>("initiator", teamsAppInstalledEventMessageDetail.initiator, );
+        writer.writeObjectValue<IdentitySet>("initiator", teamsAppInstalledEventMessageDetail.initiator, serializeIdentitySet);
         writer.writeStringValue("teamsAppDisplayName", teamsAppInstalledEventMessageDetail.teamsAppDisplayName);
         writer.writeStringValue("teamsAppId", teamsAppInstalledEventMessageDetail.teamsAppId);
 }

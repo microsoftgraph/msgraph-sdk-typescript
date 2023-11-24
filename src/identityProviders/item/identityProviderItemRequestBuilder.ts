@@ -4,18 +4,8 @@
 import { createIdentityProviderFromDiscriminatorValue, deserializeIntoIdentityProvider, serializeIdentityProvider, type IdentityProvider } from '../../models/identityProvider';
 import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface IdentityProviderItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface IdentityProviderItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -25,30 +15,6 @@ export interface IdentityProviderItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface IdentityProviderItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: IdentityProviderItemRequestBuilderGetQueryParameters;
-}
-export interface IdentityProviderItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the collection of identityProvider entities.
@@ -63,12 +29,12 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityProviders/{identityProvider%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an existing identityProvider. This API is available in the following national cloud deployments.
+     * Delete an existing identityProvider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
      * @see {@link https://learn.microsoft.com/graph/api/identityprovider-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: IdentityProviderItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -79,13 +45,13 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties of an existing identityProvider. This API is available in the following national cloud deployments.
+     * Retrieve the properties of an existing identityProvider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityProvider
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
      * @see {@link https://learn.microsoft.com/graph/api/identityprovider-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: IdentityProviderItemRequestBuilderGetRequestConfiguration | undefined) : Promise<IdentityProvider | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<IdentityProviderItemRequestBuilderGetQueryParameters> | undefined) : Promise<IdentityProvider | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -96,14 +62,14 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<IdentityProvider>(requestInfo, createIdentityProviderFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update properties in an existing identityProvider. This API is available in the following national cloud deployments.
+     * Update properties in an existing identityProvider.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityProvider
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
      * @see {@link https://learn.microsoft.com/graph/api/identityprovider-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: IdentityProvider, requestConfiguration?: IdentityProviderItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityProvider | undefined> {
+    public patch(body: IdentityProvider, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IdentityProvider | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -114,60 +80,41 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<IdentityProvider>(requestInfo, createIdentityProviderFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an existing identityProvider. This API is available in the following national cloud deployments.
+     * Delete an existing identityProvider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
      */
-    public toDeleteRequestInformation(requestConfiguration?: IdentityProviderItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Retrieve the properties of an existing identityProvider. This API is available in the following national cloud deployments.
+     * Retrieve the properties of an existing identityProvider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
      */
-    public toGetRequestInformation(requestConfiguration?: IdentityProviderItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<IdentityProviderItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, identityProviderItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update properties in an existing identityProvider. This API is available in the following national cloud deployments.
+     * Update properties in an existing identityProvider.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
      */
-    public toPatchRequestInformation(body: IdentityProvider, requestConfiguration?: IdentityProviderItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: IdentityProvider, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIdentityProvider);
         return requestInfo;
     };
@@ -182,5 +129,9 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder {
         return new IdentityProviderItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const identityProviderItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

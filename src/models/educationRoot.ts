@@ -46,11 +46,11 @@ export interface EducationRoot extends AdditionalDataHolder, Parsable {
     users?: EducationUser[];
 }
 export function serializeEducationRoot(writer: SerializationWriter, educationRoot: EducationRoot | undefined = {} as EducationRoot) : void {
-        writer.writeCollectionOfObjectValues<EducationClass>("classes", educationRoot.classes, );
-        writer.writeObjectValue<EducationUser>("me", educationRoot.me, );
+        writer.writeCollectionOfObjectValues<EducationClass>("classes", educationRoot.classes, serializeEducationClass);
+        writer.writeObjectValue<EducationUser>("me", educationRoot.me, serializeEducationUser);
         writer.writeStringValue("@odata.type", educationRoot.odataType);
-        writer.writeCollectionOfObjectValues<EducationSchool>("schools", educationRoot.schools, );
-        writer.writeCollectionOfObjectValues<EducationUser>("users", educationRoot.users, );
+        writer.writeCollectionOfObjectValues<EducationSchool>("schools", educationRoot.schools, serializeEducationSchool);
+        writer.writeCollectionOfObjectValues<EducationUser>("users", educationRoot.users, serializeEducationUser);
         writer.writeAdditionalData(educationRoot.additionalData);
 }
 // tslint:enable

@@ -8,7 +8,7 @@ import { createSubjectRightsRequestFromDiscriminatorValue, deserializeIntoSubjec
 import { createSubjectRightsRequestCollectionResponseFromDiscriminatorValue } from '../../models/subjectRightsRequestCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SubjectRightsRequestItemRequestBuilder } from './item/subjectRightsRequestItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SubjectRightsRequestsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface SubjectRightsRequestsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface SubjectRightsRequestsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SubjectRightsRequestsRequestBuilderGetQueryParameters;
-}
-export interface SubjectRightsRequestsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
  */
@@ -100,13 +76,13 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/privacy/subjectRightsRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of subjectRightsRequest objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of subjectRightsRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubjectRightsRequestCollectionResponse
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SubjectRightsRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<SubjectRightsRequestCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SubjectRightsRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<SubjectRightsRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -117,14 +93,14 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SubjectRightsRequestCollectionResponse>(requestInfo, createSubjectRightsRequestCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new subjectRightsRequest object. This API is available in the following national cloud deployments.
+     * Create a new subjectRightsRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubjectRightsRequest
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SubjectRightsRequest, requestConfiguration?: SubjectRightsRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<SubjectRightsRequest | undefined> {
+    public post(body: SubjectRightsRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SubjectRightsRequest | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,42 +111,29 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SubjectRightsRequest>(requestInfo, createSubjectRightsRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of subjectRightsRequest objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of subjectRightsRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
-    public toGetRequestInformation(requestConfiguration?: SubjectRightsRequestsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SubjectRightsRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, subjectRightsRequestsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create a new subjectRightsRequest object. This API is available in the following national cloud deployments.
+     * Create a new subjectRightsRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
-    public toPostRequestInformation(body: SubjectRightsRequest, requestConfiguration?: SubjectRightsRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SubjectRightsRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSubjectRightsRequest);
         return requestInfo;
     };
@@ -185,5 +148,15 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
         return new SubjectRightsRequestsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const subjectRightsRequestsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

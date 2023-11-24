@@ -23,7 +23,7 @@ export interface EventCollectionResponse extends BaseCollectionPaginationCountRe
 }
 export function serializeEventCollectionResponse(writer: SerializationWriter, eventCollectionResponse: EventCollectionResponse | undefined = {} as EventCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, eventCollectionResponse)
-        writer.writeCollectionOfObjectValues<Event>("value", eventCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Event>("value", eventCollectionResponse.value, serializeEvent);
 }
 // tslint:enable
 // eslint-enable

@@ -8,7 +8,7 @@ import { createSecureScoreFromDiscriminatorValue, deserializeIntoSecureScore, se
 import { createSecureScoreCollectionResponseFromDiscriminatorValue } from '../../models/secureScoreCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SecureScoreItemRequestBuilder } from './item/secureScoreItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SecureScoresRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface SecureScoresRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface SecureScoresRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SecureScoresRequestBuilderGetQueryParameters;
-}
-export interface SecureScoresRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
  */
@@ -98,12 +74,12 @@ export class SecureScoresRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/secureScores{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of secureScore objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of secureScore objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SecureScoreCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-list-securescores?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SecureScoresRequestBuilderGetRequestConfiguration | undefined) : Promise<SecureScoreCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SecureScoresRequestBuilderGetQueryParameters> | undefined) : Promise<SecureScoreCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class SecureScoresRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SecureScore
      */
-    public post(body: SecureScore, requestConfiguration?: SecureScoresRequestBuilderPostRequestConfiguration | undefined) : Promise<SecureScore | undefined> {
+    public post(body: SecureScore, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SecureScore | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -130,21 +106,14 @@ export class SecureScoresRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SecureScore>(requestInfo, createSecureScoreFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of secureScore objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of secureScore objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SecureScoresRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SecureScoresRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, secureScoresRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class SecureScoresRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SecureScore, requestConfiguration?: SecureScoresRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SecureScore, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSecureScore);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class SecureScoresRequestBuilder extends BaseRequestBuilder {
         return new SecureScoresRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const secureScoresRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

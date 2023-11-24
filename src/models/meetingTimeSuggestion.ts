@@ -62,10 +62,10 @@ export interface MeetingTimeSuggestion extends AdditionalDataHolder, Parsable {
     suggestionReason?: string;
 }
 export function serializeMeetingTimeSuggestion(writer: SerializationWriter, meetingTimeSuggestion: MeetingTimeSuggestion | undefined = {} as MeetingTimeSuggestion) : void {
-        writer.writeCollectionOfObjectValues<AttendeeAvailability>("attendeeAvailability", meetingTimeSuggestion.attendeeAvailability, );
+        writer.writeCollectionOfObjectValues<AttendeeAvailability>("attendeeAvailability", meetingTimeSuggestion.attendeeAvailability, serializeAttendeeAvailability);
         writer.writeNumberValue("confidence", meetingTimeSuggestion.confidence);
-        writer.writeCollectionOfObjectValues<Location>("locations", meetingTimeSuggestion.locations, );
-        writer.writeObjectValue<TimeSlot>("meetingTimeSlot", meetingTimeSuggestion.meetingTimeSlot, );
+        writer.writeCollectionOfObjectValues<Location>("locations", meetingTimeSuggestion.locations, serializeLocation);
+        writer.writeObjectValue<TimeSlot>("meetingTimeSlot", meetingTimeSuggestion.meetingTimeSlot, serializeTimeSlot);
         writer.writeStringValue("@odata.type", meetingTimeSuggestion.odataType);
         writer.writeNumberValue("order", meetingTimeSuggestion.order);
         writer.writeEnumValue<FreeBusyStatus>("organizerAvailability", meetingTimeSuggestion.organizerAvailability);

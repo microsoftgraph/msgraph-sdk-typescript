@@ -39,10 +39,10 @@ export interface EducationRubricOutcome extends EducationOutcome, Parsable {
 }
 export function serializeEducationRubricOutcome(writer: SerializationWriter, educationRubricOutcome: EducationRubricOutcome | undefined = {} as EducationRubricOutcome) : void {
         serializeEducationOutcome(writer, educationRubricOutcome)
-        writer.writeCollectionOfObjectValues<RubricQualityFeedbackModel>("publishedRubricQualityFeedback", educationRubricOutcome.publishedRubricQualityFeedback, );
-        writer.writeCollectionOfObjectValues<RubricQualitySelectedColumnModel>("publishedRubricQualitySelectedLevels", educationRubricOutcome.publishedRubricQualitySelectedLevels, );
-        writer.writeCollectionOfObjectValues<RubricQualityFeedbackModel>("rubricQualityFeedback", educationRubricOutcome.rubricQualityFeedback, );
-        writer.writeCollectionOfObjectValues<RubricQualitySelectedColumnModel>("rubricQualitySelectedLevels", educationRubricOutcome.rubricQualitySelectedLevels, );
+        writer.writeCollectionOfObjectValues<RubricQualityFeedbackModel>("publishedRubricQualityFeedback", educationRubricOutcome.publishedRubricQualityFeedback, serializeRubricQualityFeedbackModel);
+        writer.writeCollectionOfObjectValues<RubricQualitySelectedColumnModel>("publishedRubricQualitySelectedLevels", educationRubricOutcome.publishedRubricQualitySelectedLevels, serializeRubricQualitySelectedColumnModel);
+        writer.writeCollectionOfObjectValues<RubricQualityFeedbackModel>("rubricQualityFeedback", educationRubricOutcome.rubricQualityFeedback, serializeRubricQualityFeedbackModel);
+        writer.writeCollectionOfObjectValues<RubricQualitySelectedColumnModel>("rubricQualitySelectedLevels", educationRubricOutcome.rubricQualitySelectedLevels, serializeRubricQualitySelectedColumnModel);
 }
 // tslint:enable
 // eslint-enable

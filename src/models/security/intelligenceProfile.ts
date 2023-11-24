@@ -72,15 +72,15 @@ export interface IntelligenceProfile extends Entity, Parsable {
 export function serializeIntelligenceProfile(writer: SerializationWriter, intelligenceProfile: IntelligenceProfile | undefined = {} as IntelligenceProfile) : void {
         serializeEntity(writer, intelligenceProfile)
         writer.writeCollectionOfPrimitiveValues<string>("aliases", intelligenceProfile.aliases);
-        writer.writeCollectionOfObjectValues<IntelligenceProfileCountryOrRegionOfOrigin>("countriesOrRegionsOfOrigin", intelligenceProfile.countriesOrRegionsOfOrigin, );
-        writer.writeObjectValue<FormattedContent>("description", intelligenceProfile.description, );
+        writer.writeCollectionOfObjectValues<IntelligenceProfileCountryOrRegionOfOrigin>("countriesOrRegionsOfOrigin", intelligenceProfile.countriesOrRegionsOfOrigin, serializeIntelligenceProfileCountryOrRegionOfOrigin);
+        writer.writeObjectValue<FormattedContent>("description", intelligenceProfile.description, serializeFormattedContent);
         writer.writeDateValue("firstActiveDateTime", intelligenceProfile.firstActiveDateTime);
-        writer.writeCollectionOfObjectValues<IntelligenceProfileIndicator>("indicators", intelligenceProfile.indicators, );
+        writer.writeCollectionOfObjectValues<IntelligenceProfileIndicator>("indicators", intelligenceProfile.indicators, serializeIntelligenceProfileIndicator);
         writer.writeEnumValue<IntelligenceProfileKind>("kind", intelligenceProfile.kind);
-        writer.writeObjectValue<FormattedContent>("summary", intelligenceProfile.summary, );
+        writer.writeObjectValue<FormattedContent>("summary", intelligenceProfile.summary, serializeFormattedContent);
         writer.writeCollectionOfPrimitiveValues<string>("targets", intelligenceProfile.targets);
         writer.writeStringValue("title", intelligenceProfile.title);
-        writer.writeObjectValue<FormattedContent>("tradecraft", intelligenceProfile.tradecraft, );
+        writer.writeObjectValue<FormattedContent>("tradecraft", intelligenceProfile.tradecraft, serializeFormattedContent);
 }
 // tslint:enable
 // eslint-enable

@@ -23,7 +23,7 @@ export function deserializeIntoBitlockerRecoveryKeyCollectionResponse(bitlockerR
 }
 export function serializeBitlockerRecoveryKeyCollectionResponse(writer: SerializationWriter, bitlockerRecoveryKeyCollectionResponse: BitlockerRecoveryKeyCollectionResponse | undefined = {} as BitlockerRecoveryKeyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, bitlockerRecoveryKeyCollectionResponse)
-        writer.writeCollectionOfObjectValues<BitlockerRecoveryKey>("value", bitlockerRecoveryKeyCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<BitlockerRecoveryKey>("value", bitlockerRecoveryKeyCollectionResponse.value, serializeBitlockerRecoveryKey);
 }
 // tslint:enable
 // eslint-enable

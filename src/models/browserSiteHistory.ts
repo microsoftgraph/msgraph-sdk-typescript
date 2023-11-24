@@ -65,7 +65,7 @@ export function serializeBrowserSiteHistory(writer: SerializationWriter, browser
         writer.writeBooleanValue("allowRedirect", browserSiteHistory.allowRedirect);
         writer.writeStringValue("comment", browserSiteHistory.comment);
         writer.writeEnumValue<BrowserSiteCompatibilityMode>("compatibilityMode", browserSiteHistory.compatibilityMode);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", browserSiteHistory.lastModifiedBy, );
+        writer.writeObjectValue<IdentitySet>("lastModifiedBy", browserSiteHistory.lastModifiedBy, serializeIdentitySet);
         writer.writeEnumValue<BrowserSiteMergeType>("mergeType", browserSiteHistory.mergeType);
         writer.writeStringValue("@odata.type", browserSiteHistory.odataType);
         writer.writeDateValue("publishedDateTime", browserSiteHistory.publishedDateTime);

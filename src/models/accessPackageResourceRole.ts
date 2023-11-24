@@ -47,7 +47,7 @@ export function serializeAccessPackageResourceRole(writer: SerializationWriter, 
         writer.writeStringValue("displayName", accessPackageResourceRole.displayName);
         writer.writeStringValue("originId", accessPackageResourceRole.originId);
         writer.writeStringValue("originSystem", accessPackageResourceRole.originSystem);
-        writer.writeObjectValue<AccessPackageResource>("resource", accessPackageResourceRole.resource, );
+        writer.writeObjectValue<AccessPackageResource>("resource", accessPackageResourceRole.resource, serializeAccessPackageResource);
 }
 // tslint:enable
 // eslint-enable

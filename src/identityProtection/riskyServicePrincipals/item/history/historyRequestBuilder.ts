@@ -8,7 +8,7 @@ import { createRiskyServicePrincipalHistoryItemFromDiscriminatorValue, deseriali
 import { createRiskyServicePrincipalHistoryItemCollectionResponseFromDiscriminatorValue } from '../../../../models/riskyServicePrincipalHistoryItemCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { RiskyServicePrincipalHistoryItemItemRequestBuilder } from './item/riskyServicePrincipalHistoryItemItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface HistoryRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface HistoryRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface HistoryRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: HistoryRequestBuilderGetQueryParameters;
-}
-export interface HistoryRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
  */
@@ -98,12 +74,12 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityProtection/riskyServicePrincipals/{riskyServicePrincipal%2Did}/history{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the risk history of a riskyServicePrincipal object. This API is available in the following national cloud deployments.
+     * Get the risk history of a riskyServicePrincipal object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskyServicePrincipalHistoryItemCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/riskyserviceprincipal-list-history?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: HistoryRequestBuilderGetRequestConfiguration | undefined) : Promise<RiskyServicePrincipalHistoryItemCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<HistoryRequestBuilderGetQueryParameters> | undefined) : Promise<RiskyServicePrincipalHistoryItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskyServicePrincipalHistoryItem
      */
-    public post(body: RiskyServicePrincipalHistoryItem, requestConfiguration?: HistoryRequestBuilderPostRequestConfiguration | undefined) : Promise<RiskyServicePrincipalHistoryItem | undefined> {
+    public post(body: RiskyServicePrincipalHistoryItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RiskyServicePrincipalHistoryItem | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -130,21 +106,14 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RiskyServicePrincipalHistoryItem>(requestInfo, createRiskyServicePrincipalHistoryItemFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the risk history of a riskyServicePrincipal object. This API is available in the following national cloud deployments.
+     * Get the risk history of a riskyServicePrincipal object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: HistoryRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<HistoryRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, historyRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: RiskyServicePrincipalHistoryItem, requestConfiguration?: HistoryRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: RiskyServicePrincipalHistoryItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRiskyServicePrincipalHistoryItem);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
         return new HistoryRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const historyRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

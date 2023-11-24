@@ -7,7 +7,7 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { Fido2AuthenticationMethodItemRequestBuilder } from './item/fido2AuthenticationMethodItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface Fido2MethodsRequestBuilderGetQueryParameters {
     /**
@@ -43,20 +43,6 @@ export interface Fido2MethodsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface Fido2MethodsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: Fido2MethodsRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
  */
@@ -87,12 +73,12 @@ export class Fido2MethodsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/authentication/fido2Methods{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of a user's FIDO2 Security Key Authentication Method objects and their properties. This API is available in the following national cloud deployments.
+     * Retrieve a list of a user's FIDO2 Security Key Authentication Method objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Fido2AuthenticationMethodCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/fido2authenticationmethod-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: Fido2MethodsRequestBuilderGetRequestConfiguration | undefined) : Promise<Fido2AuthenticationMethodCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<Fido2MethodsRequestBuilderGetQueryParameters> | undefined) : Promise<Fido2AuthenticationMethodCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -103,21 +89,14 @@ export class Fido2MethodsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Fido2AuthenticationMethodCollectionResponse>(requestInfo, createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of a user's FIDO2 Security Key Authentication Method objects and their properties. This API is available in the following national cloud deployments.
+     * Retrieve a list of a user's FIDO2 Security Key Authentication Method objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: Fido2MethodsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<Fido2MethodsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, fido2MethodsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class Fido2MethodsRequestBuilder extends BaseRequestBuilder {
         return new Fido2MethodsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const fido2MethodsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

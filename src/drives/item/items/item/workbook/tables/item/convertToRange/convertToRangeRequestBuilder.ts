@@ -5,18 +5,8 @@ import { type WorkbookRange } from '../../../../../../../../models/';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { createWorkbookRangeFromDiscriminatorValue } from '../../../../../../../../models/workbookRange';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface ConvertToRangeRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the convertToRange method.
  */
@@ -30,12 +20,12 @@ export class ConvertToRangeRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/convertToRange");
     };
     /**
-     * Converts the table into a normal range of cells. All data is preserved. This API is available in the following national cloud deployments.
+     * Converts the table into a normal range of cells. All data is preserved.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookRange
      * @see {@link https://learn.microsoft.com/graph/api/table-converttorange?view=graph-rest-1.0|Find more info here}
      */
-    public post(requestConfiguration?: ConvertToRangeRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookRange | undefined> {
+    public post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookRange | undefined> {
         const requestInfo = this.toPostRequestInformation(
             requestConfiguration
         );
@@ -46,20 +36,14 @@ export class ConvertToRangeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookRange>(requestInfo, createWorkbookRangeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Converts the table into a normal range of cells. All data is preserved. This API is available in the following national cloud deployments.
+     * Converts the table into a normal range of cells. All data is preserved.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(requestConfiguration?: ConvertToRangeRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**

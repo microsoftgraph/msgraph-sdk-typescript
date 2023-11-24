@@ -18,7 +18,7 @@ export function deserializeIntoUserConsentRequest(userConsentRequest: UserConsen
 }
 export function serializeUserConsentRequest(writer: SerializationWriter, userConsentRequest: UserConsentRequest | undefined = {} as UserConsentRequest) : void {
         serializeRequest(writer, userConsentRequest)
-        writer.writeObjectValue<Approval>("approval", userConsentRequest.approval, );
+        writer.writeObjectValue<Approval>("approval", userConsentRequest.approval, serializeApproval);
         writer.writeStringValue("reason", userConsentRequest.reason);
 }
 export interface UserConsentRequest extends Parsable, Request {

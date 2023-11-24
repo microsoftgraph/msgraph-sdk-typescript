@@ -6,18 +6,8 @@ import { type ODataError } from '../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { RoleRequestBuilder } from './role/roleRequestBuilder';
 import { ScopeRequestBuilder } from './scope/scopeRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface AccessPackageResourceRoleScopeItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface AccessPackageResourceRoleScopeItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -27,30 +17,6 @@ export interface AccessPackageResourceRoleScopeItemRequestBuilderGetQueryParamet
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface AccessPackageResourceRoleScopeItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AccessPackageResourceRoleScopeItemRequestBuilderGetQueryParameters;
-}
-export interface AccessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the resourceRoleScopes property of the microsoft.graph.accessPackage entity.
@@ -77,11 +43,11 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/resourceRoleScopes/{accessPackageResourceRoleScope%2Did}{?%24select,%24expand}");
     };
     /**
-     * Remove a accessPackageResourceRoleScope from an accessPackage list of resource role scopes. This API is available in the following national cloud deployments.
+     * Remove a accessPackageResourceRoleScope from an accessPackage list of resource role scopes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/accesspackage-delete-resourcerolescopes?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: AccessPackageResourceRoleScopeItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -96,7 +62,7 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRoleScope
      */
-    public get(requestConfiguration?: AccessPackageResourceRoleScopeItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageResourceRoleScope | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AccessPackageResourceRoleScopeItemRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageResourceRoleScope | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -112,7 +78,7 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRoleScope
      */
-    public patch(body: AccessPackageResourceRoleScope, requestConfiguration?: AccessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResourceRoleScope | undefined> {
+    public patch(body: AccessPackageResourceRoleScope, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackageResourceRoleScope | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -123,20 +89,14 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
         return this.requestAdapter.sendAsync<AccessPackageResourceRoleScope>(requestInfo, createAccessPackageResourceRoleScopeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Remove a accessPackageResourceRoleScope from an accessPackage list of resource role scopes. This API is available in the following national cloud deployments.
+     * Remove a accessPackageResourceRoleScope from an accessPackage list of resource role scopes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: AccessPackageResourceRoleScopeItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -144,17 +104,10 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AccessPackageResourceRoleScopeItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AccessPackageResourceRoleScopeItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, accessPackageResourceRoleScopeItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -163,17 +116,11 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AccessPackageResourceRoleScope, requestConfiguration?: AccessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AccessPackageResourceRoleScope, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResourceRoleScope);
         return requestInfo;
     };
@@ -187,5 +134,9 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
         return new AccessPackageResourceRoleScopeItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const accessPackageResourceRoleScopeItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

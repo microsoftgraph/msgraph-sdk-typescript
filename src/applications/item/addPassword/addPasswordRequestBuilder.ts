@@ -4,18 +4,30 @@
 import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { createPasswordCredentialFromDiscriminatorValue, deserializeIntoPasswordCredential, serializePasswordCredential, type PasswordCredential } from '../../../models/passwordCredential';
-import { deserializeIntoAddPasswordPostRequestBody, serializeAddPasswordPostRequestBody, type AddPasswordPostRequestBody } from './addPasswordPostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type AdditionalDataHolder, type Parsable, type ParsableFactory, type ParseNode, type RequestAdapter, type RequestConfiguration, type RequestOption, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface AddPasswordRequestBuilderPostRequestConfiguration {
+export interface AddPasswordPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
-     * Request headers
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
-    headers?: Record<string, string[]>;
+    additionalData?: Record<string, unknown>;
     /**
-     * Request options
+     * The passwordCredential property
      */
-    options?: RequestOption[];
+    passwordCredential?: PasswordCredential;
+}
+export function createAddPasswordPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoAddPasswordPostRequestBody;
+}
+export function deserializeIntoAddPasswordPostRequestBody(addPasswordPostRequestBody: AddPasswordPostRequestBody | undefined = {} as AddPasswordPostRequestBody) : Record<string, (node: ParseNode) => void> {
+    return {
+        "passwordCredential": n => { addPasswordPostRequestBody.passwordCredential = n.getObjectValue<PasswordCredential>(createPasswordCredentialFromDiscriminatorValue); },
+    }
+}
+export function serializeAddPasswordPostRequestBody(writer: SerializationWriter, addPasswordPostRequestBody: AddPasswordPostRequestBody | undefined = {} as AddPasswordPostRequestBody) : void {
+        writer.writeObjectValue<PasswordCredential>("passwordCredential", addPasswordPostRequestBody.passwordCredential, serializePasswordCredential);
+        writer.writeAdditionalData(addPasswordPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the addPassword method.
@@ -30,13 +42,13 @@ export class AddPasswordRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/addPassword");
     };
     /**
-     * Adds a strong password or secret to an application. This API is available in the following national cloud deployments.
+     * Adds a strong password or secret to an application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PasswordCredential
      * @see {@link https://learn.microsoft.com/graph/api/application-addpassword?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AddPasswordPostRequestBody, requestConfiguration?: AddPasswordRequestBuilderPostRequestConfiguration | undefined) : Promise<PasswordCredential | undefined> {
+    public post(body: AddPasswordPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PasswordCredential | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,22 +59,16 @@ export class AddPasswordRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PasswordCredential>(requestInfo, createPasswordCredentialFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Adds a strong password or secret to an application. This API is available in the following national cloud deployments.
+     * Adds a strong password or secret to an application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AddPasswordPostRequestBody, requestConfiguration?: AddPasswordRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AddPasswordPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddPasswordPostRequestBody);
         return requestInfo;
     };

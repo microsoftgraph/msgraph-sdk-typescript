@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
 import { CategoriesRequestBuilder } from './categories/categoriesRequestBuilder';
 import { ContentVersionsRequestBuilder } from './contentVersions/contentVersionsRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GraphIosLobAppRequestBuilderGetQueryParameters {
     /**
@@ -19,20 +19,6 @@ export interface GraphIosLobAppRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface GraphIosLobAppRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: GraphIosLobAppRequestBuilderGetQueryParameters;
 }
 /**
  * Casts the previous resource to iosLobApp.
@@ -69,7 +55,7 @@ export class GraphIosLobAppRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IosLobApp
      */
-    public get(requestConfiguration?: GraphIosLobAppRequestBuilderGetRequestConfiguration | undefined) : Promise<IosLobApp | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<GraphIosLobAppRequestBuilderGetQueryParameters> | undefined) : Promise<IosLobApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -84,17 +70,10 @@ export class GraphIosLobAppRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: GraphIosLobAppRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphIosLobAppRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, graphIosLobAppRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -107,5 +86,9 @@ export class GraphIosLobAppRequestBuilder extends BaseRequestBuilder {
         return new GraphIosLobAppRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const graphIosLobAppRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

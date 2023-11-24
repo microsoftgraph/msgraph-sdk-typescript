@@ -9,7 +9,7 @@ import { createUnifiedRoleAssignmentScheduleCollectionResponseFromDiscriminatorV
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { UnifiedRoleAssignmentScheduleItemRequestBuilder } from './item/unifiedRoleAssignmentScheduleItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RoleAssignmentSchedulesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface RoleAssignmentSchedulesRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface RoleAssignmentSchedulesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: RoleAssignmentSchedulesRequestBuilderGetQueryParameters;
-}
-export interface RoleAssignmentSchedulesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
@@ -108,12 +84,12 @@ export class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Get the schedules for active role assignment operations. This API is available in the following national cloud deployments.
+     * Get the schedules for active role assignment operations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleAssignmentScheduleCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-list-roleassignmentschedules?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: RoleAssignmentSchedulesRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleAssignmentScheduleCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<RoleAssignmentSchedulesRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleAssignmentScheduleCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -129,7 +105,7 @@ export class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleAssignmentSchedule
      */
-    public post(body: UnifiedRoleAssignmentSchedule, requestConfiguration?: RoleAssignmentSchedulesRequestBuilderPostRequestConfiguration | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined> {
+    public post(body: UnifiedRoleAssignmentSchedule, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -140,21 +116,14 @@ export class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UnifiedRoleAssignmentSchedule>(requestInfo, createUnifiedRoleAssignmentScheduleFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the schedules for active role assignment operations. This API is available in the following national cloud deployments.
+     * Get the schedules for active role assignment operations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: RoleAssignmentSchedulesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleAssignmentSchedulesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, roleAssignmentSchedulesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -163,17 +132,11 @@ export class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UnifiedRoleAssignmentSchedule, requestConfiguration?: RoleAssignmentSchedulesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UnifiedRoleAssignmentSchedule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnifiedRoleAssignmentSchedule);
         return requestInfo;
     };
@@ -187,5 +150,15 @@ export class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder {
         return new RoleAssignmentSchedulesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const roleAssignmentSchedulesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

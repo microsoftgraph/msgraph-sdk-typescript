@@ -108,8 +108,8 @@ export function serializeDomain(writer: SerializationWriter, domain: Domain | un
         serializeEntity(writer, domain)
         writer.writeStringValue("authenticationType", domain.authenticationType);
         writer.writeStringValue("availabilityStatus", domain.availabilityStatus);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("domainNameReferences", domain.domainNameReferences, );
-        writer.writeCollectionOfObjectValues<InternalDomainFederation>("federationConfiguration", domain.federationConfiguration, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("domainNameReferences", domain.domainNameReferences, serializeDirectoryObject);
+        writer.writeCollectionOfObjectValues<InternalDomainFederation>("federationConfiguration", domain.federationConfiguration, serializeInternalDomainFederation);
         writer.writeBooleanValue("isAdminManaged", domain.isAdminManaged);
         writer.writeBooleanValue("isDefault", domain.isDefault);
         writer.writeBooleanValue("isInitial", domain.isInitial);
@@ -119,10 +119,10 @@ export function serializeDomain(writer: SerializationWriter, domain: Domain | un
         writer.writeStringValue("model", domain.model);
         writer.writeNumberValue("passwordNotificationWindowInDays", domain.passwordNotificationWindowInDays);
         writer.writeNumberValue("passwordValidityPeriodInDays", domain.passwordValidityPeriodInDays);
-        writer.writeCollectionOfObjectValues<DomainDnsRecord>("serviceConfigurationRecords", domain.serviceConfigurationRecords, );
-        writer.writeObjectValue<DomainState>("state", domain.state, );
+        writer.writeCollectionOfObjectValues<DomainDnsRecord>("serviceConfigurationRecords", domain.serviceConfigurationRecords, serializeDomainDnsRecord);
+        writer.writeObjectValue<DomainState>("state", domain.state, serializeDomainState);
         writer.writeCollectionOfPrimitiveValues<string>("supportedServices", domain.supportedServices);
-        writer.writeCollectionOfObjectValues<DomainDnsRecord>("verificationDnsRecords", domain.verificationDnsRecords, );
+        writer.writeCollectionOfObjectValues<DomainDnsRecord>("verificationDnsRecords", domain.verificationDnsRecords, serializeDomainDnsRecord);
 }
 // tslint:enable
 // eslint-enable

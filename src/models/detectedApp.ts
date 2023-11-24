@@ -56,7 +56,7 @@ export function serializeDetectedApp(writer: SerializationWriter, detectedApp: D
         serializeEntity(writer, detectedApp)
         writer.writeNumberValue("deviceCount", detectedApp.deviceCount);
         writer.writeStringValue("displayName", detectedApp.displayName);
-        writer.writeCollectionOfObjectValues<ManagedDevice>("managedDevices", detectedApp.managedDevices, );
+        writer.writeCollectionOfObjectValues<ManagedDevice>("managedDevices", detectedApp.managedDevices, serializeManagedDevice);
         writer.writeEnumValue<DetectedAppPlatformType>("platform", detectedApp.platform);
         writer.writeStringValue("publisher", detectedApp.publisher);
         writer.writeNumberValue("sizeInByte", detectedApp.sizeInByte);

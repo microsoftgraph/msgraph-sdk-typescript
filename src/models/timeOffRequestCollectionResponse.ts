@@ -17,7 +17,7 @@ export function deserializeIntoTimeOffRequestCollectionResponse(timeOffRequestCo
 }
 export function serializeTimeOffRequestCollectionResponse(writer: SerializationWriter, timeOffRequestCollectionResponse: TimeOffRequestCollectionResponse | undefined = {} as TimeOffRequestCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, timeOffRequestCollectionResponse)
-        writer.writeCollectionOfObjectValues<TimeOffRequest>("value", timeOffRequestCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<TimeOffRequest>("value", timeOffRequestCollectionResponse.value, serializeTimeOffRequest);
 }
 export interface TimeOffRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

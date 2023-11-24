@@ -23,7 +23,7 @@ export function deserializeIntoCertificateBasedAuthConfigurationCollectionRespon
 }
 export function serializeCertificateBasedAuthConfigurationCollectionResponse(writer: SerializationWriter, certificateBasedAuthConfigurationCollectionResponse: CertificateBasedAuthConfigurationCollectionResponse | undefined = {} as CertificateBasedAuthConfigurationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, certificateBasedAuthConfigurationCollectionResponse)
-        writer.writeCollectionOfObjectValues<CertificateBasedAuthConfiguration>("value", certificateBasedAuthConfigurationCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<CertificateBasedAuthConfiguration>("value", certificateBasedAuthConfigurationCollectionResponse.value, serializeCertificateBasedAuthConfiguration);
 }
 // tslint:enable
 // eslint-enable

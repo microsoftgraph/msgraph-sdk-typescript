@@ -8,7 +8,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DelegatedPermissionClassificationItemRequestBuilder } from './item/delegatedPermissionClassificationItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DelegatedPermissionClassificationsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface DelegatedPermissionClassificationsRequestBuilderGetQueryParamet
      */
     top?: number;
 }
-export interface DelegatedPermissionClassificationsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DelegatedPermissionClassificationsRequestBuilderGetQueryParameters;
-}
-export interface DelegatedPermissionClassificationsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the delegatedPermissionClassifications property of the microsoft.graph.servicePrincipal entity.
  */
@@ -98,12 +74,12 @@ export class DelegatedPermissionClassificationsRequestBuilder extends BaseReques
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/delegatedPermissionClassifications{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the list of delegatedPermissionClassification currently configured for the delegated permissions exposed by an API. This API is available in the following national cloud deployments.
+     * Retrieve the list of delegatedPermissionClassification currently configured for the delegated permissions exposed by an API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedPermissionClassificationCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-list-delegatedpermissionclassifications?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DelegatedPermissionClassificationsRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedPermissionClassificationCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DelegatedPermissionClassificationsRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedPermissionClassificationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class DelegatedPermissionClassificationsRequestBuilder extends BaseReques
         return this.requestAdapter.sendAsync<DelegatedPermissionClassificationCollectionResponse>(requestInfo, createDelegatedPermissionClassificationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Classify a delegated permission by adding a delegatedPermissionClassification to the servicePrincipal representing the API. This API is available in the following national cloud deployments.
+     * Classify a delegated permission by adding a delegatedPermissionClassification to the servicePrincipal representing the API.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedPermissionClassification
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-post-delegatedpermissionclassifications?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DelegatedPermissionClassification, requestConfiguration?: DelegatedPermissionClassificationsRequestBuilderPostRequestConfiguration | undefined) : Promise<DelegatedPermissionClassification | undefined> {
+    public post(body: DelegatedPermissionClassification, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DelegatedPermissionClassification | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class DelegatedPermissionClassificationsRequestBuilder extends BaseReques
         return this.requestAdapter.sendAsync<DelegatedPermissionClassification>(requestInfo, createDelegatedPermissionClassificationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the list of delegatedPermissionClassification currently configured for the delegated permissions exposed by an API. This API is available in the following national cloud deployments.
+     * Retrieve the list of delegatedPermissionClassification currently configured for the delegated permissions exposed by an API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DelegatedPermissionClassificationsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DelegatedPermissionClassificationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, delegatedPermissionClassificationsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Classify a delegated permission by adding a delegatedPermissionClassification to the servicePrincipal representing the API. This API is available in the following national cloud deployments.
+     * Classify a delegated permission by adding a delegatedPermissionClassification to the servicePrincipal representing the API.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DelegatedPermissionClassification, requestConfiguration?: DelegatedPermissionClassificationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DelegatedPermissionClassification, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDelegatedPermissionClassification);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class DelegatedPermissionClassificationsRequestBuilder extends BaseReques
         return new DelegatedPermissionClassificationsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const delegatedPermissionClassificationsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

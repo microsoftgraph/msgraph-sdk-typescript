@@ -8,7 +8,7 @@ import { createPermissionGrantConditionSetFromDiscriminatorValue, deserializeInt
 import { createPermissionGrantConditionSetCollectionResponseFromDiscriminatorValue } from '../../../../models/permissionGrantConditionSetCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PermissionGrantConditionSetItemRequestBuilder } from './item/permissionGrantConditionSetItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IncludesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface IncludesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface IncludesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: IncludesRequestBuilderGetQueryParameters;
-}
-export interface IncludesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the includes property of the microsoft.graph.permissionGrantPolicy entity.
  */
@@ -98,12 +74,12 @@ export class IncludesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}/includes{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the condition sets which are *included* in a permissionGrantPolicy. This API is available in the following national cloud deployments.
+     * Retrieve the condition sets which are *included* in a permissionGrantPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PermissionGrantConditionSetCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-list-includes?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: IncludesRequestBuilderGetRequestConfiguration | undefined) : Promise<PermissionGrantConditionSetCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<IncludesRequestBuilderGetQueryParameters> | undefined) : Promise<PermissionGrantConditionSetCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class IncludesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PermissionGrantConditionSetCollectionResponse>(requestInfo, createPermissionGrantConditionSetCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Add conditions under which a permission grant event is *included* in a permission grant policy. You do this by adding a permissionGrantConditionSet to the includes collection of a  permissionGrantPolicy. This API is available in the following national cloud deployments.
+     * Add conditions under which a permission grant event is *included* in a permission grant policy. You do this by adding a permissionGrantConditionSet to the includes collection of a  permissionGrantPolicy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PermissionGrantConditionSet
      * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-post-includes?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: PermissionGrantConditionSet, requestConfiguration?: IncludesRequestBuilderPostRequestConfiguration | undefined) : Promise<PermissionGrantConditionSet | undefined> {
+    public post(body: PermissionGrantConditionSet, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PermissionGrantConditionSet | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class IncludesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PermissionGrantConditionSet>(requestInfo, createPermissionGrantConditionSetFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the condition sets which are *included* in a permissionGrantPolicy. This API is available in the following national cloud deployments.
+     * Retrieve the condition sets which are *included* in a permissionGrantPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: IncludesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<IncludesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, includesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Add conditions under which a permission grant event is *included* in a permission grant policy. You do this by adding a permissionGrantConditionSet to the includes collection of a  permissionGrantPolicy. This API is available in the following national cloud deployments.
+     * Add conditions under which a permission grant event is *included* in a permission grant policy. You do this by adding a permissionGrantConditionSet to the includes collection of a  permissionGrantPolicy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PermissionGrantConditionSet, requestConfiguration?: IncludesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PermissionGrantConditionSet, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePermissionGrantConditionSet);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class IncludesRequestBuilder extends BaseRequestBuilder {
         return new IncludesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const includesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

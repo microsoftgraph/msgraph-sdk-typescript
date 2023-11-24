@@ -43,7 +43,7 @@ export function serializeChatMessageHistoryItem(writer: SerializationWriter, cha
         writer.writeEnumValue<ChatMessageActions[]>("actions", chatMessageHistoryItem.actions);
         writer.writeDateValue("modifiedDateTime", chatMessageHistoryItem.modifiedDateTime);
         writer.writeStringValue("@odata.type", chatMessageHistoryItem.odataType);
-        writer.writeObjectValue<ChatMessageReaction>("reaction", chatMessageHistoryItem.reaction, );
+        writer.writeObjectValue<ChatMessageReaction>("reaction", chatMessageHistoryItem.reaction, serializeChatMessageReaction);
         writer.writeAdditionalData(chatMessageHistoryItem.additionalData);
 }
 // tslint:enable

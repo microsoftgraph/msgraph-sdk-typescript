@@ -23,7 +23,7 @@ export interface DeviceCategoryCollectionResponse extends BaseCollectionPaginati
 }
 export function serializeDeviceCategoryCollectionResponse(writer: SerializationWriter, deviceCategoryCollectionResponse: DeviceCategoryCollectionResponse | undefined = {} as DeviceCategoryCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, deviceCategoryCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceCategory>("value", deviceCategoryCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DeviceCategory>("value", deviceCategoryCollectionResponse.value, serializeDeviceCategory);
 }
 // tslint:enable
 // eslint-enable

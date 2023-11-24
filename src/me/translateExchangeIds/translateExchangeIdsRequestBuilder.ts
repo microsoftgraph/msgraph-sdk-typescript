@@ -5,18 +5,8 @@ import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { deserializeIntoTranslateExchangeIdsPostRequestBody, serializeTranslateExchangeIdsPostRequestBody, type TranslateExchangeIdsPostRequestBody } from './translateExchangeIdsPostRequestBody';
 import { createTranslateExchangeIdsPostResponseFromDiscriminatorValue, deserializeIntoTranslateExchangeIdsPostResponse, serializeTranslateExchangeIdsPostResponse, type TranslateExchangeIdsPostResponse } from './translateExchangeIdsPostResponse';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface TranslateExchangeIdsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the translateExchangeIds method.
  */
@@ -30,13 +20,13 @@ export class TranslateExchangeIdsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/translateExchangeIds");
     };
     /**
-     * Translate identifiers of Outlook-related resources between formats. This API is available in the following national cloud deployments.
+     * Translate identifiers of Outlook-related resources between formats.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TranslateExchangeIdsPostResponse
      * @see {@link https://learn.microsoft.com/graph/api/user-translateexchangeids?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: TranslateExchangeIdsPostRequestBody, requestConfiguration?: TranslateExchangeIdsRequestBuilderPostRequestConfiguration | undefined) : Promise<TranslateExchangeIdsPostResponse | undefined> {
+    public post(body: TranslateExchangeIdsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TranslateExchangeIdsPostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,22 +37,16 @@ export class TranslateExchangeIdsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TranslateExchangeIdsPostResponse>(requestInfo, createTranslateExchangeIdsPostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Translate identifiers of Outlook-related resources between formats. This API is available in the following national cloud deployments.
+     * Translate identifiers of Outlook-related resources between formats.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: TranslateExchangeIdsPostRequestBody, requestConfiguration?: TranslateExchangeIdsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: TranslateExchangeIdsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTranslateExchangeIdsPostRequestBody);
         return requestInfo;
     };

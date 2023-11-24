@@ -49,7 +49,7 @@ export interface FeatureRolloutPolicy extends Entity, Parsable {
 }
 export function serializeFeatureRolloutPolicy(writer: SerializationWriter, featureRolloutPolicy: FeatureRolloutPolicy | undefined = {} as FeatureRolloutPolicy) : void {
         serializeEntity(writer, featureRolloutPolicy)
-        writer.writeCollectionOfObjectValues<DirectoryObject>("appliesTo", featureRolloutPolicy.appliesTo, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("appliesTo", featureRolloutPolicy.appliesTo, serializeDirectoryObject);
         writer.writeStringValue("description", featureRolloutPolicy.description);
         writer.writeStringValue("displayName", featureRolloutPolicy.displayName);
         writer.writeEnumValue<StagedFeatureName>("feature", featureRolloutPolicy.feature);

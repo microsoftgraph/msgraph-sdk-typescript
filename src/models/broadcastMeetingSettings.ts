@@ -56,7 +56,7 @@ export function deserializeIntoBroadcastMeetingSettings(broadcastMeetingSettings
 }
 export function serializeBroadcastMeetingSettings(writer: SerializationWriter, broadcastMeetingSettings: BroadcastMeetingSettings | undefined = {} as BroadcastMeetingSettings) : void {
         writer.writeEnumValue<BroadcastMeetingAudience>("allowedAudience", broadcastMeetingSettings.allowedAudience);
-        writer.writeObjectValue<BroadcastMeetingCaptionSettings>("captions", broadcastMeetingSettings.captions, );
+        writer.writeObjectValue<BroadcastMeetingCaptionSettings>("captions", broadcastMeetingSettings.captions, serializeBroadcastMeetingCaptionSettings);
         writer.writeBooleanValue("isAttendeeReportEnabled", broadcastMeetingSettings.isAttendeeReportEnabled);
         writer.writeBooleanValue("isQuestionAndAnswerEnabled", broadcastMeetingSettings.isQuestionAndAnswerEnabled);
         writer.writeBooleanValue("isRecordingEnabled", broadcastMeetingSettings.isRecordingEnabled);

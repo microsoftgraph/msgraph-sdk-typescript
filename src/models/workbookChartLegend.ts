@@ -20,7 +20,7 @@ export function deserializeIntoWorkbookChartLegend(workbookChartLegend: Workbook
 }
 export function serializeWorkbookChartLegend(writer: SerializationWriter, workbookChartLegend: WorkbookChartLegend | undefined = {} as WorkbookChartLegend) : void {
         serializeEntity(writer, workbookChartLegend)
-        writer.writeObjectValue<WorkbookChartLegendFormat>("format", workbookChartLegend.format, );
+        writer.writeObjectValue<WorkbookChartLegendFormat>("format", workbookChartLegend.format, serializeWorkbookChartLegendFormat);
         writer.writeBooleanValue("overlay", workbookChartLegend.overlay);
         writer.writeStringValue("position", workbookChartLegend.position);
         writer.writeBooleanValue("visible", workbookChartLegend.visible);

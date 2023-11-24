@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { TaskRequestBuilder } from './task/taskRequestBuilder';
 import { TaskDefinitionRequestBuilder } from './taskDefinition/taskDefinitionRequestBuilder';
 import { TaskProcessingResultsRequestBuilder } from './taskProcessingResults/taskProcessingResultsRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TaskReportItemRequestBuilderGetQueryParameters {
     /**
@@ -19,20 +19,6 @@ export interface TaskReportItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface TaskReportItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TaskReportItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
@@ -69,7 +55,7 @@ export class TaskReportItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TaskReport
      */
-    public get(requestConfiguration?: TaskReportItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TaskReport | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TaskReportItemRequestBuilderGetQueryParameters> | undefined) : Promise<TaskReport | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -84,17 +70,10 @@ export class TaskReportItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TaskReportItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskReportItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, taskReportItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -107,5 +86,9 @@ export class TaskReportItemRequestBuilder extends BaseRequestBuilder {
         return new TaskReportItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const taskReportItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

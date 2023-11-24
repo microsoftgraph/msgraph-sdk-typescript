@@ -23,7 +23,7 @@ export function deserializeIntoCalendarCollectionResponse(calendarCollectionResp
 }
 export function serializeCalendarCollectionResponse(writer: SerializationWriter, calendarCollectionResponse: CalendarCollectionResponse | undefined = {} as CalendarCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, calendarCollectionResponse)
-        writer.writeCollectionOfObjectValues<Calendar>("value", calendarCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Calendar>("value", calendarCollectionResponse.value, serializeCalendar);
 }
 // tslint:enable
 // eslint-enable

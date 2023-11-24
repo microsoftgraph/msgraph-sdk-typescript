@@ -4,18 +4,8 @@
 import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { createPrintConnectorFromDiscriminatorValue, deserializeIntoPrintConnector, serializePrintConnector, type PrintConnector } from '../../../models/printConnector';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface PrintConnectorItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface PrintConnectorItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -25,30 +15,6 @@ export interface PrintConnectorItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface PrintConnectorItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PrintConnectorItemRequestBuilderGetQueryParameters;
-}
-export interface PrintConnectorItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the connectors property of the microsoft.graph.print entity.
@@ -63,11 +29,11 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/connectors/{printConnector%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete (unregister) a printConnector. This API is available in the following national cloud deployments.
+     * Delete (unregister) a printConnector.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/printconnector-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: PrintConnectorItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -78,12 +44,12 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a printConnector object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a printConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintConnector
      * @see {@link https://learn.microsoft.com/graph/api/printconnector-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PrintConnectorItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintConnector | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PrintConnectorItemRequestBuilderGetQueryParameters> | undefined) : Promise<PrintConnector | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -94,13 +60,13 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PrintConnector>(requestInfo, createPrintConnectorFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a printConnector object. This API is available in the following national cloud deployments.
+     * Update the properties of a printConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintConnector
      * @see {@link https://learn.microsoft.com/graph/api/printconnector-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: PrintConnector, requestConfiguration?: PrintConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintConnector | undefined> {
+    public patch(body: PrintConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintConnector | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,57 +77,38 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PrintConnector>(requestInfo, createPrintConnectorFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete (unregister) a printConnector. This API is available in the following national cloud deployments.
+     * Delete (unregister) a printConnector.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: PrintConnectorItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a printConnector object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a printConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PrintConnectorItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PrintConnectorItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, printConnectorItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the properties of a printConnector object. This API is available in the following national cloud deployments.
+     * Update the properties of a printConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PrintConnector, requestConfiguration?: PrintConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PrintConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrintConnector);
         return requestInfo;
     };
@@ -175,5 +122,9 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         return new PrintConnectorItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const printConnectorItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

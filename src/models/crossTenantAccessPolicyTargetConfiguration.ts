@@ -37,7 +37,7 @@ export function deserializeIntoCrossTenantAccessPolicyTargetConfiguration(crossT
 export function serializeCrossTenantAccessPolicyTargetConfiguration(writer: SerializationWriter, crossTenantAccessPolicyTargetConfiguration: CrossTenantAccessPolicyTargetConfiguration | undefined = {} as CrossTenantAccessPolicyTargetConfiguration) : void {
         writer.writeEnumValue<CrossTenantAccessPolicyTargetConfigurationAccessType>("accessType", crossTenantAccessPolicyTargetConfiguration.accessType);
         writer.writeStringValue("@odata.type", crossTenantAccessPolicyTargetConfiguration.odataType);
-        writer.writeCollectionOfObjectValues<CrossTenantAccessPolicyTarget>("targets", crossTenantAccessPolicyTargetConfiguration.targets, );
+        writer.writeCollectionOfObjectValues<CrossTenantAccessPolicyTarget>("targets", crossTenantAccessPolicyTargetConfiguration.targets, serializeCrossTenantAccessPolicyTarget);
         writer.writeAdditionalData(crossTenantAccessPolicyTargetConfiguration.additionalData);
 }
 // tslint:enable

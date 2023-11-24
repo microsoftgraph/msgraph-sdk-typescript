@@ -23,7 +23,7 @@ export interface PassiveDnsRecordCollectionResponse extends BaseCollectionPagina
 }
 export function serializePassiveDnsRecordCollectionResponse(writer: SerializationWriter, passiveDnsRecordCollectionResponse: PassiveDnsRecordCollectionResponse | undefined = {} as PassiveDnsRecordCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, passiveDnsRecordCollectionResponse)
-        writer.writeCollectionOfObjectValues<PassiveDnsRecord>("value", passiveDnsRecordCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<PassiveDnsRecord>("value", passiveDnsRecordCollectionResponse.value, serializePassiveDnsRecord);
 }
 // tslint:enable
 // eslint-enable

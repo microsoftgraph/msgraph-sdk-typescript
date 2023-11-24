@@ -8,7 +8,7 @@ import { createUserExperienceAnalyticsDeviceStartupHistoryFromDiscriminatorValue
 import { createUserExperienceAnalyticsDeviceStartupHistoryCollectionResponseFromDiscriminatorValue } from '../../models/userExperienceAnalyticsDeviceStartupHistoryCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder } from './item/userExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetQue
      */
     top?: number;
 }
-export interface UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetQueryParameters;
-}
-export interface UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the userExperienceAnalyticsDeviceStartupHistory property of the microsoft.graph.deviceManagement entity.
  */
@@ -102,7 +78,7 @@ export class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends B
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse
      */
-    public get(requestConfiguration?: UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetQueryParameters> | undefined) : Promise<UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -118,7 +94,7 @@ export class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends B
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsDeviceStartupHistory
      */
-    public post(body: UserExperienceAnalyticsDeviceStartupHistory, requestConfiguration?: UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsDeviceStartupHistory | undefined> {
+    public post(body: UserExperienceAnalyticsDeviceStartupHistory, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserExperienceAnalyticsDeviceStartupHistory | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -133,17 +109,10 @@ export class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends B
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, userExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -152,17 +121,11 @@ export class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends B
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserExperienceAnalyticsDeviceStartupHistory, requestConfiguration?: UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserExperienceAnalyticsDeviceStartupHistory, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsDeviceStartupHistory);
         return requestInfo;
     };
@@ -176,5 +139,15 @@ export class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends B
         return new UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const userExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

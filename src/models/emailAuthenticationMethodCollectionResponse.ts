@@ -23,7 +23,7 @@ export interface EmailAuthenticationMethodCollectionResponse extends BaseCollect
 }
 export function serializeEmailAuthenticationMethodCollectionResponse(writer: SerializationWriter, emailAuthenticationMethodCollectionResponse: EmailAuthenticationMethodCollectionResponse | undefined = {} as EmailAuthenticationMethodCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, emailAuthenticationMethodCollectionResponse)
-        writer.writeCollectionOfObjectValues<EmailAuthenticationMethod>("value", emailAuthenticationMethodCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<EmailAuthenticationMethod>("value", emailAuthenticationMethodCollectionResponse.value, serializeEmailAuthenticationMethod);
 }
 // tslint:enable
 // eslint-enable

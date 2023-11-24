@@ -7,7 +7,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { createUserFromDiscriminatorValue } from '../../../models/user';
 import { MailboxSettingsRequestBuilder } from './mailboxSettings/mailboxSettingsRequestBuilder';
 import { ServiceProvisioningErrorsRequestBuilder } from './serviceProvisioningErrors/serviceProvisioningErrorsRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserRequestBuilderGetQueryParameters {
     /**
@@ -18,20 +18,6 @@ export interface UserRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface UserRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: UserRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the user property of the microsoft.graph.educationUser entity.
@@ -58,12 +44,12 @@ export class UserRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/me/user{?%24select,%24expand}");
     };
     /**
-     * Retrieve the simple directory user that corresponds to this educationUser. This API is available in the following national cloud deployments.
+     * Retrieve the simple directory user that corresponds to this educationUser.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of User
      * @see {@link https://learn.microsoft.com/graph/api/educationuser-get-user?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: UserRequestBuilderGetRequestConfiguration | undefined) : Promise<User | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<UserRequestBuilderGetQueryParameters> | undefined) : Promise<User | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -74,21 +60,14 @@ export class UserRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the simple directory user that corresponds to this educationUser. This API is available in the following national cloud deployments.
+     * Retrieve the simple directory user that corresponds to this educationUser.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: UserRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, userRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -101,5 +80,9 @@ export class UserRequestBuilder extends BaseRequestBuilder {
         return new UserRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const userRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

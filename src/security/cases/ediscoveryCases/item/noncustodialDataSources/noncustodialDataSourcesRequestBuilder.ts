@@ -10,7 +10,7 @@ import { CountRequestBuilder } from './count/countRequestBuilder';
 import { EdiscoveryNoncustodialDataSourceItemRequestBuilder } from './item/ediscoveryNoncustodialDataSourceItemRequestBuilder';
 import { MicrosoftGraphSecurityApplyHoldRequestBuilder } from './microsoftGraphSecurityApplyHold/microsoftGraphSecurityApplyHoldRequestBuilder';
 import { MicrosoftGraphSecurityRemoveHoldRequestBuilder } from './microsoftGraphSecurityRemoveHold/microsoftGraphSecurityRemoveHoldRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface NoncustodialDataSourcesRequestBuilderGetQueryParameters {
     /**
@@ -45,30 +45,6 @@ export interface NoncustodialDataSourcesRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface NoncustodialDataSourcesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: NoncustodialDataSourcesRequestBuilderGetQueryParameters;
-}
-export interface NoncustodialDataSourcesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.
@@ -116,7 +92,7 @@ export class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryNoncustodialDataSourceCollectionResponse
      */
-    public get(requestConfiguration?: NoncustodialDataSourcesRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryNoncustodialDataSourceCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<NoncustodialDataSourcesRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryNoncustodialDataSourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -127,13 +103,13 @@ export class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EdiscoveryNoncustodialDataSourceCollectionResponse>(requestInfo, createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new ediscoveryNoncustodialDataSource object. This API is available in the following national cloud deployments.
+     * Create a new ediscoveryNoncustodialDataSource object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryNoncustodialDataSource
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-noncustodialdatasources?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: EdiscoveryNoncustodialDataSource, requestConfiguration?: NoncustodialDataSourcesRequestBuilderPostRequestConfiguration | undefined) : Promise<EdiscoveryNoncustodialDataSource | undefined> {
+    public post(body: EdiscoveryNoncustodialDataSource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoveryNoncustodialDataSource | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -148,36 +124,23 @@ export class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: NoncustodialDataSourcesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<NoncustodialDataSourcesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, noncustodialDataSourcesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create a new ediscoveryNoncustodialDataSource object. This API is available in the following national cloud deployments.
+     * Create a new ediscoveryNoncustodialDataSource object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: EdiscoveryNoncustodialDataSource, requestConfiguration?: NoncustodialDataSourcesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: EdiscoveryNoncustodialDataSource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEdiscoveryNoncustodialDataSource);
         return requestInfo;
     };
@@ -191,5 +154,15 @@ export class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder {
         return new NoncustodialDataSourcesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const noncustodialDataSourcesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

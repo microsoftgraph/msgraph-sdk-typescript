@@ -23,7 +23,7 @@ export function serializeUserExperienceAnalyticsInsight(writer: SerializationWri
         writer.writeStringValue("@odata.type", userExperienceAnalyticsInsight.odataType);
         writer.writeEnumValue<UserExperienceAnalyticsInsightSeverity>("severity", userExperienceAnalyticsInsight.severity);
         writer.writeStringValue("userExperienceAnalyticsMetricId", userExperienceAnalyticsInsight.userExperienceAnalyticsMetricId);
-        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsInsightValue>("values", userExperienceAnalyticsInsight.values, );
+        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsInsightValue>("values", userExperienceAnalyticsInsight.values, serializeUserExperienceAnalyticsInsightValue);
         writer.writeAdditionalData(userExperienceAnalyticsInsight.additionalData);
 }
 export interface UserExperienceAnalyticsInsight extends AdditionalDataHolder, Parsable {

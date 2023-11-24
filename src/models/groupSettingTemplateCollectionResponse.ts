@@ -23,7 +23,7 @@ export interface GroupSettingTemplateCollectionResponse extends BaseCollectionPa
 }
 export function serializeGroupSettingTemplateCollectionResponse(writer: SerializationWriter, groupSettingTemplateCollectionResponse: GroupSettingTemplateCollectionResponse | undefined = {} as GroupSettingTemplateCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, groupSettingTemplateCollectionResponse)
-        writer.writeCollectionOfObjectValues<GroupSettingTemplate>("value", groupSettingTemplateCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<GroupSettingTemplate>("value", groupSettingTemplateCollectionResponse.value, serializeGroupSettingTemplate);
 }
 // tslint:enable
 // eslint-enable

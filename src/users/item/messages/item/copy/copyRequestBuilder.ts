@@ -4,18 +4,30 @@
 import { createMessageFromDiscriminatorValue, deserializeIntoMessage, serializeMessage, type Message } from '../../../../../models/message';
 import { type ODataError } from '../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
-import { deserializeIntoCopyPostRequestBody, serializeCopyPostRequestBody, type CopyPostRequestBody } from './copyPostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type AdditionalDataHolder, type Parsable, type ParsableFactory, type ParseNode, type RequestAdapter, type RequestConfiguration, type RequestOption, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface CopyRequestBuilderPostRequestConfiguration {
+export interface CopyPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
-     * Request headers
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
-    headers?: Record<string, string[]>;
+    additionalData?: Record<string, unknown>;
     /**
-     * Request options
+     * The DestinationId property
      */
-    options?: RequestOption[];
+    destinationId?: string;
+}
+export function createCopyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoCopyPostRequestBody;
+}
+export function deserializeIntoCopyPostRequestBody(copyPostRequestBody: CopyPostRequestBody | undefined = {} as CopyPostRequestBody) : Record<string, (node: ParseNode) => void> {
+    return {
+        "destinationId": n => { copyPostRequestBody.destinationId = n.getStringValue(); },
+    }
+}
+export function serializeCopyPostRequestBody(writer: SerializationWriter, copyPostRequestBody: CopyPostRequestBody | undefined = {} as CopyPostRequestBody) : void {
+        writer.writeStringValue("DestinationId", copyPostRequestBody.destinationId);
+        writer.writeAdditionalData(copyPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the copy method.
@@ -30,13 +42,13 @@ export class CopyRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/messages/{message%2Did}/copy");
     };
     /**
-     * Copy a message to a folder within the user's mailbox. This API is available in the following national cloud deployments.
+     * Copy a message to a folder within the user's mailbox.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Message
      * @see {@link https://learn.microsoft.com/graph/api/message-copy?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CopyPostRequestBody, requestConfiguration?: CopyRequestBuilderPostRequestConfiguration | undefined) : Promise<Message | undefined> {
+    public post(body: CopyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Message | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,22 +59,16 @@ export class CopyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Copy a message to a folder within the user's mailbox. This API is available in the following national cloud deployments.
+     * Copy a message to a folder within the user's mailbox.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CopyPostRequestBody, requestConfiguration?: CopyRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CopyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCopyPostRequestBody);
         return requestInfo;
     };

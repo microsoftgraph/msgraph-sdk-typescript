@@ -5,18 +5,8 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { deserializeIntoGetStaffAvailabilityPostRequestBody, serializeGetStaffAvailabilityPostRequestBody, type GetStaffAvailabilityPostRequestBody } from './getStaffAvailabilityPostRequestBody';
 import { createGetStaffAvailabilityPostResponseFromDiscriminatorValue, deserializeIntoGetStaffAvailabilityPostResponse, serializeGetStaffAvailabilityPostResponse, type GetStaffAvailabilityPostResponse } from './getStaffAvailabilityPostResponse';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface GetStaffAvailabilityRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the getStaffAvailability method.
  */
@@ -30,13 +20,13 @@ export class GetStaffAvailabilityRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/getStaffAvailability");
     };
     /**
-     * Get the availability information of staff members of a Microsoft Bookings calendar. This API is available in the following national cloud deployments.
+     * Get the availability information of staff members of a Microsoft Bookings calendar.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetStaffAvailabilityPostResponse
      * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-getstaffavailability?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetStaffAvailabilityPostRequestBody, requestConfiguration?: GetStaffAvailabilityRequestBuilderPostRequestConfiguration | undefined) : Promise<GetStaffAvailabilityPostResponse | undefined> {
+    public post(body: GetStaffAvailabilityPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetStaffAvailabilityPostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,22 +37,16 @@ export class GetStaffAvailabilityRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<GetStaffAvailabilityPostResponse>(requestInfo, createGetStaffAvailabilityPostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the availability information of staff members of a Microsoft Bookings calendar. This API is available in the following national cloud deployments.
+     * Get the availability information of staff members of a Microsoft Bookings calendar.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetStaffAvailabilityPostRequestBody, requestConfiguration?: GetStaffAvailabilityRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetStaffAvailabilityPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetStaffAvailabilityPostRequestBody);
         return requestInfo;
     };

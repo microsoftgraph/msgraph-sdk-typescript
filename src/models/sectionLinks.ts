@@ -35,8 +35,8 @@ export interface SectionLinks extends AdditionalDataHolder, Parsable {
 }
 export function serializeSectionLinks(writer: SerializationWriter, sectionLinks: SectionLinks | undefined = {} as SectionLinks) : void {
         writer.writeStringValue("@odata.type", sectionLinks.odataType);
-        writer.writeObjectValue<ExternalLink>("oneNoteClientUrl", sectionLinks.oneNoteClientUrl, );
-        writer.writeObjectValue<ExternalLink>("oneNoteWebUrl", sectionLinks.oneNoteWebUrl, );
+        writer.writeObjectValue<ExternalLink>("oneNoteClientUrl", sectionLinks.oneNoteClientUrl, serializeExternalLink);
+        writer.writeObjectValue<ExternalLink>("oneNoteWebUrl", sectionLinks.oneNoteWebUrl, serializeExternalLink);
         writer.writeAdditionalData(sectionLinks.additionalData);
 }
 // tslint:enable

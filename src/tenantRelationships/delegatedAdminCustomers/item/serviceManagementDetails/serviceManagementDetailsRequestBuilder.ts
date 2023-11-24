@@ -8,7 +8,7 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DelegatedAdminServiceManagementDetailItemRequestBuilder } from './item/delegatedAdminServiceManagementDetailItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ServiceManagementDetailsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface ServiceManagementDetailsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface ServiceManagementDetailsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ServiceManagementDetailsRequestBuilderGetQueryParameters;
-}
-export interface ServiceManagementDetailsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
  */
@@ -98,12 +74,12 @@ export class ServiceManagementDetailsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}/serviceManagementDetails{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the delegatedAdminServiceManagementDetail objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminServiceManagementDetailCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/delegatedadmincustomer-list-servicemanagementdetails?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ServiceManagementDetailsRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedAdminServiceManagementDetailCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ServiceManagementDetailsRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedAdminServiceManagementDetailCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class ServiceManagementDetailsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminServiceManagementDetail
      */
-    public post(body: DelegatedAdminServiceManagementDetail, requestConfiguration?: ServiceManagementDetailsRequestBuilderPostRequestConfiguration | undefined) : Promise<DelegatedAdminServiceManagementDetail | undefined> {
+    public post(body: DelegatedAdminServiceManagementDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DelegatedAdminServiceManagementDetail | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -130,21 +106,14 @@ export class ServiceManagementDetailsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DelegatedAdminServiceManagementDetail>(requestInfo, createDelegatedAdminServiceManagementDetailFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the delegatedAdminServiceManagementDetail objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ServiceManagementDetailsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ServiceManagementDetailsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, serviceManagementDetailsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class ServiceManagementDetailsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DelegatedAdminServiceManagementDetail, requestConfiguration?: ServiceManagementDetailsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DelegatedAdminServiceManagementDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDelegatedAdminServiceManagementDetail);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class ServiceManagementDetailsRequestBuilder extends BaseRequestBuilder {
         return new ServiceManagementDetailsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const serviceManagementDetailsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

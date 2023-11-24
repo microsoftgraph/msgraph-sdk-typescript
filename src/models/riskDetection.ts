@@ -127,7 +127,7 @@ export function serializeRiskDetection(writer: SerializationWriter, riskDetectio
         writer.writeEnumValue<RiskDetectionTimingType>("detectionTimingType", riskDetection.detectionTimingType);
         writer.writeStringValue("ipAddress", riskDetection.ipAddress);
         writer.writeDateValue("lastUpdatedDateTime", riskDetection.lastUpdatedDateTime);
-        writer.writeObjectValue<SignInLocation>("location", riskDetection.location, );
+        writer.writeObjectValue<SignInLocation>("location", riskDetection.location, serializeSignInLocation);
         writer.writeStringValue("requestId", riskDetection.requestId);
         writer.writeEnumValue<RiskDetail>("riskDetail", riskDetection.riskDetail);
         writer.writeStringValue("riskEventType", riskDetection.riskEventType);

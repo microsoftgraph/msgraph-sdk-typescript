@@ -46,10 +46,10 @@ export interface DisplayTemplate extends AdditionalDataHolder, Parsable {
 }
 export function serializeDisplayTemplate(writer: SerializationWriter, displayTemplate: DisplayTemplate | undefined = {} as DisplayTemplate) : void {
         writer.writeStringValue("id", displayTemplate.id);
-        writer.writeObjectValue<Json>("layout", displayTemplate.layout, );
+        writer.writeObjectValue<Json>("layout", displayTemplate.layout, serializeJson);
         writer.writeStringValue("@odata.type", displayTemplate.odataType);
         writer.writeNumberValue("priority", displayTemplate.priority);
-        writer.writeCollectionOfObjectValues<PropertyRule>("rules", displayTemplate.rules, );
+        writer.writeCollectionOfObjectValues<PropertyRule>("rules", displayTemplate.rules, serializePropertyRule);
         writer.writeAdditionalData(displayTemplate.additionalData);
 }
 // tslint:enable

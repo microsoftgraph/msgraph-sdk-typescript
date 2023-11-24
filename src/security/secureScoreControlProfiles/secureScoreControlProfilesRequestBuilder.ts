@@ -8,7 +8,7 @@ import { createSecureScoreControlProfileFromDiscriminatorValue, deserializeIntoS
 import { createSecureScoreControlProfileCollectionResponseFromDiscriminatorValue } from '../../models/secureScoreControlProfileCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SecureScoreControlProfileItemRequestBuilder } from './item/secureScoreControlProfileItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SecureScoreControlProfilesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface SecureScoreControlProfilesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface SecureScoreControlProfilesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SecureScoreControlProfilesRequestBuilderGetQueryParameters;
-}
-export interface SecureScoreControlProfilesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
  */
@@ -98,12 +74,12 @@ export class SecureScoreControlProfilesRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/security/secureScoreControlProfiles{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the properties and relationships of a secureScoreControlProfiles object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a secureScoreControlProfiles object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SecureScoreControlProfileCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-list-securescorecontrolprofiles?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SecureScoreControlProfilesRequestBuilderGetRequestConfiguration | undefined) : Promise<SecureScoreControlProfileCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SecureScoreControlProfilesRequestBuilderGetQueryParameters> | undefined) : Promise<SecureScoreControlProfileCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class SecureScoreControlProfilesRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SecureScoreControlProfile
      */
-    public post(body: SecureScoreControlProfile, requestConfiguration?: SecureScoreControlProfilesRequestBuilderPostRequestConfiguration | undefined) : Promise<SecureScoreControlProfile | undefined> {
+    public post(body: SecureScoreControlProfile, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SecureScoreControlProfile | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -130,21 +106,14 @@ export class SecureScoreControlProfilesRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<SecureScoreControlProfile>(requestInfo, createSecureScoreControlProfileFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a secureScoreControlProfiles object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a secureScoreControlProfiles object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SecureScoreControlProfilesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SecureScoreControlProfilesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, secureScoreControlProfilesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class SecureScoreControlProfilesRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SecureScoreControlProfile, requestConfiguration?: SecureScoreControlProfilesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SecureScoreControlProfile, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSecureScoreControlProfile);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class SecureScoreControlProfilesRequestBuilder extends BaseRequestBuilder
         return new SecureScoreControlProfilesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const secureScoreControlProfilesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

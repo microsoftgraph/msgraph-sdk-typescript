@@ -68,11 +68,11 @@ export function serializeAccessReviewStageSettings(writer: SerializationWriter, 
         writer.writeCollectionOfPrimitiveValues<string>("decisionsThatWillMoveToNextStage", accessReviewStageSettings.decisionsThatWillMoveToNextStage);
         writer.writeCollectionOfPrimitiveValues<string>("dependsOn", accessReviewStageSettings.dependsOn);
         writer.writeNumberValue("durationInDays", accessReviewStageSettings.durationInDays);
-        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("fallbackReviewers", accessReviewStageSettings.fallbackReviewers, );
+        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("fallbackReviewers", accessReviewStageSettings.fallbackReviewers, serializeAccessReviewReviewerScope);
         writer.writeStringValue("@odata.type", accessReviewStageSettings.odataType);
-        writer.writeCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>("recommendationInsightSettings", accessReviewStageSettings.recommendationInsightSettings, );
+        writer.writeCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>("recommendationInsightSettings", accessReviewStageSettings.recommendationInsightSettings, serializeAccessReviewRecommendationInsightSetting);
         writer.writeBooleanValue("recommendationsEnabled", accessReviewStageSettings.recommendationsEnabled);
-        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("reviewers", accessReviewStageSettings.reviewers, );
+        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("reviewers", accessReviewStageSettings.reviewers, serializeAccessReviewReviewerScope);
         writer.writeStringValue("stageId", accessReviewStageSettings.stageId);
         writer.writeAdditionalData(accessReviewStageSettings.additionalData);
 }

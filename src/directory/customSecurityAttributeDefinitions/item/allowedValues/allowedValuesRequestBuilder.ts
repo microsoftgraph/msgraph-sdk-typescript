@@ -8,7 +8,7 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AllowedValueItemRequestBuilder } from './item/allowedValueItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AllowedValuesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface AllowedValuesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface AllowedValuesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AllowedValuesRequestBuilderGetQueryParameters;
-}
-export interface AllowedValuesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
  */
@@ -98,12 +74,12 @@ export class AllowedValuesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/directory/customSecurityAttributeDefinitions/{customSecurityAttributeDefinition%2Did}/allowedValues{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the allowedValue objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the allowedValue objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AllowedValueCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/customsecurityattributedefinition-list-allowedvalues?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AllowedValuesRequestBuilderGetRequestConfiguration | undefined) : Promise<AllowedValueCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AllowedValuesRequestBuilderGetQueryParameters> | undefined) : Promise<AllowedValueCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class AllowedValuesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AllowedValueCollectionResponse>(requestInfo, createAllowedValueCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new allowedValue object. This API is available in the following national cloud deployments.
+     * Create a new allowedValue object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AllowedValue
      * @see {@link https://learn.microsoft.com/graph/api/customsecurityattributedefinition-post-allowedvalues?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AllowedValue, requestConfiguration?: AllowedValuesRequestBuilderPostRequestConfiguration | undefined) : Promise<AllowedValue | undefined> {
+    public post(body: AllowedValue, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AllowedValue | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class AllowedValuesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AllowedValue>(requestInfo, createAllowedValueFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the allowedValue objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the allowedValue objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AllowedValuesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AllowedValuesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, allowedValuesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create a new allowedValue object. This API is available in the following national cloud deployments.
+     * Create a new allowedValue object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AllowedValue, requestConfiguration?: AllowedValuesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AllowedValue, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAllowedValue);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class AllowedValuesRequestBuilder extends BaseRequestBuilder {
         return new AllowedValuesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const allowedValuesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

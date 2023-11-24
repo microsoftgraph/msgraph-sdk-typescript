@@ -23,7 +23,7 @@ export interface PrivilegedAccessRoot extends Entity, Parsable {
 }
 export function serializePrivilegedAccessRoot(writer: SerializationWriter, privilegedAccessRoot: PrivilegedAccessRoot | undefined = {} as PrivilegedAccessRoot) : void {
         serializeEntity(writer, privilegedAccessRoot)
-        writer.writeObjectValue<PrivilegedAccessGroup>("group", privilegedAccessRoot.group, );
+        writer.writeObjectValue<PrivilegedAccessGroup>("group", privilegedAccessRoot.group, serializePrivilegedAccessGroup);
 }
 // tslint:enable
 // eslint-enable

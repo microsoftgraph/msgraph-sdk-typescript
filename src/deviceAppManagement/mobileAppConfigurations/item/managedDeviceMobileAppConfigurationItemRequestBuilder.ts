@@ -10,18 +10,8 @@ import { DeviceStatusesRequestBuilder } from './deviceStatuses/deviceStatusesReq
 import { DeviceStatusSummaryRequestBuilder } from './deviceStatusSummary/deviceStatusSummaryRequestBuilder';
 import { UserStatusesRequestBuilder } from './userStatuses/userStatusesRequestBuilder';
 import { UserStatusSummaryRequestBuilder } from './userStatusSummary/userStatusSummaryRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface ManagedDeviceMobileAppConfigurationItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -31,30 +21,6 @@ export interface ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryPa
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface ManagedDeviceMobileAppConfigurationItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters;
-}
-export interface ManagedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
@@ -109,7 +75,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseR
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: ManagedDeviceMobileAppConfigurationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -125,7 +91,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseR
      * @returns a Promise of ManagedDeviceMobileAppConfiguration
      * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ManagedDeviceMobileAppConfigurationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -142,7 +108,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseR
      * @returns a Promise of ManagedDeviceMobileAppConfiguration
      * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ManagedDeviceMobileAppConfiguration, requestConfiguration?: ManagedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined> {
+    public patch(body: ManagedDeviceMobileAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -157,16 +123,10 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseR
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: ManagedDeviceMobileAppConfigurationItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -174,17 +134,10 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseR
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ManagedDeviceMobileAppConfigurationItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, managedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -193,17 +146,11 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseR
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ManagedDeviceMobileAppConfiguration, requestConfiguration?: ManagedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ManagedDeviceMobileAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedDeviceMobileAppConfiguration);
         return requestInfo;
     };
@@ -217,5 +164,9 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseR
         return new ManagedDeviceMobileAppConfigurationItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const managedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

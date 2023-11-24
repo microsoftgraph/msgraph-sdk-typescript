@@ -7,18 +7,8 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { AccessAssignmentsRequestBuilder } from './accessAssignments/accessAssignmentsRequestBuilder';
 import { OperationsRequestBuilder } from './operations/operationsRequestBuilder';
 import { RequestsRequestBuilder } from './requests/requestsRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface DelegatedAdminRelationshipItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -28,30 +18,6 @@ export interface DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters 
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface DelegatedAdminRelationshipItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters;
-}
-export interface DelegatedAdminRelationshipItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
@@ -84,11 +50,11 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         super(pathParameters, requestAdapter, "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status.  This API is available in the following national cloud deployments.
+     * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -99,12 +65,12 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties of a delegatedAdminRelationship object. This API is available in the following national cloud deployments.
+     * Read the properties of a delegatedAdminRelationship object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationship
      * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedAdminRelationship | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedAdminRelationship | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -115,13 +81,13 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the created status. This API is available in the following national cloud deployments.
+     * Update the properties of a delegatedAdminRelationship object. You can only update a relationship when it's in the created status. However, you can update the autoExtendDuration property when the relationship is in either the created or active status.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationship
      * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DelegatedAdminRelationship, requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DelegatedAdminRelationship | undefined> {
+    public patch(body: DelegatedAdminRelationship, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DelegatedAdminRelationship | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -132,57 +98,38 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status.  This API is available in the following national cloud deployments.
+     * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Read the properties of a delegatedAdminRelationship object. This API is available in the following national cloud deployments.
+     * Read the properties of a delegatedAdminRelationship object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, delegatedAdminRelationshipItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the created status. This API is available in the following national cloud deployments.
+     * Update the properties of a delegatedAdminRelationship object. You can only update a relationship when it's in the created status. However, you can update the autoExtendDuration property when the relationship is in either the created or active status.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DelegatedAdminRelationship, requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DelegatedAdminRelationship, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDelegatedAdminRelationship);
         return requestInfo;
     };
@@ -196,5 +143,9 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return new DelegatedAdminRelationshipItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const delegatedAdminRelationshipItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

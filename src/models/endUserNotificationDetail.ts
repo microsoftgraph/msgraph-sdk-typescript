@@ -22,19 +22,19 @@ export function deserializeIntoEndUserNotificationDetail(endUserNotificationDeta
 }
 export interface EndUserNotificationDetail extends Entity, Parsable {
     /**
-     * The emailContent property
+     * Email HTML content.
      */
     emailContent?: string;
     /**
-     * The isDefaultLangauge property
+     * Indicates whether this language is default.
      */
     isDefaultLangauge?: boolean;
     /**
-     * The language property
+     * Notification language.
      */
     language?: string;
     /**
-     * The locale property
+     * Notification locale.
      */
     locale?: string;
     /**
@@ -42,7 +42,7 @@ export interface EndUserNotificationDetail extends Entity, Parsable {
      */
     sentFrom?: EmailIdentity;
     /**
-     * The subject property
+     * Mail subject.
      */
     subject?: string;
 }
@@ -52,7 +52,7 @@ export function serializeEndUserNotificationDetail(writer: SerializationWriter, 
         writer.writeBooleanValue("isDefaultLangauge", endUserNotificationDetail.isDefaultLangauge);
         writer.writeStringValue("language", endUserNotificationDetail.language);
         writer.writeStringValue("locale", endUserNotificationDetail.locale);
-        writer.writeObjectValue<EmailIdentity>("sentFrom", endUserNotificationDetail.sentFrom, );
+        writer.writeObjectValue<EmailIdentity>("sentFrom", endUserNotificationDetail.sentFrom, serializeEmailIdentity);
         writer.writeStringValue("subject", endUserNotificationDetail.subject);
 }
 // tslint:enable

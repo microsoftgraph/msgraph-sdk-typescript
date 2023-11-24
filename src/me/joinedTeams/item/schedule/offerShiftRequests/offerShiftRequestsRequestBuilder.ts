@@ -8,7 +8,7 @@ import { createOfferShiftRequestFromDiscriminatorValue, deserializeIntoOfferShif
 import { createOfferShiftRequestCollectionResponseFromDiscriminatorValue } from '../../../../../models/offerShiftRequestCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OfferShiftRequestItemRequestBuilder } from './item/offerShiftRequestItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface OfferShiftRequestsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface OfferShiftRequestsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface OfferShiftRequestsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: OfferShiftRequestsRequestBuilderGetQueryParameters;
-}
-export interface OfferShiftRequestsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
  */
@@ -98,12 +74,12 @@ export class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/schedule/offerShiftRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the properties and relationships of all offerShiftRequest objects in a team. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of all offerShiftRequest objects in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OfferShiftRequestCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/offershiftrequest-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: OfferShiftRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<OfferShiftRequestCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<OfferShiftRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<OfferShiftRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OfferShiftRequestCollectionResponse>(requestInfo, createOfferShiftRequestCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create an instance of an offerShiftRequest. This API is available in the following national cloud deployments.
+     * Create an instance of an offerShiftRequest.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OfferShiftRequest
      * @see {@link https://learn.microsoft.com/graph/api/offershiftrequest-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: OfferShiftRequest, requestConfiguration?: OfferShiftRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<OfferShiftRequest | undefined> {
+    public post(body: OfferShiftRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OfferShiftRequest | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OfferShiftRequest>(requestInfo, createOfferShiftRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of all offerShiftRequest objects in a team. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of all offerShiftRequest objects in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: OfferShiftRequestsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<OfferShiftRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, offerShiftRequestsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create an instance of an offerShiftRequest. This API is available in the following national cloud deployments.
+     * Create an instance of an offerShiftRequest.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: OfferShiftRequest, requestConfiguration?: OfferShiftRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: OfferShiftRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOfferShiftRequest);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder {
         return new OfferShiftRequestsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const offerShiftRequestsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

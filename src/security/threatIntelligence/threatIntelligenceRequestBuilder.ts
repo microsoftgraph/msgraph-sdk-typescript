@@ -9,6 +9,7 @@ import { ArticlesRequestBuilder } from './articles/articlesRequestBuilder';
 import { HostComponentsRequestBuilder } from './hostComponents/hostComponentsRequestBuilder';
 import { HostCookiesRequestBuilder } from './hostCookies/hostCookiesRequestBuilder';
 import { HostPairsRequestBuilder } from './hostPairs/hostPairsRequestBuilder';
+import { HostPortsRequestBuilder } from './hostPorts/hostPortsRequestBuilder';
 import { HostsRequestBuilder } from './hosts/hostsRequestBuilder';
 import { HostSslCertificatesRequestBuilder } from './hostSslCertificates/hostSslCertificatesRequestBuilder';
 import { HostTrackersRequestBuilder } from './hostTrackers/hostTrackersRequestBuilder';
@@ -20,18 +21,8 @@ import { SubdomainsRequestBuilder } from './subdomains/subdomainsRequestBuilder'
 import { VulnerabilitiesRequestBuilder } from './vulnerabilities/vulnerabilitiesRequestBuilder';
 import { WhoisHistoryRecordsRequestBuilder } from './whoisHistoryRecords/whoisHistoryRecordsRequestBuilder';
 import { WhoisRecordsRequestBuilder } from './whoisRecords/whoisRecordsRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface ThreatIntelligenceRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface ThreatIntelligenceRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -41,30 +32,6 @@ export interface ThreatIntelligenceRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface ThreatIntelligenceRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ThreatIntelligenceRequestBuilderGetQueryParameters;
-}
-export interface ThreatIntelligenceRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the threatIntelligence property of the microsoft.graph.security entity.
@@ -99,6 +66,12 @@ export class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder {
      */
     public get hostPairs(): HostPairsRequestBuilder {
         return new HostPairsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the hostPorts property of the microsoft.graph.security.threatIntelligence entity.
+     */
+    public get hostPorts(): HostPortsRequestBuilder {
+        return new HostPortsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the hosts property of the microsoft.graph.security.threatIntelligence entity.
@@ -178,7 +151,7 @@ export class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder {
      * Delete navigation property threatIntelligence for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: ThreatIntelligenceRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -193,7 +166,7 @@ export class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ThreatIntelligence
      */
-    public get(requestConfiguration?: ThreatIntelligenceRequestBuilderGetRequestConfiguration | undefined) : Promise<ThreatIntelligence | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ThreatIntelligenceRequestBuilderGetQueryParameters> | undefined) : Promise<ThreatIntelligence | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -209,7 +182,7 @@ export class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ThreatIntelligence
      */
-    public patch(body: ThreatIntelligence, requestConfiguration?: ThreatIntelligenceRequestBuilderPatchRequestConfiguration | undefined) : Promise<ThreatIntelligence | undefined> {
+    public patch(body: ThreatIntelligence, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ThreatIntelligence | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -224,16 +197,10 @@ export class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: ThreatIntelligenceRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -241,17 +208,10 @@ export class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ThreatIntelligenceRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ThreatIntelligenceRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, threatIntelligenceRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -260,17 +220,11 @@ export class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ThreatIntelligence, requestConfiguration?: ThreatIntelligenceRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ThreatIntelligence, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeThreatIntelligence);
         return requestInfo;
     };
@@ -284,5 +238,9 @@ export class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder {
         return new ThreatIntelligenceRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const threatIntelligenceRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

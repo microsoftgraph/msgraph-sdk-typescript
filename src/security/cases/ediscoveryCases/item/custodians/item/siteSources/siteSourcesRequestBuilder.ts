@@ -8,7 +8,7 @@ import { createSiteSourceFromDiscriminatorValue, deserializeIntoSiteSource, seri
 import { createSiteSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/siteSourceCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SiteSourceItemRequestBuilder } from './item/siteSourceItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SiteSourcesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface SiteSourcesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface SiteSourcesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SiteSourcesRequestBuilderGetQueryParameters;
-}
-export interface SiteSourcesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.
  */
@@ -98,12 +74,12 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}/siteSources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the siteSource objects associated with an ediscoveryCustodian. This API is available in the following national cloud deployments.
+     * Get a list of the siteSource objects associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SiteSourceCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-list-sitesources?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SiteSourcesRequestBuilderGetRequestConfiguration | undefined) : Promise<SiteSourceCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SiteSourcesRequestBuilderGetQueryParameters> | undefined) : Promise<SiteSourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SiteSourceCollectionResponse>(requestInfo, createSiteSourceCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new siteSource object associated with an eDiscovery custodian. This API is available in the following national cloud deployments.
+     * Create a new siteSource object associated with an eDiscovery custodian.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SiteSource
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-post-sitesources?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SiteSource, requestConfiguration?: SiteSourcesRequestBuilderPostRequestConfiguration | undefined) : Promise<SiteSource | undefined> {
+    public post(body: SiteSource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SiteSource | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SiteSource>(requestInfo, createSiteSourceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the siteSource objects associated with an ediscoveryCustodian. This API is available in the following national cloud deployments.
+     * Get a list of the siteSource objects associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SiteSourcesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SiteSourcesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, siteSourcesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create a new siteSource object associated with an eDiscovery custodian. This API is available in the following national cloud deployments.
+     * Create a new siteSource object associated with an eDiscovery custodian.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SiteSource, requestConfiguration?: SiteSourcesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SiteSource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSiteSource);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
         return new SiteSourcesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const siteSourcesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

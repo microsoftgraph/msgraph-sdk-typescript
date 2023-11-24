@@ -5,7 +5,7 @@ import { type SectionGroup } from '../../../../../../../../../../../../models/';
 import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/oDataError';
 import { createSectionGroupFromDiscriminatorValue } from '../../../../../../../../../../../../models/sectionGroup';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ParentSectionGroupRequestBuilderGetQueryParameters {
     /**
@@ -16,20 +16,6 @@ export interface ParentSectionGroupRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface ParentSectionGroupRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ParentSectionGroupRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the parentSectionGroup property of the microsoft.graph.onenoteSection entity.
@@ -48,7 +34,7 @@ export class ParentSectionGroupRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SectionGroup
      */
-    public get(requestConfiguration?: ParentSectionGroupRequestBuilderGetRequestConfiguration | undefined) : Promise<SectionGroup | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ParentSectionGroupRequestBuilderGetQueryParameters> | undefined) : Promise<SectionGroup | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -63,17 +49,10 @@ export class ParentSectionGroupRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ParentSectionGroupRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ParentSectionGroupRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, parentSectionGroupRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -86,5 +65,9 @@ export class ParentSectionGroupRequestBuilder extends BaseRequestBuilder {
         return new ParentSectionGroupRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const parentSectionGroupRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

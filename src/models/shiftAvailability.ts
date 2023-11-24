@@ -19,8 +19,8 @@ export function deserializeIntoShiftAvailability(shiftAvailability: ShiftAvailab
 }
 export function serializeShiftAvailability(writer: SerializationWriter, shiftAvailability: ShiftAvailability | undefined = {} as ShiftAvailability) : void {
         writer.writeStringValue("@odata.type", shiftAvailability.odataType);
-        writer.writeObjectValue<PatternedRecurrence>("recurrence", shiftAvailability.recurrence, );
-        writer.writeCollectionOfObjectValues<TimeRange>("timeSlots", shiftAvailability.timeSlots, );
+        writer.writeObjectValue<PatternedRecurrence>("recurrence", shiftAvailability.recurrence, serializePatternedRecurrence);
+        writer.writeCollectionOfObjectValues<TimeRange>("timeSlots", shiftAvailability.timeSlots, serializeTimeRange);
         writer.writeStringValue("timeZone", shiftAvailability.timeZone);
         writer.writeAdditionalData(shiftAvailability.additionalData);
 }

@@ -5,7 +5,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { type SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse } from './index';
 import { createSummarizeDevicePerformanceDevicesWithSummarizeByGetResponseFromDiscriminatorValue } from './summarizeDevicePerformanceDevicesWithSummarizeByGetResponse';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters {
     /**
@@ -37,20 +37,6 @@ export interface SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderG
      */
     top?: number;
 }
-export interface SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the summarizeDevicePerformanceDevices method.
  */
@@ -70,7 +56,7 @@ export class SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder exte
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse
      */
-    public get(requestConfiguration?: SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetRequestConfiguration | undefined) : Promise<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters> | undefined) : Promise<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -85,17 +71,10 @@ export class SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder exte
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, summarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -108,5 +87,14 @@ export class SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder exte
         return new SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const summarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

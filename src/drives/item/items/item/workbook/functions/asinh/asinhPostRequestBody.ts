@@ -24,7 +24,7 @@ export function deserializeIntoAsinhPostRequestBody(asinhPostRequestBody: AsinhP
     }
 }
 export function serializeAsinhPostRequestBody(writer: SerializationWriter, asinhPostRequestBody: AsinhPostRequestBody | undefined = {} as AsinhPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", asinhPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", asinhPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(asinhPostRequestBody.additionalData);
 }
 // tslint:enable

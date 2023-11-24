@@ -17,13 +17,13 @@ export function deserializeIntoNoTrainingNotificationSetting(noTrainingNotificat
 }
 export interface NoTrainingNotificationSetting extends EndUserNotificationSetting, Parsable {
     /**
-     * The simulationNotification property
+     * The notification for the user who is part of the simulation.
      */
     simulationNotification?: SimulationNotification;
 }
 export function serializeNoTrainingNotificationSetting(writer: SerializationWriter, noTrainingNotificationSetting: NoTrainingNotificationSetting | undefined = {} as NoTrainingNotificationSetting) : void {
         serializeEndUserNotificationSetting(writer, noTrainingNotificationSetting)
-        writer.writeObjectValue<SimulationNotification>("simulationNotification", noTrainingNotificationSetting.simulationNotification, );
+        writer.writeObjectValue<SimulationNotification>("simulationNotification", noTrainingNotificationSetting.simulationNotification, serializeSimulationNotification);
 }
 // tslint:enable
 // eslint-enable

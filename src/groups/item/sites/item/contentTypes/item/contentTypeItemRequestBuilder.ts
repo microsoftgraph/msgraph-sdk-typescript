@@ -14,18 +14,8 @@ import { CopyToDefaultContentLocationRequestBuilder } from './copyToDefaultConte
 import { IsPublishedRequestBuilder } from './isPublished/isPublishedRequestBuilder';
 import { PublishRequestBuilder } from './publish/publishRequestBuilder';
 import { UnpublishRequestBuilder } from './unpublish/unpublishRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface ContentTypeItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface ContentTypeItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -35,30 +25,6 @@ export interface ContentTypeItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface ContentTypeItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ContentTypeItemRequestBuilderGetQueryParameters;
-}
-export interface ContentTypeItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
@@ -133,11 +99,11 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/contentTypes/{contentType%2Did}{?%24select,%24expand}");
     };
     /**
-     * Remove a content type][contentType] from a [list][] or a [site][]. This API is available in the following [national cloud deployments.
+     * Remove a [content type][contentType] from a [list][] or a [site][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/contenttype-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: ContentTypeItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -148,12 +114,12 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the metadata for a content type][contentType] in a [site][] or a [list][]. This API is available in the following [national cloud deployments.
+     * Retrieve the metadata for a [content type][contentType] in a [site][] or a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentType
      * @see {@link https://learn.microsoft.com/graph/api/contenttype-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ContentTypeItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ContentType | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ContentTypeItemRequestBuilderGetQueryParameters> | undefined) : Promise<ContentType | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -164,13 +130,13 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update a content type][contentType]. This API is available in the following [national cloud deployments.
+     * Update a [content type][contentType].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentType
      * @see {@link https://learn.microsoft.com/graph/api/contenttype-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ContentType, requestConfiguration?: ContentTypeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ContentType | undefined> {
+    public patch(body: ContentType, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ContentType | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -181,57 +147,38 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Remove a content type][contentType] from a [list][] or a [site][]. This API is available in the following [national cloud deployments.
+     * Remove a [content type][contentType] from a [list][] or a [site][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: ContentTypeItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Retrieve the metadata for a content type][contentType] in a [site][] or a [list][]. This API is available in the following [national cloud deployments.
+     * Retrieve the metadata for a [content type][contentType] in a [site][] or a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ContentTypeItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ContentTypeItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, contentTypeItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update a content type][contentType]. This API is available in the following [national cloud deployments.
+     * Update a [content type][contentType].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ContentType, requestConfiguration?: ContentTypeItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ContentType, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeContentType);
         return requestInfo;
     };
@@ -245,5 +192,9 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         return new ContentTypeItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const contentTypeItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

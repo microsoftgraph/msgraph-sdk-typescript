@@ -17,7 +17,7 @@ export function deserializeIntoTargetedManagedAppPolicyAssignmentCollectionRespo
 }
 export function serializeTargetedManagedAppPolicyAssignmentCollectionResponse(writer: SerializationWriter, targetedManagedAppPolicyAssignmentCollectionResponse: TargetedManagedAppPolicyAssignmentCollectionResponse | undefined = {} as TargetedManagedAppPolicyAssignmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, targetedManagedAppPolicyAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>("value", targetedManagedAppPolicyAssignmentCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>("value", targetedManagedAppPolicyAssignmentCollectionResponse.value, serializeTargetedManagedAppPolicyAssignment);
 }
 export interface TargetedManagedAppPolicyAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

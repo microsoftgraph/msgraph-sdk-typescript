@@ -14,18 +14,8 @@ import { RangeWithAddressRequestBuilder } from './rangeWithAddress/rangeWithAddr
 import { TablesRequestBuilder } from './tables/tablesRequestBuilder';
 import { UsedRangeRequestBuilder } from './usedRange/usedRangeRequestBuilder';
 import { UsedRangeWithValuesOnlyRequestBuilder } from './usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface WorkbookWorksheetItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface WorkbookWorksheetItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -35,30 +25,6 @@ export interface WorkbookWorksheetItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface WorkbookWorksheetItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: WorkbookWorksheetItemRequestBuilderGetQueryParameters;
-}
-export interface WorkbookWorksheetItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
@@ -126,11 +92,11 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes the worksheet from the workbook. This API is available in the following national cloud deployments.
+     * Deletes the worksheet from the workbook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/worksheet-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: WorkbookWorksheetItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -141,12 +107,12 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of worksheet object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of worksheet object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookWorksheet
      * @see {@link https://learn.microsoft.com/graph/api/worksheet-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: WorkbookWorksheetItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookWorksheet | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<WorkbookWorksheetItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookWorksheet | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -157,13 +123,13 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookWorksheet>(requestInfo, createWorkbookWorksheetFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of worksheet object. This API is available in the following national cloud deployments.
+     * Update the properties of worksheet object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookWorksheet
      * @see {@link https://learn.microsoft.com/graph/api/worksheet-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookWorksheet, requestConfiguration?: WorkbookWorksheetItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookWorksheet | undefined> {
+    public patch(body: WorkbookWorksheet, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookWorksheet | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -183,57 +149,38 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
         return new RangeWithAddressRequestBuilder(this.pathParameters, this.requestAdapter, address);
     };
     /**
-     * Deletes the worksheet from the workbook. This API is available in the following national cloud deployments.
+     * Deletes the worksheet from the workbook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: WorkbookWorksheetItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of worksheet object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of worksheet object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: WorkbookWorksheetItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkbookWorksheetItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, workbookWorksheetItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the properties of worksheet object. This API is available in the following national cloud deployments.
+     * Update the properties of worksheet object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookWorksheet, requestConfiguration?: WorkbookWorksheetItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookWorksheet, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookWorksheet);
         return requestInfo;
     };
@@ -256,5 +203,9 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
         return new WorkbookWorksheetItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const workbookWorksheetItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

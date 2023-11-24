@@ -128,13 +128,13 @@ export interface EducationClass extends Entity, Parsable {
 }
 export function serializeEducationClass(writer: SerializationWriter, educationClass: EducationClass | undefined = {} as EducationClass) : void {
         serializeEntity(writer, educationClass)
-        writer.writeCollectionOfObjectValues<EducationCategory>("assignmentCategories", educationClass.assignmentCategories, );
-        writer.writeObjectValue<EducationAssignmentDefaults>("assignmentDefaults", educationClass.assignmentDefaults, );
-        writer.writeCollectionOfObjectValues<EducationAssignment>("assignments", educationClass.assignments, );
-        writer.writeObjectValue<EducationAssignmentSettings>("assignmentSettings", educationClass.assignmentSettings, );
+        writer.writeCollectionOfObjectValues<EducationCategory>("assignmentCategories", educationClass.assignmentCategories, serializeEducationCategory);
+        writer.writeObjectValue<EducationAssignmentDefaults>("assignmentDefaults", educationClass.assignmentDefaults, serializeEducationAssignmentDefaults);
+        writer.writeCollectionOfObjectValues<EducationAssignment>("assignments", educationClass.assignments, serializeEducationAssignment);
+        writer.writeObjectValue<EducationAssignmentSettings>("assignmentSettings", educationClass.assignmentSettings, serializeEducationAssignmentSettings);
         writer.writeStringValue("classCode", educationClass.classCode);
-        writer.writeObjectValue<EducationCourse>("course", educationClass.course, );
-        writer.writeObjectValue<IdentitySet>("createdBy", educationClass.createdBy, );
+        writer.writeObjectValue<EducationCourse>("course", educationClass.course, serializeEducationCourse);
+        writer.writeObjectValue<IdentitySet>("createdBy", educationClass.createdBy, serializeIdentitySet);
         writer.writeStringValue("description", educationClass.description);
         writer.writeStringValue("displayName", educationClass.displayName);
         writer.writeStringValue("externalId", educationClass.externalId);
@@ -142,12 +142,12 @@ export function serializeEducationClass(writer: SerializationWriter, educationCl
         writer.writeEnumValue<EducationExternalSource>("externalSource", educationClass.externalSource);
         writer.writeStringValue("externalSourceDetail", educationClass.externalSourceDetail);
         writer.writeStringValue("grade", educationClass.grade);
-        writer.writeObjectValue<Group>("group", educationClass.group, );
+        writer.writeObjectValue<Group>("group", educationClass.group, serializeGroup);
         writer.writeStringValue("mailNickname", educationClass.mailNickname);
-        writer.writeCollectionOfObjectValues<EducationUser>("members", educationClass.members, );
-        writer.writeCollectionOfObjectValues<EducationSchool>("schools", educationClass.schools, );
-        writer.writeCollectionOfObjectValues<EducationUser>("teachers", educationClass.teachers, );
-        writer.writeObjectValue<EducationTerm>("term", educationClass.term, );
+        writer.writeCollectionOfObjectValues<EducationUser>("members", educationClass.members, serializeEducationUser);
+        writer.writeCollectionOfObjectValues<EducationSchool>("schools", educationClass.schools, serializeEducationSchool);
+        writer.writeCollectionOfObjectValues<EducationUser>("teachers", educationClass.teachers, serializeEducationUser);
+        writer.writeObjectValue<EducationTerm>("term", educationClass.term, serializeEducationTerm);
 }
 // tslint:enable
 // eslint-enable

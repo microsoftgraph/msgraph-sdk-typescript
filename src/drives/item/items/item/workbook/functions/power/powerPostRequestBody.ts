@@ -29,8 +29,8 @@ export interface PowerPostRequestBody extends AdditionalDataHolder, Parsable {
     power?: Json;
 }
 export function serializePowerPostRequestBody(writer: SerializationWriter, powerPostRequestBody: PowerPostRequestBody | undefined = {} as PowerPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", powerPostRequestBody.number, );
-        writer.writeObjectValue<Json>("power", powerPostRequestBody.power, );
+        writer.writeObjectValue<Json>("number", powerPostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("power", powerPostRequestBody.power, serializeJson);
         writer.writeAdditionalData(powerPostRequestBody.additionalData);
 }
 // tslint:enable

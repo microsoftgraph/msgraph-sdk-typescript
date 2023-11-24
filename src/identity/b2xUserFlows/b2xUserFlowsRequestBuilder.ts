@@ -8,7 +8,7 @@ import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { B2xIdentityUserFlowItemRequestBuilder } from './item/b2xIdentityUserFlowItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface B2xUserFlowsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface B2xUserFlowsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface B2xUserFlowsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: B2xUserFlowsRequestBuilderGetQueryParameters;
-}
-export interface B2xUserFlowsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
  */
@@ -98,12 +74,12 @@ export class B2xUserFlowsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/b2xUserFlows{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of b2xIdentityUserFlow objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of b2xIdentityUserFlow objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of B2xIdentityUserFlowCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/identitycontainer-list-b2xuserflows?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: B2xUserFlowsRequestBuilderGetRequestConfiguration | undefined) : Promise<B2xIdentityUserFlowCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<B2xUserFlowsRequestBuilderGetQueryParameters> | undefined) : Promise<B2xIdentityUserFlowCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class B2xUserFlowsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<B2xIdentityUserFlowCollectionResponse>(requestInfo, createB2xIdentityUserFlowCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new b2xIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Create a new b2xIdentityUserFlow object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of B2xIdentityUserFlow
      * @see {@link https://learn.microsoft.com/graph/api/identitycontainer-post-b2xuserflows?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: B2xIdentityUserFlow, requestConfiguration?: B2xUserFlowsRequestBuilderPostRequestConfiguration | undefined) : Promise<B2xIdentityUserFlow | undefined> {
+    public post(body: B2xIdentityUserFlow, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<B2xIdentityUserFlow | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class B2xUserFlowsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<B2xIdentityUserFlow>(requestInfo, createB2xIdentityUserFlowFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of b2xIdentityUserFlow objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of b2xIdentityUserFlow objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: B2xUserFlowsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<B2xUserFlowsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, b2xUserFlowsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create a new b2xIdentityUserFlow object. This API is available in the following national cloud deployments.
+     * Create a new b2xIdentityUserFlow object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: B2xIdentityUserFlow, requestConfiguration?: B2xUserFlowsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: B2xIdentityUserFlow, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeB2xIdentityUserFlow);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class B2xUserFlowsRequestBuilder extends BaseRequestBuilder {
         return new B2xUserFlowsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const b2xUserFlowsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

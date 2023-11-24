@@ -5,18 +5,8 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { createTeamworkTagFromDiscriminatorValue, deserializeIntoTeamworkTag, serializeTeamworkTag, type TeamworkTag } from '../../../../models/teamworkTag';
 import { MembersRequestBuilder } from './members/membersRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface TeamworkTagItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface TeamworkTagItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -26,30 +16,6 @@ export interface TeamworkTagItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface TeamworkTagItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TeamworkTagItemRequestBuilderGetQueryParameters;
-}
-export interface TeamworkTagItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the tags property of the microsoft.graph.team entity.
@@ -70,11 +36,11 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teams/{team%2Did}/tags/{teamworkTag%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a tag object permanently. This API is available in the following national cloud deployments.
+     * Delete a tag object permanently.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/teamworktag-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: TeamworkTagItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -85,12 +51,12 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a tag object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a tag object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamworkTag
      * @see {@link https://learn.microsoft.com/graph/api/teamworktag-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TeamworkTagItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamworkTag | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TeamworkTagItemRequestBuilderGetQueryParameters> | undefined) : Promise<TeamworkTag | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -101,13 +67,13 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TeamworkTag>(requestInfo, createTeamworkTagFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a tag object. This API is available in the following national cloud deployments.
+     * Update the properties of a tag object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamworkTag
      * @see {@link https://learn.microsoft.com/graph/api/teamworktag-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: TeamworkTag, requestConfiguration?: TeamworkTagItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TeamworkTag | undefined> {
+    public patch(body: TeamworkTag, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamworkTag | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -118,57 +84,38 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TeamworkTag>(requestInfo, createTeamworkTagFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a tag object permanently. This API is available in the following national cloud deployments.
+     * Delete a tag object permanently.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: TeamworkTagItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a tag object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a tag object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TeamworkTagItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeamworkTagItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, teamworkTagItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the properties of a tag object. This API is available in the following national cloud deployments.
+     * Update the properties of a tag object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TeamworkTag, requestConfiguration?: TeamworkTagItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TeamworkTag, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTeamworkTag);
         return requestInfo;
     };
@@ -182,5 +129,9 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
         return new TeamworkTagItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const teamworkTagItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

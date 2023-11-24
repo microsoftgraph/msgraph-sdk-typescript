@@ -35,7 +35,7 @@ export function deserializeIntoAccessReviewHistoryScheduleSettings(accessReviewH
 }
 export function serializeAccessReviewHistoryScheduleSettings(writer: SerializationWriter, accessReviewHistoryScheduleSettings: AccessReviewHistoryScheduleSettings | undefined = {} as AccessReviewHistoryScheduleSettings) : void {
         writer.writeStringValue("@odata.type", accessReviewHistoryScheduleSettings.odataType);
-        writer.writeObjectValue<PatternedRecurrence>("recurrence", accessReviewHistoryScheduleSettings.recurrence, );
+        writer.writeObjectValue<PatternedRecurrence>("recurrence", accessReviewHistoryScheduleSettings.recurrence, serializePatternedRecurrence);
         writer.writeStringValue("reportRange", accessReviewHistoryScheduleSettings.reportRange);
         writer.writeAdditionalData(accessReviewHistoryScheduleSettings.additionalData);
 }

@@ -5,7 +5,7 @@ import { type TaskDefinition } from '../../../../models/identityGovernance/';
 import { createTaskDefinitionFromDiscriminatorValue } from '../../../../models/identityGovernance/taskDefinition';
 import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TaskDefinitionItemRequestBuilderGetQueryParameters {
     /**
@@ -16,20 +16,6 @@ export interface TaskDefinitionItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface TaskDefinitionItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TaskDefinitionItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the taskDefinitions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
@@ -44,12 +30,12 @@ export class TaskDefinitionItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/lifecycleWorkflows/taskDefinitions/{taskDefinition%2Did}{?%24select,%24expand}");
     };
     /**
-     * Read the details of a built-in workflow task. This API is available in the following national cloud deployments.
+     * Read the details of a built-in workflow task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TaskDefinition
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-taskdefinition-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TaskDefinitionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TaskDefinition | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TaskDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<TaskDefinition | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -60,21 +46,14 @@ export class TaskDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TaskDefinition>(requestInfo, createTaskDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Read the details of a built-in workflow task. This API is available in the following national cloud deployments.
+     * Read the details of a built-in workflow task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TaskDefinitionItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskDefinitionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, taskDefinitionItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -87,5 +66,9 @@ export class TaskDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return new TaskDefinitionItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const taskDefinitionItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

@@ -8,7 +8,7 @@ import { createOnPremisesDirectorySynchronizationFromDiscriminatorValue, deseria
 import { createOnPremisesDirectorySynchronizationCollectionResponseFromDiscriminatorValue } from '../../models/onPremisesDirectorySynchronizationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OnPremisesDirectorySynchronizationItemRequestBuilder } from './item/onPremisesDirectorySynchronizationItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface OnPremisesSynchronizationRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface OnPremisesSynchronizationRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface OnPremisesSynchronizationRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: OnPremisesSynchronizationRequestBuilderGetQueryParameters;
-}
-export interface OnPremisesSynchronizationRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
  */
@@ -98,11 +74,11 @@ export class OnPremisesSynchronizationRequestBuilder extends BaseRequestBuilder 
         super(pathParameters, requestAdapter, "{+baseurl}/directory/onPremisesSynchronization{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Read the properties and relationships of an onPremisesDirectorySynchronization object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an onPremisesDirectorySynchronization object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnPremisesDirectorySynchronizationCollectionResponse
      */
-    public get(requestConfiguration?: OnPremisesSynchronizationRequestBuilderGetRequestConfiguration | undefined) : Promise<OnPremisesDirectorySynchronizationCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<OnPremisesSynchronizationRequestBuilderGetQueryParameters> | undefined) : Promise<OnPremisesDirectorySynchronizationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -118,7 +94,7 @@ export class OnPremisesSynchronizationRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnPremisesDirectorySynchronization
      */
-    public post(body: OnPremisesDirectorySynchronization, requestConfiguration?: OnPremisesSynchronizationRequestBuilderPostRequestConfiguration | undefined) : Promise<OnPremisesDirectorySynchronization | undefined> {
+    public post(body: OnPremisesDirectorySynchronization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OnPremisesDirectorySynchronization | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -129,21 +105,14 @@ export class OnPremisesSynchronizationRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendAsync<OnPremisesDirectorySynchronization>(requestInfo, createOnPremisesDirectorySynchronizationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Read the properties and relationships of an onPremisesDirectorySynchronization object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an onPremisesDirectorySynchronization object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: OnPremisesSynchronizationRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<OnPremisesSynchronizationRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, onPremisesSynchronizationRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -152,17 +121,11 @@ export class OnPremisesSynchronizationRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: OnPremisesDirectorySynchronization, requestConfiguration?: OnPremisesSynchronizationRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: OnPremisesDirectorySynchronization, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOnPremisesDirectorySynchronization);
         return requestInfo;
     };
@@ -176,5 +139,15 @@ export class OnPremisesSynchronizationRequestBuilder extends BaseRequestBuilder 
         return new OnPremisesSynchronizationRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const onPremisesSynchronizationRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

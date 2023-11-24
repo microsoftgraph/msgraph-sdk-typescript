@@ -7,7 +7,7 @@ import { type DataSourceCollectionResponse } from '../../../../../../../models/s
 import { createDataSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/dataSourceCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DataSourceItemRequestBuilder } from './item/dataSourceItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CustodianSourcesRequestBuilderGetQueryParameters {
     /**
@@ -43,20 +43,6 @@ export interface CustodianSourcesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface CustodianSourcesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: CustodianSourcesRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.
  */
@@ -87,12 +73,12 @@ export class CustodianSourcesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}/custodianSources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the list of custodial data sources associated with an eDiscovery search. This API is available in the following national cloud deployments.
+     * Get the list of custodial data sources associated with an eDiscovery search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DataSourceCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-list-custodiansources?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: CustodianSourcesRequestBuilderGetRequestConfiguration | undefined) : Promise<DataSourceCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<CustodianSourcesRequestBuilderGetQueryParameters> | undefined) : Promise<DataSourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -103,21 +89,14 @@ export class CustodianSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DataSourceCollectionResponse>(requestInfo, createDataSourceCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the list of custodial data sources associated with an eDiscovery search. This API is available in the following national cloud deployments.
+     * Get the list of custodial data sources associated with an eDiscovery search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: CustodianSourcesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<CustodianSourcesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, custodianSourcesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class CustodianSourcesRequestBuilder extends BaseRequestBuilder {
         return new CustodianSourcesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const custodianSourcesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

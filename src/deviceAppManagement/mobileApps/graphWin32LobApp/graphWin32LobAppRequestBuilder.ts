@@ -6,7 +6,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { createWin32LobAppCollectionResponseFromDiscriminatorValue } from '../../../models/win32LobAppCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GraphWin32LobAppRequestBuilderGetQueryParameters {
     /**
@@ -42,20 +42,6 @@ export interface GraphWin32LobAppRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface GraphWin32LobAppRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: GraphWin32LobAppRequestBuilderGetQueryParameters;
-}
 /**
  * Casts the previous resource to win32LobApp.
  */
@@ -79,7 +65,7 @@ export class GraphWin32LobAppRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Win32LobAppCollectionResponse
      */
-    public get(requestConfiguration?: GraphWin32LobAppRequestBuilderGetRequestConfiguration | undefined) : Promise<Win32LobAppCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<GraphWin32LobAppRequestBuilderGetQueryParameters> | undefined) : Promise<Win32LobAppCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -94,17 +80,10 @@ export class GraphWin32LobAppRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: GraphWin32LobAppRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphWin32LobAppRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, graphWin32LobAppRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -117,5 +96,15 @@ export class GraphWin32LobAppRequestBuilder extends BaseRequestBuilder {
         return new GraphWin32LobAppRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const graphWin32LobAppRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

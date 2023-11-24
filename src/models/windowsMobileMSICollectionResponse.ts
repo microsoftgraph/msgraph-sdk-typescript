@@ -17,7 +17,7 @@ export function deserializeIntoWindowsMobileMSICollectionResponse(windowsMobileM
 }
 export function serializeWindowsMobileMSICollectionResponse(writer: SerializationWriter, windowsMobileMSICollectionResponse: WindowsMobileMSICollectionResponse | undefined = {} as WindowsMobileMSICollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, windowsMobileMSICollectionResponse)
-        writer.writeCollectionOfObjectValues<WindowsMobileMSI>("value", windowsMobileMSICollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<WindowsMobileMSI>("value", windowsMobileMSICollectionResponse.value, serializeWindowsMobileMSI);
 }
 export interface WindowsMobileMSICollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

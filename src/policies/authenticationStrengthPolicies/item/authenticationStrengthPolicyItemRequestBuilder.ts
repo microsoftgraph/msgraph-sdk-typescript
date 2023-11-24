@@ -7,18 +7,8 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { CombinationConfigurationsRequestBuilder } from './combinationConfigurations/combinationConfigurationsRequestBuilder';
 import { UpdateAllowedCombinationsRequestBuilder } from './updateAllowedCombinations/updateAllowedCombinationsRequestBuilder';
 import { UsageRequestBuilder } from './usage/usageRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface AuthenticationStrengthPolicyItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -28,30 +18,6 @@ export interface AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameter
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface AuthenticationStrengthPolicyItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters;
-}
-export interface AuthenticationStrengthPolicyItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
@@ -84,11 +50,11 @@ export class AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequestB
         super(pathParameters, requestAdapter, "{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a custom authenticationStrengthPolicy object. This API is available in the following national cloud deployments.
+     * Delete a custom authenticationStrengthPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthroot-delete-policies?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -99,12 +65,12 @@ export class AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an authenticationStrengthPolicy object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an authenticationStrengthPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationStrengthPolicy
      * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationStrengthPolicy | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationStrengthPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -115,13 +81,13 @@ export class AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendAsync<AuthenticationStrengthPolicy>(requestInfo, createAuthenticationStrengthPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an authenticationStrengthPolicy object. You cannot update the allowed auth method combinations using this request. To do so, use the Update allowed combinations action. This API is available in the following national cloud deployments.
+     * Update the properties of an authenticationStrengthPolicy object. You cannot update the allowed auth method combinations using this request. To do so, use the Update allowed combinations action.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationStrengthPolicy
      * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AuthenticationStrengthPolicy, requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationStrengthPolicy | undefined> {
+    public patch(body: AuthenticationStrengthPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationStrengthPolicy | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -132,57 +98,38 @@ export class AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendAsync<AuthenticationStrengthPolicy>(requestInfo, createAuthenticationStrengthPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a custom authenticationStrengthPolicy object. This API is available in the following national cloud deployments.
+     * Delete a custom authenticationStrengthPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an authenticationStrengthPolicy object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of an authenticationStrengthPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, authenticationStrengthPolicyItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the properties of an authenticationStrengthPolicy object. You cannot update the allowed auth method combinations using this request. To do so, use the Update allowed combinations action. This API is available in the following national cloud deployments.
+     * Update the properties of an authenticationStrengthPolicy object. You cannot update the allowed auth method combinations using this request. To do so, use the Update allowed combinations action.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AuthenticationStrengthPolicy, requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AuthenticationStrengthPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAuthenticationStrengthPolicy);
         return requestInfo;
     };
@@ -196,5 +143,9 @@ export class AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequestB
         return new AuthenticationStrengthPolicyItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const authenticationStrengthPolicyItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

@@ -24,7 +24,7 @@ export function deserializeIntoAcotPostRequestBody(acotPostRequestBody: AcotPost
     }
 }
 export function serializeAcotPostRequestBody(writer: SerializationWriter, acotPostRequestBody: AcotPostRequestBody | undefined = {} as AcotPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", acotPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", acotPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(acotPostRequestBody.additionalData);
 }
 // tslint:enable

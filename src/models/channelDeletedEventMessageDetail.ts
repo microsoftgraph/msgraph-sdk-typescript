@@ -35,7 +35,7 @@ export function serializeChannelDeletedEventMessageDetail(writer: SerializationW
         serializeEventMessageDetail(writer, channelDeletedEventMessageDetail)
         writer.writeStringValue("channelDisplayName", channelDeletedEventMessageDetail.channelDisplayName);
         writer.writeStringValue("channelId", channelDeletedEventMessageDetail.channelId);
-        writer.writeObjectValue<IdentitySet>("initiator", channelDeletedEventMessageDetail.initiator, );
+        writer.writeObjectValue<IdentitySet>("initiator", channelDeletedEventMessageDetail.initiator, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

@@ -8,7 +8,7 @@ import { createOpenShiftChangeRequestFromDiscriminatorValue, deserializeIntoOpen
 import { createOpenShiftChangeRequestCollectionResponseFromDiscriminatorValue } from '../../../../../models/openShiftChangeRequestCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OpenShiftChangeRequestItemRequestBuilder } from './item/openShiftChangeRequestItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface OpenShiftChangeRequestsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface OpenShiftChangeRequestsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: OpenShiftChangeRequestsRequestBuilderGetQueryParameters;
-}
-export interface OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
  */
@@ -98,12 +74,12 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of openShiftChangeRequest objects in a team. This API is available in the following national cloud deployments.
+     * Retrieve a list of openShiftChangeRequest objects in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OpenShiftChangeRequestCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/openshiftchangerequest-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<OpenShiftChangeRequestCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<OpenShiftChangeRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<OpenShiftChangeRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OpenShiftChangeRequestCollectionResponse>(requestInfo, createOpenShiftChangeRequestCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create instance of an openShiftChangeRequest object. This API is available in the following national cloud deployments.
+     * Create instance of an openShiftChangeRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OpenShiftChangeRequest
      * @see {@link https://learn.microsoft.com/graph/api/openshiftchangerequest-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: OpenShiftChangeRequest, requestConfiguration?: OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<OpenShiftChangeRequest | undefined> {
+    public post(body: OpenShiftChangeRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OpenShiftChangeRequest | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OpenShiftChangeRequest>(requestInfo, createOpenShiftChangeRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of openShiftChangeRequest objects in a team. This API is available in the following national cloud deployments.
+     * Retrieve a list of openShiftChangeRequest objects in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<OpenShiftChangeRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, openShiftChangeRequestsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create instance of an openShiftChangeRequest object. This API is available in the following national cloud deployments.
+     * Create instance of an openShiftChangeRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: OpenShiftChangeRequest, requestConfiguration?: OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: OpenShiftChangeRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOpenShiftChangeRequest);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return new OpenShiftChangeRequestsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const openShiftChangeRequestsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

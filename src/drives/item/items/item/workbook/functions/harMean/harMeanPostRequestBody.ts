@@ -24,7 +24,7 @@ export interface HarMeanPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeHarMeanPostRequestBody(writer: SerializationWriter, harMeanPostRequestBody: HarMeanPostRequestBody | undefined = {} as HarMeanPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", harMeanPostRequestBody.values, );
+        writer.writeObjectValue<Json>("values", harMeanPostRequestBody.values, serializeJson);
         writer.writeAdditionalData(harMeanPostRequestBody.additionalData);
 }
 // tslint:enable

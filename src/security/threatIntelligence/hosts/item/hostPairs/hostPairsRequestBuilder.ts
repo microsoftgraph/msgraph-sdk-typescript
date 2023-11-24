@@ -7,7 +7,7 @@ import { type HostPairCollectionResponse } from '../../../../../models/security/
 import { createHostPairCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/hostPairCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { HostPairItemRequestBuilder } from './item/hostPairItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface HostPairsRequestBuilderGetQueryParameters {
     /**
@@ -43,20 +43,6 @@ export interface HostPairsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface HostPairsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: HostPairsRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to manage the hostPairs property of the microsoft.graph.security.host entity.
  */
@@ -87,12 +73,12 @@ export class HostPairsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/hostPairs{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the list of hostPair resources associated with a host, where that host is *either* the *parent* or the *child*. This API is available in the following national cloud deployments.
+     * Get the list of hostPair resources associated with a host, where that host is *either* the *parent* or the *child*.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostPairCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-host-list-hostpairs?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: HostPairsRequestBuilderGetRequestConfiguration | undefined) : Promise<HostPairCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<HostPairsRequestBuilderGetQueryParameters> | undefined) : Promise<HostPairCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -103,21 +89,14 @@ export class HostPairsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<HostPairCollectionResponse>(requestInfo, createHostPairCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the list of hostPair resources associated with a host, where that host is *either* the *parent* or the *child*. This API is available in the following national cloud deployments.
+     * Get the list of hostPair resources associated with a host, where that host is *either* the *parent* or the *child*.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: HostPairsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<HostPairsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, hostPairsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class HostPairsRequestBuilder extends BaseRequestBuilder {
         return new HostPairsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const hostPairsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

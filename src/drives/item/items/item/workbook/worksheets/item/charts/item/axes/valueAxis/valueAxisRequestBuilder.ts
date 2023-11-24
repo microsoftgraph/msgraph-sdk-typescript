@@ -8,18 +8,8 @@ import { FormatRequestBuilder } from './format/formatRequestBuilder';
 import { MajorGridlinesRequestBuilder } from './majorGridlines/majorGridlinesRequestBuilder';
 import { MinorGridlinesRequestBuilder } from './minorGridlines/minorGridlinesRequestBuilder';
 import { TitleRequestBuilder } from './title/titleRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface ValueAxisRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface ValueAxisRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -29,30 +19,6 @@ export interface ValueAxisRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface ValueAxisRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ValueAxisRequestBuilderGetQueryParameters;
-}
-export interface ValueAxisRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the valueAxis property of the microsoft.graph.workbookChartAxes entity.
@@ -94,7 +60,7 @@ export class ValueAxisRequestBuilder extends BaseRequestBuilder {
      * Delete navigation property valueAxis for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: ValueAxisRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -105,12 +71,12 @@ export class ValueAxisRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of chartaxis object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of chartaxis object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartAxis
      * @see {@link https://learn.microsoft.com/graph/api/chartaxis-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ValueAxisRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartAxis | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ValueAxisRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartAxis | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -121,13 +87,13 @@ export class ValueAxisRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookChartAxis>(requestInfo, createWorkbookChartAxisFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of chartaxis object. This API is available in the following national cloud deployments.
+     * Update the properties of chartaxis object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartAxis
      * @see {@link https://learn.microsoft.com/graph/api/chartaxis-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookChartAxis, requestConfiguration?: ValueAxisRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartAxis | undefined> {
+    public patch(body: WorkbookChartAxis, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartAxis | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -142,53 +108,34 @@ export class ValueAxisRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: ValueAxisRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of chartaxis object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of chartaxis object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ValueAxisRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ValueAxisRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, valueAxisRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the properties of chartaxis object. This API is available in the following national cloud deployments.
+     * Update the properties of chartaxis object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookChartAxis, requestConfiguration?: ValueAxisRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookChartAxis, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookChartAxis);
         return requestInfo;
     };
@@ -202,5 +149,9 @@ export class ValueAxisRequestBuilder extends BaseRequestBuilder {
         return new ValueAxisRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const valueAxisRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

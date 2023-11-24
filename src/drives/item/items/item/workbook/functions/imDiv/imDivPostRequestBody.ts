@@ -29,8 +29,8 @@ export interface ImDivPostRequestBody extends AdditionalDataHolder, Parsable {
     inumber2?: Json;
 }
 export function serializeImDivPostRequestBody(writer: SerializationWriter, imDivPostRequestBody: ImDivPostRequestBody | undefined = {} as ImDivPostRequestBody) : void {
-        writer.writeObjectValue<Json>("inumber1", imDivPostRequestBody.inumber1, );
-        writer.writeObjectValue<Json>("inumber2", imDivPostRequestBody.inumber2, );
+        writer.writeObjectValue<Json>("inumber1", imDivPostRequestBody.inumber1, serializeJson);
+        writer.writeObjectValue<Json>("inumber2", imDivPostRequestBody.inumber2, serializeJson);
         writer.writeAdditionalData(imDivPostRequestBody.additionalData);
 }
 // tslint:enable

@@ -8,7 +8,7 @@ import { createOpenShiftFromDiscriminatorValue, deserializeIntoOpenShift, serial
 import { createOpenShiftCollectionResponseFromDiscriminatorValue } from '../../../../../../models/openShiftCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OpenShiftItemRequestBuilder } from './item/openShiftItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface OpenShiftsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface OpenShiftsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface OpenShiftsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: OpenShiftsRequestBuilderGetQueryParameters;
-}
-export interface OpenShiftsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
  */
@@ -98,12 +74,12 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/openShifts{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List openShift objects in a team. This API is available in the following national cloud deployments.
+     * List openShift objects in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OpenShiftCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/openshift-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: OpenShiftsRequestBuilderGetRequestConfiguration | undefined) : Promise<OpenShiftCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<OpenShiftsRequestBuilderGetQueryParameters> | undefined) : Promise<OpenShiftCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OpenShiftCollectionResponse>(requestInfo, createOpenShiftCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create an instance of an openShift object. This API is available in the following national cloud deployments.
+     * Create an instance of an openShift object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OpenShift
      * @see {@link https://learn.microsoft.com/graph/api/openshift-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: OpenShift, requestConfiguration?: OpenShiftsRequestBuilderPostRequestConfiguration | undefined) : Promise<OpenShift | undefined> {
+    public post(body: OpenShift, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OpenShift | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OpenShift>(requestInfo, createOpenShiftFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List openShift objects in a team. This API is available in the following national cloud deployments.
+     * List openShift objects in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: OpenShiftsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<OpenShiftsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, openShiftsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create an instance of an openShift object. This API is available in the following national cloud deployments.
+     * Create an instance of an openShift object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: OpenShift, requestConfiguration?: OpenShiftsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: OpenShift, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOpenShift);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
         return new OpenShiftsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const openShiftsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

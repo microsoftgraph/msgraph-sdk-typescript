@@ -7,18 +7,8 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { PublishRequestBuilder } from './publish/publishRequestBuilder';
 import { SharedCookiesRequestBuilder } from './sharedCookies/sharedCookiesRequestBuilder';
 import { SitesRequestBuilder } from './sites/sitesRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface BrowserSiteListItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface BrowserSiteListItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -28,30 +18,6 @@ export interface BrowserSiteListItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface BrowserSiteListItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: BrowserSiteListItemRequestBuilderGetQueryParameters;
-}
-export interface BrowserSiteListItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
@@ -84,11 +50,11 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a browserSiteList object. This API is available in the following national cloud deployments.
+     * Delete a browserSiteList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/internetexplorermode-delete-sitelists?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: BrowserSiteListItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -99,12 +65,12 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get a browserSiteList that contains browserSite and browserSharedCookie resources. This API is available in the following national cloud deployments.
+     * Get a browserSiteList that contains browserSite and browserSharedCookie resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSiteList
      * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: BrowserSiteListItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BrowserSiteList | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<BrowserSiteListItemRequestBuilderGetQueryParameters> | undefined) : Promise<BrowserSiteList | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -115,13 +81,13 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BrowserSiteList>(requestInfo, createBrowserSiteListFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a browserSiteList object. This API is available in the following national cloud deployments.
+     * Update the properties of a browserSiteList object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSiteList
      * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: BrowserSiteList, requestConfiguration?: BrowserSiteListItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BrowserSiteList | undefined> {
+    public patch(body: BrowserSiteList, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BrowserSiteList | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -132,57 +98,38 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BrowserSiteList>(requestInfo, createBrowserSiteListFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a browserSiteList object. This API is available in the following national cloud deployments.
+     * Delete a browserSiteList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: BrowserSiteListItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Get a browserSiteList that contains browserSite and browserSharedCookie resources. This API is available in the following national cloud deployments.
+     * Get a browserSiteList that contains browserSite and browserSharedCookie resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: BrowserSiteListItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<BrowserSiteListItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, browserSiteListItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the properties of a browserSiteList object. This API is available in the following national cloud deployments.
+     * Update the properties of a browserSiteList object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: BrowserSiteList, requestConfiguration?: BrowserSiteListItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: BrowserSiteList, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBrowserSiteList);
         return requestInfo;
     };
@@ -196,5 +143,9 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         return new BrowserSiteListItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const browserSiteListItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

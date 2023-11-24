@@ -23,7 +23,7 @@ export interface RiskyServicePrincipalCollectionResponse extends BaseCollectionP
 }
 export function serializeRiskyServicePrincipalCollectionResponse(writer: SerializationWriter, riskyServicePrincipalCollectionResponse: RiskyServicePrincipalCollectionResponse | undefined = {} as RiskyServicePrincipalCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, riskyServicePrincipalCollectionResponse)
-        writer.writeCollectionOfObjectValues<RiskyServicePrincipal>("value", riskyServicePrincipalCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<RiskyServicePrincipal>("value", riskyServicePrincipalCollectionResponse.value, serializeRiskyServicePrincipal);
 }
 // tslint:enable
 // eslint-enable

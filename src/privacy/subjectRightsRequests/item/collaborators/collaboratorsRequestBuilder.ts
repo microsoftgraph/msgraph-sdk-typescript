@@ -7,7 +7,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { createUserCollectionResponseFromDiscriminatorValue } from '../../../../models/userCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserItemRequestBuilder } from './item/userItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CollaboratorsRequestBuilderGetQueryParameters {
     /**
@@ -42,20 +42,6 @@ export interface CollaboratorsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface CollaboratorsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: CollaboratorsRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the collaborators property of the microsoft.graph.subjectRightsRequest entity.
@@ -94,7 +80,7 @@ export class CollaboratorsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of UserCollectionResponse
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
-    public get(requestConfiguration?: CollaboratorsRequestBuilderGetRequestConfiguration | undefined) : Promise<UserCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<CollaboratorsRequestBuilderGetQueryParameters> | undefined) : Promise<UserCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -110,17 +96,10 @@ export class CollaboratorsRequestBuilder extends BaseRequestBuilder {
      * @returns a RequestInformation
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
-    public toGetRequestInformation(requestConfiguration?: CollaboratorsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<CollaboratorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, collaboratorsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -134,5 +113,15 @@ export class CollaboratorsRequestBuilder extends BaseRequestBuilder {
         return new CollaboratorsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const collaboratorsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

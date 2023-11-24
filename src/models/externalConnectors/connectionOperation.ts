@@ -29,7 +29,7 @@ export function deserializeIntoConnectionOperation(connectionOperation: Connecti
 }
 export function serializeConnectionOperation(writer: SerializationWriter, connectionOperation: ConnectionOperation | undefined = {} as ConnectionOperation) : void {
         serializeEntity(writer, connectionOperation)
-        writer.writeObjectValue<PublicError>("error", connectionOperation.errorEscaped, );
+        writer.writeObjectValue<PublicError>("error", connectionOperation.errorEscaped, serializePublicError);
         writer.writeEnumValue<ConnectionOperationStatus>("status", connectionOperation.status);
 }
 // tslint:enable

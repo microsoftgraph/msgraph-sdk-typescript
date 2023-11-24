@@ -9,7 +9,7 @@ import { createUserConsentRequestCollectionResponseFromDiscriminatorValue } from
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { UserConsentRequestItemRequestBuilder } from './item/userConsentRequestItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserConsentRequestsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface UserConsentRequestsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface UserConsentRequestsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: UserConsentRequestsRequestBuilderGetQueryParameters;
-}
-export interface UserConsentRequestsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
@@ -108,12 +84,12 @@ export class UserConsentRequestsRequestBuilder extends BaseRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Retrieve a collection of userConsentRequest objects and their properties. This API is available in the following national cloud deployments.
+     * Retrieve a collection of userConsentRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserConsentRequestCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/appconsentrequest-list-userconsentrequests?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: UserConsentRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<UserConsentRequestCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<UserConsentRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<UserConsentRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -129,7 +105,7 @@ export class UserConsentRequestsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserConsentRequest
      */
-    public post(body: UserConsentRequest, requestConfiguration?: UserConsentRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<UserConsentRequest | undefined> {
+    public post(body: UserConsentRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserConsentRequest | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -140,21 +116,14 @@ export class UserConsentRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UserConsentRequest>(requestInfo, createUserConsentRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a collection of userConsentRequest objects and their properties. This API is available in the following national cloud deployments.
+     * Retrieve a collection of userConsentRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: UserConsentRequestsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserConsentRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, userConsentRequestsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -163,17 +132,11 @@ export class UserConsentRequestsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserConsentRequest, requestConfiguration?: UserConsentRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserConsentRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserConsentRequest);
         return requestInfo;
     };
@@ -187,5 +150,15 @@ export class UserConsentRequestsRequestBuilder extends BaseRequestBuilder {
         return new UserConsentRequestsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const userConsentRequestsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

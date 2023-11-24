@@ -17,7 +17,7 @@ export function deserializeIntoTargetedManagedAppConfigurationCollectionResponse
 }
 export function serializeTargetedManagedAppConfigurationCollectionResponse(writer: SerializationWriter, targetedManagedAppConfigurationCollectionResponse: TargetedManagedAppConfigurationCollectionResponse | undefined = {} as TargetedManagedAppConfigurationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, targetedManagedAppConfigurationCollectionResponse)
-        writer.writeCollectionOfObjectValues<TargetedManagedAppConfiguration>("value", targetedManagedAppConfigurationCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<TargetedManagedAppConfiguration>("value", targetedManagedAppConfigurationCollectionResponse.value, serializeTargetedManagedAppConfiguration);
 }
 export interface TargetedManagedAppConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

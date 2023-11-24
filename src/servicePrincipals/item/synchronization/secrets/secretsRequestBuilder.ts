@@ -5,18 +5,8 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue, deserializeIntoSynchronizationSecretKeyStringValuePair, serializeSynchronizationSecretKeyStringValuePair, type SynchronizationSecretKeyStringValuePair } from '../../../../models/synchronizationSecretKeyStringValuePair';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface SecretsRequestBuilderPutRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Builds and executes requests for operations under /servicePrincipals/{servicePrincipal-id}/synchronization/secrets
  */
@@ -41,7 +31,7 @@ export class SecretsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SynchronizationSecretKeyStringValuePair
      */
-    public put(body: SynchronizationSecretKeyStringValuePair[], requestConfiguration?: SecretsRequestBuilderPutRequestConfiguration | undefined) : Promise<SynchronizationSecretKeyStringValuePair[] | undefined> {
+    public put(body: SynchronizationSecretKeyStringValuePair[], requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SynchronizationSecretKeyStringValuePair[] | undefined> {
         const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
         );
@@ -57,17 +47,11 @@ export class SecretsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPutRequestInformation(body: SynchronizationSecretKeyStringValuePair[], requestConfiguration?: SecretsRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
+    public toPutRequestInformation(body: SynchronizationSecretKeyStringValuePair[], requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PUT;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PUT, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSynchronizationSecretKeyStringValuePair);
         return requestInfo;
     };

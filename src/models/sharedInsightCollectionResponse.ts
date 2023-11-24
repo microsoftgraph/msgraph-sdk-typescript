@@ -17,7 +17,7 @@ export function deserializeIntoSharedInsightCollectionResponse(sharedInsightColl
 }
 export function serializeSharedInsightCollectionResponse(writer: SerializationWriter, sharedInsightCollectionResponse: SharedInsightCollectionResponse | undefined = {} as SharedInsightCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, sharedInsightCollectionResponse)
-        writer.writeCollectionOfObjectValues<SharedInsight>("value", sharedInsightCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<SharedInsight>("value", sharedInsightCollectionResponse.value, serializeSharedInsight);
 }
 export interface SharedInsightCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

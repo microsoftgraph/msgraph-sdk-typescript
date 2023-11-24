@@ -88,10 +88,10 @@ export function serializeCaseOperation(writer: SerializationWriter, caseOperatio
         serializeEntity(writer, caseOperation)
         writer.writeEnumValue<CaseAction>("action", caseOperation.action);
         writer.writeDateValue("completedDateTime", caseOperation.completedDateTime);
-        writer.writeObjectValue<IdentitySet>("createdBy", caseOperation.createdBy, );
+        writer.writeObjectValue<IdentitySet>("createdBy", caseOperation.createdBy, serializeIdentitySet);
         writer.writeDateValue("createdDateTime", caseOperation.createdDateTime);
         writer.writeNumberValue("percentProgress", caseOperation.percentProgress);
-        writer.writeObjectValue<ResultInfo>("resultInfo", caseOperation.resultInfo, );
+        writer.writeObjectValue<ResultInfo>("resultInfo", caseOperation.resultInfo, serializeResultInfo);
         writer.writeEnumValue<CaseOperationStatus>("status", caseOperation.status);
 }
 // tslint:enable

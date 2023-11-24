@@ -6,7 +6,7 @@ import { createApplicationTemplateFromDiscriminatorValue } from '../../models/ap
 import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { InstantiateRequestBuilder } from './instantiate/instantiateRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ApplicationTemplateItemRequestBuilderGetQueryParameters {
     /**
@@ -17,20 +17,6 @@ export interface ApplicationTemplateItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface ApplicationTemplateItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ApplicationTemplateItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the collection of applicationTemplate entities.
@@ -51,12 +37,12 @@ export class ApplicationTemplateItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/applicationTemplates/{applicationTemplate%2Did}{?%24select,%24expand}");
     };
     /**
-     * Retrieve the properties of an applicationTemplate object. This API is available in the following national cloud deployments.
+     * Retrieve the properties of an applicationTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ApplicationTemplate
      * @see {@link https://learn.microsoft.com/graph/api/applicationtemplate-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ApplicationTemplateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ApplicationTemplate | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ApplicationTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<ApplicationTemplate | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -67,21 +53,14 @@ export class ApplicationTemplateItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ApplicationTemplate>(requestInfo, createApplicationTemplateFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the properties of an applicationTemplate object. This API is available in the following national cloud deployments.
+     * Retrieve the properties of an applicationTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ApplicationTemplateItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ApplicationTemplateItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, applicationTemplateItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -94,5 +73,9 @@ export class ApplicationTemplateItemRequestBuilder extends BaseRequestBuilder {
         return new ApplicationTemplateItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const applicationTemplateItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

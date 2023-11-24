@@ -5,7 +5,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { createGetApplicableContentTypesForListWithListIdGetResponseFromDiscriminatorValue } from './getApplicableContentTypesForListWithListIdGetResponse';
 import { type GetApplicableContentTypesForListWithListIdGetResponse } from './index';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters {
     /**
@@ -37,20 +37,6 @@ export interface GetApplicableContentTypesForListWithListIdRequestBuilderGetQuer
      */
     top?: number;
 }
-export interface GetApplicableContentTypesForListWithListIdRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: GetApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the getApplicableContentTypesForList method.
  */
@@ -70,7 +56,7 @@ export class GetApplicableContentTypesForListWithListIdRequestBuilder extends Ba
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetApplicableContentTypesForListWithListIdGetResponse
      */
-    public get(requestConfiguration?: GetApplicableContentTypesForListWithListIdRequestBuilderGetRequestConfiguration | undefined) : Promise<GetApplicableContentTypesForListWithListIdGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<GetApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters> | undefined) : Promise<GetApplicableContentTypesForListWithListIdGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -85,17 +71,10 @@ export class GetApplicableContentTypesForListWithListIdRequestBuilder extends Ba
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: GetApplicableContentTypesForListWithListIdRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, getApplicableContentTypesForListWithListIdRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -108,5 +87,14 @@ export class GetApplicableContentTypesForListWithListIdRequestBuilder extends Ba
         return new GetApplicableContentTypesForListWithListIdRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const getApplicableContentTypesForListWithListIdRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

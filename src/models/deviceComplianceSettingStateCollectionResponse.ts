@@ -23,7 +23,7 @@ export interface DeviceComplianceSettingStateCollectionResponse extends BaseColl
 }
 export function serializeDeviceComplianceSettingStateCollectionResponse(writer: SerializationWriter, deviceComplianceSettingStateCollectionResponse: DeviceComplianceSettingStateCollectionResponse | undefined = {} as DeviceComplianceSettingStateCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, deviceComplianceSettingStateCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceComplianceSettingState>("value", deviceComplianceSettingStateCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DeviceComplianceSettingState>("value", deviceComplianceSettingStateCollectionResponse.value, serializeDeviceComplianceSettingState);
 }
 // tslint:enable
 // eslint-enable

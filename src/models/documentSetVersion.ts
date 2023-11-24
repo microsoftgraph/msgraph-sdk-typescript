@@ -45,9 +45,9 @@ export interface DocumentSetVersion extends ListItemVersion, Parsable {
 export function serializeDocumentSetVersion(writer: SerializationWriter, documentSetVersion: DocumentSetVersion | undefined = {} as DocumentSetVersion) : void {
         serializeListItemVersion(writer, documentSetVersion)
         writer.writeStringValue("comment", documentSetVersion.comment);
-        writer.writeObjectValue<IdentitySet>("createdBy", documentSetVersion.createdBy, );
+        writer.writeObjectValue<IdentitySet>("createdBy", documentSetVersion.createdBy, serializeIdentitySet);
         writer.writeDateValue("createdDateTime", documentSetVersion.createdDateTime);
-        writer.writeCollectionOfObjectValues<DocumentSetVersionItem>("items", documentSetVersion.items, );
+        writer.writeCollectionOfObjectValues<DocumentSetVersionItem>("items", documentSetVersion.items, serializeDocumentSetVersionItem);
         writer.writeBooleanValue("shouldCaptureMinorVersion", documentSetVersion.shouldCaptureMinorVersion);
 }
 // tslint:enable

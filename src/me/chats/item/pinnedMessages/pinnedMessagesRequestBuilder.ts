@@ -8,7 +8,7 @@ import { createPinnedChatMessageInfoFromDiscriminatorValue, deserializeIntoPinne
 import { createPinnedChatMessageInfoCollectionResponseFromDiscriminatorValue } from '../../../../models/pinnedChatMessageInfoCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PinnedChatMessageInfoItemRequestBuilder } from './item/pinnedChatMessageInfoItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PinnedMessagesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface PinnedMessagesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface PinnedMessagesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PinnedMessagesRequestBuilderGetQueryParameters;
-}
-export interface PinnedMessagesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
  */
@@ -98,12 +74,12 @@ export class PinnedMessagesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/chats/{chat%2Did}/pinnedMessages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of pinnedChatMessages in a chat. This API is available in the following national cloud deployments.
+     * Get a list of pinnedChatMessages in a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PinnedChatMessageInfoCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/chat-list-pinnedmessages?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PinnedMessagesRequestBuilderGetRequestConfiguration | undefined) : Promise<PinnedChatMessageInfoCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PinnedMessagesRequestBuilderGetQueryParameters> | undefined) : Promise<PinnedChatMessageInfoCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class PinnedMessagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PinnedChatMessageInfoCollectionResponse>(requestInfo, createPinnedChatMessageInfoCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Pin a chat message in the specified chat. This API cannot create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can pin a chat message. This API is available in the following national cloud deployments.
+     * Pin a chat message in the specified chat. This API cannot create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can pin a chat message.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PinnedChatMessageInfo
      * @see {@link https://learn.microsoft.com/graph/api/chat-post-pinnedmessages?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: PinnedChatMessageInfo, requestConfiguration?: PinnedMessagesRequestBuilderPostRequestConfiguration | undefined) : Promise<PinnedChatMessageInfo | undefined> {
+    public post(body: PinnedChatMessageInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PinnedChatMessageInfo | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class PinnedMessagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PinnedChatMessageInfo>(requestInfo, createPinnedChatMessageInfoFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of pinnedChatMessages in a chat. This API is available in the following national cloud deployments.
+     * Get a list of pinnedChatMessages in a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PinnedMessagesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PinnedMessagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, pinnedMessagesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Pin a chat message in the specified chat. This API cannot create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can pin a chat message. This API is available in the following national cloud deployments.
+     * Pin a chat message in the specified chat. This API cannot create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can pin a chat message.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PinnedChatMessageInfo, requestConfiguration?: PinnedMessagesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PinnedChatMessageInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePinnedChatMessageInfo);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class PinnedMessagesRequestBuilder extends BaseRequestBuilder {
         return new PinnedMessagesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const pinnedMessagesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

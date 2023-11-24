@@ -23,7 +23,7 @@ export function deserializeIntoDelegatedAdminServiceManagementDetailCollectionRe
 }
 export function serializeDelegatedAdminServiceManagementDetailCollectionResponse(writer: SerializationWriter, delegatedAdminServiceManagementDetailCollectionResponse: DelegatedAdminServiceManagementDetailCollectionResponse | undefined = {} as DelegatedAdminServiceManagementDetailCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, delegatedAdminServiceManagementDetailCollectionResponse)
-        writer.writeCollectionOfObjectValues<DelegatedAdminServiceManagementDetail>("value", delegatedAdminServiceManagementDetailCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DelegatedAdminServiceManagementDetail>("value", delegatedAdminServiceManagementDetailCollectionResponse.value, serializeDelegatedAdminServiceManagementDetail);
 }
 // tslint:enable
 // eslint-enable

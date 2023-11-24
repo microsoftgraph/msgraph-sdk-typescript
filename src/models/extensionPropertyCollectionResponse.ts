@@ -23,7 +23,7 @@ export interface ExtensionPropertyCollectionResponse extends BaseCollectionPagin
 }
 export function serializeExtensionPropertyCollectionResponse(writer: SerializationWriter, extensionPropertyCollectionResponse: ExtensionPropertyCollectionResponse | undefined = {} as ExtensionPropertyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, extensionPropertyCollectionResponse)
-        writer.writeCollectionOfObjectValues<ExtensionProperty>("value", extensionPropertyCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ExtensionProperty>("value", extensionPropertyCollectionResponse.value, serializeExtensionProperty);
 }
 // tslint:enable
 // eslint-enable

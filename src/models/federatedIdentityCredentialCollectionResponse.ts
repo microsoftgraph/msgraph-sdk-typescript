@@ -23,7 +23,7 @@ export interface FederatedIdentityCredentialCollectionResponse extends BaseColle
 }
 export function serializeFederatedIdentityCredentialCollectionResponse(writer: SerializationWriter, federatedIdentityCredentialCollectionResponse: FederatedIdentityCredentialCollectionResponse | undefined = {} as FederatedIdentityCredentialCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, federatedIdentityCredentialCollectionResponse)
-        writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("value", federatedIdentityCredentialCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("value", federatedIdentityCredentialCollectionResponse.value, serializeFederatedIdentityCredential);
 }
 // tslint:enable
 // eslint-enable

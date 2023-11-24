@@ -8,7 +8,7 @@ import { createPlannerBucketFromDiscriminatorValue, deserializeIntoPlannerBucket
 import { createPlannerBucketCollectionResponseFromDiscriminatorValue } from '../../models/plannerBucketCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PlannerBucketItemRequestBuilder } from './item/plannerBucketItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BucketsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface BucketsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface BucketsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: BucketsRequestBuilderGetQueryParameters;
-}
-export interface BucketsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the buckets property of the microsoft.graph.planner entity.
  */
@@ -98,12 +74,12 @@ export class BucketsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/planner/buckets{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of plannerbucket objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of plannerbucket objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerBucketCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/planner-list-buckets?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: BucketsRequestBuilderGetRequestConfiguration | undefined) : Promise<PlannerBucketCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<BucketsRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerBucketCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,13 +90,13 @@ export class BucketsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PlannerBucketCollectionResponse>(requestInfo, createPlannerBucketCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new plannerBucket object. This API is available in the following national cloud deployments.
+     * Create a new plannerBucket object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerBucket
      * @see {@link https://learn.microsoft.com/graph/api/planner-post-buckets?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: PlannerBucket, requestConfiguration?: BucketsRequestBuilderPostRequestConfiguration | undefined) : Promise<PlannerBucket | undefined> {
+    public post(body: PlannerBucket, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerBucket | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,40 +107,27 @@ export class BucketsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PlannerBucket>(requestInfo, createPlannerBucketFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of plannerbucket objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of plannerbucket objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: BucketsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<BucketsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, bucketsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create a new plannerBucket object. This API is available in the following national cloud deployments.
+     * Create a new plannerBucket object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PlannerBucket, requestConfiguration?: BucketsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PlannerBucket, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePlannerBucket);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class BucketsRequestBuilder extends BaseRequestBuilder {
         return new BucketsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const bucketsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

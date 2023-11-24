@@ -8,7 +8,7 @@ import { createUserFlowLanguageConfigurationFromDiscriminatorValue, deserializeI
 import { createUserFlowLanguageConfigurationCollectionResponseFromDiscriminatorValue } from '../../../../models/userFlowLanguageConfigurationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserFlowLanguageConfigurationItemRequestBuilder } from './item/userFlowLanguageConfigurationItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LanguagesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface LanguagesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface LanguagesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: LanguagesRequestBuilderGetQueryParameters;
-}
-export interface LanguagesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
  */
@@ -98,12 +74,12 @@ export class LanguagesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/languages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of languages supported for customization in a B2X user flow. This API is available in the following national cloud deployments.
+     * Retrieve a list of languages supported for customization in a B2X user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserFlowLanguageConfigurationCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/b2xidentityuserflow-list-languages?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: LanguagesRequestBuilderGetRequestConfiguration | undefined) : Promise<UserFlowLanguageConfigurationCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<LanguagesRequestBuilderGetQueryParameters> | undefined) : Promise<UserFlowLanguageConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class LanguagesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserFlowLanguageConfiguration
      */
-    public post(body: UserFlowLanguageConfiguration, requestConfiguration?: LanguagesRequestBuilderPostRequestConfiguration | undefined) : Promise<UserFlowLanguageConfiguration | undefined> {
+    public post(body: UserFlowLanguageConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserFlowLanguageConfiguration | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -130,21 +106,14 @@ export class LanguagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UserFlowLanguageConfiguration>(requestInfo, createUserFlowLanguageConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of languages supported for customization in a B2X user flow. This API is available in the following national cloud deployments.
+     * Retrieve a list of languages supported for customization in a B2X user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: LanguagesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<LanguagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, languagesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class LanguagesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserFlowLanguageConfiguration, requestConfiguration?: LanguagesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserFlowLanguageConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserFlowLanguageConfiguration);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class LanguagesRequestBuilder extends BaseRequestBuilder {
         return new LanguagesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const languagesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

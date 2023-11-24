@@ -8,7 +8,7 @@ import { createShiftFromDiscriminatorValue, deserializeIntoShift, serializeShift
 import { createShiftCollectionResponseFromDiscriminatorValue } from '../../../../models/shiftCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ShiftItemRequestBuilder } from './item/shiftItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ShiftsRequestBuilderGetQueryParameters {
     /**
@@ -40,30 +40,6 @@ export interface ShiftsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface ShiftsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ShiftsRequestBuilderGetQueryParameters;
-}
-export interface ShiftsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
  */
@@ -94,12 +70,12 @@ export class ShiftsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teams/{team%2Did}/schedule/shifts{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Get the list of shift instances in a schedule. This API is available in the following national cloud deployments.
+     * Get the list of shift instances in a schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ShiftCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/schedule-list-shifts?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ShiftsRequestBuilderGetRequestConfiguration | undefined) : Promise<ShiftCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ShiftsRequestBuilderGetQueryParameters> | undefined) : Promise<ShiftCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -110,13 +86,13 @@ export class ShiftsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ShiftCollectionResponse>(requestInfo, createShiftCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours. This API is available in the following national cloud deployments.
+     * Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Shift
      * @see {@link https://learn.microsoft.com/graph/api/schedule-post-shifts?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: Shift, requestConfiguration?: ShiftsRequestBuilderPostRequestConfiguration | undefined) : Promise<Shift | undefined> {
+    public post(body: Shift, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Shift | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -127,40 +103,27 @@ export class ShiftsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Shift>(requestInfo, createShiftFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the list of shift instances in a schedule. This API is available in the following national cloud deployments.
+     * Get the list of shift instances in a schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ShiftsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ShiftsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, shiftsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours. This API is available in the following national cloud deployments.
+     * Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Shift, requestConfiguration?: ShiftsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Shift, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeShift);
         return requestInfo;
     };
@@ -174,5 +137,14 @@ export class ShiftsRequestBuilder extends BaseRequestBuilder {
         return new ShiftsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const shiftsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

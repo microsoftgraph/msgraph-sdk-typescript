@@ -9,7 +9,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { GetAllMessagesRequestBuilder } from './getAllMessages/getAllMessagesRequestBuilder';
 import { DeletedTeamItemRequestBuilder } from './item/deletedTeamItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeletedTeamsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface DeletedTeamsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface DeletedTeamsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DeletedTeamsRequestBuilderGetQueryParameters;
-}
-export interface DeletedTeamsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
@@ -105,12 +81,12 @@ export class DeletedTeamsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teamwork/deletedTeams{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the deletedTeam objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the deletedTeam objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeletedTeamCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/teamwork-list-deletedteams?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeletedTeamsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeletedTeamCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DeletedTeamsRequestBuilderGetQueryParameters> | undefined) : Promise<DeletedTeamCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -126,7 +102,7 @@ export class DeletedTeamsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeletedTeam
      */
-    public post(body: DeletedTeam, requestConfiguration?: DeletedTeamsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeletedTeam | undefined> {
+    public post(body: DeletedTeam, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeletedTeam | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -137,21 +113,14 @@ export class DeletedTeamsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeletedTeam>(requestInfo, createDeletedTeamFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the deletedTeam objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the deletedTeam objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DeletedTeamsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeletedTeamsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, deletedTeamsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -160,17 +129,11 @@ export class DeletedTeamsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DeletedTeam, requestConfiguration?: DeletedTeamsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DeletedTeam, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeletedTeam);
         return requestInfo;
     };
@@ -184,5 +147,15 @@ export class DeletedTeamsRequestBuilder extends BaseRequestBuilder {
         return new DeletedTeamsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const deletedTeamsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

@@ -8,7 +8,7 @@ import { createProfileCardPropertyFromDiscriminatorValue, deserializeIntoProfile
 import { createProfileCardPropertyCollectionResponseFromDiscriminatorValue } from '../../../models/profileCardPropertyCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ProfileCardPropertyItemRequestBuilder } from './item/profileCardPropertyItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ProfileCardPropertiesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface ProfileCardPropertiesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface ProfileCardPropertiesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ProfileCardPropertiesRequestBuilderGetQueryParameters;
-}
-export interface ProfileCardPropertiesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the profileCardProperties property of the microsoft.graph.peopleAdminSettings entity.
  */
@@ -98,11 +74,12 @@ export class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/people/profileCardProperties{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get profileCardProperties from admin
+     * Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProfileCardPropertyCollectionResponse
+     * @see {@link https://learn.microsoft.com/graph/api/peopleadminsettings-list-profilecardproperties?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ProfileCardPropertiesRequestBuilderGetRequestConfiguration | undefined) : Promise<ProfileCardPropertyCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ProfileCardPropertiesRequestBuilderGetQueryParameters> | undefined) : Promise<ProfileCardPropertyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -113,12 +90,13 @@ export class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ProfileCardPropertyCollectionResponse>(requestInfo, createProfileCardPropertyCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to profileCardProperties for admin
+     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or remove custom attributes on a profile card using the profile card API.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProfileCardProperty
+     * @see {@link https://learn.microsoft.com/graph/api/peopleadminsettings-post-profilecardproperties?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ProfileCardProperty, requestConfiguration?: ProfileCardPropertiesRequestBuilderPostRequestConfiguration | undefined) : Promise<ProfileCardProperty | undefined> {
+    public post(body: ProfileCardProperty, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ProfileCardProperty | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -129,40 +107,27 @@ export class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ProfileCardProperty>(requestInfo, createProfileCardPropertyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get profileCardProperties from admin
+     * Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ProfileCardPropertiesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ProfileCardPropertiesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, profileCardPropertiesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create new navigation property to profileCardProperties for admin
+     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or remove custom attributes on a profile card using the profile card API.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ProfileCardProperty, requestConfiguration?: ProfileCardPropertiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ProfileCardProperty, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeProfileCardProperty);
         return requestInfo;
     };
@@ -176,5 +141,15 @@ export class ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder {
         return new ProfileCardPropertiesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const profileCardPropertiesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

@@ -4,7 +4,7 @@
 import { createMailboxSettingsFromDiscriminatorValue, deserializeIntoMailboxSettings, serializeMailboxSettings, type MailboxSettings } from '../../../../../../models/mailboxSettings';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MailboxSettingsRequestBuilderGetQueryParameters {
     /**
@@ -15,30 +15,6 @@ export interface MailboxSettingsRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface MailboxSettingsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: MailboxSettingsRequestBuilderGetQueryParameters;
-}
-export interface MailboxSettingsRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Builds and executes requests for operations under /privacy/subjectRightsRequests/{subjectRightsRequest-id}/approvers/{user-id}/mailboxSettings
@@ -58,7 +34,7 @@ export class MailboxSettingsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of MailboxSettings
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
-    public get(requestConfiguration?: MailboxSettingsRequestBuilderGetRequestConfiguration | undefined) : Promise<MailboxSettings | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<MailboxSettingsRequestBuilderGetQueryParameters> | undefined) : Promise<MailboxSettings | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -75,7 +51,7 @@ export class MailboxSettingsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of MailboxSettings
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
-    public patch(body: MailboxSettings, requestConfiguration?: MailboxSettingsRequestBuilderPatchRequestConfiguration | undefined) : Promise<MailboxSettings | undefined> {
+    public patch(body: MailboxSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MailboxSettings | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -91,17 +67,10 @@ export class MailboxSettingsRequestBuilder extends BaseRequestBuilder {
      * @returns a RequestInformation
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
-    public toGetRequestInformation(requestConfiguration?: MailboxSettingsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<MailboxSettingsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, mailboxSettingsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -111,17 +80,11 @@ export class MailboxSettingsRequestBuilder extends BaseRequestBuilder {
      * @returns a RequestInformation
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
-    public toPatchRequestInformation(body: MailboxSettings, requestConfiguration?: MailboxSettingsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: MailboxSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMailboxSettings);
         return requestInfo;
     };
@@ -136,5 +99,9 @@ export class MailboxSettingsRequestBuilder extends BaseRequestBuilder {
         return new MailboxSettingsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const mailboxSettingsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

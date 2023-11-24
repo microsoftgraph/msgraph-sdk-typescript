@@ -115,8 +115,8 @@ export function serializeAnalyzedMessageEvidence(writer: SerializationWriter, an
         writer.writeStringValue("internetMessageId", analyzedMessageEvidence.internetMessageId);
         writer.writeStringValue("language", analyzedMessageEvidence.language);
         writer.writeStringValue("networkMessageId", analyzedMessageEvidence.networkMessageId);
-        writer.writeObjectValue<EmailSender>("p1Sender", analyzedMessageEvidence.p1Sender, );
-        writer.writeObjectValue<EmailSender>("p2Sender", analyzedMessageEvidence.p2Sender, );
+        writer.writeObjectValue<EmailSender>("p1Sender", analyzedMessageEvidence.p1Sender, serializeEmailSender);
+        writer.writeObjectValue<EmailSender>("p2Sender", analyzedMessageEvidence.p2Sender, serializeEmailSender);
         writer.writeDateValue("receivedDateTime", analyzedMessageEvidence.receivedDateTime);
         writer.writeStringValue("recipientEmailAddress", analyzedMessageEvidence.recipientEmailAddress);
         writer.writeStringValue("senderIp", analyzedMessageEvidence.senderIp);

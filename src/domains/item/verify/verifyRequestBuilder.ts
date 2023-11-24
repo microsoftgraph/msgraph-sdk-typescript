@@ -5,18 +5,8 @@ import { type Domain } from '../../../models/';
 import { createDomainFromDiscriminatorValue } from '../../../models/domain';
 import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface VerifyRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the verify method.
  */
@@ -30,12 +20,12 @@ export class VerifyRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/domains/{domain%2Did}/verify");
     };
     /**
-     * Validates the ownership of the domain. This API is available in the following national cloud deployments.
+     * Validates the ownership of the domain.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Domain
      * @see {@link https://learn.microsoft.com/graph/api/domain-verify?view=graph-rest-1.0|Find more info here}
      */
-    public post(requestConfiguration?: VerifyRequestBuilderPostRequestConfiguration | undefined) : Promise<Domain | undefined> {
+    public post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Domain | undefined> {
         const requestInfo = this.toPostRequestInformation(
             requestConfiguration
         );
@@ -46,20 +36,14 @@ export class VerifyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Domain>(requestInfo, createDomainFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Validates the ownership of the domain. This API is available in the following national cloud deployments.
+     * Validates the ownership of the domain.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(requestConfiguration?: VerifyRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**

@@ -34,7 +34,7 @@ export interface OnenotePagePreview extends AdditionalDataHolder, Parsable {
     previewText?: string;
 }
 export function serializeOnenotePagePreview(writer: SerializationWriter, onenotePagePreview: OnenotePagePreview | undefined = {} as OnenotePagePreview) : void {
-        writer.writeObjectValue<OnenotePagePreviewLinks>("links", onenotePagePreview.links, );
+        writer.writeObjectValue<OnenotePagePreviewLinks>("links", onenotePagePreview.links, serializeOnenotePagePreviewLinks);
         writer.writeStringValue("@odata.type", onenotePagePreview.odataType);
         writer.writeStringValue("previewText", onenotePagePreview.previewText);
         writer.writeAdditionalData(onenotePagePreview.additionalData);

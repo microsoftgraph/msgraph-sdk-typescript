@@ -8,7 +8,7 @@ import { createTimeOffRequestFromDiscriminatorValue, deserializeIntoTimeOffReque
 import { createTimeOffRequestCollectionResponseFromDiscriminatorValue } from '../../../../../../models/timeOffRequestCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TimeOffRequestItemRequestBuilder } from './item/timeOffRequestItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TimeOffRequestsRequestBuilderGetQueryParameters {
     /**
@@ -40,30 +40,6 @@ export interface TimeOffRequestsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface TimeOffRequestsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TimeOffRequestsRequestBuilderGetQueryParameters;
-}
-export interface TimeOffRequestsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.
  */
@@ -94,12 +70,12 @@ export class TimeOffRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/timeOffRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Retrieve a list of timeOffRequest objects in the team. This API is available in the following national cloud deployments.
+     * Retrieve a list of timeOffRequest objects in the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TimeOffRequestCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/timeoffrequest-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TimeOffRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<TimeOffRequestCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TimeOffRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<TimeOffRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -115,7 +91,7 @@ export class TimeOffRequestsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TimeOffRequest
      */
-    public post(body: TimeOffRequest, requestConfiguration?: TimeOffRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<TimeOffRequest | undefined> {
+    public post(body: TimeOffRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TimeOffRequest | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -126,21 +102,14 @@ export class TimeOffRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TimeOffRequest>(requestInfo, createTimeOffRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of timeOffRequest objects in the team. This API is available in the following national cloud deployments.
+     * Retrieve a list of timeOffRequest objects in the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TimeOffRequestsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TimeOffRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, timeOffRequestsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -149,17 +118,11 @@ export class TimeOffRequestsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: TimeOffRequest, requestConfiguration?: TimeOffRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: TimeOffRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTimeOffRequest);
         return requestInfo;
     };
@@ -173,5 +136,14 @@ export class TimeOffRequestsRequestBuilder extends BaseRequestBuilder {
         return new TimeOffRequestsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const timeOffRequestsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

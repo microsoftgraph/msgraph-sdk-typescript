@@ -6,7 +6,7 @@ import { type Parsable, type ParseNode, type SerializationWriter } from '@micros
 
 export interface AzureCommunicationServicesUserIdentity extends Identity, Parsable {
     /**
-     * The azureCommunicationServicesResourceId property
+     * The Azure Communication Services resource ID associated with the user.
      */
     azureCommunicationServicesResourceId?: string;
 }

@@ -53,7 +53,7 @@ export function serializeDeviceCompliancePolicyState(writer: SerializationWriter
         writer.writeStringValue("displayName", deviceCompliancePolicyState.displayName);
         writer.writeEnumValue<PolicyPlatformType>("platformType", deviceCompliancePolicyState.platformType);
         writer.writeNumberValue("settingCount", deviceCompliancePolicyState.settingCount);
-        writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingState>("settingStates", deviceCompliancePolicyState.settingStates, );
+        writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingState>("settingStates", deviceCompliancePolicyState.settingStates, serializeDeviceCompliancePolicySettingState);
         writer.writeEnumValue<ComplianceStatus>("state", deviceCompliancePolicyState.state);
         writer.writeNumberValue("version", deviceCompliancePolicyState.version);
 }

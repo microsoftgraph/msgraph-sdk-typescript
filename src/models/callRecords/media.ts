@@ -56,13 +56,13 @@ export interface Media extends AdditionalDataHolder, Parsable {
     streams?: MediaStream[];
 }
 export function serializeMedia(writer: SerializationWriter, media: Media | undefined = {} as Media) : void {
-        writer.writeObjectValue<DeviceInfo>("calleeDevice", media.calleeDevice, );
-        writer.writeObjectValue<NetworkInfo>("calleeNetwork", media.calleeNetwork, );
-        writer.writeObjectValue<DeviceInfo>("callerDevice", media.callerDevice, );
-        writer.writeObjectValue<NetworkInfo>("callerNetwork", media.callerNetwork, );
+        writer.writeObjectValue<DeviceInfo>("calleeDevice", media.calleeDevice, serializeDeviceInfo);
+        writer.writeObjectValue<NetworkInfo>("calleeNetwork", media.calleeNetwork, serializeNetworkInfo);
+        writer.writeObjectValue<DeviceInfo>("callerDevice", media.callerDevice, serializeDeviceInfo);
+        writer.writeObjectValue<NetworkInfo>("callerNetwork", media.callerNetwork, serializeNetworkInfo);
         writer.writeStringValue("label", media.label);
         writer.writeStringValue("@odata.type", media.odataType);
-        writer.writeCollectionOfObjectValues<MediaStream>("streams", media.streams, );
+        writer.writeCollectionOfObjectValues<MediaStream>("streams", media.streams, serializeMediaStream);
         writer.writeAdditionalData(media.additionalData);
 }
 // tslint:enable

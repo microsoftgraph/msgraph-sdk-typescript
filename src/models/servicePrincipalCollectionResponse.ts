@@ -17,7 +17,7 @@ export function deserializeIntoServicePrincipalCollectionResponse(servicePrincip
 }
 export function serializeServicePrincipalCollectionResponse(writer: SerializationWriter, servicePrincipalCollectionResponse: ServicePrincipalCollectionResponse | undefined = {} as ServicePrincipalCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, servicePrincipalCollectionResponse)
-        writer.writeCollectionOfObjectValues<ServicePrincipal>("value", servicePrincipalCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ServicePrincipal>("value", servicePrincipalCollectionResponse.value, serializeServicePrincipal);
 }
 export interface ServicePrincipalCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

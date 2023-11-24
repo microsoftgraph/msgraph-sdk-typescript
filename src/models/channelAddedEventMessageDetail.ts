@@ -35,7 +35,7 @@ export function serializeChannelAddedEventMessageDetail(writer: SerializationWri
         serializeEventMessageDetail(writer, channelAddedEventMessageDetail)
         writer.writeStringValue("channelDisplayName", channelAddedEventMessageDetail.channelDisplayName);
         writer.writeStringValue("channelId", channelAddedEventMessageDetail.channelId);
-        writer.writeObjectValue<IdentitySet>("initiator", channelAddedEventMessageDetail.initiator, );
+        writer.writeObjectValue<IdentitySet>("initiator", channelAddedEventMessageDetail.initiator, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

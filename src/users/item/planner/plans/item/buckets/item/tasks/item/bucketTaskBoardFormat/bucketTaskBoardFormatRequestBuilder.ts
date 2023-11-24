@@ -4,18 +4,8 @@
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
 import { createPlannerBucketTaskBoardTaskFormatFromDiscriminatorValue, deserializeIntoPlannerBucketTaskBoardTaskFormat, serializePlannerBucketTaskBoardTaskFormat, type PlannerBucketTaskBoardTaskFormat } from '../../../../../../../../../../models/plannerBucketTaskBoardTaskFormat';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface BucketTaskBoardFormatRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface BucketTaskBoardFormatRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -25,30 +15,6 @@ export interface BucketTaskBoardFormatRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface BucketTaskBoardFormatRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: BucketTaskBoardFormatRequestBuilderGetQueryParameters;
-}
-export interface BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the bucketTaskBoardFormat property of the microsoft.graph.plannerTask entity.
@@ -66,7 +32,7 @@ export class BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
      * Delete navigation property bucketTaskBoardFormat for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: BucketTaskBoardFormatRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -77,12 +43,12 @@ export class BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of plannerBucketTaskBoardTaskFormat object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of plannerBucketTaskBoardTaskFormat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerBucketTaskBoardTaskFormat
      * @see {@link https://learn.microsoft.com/graph/api/plannerbuckettaskboardtaskformat-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: BucketTaskBoardFormatRequestBuilderGetRequestConfiguration | undefined) : Promise<PlannerBucketTaskBoardTaskFormat | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<BucketTaskBoardFormatRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerBucketTaskBoardTaskFormat | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -99,7 +65,7 @@ export class BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PlannerBucketTaskBoardTaskFormat
      * @see {@link https://learn.microsoft.com/graph/api/plannerbuckettaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: PlannerBucketTaskBoardTaskFormat, requestConfiguration?: BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined) : Promise<PlannerBucketTaskBoardTaskFormat | undefined> {
+    public patch(body: PlannerBucketTaskBoardTaskFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerBucketTaskBoardTaskFormat | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -114,34 +80,21 @@ export class BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: BucketTaskBoardFormatRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of plannerBucketTaskBoardTaskFormat object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of plannerBucketTaskBoardTaskFormat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: BucketTaskBoardFormatRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<BucketTaskBoardFormatRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, bucketTaskBoardFormatRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -150,17 +103,11 @@ export class BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PlannerBucketTaskBoardTaskFormat, requestConfiguration?: BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PlannerBucketTaskBoardTaskFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePlannerBucketTaskBoardTaskFormat);
         return requestInfo;
     };
@@ -174,5 +121,9 @@ export class BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
         return new BucketTaskBoardFormatRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const bucketTaskBoardFormatRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

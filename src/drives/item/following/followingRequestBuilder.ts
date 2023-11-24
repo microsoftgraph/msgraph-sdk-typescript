@@ -7,7 +7,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DriveItemItemRequestBuilder } from './item/driveItemItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface FollowingRequestBuilderGetQueryParameters {
     /**
@@ -43,20 +43,6 @@ export interface FollowingRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface FollowingRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: FollowingRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to manage the following property of the microsoft.graph.drive entity.
  */
@@ -87,12 +73,12 @@ export class FollowingRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/following{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List the items that have been followed by the signed in user.This collection includes items that are in the user's drive as well as items they have access to from other drives. This API is available in the following national cloud deployments.
+     * List the items that have been followed by the signed in user.This collection includes items that are in the user's drive as well as items they have access to from other drives.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveItemCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/drive-list-following?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: FollowingRequestBuilderGetRequestConfiguration | undefined) : Promise<DriveItemCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<FollowingRequestBuilderGetQueryParameters> | undefined) : Promise<DriveItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -103,21 +89,14 @@ export class FollowingRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DriveItemCollectionResponse>(requestInfo, createDriveItemCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List the items that have been followed by the signed in user.This collection includes items that are in the user's drive as well as items they have access to from other drives. This API is available in the following national cloud deployments.
+     * List the items that have been followed by the signed in user.This collection includes items that are in the user's drive as well as items they have access to from other drives.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: FollowingRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<FollowingRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, followingRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class FollowingRequestBuilder extends BaseRequestBuilder {
         return new FollowingRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const followingRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

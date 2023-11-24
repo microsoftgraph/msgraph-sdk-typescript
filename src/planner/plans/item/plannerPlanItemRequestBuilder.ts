@@ -7,18 +7,8 @@ import { createPlannerPlanFromDiscriminatorValue, deserializeIntoPlannerPlan, se
 import { BucketsRequestBuilder } from './buckets/bucketsRequestBuilder';
 import { DetailsRequestBuilder } from './details/detailsRequestBuilder';
 import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface PlannerPlanItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface PlannerPlanItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -28,30 +18,6 @@ export interface PlannerPlanItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface PlannerPlanItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PlannerPlanItemRequestBuilderGetQueryParameters;
-}
-export interface PlannerPlanItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the plans property of the microsoft.graph.planner entity.
@@ -84,11 +50,11 @@ export class PlannerPlanItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/planner/plans/{plannerPlan%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a plannerPlan object. This API is available in the following national cloud deployments.
+     * Delete a plannerPlan object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/plannerplan-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: PlannerPlanItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -99,12 +65,12 @@ export class PlannerPlanItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a plannerplan object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a plannerplan object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerPlan
      * @see {@link https://learn.microsoft.com/graph/api/plannerplan-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PlannerPlanItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PlannerPlan | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PlannerPlanItemRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerPlan | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -115,13 +81,13 @@ export class PlannerPlanItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PlannerPlan>(requestInfo, createPlannerPlanFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a plannerPlan object. This API is available in the following national cloud deployments.
+     * Update the properties of a plannerPlan object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerPlan
      * @see {@link https://learn.microsoft.com/graph/api/plannerplan-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: PlannerPlan, requestConfiguration?: PlannerPlanItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PlannerPlan | undefined> {
+    public patch(body: PlannerPlan, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerPlan | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -132,57 +98,38 @@ export class PlannerPlanItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PlannerPlan>(requestInfo, createPlannerPlanFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a plannerPlan object. This API is available in the following national cloud deployments.
+     * Delete a plannerPlan object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: PlannerPlanItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a plannerplan object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of a plannerplan object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PlannerPlanItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PlannerPlanItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, plannerPlanItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the properties of a plannerPlan object. This API is available in the following national cloud deployments.
+     * Update the properties of a plannerPlan object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PlannerPlan, requestConfiguration?: PlannerPlanItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PlannerPlan, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePlannerPlan);
         return requestInfo;
     };
@@ -196,5 +143,9 @@ export class PlannerPlanItemRequestBuilder extends BaseRequestBuilder {
         return new PlannerPlanItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const plannerPlanItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

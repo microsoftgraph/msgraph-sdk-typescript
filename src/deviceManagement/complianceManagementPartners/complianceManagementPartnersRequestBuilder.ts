@@ -8,7 +8,7 @@ import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ComplianceManagementPartnerItemRequestBuilder } from './item/complianceManagementPartnerItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ComplianceManagementPartnersRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface ComplianceManagementPartnersRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface ComplianceManagementPartnersRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ComplianceManagementPartnersRequestBuilderGetQueryParameters;
-}
-export interface ComplianceManagementPartnersRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
@@ -103,7 +79,7 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
      * @returns a Promise of ComplianceManagementPartnerCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ComplianceManagementPartnersRequestBuilderGetRequestConfiguration | undefined) : Promise<ComplianceManagementPartnerCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ComplianceManagementPartnersRequestBuilderGetQueryParameters> | undefined) : Promise<ComplianceManagementPartnerCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
      * @returns a Promise of ComplianceManagementPartner
      * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ComplianceManagementPartner, requestConfiguration?: ComplianceManagementPartnersRequestBuilderPostRequestConfiguration | undefined) : Promise<ComplianceManagementPartner | undefined> {
+    public post(body: ComplianceManagementPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ComplianceManagementPartner | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ComplianceManagementPartnersRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ComplianceManagementPartnersRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, complianceManagementPartnersRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ComplianceManagementPartner, requestConfiguration?: ComplianceManagementPartnersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ComplianceManagementPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeComplianceManagementPartner);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
         return new ComplianceManagementPartnersRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const complianceManagementPartnersRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

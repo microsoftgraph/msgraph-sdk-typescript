@@ -23,7 +23,7 @@ export interface RetentionEventTypeCollectionResponse extends BaseCollectionPagi
 }
 export function serializeRetentionEventTypeCollectionResponse(writer: SerializationWriter, retentionEventTypeCollectionResponse: RetentionEventTypeCollectionResponse | undefined = {} as RetentionEventTypeCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, retentionEventTypeCollectionResponse)
-        writer.writeCollectionOfObjectValues<RetentionEventType>("value", retentionEventTypeCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<RetentionEventType>("value", retentionEventTypeCollectionResponse.value, serializeRetentionEventType);
 }
 // tslint:enable
 // eslint-enable

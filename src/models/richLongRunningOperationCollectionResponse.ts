@@ -23,7 +23,7 @@ export interface RichLongRunningOperationCollectionResponse extends BaseCollecti
 }
 export function serializeRichLongRunningOperationCollectionResponse(writer: SerializationWriter, richLongRunningOperationCollectionResponse: RichLongRunningOperationCollectionResponse | undefined = {} as RichLongRunningOperationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, richLongRunningOperationCollectionResponse)
-        writer.writeCollectionOfObjectValues<RichLongRunningOperation>("value", richLongRunningOperationCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<RichLongRunningOperation>("value", richLongRunningOperationCollectionResponse.value, serializeRichLongRunningOperation);
 }
 // tslint:enable
 // eslint-enable

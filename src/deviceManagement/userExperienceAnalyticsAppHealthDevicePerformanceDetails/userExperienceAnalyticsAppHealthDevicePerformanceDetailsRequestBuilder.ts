@@ -8,7 +8,7 @@ import { createUserExperienceAnalyticsAppHealthDevicePerformanceDetailsFromDiscr
 import { createUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionResponseFromDiscriminatorValue } from '../../models/userExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserExperienceAnalyticsAppHealthDevicePerformanceDetailsItemRequestBuilder } from './item/userExperienceAnalyticsAppHealthDevicePerformanceDetailsItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequest
      */
     top?: number;
 }
-export interface UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilderGetQueryParameters;
-}
-export interface UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the userExperienceAnalyticsAppHealthDevicePerformanceDetails property of the microsoft.graph.deviceManagement entity.
  */
@@ -102,7 +78,7 @@ export class UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionResponse
      */
-    public get(requestConfiguration?: UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilderGetRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilderGetQueryParameters> | undefined) : Promise<UserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -118,7 +94,7 @@ export class UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsAppHealthDevicePerformanceDetails
      */
-    public post(body: UserExperienceAnalyticsAppHealthDevicePerformanceDetails, requestConfiguration?: UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsAppHealthDevicePerformanceDetails | undefined> {
+    public post(body: UserExperienceAnalyticsAppHealthDevicePerformanceDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserExperienceAnalyticsAppHealthDevicePerformanceDetails | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -133,17 +109,10 @@ export class UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, userExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -152,17 +121,11 @@ export class UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserExperienceAnalyticsAppHealthDevicePerformanceDetails, requestConfiguration?: UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserExperienceAnalyticsAppHealthDevicePerformanceDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsAppHealthDevicePerformanceDetails);
         return requestInfo;
     };
@@ -176,5 +139,15 @@ export class UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuil
         return new UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const userExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

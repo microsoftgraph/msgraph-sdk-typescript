@@ -10,7 +10,7 @@ import { ConfirmCompromisedRequestBuilder } from './confirmCompromised/confirmCo
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DismissRequestBuilder } from './dismiss/dismissRequestBuilder';
 import { RiskyServicePrincipalItemRequestBuilder } from './item/riskyServicePrincipalItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RiskyServicePrincipalsRequestBuilderGetQueryParameters {
     /**
@@ -45,30 +45,6 @@ export interface RiskyServicePrincipalsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface RiskyServicePrincipalsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: RiskyServicePrincipalsRequestBuilderGetQueryParameters;
-}
-export interface RiskyServicePrincipalsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
@@ -112,12 +88,12 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityProtection/riskyServicePrincipals{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the properties and relationships of riskyServicePrincipal objects. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of riskyServicePrincipal objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskyServicePrincipalCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/identityprotectionroot-list-riskyserviceprincipals?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: RiskyServicePrincipalsRequestBuilderGetRequestConfiguration | undefined) : Promise<RiskyServicePrincipalCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<RiskyServicePrincipalsRequestBuilderGetQueryParameters> | undefined) : Promise<RiskyServicePrincipalCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -133,7 +109,7 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskyServicePrincipal
      */
-    public post(body: RiskyServicePrincipal, requestConfiguration?: RiskyServicePrincipalsRequestBuilderPostRequestConfiguration | undefined) : Promise<RiskyServicePrincipal | undefined> {
+    public post(body: RiskyServicePrincipal, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RiskyServicePrincipal | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -144,21 +120,14 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RiskyServicePrincipal>(requestInfo, createRiskyServicePrincipalFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of riskyServicePrincipal objects. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of riskyServicePrincipal objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: RiskyServicePrincipalsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<RiskyServicePrincipalsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, riskyServicePrincipalsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -167,17 +136,11 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: RiskyServicePrincipal, requestConfiguration?: RiskyServicePrincipalsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: RiskyServicePrincipal, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRiskyServicePrincipal);
         return requestInfo;
     };
@@ -191,5 +154,15 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
         return new RiskyServicePrincipalsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const riskyServicePrincipalsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

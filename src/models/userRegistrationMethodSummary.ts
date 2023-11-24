@@ -22,7 +22,7 @@ export function deserializeIntoUserRegistrationMethodSummary(userRegistrationMet
 export function serializeUserRegistrationMethodSummary(writer: SerializationWriter, userRegistrationMethodSummary: UserRegistrationMethodSummary | undefined = {} as UserRegistrationMethodSummary) : void {
         writer.writeStringValue("@odata.type", userRegistrationMethodSummary.odataType);
         writer.writeNumberValue("totalUserCount", userRegistrationMethodSummary.totalUserCount);
-        writer.writeCollectionOfObjectValues<UserRegistrationMethodCount>("userRegistrationMethodCounts", userRegistrationMethodSummary.userRegistrationMethodCounts, );
+        writer.writeCollectionOfObjectValues<UserRegistrationMethodCount>("userRegistrationMethodCounts", userRegistrationMethodSummary.userRegistrationMethodCounts, serializeUserRegistrationMethodCount);
         writer.writeEnumValue<IncludedUserRoles>("userRoles", userRegistrationMethodSummary.userRoles);
         writer.writeEnumValue<IncludedUserTypes>("userTypes", userRegistrationMethodSummary.userTypes);
         writer.writeAdditionalData(userRegistrationMethodSummary.additionalData);

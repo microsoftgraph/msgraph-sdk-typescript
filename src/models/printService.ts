@@ -23,7 +23,7 @@ export interface PrintService extends Entity, Parsable {
 }
 export function serializePrintService(writer: SerializationWriter, printService: PrintService | undefined = {} as PrintService) : void {
         serializeEntity(writer, printService)
-        writer.writeCollectionOfObjectValues<PrintServiceEndpoint>("endpoints", printService.endpoints, );
+        writer.writeCollectionOfObjectValues<PrintServiceEndpoint>("endpoints", printService.endpoints, serializePrintServiceEndpoint);
 }
 // tslint:enable
 // eslint-enable

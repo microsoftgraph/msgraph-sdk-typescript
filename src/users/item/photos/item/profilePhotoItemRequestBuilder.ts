@@ -6,27 +6,13 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { createProfilePhotoFromDiscriminatorValue } from '../../../../models/profilePhoto';
 import { ContentRequestBuilder } from './value/contentRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ProfilePhotoItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface ProfilePhotoItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ProfilePhotoItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the photos property of the microsoft.graph.user entity.
@@ -47,11 +33,11 @@ export class ProfilePhotoItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/photos/{profilePhoto%2Did}{?%24select}");
     };
     /**
-     * Get photos from users
+     * The collection of the user's profile photos in different sizes. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProfilePhoto
      */
-    public get(requestConfiguration?: ProfilePhotoItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ProfilePhoto | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ProfilePhotoItemRequestBuilderGetQueryParameters> | undefined) : Promise<ProfilePhoto | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -62,21 +48,14 @@ export class ProfilePhotoItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ProfilePhoto>(requestInfo, createProfilePhotoFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get photos from users
+     * The collection of the user's profile photos in different sizes. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ProfilePhotoItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ProfilePhotoItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, profilePhotoItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -89,5 +68,8 @@ export class ProfilePhotoItemRequestBuilder extends BaseRequestBuilder {
         return new ProfilePhotoItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const profilePhotoItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

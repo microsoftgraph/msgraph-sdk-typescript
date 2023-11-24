@@ -99,11 +99,11 @@ export function serializeRun(writer: SerializationWriter, run: Run | undefined =
         writer.writeDateValue("scheduledDateTime", run.scheduledDateTime);
         writer.writeDateValue("startedDateTime", run.startedDateTime);
         writer.writeNumberValue("successfulUsersCount", run.successfulUsersCount);
-        writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", run.taskProcessingResults, );
+        writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", run.taskProcessingResults, serializeTaskProcessingResult);
         writer.writeNumberValue("totalTasksCount", run.totalTasksCount);
         writer.writeNumberValue("totalUnprocessedTasksCount", run.totalUnprocessedTasksCount);
         writer.writeNumberValue("totalUsersCount", run.totalUsersCount);
-        writer.writeCollectionOfObjectValues<UserProcessingResult>("userProcessingResults", run.userProcessingResults, );
+        writer.writeCollectionOfObjectValues<UserProcessingResult>("userProcessingResults", run.userProcessingResults, serializeUserProcessingResult);
         writer.writeEnumValue<WorkflowExecutionType>("workflowExecutionType", run.workflowExecutionType);
 }
 // tslint:enable

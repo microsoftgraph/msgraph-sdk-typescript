@@ -35,7 +35,7 @@ export function serializeScopedRoleMembership(writer: SerializationWriter, scope
         serializeEntity(writer, scopedRoleMembership)
         writer.writeStringValue("administrativeUnitId", scopedRoleMembership.administrativeUnitId);
         writer.writeStringValue("roleId", scopedRoleMembership.roleId);
-        writer.writeObjectValue<Identity>("roleMemberInfo", scopedRoleMembership.roleMemberInfo, );
+        writer.writeObjectValue<Identity>("roleMemberInfo", scopedRoleMembership.roleMemberInfo, serializeIdentity);
 }
 // tslint:enable
 // eslint-enable

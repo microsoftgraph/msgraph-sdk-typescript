@@ -7,7 +7,7 @@ import { type HostTrackerCollectionResponse } from '../../../../../models/securi
 import { createHostTrackerCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/hostTrackerCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { HostTrackerItemRequestBuilder } from './item/hostTrackerItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TrackersRequestBuilderGetQueryParameters {
     /**
@@ -43,20 +43,6 @@ export interface TrackersRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface TrackersRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TrackersRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to manage the trackers property of the microsoft.graph.security.host entity.
  */
@@ -87,12 +73,12 @@ export class TrackersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/trackers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of hostTracker resources. This API is available in the following national cloud deployments.
+     * Get a list of hostTracker resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostTrackerCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-host-list-trackers?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TrackersRequestBuilderGetRequestConfiguration | undefined) : Promise<HostTrackerCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TrackersRequestBuilderGetQueryParameters> | undefined) : Promise<HostTrackerCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -103,21 +89,14 @@ export class TrackersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<HostTrackerCollectionResponse>(requestInfo, createHostTrackerCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of hostTracker resources. This API is available in the following national cloud deployments.
+     * Get a list of hostTracker resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TrackersRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TrackersRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, trackersRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class TrackersRequestBuilder extends BaseRequestBuilder {
         return new TrackersRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const trackersRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable
