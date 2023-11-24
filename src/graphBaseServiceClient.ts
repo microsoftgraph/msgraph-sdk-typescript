@@ -46,7 +46,6 @@ import { IdentityProtectionRequestBuilder } from './identityProtection/identityP
 import { IdentityProvidersRequestBuilder } from './identityProviders/identityProvidersRequestBuilder';
 import { InformationProtectionRequestBuilder } from './informationProtection/informationProtectionRequestBuilder';
 import { InvitationsRequestBuilder } from './invitations/invitationsRequestBuilder';
-import { MeRequestBuilder } from './me/meRequestBuilder';
 import { Oauth2PermissionGrantsRequestBuilder } from './oauth2PermissionGrants/oauth2PermissionGrantsRequestBuilder';
 import { OrganizationRequestBuilder } from './organization/organizationRequestBuilder';
 import { PermissionGrantsRequestBuilder } from './permissionGrants/permissionGrantsRequestBuilder';
@@ -334,12 +333,6 @@ export class GraphBaseServiceClient extends BaseRequestBuilder {
      */
     public get invitations(): InvitationsRequestBuilder {
         return new InvitationsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /**
-     * Provides operations to manage the user singleton.
-     */
-    public get me(): MeRequestBuilder {
-        return new MeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the collection of oAuth2PermissionGrant entities.
