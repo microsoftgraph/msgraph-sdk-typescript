@@ -39,11 +39,11 @@ export interface ExpirationPattern extends AdditionalDataHolder, Parsable {
     type?: ExpirationPatternType;
 }
 export function serializeExpirationPattern(writer: SerializationWriter, expirationPattern: ExpirationPattern | undefined = {} as ExpirationPattern) : void {
-        writer.writeDurationValue("duration", expirationPattern.duration);
-        writer.writeDateValue("endDateTime", expirationPattern.endDateTime);
-        writer.writeStringValue("@odata.type", expirationPattern.odataType);
-        writer.writeEnumValue<ExpirationPatternType>("type", expirationPattern.type);
-        writer.writeAdditionalData(expirationPattern.additionalData);
+    writer.writeDurationValue("duration", expirationPattern.duration);
+    writer.writeDateValue("endDateTime", expirationPattern.endDateTime);
+    writer.writeStringValue("@odata.type", expirationPattern.odataType);
+    writer.writeEnumValue<ExpirationPatternType>("type", expirationPattern.type);
+    writer.writeAdditionalData(expirationPattern.additionalData);
 }
 // tslint:enable
 // eslint-enable

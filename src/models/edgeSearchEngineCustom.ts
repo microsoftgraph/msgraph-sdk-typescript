@@ -21,8 +21,8 @@ export interface EdgeSearchEngineCustom extends EdgeSearchEngineBase, Parsable {
     edgeSearchEngineOpenSearchXmlUrl?: string;
 }
 export function serializeEdgeSearchEngineCustom(writer: SerializationWriter, edgeSearchEngineCustom: EdgeSearchEngineCustom | undefined = {} as EdgeSearchEngineCustom) : void {
-        serializeEdgeSearchEngineBase(writer, edgeSearchEngineCustom)
-        writer.writeStringValue("edgeSearchEngineOpenSearchXmlUrl", edgeSearchEngineCustom.edgeSearchEngineOpenSearchXmlUrl);
+    serializeEdgeSearchEngineBase(writer, edgeSearchEngineCustom)
+    writer.writeStringValue("edgeSearchEngineOpenSearchXmlUrl", edgeSearchEngineCustom.edgeSearchEngineOpenSearchXmlUrl);
 }
 // tslint:enable
 // eslint-enable

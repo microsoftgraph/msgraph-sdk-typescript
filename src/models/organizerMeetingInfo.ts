@@ -22,8 +22,8 @@ export interface OrganizerMeetingInfo extends MeetingInfo, Parsable {
     organizer?: IdentitySet;
 }
 export function serializeOrganizerMeetingInfo(writer: SerializationWriter, organizerMeetingInfo: OrganizerMeetingInfo | undefined = {} as OrganizerMeetingInfo) : void {
-        serializeMeetingInfo(writer, organizerMeetingInfo)
-        writer.writeObjectValue<IdentitySet>("organizer", organizerMeetingInfo.organizer, serializeIdentitySet);
+    serializeMeetingInfo(writer, organizerMeetingInfo)
+    writer.writeObjectValue<IdentitySet>("organizer", organizerMeetingInfo.organizer, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

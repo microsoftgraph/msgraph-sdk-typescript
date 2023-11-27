@@ -34,10 +34,10 @@ export interface ObjectMappingMetadataEntry extends AdditionalDataHolder, Parsab
     value?: string;
 }
 export function serializeObjectMappingMetadataEntry(writer: SerializationWriter, objectMappingMetadataEntry: ObjectMappingMetadataEntry | undefined = {} as ObjectMappingMetadataEntry) : void {
-        writer.writeEnumValue<ObjectMappingMetadata>("key", objectMappingMetadataEntry.key);
-        writer.writeStringValue("@odata.type", objectMappingMetadataEntry.odataType);
-        writer.writeStringValue("value", objectMappingMetadataEntry.value);
-        writer.writeAdditionalData(objectMappingMetadataEntry.additionalData);
+    writer.writeEnumValue<ObjectMappingMetadata>("key", objectMappingMetadataEntry.key);
+    writer.writeStringValue("@odata.type", objectMappingMetadataEntry.odataType);
+    writer.writeStringValue("value", objectMappingMetadataEntry.value);
+    writer.writeAdditionalData(objectMappingMetadataEntry.additionalData);
 }
 // tslint:enable
 // eslint-enable

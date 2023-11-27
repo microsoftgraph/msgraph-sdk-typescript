@@ -16,9 +16,9 @@ export function deserializeIntoWindowsDeviceADAccount(windowsDeviceADAccount: Wi
     }
 }
 export function serializeWindowsDeviceADAccount(writer: SerializationWriter, windowsDeviceADAccount: WindowsDeviceADAccount | undefined = {} as WindowsDeviceADAccount) : void {
-        serializeWindowsDeviceAccount(writer, windowsDeviceADAccount)
-        writer.writeStringValue("domainName", windowsDeviceADAccount.domainName);
-        writer.writeStringValue("userName", windowsDeviceADAccount.userName);
+    serializeWindowsDeviceAccount(writer, windowsDeviceADAccount)
+    writer.writeStringValue("domainName", windowsDeviceADAccount.domainName);
+    writer.writeStringValue("userName", windowsDeviceADAccount.userName);
 }
 export interface WindowsDeviceADAccount extends Parsable, WindowsDeviceAccount {
     /**

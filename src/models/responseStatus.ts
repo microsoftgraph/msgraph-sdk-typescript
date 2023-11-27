@@ -34,10 +34,10 @@ export interface ResponseStatus extends AdditionalDataHolder, Parsable {
     time?: Date;
 }
 export function serializeResponseStatus(writer: SerializationWriter, responseStatus: ResponseStatus | undefined = {} as ResponseStatus) : void {
-        writer.writeStringValue("@odata.type", responseStatus.odataType);
-        writer.writeEnumValue<ResponseType>("response", responseStatus.response);
-        writer.writeDateValue("time", responseStatus.time);
-        writer.writeAdditionalData(responseStatus.additionalData);
+    writer.writeStringValue("@odata.type", responseStatus.odataType);
+    writer.writeEnumValue<ResponseType>("response", responseStatus.response);
+    writer.writeDateValue("time", responseStatus.time);
+    writer.writeAdditionalData(responseStatus.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -39,11 +39,11 @@ export interface PublicationFacet extends AdditionalDataHolder, Parsable {
     versionId?: string;
 }
 export function serializePublicationFacet(writer: SerializationWriter, publicationFacet: PublicationFacet | undefined = {} as PublicationFacet) : void {
-        writer.writeObjectValue<IdentitySet>("checkedOutBy", publicationFacet.checkedOutBy, serializeIdentitySet);
-        writer.writeStringValue("level", publicationFacet.level);
-        writer.writeStringValue("@odata.type", publicationFacet.odataType);
-        writer.writeStringValue("versionId", publicationFacet.versionId);
-        writer.writeAdditionalData(publicationFacet.additionalData);
+    writer.writeObjectValue<IdentitySet>("checkedOutBy", publicationFacet.checkedOutBy, serializeIdentitySet);
+    writer.writeStringValue("level", publicationFacet.level);
+    writer.writeStringValue("@odata.type", publicationFacet.odataType);
+    writer.writeStringValue("versionId", publicationFacet.versionId);
+    writer.writeAdditionalData(publicationFacet.additionalData);
 }
 // tslint:enable
 // eslint-enable

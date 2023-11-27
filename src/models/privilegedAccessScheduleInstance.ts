@@ -41,9 +41,9 @@ export interface PrivilegedAccessScheduleInstance extends Entity, Parsable {
     startDateTime?: Date;
 }
 export function serializePrivilegedAccessScheduleInstance(writer: SerializationWriter, privilegedAccessScheduleInstance: PrivilegedAccessScheduleInstance | undefined = {} as PrivilegedAccessScheduleInstance) : void {
-        serializeEntity(writer, privilegedAccessScheduleInstance)
-        writer.writeDateValue("endDateTime", privilegedAccessScheduleInstance.endDateTime);
-        writer.writeDateValue("startDateTime", privilegedAccessScheduleInstance.startDateTime);
+    serializeEntity(writer, privilegedAccessScheduleInstance)
+    writer.writeDateValue("endDateTime", privilegedAccessScheduleInstance.endDateTime);
+    writer.writeDateValue("startDateTime", privilegedAccessScheduleInstance.startDateTime);
 }
 // tslint:enable
 // eslint-enable

@@ -16,8 +16,8 @@ export function deserializeIntoWorkbookChartPointFormat(workbookChartPointFormat
     }
 }
 export function serializeWorkbookChartPointFormat(writer: SerializationWriter, workbookChartPointFormat: WorkbookChartPointFormat | undefined = {} as WorkbookChartPointFormat) : void {
-        serializeEntity(writer, workbookChartPointFormat)
-        writer.writeObjectValue<WorkbookChartFill>("fill", workbookChartPointFormat.fill, serializeWorkbookChartFill);
+    serializeEntity(writer, workbookChartPointFormat)
+    writer.writeObjectValue<WorkbookChartFill>("fill", workbookChartPointFormat.fill, serializeWorkbookChartFill);
 }
 export interface WorkbookChartPointFormat extends Entity, Parsable {
     /**

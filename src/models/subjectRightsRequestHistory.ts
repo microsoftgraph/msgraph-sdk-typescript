@@ -21,13 +21,13 @@ export function deserializeIntoSubjectRightsRequestHistory(subjectRightsRequestH
     }
 }
 export function serializeSubjectRightsRequestHistory(writer: SerializationWriter, subjectRightsRequestHistory: SubjectRightsRequestHistory | undefined = {} as SubjectRightsRequestHistory) : void {
-        writer.writeObjectValue<IdentitySet>("changedBy", subjectRightsRequestHistory.changedBy, serializeIdentitySet);
-        writer.writeDateValue("eventDateTime", subjectRightsRequestHistory.eventDateTime);
-        writer.writeStringValue("@odata.type", subjectRightsRequestHistory.odataType);
-        writer.writeEnumValue<SubjectRightsRequestStage>("stage", subjectRightsRequestHistory.stage);
-        writer.writeEnumValue<SubjectRightsRequestStageStatus>("stageStatus", subjectRightsRequestHistory.stageStatus);
-        writer.writeStringValue("type", subjectRightsRequestHistory.type);
-        writer.writeAdditionalData(subjectRightsRequestHistory.additionalData);
+    writer.writeObjectValue<IdentitySet>("changedBy", subjectRightsRequestHistory.changedBy, serializeIdentitySet);
+    writer.writeDateValue("eventDateTime", subjectRightsRequestHistory.eventDateTime);
+    writer.writeStringValue("@odata.type", subjectRightsRequestHistory.odataType);
+    writer.writeEnumValue<SubjectRightsRequestStage>("stage", subjectRightsRequestHistory.stage);
+    writer.writeEnumValue<SubjectRightsRequestStageStatus>("stageStatus", subjectRightsRequestHistory.stageStatus);
+    writer.writeStringValue("type", subjectRightsRequestHistory.type);
+    writer.writeAdditionalData(subjectRightsRequestHistory.additionalData);
 }
 export interface SubjectRightsRequestHistory extends AdditionalDataHolder, Parsable {
     /**

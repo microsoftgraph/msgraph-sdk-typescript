@@ -34,8 +34,8 @@ export function deserializeIntoTeamworkNotificationRecipient(teamworkNotificatio
     }
 }
 export function serializeTeamworkNotificationRecipient(writer: SerializationWriter, teamworkNotificationRecipient: TeamworkNotificationRecipient | undefined = {} as TeamworkNotificationRecipient) : void {
-        writer.writeStringValue("@odata.type", teamworkNotificationRecipient.odataType);
-        writer.writeAdditionalData(teamworkNotificationRecipient.additionalData);
+    writer.writeStringValue("@odata.type", teamworkNotificationRecipient.odataType);
+    writer.writeAdditionalData(teamworkNotificationRecipient.additionalData);
 }
 export interface TeamworkNotificationRecipient extends AdditionalDataHolder, Parsable {
     /**

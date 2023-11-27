@@ -16,8 +16,8 @@ export function deserializeIntoTermsAndConditionsAssignment(termsAndConditionsAs
     }
 }
 export function serializeTermsAndConditionsAssignment(writer: SerializationWriter, termsAndConditionsAssignment: TermsAndConditionsAssignment | undefined = {} as TermsAndConditionsAssignment) : void {
-        serializeEntity(writer, termsAndConditionsAssignment)
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", termsAndConditionsAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
+    serializeEntity(writer, termsAndConditionsAssignment)
+    writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", termsAndConditionsAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
 }
 export interface TermsAndConditionsAssignment extends Entity, Parsable {
     /**

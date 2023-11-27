@@ -39,11 +39,11 @@ export interface FilterClause extends AdditionalDataHolder, Parsable {
     targetOperand?: FilterOperand;
 }
 export function serializeFilterClause(writer: SerializationWriter, filterClause: FilterClause | undefined = {} as FilterClause) : void {
-        writer.writeStringValue("@odata.type", filterClause.odataType);
-        writer.writeStringValue("operatorName", filterClause.operatorName);
-        writer.writeStringValue("sourceOperandName", filterClause.sourceOperandName);
-        writer.writeObjectValue<FilterOperand>("targetOperand", filterClause.targetOperand, serializeFilterOperand);
-        writer.writeAdditionalData(filterClause.additionalData);
+    writer.writeStringValue("@odata.type", filterClause.odataType);
+    writer.writeStringValue("operatorName", filterClause.operatorName);
+    writer.writeStringValue("sourceOperandName", filterClause.sourceOperandName);
+    writer.writeObjectValue<FilterOperand>("targetOperand", filterClause.targetOperand, serializeFilterOperand);
+    writer.writeAdditionalData(filterClause.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -21,8 +21,8 @@ export function deserializeIntoAppHostedMediaConfig(appHostedMediaConfig: AppHos
     }
 }
 export function serializeAppHostedMediaConfig(writer: SerializationWriter, appHostedMediaConfig: AppHostedMediaConfig | undefined = {} as AppHostedMediaConfig) : void {
-        serializeMediaConfig(writer, appHostedMediaConfig)
-        writer.writeStringValue("blob", appHostedMediaConfig.blob);
+    serializeMediaConfig(writer, appHostedMediaConfig)
+    writer.writeStringValue("blob", appHostedMediaConfig.blob);
 }
 // tslint:enable
 // eslint-enable

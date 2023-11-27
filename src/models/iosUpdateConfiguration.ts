@@ -37,12 +37,12 @@ export interface IosUpdateConfiguration extends DeviceConfiguration, Parsable {
     utcTimeOffsetInMinutes?: number;
 }
 export function serializeIosUpdateConfiguration(writer: SerializationWriter, iosUpdateConfiguration: IosUpdateConfiguration | undefined = {} as IosUpdateConfiguration) : void {
-        serializeDeviceConfiguration(writer, iosUpdateConfiguration)
-        writer.writeTimeOnlyValue("activeHoursEnd", iosUpdateConfiguration.activeHoursEnd);
-        writer.writeTimeOnlyValue("activeHoursStart", iosUpdateConfiguration.activeHoursStart);
-        if(iosUpdateConfiguration.scheduledInstallDays)
-        writer.writeEnumValue<DayOfWeek>("scheduledInstallDays", ...iosUpdateConfiguration.scheduledInstallDays);
-        writer.writeNumberValue("utcTimeOffsetInMinutes", iosUpdateConfiguration.utcTimeOffsetInMinutes);
+    serializeDeviceConfiguration(writer, iosUpdateConfiguration)
+    writer.writeTimeOnlyValue("activeHoursEnd", iosUpdateConfiguration.activeHoursEnd);
+    writer.writeTimeOnlyValue("activeHoursStart", iosUpdateConfiguration.activeHoursStart);
+    if(iosUpdateConfiguration.scheduledInstallDays)
+    writer.writeEnumValue<DayOfWeek>("scheduledInstallDays", ...iosUpdateConfiguration.scheduledInstallDays);
+    writer.writeNumberValue("utcTimeOffsetInMinutes", iosUpdateConfiguration.utcTimeOffsetInMinutes);
 }
 // tslint:enable
 // eslint-enable

@@ -18,13 +18,13 @@ export function deserializeIntoServicePrincipalLockConfiguration(servicePrincipa
     }
 }
 export function serializeServicePrincipalLockConfiguration(writer: SerializationWriter, servicePrincipalLockConfiguration: ServicePrincipalLockConfiguration | undefined = {} as ServicePrincipalLockConfiguration) : void {
-        writer.writeBooleanValue("allProperties", servicePrincipalLockConfiguration.allProperties);
-        writer.writeBooleanValue("credentialsWithUsageSign", servicePrincipalLockConfiguration.credentialsWithUsageSign);
-        writer.writeBooleanValue("credentialsWithUsageVerify", servicePrincipalLockConfiguration.credentialsWithUsageVerify);
-        writer.writeBooleanValue("isEnabled", servicePrincipalLockConfiguration.isEnabled);
-        writer.writeStringValue("@odata.type", servicePrincipalLockConfiguration.odataType);
-        writer.writeBooleanValue("tokenEncryptionKeyId", servicePrincipalLockConfiguration.tokenEncryptionKeyId);
-        writer.writeAdditionalData(servicePrincipalLockConfiguration.additionalData);
+    writer.writeBooleanValue("allProperties", servicePrincipalLockConfiguration.allProperties);
+    writer.writeBooleanValue("credentialsWithUsageSign", servicePrincipalLockConfiguration.credentialsWithUsageSign);
+    writer.writeBooleanValue("credentialsWithUsageVerify", servicePrincipalLockConfiguration.credentialsWithUsageVerify);
+    writer.writeBooleanValue("isEnabled", servicePrincipalLockConfiguration.isEnabled);
+    writer.writeStringValue("@odata.type", servicePrincipalLockConfiguration.odataType);
+    writer.writeBooleanValue("tokenEncryptionKeyId", servicePrincipalLockConfiguration.tokenEncryptionKeyId);
+    writer.writeAdditionalData(servicePrincipalLockConfiguration.additionalData);
 }
 export interface ServicePrincipalLockConfiguration extends AdditionalDataHolder, Parsable {
     /**

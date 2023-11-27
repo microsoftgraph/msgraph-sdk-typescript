@@ -38,8 +38,8 @@ export interface EdgeSearchEngineBase extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeEdgeSearchEngineBase(writer: SerializationWriter, edgeSearchEngineBase: EdgeSearchEngineBase | undefined = {} as EdgeSearchEngineBase) : void {
-        writer.writeStringValue("@odata.type", edgeSearchEngineBase.odataType);
-        writer.writeAdditionalData(edgeSearchEngineBase.additionalData);
+    writer.writeStringValue("@odata.type", edgeSearchEngineBase.odataType);
+    writer.writeAdditionalData(edgeSearchEngineBase.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export interface SchedulingGroupCollectionResponse extends BaseCollectionPaginat
     value?: SchedulingGroup[];
 }
 export function serializeSchedulingGroupCollectionResponse(writer: SerializationWriter, schedulingGroupCollectionResponse: SchedulingGroupCollectionResponse | undefined = {} as SchedulingGroupCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, schedulingGroupCollectionResponse)
-        writer.writeCollectionOfObjectValues<SchedulingGroup>("value", schedulingGroupCollectionResponse.value, serializeSchedulingGroup);
+    serializeBaseCollectionPaginationCountResponse(writer, schedulingGroupCollectionResponse)
+    writer.writeCollectionOfObjectValues<SchedulingGroup>("value", schedulingGroupCollectionResponse.value, serializeSchedulingGroup);
 }
 // tslint:enable
 // eslint-enable

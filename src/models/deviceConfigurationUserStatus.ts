@@ -42,12 +42,12 @@ export interface DeviceConfigurationUserStatus extends Entity, Parsable {
     userPrincipalName?: string;
 }
 export function serializeDeviceConfigurationUserStatus(writer: SerializationWriter, deviceConfigurationUserStatus: DeviceConfigurationUserStatus | undefined = {} as DeviceConfigurationUserStatus) : void {
-        serializeEntity(writer, deviceConfigurationUserStatus)
-        writer.writeNumberValue("devicesCount", deviceConfigurationUserStatus.devicesCount);
-        writer.writeDateValue("lastReportedDateTime", deviceConfigurationUserStatus.lastReportedDateTime);
-        writer.writeEnumValue<ComplianceStatus>("status", deviceConfigurationUserStatus.status);
-        writer.writeStringValue("userDisplayName", deviceConfigurationUserStatus.userDisplayName);
-        writer.writeStringValue("userPrincipalName", deviceConfigurationUserStatus.userPrincipalName);
+    serializeEntity(writer, deviceConfigurationUserStatus)
+    writer.writeNumberValue("devicesCount", deviceConfigurationUserStatus.devicesCount);
+    writer.writeDateValue("lastReportedDateTime", deviceConfigurationUserStatus.lastReportedDateTime);
+    writer.writeEnumValue<ComplianceStatus>("status", deviceConfigurationUserStatus.status);
+    writer.writeStringValue("userDisplayName", deviceConfigurationUserStatus.userDisplayName);
+    writer.writeStringValue("userPrincipalName", deviceConfigurationUserStatus.userPrincipalName);
 }
 // tslint:enable
 // eslint-enable

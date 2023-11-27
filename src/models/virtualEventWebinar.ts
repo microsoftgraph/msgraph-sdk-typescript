@@ -20,10 +20,10 @@ export function deserializeIntoVirtualEventWebinar(virtualEventWebinar: VirtualE
     }
 }
 export function serializeVirtualEventWebinar(writer: SerializationWriter, virtualEventWebinar: VirtualEventWebinar | undefined = {} as VirtualEventWebinar) : void {
-        serializeVirtualEvent(writer, virtualEventWebinar)
-        writer.writeEnumValue<MeetingAudience>("audience", virtualEventWebinar.audience);
-        writer.writeCollectionOfObjectValues<CommunicationsUserIdentity>("coOrganizers", virtualEventWebinar.coOrganizers, serializeCommunicationsUserIdentity);
-        writer.writeCollectionOfObjectValues<VirtualEventRegistration>("registrations", virtualEventWebinar.registrations, serializeVirtualEventRegistration);
+    serializeVirtualEvent(writer, virtualEventWebinar)
+    writer.writeEnumValue<MeetingAudience>("audience", virtualEventWebinar.audience);
+    writer.writeCollectionOfObjectValues<CommunicationsUserIdentity>("coOrganizers", virtualEventWebinar.coOrganizers, serializeCommunicationsUserIdentity);
+    writer.writeCollectionOfObjectValues<VirtualEventRegistration>("registrations", virtualEventWebinar.registrations, serializeVirtualEventRegistration);
 }
 export interface VirtualEventWebinar extends Parsable, VirtualEvent {
     /**

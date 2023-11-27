@@ -48,8 +48,8 @@ export interface IdentityProviderBase extends Entity, Parsable {
     displayName?: string;
 }
 export function serializeIdentityProviderBase(writer: SerializationWriter, identityProviderBase: IdentityProviderBase | undefined = {} as IdentityProviderBase) : void {
-        serializeEntity(writer, identityProviderBase)
-        writer.writeStringValue("displayName", identityProviderBase.displayName);
+    serializeEntity(writer, identityProviderBase)
+    writer.writeStringValue("displayName", identityProviderBase.displayName);
 }
 // tslint:enable
 // eslint-enable

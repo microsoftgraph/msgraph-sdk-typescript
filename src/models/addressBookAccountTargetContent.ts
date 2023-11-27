@@ -21,8 +21,8 @@ export function deserializeIntoAddressBookAccountTargetContent(addressBookAccoun
     }
 }
 export function serializeAddressBookAccountTargetContent(writer: SerializationWriter, addressBookAccountTargetContent: AddressBookAccountTargetContent | undefined = {} as AddressBookAccountTargetContent) : void {
-        serializeAccountTargetContent(writer, addressBookAccountTargetContent)
-        writer.writeCollectionOfPrimitiveValues<string>("accountTargetEmails", addressBookAccountTargetContent.accountTargetEmails);
+    serializeAccountTargetContent(writer, addressBookAccountTargetContent)
+    writer.writeCollectionOfPrimitiveValues<string>("accountTargetEmails", addressBookAccountTargetContent.accountTargetEmails);
 }
 // tslint:enable
 // eslint-enable

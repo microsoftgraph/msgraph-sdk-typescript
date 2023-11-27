@@ -43,19 +43,19 @@ export function deserializeIntoWorkflowBase(workflowBase: WorkflowBase | undefin
     }
 }
 export function serializeWorkflowBase(writer: SerializationWriter, workflowBase: WorkflowBase | undefined = {} as WorkflowBase) : void {
-        writer.writeEnumValue<LifecycleWorkflowCategory>("category", workflowBase.category);
-        writer.writeObjectValue<User>("createdBy", workflowBase.createdBy, serializeUser);
-        writer.writeDateValue("createdDateTime", workflowBase.createdDateTime);
-        writer.writeStringValue("description", workflowBase.description);
-        writer.writeStringValue("displayName", workflowBase.displayName);
-        writer.writeObjectValue<WorkflowExecutionConditions>("executionConditions", workflowBase.executionConditions, serializeWorkflowExecutionConditions);
-        writer.writeBooleanValue("isEnabled", workflowBase.isEnabled);
-        writer.writeBooleanValue("isSchedulingEnabled", workflowBase.isSchedulingEnabled);
-        writer.writeObjectValue<User>("lastModifiedBy", workflowBase.lastModifiedBy, serializeUser);
-        writer.writeDateValue("lastModifiedDateTime", workflowBase.lastModifiedDateTime);
-        writer.writeStringValue("@odata.type", workflowBase.odataType);
-        writer.writeCollectionOfObjectValues<Task>("tasks", workflowBase.tasks, serializeTask);
-        writer.writeAdditionalData(workflowBase.additionalData);
+    writer.writeEnumValue<LifecycleWorkflowCategory>("category", workflowBase.category);
+    writer.writeObjectValue<User>("createdBy", workflowBase.createdBy, serializeUser);
+    writer.writeDateValue("createdDateTime", workflowBase.createdDateTime);
+    writer.writeStringValue("description", workflowBase.description);
+    writer.writeStringValue("displayName", workflowBase.displayName);
+    writer.writeObjectValue<WorkflowExecutionConditions>("executionConditions", workflowBase.executionConditions, serializeWorkflowExecutionConditions);
+    writer.writeBooleanValue("isEnabled", workflowBase.isEnabled);
+    writer.writeBooleanValue("isSchedulingEnabled", workflowBase.isSchedulingEnabled);
+    writer.writeObjectValue<User>("lastModifiedBy", workflowBase.lastModifiedBy, serializeUser);
+    writer.writeDateValue("lastModifiedDateTime", workflowBase.lastModifiedDateTime);
+    writer.writeStringValue("@odata.type", workflowBase.odataType);
+    writer.writeCollectionOfObjectValues<Task>("tasks", workflowBase.tasks, serializeTask);
+    writer.writeAdditionalData(workflowBase.additionalData);
 }
 export interface WorkflowBase extends AdditionalDataHolder, Parsable {
     /**

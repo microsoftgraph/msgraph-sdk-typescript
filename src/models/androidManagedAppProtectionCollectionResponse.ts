@@ -22,8 +22,8 @@ export function deserializeIntoAndroidManagedAppProtectionCollectionResponse(and
     }
 }
 export function serializeAndroidManagedAppProtectionCollectionResponse(writer: SerializationWriter, androidManagedAppProtectionCollectionResponse: AndroidManagedAppProtectionCollectionResponse | undefined = {} as AndroidManagedAppProtectionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, androidManagedAppProtectionCollectionResponse)
-        writer.writeCollectionOfObjectValues<AndroidManagedAppProtection>("value", androidManagedAppProtectionCollectionResponse.value, serializeAndroidManagedAppProtection);
+    serializeBaseCollectionPaginationCountResponse(writer, androidManagedAppProtectionCollectionResponse)
+    writer.writeCollectionOfObjectValues<AndroidManagedAppProtection>("value", androidManagedAppProtectionCollectionResponse.value, serializeAndroidManagedAppProtection);
 }
 // tslint:enable
 // eslint-enable

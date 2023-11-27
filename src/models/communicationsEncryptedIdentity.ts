@@ -16,7 +16,7 @@ export function deserializeIntoCommunicationsEncryptedIdentity(communicationsEnc
     }
 }
 export function serializeCommunicationsEncryptedIdentity(writer: SerializationWriter, communicationsEncryptedIdentity: CommunicationsEncryptedIdentity | undefined = {} as CommunicationsEncryptedIdentity) : void {
-        serializeIdentity(writer, communicationsEncryptedIdentity)
+    serializeIdentity(writer, communicationsEncryptedIdentity)
 }
 // tslint:enable
 // eslint-enable

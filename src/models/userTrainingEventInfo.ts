@@ -20,13 +20,13 @@ export function deserializeIntoUserTrainingEventInfo(userTrainingEventInfo: User
     }
 }
 export function serializeUserTrainingEventInfo(writer: SerializationWriter, userTrainingEventInfo: UserTrainingEventInfo | undefined = {} as UserTrainingEventInfo) : void {
-        writer.writeStringValue("displayName", userTrainingEventInfo.displayName);
-        writer.writeEnumValue<TrainingStatus>("latestTrainingStatus", userTrainingEventInfo.latestTrainingStatus);
-        writer.writeStringValue("@odata.type", userTrainingEventInfo.odataType);
-        writer.writeObjectValue<UserTrainingContentEventInfo>("trainingAssignedProperties", userTrainingEventInfo.trainingAssignedProperties, serializeUserTrainingContentEventInfo);
-        writer.writeObjectValue<UserTrainingContentEventInfo>("trainingCompletedProperties", userTrainingEventInfo.trainingCompletedProperties, serializeUserTrainingContentEventInfo);
-        writer.writeObjectValue<UserTrainingContentEventInfo>("trainingUpdatedProperties", userTrainingEventInfo.trainingUpdatedProperties, serializeUserTrainingContentEventInfo);
-        writer.writeAdditionalData(userTrainingEventInfo.additionalData);
+    writer.writeStringValue("displayName", userTrainingEventInfo.displayName);
+    writer.writeEnumValue<TrainingStatus>("latestTrainingStatus", userTrainingEventInfo.latestTrainingStatus);
+    writer.writeStringValue("@odata.type", userTrainingEventInfo.odataType);
+    writer.writeObjectValue<UserTrainingContentEventInfo>("trainingAssignedProperties", userTrainingEventInfo.trainingAssignedProperties, serializeUserTrainingContentEventInfo);
+    writer.writeObjectValue<UserTrainingContentEventInfo>("trainingCompletedProperties", userTrainingEventInfo.trainingCompletedProperties, serializeUserTrainingContentEventInfo);
+    writer.writeObjectValue<UserTrainingContentEventInfo>("trainingUpdatedProperties", userTrainingEventInfo.trainingUpdatedProperties, serializeUserTrainingContentEventInfo);
+    writer.writeAdditionalData(userTrainingEventInfo.additionalData);
 }
 export interface UserTrainingEventInfo extends AdditionalDataHolder, Parsable {
     /**

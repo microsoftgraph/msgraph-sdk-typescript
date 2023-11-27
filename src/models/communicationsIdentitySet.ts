@@ -58,15 +58,15 @@ export function deserializeIntoCommunicationsIdentitySet(communicationsIdentityS
     }
 }
 export function serializeCommunicationsIdentitySet(writer: SerializationWriter, communicationsIdentitySet: CommunicationsIdentitySet | undefined = {} as CommunicationsIdentitySet) : void {
-        serializeIdentitySet(writer, communicationsIdentitySet)
-        writer.writeObjectValue<Identity>("applicationInstance", communicationsIdentitySet.applicationInstance, serializeIdentity);
-        writer.writeObjectValue<Identity>("assertedIdentity", communicationsIdentitySet.assertedIdentity, serializeIdentity);
-        writer.writeObjectValue<Identity>("azureCommunicationServicesUser", communicationsIdentitySet.azureCommunicationServicesUser, serializeIdentity);
-        writer.writeObjectValue<Identity>("encrypted", communicationsIdentitySet.encrypted, serializeIdentity);
-        writer.writeEnumValue<EndpointType>("endpointType", communicationsIdentitySet.endpointType);
-        writer.writeObjectValue<Identity>("guest", communicationsIdentitySet.guest, serializeIdentity);
-        writer.writeObjectValue<Identity>("onPremises", communicationsIdentitySet.onPremises, serializeIdentity);
-        writer.writeObjectValue<Identity>("phone", communicationsIdentitySet.phone, serializeIdentity);
+    serializeIdentitySet(writer, communicationsIdentitySet)
+    writer.writeObjectValue<Identity>("applicationInstance", communicationsIdentitySet.applicationInstance, serializeIdentity);
+    writer.writeObjectValue<Identity>("assertedIdentity", communicationsIdentitySet.assertedIdentity, serializeIdentity);
+    writer.writeObjectValue<Identity>("azureCommunicationServicesUser", communicationsIdentitySet.azureCommunicationServicesUser, serializeIdentity);
+    writer.writeObjectValue<Identity>("encrypted", communicationsIdentitySet.encrypted, serializeIdentity);
+    writer.writeEnumValue<EndpointType>("endpointType", communicationsIdentitySet.endpointType);
+    writer.writeObjectValue<Identity>("guest", communicationsIdentitySet.guest, serializeIdentity);
+    writer.writeObjectValue<Identity>("onPremises", communicationsIdentitySet.onPremises, serializeIdentity);
+    writer.writeObjectValue<Identity>("phone", communicationsIdentitySet.phone, serializeIdentity);
 }
 // tslint:enable
 // eslint-enable

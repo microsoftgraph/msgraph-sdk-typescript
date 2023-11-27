@@ -19,10 +19,10 @@ export function deserializeIntoSynchronizationSchema(synchronizationSchema: Sync
     }
 }
 export function serializeSynchronizationSchema(writer: SerializationWriter, synchronizationSchema: SynchronizationSchema | undefined = {} as SynchronizationSchema) : void {
-        serializeEntity(writer, synchronizationSchema)
-        writer.writeCollectionOfObjectValues<DirectoryDefinition>("directories", synchronizationSchema.directories, serializeDirectoryDefinition);
-        writer.writeCollectionOfObjectValues<SynchronizationRule>("synchronizationRules", synchronizationSchema.synchronizationRules, serializeSynchronizationRule);
-        writer.writeStringValue("version", synchronizationSchema.version);
+    serializeEntity(writer, synchronizationSchema)
+    writer.writeCollectionOfObjectValues<DirectoryDefinition>("directories", synchronizationSchema.directories, serializeDirectoryDefinition);
+    writer.writeCollectionOfObjectValues<SynchronizationRule>("synchronizationRules", synchronizationSchema.synchronizationRules, serializeSynchronizationRule);
+    writer.writeStringValue("version", synchronizationSchema.version);
 }
 export interface SynchronizationSchema extends Entity, Parsable {
     /**

@@ -40,11 +40,11 @@ export interface ExternalItem extends Entity, Parsable {
     properties?: Properties;
 }
 export function serializeExternalItem(writer: SerializationWriter, externalItem: ExternalItem | undefined = {} as ExternalItem) : void {
-        serializeEntity(writer, externalItem)
-        writer.writeCollectionOfObjectValues<Acl>("acl", externalItem.acl, serializeAcl);
-        writer.writeCollectionOfObjectValues<ExternalActivity>("activities", externalItem.activities, serializeExternalActivity);
-        writer.writeObjectValue<ExternalItemContent>("content", externalItem.content, serializeExternalItemContent);
-        writer.writeObjectValue<Properties>("properties", externalItem.properties, serializeProperties);
+    serializeEntity(writer, externalItem)
+    writer.writeCollectionOfObjectValues<Acl>("acl", externalItem.acl, serializeAcl);
+    writer.writeCollectionOfObjectValues<ExternalActivity>("activities", externalItem.activities, serializeExternalActivity);
+    writer.writeObjectValue<ExternalItemContent>("content", externalItem.content, serializeExternalItemContent);
+    writer.writeObjectValue<Properties>("properties", externalItem.properties, serializeProperties);
 }
 // tslint:enable
 // eslint-enable

@@ -20,11 +20,11 @@ export function deserializeIntoTeamsApp(teamsApp: TeamsApp | undefined = {} as T
     }
 }
 export function serializeTeamsApp(writer: SerializationWriter, teamsApp: TeamsApp | undefined = {} as TeamsApp) : void {
-        serializeEntity(writer, teamsApp)
-        writer.writeCollectionOfObjectValues<TeamsAppDefinition>("appDefinitions", teamsApp.appDefinitions, serializeTeamsAppDefinition);
-        writer.writeStringValue("displayName", teamsApp.displayName);
-        writer.writeEnumValue<TeamsAppDistributionMethod>("distributionMethod", teamsApp.distributionMethod);
-        writer.writeStringValue("externalId", teamsApp.externalId);
+    serializeEntity(writer, teamsApp)
+    writer.writeCollectionOfObjectValues<TeamsAppDefinition>("appDefinitions", teamsApp.appDefinitions, serializeTeamsAppDefinition);
+    writer.writeStringValue("displayName", teamsApp.displayName);
+    writer.writeEnumValue<TeamsAppDistributionMethod>("distributionMethod", teamsApp.distributionMethod);
+    writer.writeStringValue("externalId", teamsApp.externalId);
 }
 export interface TeamsApp extends Entity, Parsable {
     /**

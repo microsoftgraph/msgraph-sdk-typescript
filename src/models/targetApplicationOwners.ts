@@ -14,7 +14,7 @@ export function deserializeIntoTargetApplicationOwners(targetApplicationOwners: 
     }
 }
 export function serializeTargetApplicationOwners(writer: SerializationWriter, targetApplicationOwners: TargetApplicationOwners | undefined = {} as TargetApplicationOwners) : void {
-        serializeSubjectSet(writer, targetApplicationOwners)
+    serializeSubjectSet(writer, targetApplicationOwners)
 }
 export interface TargetApplicationOwners extends Parsable, SubjectSet {
 }

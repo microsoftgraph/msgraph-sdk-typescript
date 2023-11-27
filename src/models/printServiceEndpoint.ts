@@ -26,9 +26,9 @@ export interface PrintServiceEndpoint extends Entity, Parsable {
     uri?: string;
 }
 export function serializePrintServiceEndpoint(writer: SerializationWriter, printServiceEndpoint: PrintServiceEndpoint | undefined = {} as PrintServiceEndpoint) : void {
-        serializeEntity(writer, printServiceEndpoint)
-        writer.writeStringValue("displayName", printServiceEndpoint.displayName);
-        writer.writeStringValue("uri", printServiceEndpoint.uri);
+    serializeEntity(writer, printServiceEndpoint)
+    writer.writeStringValue("displayName", printServiceEndpoint.displayName);
+    writer.writeStringValue("uri", printServiceEndpoint.uri);
 }
 // tslint:enable
 // eslint-enable

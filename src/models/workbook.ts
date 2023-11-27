@@ -28,14 +28,14 @@ export function deserializeIntoWorkbook(workbook: Workbook | undefined = {} as W
     }
 }
 export function serializeWorkbook(writer: SerializationWriter, workbook: Workbook | undefined = {} as Workbook) : void {
-        serializeEntity(writer, workbook)
-        writer.writeObjectValue<WorkbookApplication>("application", workbook.application, serializeWorkbookApplication);
-        writer.writeCollectionOfObjectValues<WorkbookComment>("comments", workbook.comments, serializeWorkbookComment);
-        writer.writeObjectValue<WorkbookFunctions>("functions", workbook.functions, serializeWorkbookFunctions);
-        writer.writeCollectionOfObjectValues<WorkbookNamedItem>("names", workbook.names, serializeWorkbookNamedItem);
-        writer.writeCollectionOfObjectValues<WorkbookOperation>("operations", workbook.operations, serializeWorkbookOperation);
-        writer.writeCollectionOfObjectValues<WorkbookTable>("tables", workbook.tables, serializeWorkbookTable);
-        writer.writeCollectionOfObjectValues<WorkbookWorksheet>("worksheets", workbook.worksheets, serializeWorkbookWorksheet);
+    serializeEntity(writer, workbook)
+    writer.writeObjectValue<WorkbookApplication>("application", workbook.application, serializeWorkbookApplication);
+    writer.writeCollectionOfObjectValues<WorkbookComment>("comments", workbook.comments, serializeWorkbookComment);
+    writer.writeObjectValue<WorkbookFunctions>("functions", workbook.functions, serializeWorkbookFunctions);
+    writer.writeCollectionOfObjectValues<WorkbookNamedItem>("names", workbook.names, serializeWorkbookNamedItem);
+    writer.writeCollectionOfObjectValues<WorkbookOperation>("operations", workbook.operations, serializeWorkbookOperation);
+    writer.writeCollectionOfObjectValues<WorkbookTable>("tables", workbook.tables, serializeWorkbookTable);
+    writer.writeCollectionOfObjectValues<WorkbookWorksheet>("worksheets", workbook.worksheets, serializeWorkbookWorksheet);
 }
 export interface Workbook extends Entity, Parsable {
     /**

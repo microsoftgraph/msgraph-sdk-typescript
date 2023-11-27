@@ -21,8 +21,8 @@ export interface IosHomeScreenApp extends IosHomeScreenItem, Parsable {
     bundleID?: string;
 }
 export function serializeIosHomeScreenApp(writer: SerializationWriter, iosHomeScreenApp: IosHomeScreenApp | undefined = {} as IosHomeScreenApp) : void {
-        serializeIosHomeScreenItem(writer, iosHomeScreenApp)
-        writer.writeStringValue("bundleID", iosHomeScreenApp.bundleID);
+    serializeIosHomeScreenItem(writer, iosHomeScreenApp)
+    writer.writeStringValue("bundleID", iosHomeScreenApp.bundleID);
 }
 // tslint:enable
 // eslint-enable

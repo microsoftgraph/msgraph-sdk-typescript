@@ -21,8 +21,8 @@ export function deserializeIntoAzureCommunicationServicesUserIdentity(azureCommu
     }
 }
 export function serializeAzureCommunicationServicesUserIdentity(writer: SerializationWriter, azureCommunicationServicesUserIdentity: AzureCommunicationServicesUserIdentity | undefined = {} as AzureCommunicationServicesUserIdentity) : void {
-        serializeIdentity(writer, azureCommunicationServicesUserIdentity)
-        writer.writeStringValue("azureCommunicationServicesResourceId", azureCommunicationServicesUserIdentity.azureCommunicationServicesResourceId);
+    serializeIdentity(writer, azureCommunicationServicesUserIdentity)
+    writer.writeStringValue("azureCommunicationServicesResourceId", azureCommunicationServicesUserIdentity.azureCommunicationServicesResourceId);
 }
 // tslint:enable
 // eslint-enable

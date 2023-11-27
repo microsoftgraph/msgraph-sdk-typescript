@@ -38,11 +38,11 @@ export function deserializeIntoAppConsentRequest(appConsentRequest: AppConsentRe
     }
 }
 export function serializeAppConsentRequest(writer: SerializationWriter, appConsentRequest: AppConsentRequest | undefined = {} as AppConsentRequest) : void {
-        serializeEntity(writer, appConsentRequest)
-        writer.writeStringValue("appDisplayName", appConsentRequest.appDisplayName);
-        writer.writeStringValue("appId", appConsentRequest.appId);
-        writer.writeCollectionOfObjectValues<AppConsentRequestScope>("pendingScopes", appConsentRequest.pendingScopes, serializeAppConsentRequestScope);
-        writer.writeCollectionOfObjectValues<UserConsentRequest>("userConsentRequests", appConsentRequest.userConsentRequests, serializeUserConsentRequest);
+    serializeEntity(writer, appConsentRequest)
+    writer.writeStringValue("appDisplayName", appConsentRequest.appDisplayName);
+    writer.writeStringValue("appId", appConsentRequest.appId);
+    writer.writeCollectionOfObjectValues<AppConsentRequestScope>("pendingScopes", appConsentRequest.pendingScopes, serializeAppConsentRequestScope);
+    writer.writeCollectionOfObjectValues<UserConsentRequest>("userConsentRequests", appConsentRequest.userConsentRequests, serializeUserConsentRequest);
 }
 // tslint:enable
 // eslint-enable

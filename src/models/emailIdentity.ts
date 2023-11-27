@@ -21,8 +21,8 @@ export interface EmailIdentity extends Identity, Parsable {
     email?: string;
 }
 export function serializeEmailIdentity(writer: SerializationWriter, emailIdentity: EmailIdentity | undefined = {} as EmailIdentity) : void {
-        serializeIdentity(writer, emailIdentity)
-        writer.writeStringValue("email", emailIdentity.email);
+    serializeIdentity(writer, emailIdentity)
+    writer.writeStringValue("email", emailIdentity.email);
 }
 // tslint:enable
 // eslint-enable

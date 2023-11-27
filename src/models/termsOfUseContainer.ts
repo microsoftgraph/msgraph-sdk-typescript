@@ -18,9 +18,9 @@ export function deserializeIntoTermsOfUseContainer(termsOfUseContainer: TermsOfU
     }
 }
 export function serializeTermsOfUseContainer(writer: SerializationWriter, termsOfUseContainer: TermsOfUseContainer | undefined = {} as TermsOfUseContainer) : void {
-        serializeEntity(writer, termsOfUseContainer)
-        writer.writeCollectionOfObjectValues<AgreementAcceptance>("agreementAcceptances", termsOfUseContainer.agreementAcceptances, serializeAgreementAcceptance);
-        writer.writeCollectionOfObjectValues<Agreement>("agreements", termsOfUseContainer.agreements, serializeAgreement);
+    serializeEntity(writer, termsOfUseContainer)
+    writer.writeCollectionOfObjectValues<AgreementAcceptance>("agreementAcceptances", termsOfUseContainer.agreementAcceptances, serializeAgreementAcceptance);
+    writer.writeCollectionOfObjectValues<Agreement>("agreements", termsOfUseContainer.agreements, serializeAgreement);
 }
 export interface TermsOfUseContainer extends Entity, Parsable {
     /**

@@ -43,13 +43,13 @@ export function deserializeIntoCalendarPermission(calendarPermission: CalendarPe
     }
 }
 export function serializeCalendarPermission(writer: SerializationWriter, calendarPermission: CalendarPermission | undefined = {} as CalendarPermission) : void {
-        serializeEntity(writer, calendarPermission)
-        if(calendarPermission.allowedRoles)
-        writer.writeEnumValue<CalendarRoleType>("allowedRoles", ...calendarPermission.allowedRoles);
-        writer.writeObjectValue<EmailAddress>("emailAddress", calendarPermission.emailAddress, serializeEmailAddress);
-        writer.writeBooleanValue("isInsideOrganization", calendarPermission.isInsideOrganization);
-        writer.writeBooleanValue("isRemovable", calendarPermission.isRemovable);
-        writer.writeEnumValue<CalendarRoleType>("role", calendarPermission.role);
+    serializeEntity(writer, calendarPermission)
+    if(calendarPermission.allowedRoles)
+    writer.writeEnumValue<CalendarRoleType>("allowedRoles", ...calendarPermission.allowedRoles);
+    writer.writeObjectValue<EmailAddress>("emailAddress", calendarPermission.emailAddress, serializeEmailAddress);
+    writer.writeBooleanValue("isInsideOrganization", calendarPermission.isInsideOrganization);
+    writer.writeBooleanValue("isRemovable", calendarPermission.isRemovable);
+    writer.writeEnumValue<CalendarRoleType>("role", calendarPermission.role);
 }
 // tslint:enable
 // eslint-enable

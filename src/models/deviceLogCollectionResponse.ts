@@ -58,15 +58,15 @@ export interface DeviceLogCollectionResponse extends Entity, Parsable {
     status?: AppLogUploadState;
 }
 export function serializeDeviceLogCollectionResponse(writer: SerializationWriter, deviceLogCollectionResponse: DeviceLogCollectionResponse | undefined = {} as DeviceLogCollectionResponse) : void {
-        serializeEntity(writer, deviceLogCollectionResponse)
-        writer.writeStringValue("enrolledByUser", deviceLogCollectionResponse.enrolledByUser);
-        writer.writeDateValue("expirationDateTimeUTC", deviceLogCollectionResponse.expirationDateTimeUTC);
-        writer.writeStringValue("initiatedByUserPrincipalName", deviceLogCollectionResponse.initiatedByUserPrincipalName);
-        writer.writeGuidValue("managedDeviceId", deviceLogCollectionResponse.managedDeviceId);
-        writer.writeDateValue("receivedDateTimeUTC", deviceLogCollectionResponse.receivedDateTimeUTC);
-        writer.writeDateValue("requestedDateTimeUTC", deviceLogCollectionResponse.requestedDateTimeUTC);
-        writer.writeNumberValue("sizeInKB", deviceLogCollectionResponse.sizeInKB);
-        writer.writeEnumValue<AppLogUploadState>("status", deviceLogCollectionResponse.status);
+    serializeEntity(writer, deviceLogCollectionResponse)
+    writer.writeStringValue("enrolledByUser", deviceLogCollectionResponse.enrolledByUser);
+    writer.writeDateValue("expirationDateTimeUTC", deviceLogCollectionResponse.expirationDateTimeUTC);
+    writer.writeStringValue("initiatedByUserPrincipalName", deviceLogCollectionResponse.initiatedByUserPrincipalName);
+    writer.writeGuidValue("managedDeviceId", deviceLogCollectionResponse.managedDeviceId);
+    writer.writeDateValue("receivedDateTimeUTC", deviceLogCollectionResponse.receivedDateTimeUTC);
+    writer.writeDateValue("requestedDateTimeUTC", deviceLogCollectionResponse.requestedDateTimeUTC);
+    writer.writeNumberValue("sizeInKB", deviceLogCollectionResponse.sizeInKB);
+    writer.writeEnumValue<AppLogUploadState>("status", deviceLogCollectionResponse.status);
 }
 // tslint:enable
 // eslint-enable

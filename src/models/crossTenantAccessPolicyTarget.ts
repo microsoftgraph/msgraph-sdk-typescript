@@ -34,10 +34,10 @@ export function deserializeIntoCrossTenantAccessPolicyTarget(crossTenantAccessPo
     }
 }
 export function serializeCrossTenantAccessPolicyTarget(writer: SerializationWriter, crossTenantAccessPolicyTarget: CrossTenantAccessPolicyTarget | undefined = {} as CrossTenantAccessPolicyTarget) : void {
-        writer.writeStringValue("@odata.type", crossTenantAccessPolicyTarget.odataType);
-        writer.writeStringValue("target", crossTenantAccessPolicyTarget.target);
-        writer.writeEnumValue<CrossTenantAccessPolicyTargetType>("targetType", crossTenantAccessPolicyTarget.targetType);
-        writer.writeAdditionalData(crossTenantAccessPolicyTarget.additionalData);
+    writer.writeStringValue("@odata.type", crossTenantAccessPolicyTarget.odataType);
+    writer.writeStringValue("target", crossTenantAccessPolicyTarget.target);
+    writer.writeEnumValue<CrossTenantAccessPolicyTargetType>("targetType", crossTenantAccessPolicyTarget.targetType);
+    writer.writeAdditionalData(crossTenantAccessPolicyTarget.additionalData);
 }
 // tslint:enable
 // eslint-enable

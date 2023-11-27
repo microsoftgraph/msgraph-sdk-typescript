@@ -22,11 +22,11 @@ export function deserializeIntoWin32LobAppAssignmentSettings(win32LobAppAssignme
     }
 }
 export function serializeWin32LobAppAssignmentSettings(writer: SerializationWriter, win32LobAppAssignmentSettings: Win32LobAppAssignmentSettings | undefined = {} as Win32LobAppAssignmentSettings) : void {
-        serializeMobileAppAssignmentSettings(writer, win32LobAppAssignmentSettings)
-        writer.writeEnumValue<Win32LobAppDeliveryOptimizationPriority>("deliveryOptimizationPriority", win32LobAppAssignmentSettings.deliveryOptimizationPriority);
-        writer.writeObjectValue<MobileAppInstallTimeSettings>("installTimeSettings", win32LobAppAssignmentSettings.installTimeSettings, serializeMobileAppInstallTimeSettings);
-        writer.writeEnumValue<Win32LobAppNotification>("notifications", win32LobAppAssignmentSettings.notifications);
-        writer.writeObjectValue<Win32LobAppRestartSettings>("restartSettings", win32LobAppAssignmentSettings.restartSettings, serializeWin32LobAppRestartSettings);
+    serializeMobileAppAssignmentSettings(writer, win32LobAppAssignmentSettings)
+    writer.writeEnumValue<Win32LobAppDeliveryOptimizationPriority>("deliveryOptimizationPriority", win32LobAppAssignmentSettings.deliveryOptimizationPriority);
+    writer.writeObjectValue<MobileAppInstallTimeSettings>("installTimeSettings", win32LobAppAssignmentSettings.installTimeSettings, serializeMobileAppInstallTimeSettings);
+    writer.writeEnumValue<Win32LobAppNotification>("notifications", win32LobAppAssignmentSettings.notifications);
+    writer.writeObjectValue<Win32LobAppRestartSettings>("restartSettings", win32LobAppAssignmentSettings.restartSettings, serializeWin32LobAppRestartSettings);
 }
 export interface Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings, Parsable {
     /**

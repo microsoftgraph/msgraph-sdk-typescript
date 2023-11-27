@@ -16,7 +16,7 @@ export function deserializeIntoDeviceAndAppManagementRoleDefinition(deviceAndApp
 export interface DeviceAndAppManagementRoleDefinition extends Parsable, RoleDefinition {
 }
 export function serializeDeviceAndAppManagementRoleDefinition(writer: SerializationWriter, deviceAndAppManagementRoleDefinition: DeviceAndAppManagementRoleDefinition | undefined = {} as DeviceAndAppManagementRoleDefinition) : void {
-        serializeRoleDefinition(writer, deviceAndAppManagementRoleDefinition)
+    serializeRoleDefinition(writer, deviceAndAppManagementRoleDefinition)
 }
 // tslint:enable
 // eslint-enable

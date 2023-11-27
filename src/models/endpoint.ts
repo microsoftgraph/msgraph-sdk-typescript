@@ -41,12 +41,12 @@ export interface Endpoint extends DirectoryObject, Parsable {
     uri?: string;
 }
 export function serializeEndpoint(writer: SerializationWriter, endpoint: Endpoint | undefined = {} as Endpoint) : void {
-        serializeDirectoryObject(writer, endpoint)
-        writer.writeStringValue("capability", endpoint.capability);
-        writer.writeStringValue("providerId", endpoint.providerId);
-        writer.writeStringValue("providerName", endpoint.providerName);
-        writer.writeStringValue("providerResourceId", endpoint.providerResourceId);
-        writer.writeStringValue("uri", endpoint.uri);
+    serializeDirectoryObject(writer, endpoint)
+    writer.writeStringValue("capability", endpoint.capability);
+    writer.writeStringValue("providerId", endpoint.providerId);
+    writer.writeStringValue("providerName", endpoint.providerName);
+    writer.writeStringValue("providerResourceId", endpoint.providerResourceId);
+    writer.writeStringValue("uri", endpoint.uri);
 }
 // tslint:enable
 // eslint-enable

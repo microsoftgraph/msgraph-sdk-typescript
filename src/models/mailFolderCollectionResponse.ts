@@ -22,8 +22,8 @@ export interface MailFolderCollectionResponse extends BaseCollectionPaginationCo
     value?: MailFolder[];
 }
 export function serializeMailFolderCollectionResponse(writer: SerializationWriter, mailFolderCollectionResponse: MailFolderCollectionResponse | undefined = {} as MailFolderCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, mailFolderCollectionResponse)
-        writer.writeCollectionOfObjectValues<MailFolder>("value", mailFolderCollectionResponse.value, serializeMailFolder);
+    serializeBaseCollectionPaginationCountResponse(writer, mailFolderCollectionResponse)
+    writer.writeCollectionOfObjectValues<MailFolder>("value", mailFolderCollectionResponse.value, serializeMailFolder);
 }
 // tslint:enable
 // eslint-enable

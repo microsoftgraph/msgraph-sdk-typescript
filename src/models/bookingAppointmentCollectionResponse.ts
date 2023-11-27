@@ -22,8 +22,8 @@ export function deserializeIntoBookingAppointmentCollectionResponse(bookingAppoi
     }
 }
 export function serializeBookingAppointmentCollectionResponse(writer: SerializationWriter, bookingAppointmentCollectionResponse: BookingAppointmentCollectionResponse | undefined = {} as BookingAppointmentCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, bookingAppointmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<BookingAppointment>("value", bookingAppointmentCollectionResponse.value, serializeBookingAppointment);
+    serializeBaseCollectionPaginationCountResponse(writer, bookingAppointmentCollectionResponse)
+    writer.writeCollectionOfObjectValues<BookingAppointment>("value", bookingAppointmentCollectionResponse.value, serializeBookingAppointment);
 }
 // tslint:enable
 // eslint-enable

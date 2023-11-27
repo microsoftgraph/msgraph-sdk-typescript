@@ -22,8 +22,8 @@ export interface IntelligenceProfileCollectionResponse extends BaseCollectionPag
     value?: IntelligenceProfile[];
 }
 export function serializeIntelligenceProfileCollectionResponse(writer: SerializationWriter, intelligenceProfileCollectionResponse: IntelligenceProfileCollectionResponse | undefined = {} as IntelligenceProfileCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, intelligenceProfileCollectionResponse)
-        writer.writeCollectionOfObjectValues<IntelligenceProfile>("value", intelligenceProfileCollectionResponse.value, serializeIntelligenceProfile);
+    serializeBaseCollectionPaginationCountResponse(writer, intelligenceProfileCollectionResponse)
+    writer.writeCollectionOfObjectValues<IntelligenceProfile>("value", intelligenceProfileCollectionResponse.value, serializeIntelligenceProfile);
 }
 // tslint:enable
 // eslint-enable

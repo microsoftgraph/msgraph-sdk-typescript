@@ -22,8 +22,8 @@ export function deserializeIntoCloudAppSecuritySessionControl(cloudAppSecuritySe
     }
 }
 export function serializeCloudAppSecuritySessionControl(writer: SerializationWriter, cloudAppSecuritySessionControl: CloudAppSecuritySessionControl | undefined = {} as CloudAppSecuritySessionControl) : void {
-        serializeConditionalAccessSessionControl(writer, cloudAppSecuritySessionControl)
-        writer.writeEnumValue<CloudAppSecuritySessionControlType>("cloudAppSecurityType", cloudAppSecuritySessionControl.cloudAppSecurityType);
+    serializeConditionalAccessSessionControl(writer, cloudAppSecuritySessionControl)
+    writer.writeEnumValue<CloudAppSecuritySessionControlType>("cloudAppSecurityType", cloudAppSecuritySessionControl.cloudAppSecurityType);
 }
 // tslint:enable
 // eslint-enable

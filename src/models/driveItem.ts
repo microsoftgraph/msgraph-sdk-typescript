@@ -209,40 +209,40 @@ export interface DriveItem extends BaseItem, Parsable {
     workbook?: Workbook;
 }
 export function serializeDriveItem(writer: SerializationWriter, driveItem: DriveItem | undefined = {} as DriveItem) : void {
-        serializeBaseItem(writer, driveItem)
-        writer.writeObjectValue<ItemAnalytics>("analytics", driveItem.analytics, serializeItemAnalytics);
-        writer.writeObjectValue<Audio>("audio", driveItem.audio, serializeAudio);
-        writer.writeObjectValue<Bundle>("bundle", driveItem.bundle, serializeBundle);
-        writer.writeCollectionOfObjectValues<DriveItem>("children", driveItem.children, serializeDriveItem);
-        writer.writeStringValue("content", driveItem.content);
-        writer.writeStringValue("cTag", driveItem.cTag);
-        writer.writeObjectValue<Deleted>("deleted", driveItem.deleted, serializeDeleted);
-        writer.writeObjectValue<File>("file", driveItem.file, serializeFile);
-        writer.writeObjectValue<FileSystemInfo>("fileSystemInfo", driveItem.fileSystemInfo, serializeFileSystemInfo);
-        writer.writeObjectValue<Folder>("folder", driveItem.folder, serializeFolder);
-        writer.writeObjectValue<Image>("image", driveItem.image, serializeImage);
-        writer.writeObjectValue<ListItem>("listItem", driveItem.listItem, serializeListItem);
-        writer.writeObjectValue<GeoCoordinates>("location", driveItem.location, serializeGeoCoordinates);
-        writer.writeObjectValue<Malware>("malware", driveItem.malware, serializeMalware);
-        writer.writeObjectValue<PackageEscaped>("package", driveItem.packageEscaped, serializePackageEscaped);
-        writer.writeObjectValue<PendingOperations>("pendingOperations", driveItem.pendingOperations, serializePendingOperations);
-        writer.writeCollectionOfObjectValues<Permission>("permissions", driveItem.permissions, serializePermission);
-        writer.writeObjectValue<Photo>("photo", driveItem.photo, serializePhoto);
-        writer.writeObjectValue<PublicationFacet>("publication", driveItem.publication, serializePublicationFacet);
-        writer.writeObjectValue<RemoteItem>("remoteItem", driveItem.remoteItem, serializeRemoteItem);
-        writer.writeObjectValue<ItemRetentionLabel>("retentionLabel", driveItem.retentionLabel, serializeItemRetentionLabel);
-        writer.writeObjectValue<Root>("root", driveItem.root, serializeRoot);
-        writer.writeObjectValue<SearchResult>("searchResult", driveItem.searchResult, serializeSearchResult);
-        writer.writeObjectValue<Shared>("shared", driveItem.shared, serializeShared);
-        writer.writeObjectValue<SharepointIds>("sharepointIds", driveItem.sharepointIds, serializeSharepointIds);
-        writer.writeNumberValue("size", driveItem.size);
-        writer.writeObjectValue<SpecialFolder>("specialFolder", driveItem.specialFolder, serializeSpecialFolder);
-        writer.writeCollectionOfObjectValues<Subscription>("subscriptions", driveItem.subscriptions, serializeSubscription);
-        writer.writeCollectionOfObjectValues<ThumbnailSet>("thumbnails", driveItem.thumbnails, serializeThumbnailSet);
-        writer.writeCollectionOfObjectValues<DriveItemVersion>("versions", driveItem.versions, serializeDriveItemVersion);
-        writer.writeObjectValue<Video>("video", driveItem.video, serializeVideo);
-        writer.writeStringValue("webDavUrl", driveItem.webDavUrl);
-        writer.writeObjectValue<Workbook>("workbook", driveItem.workbook, serializeWorkbook);
+    serializeBaseItem(writer, driveItem)
+    writer.writeObjectValue<ItemAnalytics>("analytics", driveItem.analytics, serializeItemAnalytics);
+    writer.writeObjectValue<Audio>("audio", driveItem.audio, serializeAudio);
+    writer.writeObjectValue<Bundle>("bundle", driveItem.bundle, serializeBundle);
+    writer.writeCollectionOfObjectValues<DriveItem>("children", driveItem.children, serializeDriveItem);
+    writer.writeStringValue("content", driveItem.content);
+    writer.writeStringValue("cTag", driveItem.cTag);
+    writer.writeObjectValue<Deleted>("deleted", driveItem.deleted, serializeDeleted);
+    writer.writeObjectValue<File>("file", driveItem.file, serializeFile);
+    writer.writeObjectValue<FileSystemInfo>("fileSystemInfo", driveItem.fileSystemInfo, serializeFileSystemInfo);
+    writer.writeObjectValue<Folder>("folder", driveItem.folder, serializeFolder);
+    writer.writeObjectValue<Image>("image", driveItem.image, serializeImage);
+    writer.writeObjectValue<ListItem>("listItem", driveItem.listItem, serializeListItem);
+    writer.writeObjectValue<GeoCoordinates>("location", driveItem.location, serializeGeoCoordinates);
+    writer.writeObjectValue<Malware>("malware", driveItem.malware, serializeMalware);
+    writer.writeObjectValue<PackageEscaped>("package", driveItem.packageEscaped, serializePackageEscaped);
+    writer.writeObjectValue<PendingOperations>("pendingOperations", driveItem.pendingOperations, serializePendingOperations);
+    writer.writeCollectionOfObjectValues<Permission>("permissions", driveItem.permissions, serializePermission);
+    writer.writeObjectValue<Photo>("photo", driveItem.photo, serializePhoto);
+    writer.writeObjectValue<PublicationFacet>("publication", driveItem.publication, serializePublicationFacet);
+    writer.writeObjectValue<RemoteItem>("remoteItem", driveItem.remoteItem, serializeRemoteItem);
+    writer.writeObjectValue<ItemRetentionLabel>("retentionLabel", driveItem.retentionLabel, serializeItemRetentionLabel);
+    writer.writeObjectValue<Root>("root", driveItem.root, serializeRoot);
+    writer.writeObjectValue<SearchResult>("searchResult", driveItem.searchResult, serializeSearchResult);
+    writer.writeObjectValue<Shared>("shared", driveItem.shared, serializeShared);
+    writer.writeObjectValue<SharepointIds>("sharepointIds", driveItem.sharepointIds, serializeSharepointIds);
+    writer.writeNumberValue("size", driveItem.size);
+    writer.writeObjectValue<SpecialFolder>("specialFolder", driveItem.specialFolder, serializeSpecialFolder);
+    writer.writeCollectionOfObjectValues<Subscription>("subscriptions", driveItem.subscriptions, serializeSubscription);
+    writer.writeCollectionOfObjectValues<ThumbnailSet>("thumbnails", driveItem.thumbnails, serializeThumbnailSet);
+    writer.writeCollectionOfObjectValues<DriveItemVersion>("versions", driveItem.versions, serializeDriveItemVersion);
+    writer.writeObjectValue<Video>("video", driveItem.video, serializeVideo);
+    writer.writeStringValue("webDavUrl", driveItem.webDavUrl);
+    writer.writeObjectValue<Workbook>("workbook", driveItem.workbook, serializeWorkbook);
 }
 // tslint:enable
 // eslint-enable

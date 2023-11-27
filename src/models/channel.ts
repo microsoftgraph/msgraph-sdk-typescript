@@ -93,21 +93,21 @@ export function deserializeIntoChannel(channel: Channel | undefined = {} as Chan
     }
 }
 export function serializeChannel(writer: SerializationWriter, channel: Channel | undefined = {} as Channel) : void {
-        serializeEntity(writer, channel)
-        writer.writeDateValue("createdDateTime", channel.createdDateTime);
-        writer.writeStringValue("description", channel.description);
-        writer.writeStringValue("displayName", channel.displayName);
-        writer.writeStringValue("email", channel.email);
-        writer.writeObjectValue<DriveItem>("filesFolder", channel.filesFolder, serializeDriveItem);
-        writer.writeBooleanValue("isFavoriteByDefault", channel.isFavoriteByDefault);
-        writer.writeCollectionOfObjectValues<ConversationMember>("members", channel.members, serializeConversationMember);
-        writer.writeEnumValue<ChannelMembershipType>("membershipType", channel.membershipType);
-        writer.writeCollectionOfObjectValues<ChatMessage>("messages", channel.messages, serializeChatMessage);
-        writer.writeCollectionOfObjectValues<SharedWithChannelTeamInfo>("sharedWithTeams", channel.sharedWithTeams, serializeSharedWithChannelTeamInfo);
-        writer.writeObjectValue<ChannelSummary>("summary", channel.summary, serializeChannelSummary);
-        writer.writeCollectionOfObjectValues<TeamsTab>("tabs", channel.tabs, serializeTeamsTab);
-        writer.writeStringValue("tenantId", channel.tenantId);
-        writer.writeStringValue("webUrl", channel.webUrl);
+    serializeEntity(writer, channel)
+    writer.writeDateValue("createdDateTime", channel.createdDateTime);
+    writer.writeStringValue("description", channel.description);
+    writer.writeStringValue("displayName", channel.displayName);
+    writer.writeStringValue("email", channel.email);
+    writer.writeObjectValue<DriveItem>("filesFolder", channel.filesFolder, serializeDriveItem);
+    writer.writeBooleanValue("isFavoriteByDefault", channel.isFavoriteByDefault);
+    writer.writeCollectionOfObjectValues<ConversationMember>("members", channel.members, serializeConversationMember);
+    writer.writeEnumValue<ChannelMembershipType>("membershipType", channel.membershipType);
+    writer.writeCollectionOfObjectValues<ChatMessage>("messages", channel.messages, serializeChatMessage);
+    writer.writeCollectionOfObjectValues<SharedWithChannelTeamInfo>("sharedWithTeams", channel.sharedWithTeams, serializeSharedWithChannelTeamInfo);
+    writer.writeObjectValue<ChannelSummary>("summary", channel.summary, serializeChannelSummary);
+    writer.writeCollectionOfObjectValues<TeamsTab>("tabs", channel.tabs, serializeTeamsTab);
+    writer.writeStringValue("tenantId", channel.tenantId);
+    writer.writeStringValue("webUrl", channel.webUrl);
 }
 // tslint:enable
 // eslint-enable

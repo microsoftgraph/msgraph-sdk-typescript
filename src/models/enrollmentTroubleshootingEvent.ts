@@ -58,15 +58,15 @@ export interface EnrollmentTroubleshootingEvent extends DeviceManagementTroubles
     userId?: string;
 }
 export function serializeEnrollmentTroubleshootingEvent(writer: SerializationWriter, enrollmentTroubleshootingEvent: EnrollmentTroubleshootingEvent | undefined = {} as EnrollmentTroubleshootingEvent) : void {
-        serializeDeviceManagementTroubleshootingEvent(writer, enrollmentTroubleshootingEvent)
-        writer.writeStringValue("deviceId", enrollmentTroubleshootingEvent.deviceId);
-        writer.writeEnumValue<DeviceEnrollmentType>("enrollmentType", enrollmentTroubleshootingEvent.enrollmentType);
-        writer.writeEnumValue<DeviceEnrollmentFailureReason>("failureCategory", enrollmentTroubleshootingEvent.failureCategory);
-        writer.writeStringValue("failureReason", enrollmentTroubleshootingEvent.failureReason);
-        writer.writeStringValue("managedDeviceIdentifier", enrollmentTroubleshootingEvent.managedDeviceIdentifier);
-        writer.writeStringValue("operatingSystem", enrollmentTroubleshootingEvent.operatingSystem);
-        writer.writeStringValue("osVersion", enrollmentTroubleshootingEvent.osVersion);
-        writer.writeStringValue("userId", enrollmentTroubleshootingEvent.userId);
+    serializeDeviceManagementTroubleshootingEvent(writer, enrollmentTroubleshootingEvent)
+    writer.writeStringValue("deviceId", enrollmentTroubleshootingEvent.deviceId);
+    writer.writeEnumValue<DeviceEnrollmentType>("enrollmentType", enrollmentTroubleshootingEvent.enrollmentType);
+    writer.writeEnumValue<DeviceEnrollmentFailureReason>("failureCategory", enrollmentTroubleshootingEvent.failureCategory);
+    writer.writeStringValue("failureReason", enrollmentTroubleshootingEvent.failureReason);
+    writer.writeStringValue("managedDeviceIdentifier", enrollmentTroubleshootingEvent.managedDeviceIdentifier);
+    writer.writeStringValue("operatingSystem", enrollmentTroubleshootingEvent.operatingSystem);
+    writer.writeStringValue("osVersion", enrollmentTroubleshootingEvent.osVersion);
+    writer.writeStringValue("userId", enrollmentTroubleshootingEvent.userId);
 }
 // tslint:enable
 // eslint-enable

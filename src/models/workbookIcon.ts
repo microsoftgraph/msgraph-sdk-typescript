@@ -15,10 +15,10 @@ export function deserializeIntoWorkbookIcon(workbookIcon: WorkbookIcon | undefin
     }
 }
 export function serializeWorkbookIcon(writer: SerializationWriter, workbookIcon: WorkbookIcon | undefined = {} as WorkbookIcon) : void {
-        writer.writeNumberValue("index", workbookIcon.index);
-        writer.writeStringValue("@odata.type", workbookIcon.odataType);
-        writer.writeStringValue("set", workbookIcon.set);
-        writer.writeAdditionalData(workbookIcon.additionalData);
+    writer.writeNumberValue("index", workbookIcon.index);
+    writer.writeStringValue("@odata.type", workbookIcon.odataType);
+    writer.writeStringValue("set", workbookIcon.set);
+    writer.writeAdditionalData(workbookIcon.additionalData);
 }
 export interface WorkbookIcon extends AdditionalDataHolder, Parsable {
     /**

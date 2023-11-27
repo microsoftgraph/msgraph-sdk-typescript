@@ -22,8 +22,8 @@ export interface ManagedMobileAppCollectionResponse extends BaseCollectionPagina
     value?: ManagedMobileApp[];
 }
 export function serializeManagedMobileAppCollectionResponse(writer: SerializationWriter, managedMobileAppCollectionResponse: ManagedMobileAppCollectionResponse | undefined = {} as ManagedMobileAppCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, managedMobileAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<ManagedMobileApp>("value", managedMobileAppCollectionResponse.value, serializeManagedMobileApp);
+    serializeBaseCollectionPaginationCountResponse(writer, managedMobileAppCollectionResponse)
+    writer.writeCollectionOfObjectValues<ManagedMobileApp>("value", managedMobileAppCollectionResponse.value, serializeManagedMobileApp);
 }
 // tslint:enable
 // eslint-enable

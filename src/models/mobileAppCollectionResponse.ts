@@ -22,8 +22,8 @@ export interface MobileAppCollectionResponse extends BaseCollectionPaginationCou
     value?: MobileApp[];
 }
 export function serializeMobileAppCollectionResponse(writer: SerializationWriter, mobileAppCollectionResponse: MobileAppCollectionResponse | undefined = {} as MobileAppCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, mobileAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<MobileApp>("value", mobileAppCollectionResponse.value, serializeMobileApp);
+    serializeBaseCollectionPaginationCountResponse(writer, mobileAppCollectionResponse)
+    writer.writeCollectionOfObjectValues<MobileApp>("value", mobileAppCollectionResponse.value, serializeMobileApp);
 }
 // tslint:enable
 // eslint-enable

@@ -16,7 +16,7 @@ export function deserializeIntoFieldValueSet(fieldValueSet: FieldValueSet | unde
 export interface FieldValueSet extends Entity, Parsable {
 }
 export function serializeFieldValueSet(writer: SerializationWriter, fieldValueSet: FieldValueSet | undefined = {} as FieldValueSet) : void {
-        serializeEntity(writer, fieldValueSet)
+    serializeEntity(writer, fieldValueSet)
 }
 // tslint:enable
 // eslint-enable

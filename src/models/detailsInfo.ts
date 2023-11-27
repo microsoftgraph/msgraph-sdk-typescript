@@ -23,8 +23,8 @@ export interface DetailsInfo extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeDetailsInfo(writer: SerializationWriter, detailsInfo: DetailsInfo | undefined = {} as DetailsInfo) : void {
-        writer.writeStringValue("@odata.type", detailsInfo.odataType);
-        writer.writeAdditionalData(detailsInfo.additionalData);
+    writer.writeStringValue("@odata.type", detailsInfo.odataType);
+    writer.writeAdditionalData(detailsInfo.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -80,19 +80,19 @@ export function deserializeIntoBrowserSharedCookie(browserSharedCookie: BrowserS
     }
 }
 export function serializeBrowserSharedCookie(writer: SerializationWriter, browserSharedCookie: BrowserSharedCookie | undefined = {} as BrowserSharedCookie) : void {
-        serializeEntity(writer, browserSharedCookie)
-        writer.writeStringValue("comment", browserSharedCookie.comment);
-        writer.writeDateValue("createdDateTime", browserSharedCookie.createdDateTime);
-        writer.writeDateValue("deletedDateTime", browserSharedCookie.deletedDateTime);
-        writer.writeStringValue("displayName", browserSharedCookie.displayName);
-        writer.writeCollectionOfObjectValues<BrowserSharedCookieHistory>("history", browserSharedCookie.history, serializeBrowserSharedCookieHistory);
-        writer.writeBooleanValue("hostOnly", browserSharedCookie.hostOnly);
-        writer.writeStringValue("hostOrDomain", browserSharedCookie.hostOrDomain);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", browserSharedCookie.lastModifiedBy, serializeIdentitySet);
-        writer.writeDateValue("lastModifiedDateTime", browserSharedCookie.lastModifiedDateTime);
-        writer.writeStringValue("path", browserSharedCookie.path);
-        writer.writeEnumValue<BrowserSharedCookieSourceEnvironment>("sourceEnvironment", browserSharedCookie.sourceEnvironment);
-        writer.writeEnumValue<BrowserSharedCookieStatus>("status", browserSharedCookie.status);
+    serializeEntity(writer, browserSharedCookie)
+    writer.writeStringValue("comment", browserSharedCookie.comment);
+    writer.writeDateValue("createdDateTime", browserSharedCookie.createdDateTime);
+    writer.writeDateValue("deletedDateTime", browserSharedCookie.deletedDateTime);
+    writer.writeStringValue("displayName", browserSharedCookie.displayName);
+    writer.writeCollectionOfObjectValues<BrowserSharedCookieHistory>("history", browserSharedCookie.history, serializeBrowserSharedCookieHistory);
+    writer.writeBooleanValue("hostOnly", browserSharedCookie.hostOnly);
+    writer.writeStringValue("hostOrDomain", browserSharedCookie.hostOrDomain);
+    writer.writeObjectValue<IdentitySet>("lastModifiedBy", browserSharedCookie.lastModifiedBy, serializeIdentitySet);
+    writer.writeDateValue("lastModifiedDateTime", browserSharedCookie.lastModifiedDateTime);
+    writer.writeStringValue("path", browserSharedCookie.path);
+    writer.writeEnumValue<BrowserSharedCookieSourceEnvironment>("sourceEnvironment", browserSharedCookie.sourceEnvironment);
+    writer.writeEnumValue<BrowserSharedCookieStatus>("status", browserSharedCookie.status);
 }
 // tslint:enable
 // eslint-enable

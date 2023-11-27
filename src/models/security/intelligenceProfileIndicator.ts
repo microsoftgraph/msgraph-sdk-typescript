@@ -26,9 +26,9 @@ export interface IntelligenceProfileIndicator extends Indicator, Parsable {
     lastSeenDateTime?: Date;
 }
 export function serializeIntelligenceProfileIndicator(writer: SerializationWriter, intelligenceProfileIndicator: IntelligenceProfileIndicator | undefined = {} as IntelligenceProfileIndicator) : void {
-        serializeIndicator(writer, intelligenceProfileIndicator)
-        writer.writeDateValue("firstSeenDateTime", intelligenceProfileIndicator.firstSeenDateTime);
-        writer.writeDateValue("lastSeenDateTime", intelligenceProfileIndicator.lastSeenDateTime);
+    serializeIndicator(writer, intelligenceProfileIndicator)
+    writer.writeDateValue("firstSeenDateTime", intelligenceProfileIndicator.firstSeenDateTime);
+    writer.writeDateValue("lastSeenDateTime", intelligenceProfileIndicator.lastSeenDateTime);
 }
 // tslint:enable
 // eslint-enable

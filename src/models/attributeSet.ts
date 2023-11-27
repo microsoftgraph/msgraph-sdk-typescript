@@ -26,9 +26,9 @@ export function deserializeIntoAttributeSet(attributeSet: AttributeSet | undefin
     }
 }
 export function serializeAttributeSet(writer: SerializationWriter, attributeSet: AttributeSet | undefined = {} as AttributeSet) : void {
-        serializeEntity(writer, attributeSet)
-        writer.writeStringValue("description", attributeSet.description);
-        writer.writeNumberValue("maxAttributesPerSet", attributeSet.maxAttributesPerSet);
+    serializeEntity(writer, attributeSet)
+    writer.writeStringValue("description", attributeSet.description);
+    writer.writeNumberValue("maxAttributesPerSet", attributeSet.maxAttributesPerSet);
 }
 // tslint:enable
 // eslint-enable

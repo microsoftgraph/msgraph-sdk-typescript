@@ -21,8 +21,8 @@ export interface InsightValueInt extends Parsable, UserExperienceAnalyticsInsigh
     value?: number;
 }
 export function serializeInsightValueInt(writer: SerializationWriter, insightValueInt: InsightValueInt | undefined = {} as InsightValueInt) : void {
-        serializeUserExperienceAnalyticsInsightValue(writer, insightValueInt)
-        writer.writeNumberValue("value", insightValueInt.value);
+    serializeUserExperienceAnalyticsInsightValue(writer, insightValueInt)
+    writer.writeNumberValue("value", insightValueInt.value);
 }
 // tslint:enable
 // eslint-enable

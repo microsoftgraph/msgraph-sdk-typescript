@@ -33,10 +33,10 @@ export interface MicrosoftCustomTrainingSetting extends Parsable, TrainingSettin
     trainingCompletionDuration?: TrainingCompletionDuration;
 }
 export function serializeMicrosoftCustomTrainingSetting(writer: SerializationWriter, microsoftCustomTrainingSetting: MicrosoftCustomTrainingSetting | undefined = {} as MicrosoftCustomTrainingSetting) : void {
-        serializeTrainingSetting(writer, microsoftCustomTrainingSetting)
-        writer.writeDateValue("completionDateTime", microsoftCustomTrainingSetting.completionDateTime);
-        writer.writeCollectionOfObjectValues<MicrosoftTrainingAssignmentMapping>("trainingAssignmentMappings", microsoftCustomTrainingSetting.trainingAssignmentMappings, serializeMicrosoftTrainingAssignmentMapping);
-        writer.writeEnumValue<TrainingCompletionDuration>("trainingCompletionDuration", microsoftCustomTrainingSetting.trainingCompletionDuration);
+    serializeTrainingSetting(writer, microsoftCustomTrainingSetting)
+    writer.writeDateValue("completionDateTime", microsoftCustomTrainingSetting.completionDateTime);
+    writer.writeCollectionOfObjectValues<MicrosoftTrainingAssignmentMapping>("trainingAssignmentMappings", microsoftCustomTrainingSetting.trainingAssignmentMappings, serializeMicrosoftTrainingAssignmentMapping);
+    writer.writeEnumValue<TrainingCompletionDuration>("trainingCompletionDuration", microsoftCustomTrainingSetting.trainingCompletionDuration);
 }
 // tslint:enable
 // eslint-enable

@@ -15,8 +15,8 @@ export function deserializeIntoSoftwareOathAuthenticationMethod(softwareOathAuth
     }
 }
 export function serializeSoftwareOathAuthenticationMethod(writer: SerializationWriter, softwareOathAuthenticationMethod: SoftwareOathAuthenticationMethod | undefined = {} as SoftwareOathAuthenticationMethod) : void {
-        serializeAuthenticationMethod(writer, softwareOathAuthenticationMethod)
-        writer.writeStringValue("secretKey", softwareOathAuthenticationMethod.secretKey);
+    serializeAuthenticationMethod(writer, softwareOathAuthenticationMethod)
+    writer.writeStringValue("secretKey", softwareOathAuthenticationMethod.secretKey);
 }
 export interface SoftwareOathAuthenticationMethod extends AuthenticationMethod, Parsable {
     /**

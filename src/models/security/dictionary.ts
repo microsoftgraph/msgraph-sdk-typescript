@@ -23,8 +23,8 @@ export interface Dictionary extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeDictionary(writer: SerializationWriter, dictionary: Dictionary | undefined = {} as Dictionary) : void {
-        writer.writeStringValue("@odata.type", dictionary.odataType);
-        writer.writeAdditionalData(dictionary.additionalData);
+    writer.writeStringValue("@odata.type", dictionary.odataType);
+    writer.writeAdditionalData(dictionary.additionalData);
 }
 // tslint:enable
 // eslint-enable

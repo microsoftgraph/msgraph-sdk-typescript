@@ -21,8 +21,8 @@ export interface DeviceAndAppManagementRoleAssignment extends Parsable, RoleAssi
     members?: string[];
 }
 export function serializeDeviceAndAppManagementRoleAssignment(writer: SerializationWriter, deviceAndAppManagementRoleAssignment: DeviceAndAppManagementRoleAssignment | undefined = {} as DeviceAndAppManagementRoleAssignment) : void {
-        serializeRoleAssignment(writer, deviceAndAppManagementRoleAssignment)
-        writer.writeCollectionOfPrimitiveValues<string>("members", deviceAndAppManagementRoleAssignment.members);
+    serializeRoleAssignment(writer, deviceAndAppManagementRoleAssignment)
+    writer.writeCollectionOfPrimitiveValues<string>("members", deviceAndAppManagementRoleAssignment.members);
 }
 // tslint:enable
 // eslint-enable

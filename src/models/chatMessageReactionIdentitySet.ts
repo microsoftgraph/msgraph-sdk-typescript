@@ -16,7 +16,7 @@ export function deserializeIntoChatMessageReactionIdentitySet(chatMessageReactio
     }
 }
 export function serializeChatMessageReactionIdentitySet(writer: SerializationWriter, chatMessageReactionIdentitySet: ChatMessageReactionIdentitySet | undefined = {} as ChatMessageReactionIdentitySet) : void {
-        serializeIdentitySet(writer, chatMessageReactionIdentitySet)
+    serializeIdentitySet(writer, chatMessageReactionIdentitySet)
 }
 // tslint:enable
 // eslint-enable

@@ -33,10 +33,10 @@ export function deserializeIntoConditionalAccessLocations(conditionalAccessLocat
     }
 }
 export function serializeConditionalAccessLocations(writer: SerializationWriter, conditionalAccessLocations: ConditionalAccessLocations | undefined = {} as ConditionalAccessLocations) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("excludeLocations", conditionalAccessLocations.excludeLocations);
-        writer.writeCollectionOfPrimitiveValues<string>("includeLocations", conditionalAccessLocations.includeLocations);
-        writer.writeStringValue("@odata.type", conditionalAccessLocations.odataType);
-        writer.writeAdditionalData(conditionalAccessLocations.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("excludeLocations", conditionalAccessLocations.excludeLocations);
+    writer.writeCollectionOfPrimitiveValues<string>("includeLocations", conditionalAccessLocations.includeLocations);
+    writer.writeStringValue("@odata.type", conditionalAccessLocations.odataType);
+    writer.writeAdditionalData(conditionalAccessLocations.additionalData);
 }
 // tslint:enable
 // eslint-enable

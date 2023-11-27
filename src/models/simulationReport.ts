@@ -17,10 +17,10 @@ export function deserializeIntoSimulationReport(simulationReport: SimulationRepo
     }
 }
 export function serializeSimulationReport(writer: SerializationWriter, simulationReport: SimulationReport | undefined = {} as SimulationReport) : void {
-        writer.writeStringValue("@odata.type", simulationReport.odataType);
-        writer.writeObjectValue<SimulationReportOverview>("overview", simulationReport.overview, serializeSimulationReportOverview);
-        writer.writeCollectionOfObjectValues<UserSimulationDetails>("simulationUsers", simulationReport.simulationUsers, serializeUserSimulationDetails);
-        writer.writeAdditionalData(simulationReport.additionalData);
+    writer.writeStringValue("@odata.type", simulationReport.odataType);
+    writer.writeObjectValue<SimulationReportOverview>("overview", simulationReport.overview, serializeSimulationReportOverview);
+    writer.writeCollectionOfObjectValues<UserSimulationDetails>("simulationUsers", simulationReport.simulationUsers, serializeUserSimulationDetails);
+    writer.writeAdditionalData(simulationReport.additionalData);
 }
 export interface SimulationReport extends AdditionalDataHolder, Parsable {
     /**

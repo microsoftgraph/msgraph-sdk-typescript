@@ -22,8 +22,8 @@ export function deserializeIntoActivityHistoryItemCollectionResponse(activityHis
     }
 }
 export function serializeActivityHistoryItemCollectionResponse(writer: SerializationWriter, activityHistoryItemCollectionResponse: ActivityHistoryItemCollectionResponse | undefined = {} as ActivityHistoryItemCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, activityHistoryItemCollectionResponse)
-        writer.writeCollectionOfObjectValues<ActivityHistoryItem>("value", activityHistoryItemCollectionResponse.value, serializeActivityHistoryItem);
+    serializeBaseCollectionPaginationCountResponse(writer, activityHistoryItemCollectionResponse)
+    writer.writeCollectionOfObjectValues<ActivityHistoryItem>("value", activityHistoryItemCollectionResponse.value, serializeActivityHistoryItem);
 }
 // tslint:enable
 // eslint-enable

@@ -33,10 +33,10 @@ export interface FreeBusyError extends AdditionalDataHolder, Parsable {
     responseCode?: string;
 }
 export function serializeFreeBusyError(writer: SerializationWriter, freeBusyError: FreeBusyError | undefined = {} as FreeBusyError) : void {
-        writer.writeStringValue("message", freeBusyError.message);
-        writer.writeStringValue("@odata.type", freeBusyError.odataType);
-        writer.writeStringValue("responseCode", freeBusyError.responseCode);
-        writer.writeAdditionalData(freeBusyError.additionalData);
+    writer.writeStringValue("message", freeBusyError.message);
+    writer.writeStringValue("@odata.type", freeBusyError.odataType);
+    writer.writeStringValue("responseCode", freeBusyError.responseCode);
+    writer.writeAdditionalData(freeBusyError.additionalData);
 }
 // tslint:enable
 // eslint-enable

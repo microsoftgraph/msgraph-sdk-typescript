@@ -38,11 +38,11 @@ export interface ExportFileMetadata extends AdditionalDataHolder, Parsable {
     size?: number;
 }
 export function serializeExportFileMetadata(writer: SerializationWriter, exportFileMetadata: ExportFileMetadata | undefined = {} as ExportFileMetadata) : void {
-        writer.writeStringValue("downloadUrl", exportFileMetadata.downloadUrl);
-        writer.writeStringValue("fileName", exportFileMetadata.fileName);
-        writer.writeStringValue("@odata.type", exportFileMetadata.odataType);
-        writer.writeNumberValue("size", exportFileMetadata.size);
-        writer.writeAdditionalData(exportFileMetadata.additionalData);
+    writer.writeStringValue("downloadUrl", exportFileMetadata.downloadUrl);
+    writer.writeStringValue("fileName", exportFileMetadata.fileName);
+    writer.writeStringValue("@odata.type", exportFileMetadata.odataType);
+    writer.writeNumberValue("size", exportFileMetadata.size);
+    writer.writeAdditionalData(exportFileMetadata.additionalData);
 }
 // tslint:enable
 // eslint-enable

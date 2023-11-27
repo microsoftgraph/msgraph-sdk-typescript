@@ -21,10 +21,10 @@ export function deserializeIntoTrending(trending: Trending | undefined = {} as T
     }
 }
 export function serializeTrending(writer: SerializationWriter, trending: Trending | undefined = {} as Trending) : void {
-        serializeEntity(writer, trending)
-        writer.writeDateValue("lastModifiedDateTime", trending.lastModifiedDateTime);
-        writer.writeObjectValue<Entity>("resource", trending.resource, serializeEntity);
-        writer.writeNumberValue("weight", trending.weight);
+    serializeEntity(writer, trending)
+    writer.writeDateValue("lastModifiedDateTime", trending.lastModifiedDateTime);
+    writer.writeObjectValue<Entity>("resource", trending.resource, serializeEntity);
+    writer.writeNumberValue("weight", trending.weight);
 }
 export interface Trending extends Entity, Parsable {
     /**

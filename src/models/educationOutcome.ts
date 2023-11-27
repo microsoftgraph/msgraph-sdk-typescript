@@ -48,9 +48,9 @@ export interface EducationOutcome extends Entity, Parsable {
     lastModifiedDateTime?: Date;
 }
 export function serializeEducationOutcome(writer: SerializationWriter, educationOutcome: EducationOutcome | undefined = {} as EducationOutcome) : void {
-        serializeEntity(writer, educationOutcome)
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", educationOutcome.lastModifiedBy, serializeIdentitySet);
-        writer.writeDateValue("lastModifiedDateTime", educationOutcome.lastModifiedDateTime);
+    serializeEntity(writer, educationOutcome)
+    writer.writeObjectValue<IdentitySet>("lastModifiedBy", educationOutcome.lastModifiedBy, serializeIdentitySet);
+    writer.writeDateValue("lastModifiedDateTime", educationOutcome.lastModifiedDateTime);
 }
 // tslint:enable
 // eslint-enable

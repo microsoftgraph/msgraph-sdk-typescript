@@ -15,10 +15,10 @@ export function deserializeIntoSimulationEvent(simulationEvent: SimulationEvent 
     }
 }
 export function serializeSimulationEvent(writer: SerializationWriter, simulationEvent: SimulationEvent | undefined = {} as SimulationEvent) : void {
-        writer.writeNumberValue("count", simulationEvent.count);
-        writer.writeStringValue("eventName", simulationEvent.eventName);
-        writer.writeStringValue("@odata.type", simulationEvent.odataType);
-        writer.writeAdditionalData(simulationEvent.additionalData);
+    writer.writeNumberValue("count", simulationEvent.count);
+    writer.writeStringValue("eventName", simulationEvent.eventName);
+    writer.writeStringValue("@odata.type", simulationEvent.odataType);
+    writer.writeAdditionalData(simulationEvent.additionalData);
 }
 export interface SimulationEvent extends AdditionalDataHolder, Parsable {
     /**

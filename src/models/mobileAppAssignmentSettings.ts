@@ -56,8 +56,8 @@ export interface MobileAppAssignmentSettings extends AdditionalDataHolder, Parsa
     odataType?: string;
 }
 export function serializeMobileAppAssignmentSettings(writer: SerializationWriter, mobileAppAssignmentSettings: MobileAppAssignmentSettings | undefined = {} as MobileAppAssignmentSettings) : void {
-        writer.writeStringValue("@odata.type", mobileAppAssignmentSettings.odataType);
-        writer.writeAdditionalData(mobileAppAssignmentSettings.additionalData);
+    writer.writeStringValue("@odata.type", mobileAppAssignmentSettings.odataType);
+    writer.writeAdditionalData(mobileAppAssignmentSettings.additionalData);
 }
 // tslint:enable
 // eslint-enable

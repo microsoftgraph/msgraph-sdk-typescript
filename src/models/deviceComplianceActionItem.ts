@@ -37,11 +37,11 @@ export interface DeviceComplianceActionItem extends Entity, Parsable {
     notificationTemplateId?: string;
 }
 export function serializeDeviceComplianceActionItem(writer: SerializationWriter, deviceComplianceActionItem: DeviceComplianceActionItem | undefined = {} as DeviceComplianceActionItem) : void {
-        serializeEntity(writer, deviceComplianceActionItem)
-        writer.writeEnumValue<DeviceComplianceActionType>("actionType", deviceComplianceActionItem.actionType);
-        writer.writeNumberValue("gracePeriodHours", deviceComplianceActionItem.gracePeriodHours);
-        writer.writeCollectionOfPrimitiveValues<string>("notificationMessageCCList", deviceComplianceActionItem.notificationMessageCCList);
-        writer.writeStringValue("notificationTemplateId", deviceComplianceActionItem.notificationTemplateId);
+    serializeEntity(writer, deviceComplianceActionItem)
+    writer.writeEnumValue<DeviceComplianceActionType>("actionType", deviceComplianceActionItem.actionType);
+    writer.writeNumberValue("gracePeriodHours", deviceComplianceActionItem.gracePeriodHours);
+    writer.writeCollectionOfPrimitiveValues<string>("notificationMessageCCList", deviceComplianceActionItem.notificationMessageCCList);
+    writer.writeStringValue("notificationTemplateId", deviceComplianceActionItem.notificationTemplateId);
 }
 // tslint:enable
 // eslint-enable

@@ -33,10 +33,10 @@ export interface EmailSettings extends AdditionalDataHolder, Parsable {
     useCompanyBranding?: boolean;
 }
 export function serializeEmailSettings(writer: SerializationWriter, emailSettings: EmailSettings | undefined = {} as EmailSettings) : void {
-        writer.writeStringValue("@odata.type", emailSettings.odataType);
-        writer.writeStringValue("senderDomain", emailSettings.senderDomain);
-        writer.writeBooleanValue("useCompanyBranding", emailSettings.useCompanyBranding);
-        writer.writeAdditionalData(emailSettings.additionalData);
+    writer.writeStringValue("@odata.type", emailSettings.odataType);
+    writer.writeStringValue("senderDomain", emailSettings.senderDomain);
+    writer.writeBooleanValue("useCompanyBranding", emailSettings.useCompanyBranding);
+    writer.writeAdditionalData(emailSettings.additionalData);
 }
 // tslint:enable
 // eslint-enable

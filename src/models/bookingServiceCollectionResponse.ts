@@ -22,8 +22,8 @@ export function deserializeIntoBookingServiceCollectionResponse(bookingServiceCo
     }
 }
 export function serializeBookingServiceCollectionResponse(writer: SerializationWriter, bookingServiceCollectionResponse: BookingServiceCollectionResponse | undefined = {} as BookingServiceCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, bookingServiceCollectionResponse)
-        writer.writeCollectionOfObjectValues<BookingService>("value", bookingServiceCollectionResponse.value, serializeBookingService);
+    serializeBaseCollectionPaginationCountResponse(writer, bookingServiceCollectionResponse)
+    writer.writeCollectionOfObjectValues<BookingService>("value", bookingServiceCollectionResponse.value, serializeBookingService);
 }
 // tslint:enable
 // eslint-enable

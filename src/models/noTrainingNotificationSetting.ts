@@ -22,8 +22,8 @@ export interface NoTrainingNotificationSetting extends EndUserNotificationSettin
     simulationNotification?: SimulationNotification;
 }
 export function serializeNoTrainingNotificationSetting(writer: SerializationWriter, noTrainingNotificationSetting: NoTrainingNotificationSetting | undefined = {} as NoTrainingNotificationSetting) : void {
-        serializeEndUserNotificationSetting(writer, noTrainingNotificationSetting)
-        writer.writeObjectValue<SimulationNotification>("simulationNotification", noTrainingNotificationSetting.simulationNotification, serializeSimulationNotification);
+    serializeEndUserNotificationSetting(writer, noTrainingNotificationSetting)
+    writer.writeObjectValue<SimulationNotification>("simulationNotification", noTrainingNotificationSetting.simulationNotification, serializeSimulationNotification);
 }
 // tslint:enable
 // eslint-enable

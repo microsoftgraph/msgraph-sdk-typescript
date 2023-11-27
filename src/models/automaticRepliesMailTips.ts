@@ -45,12 +45,12 @@ export function deserializeIntoAutomaticRepliesMailTips(automaticRepliesMailTips
     }
 }
 export function serializeAutomaticRepliesMailTips(writer: SerializationWriter, automaticRepliesMailTips: AutomaticRepliesMailTips | undefined = {} as AutomaticRepliesMailTips) : void {
-        writer.writeStringValue("message", automaticRepliesMailTips.message);
-        writer.writeObjectValue<LocaleInfo>("messageLanguage", automaticRepliesMailTips.messageLanguage, serializeLocaleInfo);
-        writer.writeStringValue("@odata.type", automaticRepliesMailTips.odataType);
-        writer.writeObjectValue<DateTimeTimeZone>("scheduledEndTime", automaticRepliesMailTips.scheduledEndTime, serializeDateTimeTimeZone);
-        writer.writeObjectValue<DateTimeTimeZone>("scheduledStartTime", automaticRepliesMailTips.scheduledStartTime, serializeDateTimeTimeZone);
-        writer.writeAdditionalData(automaticRepliesMailTips.additionalData);
+    writer.writeStringValue("message", automaticRepliesMailTips.message);
+    writer.writeObjectValue<LocaleInfo>("messageLanguage", automaticRepliesMailTips.messageLanguage, serializeLocaleInfo);
+    writer.writeStringValue("@odata.type", automaticRepliesMailTips.odataType);
+    writer.writeObjectValue<DateTimeTimeZone>("scheduledEndTime", automaticRepliesMailTips.scheduledEndTime, serializeDateTimeTimeZone);
+    writer.writeObjectValue<DateTimeTimeZone>("scheduledStartTime", automaticRepliesMailTips.scheduledStartTime, serializeDateTimeTimeZone);
+    writer.writeAdditionalData(automaticRepliesMailTips.additionalData);
 }
 // tslint:enable
 // eslint-enable

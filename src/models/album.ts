@@ -28,9 +28,9 @@ export function deserializeIntoAlbum(album: Album | undefined = {} as Album) : R
     }
 }
 export function serializeAlbum(writer: SerializationWriter, album: Album | undefined = {} as Album) : void {
-        writer.writeStringValue("coverImageItemId", album.coverImageItemId);
-        writer.writeStringValue("@odata.type", album.odataType);
-        writer.writeAdditionalData(album.additionalData);
+    writer.writeStringValue("coverImageItemId", album.coverImageItemId);
+    writer.writeStringValue("@odata.type", album.odataType);
+    writer.writeAdditionalData(album.additionalData);
 }
 // tslint:enable
 // eslint-enable

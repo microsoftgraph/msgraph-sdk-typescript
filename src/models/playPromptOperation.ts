@@ -16,7 +16,7 @@ export function deserializeIntoPlayPromptOperation(playPromptOperation: PlayProm
 export interface PlayPromptOperation extends CommsOperation, Parsable {
 }
 export function serializePlayPromptOperation(writer: SerializationWriter, playPromptOperation: PlayPromptOperation | undefined = {} as PlayPromptOperation) : void {
-        serializeCommsOperation(writer, playPromptOperation)
+    serializeCommsOperation(writer, playPromptOperation)
 }
 // tslint:enable
 // eslint-enable

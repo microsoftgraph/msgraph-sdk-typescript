@@ -15,8 +15,8 @@ export function deserializeIntoWindowsDeviceAzureADAccount(windowsDeviceAzureADA
     }
 }
 export function serializeWindowsDeviceAzureADAccount(writer: SerializationWriter, windowsDeviceAzureADAccount: WindowsDeviceAzureADAccount | undefined = {} as WindowsDeviceAzureADAccount) : void {
-        serializeWindowsDeviceAccount(writer, windowsDeviceAzureADAccount)
-        writer.writeStringValue("userPrincipalName", windowsDeviceAzureADAccount.userPrincipalName);
+    serializeWindowsDeviceAccount(writer, windowsDeviceAzureADAccount)
+    writer.writeStringValue("userPrincipalName", windowsDeviceAzureADAccount.userPrincipalName);
 }
 export interface WindowsDeviceAzureADAccount extends Parsable, WindowsDeviceAccount {
     /**

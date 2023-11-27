@@ -26,9 +26,9 @@ export interface Hostname extends Host, Parsable {
     registrar?: string;
 }
 export function serializeHostname(writer: SerializationWriter, hostname: Hostname | undefined = {} as Hostname) : void {
-        serializeHost(writer, hostname)
-        writer.writeStringValue("registrant", hostname.registrant);
-        writer.writeStringValue("registrar", hostname.registrar);
+    serializeHost(writer, hostname)
+    writer.writeStringValue("registrant", hostname.registrant);
+    writer.writeStringValue("registrar", hostname.registrar);
 }
 // tslint:enable
 // eslint-enable

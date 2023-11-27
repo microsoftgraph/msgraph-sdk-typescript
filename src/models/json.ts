@@ -23,8 +23,8 @@ export interface Json extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeJson(writer: SerializationWriter, json: Json | undefined = {} as Json) : void {
-        writer.writeStringValue("@odata.type", json.odataType);
-        writer.writeAdditionalData(json.additionalData);
+    writer.writeStringValue("@odata.type", json.odataType);
+    writer.writeAdditionalData(json.additionalData);
 }
 // tslint:enable
 // eslint-enable

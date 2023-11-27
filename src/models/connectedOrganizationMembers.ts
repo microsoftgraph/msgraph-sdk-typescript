@@ -26,9 +26,9 @@ export function deserializeIntoConnectedOrganizationMembers(connectedOrganizatio
     }
 }
 export function serializeConnectedOrganizationMembers(writer: SerializationWriter, connectedOrganizationMembers: ConnectedOrganizationMembers | undefined = {} as ConnectedOrganizationMembers) : void {
-        serializeSubjectSet(writer, connectedOrganizationMembers)
-        writer.writeStringValue("connectedOrganizationId", connectedOrganizationMembers.connectedOrganizationId);
-        writer.writeStringValue("description", connectedOrganizationMembers.description);
+    serializeSubjectSet(writer, connectedOrganizationMembers)
+    writer.writeStringValue("connectedOrganizationId", connectedOrganizationMembers.connectedOrganizationId);
+    writer.writeStringValue("description", connectedOrganizationMembers.description);
 }
 // tslint:enable
 // eslint-enable

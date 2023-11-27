@@ -21,8 +21,8 @@ export interface PlannerProgressTaskBoardTaskFormat extends Entity, Parsable {
     orderHint?: string;
 }
 export function serializePlannerProgressTaskBoardTaskFormat(writer: SerializationWriter, plannerProgressTaskBoardTaskFormat: PlannerProgressTaskBoardTaskFormat | undefined = {} as PlannerProgressTaskBoardTaskFormat) : void {
-        serializeEntity(writer, plannerProgressTaskBoardTaskFormat)
-        writer.writeStringValue("orderHint", plannerProgressTaskBoardTaskFormat.orderHint);
+    serializeEntity(writer, plannerProgressTaskBoardTaskFormat)
+    writer.writeStringValue("orderHint", plannerProgressTaskBoardTaskFormat.orderHint);
 }
 // tslint:enable
 // eslint-enable

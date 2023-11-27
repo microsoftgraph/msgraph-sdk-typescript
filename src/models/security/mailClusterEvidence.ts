@@ -46,13 +46,13 @@ export interface MailClusterEvidence extends AlertEvidence, Parsable {
     urn?: string;
 }
 export function serializeMailClusterEvidence(writer: SerializationWriter, mailClusterEvidence: MailClusterEvidence | undefined = {} as MailClusterEvidence) : void {
-        serializeAlertEvidence(writer, mailClusterEvidence)
-        writer.writeStringValue("clusterBy", mailClusterEvidence.clusterBy);
-        writer.writeStringValue("clusterByValue", mailClusterEvidence.clusterByValue);
-        writer.writeNumberValue("emailCount", mailClusterEvidence.emailCount);
-        writer.writeCollectionOfPrimitiveValues<string>("networkMessageIds", mailClusterEvidence.networkMessageIds);
-        writer.writeStringValue("query", mailClusterEvidence.query);
-        writer.writeStringValue("urn", mailClusterEvidence.urn);
+    serializeAlertEvidence(writer, mailClusterEvidence)
+    writer.writeStringValue("clusterBy", mailClusterEvidence.clusterBy);
+    writer.writeStringValue("clusterByValue", mailClusterEvidence.clusterByValue);
+    writer.writeNumberValue("emailCount", mailClusterEvidence.emailCount);
+    writer.writeCollectionOfPrimitiveValues<string>("networkMessageIds", mailClusterEvidence.networkMessageIds);
+    writer.writeStringValue("query", mailClusterEvidence.query);
+    writer.writeStringValue("urn", mailClusterEvidence.urn);
 }
 // tslint:enable
 // eslint-enable

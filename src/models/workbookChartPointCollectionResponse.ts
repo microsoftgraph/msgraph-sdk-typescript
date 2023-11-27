@@ -16,8 +16,8 @@ export function deserializeIntoWorkbookChartPointCollectionResponse(workbookChar
     }
 }
 export function serializeWorkbookChartPointCollectionResponse(writer: SerializationWriter, workbookChartPointCollectionResponse: WorkbookChartPointCollectionResponse | undefined = {} as WorkbookChartPointCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, workbookChartPointCollectionResponse)
-        writer.writeCollectionOfObjectValues<WorkbookChartPoint>("value", workbookChartPointCollectionResponse.value, serializeWorkbookChartPoint);
+    serializeBaseCollectionPaginationCountResponse(writer, workbookChartPointCollectionResponse)
+    writer.writeCollectionOfObjectValues<WorkbookChartPoint>("value", workbookChartPointCollectionResponse.value, serializeWorkbookChartPoint);
 }
 export interface WorkbookChartPointCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

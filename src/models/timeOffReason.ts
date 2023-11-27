@@ -18,10 +18,10 @@ export function deserializeIntoTimeOffReason(timeOffReason: TimeOffReason | unde
     }
 }
 export function serializeTimeOffReason(writer: SerializationWriter, timeOffReason: TimeOffReason | undefined = {} as TimeOffReason) : void {
-        serializeChangeTrackedEntity(writer, timeOffReason)
-        writer.writeStringValue("displayName", timeOffReason.displayName);
-        writer.writeEnumValue<TimeOffReasonIconType>("iconType", timeOffReason.iconType);
-        writer.writeBooleanValue("isActive", timeOffReason.isActive);
+    serializeChangeTrackedEntity(writer, timeOffReason)
+    writer.writeStringValue("displayName", timeOffReason.displayName);
+    writer.writeEnumValue<TimeOffReasonIconType>("iconType", timeOffReason.iconType);
+    writer.writeBooleanValue("isActive", timeOffReason.isActive);
 }
 export interface TimeOffReason extends ChangeTrackedEntity, Parsable {
     /**

@@ -38,11 +38,11 @@ export interface PersonOrGroupColumn extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializePersonOrGroupColumn(writer: SerializationWriter, personOrGroupColumn: PersonOrGroupColumn | undefined = {} as PersonOrGroupColumn) : void {
-        writer.writeBooleanValue("allowMultipleSelection", personOrGroupColumn.allowMultipleSelection);
-        writer.writeStringValue("chooseFromType", personOrGroupColumn.chooseFromType);
-        writer.writeStringValue("displayAs", personOrGroupColumn.displayAs);
-        writer.writeStringValue("@odata.type", personOrGroupColumn.odataType);
-        writer.writeAdditionalData(personOrGroupColumn.additionalData);
+    writer.writeBooleanValue("allowMultipleSelection", personOrGroupColumn.allowMultipleSelection);
+    writer.writeStringValue("chooseFromType", personOrGroupColumn.chooseFromType);
+    writer.writeStringValue("displayAs", personOrGroupColumn.displayAs);
+    writer.writeStringValue("@odata.type", personOrGroupColumn.odataType);
+    writer.writeAdditionalData(personOrGroupColumn.additionalData);
 }
 // tslint:enable
 // eslint-enable

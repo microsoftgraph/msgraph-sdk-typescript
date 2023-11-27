@@ -15,8 +15,8 @@ export function deserializeIntoServicePrincipalIdentity(servicePrincipalIdentity
     }
 }
 export function serializeServicePrincipalIdentity(writer: SerializationWriter, servicePrincipalIdentity: ServicePrincipalIdentity | undefined = {} as ServicePrincipalIdentity) : void {
-        serializeIdentity(writer, servicePrincipalIdentity)
-        writer.writeStringValue("appId", servicePrincipalIdentity.appId);
+    serializeIdentity(writer, servicePrincipalIdentity)
+    writer.writeStringValue("appId", servicePrincipalIdentity.appId);
 }
 export interface ServicePrincipalIdentity extends Identity, Parsable {
     /**

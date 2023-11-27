@@ -16,8 +16,8 @@ export function deserializeIntoUserScopeTeamsAppInstallationCollectionResponse(u
     }
 }
 export function serializeUserScopeTeamsAppInstallationCollectionResponse(writer: SerializationWriter, userScopeTeamsAppInstallationCollectionResponse: UserScopeTeamsAppInstallationCollectionResponse | undefined = {} as UserScopeTeamsAppInstallationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, userScopeTeamsAppInstallationCollectionResponse)
-        writer.writeCollectionOfObjectValues<UserScopeTeamsAppInstallation>("value", userScopeTeamsAppInstallationCollectionResponse.value, serializeUserScopeTeamsAppInstallation);
+    serializeBaseCollectionPaginationCountResponse(writer, userScopeTeamsAppInstallationCollectionResponse)
+    writer.writeCollectionOfObjectValues<UserScopeTeamsAppInstallation>("value", userScopeTeamsAppInstallationCollectionResponse.value, serializeUserScopeTeamsAppInstallation);
 }
 export interface UserScopeTeamsAppInstallationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

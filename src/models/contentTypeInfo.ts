@@ -33,10 +33,10 @@ export function deserializeIntoContentTypeInfo(contentTypeInfo: ContentTypeInfo 
     }
 }
 export function serializeContentTypeInfo(writer: SerializationWriter, contentTypeInfo: ContentTypeInfo | undefined = {} as ContentTypeInfo) : void {
-        writer.writeStringValue("id", contentTypeInfo.id);
-        writer.writeStringValue("name", contentTypeInfo.name);
-        writer.writeStringValue("@odata.type", contentTypeInfo.odataType);
-        writer.writeAdditionalData(contentTypeInfo.additionalData);
+    writer.writeStringValue("id", contentTypeInfo.id);
+    writer.writeStringValue("name", contentTypeInfo.name);
+    writer.writeStringValue("@odata.type", contentTypeInfo.odataType);
+    writer.writeAdditionalData(contentTypeInfo.additionalData);
 }
 // tslint:enable
 // eslint-enable

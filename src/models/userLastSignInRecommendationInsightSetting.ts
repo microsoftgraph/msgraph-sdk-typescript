@@ -17,9 +17,9 @@ export function deserializeIntoUserLastSignInRecommendationInsightSetting(userLa
     }
 }
 export function serializeUserLastSignInRecommendationInsightSetting(writer: SerializationWriter, userLastSignInRecommendationInsightSetting: UserLastSignInRecommendationInsightSetting | undefined = {} as UserLastSignInRecommendationInsightSetting) : void {
-        serializeAccessReviewRecommendationInsightSetting(writer, userLastSignInRecommendationInsightSetting)
-        writer.writeDurationValue("recommendationLookBackDuration", userLastSignInRecommendationInsightSetting.recommendationLookBackDuration);
-        writer.writeEnumValue<UserSignInRecommendationScope>("signInScope", userLastSignInRecommendationInsightSetting.signInScope);
+    serializeAccessReviewRecommendationInsightSetting(writer, userLastSignInRecommendationInsightSetting)
+    writer.writeDurationValue("recommendationLookBackDuration", userLastSignInRecommendationInsightSetting.recommendationLookBackDuration);
+    writer.writeEnumValue<UserSignInRecommendationScope>("signInScope", userLastSignInRecommendationInsightSetting.signInScope);
 }
 export interface UserLastSignInRecommendationInsightSetting extends AccessReviewRecommendationInsightSetting, Parsable {
     /**

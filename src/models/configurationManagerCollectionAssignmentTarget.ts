@@ -21,8 +21,8 @@ export function deserializeIntoConfigurationManagerCollectionAssignmentTarget(co
     }
 }
 export function serializeConfigurationManagerCollectionAssignmentTarget(writer: SerializationWriter, configurationManagerCollectionAssignmentTarget: ConfigurationManagerCollectionAssignmentTarget | undefined = {} as ConfigurationManagerCollectionAssignmentTarget) : void {
-        serializeDeviceAndAppManagementAssignmentTarget(writer, configurationManagerCollectionAssignmentTarget)
-        writer.writeStringValue("collectionId", configurationManagerCollectionAssignmentTarget.collectionId);
+    serializeDeviceAndAppManagementAssignmentTarget(writer, configurationManagerCollectionAssignmentTarget)
+    writer.writeStringValue("collectionId", configurationManagerCollectionAssignmentTarget.collectionId);
 }
 // tslint:enable
 // eslint-enable

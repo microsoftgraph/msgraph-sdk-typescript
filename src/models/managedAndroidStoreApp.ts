@@ -32,10 +32,10 @@ export interface ManagedAndroidStoreApp extends ManagedApp, Parsable {
     packageId?: string;
 }
 export function serializeManagedAndroidStoreApp(writer: SerializationWriter, managedAndroidStoreApp: ManagedAndroidStoreApp | undefined = {} as ManagedAndroidStoreApp) : void {
-        serializeManagedApp(writer, managedAndroidStoreApp)
-        writer.writeStringValue("appStoreUrl", managedAndroidStoreApp.appStoreUrl);
-        writer.writeObjectValue<AndroidMinimumOperatingSystem>("minimumSupportedOperatingSystem", managedAndroidStoreApp.minimumSupportedOperatingSystem, serializeAndroidMinimumOperatingSystem);
-        writer.writeStringValue("packageId", managedAndroidStoreApp.packageId);
+    serializeManagedApp(writer, managedAndroidStoreApp)
+    writer.writeStringValue("appStoreUrl", managedAndroidStoreApp.appStoreUrl);
+    writer.writeObjectValue<AndroidMinimumOperatingSystem>("minimumSupportedOperatingSystem", managedAndroidStoreApp.minimumSupportedOperatingSystem, serializeAndroidMinimumOperatingSystem);
+    writer.writeStringValue("packageId", managedAndroidStoreApp.packageId);
 }
 // tslint:enable
 // eslint-enable

@@ -28,9 +28,9 @@ export interface SamlSingleSignOnSettings extends AdditionalDataHolder, Parsable
     relayState?: string;
 }
 export function serializeSamlSingleSignOnSettings(writer: SerializationWriter, samlSingleSignOnSettings: SamlSingleSignOnSettings | undefined = {} as SamlSingleSignOnSettings) : void {
-        writer.writeStringValue("@odata.type", samlSingleSignOnSettings.odataType);
-        writer.writeStringValue("relayState", samlSingleSignOnSettings.relayState);
-        writer.writeAdditionalData(samlSingleSignOnSettings.additionalData);
+    writer.writeStringValue("@odata.type", samlSingleSignOnSettings.odataType);
+    writer.writeStringValue("relayState", samlSingleSignOnSettings.relayState);
+    writer.writeAdditionalData(samlSingleSignOnSettings.additionalData);
 }
 // tslint:enable
 // eslint-enable

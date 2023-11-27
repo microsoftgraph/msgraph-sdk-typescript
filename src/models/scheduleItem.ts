@@ -55,14 +55,14 @@ export interface ScheduleItem extends AdditionalDataHolder, Parsable {
     subject?: string;
 }
 export function serializeScheduleItem(writer: SerializationWriter, scheduleItem: ScheduleItem | undefined = {} as ScheduleItem) : void {
-        writer.writeObjectValue<DateTimeTimeZone>("end", scheduleItem.end, serializeDateTimeTimeZone);
-        writer.writeBooleanValue("isPrivate", scheduleItem.isPrivate);
-        writer.writeStringValue("location", scheduleItem.location);
-        writer.writeStringValue("@odata.type", scheduleItem.odataType);
-        writer.writeObjectValue<DateTimeTimeZone>("start", scheduleItem.start, serializeDateTimeTimeZone);
-        writer.writeEnumValue<FreeBusyStatus>("status", scheduleItem.status);
-        writer.writeStringValue("subject", scheduleItem.subject);
-        writer.writeAdditionalData(scheduleItem.additionalData);
+    writer.writeObjectValue<DateTimeTimeZone>("end", scheduleItem.end, serializeDateTimeTimeZone);
+    writer.writeBooleanValue("isPrivate", scheduleItem.isPrivate);
+    writer.writeStringValue("location", scheduleItem.location);
+    writer.writeStringValue("@odata.type", scheduleItem.odataType);
+    writer.writeObjectValue<DateTimeTimeZone>("start", scheduleItem.start, serializeDateTimeTimeZone);
+    writer.writeEnumValue<FreeBusyStatus>("status", scheduleItem.status);
+    writer.writeStringValue("subject", scheduleItem.subject);
+    writer.writeAdditionalData(scheduleItem.additionalData);
 }
 // tslint:enable
 // eslint-enable

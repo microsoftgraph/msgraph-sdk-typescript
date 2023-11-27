@@ -22,8 +22,8 @@ export interface PlannerBucketCollectionResponse extends BaseCollectionPaginatio
     value?: PlannerBucket[];
 }
 export function serializePlannerBucketCollectionResponse(writer: SerializationWriter, plannerBucketCollectionResponse: PlannerBucketCollectionResponse | undefined = {} as PlannerBucketCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, plannerBucketCollectionResponse)
-        writer.writeCollectionOfObjectValues<PlannerBucket>("value", plannerBucketCollectionResponse.value, serializePlannerBucket);
+    serializeBaseCollectionPaginationCountResponse(writer, plannerBucketCollectionResponse)
+    writer.writeCollectionOfObjectValues<PlannerBucket>("value", plannerBucketCollectionResponse.value, serializePlannerBucket);
 }
 // tslint:enable
 // eslint-enable

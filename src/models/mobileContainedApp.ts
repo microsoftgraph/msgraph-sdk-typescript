@@ -28,7 +28,7 @@ export function deserializeIntoMobileContainedApp(mobileContainedApp: MobileCont
 export interface MobileContainedApp extends Entity, Parsable {
 }
 export function serializeMobileContainedApp(writer: SerializationWriter, mobileContainedApp: MobileContainedApp | undefined = {} as MobileContainedApp) : void {
-        serializeEntity(writer, mobileContainedApp)
+    serializeEntity(writer, mobileContainedApp)
 }
 // tslint:enable
 // eslint-enable

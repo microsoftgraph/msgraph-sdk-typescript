@@ -39,9 +39,9 @@ export interface IdentityUserFlow extends Entity, Parsable {
     userFlowTypeVersion?: number;
 }
 export function serializeIdentityUserFlow(writer: SerializationWriter, identityUserFlow: IdentityUserFlow | undefined = {} as IdentityUserFlow) : void {
-        serializeEntity(writer, identityUserFlow)
-        writer.writeEnumValue<UserFlowType>("userFlowType", identityUserFlow.userFlowType);
-        writer.writeNumberValue("userFlowTypeVersion", identityUserFlow.userFlowTypeVersion);
+    serializeEntity(writer, identityUserFlow)
+    writer.writeEnumValue<UserFlowType>("userFlowType", identityUserFlow.userFlowType);
+    writer.writeNumberValue("userFlowTypeVersion", identityUserFlow.userFlowTypeVersion);
 }
 // tslint:enable
 // eslint-enable

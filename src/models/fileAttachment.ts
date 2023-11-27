@@ -31,10 +31,10 @@ export interface FileAttachment extends Attachment, Parsable {
     contentLocation?: string;
 }
 export function serializeFileAttachment(writer: SerializationWriter, fileAttachment: FileAttachment | undefined = {} as FileAttachment) : void {
-        serializeAttachment(writer, fileAttachment)
-        writer.writeStringValue("contentBytes", fileAttachment.contentBytes);
-        writer.writeStringValue("contentId", fileAttachment.contentId);
-        writer.writeStringValue("contentLocation", fileAttachment.contentLocation);
+    serializeAttachment(writer, fileAttachment)
+    writer.writeStringValue("contentBytes", fileAttachment.contentBytes);
+    writer.writeStringValue("contentId", fileAttachment.contentId);
+    writer.writeStringValue("contentLocation", fileAttachment.contentLocation);
 }
 // tslint:enable
 // eslint-enable

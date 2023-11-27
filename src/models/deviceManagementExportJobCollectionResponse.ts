@@ -22,8 +22,8 @@ export interface DeviceManagementExportJobCollectionResponse extends BaseCollect
     value?: DeviceManagementExportJob[];
 }
 export function serializeDeviceManagementExportJobCollectionResponse(writer: SerializationWriter, deviceManagementExportJobCollectionResponse: DeviceManagementExportJobCollectionResponse | undefined = {} as DeviceManagementExportJobCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, deviceManagementExportJobCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceManagementExportJob>("value", deviceManagementExportJobCollectionResponse.value, serializeDeviceManagementExportJob);
+    serializeBaseCollectionPaginationCountResponse(writer, deviceManagementExportJobCollectionResponse)
+    writer.writeCollectionOfObjectValues<DeviceManagementExportJob>("value", deviceManagementExportJobCollectionResponse.value, serializeDeviceManagementExportJob);
 }
 // tslint:enable
 // eslint-enable

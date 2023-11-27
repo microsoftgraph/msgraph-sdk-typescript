@@ -15,10 +15,10 @@ export function deserializeIntoSettingValue(settingValue: SettingValue | undefin
     }
 }
 export function serializeSettingValue(writer: SerializationWriter, settingValue: SettingValue | undefined = {} as SettingValue) : void {
-        writer.writeStringValue("name", settingValue.name);
-        writer.writeStringValue("@odata.type", settingValue.odataType);
-        writer.writeStringValue("value", settingValue.value);
-        writer.writeAdditionalData(settingValue.additionalData);
+    writer.writeStringValue("name", settingValue.name);
+    writer.writeStringValue("@odata.type", settingValue.odataType);
+    writer.writeStringValue("value", settingValue.value);
+    writer.writeAdditionalData(settingValue.additionalData);
 }
 export interface SettingValue extends AdditionalDataHolder, Parsable {
     /**

@@ -54,14 +54,14 @@ export interface EducationStudent extends AdditionalDataHolder, Parsable {
     studentNumber?: string;
 }
 export function serializeEducationStudent(writer: SerializationWriter, educationStudent: EducationStudent | undefined = {} as EducationStudent) : void {
-        writer.writeDateOnlyValue("birthDate", educationStudent.birthDate);
-        writer.writeStringValue("externalId", educationStudent.externalId);
-        writer.writeEnumValue<EducationGender>("gender", educationStudent.gender);
-        writer.writeStringValue("grade", educationStudent.grade);
-        writer.writeStringValue("graduationYear", educationStudent.graduationYear);
-        writer.writeStringValue("@odata.type", educationStudent.odataType);
-        writer.writeStringValue("studentNumber", educationStudent.studentNumber);
-        writer.writeAdditionalData(educationStudent.additionalData);
+    writer.writeDateOnlyValue("birthDate", educationStudent.birthDate);
+    writer.writeStringValue("externalId", educationStudent.externalId);
+    writer.writeEnumValue<EducationGender>("gender", educationStudent.gender);
+    writer.writeStringValue("grade", educationStudent.grade);
+    writer.writeStringValue("graduationYear", educationStudent.graduationYear);
+    writer.writeStringValue("@odata.type", educationStudent.odataType);
+    writer.writeStringValue("studentNumber", educationStudent.studentNumber);
+    writer.writeAdditionalData(educationStudent.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -35,10 +35,10 @@ export interface MediaContentRatingNewZealand extends AdditionalDataHolder, Pars
     tvRating?: RatingNewZealandTelevisionType;
 }
 export function serializeMediaContentRatingNewZealand(writer: SerializationWriter, mediaContentRatingNewZealand: MediaContentRatingNewZealand | undefined = {} as MediaContentRatingNewZealand) : void {
-        writer.writeEnumValue<RatingNewZealandMoviesType>("movieRating", mediaContentRatingNewZealand.movieRating);
-        writer.writeStringValue("@odata.type", mediaContentRatingNewZealand.odataType);
-        writer.writeEnumValue<RatingNewZealandTelevisionType>("tvRating", mediaContentRatingNewZealand.tvRating);
-        writer.writeAdditionalData(mediaContentRatingNewZealand.additionalData);
+    writer.writeEnumValue<RatingNewZealandMoviesType>("movieRating", mediaContentRatingNewZealand.movieRating);
+    writer.writeStringValue("@odata.type", mediaContentRatingNewZealand.odataType);
+    writer.writeEnumValue<RatingNewZealandTelevisionType>("tvRating", mediaContentRatingNewZealand.tvRating);
+    writer.writeAdditionalData(mediaContentRatingNewZealand.additionalData);
 }
 // tslint:enable
 // eslint-enable

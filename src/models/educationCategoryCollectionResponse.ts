@@ -22,8 +22,8 @@ export interface EducationCategoryCollectionResponse extends BaseCollectionPagin
     value?: EducationCategory[];
 }
 export function serializeEducationCategoryCollectionResponse(writer: SerializationWriter, educationCategoryCollectionResponse: EducationCategoryCollectionResponse | undefined = {} as EducationCategoryCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, educationCategoryCollectionResponse)
-        writer.writeCollectionOfObjectValues<EducationCategory>("value", educationCategoryCollectionResponse.value, serializeEducationCategory);
+    serializeBaseCollectionPaginationCountResponse(writer, educationCategoryCollectionResponse)
+    writer.writeCollectionOfObjectValues<EducationCategory>("value", educationCategoryCollectionResponse.value, serializeEducationCategory);
 }
 // tslint:enable
 // eslint-enable

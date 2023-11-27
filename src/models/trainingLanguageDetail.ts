@@ -24,16 +24,16 @@ export function deserializeIntoTrainingLanguageDetail(trainingLanguageDetail: Tr
     }
 }
 export function serializeTrainingLanguageDetail(writer: SerializationWriter, trainingLanguageDetail: TrainingLanguageDetail | undefined = {} as TrainingLanguageDetail) : void {
-        serializeEntity(writer, trainingLanguageDetail)
-        writer.writeStringValue("content", trainingLanguageDetail.content);
-        writer.writeObjectValue<EmailIdentity>("createdBy", trainingLanguageDetail.createdBy, serializeEmailIdentity);
-        writer.writeDateValue("createdDateTime", trainingLanguageDetail.createdDateTime);
-        writer.writeStringValue("description", trainingLanguageDetail.description);
-        writer.writeStringValue("displayName", trainingLanguageDetail.displayName);
-        writer.writeBooleanValue("isDefaultLangauge", trainingLanguageDetail.isDefaultLangauge);
-        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", trainingLanguageDetail.lastModifiedBy, serializeEmailIdentity);
-        writer.writeDateValue("lastModifiedDateTime", trainingLanguageDetail.lastModifiedDateTime);
-        writer.writeStringValue("locale", trainingLanguageDetail.locale);
+    serializeEntity(writer, trainingLanguageDetail)
+    writer.writeStringValue("content", trainingLanguageDetail.content);
+    writer.writeObjectValue<EmailIdentity>("createdBy", trainingLanguageDetail.createdBy, serializeEmailIdentity);
+    writer.writeDateValue("createdDateTime", trainingLanguageDetail.createdDateTime);
+    writer.writeStringValue("description", trainingLanguageDetail.description);
+    writer.writeStringValue("displayName", trainingLanguageDetail.displayName);
+    writer.writeBooleanValue("isDefaultLangauge", trainingLanguageDetail.isDefaultLangauge);
+    writer.writeObjectValue<EmailIdentity>("lastModifiedBy", trainingLanguageDetail.lastModifiedBy, serializeEmailIdentity);
+    writer.writeDateValue("lastModifiedDateTime", trainingLanguageDetail.lastModifiedDateTime);
+    writer.writeStringValue("locale", trainingLanguageDetail.locale);
 }
 export interface TrainingLanguageDetail extends Entity, Parsable {
     /**

@@ -87,20 +87,20 @@ export interface Post extends OutlookItem, Parsable {
     singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[];
 }
 export function serializePost(writer: SerializationWriter, post: Post | undefined = {} as Post) : void {
-        serializeOutlookItem(writer, post)
-        writer.writeCollectionOfObjectValues<Attachment>("attachments", post.attachments, serializeAttachment);
-        writer.writeObjectValue<ItemBody>("body", post.body, serializeItemBody);
-        writer.writeStringValue("conversationId", post.conversationId);
-        writer.writeStringValue("conversationThreadId", post.conversationThreadId);
-        writer.writeCollectionOfObjectValues<Extension>("extensions", post.extensions, serializeExtension);
-        writer.writeObjectValue<Recipient>("from", post.from, serializeRecipient);
-        writer.writeBooleanValue("hasAttachments", post.hasAttachments);
-        writer.writeObjectValue<Post>("inReplyTo", post.inReplyTo, serializePost);
-        writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", post.multiValueExtendedProperties, serializeMultiValueLegacyExtendedProperty);
-        writer.writeCollectionOfObjectValues<Recipient>("newParticipants", post.newParticipants, serializeRecipient);
-        writer.writeDateValue("receivedDateTime", post.receivedDateTime);
-        writer.writeObjectValue<Recipient>("sender", post.sender, serializeRecipient);
-        writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", post.singleValueExtendedProperties, serializeSingleValueLegacyExtendedProperty);
+    serializeOutlookItem(writer, post)
+    writer.writeCollectionOfObjectValues<Attachment>("attachments", post.attachments, serializeAttachment);
+    writer.writeObjectValue<ItemBody>("body", post.body, serializeItemBody);
+    writer.writeStringValue("conversationId", post.conversationId);
+    writer.writeStringValue("conversationThreadId", post.conversationThreadId);
+    writer.writeCollectionOfObjectValues<Extension>("extensions", post.extensions, serializeExtension);
+    writer.writeObjectValue<Recipient>("from", post.from, serializeRecipient);
+    writer.writeBooleanValue("hasAttachments", post.hasAttachments);
+    writer.writeObjectValue<Post>("inReplyTo", post.inReplyTo, serializePost);
+    writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", post.multiValueExtendedProperties, serializeMultiValueLegacyExtendedProperty);
+    writer.writeCollectionOfObjectValues<Recipient>("newParticipants", post.newParticipants, serializeRecipient);
+    writer.writeDateValue("receivedDateTime", post.receivedDateTime);
+    writer.writeObjectValue<Recipient>("sender", post.sender, serializeRecipient);
+    writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", post.singleValueExtendedProperties, serializeSingleValueLegacyExtendedProperty);
 }
 // tslint:enable
 // eslint-enable

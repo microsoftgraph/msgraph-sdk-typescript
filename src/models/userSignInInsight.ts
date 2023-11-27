@@ -15,8 +15,8 @@ export function deserializeIntoUserSignInInsight(userSignInInsight: UserSignInIn
     }
 }
 export function serializeUserSignInInsight(writer: SerializationWriter, userSignInInsight: UserSignInInsight | undefined = {} as UserSignInInsight) : void {
-        serializeGovernanceInsight(writer, userSignInInsight)
-        writer.writeDateValue("lastSignInDateTime", userSignInInsight.lastSignInDateTime);
+    serializeGovernanceInsight(writer, userSignInInsight)
+    writer.writeDateValue("lastSignInDateTime", userSignInInsight.lastSignInDateTime);
 }
 export interface UserSignInInsight extends GovernanceInsight, Parsable {
     /**

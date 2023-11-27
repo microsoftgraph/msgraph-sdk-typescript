@@ -16,7 +16,7 @@ export function deserializeIntoConditionalAccessAllExternalTenants(conditionalAc
     }
 }
 export function serializeConditionalAccessAllExternalTenants(writer: SerializationWriter, conditionalAccessAllExternalTenants: ConditionalAccessAllExternalTenants | undefined = {} as ConditionalAccessAllExternalTenants) : void {
-        serializeConditionalAccessExternalTenants(writer, conditionalAccessAllExternalTenants)
+    serializeConditionalAccessExternalTenants(writer, conditionalAccessAllExternalTenants)
 }
 // tslint:enable
 // eslint-enable

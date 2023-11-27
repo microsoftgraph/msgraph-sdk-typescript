@@ -16,8 +16,8 @@ export function deserializeIntoVirtualEventSessionCollectionResponse(virtualEven
     }
 }
 export function serializeVirtualEventSessionCollectionResponse(writer: SerializationWriter, virtualEventSessionCollectionResponse: VirtualEventSessionCollectionResponse | undefined = {} as VirtualEventSessionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, virtualEventSessionCollectionResponse)
-        writer.writeCollectionOfObjectValues<VirtualEventSession>("value", virtualEventSessionCollectionResponse.value, serializeVirtualEventSession);
+    serializeBaseCollectionPaginationCountResponse(writer, virtualEventSessionCollectionResponse)
+    writer.writeCollectionOfObjectValues<VirtualEventSession>("value", virtualEventSessionCollectionResponse.value, serializeVirtualEventSession);
 }
 export interface VirtualEventSessionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

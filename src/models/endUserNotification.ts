@@ -76,18 +76,18 @@ export interface EndUserNotification extends Entity, Parsable {
     supportedLocales?: string[];
 }
 export function serializeEndUserNotification(writer: SerializationWriter, endUserNotification: EndUserNotification | undefined = {} as EndUserNotification) : void {
-        serializeEntity(writer, endUserNotification)
-        writer.writeObjectValue<EmailIdentity>("createdBy", endUserNotification.createdBy, serializeEmailIdentity);
-        writer.writeDateValue("createdDateTime", endUserNotification.createdDateTime);
-        writer.writeStringValue("description", endUserNotification.description);
-        writer.writeCollectionOfObjectValues<EndUserNotificationDetail>("details", endUserNotification.details, serializeEndUserNotificationDetail);
-        writer.writeStringValue("displayName", endUserNotification.displayName);
-        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", endUserNotification.lastModifiedBy, serializeEmailIdentity);
-        writer.writeDateValue("lastModifiedDateTime", endUserNotification.lastModifiedDateTime);
-        writer.writeEnumValue<EndUserNotificationType>("notificationType", endUserNotification.notificationType);
-        writer.writeEnumValue<SimulationContentSource>("source", endUserNotification.source);
-        writer.writeEnumValue<SimulationContentStatus>("status", endUserNotification.status);
-        writer.writeCollectionOfPrimitiveValues<string>("supportedLocales", endUserNotification.supportedLocales);
+    serializeEntity(writer, endUserNotification)
+    writer.writeObjectValue<EmailIdentity>("createdBy", endUserNotification.createdBy, serializeEmailIdentity);
+    writer.writeDateValue("createdDateTime", endUserNotification.createdDateTime);
+    writer.writeStringValue("description", endUserNotification.description);
+    writer.writeCollectionOfObjectValues<EndUserNotificationDetail>("details", endUserNotification.details, serializeEndUserNotificationDetail);
+    writer.writeStringValue("displayName", endUserNotification.displayName);
+    writer.writeObjectValue<EmailIdentity>("lastModifiedBy", endUserNotification.lastModifiedBy, serializeEmailIdentity);
+    writer.writeDateValue("lastModifiedDateTime", endUserNotification.lastModifiedDateTime);
+    writer.writeEnumValue<EndUserNotificationType>("notificationType", endUserNotification.notificationType);
+    writer.writeEnumValue<SimulationContentSource>("source", endUserNotification.source);
+    writer.writeEnumValue<SimulationContentStatus>("status", endUserNotification.status);
+    writer.writeCollectionOfPrimitiveValues<string>("supportedLocales", endUserNotification.supportedLocales);
 }
 // tslint:enable
 // eslint-enable

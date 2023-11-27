@@ -53,11 +53,11 @@ export interface IdentityUserFlowAttribute extends Entity, Parsable {
     userFlowAttributeType?: IdentityUserFlowAttributeType;
 }
 export function serializeIdentityUserFlowAttribute(writer: SerializationWriter, identityUserFlowAttribute: IdentityUserFlowAttribute | undefined = {} as IdentityUserFlowAttribute) : void {
-        serializeEntity(writer, identityUserFlowAttribute)
-        writer.writeEnumValue<IdentityUserFlowAttributeDataType>("dataType", identityUserFlowAttribute.dataType);
-        writer.writeStringValue("description", identityUserFlowAttribute.description);
-        writer.writeStringValue("displayName", identityUserFlowAttribute.displayName);
-        writer.writeEnumValue<IdentityUserFlowAttributeType>("userFlowAttributeType", identityUserFlowAttribute.userFlowAttributeType);
+    serializeEntity(writer, identityUserFlowAttribute)
+    writer.writeEnumValue<IdentityUserFlowAttributeDataType>("dataType", identityUserFlowAttribute.dataType);
+    writer.writeStringValue("description", identityUserFlowAttribute.description);
+    writer.writeStringValue("displayName", identityUserFlowAttribute.displayName);
+    writer.writeEnumValue<IdentityUserFlowAttributeType>("userFlowAttributeType", identityUserFlowAttribute.userFlowAttributeType);
 }
 // tslint:enable
 // eslint-enable

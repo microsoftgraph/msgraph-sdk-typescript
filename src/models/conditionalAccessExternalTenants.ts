@@ -44,9 +44,9 @@ export function deserializeIntoConditionalAccessExternalTenants(conditionalAcces
     }
 }
 export function serializeConditionalAccessExternalTenants(writer: SerializationWriter, conditionalAccessExternalTenants: ConditionalAccessExternalTenants | undefined = {} as ConditionalAccessExternalTenants) : void {
-        writer.writeEnumValue<ConditionalAccessExternalTenantsMembershipKind>("membershipKind", conditionalAccessExternalTenants.membershipKind);
-        writer.writeStringValue("@odata.type", conditionalAccessExternalTenants.odataType);
-        writer.writeAdditionalData(conditionalAccessExternalTenants.additionalData);
+    writer.writeEnumValue<ConditionalAccessExternalTenantsMembershipKind>("membershipKind", conditionalAccessExternalTenants.membershipKind);
+    writer.writeStringValue("@odata.type", conditionalAccessExternalTenants.odataType);
+    writer.writeAdditionalData(conditionalAccessExternalTenants.additionalData);
 }
 // tslint:enable
 // eslint-enable

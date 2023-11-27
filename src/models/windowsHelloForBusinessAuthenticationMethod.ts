@@ -20,11 +20,11 @@ export function deserializeIntoWindowsHelloForBusinessAuthenticationMethod(windo
     }
 }
 export function serializeWindowsHelloForBusinessAuthenticationMethod(writer: SerializationWriter, windowsHelloForBusinessAuthenticationMethod: WindowsHelloForBusinessAuthenticationMethod | undefined = {} as WindowsHelloForBusinessAuthenticationMethod) : void {
-        serializeAuthenticationMethod(writer, windowsHelloForBusinessAuthenticationMethod)
-        writer.writeDateValue("createdDateTime", windowsHelloForBusinessAuthenticationMethod.createdDateTime);
-        writer.writeObjectValue<Device>("device", windowsHelloForBusinessAuthenticationMethod.device, serializeDevice);
-        writer.writeStringValue("displayName", windowsHelloForBusinessAuthenticationMethod.displayName);
-        writer.writeEnumValue<AuthenticationMethodKeyStrength>("keyStrength", windowsHelloForBusinessAuthenticationMethod.keyStrength);
+    serializeAuthenticationMethod(writer, windowsHelloForBusinessAuthenticationMethod)
+    writer.writeDateValue("createdDateTime", windowsHelloForBusinessAuthenticationMethod.createdDateTime);
+    writer.writeObjectValue<Device>("device", windowsHelloForBusinessAuthenticationMethod.device, serializeDevice);
+    writer.writeStringValue("displayName", windowsHelloForBusinessAuthenticationMethod.displayName);
+    writer.writeEnumValue<AuthenticationMethodKeyStrength>("keyStrength", windowsHelloForBusinessAuthenticationMethod.keyStrength);
 }
 export interface WindowsHelloForBusinessAuthenticationMethod extends AuthenticationMethod, Parsable {
     /**

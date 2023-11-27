@@ -22,8 +22,8 @@ export interface DirectoryDefinitionCollectionResponse extends BaseCollectionPag
     value?: DirectoryDefinition[];
 }
 export function serializeDirectoryDefinitionCollectionResponse(writer: SerializationWriter, directoryDefinitionCollectionResponse: DirectoryDefinitionCollectionResponse | undefined = {} as DirectoryDefinitionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, directoryDefinitionCollectionResponse)
-        writer.writeCollectionOfObjectValues<DirectoryDefinition>("value", directoryDefinitionCollectionResponse.value, serializeDirectoryDefinition);
+    serializeBaseCollectionPaginationCountResponse(writer, directoryDefinitionCollectionResponse)
+    writer.writeCollectionOfObjectValues<DirectoryDefinition>("value", directoryDefinitionCollectionResponse.value, serializeDirectoryDefinition);
 }
 // tslint:enable
 // eslint-enable

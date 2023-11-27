@@ -41,8 +41,8 @@ export function deserializeIntoAccessReviewScope(accessReviewScope: AccessReview
     }
 }
 export function serializeAccessReviewScope(writer: SerializationWriter, accessReviewScope: AccessReviewScope | undefined = {} as AccessReviewScope) : void {
-        writer.writeStringValue("@odata.type", accessReviewScope.odataType);
-        writer.writeAdditionalData(accessReviewScope.additionalData);
+    writer.writeStringValue("@odata.type", accessReviewScope.odataType);
+    writer.writeAdditionalData(accessReviewScope.additionalData);
 }
 // tslint:enable
 // eslint-enable

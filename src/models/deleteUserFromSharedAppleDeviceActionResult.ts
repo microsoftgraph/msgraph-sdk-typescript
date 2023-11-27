@@ -21,8 +21,8 @@ export function deserializeIntoDeleteUserFromSharedAppleDeviceActionResult(delet
     }
 }
 export function serializeDeleteUserFromSharedAppleDeviceActionResult(writer: SerializationWriter, deleteUserFromSharedAppleDeviceActionResult: DeleteUserFromSharedAppleDeviceActionResult | undefined = {} as DeleteUserFromSharedAppleDeviceActionResult) : void {
-        serializeDeviceActionResult(writer, deleteUserFromSharedAppleDeviceActionResult)
-        writer.writeStringValue("userPrincipalName", deleteUserFromSharedAppleDeviceActionResult.userPrincipalName);
+    serializeDeviceActionResult(writer, deleteUserFromSharedAppleDeviceActionResult)
+    writer.writeStringValue("userPrincipalName", deleteUserFromSharedAppleDeviceActionResult.userPrincipalName);
 }
 // tslint:enable
 // eslint-enable

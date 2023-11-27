@@ -46,12 +46,12 @@ export function deserializeIntoB2xIdentityUserFlow(b2xIdentityUserFlow: B2xIdent
     }
 }
 export function serializeB2xIdentityUserFlow(writer: SerializationWriter, b2xIdentityUserFlow: B2xIdentityUserFlow | undefined = {} as B2xIdentityUserFlow) : void {
-        serializeIdentityUserFlow(writer, b2xIdentityUserFlow)
-        writer.writeObjectValue<UserFlowApiConnectorConfiguration>("apiConnectorConfiguration", b2xIdentityUserFlow.apiConnectorConfiguration, serializeUserFlowApiConnectorConfiguration);
-        writer.writeCollectionOfObjectValues<IdentityProvider>("identityProviders", b2xIdentityUserFlow.identityProviders, serializeIdentityProvider);
-        writer.writeCollectionOfObjectValues<UserFlowLanguageConfiguration>("languages", b2xIdentityUserFlow.languages, serializeUserFlowLanguageConfiguration);
-        writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignment>("userAttributeAssignments", b2xIdentityUserFlow.userAttributeAssignments, serializeIdentityUserFlowAttributeAssignment);
-        writer.writeCollectionOfObjectValues<IdentityProviderBase>("userFlowIdentityProviders", b2xIdentityUserFlow.userFlowIdentityProviders, serializeIdentityProviderBase);
+    serializeIdentityUserFlow(writer, b2xIdentityUserFlow)
+    writer.writeObjectValue<UserFlowApiConnectorConfiguration>("apiConnectorConfiguration", b2xIdentityUserFlow.apiConnectorConfiguration, serializeUserFlowApiConnectorConfiguration);
+    writer.writeCollectionOfObjectValues<IdentityProvider>("identityProviders", b2xIdentityUserFlow.identityProviders, serializeIdentityProvider);
+    writer.writeCollectionOfObjectValues<UserFlowLanguageConfiguration>("languages", b2xIdentityUserFlow.languages, serializeUserFlowLanguageConfiguration);
+    writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignment>("userAttributeAssignments", b2xIdentityUserFlow.userAttributeAssignments, serializeIdentityUserFlowAttributeAssignment);
+    writer.writeCollectionOfObjectValues<IdentityProviderBase>("userFlowIdentityProviders", b2xIdentityUserFlow.userFlowIdentityProviders, serializeIdentityProviderBase);
 }
 // tslint:enable
 // eslint-enable

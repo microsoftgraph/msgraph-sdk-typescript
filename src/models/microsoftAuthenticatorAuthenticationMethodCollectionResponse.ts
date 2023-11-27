@@ -22,8 +22,8 @@ export interface MicrosoftAuthenticatorAuthenticationMethodCollectionResponse ex
     value?: MicrosoftAuthenticatorAuthenticationMethod[];
 }
 export function serializeMicrosoftAuthenticatorAuthenticationMethodCollectionResponse(writer: SerializationWriter, microsoftAuthenticatorAuthenticationMethodCollectionResponse: MicrosoftAuthenticatorAuthenticationMethodCollectionResponse | undefined = {} as MicrosoftAuthenticatorAuthenticationMethodCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, microsoftAuthenticatorAuthenticationMethodCollectionResponse)
-        writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethod>("value", microsoftAuthenticatorAuthenticationMethodCollectionResponse.value, serializeMicrosoftAuthenticatorAuthenticationMethod);
+    serializeBaseCollectionPaginationCountResponse(writer, microsoftAuthenticatorAuthenticationMethodCollectionResponse)
+    writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethod>("value", microsoftAuthenticatorAuthenticationMethodCollectionResponse.value, serializeMicrosoftAuthenticatorAuthenticationMethod);
 }
 // tslint:enable
 // eslint-enable

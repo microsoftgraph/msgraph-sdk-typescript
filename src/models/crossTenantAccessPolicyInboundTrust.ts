@@ -38,11 +38,11 @@ export function deserializeIntoCrossTenantAccessPolicyInboundTrust(crossTenantAc
     }
 }
 export function serializeCrossTenantAccessPolicyInboundTrust(writer: SerializationWriter, crossTenantAccessPolicyInboundTrust: CrossTenantAccessPolicyInboundTrust | undefined = {} as CrossTenantAccessPolicyInboundTrust) : void {
-        writer.writeBooleanValue("isCompliantDeviceAccepted", crossTenantAccessPolicyInboundTrust.isCompliantDeviceAccepted);
-        writer.writeBooleanValue("isHybridAzureADJoinedDeviceAccepted", crossTenantAccessPolicyInboundTrust.isHybridAzureADJoinedDeviceAccepted);
-        writer.writeBooleanValue("isMfaAccepted", crossTenantAccessPolicyInboundTrust.isMfaAccepted);
-        writer.writeStringValue("@odata.type", crossTenantAccessPolicyInboundTrust.odataType);
-        writer.writeAdditionalData(crossTenantAccessPolicyInboundTrust.additionalData);
+    writer.writeBooleanValue("isCompliantDeviceAccepted", crossTenantAccessPolicyInboundTrust.isCompliantDeviceAccepted);
+    writer.writeBooleanValue("isHybridAzureADJoinedDeviceAccepted", crossTenantAccessPolicyInboundTrust.isHybridAzureADJoinedDeviceAccepted);
+    writer.writeBooleanValue("isMfaAccepted", crossTenantAccessPolicyInboundTrust.isMfaAccepted);
+    writer.writeStringValue("@odata.type", crossTenantAccessPolicyInboundTrust.odataType);
+    writer.writeAdditionalData(crossTenantAccessPolicyInboundTrust.additionalData);
 }
 // tslint:enable
 // eslint-enable

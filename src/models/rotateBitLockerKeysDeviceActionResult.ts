@@ -21,8 +21,8 @@ export interface RotateBitLockerKeysDeviceActionResult extends DeviceActionResul
     errorCode?: number;
 }
 export function serializeRotateBitLockerKeysDeviceActionResult(writer: SerializationWriter, rotateBitLockerKeysDeviceActionResult: RotateBitLockerKeysDeviceActionResult | undefined = {} as RotateBitLockerKeysDeviceActionResult) : void {
-        serializeDeviceActionResult(writer, rotateBitLockerKeysDeviceActionResult)
-        writer.writeNumberValue("errorCode", rotateBitLockerKeysDeviceActionResult.errorCode);
+    serializeDeviceActionResult(writer, rotateBitLockerKeysDeviceActionResult)
+    writer.writeNumberValue("errorCode", rotateBitLockerKeysDeviceActionResult.errorCode);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export function deserializeIntoClientCertificateAuthentication(clientCertificate
     }
 }
 export function serializeClientCertificateAuthentication(writer: SerializationWriter, clientCertificateAuthentication: ClientCertificateAuthentication | undefined = {} as ClientCertificateAuthentication) : void {
-        serializeApiAuthenticationConfigurationBase(writer, clientCertificateAuthentication)
-        writer.writeCollectionOfObjectValues<Pkcs12CertificateInformation>("certificateList", clientCertificateAuthentication.certificateList, serializePkcs12CertificateInformation);
+    serializeApiAuthenticationConfigurationBase(writer, clientCertificateAuthentication)
+    writer.writeCollectionOfObjectValues<Pkcs12CertificateInformation>("certificateList", clientCertificateAuthentication.certificateList, serializePkcs12CertificateInformation);
 }
 // tslint:enable
 // eslint-enable

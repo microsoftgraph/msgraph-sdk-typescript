@@ -22,8 +22,8 @@ export interface MicrosoftAuthenticatorAuthenticationMethodTarget extends Authen
     authenticationMode?: MicrosoftAuthenticatorAuthenticationMode;
 }
 export function serializeMicrosoftAuthenticatorAuthenticationMethodTarget(writer: SerializationWriter, microsoftAuthenticatorAuthenticationMethodTarget: MicrosoftAuthenticatorAuthenticationMethodTarget | undefined = {} as MicrosoftAuthenticatorAuthenticationMethodTarget) : void {
-        serializeAuthenticationMethodTarget(writer, microsoftAuthenticatorAuthenticationMethodTarget)
-        writer.writeEnumValue<MicrosoftAuthenticatorAuthenticationMode>("authenticationMode", microsoftAuthenticatorAuthenticationMethodTarget.authenticationMode);
+    serializeAuthenticationMethodTarget(writer, microsoftAuthenticatorAuthenticationMethodTarget)
+    writer.writeEnumValue<MicrosoftAuthenticatorAuthenticationMode>("authenticationMode", microsoftAuthenticatorAuthenticationMethodTarget.authenticationMode);
 }
 // tslint:enable
 // eslint-enable

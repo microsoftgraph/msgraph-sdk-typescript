@@ -51,31 +51,31 @@ export function deserializeIntoSimulation(simulation: Simulation | undefined = {
     }
 }
 export function serializeSimulation(writer: SerializationWriter, simulation: Simulation | undefined = {} as Simulation) : void {
-        serializeEntity(writer, simulation)
-        writer.writeEnumValue<SimulationAttackTechnique>("attackTechnique", simulation.attackTechnique);
-        writer.writeEnumValue<SimulationAttackType>("attackType", simulation.attackType);
-        writer.writeStringValue("automationId", simulation.automationId);
-        writer.writeDateValue("completionDateTime", simulation.completionDateTime);
-        writer.writeObjectValue<EmailIdentity>("createdBy", simulation.createdBy, serializeEmailIdentity);
-        writer.writeDateValue("createdDateTime", simulation.createdDateTime);
-        writer.writeStringValue("description", simulation.description);
-        writer.writeStringValue("displayName", simulation.displayName);
-        writer.writeNumberValue("durationInDays", simulation.durationInDays);
-        writer.writeObjectValue<EndUserNotificationSetting>("endUserNotificationSetting", simulation.endUserNotificationSetting, serializeEndUserNotificationSetting);
-        writer.writeObjectValue<AccountTargetContent>("excludedAccountTarget", simulation.excludedAccountTarget, serializeAccountTargetContent);
-        writer.writeObjectValue<AccountTargetContent>("includedAccountTarget", simulation.includedAccountTarget, serializeAccountTargetContent);
-        writer.writeBooleanValue("isAutomated", simulation.isAutomated);
-        writer.writeObjectValue<LandingPage>("landingPage", simulation.landingPage, serializeLandingPage);
-        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", simulation.lastModifiedBy, serializeEmailIdentity);
-        writer.writeDateValue("lastModifiedDateTime", simulation.lastModifiedDateTime);
-        writer.writeDateValue("launchDateTime", simulation.launchDateTime);
-        writer.writeObjectValue<LoginPage>("loginPage", simulation.loginPage, serializeLoginPage);
-        writer.writeObjectValue<OAuthConsentAppDetail>("oAuthConsentAppDetail", simulation.oAuthConsentAppDetail, serializeOAuthConsentAppDetail);
-        writer.writeObjectValue<Payload>("payload", simulation.payload, serializePayload);
-        writer.writeEnumValue<PayloadDeliveryPlatform>("payloadDeliveryPlatform", simulation.payloadDeliveryPlatform);
-        writer.writeObjectValue<SimulationReport>("report", simulation.report, serializeSimulationReport);
-        writer.writeEnumValue<SimulationStatus>("status", simulation.status);
-        writer.writeObjectValue<TrainingSetting>("trainingSetting", simulation.trainingSetting, serializeTrainingSetting);
+    serializeEntity(writer, simulation)
+    writer.writeEnumValue<SimulationAttackTechnique>("attackTechnique", simulation.attackTechnique);
+    writer.writeEnumValue<SimulationAttackType>("attackType", simulation.attackType);
+    writer.writeStringValue("automationId", simulation.automationId);
+    writer.writeDateValue("completionDateTime", simulation.completionDateTime);
+    writer.writeObjectValue<EmailIdentity>("createdBy", simulation.createdBy, serializeEmailIdentity);
+    writer.writeDateValue("createdDateTime", simulation.createdDateTime);
+    writer.writeStringValue("description", simulation.description);
+    writer.writeStringValue("displayName", simulation.displayName);
+    writer.writeNumberValue("durationInDays", simulation.durationInDays);
+    writer.writeObjectValue<EndUserNotificationSetting>("endUserNotificationSetting", simulation.endUserNotificationSetting, serializeEndUserNotificationSetting);
+    writer.writeObjectValue<AccountTargetContent>("excludedAccountTarget", simulation.excludedAccountTarget, serializeAccountTargetContent);
+    writer.writeObjectValue<AccountTargetContent>("includedAccountTarget", simulation.includedAccountTarget, serializeAccountTargetContent);
+    writer.writeBooleanValue("isAutomated", simulation.isAutomated);
+    writer.writeObjectValue<LandingPage>("landingPage", simulation.landingPage, serializeLandingPage);
+    writer.writeObjectValue<EmailIdentity>("lastModifiedBy", simulation.lastModifiedBy, serializeEmailIdentity);
+    writer.writeDateValue("lastModifiedDateTime", simulation.lastModifiedDateTime);
+    writer.writeDateValue("launchDateTime", simulation.launchDateTime);
+    writer.writeObjectValue<LoginPage>("loginPage", simulation.loginPage, serializeLoginPage);
+    writer.writeObjectValue<OAuthConsentAppDetail>("oAuthConsentAppDetail", simulation.oAuthConsentAppDetail, serializeOAuthConsentAppDetail);
+    writer.writeObjectValue<Payload>("payload", simulation.payload, serializePayload);
+    writer.writeEnumValue<PayloadDeliveryPlatform>("payloadDeliveryPlatform", simulation.payloadDeliveryPlatform);
+    writer.writeObjectValue<SimulationReport>("report", simulation.report, serializeSimulationReport);
+    writer.writeEnumValue<SimulationStatus>("status", simulation.status);
+    writer.writeObjectValue<TrainingSetting>("trainingSetting", simulation.trainingSetting, serializeTrainingSetting);
 }
 export interface Simulation extends Entity, Parsable {
     /**

@@ -75,18 +75,18 @@ export interface LandingPage extends Entity, Parsable {
     supportedLocales?: string[];
 }
 export function serializeLandingPage(writer: SerializationWriter, landingPage: LandingPage | undefined = {} as LandingPage) : void {
-        serializeEntity(writer, landingPage)
-        writer.writeObjectValue<EmailIdentity>("createdBy", landingPage.createdBy, serializeEmailIdentity);
-        writer.writeDateValue("createdDateTime", landingPage.createdDateTime);
-        writer.writeStringValue("description", landingPage.description);
-        writer.writeCollectionOfObjectValues<LandingPageDetail>("details", landingPage.details, serializeLandingPageDetail);
-        writer.writeStringValue("displayName", landingPage.displayName);
-        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", landingPage.lastModifiedBy, serializeEmailIdentity);
-        writer.writeDateValue("lastModifiedDateTime", landingPage.lastModifiedDateTime);
-        writer.writeStringValue("locale", landingPage.locale);
-        writer.writeEnumValue<SimulationContentSource>("source", landingPage.source);
-        writer.writeEnumValue<SimulationContentStatus>("status", landingPage.status);
-        writer.writeCollectionOfPrimitiveValues<string>("supportedLocales", landingPage.supportedLocales);
+    serializeEntity(writer, landingPage)
+    writer.writeObjectValue<EmailIdentity>("createdBy", landingPage.createdBy, serializeEmailIdentity);
+    writer.writeDateValue("createdDateTime", landingPage.createdDateTime);
+    writer.writeStringValue("description", landingPage.description);
+    writer.writeCollectionOfObjectValues<LandingPageDetail>("details", landingPage.details, serializeLandingPageDetail);
+    writer.writeStringValue("displayName", landingPage.displayName);
+    writer.writeObjectValue<EmailIdentity>("lastModifiedBy", landingPage.lastModifiedBy, serializeEmailIdentity);
+    writer.writeDateValue("lastModifiedDateTime", landingPage.lastModifiedDateTime);
+    writer.writeStringValue("locale", landingPage.locale);
+    writer.writeEnumValue<SimulationContentSource>("source", landingPage.source);
+    writer.writeEnumValue<SimulationContentStatus>("status", landingPage.status);
+    writer.writeCollectionOfPrimitiveValues<string>("supportedLocales", landingPage.supportedLocales);
 }
 // tslint:enable
 // eslint-enable

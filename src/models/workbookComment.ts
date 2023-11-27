@@ -18,10 +18,10 @@ export function deserializeIntoWorkbookComment(workbookComment: WorkbookComment 
     }
 }
 export function serializeWorkbookComment(writer: SerializationWriter, workbookComment: WorkbookComment | undefined = {} as WorkbookComment) : void {
-        serializeEntity(writer, workbookComment)
-        writer.writeStringValue("content", workbookComment.content);
-        writer.writeStringValue("contentType", workbookComment.contentType);
-        writer.writeCollectionOfObjectValues<WorkbookCommentReply>("replies", workbookComment.replies, serializeWorkbookCommentReply);
+    serializeEntity(writer, workbookComment)
+    writer.writeStringValue("content", workbookComment.content);
+    writer.writeStringValue("contentType", workbookComment.contentType);
+    writer.writeCollectionOfObjectValues<WorkbookCommentReply>("replies", workbookComment.replies, serializeWorkbookCommentReply);
 }
 export interface WorkbookComment extends Entity, Parsable {
     /**

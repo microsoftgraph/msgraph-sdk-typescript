@@ -22,8 +22,8 @@ export interface EdiscoveryReviewSet extends DataSet, Parsable {
     queries?: EdiscoveryReviewSetQuery[];
 }
 export function serializeEdiscoveryReviewSet(writer: SerializationWriter, ediscoveryReviewSet: EdiscoveryReviewSet | undefined = {} as EdiscoveryReviewSet) : void {
-        serializeDataSet(writer, ediscoveryReviewSet)
-        writer.writeCollectionOfObjectValues<EdiscoveryReviewSetQuery>("queries", ediscoveryReviewSet.queries, serializeEdiscoveryReviewSetQuery);
+    serializeDataSet(writer, ediscoveryReviewSet)
+    writer.writeCollectionOfObjectValues<EdiscoveryReviewSetQuery>("queries", ediscoveryReviewSet.queries, serializeEdiscoveryReviewSetQuery);
 }
 // tslint:enable
 // eslint-enable

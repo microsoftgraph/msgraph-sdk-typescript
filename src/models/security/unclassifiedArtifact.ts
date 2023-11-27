@@ -16,9 +16,9 @@ export function deserializeIntoUnclassifiedArtifact(unclassifiedArtifact: Unclas
     }
 }
 export function serializeUnclassifiedArtifact(writer: SerializationWriter, unclassifiedArtifact: UnclassifiedArtifact | undefined = {} as UnclassifiedArtifact) : void {
-        serializeArtifact(writer, unclassifiedArtifact)
-        writer.writeStringValue("kind", unclassifiedArtifact.kind);
-        writer.writeStringValue("value", unclassifiedArtifact.value);
+    serializeArtifact(writer, unclassifiedArtifact)
+    writer.writeStringValue("kind", unclassifiedArtifact.kind);
+    writer.writeStringValue("value", unclassifiedArtifact.value);
 }
 export interface UnclassifiedArtifact extends Artifact, Parsable {
     /**

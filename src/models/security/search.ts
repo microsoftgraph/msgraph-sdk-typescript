@@ -67,14 +67,14 @@ export interface Search extends Entity, Parsable {
     lastModifiedDateTime?: Date;
 }
 export function serializeSearch(writer: SerializationWriter, search: Search | undefined = {} as Search) : void {
-        serializeEntity(writer, search)
-        writer.writeStringValue("contentQuery", search.contentQuery);
-        writer.writeObjectValue<IdentitySet>("createdBy", search.createdBy, serializeIdentitySet);
-        writer.writeDateValue("createdDateTime", search.createdDateTime);
-        writer.writeStringValue("description", search.description);
-        writer.writeStringValue("displayName", search.displayName);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", search.lastModifiedBy, serializeIdentitySet);
-        writer.writeDateValue("lastModifiedDateTime", search.lastModifiedDateTime);
+    serializeEntity(writer, search)
+    writer.writeStringValue("contentQuery", search.contentQuery);
+    writer.writeObjectValue<IdentitySet>("createdBy", search.createdBy, serializeIdentitySet);
+    writer.writeDateValue("createdDateTime", search.createdDateTime);
+    writer.writeStringValue("description", search.description);
+    writer.writeStringValue("displayName", search.displayName);
+    writer.writeObjectValue<IdentitySet>("lastModifiedBy", search.lastModifiedBy, serializeIdentitySet);
+    writer.writeDateValue("lastModifiedDateTime", search.lastModifiedDateTime);
 }
 // tslint:enable
 // eslint-enable

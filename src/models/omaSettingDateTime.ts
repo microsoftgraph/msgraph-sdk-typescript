@@ -21,8 +21,8 @@ export interface OmaSettingDateTime extends OmaSetting, Parsable {
     value?: Date;
 }
 export function serializeOmaSettingDateTime(writer: SerializationWriter, omaSettingDateTime: OmaSettingDateTime | undefined = {} as OmaSettingDateTime) : void {
-        serializeOmaSetting(writer, omaSettingDateTime)
-        writer.writeDateValue("value", omaSettingDateTime.value);
+    serializeOmaSetting(writer, omaSettingDateTime)
+    writer.writeDateValue("value", omaSettingDateTime.value);
 }
 // tslint:enable
 // eslint-enable

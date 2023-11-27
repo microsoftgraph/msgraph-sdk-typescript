@@ -21,8 +21,8 @@ export interface LearningSelfInitiatedCourse extends LearningCourseActivity, Par
     startedDateTime?: Date;
 }
 export function serializeLearningSelfInitiatedCourse(writer: SerializationWriter, learningSelfInitiatedCourse: LearningSelfInitiatedCourse | undefined = {} as LearningSelfInitiatedCourse) : void {
-        serializeLearningCourseActivity(writer, learningSelfInitiatedCourse)
-        writer.writeDateValue("startedDateTime", learningSelfInitiatedCourse.startedDateTime);
+    serializeLearningCourseActivity(writer, learningSelfInitiatedCourse)
+    writer.writeDateValue("startedDateTime", learningSelfInitiatedCourse.startedDateTime);
 }
 // tslint:enable
 // eslint-enable

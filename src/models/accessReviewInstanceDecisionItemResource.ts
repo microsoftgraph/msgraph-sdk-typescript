@@ -56,11 +56,11 @@ export function deserializeIntoAccessReviewInstanceDecisionItemResource(accessRe
     }
 }
 export function serializeAccessReviewInstanceDecisionItemResource(writer: SerializationWriter, accessReviewInstanceDecisionItemResource: AccessReviewInstanceDecisionItemResource | undefined = {} as AccessReviewInstanceDecisionItemResource) : void {
-        writer.writeStringValue("displayName", accessReviewInstanceDecisionItemResource.displayName);
-        writer.writeStringValue("id", accessReviewInstanceDecisionItemResource.id);
-        writer.writeStringValue("@odata.type", accessReviewInstanceDecisionItemResource.odataType);
-        writer.writeStringValue("type", accessReviewInstanceDecisionItemResource.type);
-        writer.writeAdditionalData(accessReviewInstanceDecisionItemResource.additionalData);
+    writer.writeStringValue("displayName", accessReviewInstanceDecisionItemResource.displayName);
+    writer.writeStringValue("id", accessReviewInstanceDecisionItemResource.id);
+    writer.writeStringValue("@odata.type", accessReviewInstanceDecisionItemResource.odataType);
+    writer.writeStringValue("type", accessReviewInstanceDecisionItemResource.type);
+    writer.writeAdditionalData(accessReviewInstanceDecisionItemResource.additionalData);
 }
 // tslint:enable
 // eslint-enable

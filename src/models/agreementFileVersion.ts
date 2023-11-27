@@ -16,7 +16,7 @@ export function deserializeIntoAgreementFileVersion(agreementFileVersion: Agreem
     }
 }
 export function serializeAgreementFileVersion(writer: SerializationWriter, agreementFileVersion: AgreementFileVersion | undefined = {} as AgreementFileVersion) : void {
-        serializeAgreementFileProperties(writer, agreementFileVersion)
+    serializeAgreementFileProperties(writer, agreementFileVersion)
 }
 // tslint:enable
 // eslint-enable

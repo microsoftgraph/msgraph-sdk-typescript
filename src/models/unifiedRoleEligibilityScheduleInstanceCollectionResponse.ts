@@ -16,8 +16,8 @@ export function deserializeIntoUnifiedRoleEligibilityScheduleInstanceCollectionR
     }
 }
 export function serializeUnifiedRoleEligibilityScheduleInstanceCollectionResponse(writer: SerializationWriter, unifiedRoleEligibilityScheduleInstanceCollectionResponse: UnifiedRoleEligibilityScheduleInstanceCollectionResponse | undefined = {} as UnifiedRoleEligibilityScheduleInstanceCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, unifiedRoleEligibilityScheduleInstanceCollectionResponse)
-        writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleInstance>("value", unifiedRoleEligibilityScheduleInstanceCollectionResponse.value, serializeUnifiedRoleEligibilityScheduleInstance);
+    serializeBaseCollectionPaginationCountResponse(writer, unifiedRoleEligibilityScheduleInstanceCollectionResponse)
+    writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleInstance>("value", unifiedRoleEligibilityScheduleInstanceCollectionResponse.value, serializeUnifiedRoleEligibilityScheduleInstance);
 }
 export interface UnifiedRoleEligibilityScheduleInstanceCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

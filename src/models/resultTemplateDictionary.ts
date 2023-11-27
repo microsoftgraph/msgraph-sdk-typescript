@@ -16,7 +16,7 @@ export function deserializeIntoResultTemplateDictionary(resultTemplateDictionary
 export interface ResultTemplateDictionary extends Dictionary, Parsable {
 }
 export function serializeResultTemplateDictionary(writer: SerializationWriter, resultTemplateDictionary: ResultTemplateDictionary | undefined = {} as ResultTemplateDictionary) : void {
-        serializeDictionary(writer, resultTemplateDictionary)
+    serializeDictionary(writer, resultTemplateDictionary)
 }
 // tslint:enable
 // eslint-enable

@@ -14,7 +14,7 @@ export function deserializeIntoSubjectRightsRequestAllSiteLocation(subjectRights
     }
 }
 export function serializeSubjectRightsRequestAllSiteLocation(writer: SerializationWriter, subjectRightsRequestAllSiteLocation: SubjectRightsRequestAllSiteLocation | undefined = {} as SubjectRightsRequestAllSiteLocation) : void {
-        serializeSubjectRightsRequestSiteLocation(writer, subjectRightsRequestAllSiteLocation)
+    serializeSubjectRightsRequestSiteLocation(writer, subjectRightsRequestAllSiteLocation)
 }
 export interface SubjectRightsRequestAllSiteLocation extends Parsable, SubjectRightsRequestSiteLocation {
 }

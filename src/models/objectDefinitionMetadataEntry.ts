@@ -34,10 +34,10 @@ export interface ObjectDefinitionMetadataEntry extends AdditionalDataHolder, Par
     value?: string;
 }
 export function serializeObjectDefinitionMetadataEntry(writer: SerializationWriter, objectDefinitionMetadataEntry: ObjectDefinitionMetadataEntry | undefined = {} as ObjectDefinitionMetadataEntry) : void {
-        writer.writeEnumValue<ObjectDefinitionMetadata>("key", objectDefinitionMetadataEntry.key);
-        writer.writeStringValue("@odata.type", objectDefinitionMetadataEntry.odataType);
-        writer.writeStringValue("value", objectDefinitionMetadataEntry.value);
-        writer.writeAdditionalData(objectDefinitionMetadataEntry.additionalData);
+    writer.writeEnumValue<ObjectDefinitionMetadata>("key", objectDefinitionMetadataEntry.key);
+    writer.writeStringValue("@odata.type", objectDefinitionMetadataEntry.odataType);
+    writer.writeStringValue("value", objectDefinitionMetadataEntry.value);
+    writer.writeAdditionalData(objectDefinitionMetadataEntry.additionalData);
 }
 // tslint:enable
 // eslint-enable

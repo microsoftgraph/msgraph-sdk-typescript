@@ -28,9 +28,9 @@ export interface ProvisionChannelEmailResult extends AdditionalDataHolder, Parsa
     odataType?: string;
 }
 export function serializeProvisionChannelEmailResult(writer: SerializationWriter, provisionChannelEmailResult: ProvisionChannelEmailResult | undefined = {} as ProvisionChannelEmailResult) : void {
-        writer.writeStringValue("email", provisionChannelEmailResult.email);
-        writer.writeStringValue("@odata.type", provisionChannelEmailResult.odataType);
-        writer.writeAdditionalData(provisionChannelEmailResult.additionalData);
+    writer.writeStringValue("email", provisionChannelEmailResult.email);
+    writer.writeStringValue("@odata.type", provisionChannelEmailResult.odataType);
+    writer.writeAdditionalData(provisionChannelEmailResult.additionalData);
 }
 // tslint:enable
 // eslint-enable

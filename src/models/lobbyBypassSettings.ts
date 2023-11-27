@@ -34,10 +34,10 @@ export interface LobbyBypassSettings extends AdditionalDataHolder, Parsable {
     scope?: LobbyBypassScope;
 }
 export function serializeLobbyBypassSettings(writer: SerializationWriter, lobbyBypassSettings: LobbyBypassSettings | undefined = {} as LobbyBypassSettings) : void {
-        writer.writeBooleanValue("isDialInBypassEnabled", lobbyBypassSettings.isDialInBypassEnabled);
-        writer.writeStringValue("@odata.type", lobbyBypassSettings.odataType);
-        writer.writeEnumValue<LobbyBypassScope>("scope", lobbyBypassSettings.scope);
-        writer.writeAdditionalData(lobbyBypassSettings.additionalData);
+    writer.writeBooleanValue("isDialInBypassEnabled", lobbyBypassSettings.isDialInBypassEnabled);
+    writer.writeStringValue("@odata.type", lobbyBypassSettings.odataType);
+    writer.writeEnumValue<LobbyBypassScope>("scope", lobbyBypassSettings.scope);
+    writer.writeAdditionalData(lobbyBypassSettings.additionalData);
 }
 // tslint:enable
 // eslint-enable

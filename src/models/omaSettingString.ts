@@ -21,8 +21,8 @@ export interface OmaSettingString extends OmaSetting, Parsable {
     value?: string;
 }
 export function serializeOmaSettingString(writer: SerializationWriter, omaSettingString: OmaSettingString | undefined = {} as OmaSettingString) : void {
-        serializeOmaSetting(writer, omaSettingString)
-        writer.writeStringValue("value", omaSettingString.value);
+    serializeOmaSetting(writer, omaSettingString)
+    writer.writeStringValue("value", omaSettingString.value);
 }
 // tslint:enable
 // eslint-enable

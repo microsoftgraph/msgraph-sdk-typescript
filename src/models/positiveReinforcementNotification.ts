@@ -22,8 +22,8 @@ export interface PositiveReinforcementNotification extends BaseEndUserNotificati
     deliveryPreference?: NotificationDeliveryPreference;
 }
 export function serializePositiveReinforcementNotification(writer: SerializationWriter, positiveReinforcementNotification: PositiveReinforcementNotification | undefined = {} as PositiveReinforcementNotification) : void {
-        serializeBaseEndUserNotification(writer, positiveReinforcementNotification)
-        writer.writeEnumValue<NotificationDeliveryPreference>("deliveryPreference", positiveReinforcementNotification.deliveryPreference);
+    serializeBaseEndUserNotification(writer, positiveReinforcementNotification)
+    writer.writeEnumValue<NotificationDeliveryPreference>("deliveryPreference", positiveReinforcementNotification.deliveryPreference);
 }
 // tslint:enable
 // eslint-enable

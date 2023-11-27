@@ -22,8 +22,8 @@ export interface DirectoryRoleTemplateCollectionResponse extends BaseCollectionP
     value?: DirectoryRoleTemplate[];
 }
 export function serializeDirectoryRoleTemplateCollectionResponse(writer: SerializationWriter, directoryRoleTemplateCollectionResponse: DirectoryRoleTemplateCollectionResponse | undefined = {} as DirectoryRoleTemplateCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, directoryRoleTemplateCollectionResponse)
-        writer.writeCollectionOfObjectValues<DirectoryRoleTemplate>("value", directoryRoleTemplateCollectionResponse.value, serializeDirectoryRoleTemplate);
+    serializeBaseCollectionPaginationCountResponse(writer, directoryRoleTemplateCollectionResponse)
+    writer.writeCollectionOfObjectValues<DirectoryRoleTemplate>("value", directoryRoleTemplateCollectionResponse.value, serializeDirectoryRoleTemplate);
 }
 // tslint:enable
 // eslint-enable

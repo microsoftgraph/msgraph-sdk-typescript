@@ -18,12 +18,12 @@ export function deserializeIntoSignInLocation(signInLocation: SignInLocation | u
     }
 }
 export function serializeSignInLocation(writer: SerializationWriter, signInLocation: SignInLocation | undefined = {} as SignInLocation) : void {
-        writer.writeStringValue("city", signInLocation.city);
-        writer.writeStringValue("countryOrRegion", signInLocation.countryOrRegion);
-        writer.writeObjectValue<GeoCoordinates>("geoCoordinates", signInLocation.geoCoordinates, serializeGeoCoordinates);
-        writer.writeStringValue("@odata.type", signInLocation.odataType);
-        writer.writeStringValue("state", signInLocation.state);
-        writer.writeAdditionalData(signInLocation.additionalData);
+    writer.writeStringValue("city", signInLocation.city);
+    writer.writeStringValue("countryOrRegion", signInLocation.countryOrRegion);
+    writer.writeObjectValue<GeoCoordinates>("geoCoordinates", signInLocation.geoCoordinates, serializeGeoCoordinates);
+    writer.writeStringValue("@odata.type", signInLocation.odataType);
+    writer.writeStringValue("state", signInLocation.state);
+    writer.writeAdditionalData(signInLocation.additionalData);
 }
 export interface SignInLocation extends AdditionalDataHolder, Parsable {
     /**

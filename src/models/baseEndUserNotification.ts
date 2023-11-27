@@ -52,10 +52,10 @@ export function deserializeIntoBaseEndUserNotification(baseEndUserNotification: 
     }
 }
 export function serializeBaseEndUserNotification(writer: SerializationWriter, baseEndUserNotification: BaseEndUserNotification | undefined = {} as BaseEndUserNotification) : void {
-        writer.writeStringValue("defaultLanguage", baseEndUserNotification.defaultLanguage);
-        writer.writeObjectValue<EndUserNotification>("endUserNotification", baseEndUserNotification.endUserNotification, serializeEndUserNotification);
-        writer.writeStringValue("@odata.type", baseEndUserNotification.odataType);
-        writer.writeAdditionalData(baseEndUserNotification.additionalData);
+    writer.writeStringValue("defaultLanguage", baseEndUserNotification.defaultLanguage);
+    writer.writeObjectValue<EndUserNotification>("endUserNotification", baseEndUserNotification.endUserNotification, serializeEndUserNotification);
+    writer.writeStringValue("@odata.type", baseEndUserNotification.odataType);
+    writer.writeAdditionalData(baseEndUserNotification.additionalData);
 }
 // tslint:enable
 // eslint-enable

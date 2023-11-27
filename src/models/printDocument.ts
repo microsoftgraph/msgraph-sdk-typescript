@@ -31,10 +31,10 @@ export interface PrintDocument extends Entity, Parsable {
     size?: number;
 }
 export function serializePrintDocument(writer: SerializationWriter, printDocument: PrintDocument | undefined = {} as PrintDocument) : void {
-        serializeEntity(writer, printDocument)
-        writer.writeStringValue("contentType", printDocument.contentType);
-        writer.writeStringValue("displayName", printDocument.displayName);
-        writer.writeNumberValue("size", printDocument.size);
+    serializeEntity(writer, printDocument)
+    writer.writeStringValue("contentType", printDocument.contentType);
+    writer.writeStringValue("displayName", printDocument.displayName);
+    writer.writeNumberValue("size", printDocument.size);
 }
 // tslint:enable
 // eslint-enable

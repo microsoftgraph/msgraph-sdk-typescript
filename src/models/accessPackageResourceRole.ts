@@ -42,12 +42,12 @@ export function deserializeIntoAccessPackageResourceRole(accessPackageResourceRo
     }
 }
 export function serializeAccessPackageResourceRole(writer: SerializationWriter, accessPackageResourceRole: AccessPackageResourceRole | undefined = {} as AccessPackageResourceRole) : void {
-        serializeEntity(writer, accessPackageResourceRole)
-        writer.writeStringValue("description", accessPackageResourceRole.description);
-        writer.writeStringValue("displayName", accessPackageResourceRole.displayName);
-        writer.writeStringValue("originId", accessPackageResourceRole.originId);
-        writer.writeStringValue("originSystem", accessPackageResourceRole.originSystem);
-        writer.writeObjectValue<AccessPackageResource>("resource", accessPackageResourceRole.resource, serializeAccessPackageResource);
+    serializeEntity(writer, accessPackageResourceRole)
+    writer.writeStringValue("description", accessPackageResourceRole.description);
+    writer.writeStringValue("displayName", accessPackageResourceRole.displayName);
+    writer.writeStringValue("originId", accessPackageResourceRole.originId);
+    writer.writeStringValue("originSystem", accessPackageResourceRole.originSystem);
+    writer.writeObjectValue<AccessPackageResource>("resource", accessPackageResourceRole.resource, serializeAccessPackageResource);
 }
 // tslint:enable
 // eslint-enable

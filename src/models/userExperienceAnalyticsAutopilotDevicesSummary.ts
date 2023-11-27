@@ -16,11 +16,11 @@ export function deserializeIntoUserExperienceAnalyticsAutopilotDevicesSummary(us
     }
 }
 export function serializeUserExperienceAnalyticsAutopilotDevicesSummary(writer: SerializationWriter, userExperienceAnalyticsAutopilotDevicesSummary: UserExperienceAnalyticsAutopilotDevicesSummary | undefined = {} as UserExperienceAnalyticsAutopilotDevicesSummary) : void {
-        writer.writeNumberValue("devicesNotAutopilotRegistered", userExperienceAnalyticsAutopilotDevicesSummary.devicesNotAutopilotRegistered);
-        writer.writeNumberValue("devicesWithoutAutopilotProfileAssigned", userExperienceAnalyticsAutopilotDevicesSummary.devicesWithoutAutopilotProfileAssigned);
-        writer.writeStringValue("@odata.type", userExperienceAnalyticsAutopilotDevicesSummary.odataType);
-        writer.writeNumberValue("totalWindows10DevicesWithoutTenantAttached", userExperienceAnalyticsAutopilotDevicesSummary.totalWindows10DevicesWithoutTenantAttached);
-        writer.writeAdditionalData(userExperienceAnalyticsAutopilotDevicesSummary.additionalData);
+    writer.writeNumberValue("devicesNotAutopilotRegistered", userExperienceAnalyticsAutopilotDevicesSummary.devicesNotAutopilotRegistered);
+    writer.writeNumberValue("devicesWithoutAutopilotProfileAssigned", userExperienceAnalyticsAutopilotDevicesSummary.devicesWithoutAutopilotProfileAssigned);
+    writer.writeStringValue("@odata.type", userExperienceAnalyticsAutopilotDevicesSummary.odataType);
+    writer.writeNumberValue("totalWindows10DevicesWithoutTenantAttached", userExperienceAnalyticsAutopilotDevicesSummary.totalWindows10DevicesWithoutTenantAttached);
+    writer.writeAdditionalData(userExperienceAnalyticsAutopilotDevicesSummary.additionalData);
 }
 export interface UserExperienceAnalyticsAutopilotDevicesSummary extends AdditionalDataHolder, Parsable {
     /**

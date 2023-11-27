@@ -23,8 +23,8 @@ export interface PlannerAssignments extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializePlannerAssignments(writer: SerializationWriter, plannerAssignments: PlannerAssignments | undefined = {} as PlannerAssignments) : void {
-        writer.writeStringValue("@odata.type", plannerAssignments.odataType);
-        writer.writeAdditionalData(plannerAssignments.additionalData);
+    writer.writeStringValue("@odata.type", plannerAssignments.odataType);
+    writer.writeAdditionalData(plannerAssignments.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -37,11 +37,11 @@ export function deserializeIntoAadUserConversationMember(aadUserConversationMemb
     }
 }
 export function serializeAadUserConversationMember(writer: SerializationWriter, aadUserConversationMember: AadUserConversationMember | undefined = {} as AadUserConversationMember) : void {
-        serializeConversationMember(writer, aadUserConversationMember)
-        writer.writeStringValue("email", aadUserConversationMember.email);
-        writer.writeStringValue("tenantId", aadUserConversationMember.tenantId);
-        writer.writeObjectValue<User>("user", aadUserConversationMember.user, serializeUser);
-        writer.writeStringValue("userId", aadUserConversationMember.userId);
+    serializeConversationMember(writer, aadUserConversationMember)
+    writer.writeStringValue("email", aadUserConversationMember.email);
+    writer.writeStringValue("tenantId", aadUserConversationMember.tenantId);
+    writer.writeObjectValue<User>("user", aadUserConversationMember.user, serializeUser);
+    writer.writeStringValue("userId", aadUserConversationMember.userId);
 }
 // tslint:enable
 // eslint-enable

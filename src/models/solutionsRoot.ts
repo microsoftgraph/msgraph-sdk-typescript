@@ -19,11 +19,11 @@ export function deserializeIntoSolutionsRoot(solutionsRoot: SolutionsRoot | unde
     }
 }
 export function serializeSolutionsRoot(writer: SerializationWriter, solutionsRoot: SolutionsRoot | undefined = {} as SolutionsRoot) : void {
-        writer.writeCollectionOfObjectValues<BookingBusiness>("bookingBusinesses", solutionsRoot.bookingBusinesses, serializeBookingBusiness);
-        writer.writeCollectionOfObjectValues<BookingCurrency>("bookingCurrencies", solutionsRoot.bookingCurrencies, serializeBookingCurrency);
-        writer.writeStringValue("@odata.type", solutionsRoot.odataType);
-        writer.writeObjectValue<VirtualEventsRoot>("virtualEvents", solutionsRoot.virtualEvents, serializeVirtualEventsRoot);
-        writer.writeAdditionalData(solutionsRoot.additionalData);
+    writer.writeCollectionOfObjectValues<BookingBusiness>("bookingBusinesses", solutionsRoot.bookingBusinesses, serializeBookingBusiness);
+    writer.writeCollectionOfObjectValues<BookingCurrency>("bookingCurrencies", solutionsRoot.bookingCurrencies, serializeBookingCurrency);
+    writer.writeStringValue("@odata.type", solutionsRoot.odataType);
+    writer.writeObjectValue<VirtualEventsRoot>("virtualEvents", solutionsRoot.virtualEvents, serializeVirtualEventsRoot);
+    writer.writeAdditionalData(solutionsRoot.additionalData);
 }
 export interface SolutionsRoot extends AdditionalDataHolder, Parsable {
     /**

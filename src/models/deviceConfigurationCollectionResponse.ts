@@ -22,8 +22,8 @@ export interface DeviceConfigurationCollectionResponse extends BaseCollectionPag
     value?: DeviceConfiguration[];
 }
 export function serializeDeviceConfigurationCollectionResponse(writer: SerializationWriter, deviceConfigurationCollectionResponse: DeviceConfigurationCollectionResponse | undefined = {} as DeviceConfigurationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, deviceConfigurationCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceConfiguration>("value", deviceConfigurationCollectionResponse.value, serializeDeviceConfiguration);
+    serializeBaseCollectionPaginationCountResponse(writer, deviceConfigurationCollectionResponse)
+    writer.writeCollectionOfObjectValues<DeviceConfiguration>("value", deviceConfigurationCollectionResponse.value, serializeDeviceConfiguration);
 }
 // tslint:enable
 // eslint-enable

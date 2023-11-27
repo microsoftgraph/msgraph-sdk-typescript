@@ -32,10 +32,10 @@ export function deserializeIntoAuthenticationFlowsPolicy(authenticationFlowsPoli
     }
 }
 export function serializeAuthenticationFlowsPolicy(writer: SerializationWriter, authenticationFlowsPolicy: AuthenticationFlowsPolicy | undefined = {} as AuthenticationFlowsPolicy) : void {
-        serializeEntity(writer, authenticationFlowsPolicy)
-        writer.writeStringValue("description", authenticationFlowsPolicy.description);
-        writer.writeStringValue("displayName", authenticationFlowsPolicy.displayName);
-        writer.writeObjectValue<SelfServiceSignUpAuthenticationFlowConfiguration>("selfServiceSignUp", authenticationFlowsPolicy.selfServiceSignUp, serializeSelfServiceSignUpAuthenticationFlowConfiguration);
+    serializeEntity(writer, authenticationFlowsPolicy)
+    writer.writeStringValue("description", authenticationFlowsPolicy.description);
+    writer.writeStringValue("displayName", authenticationFlowsPolicy.displayName);
+    writer.writeObjectValue<SelfServiceSignUpAuthenticationFlowConfiguration>("selfServiceSignUp", authenticationFlowsPolicy.selfServiceSignUp, serializeSelfServiceSignUpAuthenticationFlowConfiguration);
 }
 // tslint:enable
 // eslint-enable

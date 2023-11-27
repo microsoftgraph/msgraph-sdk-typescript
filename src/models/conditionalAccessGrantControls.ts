@@ -50,14 +50,14 @@ export function deserializeIntoConditionalAccessGrantControls(conditionalAccessG
     }
 }
 export function serializeConditionalAccessGrantControls(writer: SerializationWriter, conditionalAccessGrantControls: ConditionalAccessGrantControls | undefined = {} as ConditionalAccessGrantControls) : void {
-        writer.writeObjectValue<AuthenticationStrengthPolicy>("authenticationStrength", conditionalAccessGrantControls.authenticationStrength, serializeAuthenticationStrengthPolicy);
-        if(conditionalAccessGrantControls.builtInControls)
-        writer.writeEnumValue<ConditionalAccessGrantControl>("builtInControls", ...conditionalAccessGrantControls.builtInControls);
-        writer.writeCollectionOfPrimitiveValues<string>("customAuthenticationFactors", conditionalAccessGrantControls.customAuthenticationFactors);
-        writer.writeStringValue("@odata.type", conditionalAccessGrantControls.odataType);
-        writer.writeStringValue("operator", conditionalAccessGrantControls.operator);
-        writer.writeCollectionOfPrimitiveValues<string>("termsOfUse", conditionalAccessGrantControls.termsOfUse);
-        writer.writeAdditionalData(conditionalAccessGrantControls.additionalData);
+    writer.writeObjectValue<AuthenticationStrengthPolicy>("authenticationStrength", conditionalAccessGrantControls.authenticationStrength, serializeAuthenticationStrengthPolicy);
+    if(conditionalAccessGrantControls.builtInControls)
+    writer.writeEnumValue<ConditionalAccessGrantControl>("builtInControls", ...conditionalAccessGrantControls.builtInControls);
+    writer.writeCollectionOfPrimitiveValues<string>("customAuthenticationFactors", conditionalAccessGrantControls.customAuthenticationFactors);
+    writer.writeStringValue("@odata.type", conditionalAccessGrantControls.odataType);
+    writer.writeStringValue("operator", conditionalAccessGrantControls.operator);
+    writer.writeCollectionOfPrimitiveValues<string>("termsOfUse", conditionalAccessGrantControls.termsOfUse);
+    writer.writeAdditionalData(conditionalAccessGrantControls.additionalData);
 }
 // tslint:enable
 // eslint-enable

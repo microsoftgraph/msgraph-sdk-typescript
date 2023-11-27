@@ -16,7 +16,7 @@ export function deserializeIntoIosVppEBookAssignment(iosVppEBookAssignment: IosV
 export interface IosVppEBookAssignment extends ManagedEBookAssignment, Parsable {
 }
 export function serializeIosVppEBookAssignment(writer: SerializationWriter, iosVppEBookAssignment: IosVppEBookAssignment | undefined = {} as IosVppEBookAssignment) : void {
-        serializeManagedEBookAssignment(writer, iosVppEBookAssignment)
+    serializeManagedEBookAssignment(writer, iosVppEBookAssignment)
 }
 // tslint:enable
 // eslint-enable

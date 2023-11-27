@@ -38,9 +38,9 @@ export interface ManagedAppStatus extends Entity, Parsable {
     version?: string;
 }
 export function serializeManagedAppStatus(writer: SerializationWriter, managedAppStatus: ManagedAppStatus | undefined = {} as ManagedAppStatus) : void {
-        serializeEntity(writer, managedAppStatus)
-        writer.writeStringValue("displayName", managedAppStatus.displayName);
-        writer.writeStringValue("version", managedAppStatus.version);
+    serializeEntity(writer, managedAppStatus)
+    writer.writeStringValue("displayName", managedAppStatus.displayName);
+    writer.writeStringValue("version", managedAppStatus.version);
 }
 // tslint:enable
 // eslint-enable

@@ -26,16 +26,16 @@ export function deserializeIntoSession(session: Session | undefined = {} as Sess
     }
 }
 export function serializeSession(writer: SerializationWriter, session: Session | undefined = {} as Session) : void {
-        serializeEntity(writer, session)
-        writer.writeObjectValue<Endpoint>("callee", session.callee, serializeEndpoint);
-        writer.writeObjectValue<Endpoint>("caller", session.caller, serializeEndpoint);
-        writer.writeDateValue("endDateTime", session.endDateTime);
-        writer.writeObjectValue<FailureInfo>("failureInfo", session.failureInfo, serializeFailureInfo);
-        writer.writeBooleanValue("isTest", session.isTest);
-        if(session.modalities)
-        writer.writeEnumValue<Modality>("modalities", ...session.modalities);
-        writer.writeCollectionOfObjectValues<Segment>("segments", session.segments, serializeSegment);
-        writer.writeDateValue("startDateTime", session.startDateTime);
+    serializeEntity(writer, session)
+    writer.writeObjectValue<Endpoint>("callee", session.callee, serializeEndpoint);
+    writer.writeObjectValue<Endpoint>("caller", session.caller, serializeEndpoint);
+    writer.writeDateValue("endDateTime", session.endDateTime);
+    writer.writeObjectValue<FailureInfo>("failureInfo", session.failureInfo, serializeFailureInfo);
+    writer.writeBooleanValue("isTest", session.isTest);
+    if(session.modalities)
+    writer.writeEnumValue<Modality>("modalities", ...session.modalities);
+    writer.writeCollectionOfObjectValues<Segment>("segments", session.segments, serializeSegment);
+    writer.writeDateValue("startDateTime", session.startDateTime);
 }
 export interface Session extends Entity, Parsable {
     /**

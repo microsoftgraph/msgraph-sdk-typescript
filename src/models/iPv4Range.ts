@@ -26,9 +26,9 @@ export interface IPv4Range extends IpRange, Parsable {
     upperAddress?: string;
 }
 export function serializeIPv4Range(writer: SerializationWriter, iPv4Range: IPv4Range | undefined = {} as IPv4Range) : void {
-        serializeIpRange(writer, iPv4Range)
-        writer.writeStringValue("lowerAddress", iPv4Range.lowerAddress);
-        writer.writeStringValue("upperAddress", iPv4Range.upperAddress);
+    serializeIpRange(writer, iPv4Range)
+    writer.writeStringValue("lowerAddress", iPv4Range.lowerAddress);
+    writer.writeStringValue("upperAddress", iPv4Range.upperAddress);
 }
 // tslint:enable
 // eslint-enable

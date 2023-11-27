@@ -33,10 +33,10 @@ export interface IncompleteData extends AdditionalDataHolder, Parsable {
     wasThrottled?: boolean;
 }
 export function serializeIncompleteData(writer: SerializationWriter, incompleteData: IncompleteData | undefined = {} as IncompleteData) : void {
-        writer.writeDateValue("missingDataBeforeDateTime", incompleteData.missingDataBeforeDateTime);
-        writer.writeStringValue("@odata.type", incompleteData.odataType);
-        writer.writeBooleanValue("wasThrottled", incompleteData.wasThrottled);
-        writer.writeAdditionalData(incompleteData.additionalData);
+    writer.writeDateValue("missingDataBeforeDateTime", incompleteData.missingDataBeforeDateTime);
+    writer.writeStringValue("@odata.type", incompleteData.odataType);
+    writer.writeBooleanValue("wasThrottled", incompleteData.wasThrottled);
+    writer.writeAdditionalData(incompleteData.additionalData);
 }
 // tslint:enable
 // eslint-enable

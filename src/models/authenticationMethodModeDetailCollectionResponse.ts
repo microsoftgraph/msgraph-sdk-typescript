@@ -22,8 +22,8 @@ export function deserializeIntoAuthenticationMethodModeDetailCollectionResponse(
     }
 }
 export function serializeAuthenticationMethodModeDetailCollectionResponse(writer: SerializationWriter, authenticationMethodModeDetailCollectionResponse: AuthenticationMethodModeDetailCollectionResponse | undefined = {} as AuthenticationMethodModeDetailCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, authenticationMethodModeDetailCollectionResponse)
-        writer.writeCollectionOfObjectValues<AuthenticationMethodModeDetail>("value", authenticationMethodModeDetailCollectionResponse.value, serializeAuthenticationMethodModeDetail);
+    serializeBaseCollectionPaginationCountResponse(writer, authenticationMethodModeDetailCollectionResponse)
+    writer.writeCollectionOfObjectValues<AuthenticationMethodModeDetail>("value", authenticationMethodModeDetailCollectionResponse.value, serializeAuthenticationMethodModeDetail);
 }
 // tslint:enable
 // eslint-enable

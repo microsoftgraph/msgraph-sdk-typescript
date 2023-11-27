@@ -21,8 +21,8 @@ export function deserializeIntoCommunicationsUserIdentity(communicationsUserIden
     }
 }
 export function serializeCommunicationsUserIdentity(writer: SerializationWriter, communicationsUserIdentity: CommunicationsUserIdentity | undefined = {} as CommunicationsUserIdentity) : void {
-        serializeIdentity(writer, communicationsUserIdentity)
-        writer.writeStringValue("tenantId", communicationsUserIdentity.tenantId);
+    serializeIdentity(writer, communicationsUserIdentity)
+    writer.writeStringValue("tenantId", communicationsUserIdentity.tenantId);
 }
 // tslint:enable
 // eslint-enable

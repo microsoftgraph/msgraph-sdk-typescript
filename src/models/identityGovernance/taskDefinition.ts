@@ -22,13 +22,13 @@ export function deserializeIntoTaskDefinition(taskDefinition: TaskDefinition | u
     }
 }
 export function serializeTaskDefinition(writer: SerializationWriter, taskDefinition: TaskDefinition | undefined = {} as TaskDefinition) : void {
-        serializeEntity(writer, taskDefinition)
-        writer.writeEnumValue<LifecycleTaskCategory[]>("category", taskDefinition.category);
-        writer.writeBooleanValue("continueOnError", taskDefinition.continueOnError);
-        writer.writeStringValue("description", taskDefinition.description);
-        writer.writeStringValue("displayName", taskDefinition.displayName);
-        writer.writeCollectionOfObjectValues<Parameter>("parameters", taskDefinition.parameters, serializeParameter);
-        writer.writeNumberValue("version", taskDefinition.version);
+    serializeEntity(writer, taskDefinition)
+    writer.writeEnumValue<LifecycleTaskCategory[]>("category", taskDefinition.category);
+    writer.writeBooleanValue("continueOnError", taskDefinition.continueOnError);
+    writer.writeStringValue("description", taskDefinition.description);
+    writer.writeStringValue("displayName", taskDefinition.displayName);
+    writer.writeCollectionOfObjectValues<Parameter>("parameters", taskDefinition.parameters, serializeParameter);
+    writer.writeNumberValue("version", taskDefinition.version);
 }
 export interface TaskDefinition extends Entity, Parsable {
     /**

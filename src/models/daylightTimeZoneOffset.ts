@@ -21,8 +21,8 @@ export function deserializeIntoDaylightTimeZoneOffset(daylightTimeZoneOffset: Da
     }
 }
 export function serializeDaylightTimeZoneOffset(writer: SerializationWriter, daylightTimeZoneOffset: DaylightTimeZoneOffset | undefined = {} as DaylightTimeZoneOffset) : void {
-        serializeStandardTimeZoneOffset(writer, daylightTimeZoneOffset)
-        writer.writeNumberValue("daylightBias", daylightTimeZoneOffset.daylightBias);
+    serializeStandardTimeZoneOffset(writer, daylightTimeZoneOffset)
+    writer.writeNumberValue("daylightBias", daylightTimeZoneOffset.daylightBias);
 }
 // tslint:enable
 // eslint-enable

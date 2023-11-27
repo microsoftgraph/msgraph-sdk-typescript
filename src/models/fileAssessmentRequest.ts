@@ -26,9 +26,9 @@ export interface FileAssessmentRequest extends Parsable, ThreatAssessmentRequest
     fileName?: string;
 }
 export function serializeFileAssessmentRequest(writer: SerializationWriter, fileAssessmentRequest: FileAssessmentRequest | undefined = {} as FileAssessmentRequest) : void {
-        serializeThreatAssessmentRequest(writer, fileAssessmentRequest)
-        writer.writeStringValue("contentData", fileAssessmentRequest.contentData);
-        writer.writeStringValue("fileName", fileAssessmentRequest.fileName);
+    serializeThreatAssessmentRequest(writer, fileAssessmentRequest)
+    writer.writeStringValue("contentData", fileAssessmentRequest.contentData);
+    writer.writeStringValue("fileName", fileAssessmentRequest.fileName);
 }
 // tslint:enable
 // eslint-enable

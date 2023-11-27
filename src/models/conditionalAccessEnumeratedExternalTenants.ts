@@ -21,8 +21,8 @@ export function deserializeIntoConditionalAccessEnumeratedExternalTenants(condit
     }
 }
 export function serializeConditionalAccessEnumeratedExternalTenants(writer: SerializationWriter, conditionalAccessEnumeratedExternalTenants: ConditionalAccessEnumeratedExternalTenants | undefined = {} as ConditionalAccessEnumeratedExternalTenants) : void {
-        serializeConditionalAccessExternalTenants(writer, conditionalAccessEnumeratedExternalTenants)
-        writer.writeCollectionOfPrimitiveValues<string>("members", conditionalAccessEnumeratedExternalTenants.members);
+    serializeConditionalAccessExternalTenants(writer, conditionalAccessEnumeratedExternalTenants)
+    writer.writeCollectionOfPrimitiveValues<string>("members", conditionalAccessEnumeratedExternalTenants.members);
 }
 // tslint:enable
 // eslint-enable

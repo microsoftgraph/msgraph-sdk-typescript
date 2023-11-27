@@ -49,7 +49,7 @@ export function deserializeIntoAuthenticationMethod(authenticationMethod: Authen
     }
 }
 export function serializeAuthenticationMethod(writer: SerializationWriter, authenticationMethod: AuthenticationMethod | undefined = {} as AuthenticationMethod) : void {
-        serializeEntity(writer, authenticationMethod)
+    serializeEntity(writer, authenticationMethod)
 }
 // tslint:enable
 // eslint-enable

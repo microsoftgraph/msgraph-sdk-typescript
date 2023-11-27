@@ -33,8 +33,8 @@ export interface GroupAssignmentTarget extends DeviceAndAppManagementAssignmentT
     groupId?: string;
 }
 export function serializeGroupAssignmentTarget(writer: SerializationWriter, groupAssignmentTarget: GroupAssignmentTarget | undefined = {} as GroupAssignmentTarget) : void {
-        serializeDeviceAndAppManagementAssignmentTarget(writer, groupAssignmentTarget)
-        writer.writeStringValue("groupId", groupAssignmentTarget.groupId);
+    serializeDeviceAndAppManagementAssignmentTarget(writer, groupAssignmentTarget)
+    writer.writeStringValue("groupId", groupAssignmentTarget.groupId);
 }
 // tslint:enable
 // eslint-enable

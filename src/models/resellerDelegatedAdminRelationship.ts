@@ -26,9 +26,9 @@ export interface ResellerDelegatedAdminRelationship extends DelegatedAdminRelati
     isPartnerConsentPending?: boolean;
 }
 export function serializeResellerDelegatedAdminRelationship(writer: SerializationWriter, resellerDelegatedAdminRelationship: ResellerDelegatedAdminRelationship | undefined = {} as ResellerDelegatedAdminRelationship) : void {
-        serializeDelegatedAdminRelationship(writer, resellerDelegatedAdminRelationship)
-        writer.writeStringValue("indirectProviderTenantId", resellerDelegatedAdminRelationship.indirectProviderTenantId);
-        writer.writeBooleanValue("isPartnerConsentPending", resellerDelegatedAdminRelationship.isPartnerConsentPending);
+    serializeDelegatedAdminRelationship(writer, resellerDelegatedAdminRelationship)
+    writer.writeStringValue("indirectProviderTenantId", resellerDelegatedAdminRelationship.indirectProviderTenantId);
+    writer.writeBooleanValue("isPartnerConsentPending", resellerDelegatedAdminRelationship.isPartnerConsentPending);
 }
 // tslint:enable
 // eslint-enable

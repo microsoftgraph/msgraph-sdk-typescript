@@ -21,8 +21,8 @@ export function deserializeIntoAccessReviewInstanceDecisionItemAzureRoleResource
     }
 }
 export function serializeAccessReviewInstanceDecisionItemAzureRoleResource(writer: SerializationWriter, accessReviewInstanceDecisionItemAzureRoleResource: AccessReviewInstanceDecisionItemAzureRoleResource | undefined = {} as AccessReviewInstanceDecisionItemAzureRoleResource) : void {
-        serializeAccessReviewInstanceDecisionItemResource(writer, accessReviewInstanceDecisionItemAzureRoleResource)
-        writer.writeObjectValue<AccessReviewInstanceDecisionItemResource>("scope", accessReviewInstanceDecisionItemAzureRoleResource.scope, serializeAccessReviewInstanceDecisionItemResource);
+    serializeAccessReviewInstanceDecisionItemResource(writer, accessReviewInstanceDecisionItemAzureRoleResource)
+    writer.writeObjectValue<AccessReviewInstanceDecisionItemResource>("scope", accessReviewInstanceDecisionItemAzureRoleResource.scope, serializeAccessReviewInstanceDecisionItemResource);
 }
 // tslint:enable
 // eslint-enable

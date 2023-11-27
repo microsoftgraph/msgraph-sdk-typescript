@@ -21,8 +21,8 @@ export interface Fido2CombinationConfiguration extends AuthenticationCombination
     allowedAAGUIDs?: string[];
 }
 export function serializeFido2CombinationConfiguration(writer: SerializationWriter, fido2CombinationConfiguration: Fido2CombinationConfiguration | undefined = {} as Fido2CombinationConfiguration) : void {
-        serializeAuthenticationCombinationConfiguration(writer, fido2CombinationConfiguration)
-        writer.writeCollectionOfPrimitiveValues<string>("allowedAAGUIDs", fido2CombinationConfiguration.allowedAAGUIDs);
+    serializeAuthenticationCombinationConfiguration(writer, fido2CombinationConfiguration)
+    writer.writeCollectionOfPrimitiveValues<string>("allowedAAGUIDs", fido2CombinationConfiguration.allowedAAGUIDs);
 }
 // tslint:enable
 // eslint-enable

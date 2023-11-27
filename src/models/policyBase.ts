@@ -71,9 +71,9 @@ export interface PolicyBase extends DirectoryObject, Parsable {
     displayName?: string;
 }
 export function serializePolicyBase(writer: SerializationWriter, policyBase: PolicyBase | undefined = {} as PolicyBase) : void {
-        serializeDirectoryObject(writer, policyBase)
-        writer.writeStringValue("description", policyBase.description);
-        writer.writeStringValue("displayName", policyBase.displayName);
+    serializeDirectoryObject(writer, policyBase)
+    writer.writeStringValue("description", policyBase.description);
+    writer.writeStringValue("displayName", policyBase.displayName);
 }
 // tslint:enable
 // eslint-enable

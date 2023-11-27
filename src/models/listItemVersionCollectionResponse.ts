@@ -22,8 +22,8 @@ export interface ListItemVersionCollectionResponse extends BaseCollectionPaginat
     value?: ListItemVersion[];
 }
 export function serializeListItemVersionCollectionResponse(writer: SerializationWriter, listItemVersionCollectionResponse: ListItemVersionCollectionResponse | undefined = {} as ListItemVersionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, listItemVersionCollectionResponse)
-        writer.writeCollectionOfObjectValues<ListItemVersion>("value", listItemVersionCollectionResponse.value, serializeListItemVersion);
+    serializeBaseCollectionPaginationCountResponse(writer, listItemVersionCollectionResponse)
+    writer.writeCollectionOfObjectValues<ListItemVersion>("value", listItemVersionCollectionResponse.value, serializeListItemVersion);
 }
 // tslint:enable
 // eslint-enable

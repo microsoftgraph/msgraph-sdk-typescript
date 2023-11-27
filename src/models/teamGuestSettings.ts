@@ -15,10 +15,10 @@ export function deserializeIntoTeamGuestSettings(teamGuestSettings: TeamGuestSet
     }
 }
 export function serializeTeamGuestSettings(writer: SerializationWriter, teamGuestSettings: TeamGuestSettings | undefined = {} as TeamGuestSettings) : void {
-        writer.writeBooleanValue("allowCreateUpdateChannels", teamGuestSettings.allowCreateUpdateChannels);
-        writer.writeBooleanValue("allowDeleteChannels", teamGuestSettings.allowDeleteChannels);
-        writer.writeStringValue("@odata.type", teamGuestSettings.odataType);
-        writer.writeAdditionalData(teamGuestSettings.additionalData);
+    writer.writeBooleanValue("allowCreateUpdateChannels", teamGuestSettings.allowCreateUpdateChannels);
+    writer.writeBooleanValue("allowDeleteChannels", teamGuestSettings.allowDeleteChannels);
+    writer.writeStringValue("@odata.type", teamGuestSettings.odataType);
+    writer.writeAdditionalData(teamGuestSettings.additionalData);
 }
 export interface TeamGuestSettings extends AdditionalDataHolder, Parsable {
     /**

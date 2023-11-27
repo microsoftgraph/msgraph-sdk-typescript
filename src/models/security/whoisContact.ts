@@ -20,14 +20,14 @@ export function deserializeIntoWhoisContact(whoisContact: WhoisContact | undefin
     }
 }
 export function serializeWhoisContact(writer: SerializationWriter, whoisContact: WhoisContact | undefined = {} as WhoisContact) : void {
-        writer.writeObjectValue<PhysicalAddress>("address", whoisContact.address, serializePhysicalAddress);
-        writer.writeStringValue("email", whoisContact.email);
-        writer.writeStringValue("fax", whoisContact.fax);
-        writer.writeStringValue("name", whoisContact.name);
-        writer.writeStringValue("@odata.type", whoisContact.odataType);
-        writer.writeStringValue("organization", whoisContact.organization);
-        writer.writeStringValue("telephone", whoisContact.telephone);
-        writer.writeAdditionalData(whoisContact.additionalData);
+    writer.writeObjectValue<PhysicalAddress>("address", whoisContact.address, serializePhysicalAddress);
+    writer.writeStringValue("email", whoisContact.email);
+    writer.writeStringValue("fax", whoisContact.fax);
+    writer.writeStringValue("name", whoisContact.name);
+    writer.writeStringValue("@odata.type", whoisContact.odataType);
+    writer.writeStringValue("organization", whoisContact.organization);
+    writer.writeStringValue("telephone", whoisContact.telephone);
+    writer.writeAdditionalData(whoisContact.additionalData);
 }
 export interface WhoisContact extends AdditionalDataHolder, Parsable {
     /**

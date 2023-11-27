@@ -18,9 +18,9 @@ export function deserializeIntoTrainingNotificationSetting(trainingNotificationS
     }
 }
 export function serializeTrainingNotificationSetting(writer: SerializationWriter, trainingNotificationSetting: TrainingNotificationSetting | undefined = {} as TrainingNotificationSetting) : void {
-        serializeEndUserNotificationSetting(writer, trainingNotificationSetting)
-        writer.writeObjectValue<BaseEndUserNotification>("trainingAssignment", trainingNotificationSetting.trainingAssignment, serializeBaseEndUserNotification);
-        writer.writeObjectValue<TrainingReminderNotification>("trainingReminder", trainingNotificationSetting.trainingReminder, serializeTrainingReminderNotification);
+    serializeEndUserNotificationSetting(writer, trainingNotificationSetting)
+    writer.writeObjectValue<BaseEndUserNotification>("trainingAssignment", trainingNotificationSetting.trainingAssignment, serializeBaseEndUserNotification);
+    writer.writeObjectValue<TrainingReminderNotification>("trainingReminder", trainingNotificationSetting.trainingReminder, serializeTrainingReminderNotification);
 }
 export interface TrainingNotificationSetting extends EndUserNotificationSetting, Parsable {
     /**

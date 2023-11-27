@@ -22,8 +22,8 @@ export interface EnrollmentConfigurationAssignmentCollectionResponse extends Bas
     value?: EnrollmentConfigurationAssignment[];
 }
 export function serializeEnrollmentConfigurationAssignmentCollectionResponse(writer: SerializationWriter, enrollmentConfigurationAssignmentCollectionResponse: EnrollmentConfigurationAssignmentCollectionResponse | undefined = {} as EnrollmentConfigurationAssignmentCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, enrollmentConfigurationAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignment>("value", enrollmentConfigurationAssignmentCollectionResponse.value, serializeEnrollmentConfigurationAssignment);
+    serializeBaseCollectionPaginationCountResponse(writer, enrollmentConfigurationAssignmentCollectionResponse)
+    writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignment>("value", enrollmentConfigurationAssignmentCollectionResponse.value, serializeEnrollmentConfigurationAssignment);
 }
 // tslint:enable
 // eslint-enable

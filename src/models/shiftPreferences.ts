@@ -16,8 +16,8 @@ export function deserializeIntoShiftPreferences(shiftPreferences: ShiftPreferenc
     }
 }
 export function serializeShiftPreferences(writer: SerializationWriter, shiftPreferences: ShiftPreferences | undefined = {} as ShiftPreferences) : void {
-        serializeChangeTrackedEntity(writer, shiftPreferences)
-        writer.writeCollectionOfObjectValues<ShiftAvailability>("availability", shiftPreferences.availability, serializeShiftAvailability);
+    serializeChangeTrackedEntity(writer, shiftPreferences)
+    writer.writeCollectionOfObjectValues<ShiftAvailability>("availability", shiftPreferences.availability, serializeShiftAvailability);
 }
 export interface ShiftPreferences extends ChangeTrackedEntity, Parsable {
     /**

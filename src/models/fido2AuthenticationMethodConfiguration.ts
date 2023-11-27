@@ -38,11 +38,11 @@ export interface Fido2AuthenticationMethodConfiguration extends AuthenticationMe
     keyRestrictions?: Fido2KeyRestrictions;
 }
 export function serializeFido2AuthenticationMethodConfiguration(writer: SerializationWriter, fido2AuthenticationMethodConfiguration: Fido2AuthenticationMethodConfiguration | undefined = {} as Fido2AuthenticationMethodConfiguration) : void {
-        serializeAuthenticationMethodConfiguration(writer, fido2AuthenticationMethodConfiguration)
-        writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", fido2AuthenticationMethodConfiguration.includeTargets, serializeAuthenticationMethodTarget);
-        writer.writeBooleanValue("isAttestationEnforced", fido2AuthenticationMethodConfiguration.isAttestationEnforced);
-        writer.writeBooleanValue("isSelfServiceRegistrationAllowed", fido2AuthenticationMethodConfiguration.isSelfServiceRegistrationAllowed);
-        writer.writeObjectValue<Fido2KeyRestrictions>("keyRestrictions", fido2AuthenticationMethodConfiguration.keyRestrictions, serializeFido2KeyRestrictions);
+    serializeAuthenticationMethodConfiguration(writer, fido2AuthenticationMethodConfiguration)
+    writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", fido2AuthenticationMethodConfiguration.includeTargets, serializeAuthenticationMethodTarget);
+    writer.writeBooleanValue("isAttestationEnforced", fido2AuthenticationMethodConfiguration.isAttestationEnforced);
+    writer.writeBooleanValue("isSelfServiceRegistrationAllowed", fido2AuthenticationMethodConfiguration.isSelfServiceRegistrationAllowed);
+    writer.writeObjectValue<Fido2KeyRestrictions>("keyRestrictions", fido2AuthenticationMethodConfiguration.keyRestrictions, serializeFido2KeyRestrictions);
 }
 // tslint:enable
 // eslint-enable

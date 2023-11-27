@@ -31,10 +31,10 @@ export interface ExternalDomainFederation extends IdentitySource, Parsable {
     issuerUri?: string;
 }
 export function serializeExternalDomainFederation(writer: SerializationWriter, externalDomainFederation: ExternalDomainFederation | undefined = {} as ExternalDomainFederation) : void {
-        serializeIdentitySource(writer, externalDomainFederation)
-        writer.writeStringValue("displayName", externalDomainFederation.displayName);
-        writer.writeStringValue("domainName", externalDomainFederation.domainName);
-        writer.writeStringValue("issuerUri", externalDomainFederation.issuerUri);
+    serializeIdentitySource(writer, externalDomainFederation)
+    writer.writeStringValue("displayName", externalDomainFederation.displayName);
+    writer.writeStringValue("domainName", externalDomainFederation.domainName);
+    writer.writeStringValue("issuerUri", externalDomainFederation.issuerUri);
 }
 // tslint:enable
 // eslint-enable

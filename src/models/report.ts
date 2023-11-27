@@ -28,9 +28,9 @@ export interface Report extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeReport(writer: SerializationWriter, report: Report | undefined = {} as Report) : void {
-        writer.writeStringValue("content", report.content);
-        writer.writeStringValue("@odata.type", report.odataType);
-        writer.writeAdditionalData(report.additionalData);
+    writer.writeStringValue("content", report.content);
+    writer.writeStringValue("@odata.type", report.odataType);
+    writer.writeAdditionalData(report.additionalData);
 }
 // tslint:enable
 // eslint-enable

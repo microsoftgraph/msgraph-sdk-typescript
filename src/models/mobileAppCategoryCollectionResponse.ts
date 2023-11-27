@@ -22,8 +22,8 @@ export interface MobileAppCategoryCollectionResponse extends BaseCollectionPagin
     value?: MobileAppCategory[];
 }
 export function serializeMobileAppCategoryCollectionResponse(writer: SerializationWriter, mobileAppCategoryCollectionResponse: MobileAppCategoryCollectionResponse | undefined = {} as MobileAppCategoryCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, mobileAppCategoryCollectionResponse)
-        writer.writeCollectionOfObjectValues<MobileAppCategory>("value", mobileAppCategoryCollectionResponse.value, serializeMobileAppCategory);
+    serializeBaseCollectionPaginationCountResponse(writer, mobileAppCategoryCollectionResponse)
+    writer.writeCollectionOfObjectValues<MobileAppCategory>("value", mobileAppCategoryCollectionResponse.value, serializeMobileAppCategory);
 }
 // tslint:enable
 // eslint-enable

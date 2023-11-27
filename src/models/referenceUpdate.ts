@@ -28,9 +28,9 @@ export interface ReferenceUpdate extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeReferenceUpdate(writer: SerializationWriter, referenceUpdate: ReferenceUpdate | undefined = {} as ReferenceUpdate) : void {
-        writer.writeStringValue("@odata.id", referenceUpdate.odataId);
-        writer.writeStringValue("@odata.type", referenceUpdate.odataType);
-        writer.writeAdditionalData(referenceUpdate.additionalData);
+    writer.writeStringValue("@odata.id", referenceUpdate.odataId);
+    writer.writeStringValue("@odata.type", referenceUpdate.odataType);
+    writer.writeAdditionalData(referenceUpdate.additionalData);
 }
 // tslint:enable
 // eslint-enable

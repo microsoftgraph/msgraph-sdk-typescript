@@ -57,15 +57,15 @@ export interface PermissionGrantConditionSet extends Entity, Parsable {
     resourceApplication?: string;
 }
 export function serializePermissionGrantConditionSet(writer: SerializationWriter, permissionGrantConditionSet: PermissionGrantConditionSet | undefined = {} as PermissionGrantConditionSet) : void {
-        serializeEntity(writer, permissionGrantConditionSet)
-        writer.writeCollectionOfPrimitiveValues<string>("clientApplicationIds", permissionGrantConditionSet.clientApplicationIds);
-        writer.writeCollectionOfPrimitiveValues<string>("clientApplicationPublisherIds", permissionGrantConditionSet.clientApplicationPublisherIds);
-        writer.writeBooleanValue("clientApplicationsFromVerifiedPublisherOnly", permissionGrantConditionSet.clientApplicationsFromVerifiedPublisherOnly);
-        writer.writeCollectionOfPrimitiveValues<string>("clientApplicationTenantIds", permissionGrantConditionSet.clientApplicationTenantIds);
-        writer.writeStringValue("permissionClassification", permissionGrantConditionSet.permissionClassification);
-        writer.writeCollectionOfPrimitiveValues<string>("permissions", permissionGrantConditionSet.permissions);
-        writer.writeEnumValue<PermissionType>("permissionType", permissionGrantConditionSet.permissionType);
-        writer.writeStringValue("resourceApplication", permissionGrantConditionSet.resourceApplication);
+    serializeEntity(writer, permissionGrantConditionSet)
+    writer.writeCollectionOfPrimitiveValues<string>("clientApplicationIds", permissionGrantConditionSet.clientApplicationIds);
+    writer.writeCollectionOfPrimitiveValues<string>("clientApplicationPublisherIds", permissionGrantConditionSet.clientApplicationPublisherIds);
+    writer.writeBooleanValue("clientApplicationsFromVerifiedPublisherOnly", permissionGrantConditionSet.clientApplicationsFromVerifiedPublisherOnly);
+    writer.writeCollectionOfPrimitiveValues<string>("clientApplicationTenantIds", permissionGrantConditionSet.clientApplicationTenantIds);
+    writer.writeStringValue("permissionClassification", permissionGrantConditionSet.permissionClassification);
+    writer.writeCollectionOfPrimitiveValues<string>("permissions", permissionGrantConditionSet.permissions);
+    writer.writeEnumValue<PermissionType>("permissionType", permissionGrantConditionSet.permissionType);
+    writer.writeStringValue("resourceApplication", permissionGrantConditionSet.resourceApplication);
 }
 // tslint:enable
 // eslint-enable

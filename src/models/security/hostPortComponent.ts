@@ -44,12 +44,12 @@ export interface HostPortComponent extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeHostPortComponent(writer: SerializationWriter, hostPortComponent: HostPortComponent | undefined = {} as HostPortComponent) : void {
-        writer.writeObjectValue<HostComponent>("component", hostPortComponent.component, serializeHostComponent);
-        writer.writeDateValue("firstSeenDateTime", hostPortComponent.firstSeenDateTime);
-        writer.writeBooleanValue("isRecent", hostPortComponent.isRecent);
-        writer.writeDateValue("lastSeenDateTime", hostPortComponent.lastSeenDateTime);
-        writer.writeStringValue("@odata.type", hostPortComponent.odataType);
-        writer.writeAdditionalData(hostPortComponent.additionalData);
+    writer.writeObjectValue<HostComponent>("component", hostPortComponent.component, serializeHostComponent);
+    writer.writeDateValue("firstSeenDateTime", hostPortComponent.firstSeenDateTime);
+    writer.writeBooleanValue("isRecent", hostPortComponent.isRecent);
+    writer.writeDateValue("lastSeenDateTime", hostPortComponent.lastSeenDateTime);
+    writer.writeStringValue("@odata.type", hostPortComponent.odataType);
+    writer.writeAdditionalData(hostPortComponent.additionalData);
 }
 // tslint:enable
 // eslint-enable

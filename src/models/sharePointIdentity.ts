@@ -15,8 +15,8 @@ export function deserializeIntoSharePointIdentity(sharePointIdentity: SharePoint
     }
 }
 export function serializeSharePointIdentity(writer: SerializationWriter, sharePointIdentity: SharePointIdentity | undefined = {} as SharePointIdentity) : void {
-        serializeIdentity(writer, sharePointIdentity)
-        writer.writeStringValue("loginName", sharePointIdentity.loginName);
+    serializeIdentity(writer, sharePointIdentity)
+    writer.writeStringValue("loginName", sharePointIdentity.loginName);
 }
 export interface SharePointIdentity extends Identity, Parsable {
     /**

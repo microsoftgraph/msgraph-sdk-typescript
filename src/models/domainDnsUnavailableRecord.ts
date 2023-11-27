@@ -21,8 +21,8 @@ export interface DomainDnsUnavailableRecord extends DomainDnsRecord, Parsable {
     description?: string;
 }
 export function serializeDomainDnsUnavailableRecord(writer: SerializationWriter, domainDnsUnavailableRecord: DomainDnsUnavailableRecord | undefined = {} as DomainDnsUnavailableRecord) : void {
-        serializeDomainDnsRecord(writer, domainDnsUnavailableRecord)
-        writer.writeStringValue("description", domainDnsUnavailableRecord.description);
+    serializeDomainDnsRecord(writer, domainDnsUnavailableRecord)
+    writer.writeStringValue("description", domainDnsUnavailableRecord.description);
 }
 // tslint:enable
 // eslint-enable

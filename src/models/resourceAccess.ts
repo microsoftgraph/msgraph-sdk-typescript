@@ -34,10 +34,10 @@ export interface ResourceAccess extends AdditionalDataHolder, Parsable {
     type?: string;
 }
 export function serializeResourceAccess(writer: SerializationWriter, resourceAccess: ResourceAccess | undefined = {} as ResourceAccess) : void {
-        writer.writeGuidValue("id", resourceAccess.id);
-        writer.writeStringValue("@odata.type", resourceAccess.odataType);
-        writer.writeStringValue("type", resourceAccess.type);
-        writer.writeAdditionalData(resourceAccess.additionalData);
+    writer.writeGuidValue("id", resourceAccess.id);
+    writer.writeStringValue("@odata.type", resourceAccess.odataType);
+    writer.writeStringValue("type", resourceAccess.type);
+    writer.writeAdditionalData(resourceAccess.additionalData);
 }
 // tslint:enable
 // eslint-enable

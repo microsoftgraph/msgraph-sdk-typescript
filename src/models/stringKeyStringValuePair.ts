@@ -15,10 +15,10 @@ export function deserializeIntoStringKeyStringValuePair(stringKeyStringValuePair
     }
 }
 export function serializeStringKeyStringValuePair(writer: SerializationWriter, stringKeyStringValuePair: StringKeyStringValuePair | undefined = {} as StringKeyStringValuePair) : void {
-        writer.writeStringValue("key", stringKeyStringValuePair.key);
-        writer.writeStringValue("@odata.type", stringKeyStringValuePair.odataType);
-        writer.writeStringValue("value", stringKeyStringValuePair.value);
-        writer.writeAdditionalData(stringKeyStringValuePair.additionalData);
+    writer.writeStringValue("key", stringKeyStringValuePair.key);
+    writer.writeStringValue("@odata.type", stringKeyStringValuePair.odataType);
+    writer.writeStringValue("value", stringKeyStringValuePair.value);
+    writer.writeAdditionalData(stringKeyStringValuePair.additionalData);
 }
 export interface StringKeyStringValuePair extends AdditionalDataHolder, Parsable {
     /**

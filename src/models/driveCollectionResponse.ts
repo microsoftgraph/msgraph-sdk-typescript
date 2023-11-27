@@ -22,8 +22,8 @@ export interface DriveCollectionResponse extends BaseCollectionPaginationCountRe
     value?: Drive[];
 }
 export function serializeDriveCollectionResponse(writer: SerializationWriter, driveCollectionResponse: DriveCollectionResponse | undefined = {} as DriveCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, driveCollectionResponse)
-        writer.writeCollectionOfObjectValues<Drive>("value", driveCollectionResponse.value, serializeDrive);
+    serializeBaseCollectionPaginationCountResponse(writer, driveCollectionResponse)
+    writer.writeCollectionOfObjectValues<Drive>("value", driveCollectionResponse.value, serializeDrive);
 }
 // tslint:enable
 // eslint-enable

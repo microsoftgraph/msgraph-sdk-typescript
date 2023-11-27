@@ -47,13 +47,13 @@ export function deserializeIntoCallTranscript(callTranscript: CallTranscript | u
     }
 }
 export function serializeCallTranscript(writer: SerializationWriter, callTranscript: CallTranscript | undefined = {} as CallTranscript) : void {
-        serializeEntity(writer, callTranscript)
-        writer.writeStringValue("content", callTranscript.content);
-        writer.writeDateValue("createdDateTime", callTranscript.createdDateTime);
-        writer.writeStringValue("meetingId", callTranscript.meetingId);
-        writer.writeObjectValue<IdentitySet>("meetingOrganizer", callTranscript.meetingOrganizer, serializeIdentitySet);
-        writer.writeStringValue("metadataContent", callTranscript.metadataContent);
-        writer.writeStringValue("transcriptContentUrl", callTranscript.transcriptContentUrl);
+    serializeEntity(writer, callTranscript)
+    writer.writeStringValue("content", callTranscript.content);
+    writer.writeDateValue("createdDateTime", callTranscript.createdDateTime);
+    writer.writeStringValue("meetingId", callTranscript.meetingId);
+    writer.writeObjectValue<IdentitySet>("meetingOrganizer", callTranscript.meetingOrganizer, serializeIdentitySet);
+    writer.writeStringValue("metadataContent", callTranscript.metadataContent);
+    writer.writeStringValue("transcriptContentUrl", callTranscript.transcriptContentUrl);
 }
 // tslint:enable
 // eslint-enable

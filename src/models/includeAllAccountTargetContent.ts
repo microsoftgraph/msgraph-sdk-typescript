@@ -16,7 +16,7 @@ export function deserializeIntoIncludeAllAccountTargetContent(includeAllAccountT
 export interface IncludeAllAccountTargetContent extends AccountTargetContent, Parsable {
 }
 export function serializeIncludeAllAccountTargetContent(writer: SerializationWriter, includeAllAccountTargetContent: IncludeAllAccountTargetContent | undefined = {} as IncludeAllAccountTargetContent) : void {
-        serializeAccountTargetContent(writer, includeAllAccountTargetContent)
+    serializeAccountTargetContent(writer, includeAllAccountTargetContent)
 }
 // tslint:enable
 // eslint-enable

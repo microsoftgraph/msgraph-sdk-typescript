@@ -136,26 +136,26 @@ export interface OnlineMeetingBase extends Entity, Parsable {
     watermarkProtection?: WatermarkProtectionValues;
 }
 export function serializeOnlineMeetingBase(writer: SerializationWriter, onlineMeetingBase: OnlineMeetingBase | undefined = {} as OnlineMeetingBase) : void {
-        serializeEntity(writer, onlineMeetingBase)
-        writer.writeBooleanValue("allowAttendeeToEnableCamera", onlineMeetingBase.allowAttendeeToEnableCamera);
-        writer.writeBooleanValue("allowAttendeeToEnableMic", onlineMeetingBase.allowAttendeeToEnableMic);
-        writer.writeEnumValue<OnlineMeetingPresenters>("allowedPresenters", onlineMeetingBase.allowedPresenters);
-        writer.writeEnumValue<MeetingChatMode>("allowMeetingChat", onlineMeetingBase.allowMeetingChat);
-        writer.writeBooleanValue("allowParticipantsToChangeName", onlineMeetingBase.allowParticipantsToChangeName);
-        writer.writeBooleanValue("allowTeamworkReactions", onlineMeetingBase.allowTeamworkReactions);
-        writer.writeCollectionOfObjectValues<MeetingAttendanceReport>("attendanceReports", onlineMeetingBase.attendanceReports, serializeMeetingAttendanceReport);
-        writer.writeObjectValue<AudioConferencing>("audioConferencing", onlineMeetingBase.audioConferencing, serializeAudioConferencing);
-        writer.writeObjectValue<ChatInfo>("chatInfo", onlineMeetingBase.chatInfo, serializeChatInfo);
-        writer.writeBooleanValue("isEntryExitAnnounced", onlineMeetingBase.isEntryExitAnnounced);
-        writer.writeObjectValue<ItemBody>("joinInformation", onlineMeetingBase.joinInformation, serializeItemBody);
-        writer.writeObjectValue<JoinMeetingIdSettings>("joinMeetingIdSettings", onlineMeetingBase.joinMeetingIdSettings, serializeJoinMeetingIdSettings);
-        writer.writeStringValue("joinWebUrl", onlineMeetingBase.joinWebUrl);
-        writer.writeObjectValue<LobbyBypassSettings>("lobbyBypassSettings", onlineMeetingBase.lobbyBypassSettings, serializeLobbyBypassSettings);
-        writer.writeBooleanValue("recordAutomatically", onlineMeetingBase.recordAutomatically);
-        writer.writeEnumValue<MeetingChatHistoryDefaultMode>("shareMeetingChatHistoryDefault", onlineMeetingBase.shareMeetingChatHistoryDefault);
-        writer.writeStringValue("subject", onlineMeetingBase.subject);
-        writer.writeStringValue("videoTeleconferenceId", onlineMeetingBase.videoTeleconferenceId);
-        writer.writeObjectValue<WatermarkProtectionValues>("watermarkProtection", onlineMeetingBase.watermarkProtection, serializeWatermarkProtectionValues);
+    serializeEntity(writer, onlineMeetingBase)
+    writer.writeBooleanValue("allowAttendeeToEnableCamera", onlineMeetingBase.allowAttendeeToEnableCamera);
+    writer.writeBooleanValue("allowAttendeeToEnableMic", onlineMeetingBase.allowAttendeeToEnableMic);
+    writer.writeEnumValue<OnlineMeetingPresenters>("allowedPresenters", onlineMeetingBase.allowedPresenters);
+    writer.writeEnumValue<MeetingChatMode>("allowMeetingChat", onlineMeetingBase.allowMeetingChat);
+    writer.writeBooleanValue("allowParticipantsToChangeName", onlineMeetingBase.allowParticipantsToChangeName);
+    writer.writeBooleanValue("allowTeamworkReactions", onlineMeetingBase.allowTeamworkReactions);
+    writer.writeCollectionOfObjectValues<MeetingAttendanceReport>("attendanceReports", onlineMeetingBase.attendanceReports, serializeMeetingAttendanceReport);
+    writer.writeObjectValue<AudioConferencing>("audioConferencing", onlineMeetingBase.audioConferencing, serializeAudioConferencing);
+    writer.writeObjectValue<ChatInfo>("chatInfo", onlineMeetingBase.chatInfo, serializeChatInfo);
+    writer.writeBooleanValue("isEntryExitAnnounced", onlineMeetingBase.isEntryExitAnnounced);
+    writer.writeObjectValue<ItemBody>("joinInformation", onlineMeetingBase.joinInformation, serializeItemBody);
+    writer.writeObjectValue<JoinMeetingIdSettings>("joinMeetingIdSettings", onlineMeetingBase.joinMeetingIdSettings, serializeJoinMeetingIdSettings);
+    writer.writeStringValue("joinWebUrl", onlineMeetingBase.joinWebUrl);
+    writer.writeObjectValue<LobbyBypassSettings>("lobbyBypassSettings", onlineMeetingBase.lobbyBypassSettings, serializeLobbyBypassSettings);
+    writer.writeBooleanValue("recordAutomatically", onlineMeetingBase.recordAutomatically);
+    writer.writeEnumValue<MeetingChatHistoryDefaultMode>("shareMeetingChatHistoryDefault", onlineMeetingBase.shareMeetingChatHistoryDefault);
+    writer.writeStringValue("subject", onlineMeetingBase.subject);
+    writer.writeStringValue("videoTeleconferenceId", onlineMeetingBase.videoTeleconferenceId);
+    writer.writeObjectValue<WatermarkProtectionValues>("watermarkProtection", onlineMeetingBase.watermarkProtection, serializeWatermarkProtectionValues);
 }
 // tslint:enable
 // eslint-enable

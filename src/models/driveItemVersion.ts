@@ -26,9 +26,9 @@ export interface DriveItemVersion extends BaseItemVersion, Parsable {
     size?: number;
 }
 export function serializeDriveItemVersion(writer: SerializationWriter, driveItemVersion: DriveItemVersion | undefined = {} as DriveItemVersion) : void {
-        serializeBaseItemVersion(writer, driveItemVersion)
-        writer.writeStringValue("content", driveItemVersion.content);
-        writer.writeNumberValue("size", driveItemVersion.size);
+    serializeBaseItemVersion(writer, driveItemVersion)
+    writer.writeStringValue("content", driveItemVersion.content);
+    writer.writeNumberValue("size", driveItemVersion.size);
 }
 // tslint:enable
 // eslint-enable

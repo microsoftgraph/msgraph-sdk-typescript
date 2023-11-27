@@ -26,9 +26,9 @@ export interface OmaSettingStringXml extends OmaSetting, Parsable {
     value?: string;
 }
 export function serializeOmaSettingStringXml(writer: SerializationWriter, omaSettingStringXml: OmaSettingStringXml | undefined = {} as OmaSettingStringXml) : void {
-        serializeOmaSetting(writer, omaSettingStringXml)
-        writer.writeStringValue("fileName", omaSettingStringXml.fileName);
-        writer.writeStringValue("value", omaSettingStringXml.value);
+    serializeOmaSetting(writer, omaSettingStringXml)
+    writer.writeStringValue("fileName", omaSettingStringXml.fileName);
+    writer.writeStringValue("value", omaSettingStringXml.value);
 }
 // tslint:enable
 // eslint-enable

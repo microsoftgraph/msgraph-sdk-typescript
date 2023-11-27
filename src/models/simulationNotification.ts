@@ -16,8 +16,8 @@ export function deserializeIntoSimulationNotification(simulationNotification: Si
     }
 }
 export function serializeSimulationNotification(writer: SerializationWriter, simulationNotification: SimulationNotification | undefined = {} as SimulationNotification) : void {
-        serializeBaseEndUserNotification(writer, simulationNotification)
-        writer.writeEnumValue<TargettedUserType>("targettedUserType", simulationNotification.targettedUserType);
+    serializeBaseEndUserNotification(writer, simulationNotification)
+    writer.writeEnumValue<TargettedUserType>("targettedUserType", simulationNotification.targettedUserType);
 }
 export interface SimulationNotification extends BaseEndUserNotification, Parsable {
     /**

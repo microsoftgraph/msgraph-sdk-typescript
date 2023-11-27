@@ -31,11 +31,11 @@ export function deserializeIntoTag(tag: Tag | undefined = {} as Tag) : Record<st
     }
 }
 export function serializeTag(writer: SerializationWriter, tag: Tag | undefined = {} as Tag) : void {
-        serializeEntity(writer, tag)
-        writer.writeObjectValue<IdentitySet>("createdBy", tag.createdBy, serializeIdentitySet);
-        writer.writeStringValue("description", tag.description);
-        writer.writeStringValue("displayName", tag.displayName);
-        writer.writeDateValue("lastModifiedDateTime", tag.lastModifiedDateTime);
+    serializeEntity(writer, tag)
+    writer.writeObjectValue<IdentitySet>("createdBy", tag.createdBy, serializeIdentitySet);
+    writer.writeStringValue("description", tag.description);
+    writer.writeStringValue("displayName", tag.displayName);
+    writer.writeDateValue("lastModifiedDateTime", tag.lastModifiedDateTime);
 }
 export interface Tag extends Entity, Parsable {
     /**

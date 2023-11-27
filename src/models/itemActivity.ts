@@ -39,11 +39,11 @@ export interface ItemActivity extends Entity, Parsable {
     driveItem?: DriveItem;
 }
 export function serializeItemActivity(writer: SerializationWriter, itemActivity: ItemActivity | undefined = {} as ItemActivity) : void {
-        serializeEntity(writer, itemActivity)
-        writer.writeObjectValue<AccessAction>("access", itemActivity.access, serializeAccessAction);
-        writer.writeDateValue("activityDateTime", itemActivity.activityDateTime);
-        writer.writeObjectValue<IdentitySet>("actor", itemActivity.actor, serializeIdentitySet);
-        writer.writeObjectValue<DriveItem>("driveItem", itemActivity.driveItem, serializeDriveItem);
+    serializeEntity(writer, itemActivity)
+    writer.writeObjectValue<AccessAction>("access", itemActivity.access, serializeAccessAction);
+    writer.writeDateValue("activityDateTime", itemActivity.activityDateTime);
+    writer.writeObjectValue<IdentitySet>("actor", itemActivity.actor, serializeIdentitySet);
+    writer.writeObjectValue<DriveItem>("driveItem", itemActivity.driveItem, serializeDriveItem);
 }
 // tslint:enable
 // eslint-enable

@@ -27,9 +27,9 @@ export interface PlannerAssignedToTaskBoardTaskFormat extends Entity, Parsable {
     unassignedOrderHint?: string;
 }
 export function serializePlannerAssignedToTaskBoardTaskFormat(writer: SerializationWriter, plannerAssignedToTaskBoardTaskFormat: PlannerAssignedToTaskBoardTaskFormat | undefined = {} as PlannerAssignedToTaskBoardTaskFormat) : void {
-        serializeEntity(writer, plannerAssignedToTaskBoardTaskFormat)
-        writer.writeObjectValue<PlannerOrderHintsByAssignee>("orderHintsByAssignee", plannerAssignedToTaskBoardTaskFormat.orderHintsByAssignee, serializePlannerOrderHintsByAssignee);
-        writer.writeStringValue("unassignedOrderHint", plannerAssignedToTaskBoardTaskFormat.unassignedOrderHint);
+    serializeEntity(writer, plannerAssignedToTaskBoardTaskFormat)
+    writer.writeObjectValue<PlannerOrderHintsByAssignee>("orderHintsByAssignee", plannerAssignedToTaskBoardTaskFormat.orderHintsByAssignee, serializePlannerOrderHintsByAssignee);
+    writer.writeStringValue("unassignedOrderHint", plannerAssignedToTaskBoardTaskFormat.unassignedOrderHint);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export interface RiskyUserHistoryItemCollectionResponse extends BaseCollectionPa
     value?: RiskyUserHistoryItem[];
 }
 export function serializeRiskyUserHistoryItemCollectionResponse(writer: SerializationWriter, riskyUserHistoryItemCollectionResponse: RiskyUserHistoryItemCollectionResponse | undefined = {} as RiskyUserHistoryItemCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, riskyUserHistoryItemCollectionResponse)
-        writer.writeCollectionOfObjectValues<RiskyUserHistoryItem>("value", riskyUserHistoryItemCollectionResponse.value, serializeRiskyUserHistoryItem);
+    serializeBaseCollectionPaginationCountResponse(writer, riskyUserHistoryItemCollectionResponse)
+    writer.writeCollectionOfObjectValues<RiskyUserHistoryItem>("value", riskyUserHistoryItemCollectionResponse.value, serializeRiskyUserHistoryItem);
 }
 // tslint:enable
 // eslint-enable

@@ -107,24 +107,24 @@ export interface Incident extends Entity, Parsable {
     tenantId?: string;
 }
 export function serializeIncident(writer: SerializationWriter, incident: Incident | undefined = {} as Incident) : void {
-        serializeEntity(writer, incident)
-        writer.writeCollectionOfObjectValues<Alert>("alerts", incident.alerts, serializeAlert);
-        writer.writeStringValue("assignedTo", incident.assignedTo);
-        writer.writeEnumValue<AlertClassification>("classification", incident.classification);
-        writer.writeCollectionOfObjectValues<AlertComment>("comments", incident.comments, serializeAlertComment);
-        writer.writeDateValue("createdDateTime", incident.createdDateTime);
-        writer.writeCollectionOfPrimitiveValues<string>("customTags", incident.customTags);
-        writer.writeStringValue("description", incident.description);
-        writer.writeEnumValue<AlertDetermination>("determination", incident.determination);
-        writer.writeStringValue("displayName", incident.displayName);
-        writer.writeStringValue("incidentWebUrl", incident.incidentWebUrl);
-        writer.writeStringValue("lastModifiedBy", incident.lastModifiedBy);
-        writer.writeDateValue("lastUpdateDateTime", incident.lastUpdateDateTime);
-        writer.writeStringValue("redirectIncidentId", incident.redirectIncidentId);
-        writer.writeEnumValue<AlertSeverity>("severity", incident.severity);
-        writer.writeEnumValue<IncidentStatus>("status", incident.status);
-        writer.writeCollectionOfPrimitiveValues<string>("systemTags", incident.systemTags);
-        writer.writeStringValue("tenantId", incident.tenantId);
+    serializeEntity(writer, incident)
+    writer.writeCollectionOfObjectValues<Alert>("alerts", incident.alerts, serializeAlert);
+    writer.writeStringValue("assignedTo", incident.assignedTo);
+    writer.writeEnumValue<AlertClassification>("classification", incident.classification);
+    writer.writeCollectionOfObjectValues<AlertComment>("comments", incident.comments, serializeAlertComment);
+    writer.writeDateValue("createdDateTime", incident.createdDateTime);
+    writer.writeCollectionOfPrimitiveValues<string>("customTags", incident.customTags);
+    writer.writeStringValue("description", incident.description);
+    writer.writeEnumValue<AlertDetermination>("determination", incident.determination);
+    writer.writeStringValue("displayName", incident.displayName);
+    writer.writeStringValue("incidentWebUrl", incident.incidentWebUrl);
+    writer.writeStringValue("lastModifiedBy", incident.lastModifiedBy);
+    writer.writeDateValue("lastUpdateDateTime", incident.lastUpdateDateTime);
+    writer.writeStringValue("redirectIncidentId", incident.redirectIncidentId);
+    writer.writeEnumValue<AlertSeverity>("severity", incident.severity);
+    writer.writeEnumValue<IncidentStatus>("status", incident.status);
+    writer.writeCollectionOfPrimitiveValues<string>("systemTags", incident.systemTags);
+    writer.writeStringValue("tenantId", incident.tenantId);
 }
 // tslint:enable
 // eslint-enable

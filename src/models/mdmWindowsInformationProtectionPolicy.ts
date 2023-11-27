@@ -16,7 +16,7 @@ export function deserializeIntoMdmWindowsInformationProtectionPolicy(mdmWindowsI
 export interface MdmWindowsInformationProtectionPolicy extends Parsable, WindowsInformationProtection {
 }
 export function serializeMdmWindowsInformationProtectionPolicy(writer: SerializationWriter, mdmWindowsInformationProtectionPolicy: MdmWindowsInformationProtectionPolicy | undefined = {} as MdmWindowsInformationProtectionPolicy) : void {
-        serializeWindowsInformationProtection(writer, mdmWindowsInformationProtectionPolicy)
+    serializeWindowsInformationProtection(writer, mdmWindowsInformationProtectionPolicy)
 }
 // tslint:enable
 // eslint-enable

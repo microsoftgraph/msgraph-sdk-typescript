@@ -28,9 +28,9 @@ export function deserializeIntoContainerFilter(containerFilter: ContainerFilter 
     }
 }
 export function serializeContainerFilter(writer: SerializationWriter, containerFilter: ContainerFilter | undefined = {} as ContainerFilter) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("includedContainers", containerFilter.includedContainers);
-        writer.writeStringValue("@odata.type", containerFilter.odataType);
-        writer.writeAdditionalData(containerFilter.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("includedContainers", containerFilter.includedContainers);
+    writer.writeStringValue("@odata.type", containerFilter.odataType);
+    writer.writeAdditionalData(containerFilter.additionalData);
 }
 // tslint:enable
 // eslint-enable

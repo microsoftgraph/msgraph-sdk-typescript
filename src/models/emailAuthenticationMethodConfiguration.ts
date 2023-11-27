@@ -28,9 +28,9 @@ export interface EmailAuthenticationMethodConfiguration extends AuthenticationMe
     includeTargets?: AuthenticationMethodTarget[];
 }
 export function serializeEmailAuthenticationMethodConfiguration(writer: SerializationWriter, emailAuthenticationMethodConfiguration: EmailAuthenticationMethodConfiguration | undefined = {} as EmailAuthenticationMethodConfiguration) : void {
-        serializeAuthenticationMethodConfiguration(writer, emailAuthenticationMethodConfiguration)
-        writer.writeEnumValue<ExternalEmailOtpState>("allowExternalIdToUseEmailOtp", emailAuthenticationMethodConfiguration.allowExternalIdToUseEmailOtp);
-        writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", emailAuthenticationMethodConfiguration.includeTargets, serializeAuthenticationMethodTarget);
+    serializeAuthenticationMethodConfiguration(writer, emailAuthenticationMethodConfiguration)
+    writer.writeEnumValue<ExternalEmailOtpState>("allowExternalIdToUseEmailOtp", emailAuthenticationMethodConfiguration.allowExternalIdToUseEmailOtp);
+    writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", emailAuthenticationMethodConfiguration.includeTargets, serializeAuthenticationMethodTarget);
 }
 // tslint:enable
 // eslint-enable

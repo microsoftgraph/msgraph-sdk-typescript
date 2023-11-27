@@ -15,10 +15,10 @@ export function deserializeIntoTimeRange(timeRange: TimeRange | undefined = {} a
     }
 }
 export function serializeTimeRange(writer: SerializationWriter, timeRange: TimeRange | undefined = {} as TimeRange) : void {
-        writer.writeTimeOnlyValue("endTime", timeRange.endTime);
-        writer.writeStringValue("@odata.type", timeRange.odataType);
-        writer.writeTimeOnlyValue("startTime", timeRange.startTime);
-        writer.writeAdditionalData(timeRange.additionalData);
+    writer.writeTimeOnlyValue("endTime", timeRange.endTime);
+    writer.writeStringValue("@odata.type", timeRange.odataType);
+    writer.writeTimeOnlyValue("startTime", timeRange.startTime);
+    writer.writeAdditionalData(timeRange.additionalData);
 }
 export interface TimeRange extends AdditionalDataHolder, Parsable {
     /**

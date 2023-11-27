@@ -16,8 +16,8 @@ export function deserializeIntoServiceUserAgent(serviceUserAgent: ServiceUserAge
     }
 }
 export function serializeServiceUserAgent(writer: SerializationWriter, serviceUserAgent: ServiceUserAgent | undefined = {} as ServiceUserAgent) : void {
-        serializeUserAgent(writer, serviceUserAgent)
-        writer.writeEnumValue<ServiceRole>("role", serviceUserAgent.role);
+    serializeUserAgent(writer, serviceUserAgent)
+    writer.writeEnumValue<ServiceRole>("role", serviceUserAgent.role);
 }
 export interface ServiceUserAgent extends Parsable, UserAgent {
     /**

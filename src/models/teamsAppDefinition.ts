@@ -28,17 +28,17 @@ export function deserializeIntoTeamsAppDefinition(teamsAppDefinition: TeamsAppDe
     }
 }
 export function serializeTeamsAppDefinition(writer: SerializationWriter, teamsAppDefinition: TeamsAppDefinition | undefined = {} as TeamsAppDefinition) : void {
-        serializeEntity(writer, teamsAppDefinition)
-        writer.writeObjectValue<TeamsAppAuthorization>("authorization", teamsAppDefinition.authorization, serializeTeamsAppAuthorization);
-        writer.writeObjectValue<TeamworkBot>("bot", teamsAppDefinition.bot, serializeTeamworkBot);
-        writer.writeObjectValue<IdentitySet>("createdBy", teamsAppDefinition.createdBy, serializeIdentitySet);
-        writer.writeStringValue("description", teamsAppDefinition.description);
-        writer.writeStringValue("displayName", teamsAppDefinition.displayName);
-        writer.writeDateValue("lastModifiedDateTime", teamsAppDefinition.lastModifiedDateTime);
-        writer.writeEnumValue<TeamsAppPublishingState>("publishingState", teamsAppDefinition.publishingState);
-        writer.writeStringValue("shortDescription", teamsAppDefinition.shortDescription);
-        writer.writeStringValue("teamsAppId", teamsAppDefinition.teamsAppId);
-        writer.writeStringValue("version", teamsAppDefinition.version);
+    serializeEntity(writer, teamsAppDefinition)
+    writer.writeObjectValue<TeamsAppAuthorization>("authorization", teamsAppDefinition.authorization, serializeTeamsAppAuthorization);
+    writer.writeObjectValue<TeamworkBot>("bot", teamsAppDefinition.bot, serializeTeamworkBot);
+    writer.writeObjectValue<IdentitySet>("createdBy", teamsAppDefinition.createdBy, serializeIdentitySet);
+    writer.writeStringValue("description", teamsAppDefinition.description);
+    writer.writeStringValue("displayName", teamsAppDefinition.displayName);
+    writer.writeDateValue("lastModifiedDateTime", teamsAppDefinition.lastModifiedDateTime);
+    writer.writeEnumValue<TeamsAppPublishingState>("publishingState", teamsAppDefinition.publishingState);
+    writer.writeStringValue("shortDescription", teamsAppDefinition.shortDescription);
+    writer.writeStringValue("teamsAppId", teamsAppDefinition.teamsAppId);
+    writer.writeStringValue("version", teamsAppDefinition.version);
 }
 export interface TeamsAppDefinition extends Entity, Parsable {
     /**

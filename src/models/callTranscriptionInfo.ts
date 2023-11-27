@@ -34,10 +34,10 @@ export function deserializeIntoCallTranscriptionInfo(callTranscriptionInfo: Call
     }
 }
 export function serializeCallTranscriptionInfo(writer: SerializationWriter, callTranscriptionInfo: CallTranscriptionInfo | undefined = {} as CallTranscriptionInfo) : void {
-        writer.writeDateValue("lastModifiedDateTime", callTranscriptionInfo.lastModifiedDateTime);
-        writer.writeStringValue("@odata.type", callTranscriptionInfo.odataType);
-        writer.writeEnumValue<CallTranscriptionState>("state", callTranscriptionInfo.state);
-        writer.writeAdditionalData(callTranscriptionInfo.additionalData);
+    writer.writeDateValue("lastModifiedDateTime", callTranscriptionInfo.lastModifiedDateTime);
+    writer.writeStringValue("@odata.type", callTranscriptionInfo.odataType);
+    writer.writeEnumValue<CallTranscriptionState>("state", callTranscriptionInfo.state);
+    writer.writeAdditionalData(callTranscriptionInfo.additionalData);
 }
 // tslint:enable
 // eslint-enable

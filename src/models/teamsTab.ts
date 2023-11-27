@@ -20,11 +20,11 @@ export function deserializeIntoTeamsTab(teamsTab: TeamsTab | undefined = {} as T
     }
 }
 export function serializeTeamsTab(writer: SerializationWriter, teamsTab: TeamsTab | undefined = {} as TeamsTab) : void {
-        serializeEntity(writer, teamsTab)
-        writer.writeObjectValue<TeamsTabConfiguration>("configuration", teamsTab.configuration, serializeTeamsTabConfiguration);
-        writer.writeStringValue("displayName", teamsTab.displayName);
-        writer.writeObjectValue<TeamsApp>("teamsApp", teamsTab.teamsApp, serializeTeamsApp);
-        writer.writeStringValue("webUrl", teamsTab.webUrl);
+    serializeEntity(writer, teamsTab)
+    writer.writeObjectValue<TeamsTabConfiguration>("configuration", teamsTab.configuration, serializeTeamsTabConfiguration);
+    writer.writeStringValue("displayName", teamsTab.displayName);
+    writer.writeObjectValue<TeamsApp>("teamsApp", teamsTab.teamsApp, serializeTeamsApp);
+    writer.writeStringValue("webUrl", teamsTab.webUrl);
 }
 export interface TeamsTab extends Entity, Parsable {
     /**

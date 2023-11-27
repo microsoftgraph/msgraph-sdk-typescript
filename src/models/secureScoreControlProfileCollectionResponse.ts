@@ -22,8 +22,8 @@ export interface SecureScoreControlProfileCollectionResponse extends BaseCollect
     value?: SecureScoreControlProfile[];
 }
 export function serializeSecureScoreControlProfileCollectionResponse(writer: SerializationWriter, secureScoreControlProfileCollectionResponse: SecureScoreControlProfileCollectionResponse | undefined = {} as SecureScoreControlProfileCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, secureScoreControlProfileCollectionResponse)
-        writer.writeCollectionOfObjectValues<SecureScoreControlProfile>("value", secureScoreControlProfileCollectionResponse.value, serializeSecureScoreControlProfile);
+    serializeBaseCollectionPaginationCountResponse(writer, secureScoreControlProfileCollectionResponse)
+    writer.writeCollectionOfObjectValues<SecureScoreControlProfile>("value", secureScoreControlProfileCollectionResponse.value, serializeSecureScoreControlProfile);
 }
 // tslint:enable
 // eslint-enable

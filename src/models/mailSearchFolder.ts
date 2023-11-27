@@ -36,11 +36,11 @@ export interface MailSearchFolder extends MailFolder, Parsable {
     sourceFolderIds?: string[];
 }
 export function serializeMailSearchFolder(writer: SerializationWriter, mailSearchFolder: MailSearchFolder | undefined = {} as MailSearchFolder) : void {
-        serializeMailFolder(writer, mailSearchFolder)
-        writer.writeStringValue("filterQuery", mailSearchFolder.filterQuery);
-        writer.writeBooleanValue("includeNestedFolders", mailSearchFolder.includeNestedFolders);
-        writer.writeBooleanValue("isSupported", mailSearchFolder.isSupported);
-        writer.writeCollectionOfPrimitiveValues<string>("sourceFolderIds", mailSearchFolder.sourceFolderIds);
+    serializeMailFolder(writer, mailSearchFolder)
+    writer.writeStringValue("filterQuery", mailSearchFolder.filterQuery);
+    writer.writeBooleanValue("includeNestedFolders", mailSearchFolder.includeNestedFolders);
+    writer.writeBooleanValue("isSupported", mailSearchFolder.isSupported);
+    writer.writeCollectionOfPrimitiveValues<string>("sourceFolderIds", mailSearchFolder.sourceFolderIds);
 }
 // tslint:enable
 // eslint-enable

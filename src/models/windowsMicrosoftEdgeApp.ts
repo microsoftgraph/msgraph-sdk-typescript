@@ -17,9 +17,9 @@ export function deserializeIntoWindowsMicrosoftEdgeApp(windowsMicrosoftEdgeApp: 
     }
 }
 export function serializeWindowsMicrosoftEdgeApp(writer: SerializationWriter, windowsMicrosoftEdgeApp: WindowsMicrosoftEdgeApp | undefined = {} as WindowsMicrosoftEdgeApp) : void {
-        serializeMobileApp(writer, windowsMicrosoftEdgeApp)
-        writer.writeEnumValue<MicrosoftEdgeChannel>("channel", windowsMicrosoftEdgeApp.channel);
-        writer.writeStringValue("displayLanguageLocale", windowsMicrosoftEdgeApp.displayLanguageLocale);
+    serializeMobileApp(writer, windowsMicrosoftEdgeApp)
+    writer.writeEnumValue<MicrosoftEdgeChannel>("channel", windowsMicrosoftEdgeApp.channel);
+    writer.writeStringValue("displayLanguageLocale", windowsMicrosoftEdgeApp.displayLanguageLocale);
 }
 export interface WindowsMicrosoftEdgeApp extends MobileApp, Parsable {
     /**

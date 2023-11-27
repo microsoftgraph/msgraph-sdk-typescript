@@ -32,10 +32,10 @@ export function deserializeIntoAttackSimulationOperation(attackSimulationOperati
     }
 }
 export function serializeAttackSimulationOperation(writer: SerializationWriter, attackSimulationOperation: AttackSimulationOperation | undefined = {} as AttackSimulationOperation) : void {
-        serializeLongRunningOperation(writer, attackSimulationOperation)
-        writer.writeNumberValue("percentageCompleted", attackSimulationOperation.percentageCompleted);
-        writer.writeStringValue("tenantId", attackSimulationOperation.tenantId);
-        writer.writeEnumValue<AttackSimulationOperationType>("type", attackSimulationOperation.type);
+    serializeLongRunningOperation(writer, attackSimulationOperation)
+    writer.writeNumberValue("percentageCompleted", attackSimulationOperation.percentageCompleted);
+    writer.writeStringValue("tenantId", attackSimulationOperation.tenantId);
+    writer.writeEnumValue<AttackSimulationOperationType>("type", attackSimulationOperation.type);
 }
 // tslint:enable
 // eslint-enable

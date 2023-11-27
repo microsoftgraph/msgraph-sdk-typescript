@@ -54,14 +54,14 @@ export interface RetentionLabelSettings extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeRetentionLabelSettings(writer: SerializationWriter, retentionLabelSettings: RetentionLabelSettings | undefined = {} as RetentionLabelSettings) : void {
-        writer.writeEnumValue<BehaviorDuringRetentionPeriod>("behaviorDuringRetentionPeriod", retentionLabelSettings.behaviorDuringRetentionPeriod);
-        writer.writeBooleanValue("isContentUpdateAllowed", retentionLabelSettings.isContentUpdateAllowed);
-        writer.writeBooleanValue("isDeleteAllowed", retentionLabelSettings.isDeleteAllowed);
-        writer.writeBooleanValue("isLabelUpdateAllowed", retentionLabelSettings.isLabelUpdateAllowed);
-        writer.writeBooleanValue("isMetadataUpdateAllowed", retentionLabelSettings.isMetadataUpdateAllowed);
-        writer.writeBooleanValue("isRecordLocked", retentionLabelSettings.isRecordLocked);
-        writer.writeStringValue("@odata.type", retentionLabelSettings.odataType);
-        writer.writeAdditionalData(retentionLabelSettings.additionalData);
+    writer.writeEnumValue<BehaviorDuringRetentionPeriod>("behaviorDuringRetentionPeriod", retentionLabelSettings.behaviorDuringRetentionPeriod);
+    writer.writeBooleanValue("isContentUpdateAllowed", retentionLabelSettings.isContentUpdateAllowed);
+    writer.writeBooleanValue("isDeleteAllowed", retentionLabelSettings.isDeleteAllowed);
+    writer.writeBooleanValue("isLabelUpdateAllowed", retentionLabelSettings.isLabelUpdateAllowed);
+    writer.writeBooleanValue("isMetadataUpdateAllowed", retentionLabelSettings.isMetadataUpdateAllowed);
+    writer.writeBooleanValue("isRecordLocked", retentionLabelSettings.isRecordLocked);
+    writer.writeStringValue("@odata.type", retentionLabelSettings.odataType);
+    writer.writeAdditionalData(retentionLabelSettings.additionalData);
 }
 // tslint:enable
 // eslint-enable

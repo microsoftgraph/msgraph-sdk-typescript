@@ -22,8 +22,8 @@ export function deserializeIntoAttributeSetCollectionResponse(attributeSetCollec
     }
 }
 export function serializeAttributeSetCollectionResponse(writer: SerializationWriter, attributeSetCollectionResponse: AttributeSetCollectionResponse | undefined = {} as AttributeSetCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, attributeSetCollectionResponse)
-        writer.writeCollectionOfObjectValues<AttributeSet>("value", attributeSetCollectionResponse.value, serializeAttributeSet);
+    serializeBaseCollectionPaginationCountResponse(writer, attributeSetCollectionResponse)
+    writer.writeCollectionOfObjectValues<AttributeSet>("value", attributeSetCollectionResponse.value, serializeAttributeSet);
 }
 // tslint:enable
 // eslint-enable

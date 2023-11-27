@@ -48,10 +48,10 @@ export function deserializeIntoCallOptions(callOptions: CallOptions | undefined 
     }
 }
 export function serializeCallOptions(writer: SerializationWriter, callOptions: CallOptions | undefined = {} as CallOptions) : void {
-        writer.writeBooleanValue("hideBotAfterEscalation", callOptions.hideBotAfterEscalation);
-        writer.writeBooleanValue("isContentSharingNotificationEnabled", callOptions.isContentSharingNotificationEnabled);
-        writer.writeStringValue("@odata.type", callOptions.odataType);
-        writer.writeAdditionalData(callOptions.additionalData);
+    writer.writeBooleanValue("hideBotAfterEscalation", callOptions.hideBotAfterEscalation);
+    writer.writeBooleanValue("isContentSharingNotificationEnabled", callOptions.isContentSharingNotificationEnabled);
+    writer.writeStringValue("@odata.type", callOptions.odataType);
+    writer.writeAdditionalData(callOptions.additionalData);
 }
 // tslint:enable
 // eslint-enable

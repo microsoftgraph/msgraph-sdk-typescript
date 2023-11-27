@@ -44,9 +44,9 @@ export interface Recipient extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeRecipient(writer: SerializationWriter, recipient: Recipient | undefined = {} as Recipient) : void {
-        writer.writeObjectValue<EmailAddress>("emailAddress", recipient.emailAddress, serializeEmailAddress);
-        writer.writeStringValue("@odata.type", recipient.odataType);
-        writer.writeAdditionalData(recipient.additionalData);
+    writer.writeObjectValue<EmailAddress>("emailAddress", recipient.emailAddress, serializeEmailAddress);
+    writer.writeStringValue("@odata.type", recipient.odataType);
+    writer.writeAdditionalData(recipient.additionalData);
 }
 // tslint:enable
 // eslint-enable

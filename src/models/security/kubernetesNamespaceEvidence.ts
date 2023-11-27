@@ -33,10 +33,10 @@ export interface KubernetesNamespaceEvidence extends AlertEvidence, Parsable {
     name?: string;
 }
 export function serializeKubernetesNamespaceEvidence(writer: SerializationWriter, kubernetesNamespaceEvidence: KubernetesNamespaceEvidence | undefined = {} as KubernetesNamespaceEvidence) : void {
-        serializeAlertEvidence(writer, kubernetesNamespaceEvidence)
-        writer.writeObjectValue<KubernetesClusterEvidence>("cluster", kubernetesNamespaceEvidence.cluster, serializeKubernetesClusterEvidence);
-        writer.writeObjectValue<Dictionary>("labels", kubernetesNamespaceEvidence.labels, serializeDictionary);
-        writer.writeStringValue("name", kubernetesNamespaceEvidence.name);
+    serializeAlertEvidence(writer, kubernetesNamespaceEvidence)
+    writer.writeObjectValue<KubernetesClusterEvidence>("cluster", kubernetesNamespaceEvidence.cluster, serializeKubernetesClusterEvidence);
+    writer.writeObjectValue<Dictionary>("labels", kubernetesNamespaceEvidence.labels, serializeDictionary);
+    writer.writeStringValue("name", kubernetesNamespaceEvidence.name);
 }
 // tslint:enable
 // eslint-enable

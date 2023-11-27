@@ -16,8 +16,8 @@ export function deserializeIntoWindowsAutopilotDeviceIdentityCollectionResponse(
     }
 }
 export function serializeWindowsAutopilotDeviceIdentityCollectionResponse(writer: SerializationWriter, windowsAutopilotDeviceIdentityCollectionResponse: WindowsAutopilotDeviceIdentityCollectionResponse | undefined = {} as WindowsAutopilotDeviceIdentityCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, windowsAutopilotDeviceIdentityCollectionResponse)
-        writer.writeCollectionOfObjectValues<WindowsAutopilotDeviceIdentity>("value", windowsAutopilotDeviceIdentityCollectionResponse.value, serializeWindowsAutopilotDeviceIdentity);
+    serializeBaseCollectionPaginationCountResponse(writer, windowsAutopilotDeviceIdentityCollectionResponse)
+    writer.writeCollectionOfObjectValues<WindowsAutopilotDeviceIdentity>("value", windowsAutopilotDeviceIdentityCollectionResponse.value, serializeWindowsAutopilotDeviceIdentity);
 }
 export interface WindowsAutopilotDeviceIdentityCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

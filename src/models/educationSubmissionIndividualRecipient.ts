@@ -21,8 +21,8 @@ export interface EducationSubmissionIndividualRecipient extends EducationSubmiss
     userId?: string;
 }
 export function serializeEducationSubmissionIndividualRecipient(writer: SerializationWriter, educationSubmissionIndividualRecipient: EducationSubmissionIndividualRecipient | undefined = {} as EducationSubmissionIndividualRecipient) : void {
-        serializeEducationSubmissionRecipient(writer, educationSubmissionIndividualRecipient)
-        writer.writeStringValue("userId", educationSubmissionIndividualRecipient.userId);
+    serializeEducationSubmissionRecipient(writer, educationSubmissionIndividualRecipient)
+    writer.writeStringValue("userId", educationSubmissionIndividualRecipient.userId);
 }
 // tslint:enable
 // eslint-enable

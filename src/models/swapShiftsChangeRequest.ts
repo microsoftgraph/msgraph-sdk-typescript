@@ -15,8 +15,8 @@ export function deserializeIntoSwapShiftsChangeRequest(swapShiftsChangeRequest: 
     }
 }
 export function serializeSwapShiftsChangeRequest(writer: SerializationWriter, swapShiftsChangeRequest: SwapShiftsChangeRequest | undefined = {} as SwapShiftsChangeRequest) : void {
-        serializeOfferShiftRequest(writer, swapShiftsChangeRequest)
-        writer.writeStringValue("recipientShiftId", swapShiftsChangeRequest.recipientShiftId);
+    serializeOfferShiftRequest(writer, swapShiftsChangeRequest)
+    writer.writeStringValue("recipientShiftId", swapShiftsChangeRequest.recipientShiftId);
 }
 export interface SwapShiftsChangeRequest extends OfferShiftRequest, Parsable {
     /**

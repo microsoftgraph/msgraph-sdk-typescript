@@ -116,26 +116,26 @@ export interface Person extends Entity, Parsable {
     yomiCompany?: string;
 }
 export function serializePerson(writer: SerializationWriter, person: Person | undefined = {} as Person) : void {
-        serializeEntity(writer, person)
-        writer.writeStringValue("birthday", person.birthday);
-        writer.writeStringValue("companyName", person.companyName);
-        writer.writeStringValue("department", person.department);
-        writer.writeStringValue("displayName", person.displayName);
-        writer.writeStringValue("givenName", person.givenName);
-        writer.writeStringValue("imAddress", person.imAddress);
-        writer.writeBooleanValue("isFavorite", person.isFavorite);
-        writer.writeStringValue("jobTitle", person.jobTitle);
-        writer.writeStringValue("officeLocation", person.officeLocation);
-        writer.writeStringValue("personNotes", person.personNotes);
-        writer.writeObjectValue<PersonType>("personType", person.personType, serializePersonType);
-        writer.writeCollectionOfObjectValues<Phone>("phones", person.phones, serializePhone);
-        writer.writeCollectionOfObjectValues<Location>("postalAddresses", person.postalAddresses, serializeLocation);
-        writer.writeStringValue("profession", person.profession);
-        writer.writeCollectionOfObjectValues<ScoredEmailAddress>("scoredEmailAddresses", person.scoredEmailAddresses, serializeScoredEmailAddress);
-        writer.writeStringValue("surname", person.surname);
-        writer.writeStringValue("userPrincipalName", person.userPrincipalName);
-        writer.writeCollectionOfObjectValues<Website>("websites", person.websites, serializeWebsite);
-        writer.writeStringValue("yomiCompany", person.yomiCompany);
+    serializeEntity(writer, person)
+    writer.writeStringValue("birthday", person.birthday);
+    writer.writeStringValue("companyName", person.companyName);
+    writer.writeStringValue("department", person.department);
+    writer.writeStringValue("displayName", person.displayName);
+    writer.writeStringValue("givenName", person.givenName);
+    writer.writeStringValue("imAddress", person.imAddress);
+    writer.writeBooleanValue("isFavorite", person.isFavorite);
+    writer.writeStringValue("jobTitle", person.jobTitle);
+    writer.writeStringValue("officeLocation", person.officeLocation);
+    writer.writeStringValue("personNotes", person.personNotes);
+    writer.writeObjectValue<PersonType>("personType", person.personType, serializePersonType);
+    writer.writeCollectionOfObjectValues<Phone>("phones", person.phones, serializePhone);
+    writer.writeCollectionOfObjectValues<Location>("postalAddresses", person.postalAddresses, serializeLocation);
+    writer.writeStringValue("profession", person.profession);
+    writer.writeCollectionOfObjectValues<ScoredEmailAddress>("scoredEmailAddresses", person.scoredEmailAddresses, serializeScoredEmailAddress);
+    writer.writeStringValue("surname", person.surname);
+    writer.writeStringValue("userPrincipalName", person.userPrincipalName);
+    writer.writeCollectionOfObjectValues<Website>("websites", person.websites, serializeWebsite);
+    writer.writeStringValue("yomiCompany", person.yomiCompany);
 }
 // tslint:enable
 // eslint-enable

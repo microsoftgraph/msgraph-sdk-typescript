@@ -16,9 +16,9 @@ export function deserializeIntoUserIdentity(userIdentity: UserIdentity | undefin
     }
 }
 export function serializeUserIdentity(writer: SerializationWriter, userIdentity: UserIdentity | undefined = {} as UserIdentity) : void {
-        serializeIdentity(writer, userIdentity)
-        writer.writeStringValue("ipAddress", userIdentity.ipAddress);
-        writer.writeStringValue("userPrincipalName", userIdentity.userPrincipalName);
+    serializeIdentity(writer, userIdentity)
+    writer.writeStringValue("ipAddress", userIdentity.ipAddress);
+    writer.writeStringValue("userPrincipalName", userIdentity.userPrincipalName);
 }
 export interface UserIdentity extends Identity, Parsable {
     /**

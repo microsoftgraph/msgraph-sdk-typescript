@@ -15,8 +15,8 @@ export function deserializeIntoWindowsUniversalAppXContainedApp(windowsUniversal
     }
 }
 export function serializeWindowsUniversalAppXContainedApp(writer: SerializationWriter, windowsUniversalAppXContainedApp: WindowsUniversalAppXContainedApp | undefined = {} as WindowsUniversalAppXContainedApp) : void {
-        serializeMobileContainedApp(writer, windowsUniversalAppXContainedApp)
-        writer.writeStringValue("appUserModelId", windowsUniversalAppXContainedApp.appUserModelId);
+    serializeMobileContainedApp(writer, windowsUniversalAppXContainedApp)
+    writer.writeStringValue("appUserModelId", windowsUniversalAppXContainedApp.appUserModelId);
 }
 export interface WindowsUniversalAppXContainedApp extends MobileContainedApp, Parsable {
     /**

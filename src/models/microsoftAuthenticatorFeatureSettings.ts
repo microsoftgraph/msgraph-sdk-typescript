@@ -34,10 +34,10 @@ export interface MicrosoftAuthenticatorFeatureSettings extends AdditionalDataHol
     odataType?: string;
 }
 export function serializeMicrosoftAuthenticatorFeatureSettings(writer: SerializationWriter, microsoftAuthenticatorFeatureSettings: MicrosoftAuthenticatorFeatureSettings | undefined = {} as MicrosoftAuthenticatorFeatureSettings) : void {
-        writer.writeObjectValue<AuthenticationMethodFeatureConfiguration>("displayAppInformationRequiredState", microsoftAuthenticatorFeatureSettings.displayAppInformationRequiredState, serializeAuthenticationMethodFeatureConfiguration);
-        writer.writeObjectValue<AuthenticationMethodFeatureConfiguration>("displayLocationInformationRequiredState", microsoftAuthenticatorFeatureSettings.displayLocationInformationRequiredState, serializeAuthenticationMethodFeatureConfiguration);
-        writer.writeStringValue("@odata.type", microsoftAuthenticatorFeatureSettings.odataType);
-        writer.writeAdditionalData(microsoftAuthenticatorFeatureSettings.additionalData);
+    writer.writeObjectValue<AuthenticationMethodFeatureConfiguration>("displayAppInformationRequiredState", microsoftAuthenticatorFeatureSettings.displayAppInformationRequiredState, serializeAuthenticationMethodFeatureConfiguration);
+    writer.writeObjectValue<AuthenticationMethodFeatureConfiguration>("displayLocationInformationRequiredState", microsoftAuthenticatorFeatureSettings.displayLocationInformationRequiredState, serializeAuthenticationMethodFeatureConfiguration);
+    writer.writeStringValue("@odata.type", microsoftAuthenticatorFeatureSettings.odataType);
+    writer.writeAdditionalData(microsoftAuthenticatorFeatureSettings.additionalData);
 }
 // tslint:enable
 // eslint-enable

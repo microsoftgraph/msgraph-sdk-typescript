@@ -15,8 +15,8 @@ export function deserializeIntoSkypeUserConversationMember(skypeUserConversation
     }
 }
 export function serializeSkypeUserConversationMember(writer: SerializationWriter, skypeUserConversationMember: SkypeUserConversationMember | undefined = {} as SkypeUserConversationMember) : void {
-        serializeConversationMember(writer, skypeUserConversationMember)
-        writer.writeStringValue("skypeId", skypeUserConversationMember.skypeId);
+    serializeConversationMember(writer, skypeUserConversationMember)
+    writer.writeStringValue("skypeId", skypeUserConversationMember.skypeId);
 }
 export interface SkypeUserConversationMember extends ConversationMember, Parsable {
     /**

@@ -22,8 +22,8 @@ export interface Initiator extends Identity, Parsable {
     initiatorType?: InitiatorType;
 }
 export function serializeInitiator(writer: SerializationWriter, initiator: Initiator | undefined = {} as Initiator) : void {
-        serializeIdentity(writer, initiator)
-        writer.writeEnumValue<InitiatorType>("initiatorType", initiator.initiatorType);
+    serializeIdentity(writer, initiator)
+    writer.writeEnumValue<InitiatorType>("initiatorType", initiator.initiatorType);
 }
 // tslint:enable
 // eslint-enable

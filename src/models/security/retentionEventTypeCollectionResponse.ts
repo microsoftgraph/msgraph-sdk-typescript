@@ -22,8 +22,8 @@ export interface RetentionEventTypeCollectionResponse extends BaseCollectionPagi
     value?: RetentionEventType[];
 }
 export function serializeRetentionEventTypeCollectionResponse(writer: SerializationWriter, retentionEventTypeCollectionResponse: RetentionEventTypeCollectionResponse | undefined = {} as RetentionEventTypeCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, retentionEventTypeCollectionResponse)
-        writer.writeCollectionOfObjectValues<RetentionEventType>("value", retentionEventTypeCollectionResponse.value, serializeRetentionEventType);
+    serializeBaseCollectionPaginationCountResponse(writer, retentionEventTypeCollectionResponse)
+    writer.writeCollectionOfObjectValues<RetentionEventType>("value", retentionEventTypeCollectionResponse.value, serializeRetentionEventType);
 }
 // tslint:enable
 // eslint-enable

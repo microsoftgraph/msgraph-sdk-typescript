@@ -22,8 +22,8 @@ export function deserializeIntoAllowedValueCollectionResponse(allowedValueCollec
     }
 }
 export function serializeAllowedValueCollectionResponse(writer: SerializationWriter, allowedValueCollectionResponse: AllowedValueCollectionResponse | undefined = {} as AllowedValueCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, allowedValueCollectionResponse)
-        writer.writeCollectionOfObjectValues<AllowedValue>("value", allowedValueCollectionResponse.value, serializeAllowedValue);
+    serializeBaseCollectionPaginationCountResponse(writer, allowedValueCollectionResponse)
+    writer.writeCollectionOfObjectValues<AllowedValue>("value", allowedValueCollectionResponse.value, serializeAllowedValue);
 }
 // tslint:enable
 // eslint-enable

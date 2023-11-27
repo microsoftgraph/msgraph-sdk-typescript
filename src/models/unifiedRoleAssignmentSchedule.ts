@@ -20,11 +20,11 @@ export function deserializeIntoUnifiedRoleAssignmentSchedule(unifiedRoleAssignme
     }
 }
 export function serializeUnifiedRoleAssignmentSchedule(writer: SerializationWriter, unifiedRoleAssignmentSchedule: UnifiedRoleAssignmentSchedule | undefined = {} as UnifiedRoleAssignmentSchedule) : void {
-        serializeUnifiedRoleScheduleBase(writer, unifiedRoleAssignmentSchedule)
-        writer.writeObjectValue<UnifiedRoleEligibilitySchedule>("activatedUsing", unifiedRoleAssignmentSchedule.activatedUsing, serializeUnifiedRoleEligibilitySchedule);
-        writer.writeStringValue("assignmentType", unifiedRoleAssignmentSchedule.assignmentType);
-        writer.writeStringValue("memberType", unifiedRoleAssignmentSchedule.memberType);
-        writer.writeObjectValue<RequestSchedule>("scheduleInfo", unifiedRoleAssignmentSchedule.scheduleInfo, serializeRequestSchedule);
+    serializeUnifiedRoleScheduleBase(writer, unifiedRoleAssignmentSchedule)
+    writer.writeObjectValue<UnifiedRoleEligibilitySchedule>("activatedUsing", unifiedRoleAssignmentSchedule.activatedUsing, serializeUnifiedRoleEligibilitySchedule);
+    writer.writeStringValue("assignmentType", unifiedRoleAssignmentSchedule.assignmentType);
+    writer.writeStringValue("memberType", unifiedRoleAssignmentSchedule.memberType);
+    writer.writeObjectValue<RequestSchedule>("scheduleInfo", unifiedRoleAssignmentSchedule.scheduleInfo, serializeRequestSchedule);
 }
 export interface UnifiedRoleAssignmentSchedule extends Parsable, UnifiedRoleScheduleBase {
     /**

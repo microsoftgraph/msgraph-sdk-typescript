@@ -17,11 +17,11 @@ export function deserializeIntoSettingSource(settingSource: SettingSource | unde
     }
 }
 export function serializeSettingSource(writer: SerializationWriter, settingSource: SettingSource | undefined = {} as SettingSource) : void {
-        writer.writeStringValue("displayName", settingSource.displayName);
-        writer.writeStringValue("id", settingSource.id);
-        writer.writeStringValue("@odata.type", settingSource.odataType);
-        writer.writeEnumValue<SettingSourceType>("sourceType", settingSource.sourceType);
-        writer.writeAdditionalData(settingSource.additionalData);
+    writer.writeStringValue("displayName", settingSource.displayName);
+    writer.writeStringValue("id", settingSource.id);
+    writer.writeStringValue("@odata.type", settingSource.odataType);
+    writer.writeEnumValue<SettingSourceType>("sourceType", settingSource.sourceType);
+    writer.writeAdditionalData(settingSource.additionalData);
 }
 export interface SettingSource extends AdditionalDataHolder, Parsable {
     /**

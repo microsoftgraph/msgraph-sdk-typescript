@@ -21,8 +21,8 @@ export interface EducationExternalResource extends EducationResource, Parsable {
     webUrl?: string;
 }
 export function serializeEducationExternalResource(writer: SerializationWriter, educationExternalResource: EducationExternalResource | undefined = {} as EducationExternalResource) : void {
-        serializeEducationResource(writer, educationExternalResource)
-        writer.writeStringValue("webUrl", educationExternalResource.webUrl);
+    serializeEducationResource(writer, educationExternalResource)
+    writer.writeStringValue("webUrl", educationExternalResource.webUrl);
 }
 // tslint:enable
 // eslint-enable

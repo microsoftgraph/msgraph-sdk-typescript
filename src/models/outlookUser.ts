@@ -22,8 +22,8 @@ export interface OutlookUser extends Entity, Parsable {
     masterCategories?: OutlookCategory[];
 }
 export function serializeOutlookUser(writer: SerializationWriter, outlookUser: OutlookUser | undefined = {} as OutlookUser) : void {
-        serializeEntity(writer, outlookUser)
-        writer.writeCollectionOfObjectValues<OutlookCategory>("masterCategories", outlookUser.masterCategories, serializeOutlookCategory);
+    serializeEntity(writer, outlookUser)
+    writer.writeCollectionOfObjectValues<OutlookCategory>("masterCategories", outlookUser.masterCategories, serializeOutlookCategory);
 }
 // tslint:enable
 // eslint-enable

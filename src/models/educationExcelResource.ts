@@ -21,8 +21,8 @@ export interface EducationExcelResource extends EducationResource, Parsable {
     fileUrl?: string;
 }
 export function serializeEducationExcelResource(writer: SerializationWriter, educationExcelResource: EducationExcelResource | undefined = {} as EducationExcelResource) : void {
-        serializeEducationResource(writer, educationExcelResource)
-        writer.writeStringValue("fileUrl", educationExcelResource.fileUrl);
+    serializeEducationResource(writer, educationExcelResource)
+    writer.writeStringValue("fileUrl", educationExcelResource.fileUrl);
 }
 // tslint:enable
 // eslint-enable

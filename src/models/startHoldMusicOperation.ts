@@ -14,7 +14,7 @@ export function deserializeIntoStartHoldMusicOperation(startHoldMusicOperation: 
     }
 }
 export function serializeStartHoldMusicOperation(writer: SerializationWriter, startHoldMusicOperation: StartHoldMusicOperation | undefined = {} as StartHoldMusicOperation) : void {
-        serializeCommsOperation(writer, startHoldMusicOperation)
+    serializeCommsOperation(writer, startHoldMusicOperation)
 }
 export interface StartHoldMusicOperation extends CommsOperation, Parsable {
 }

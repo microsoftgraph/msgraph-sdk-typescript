@@ -22,8 +22,8 @@ export interface DeviceManagementPartnerCollectionResponse extends BaseCollectio
     value?: DeviceManagementPartner[];
 }
 export function serializeDeviceManagementPartnerCollectionResponse(writer: SerializationWriter, deviceManagementPartnerCollectionResponse: DeviceManagementPartnerCollectionResponse | undefined = {} as DeviceManagementPartnerCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, deviceManagementPartnerCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceManagementPartner>("value", deviceManagementPartnerCollectionResponse.value, serializeDeviceManagementPartner);
+    serializeBaseCollectionPaginationCountResponse(writer, deviceManagementPartnerCollectionResponse)
+    writer.writeCollectionOfObjectValues<DeviceManagementPartner>("value", deviceManagementPartnerCollectionResponse.value, serializeDeviceManagementPartner);
 }
 // tslint:enable
 // eslint-enable

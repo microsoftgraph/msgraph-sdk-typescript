@@ -39,11 +39,11 @@ export interface OAuthConsentAppDetail extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeOAuthConsentAppDetail(writer: SerializationWriter, oAuthConsentAppDetail: OAuthConsentAppDetail | undefined = {} as OAuthConsentAppDetail) : void {
-        writer.writeEnumValue<OAuthAppScope>("appScope", oAuthConsentAppDetail.appScope);
-        writer.writeStringValue("displayLogo", oAuthConsentAppDetail.displayLogo);
-        writer.writeStringValue("displayName", oAuthConsentAppDetail.displayName);
-        writer.writeStringValue("@odata.type", oAuthConsentAppDetail.odataType);
-        writer.writeAdditionalData(oAuthConsentAppDetail.additionalData);
+    writer.writeEnumValue<OAuthAppScope>("appScope", oAuthConsentAppDetail.appScope);
+    writer.writeStringValue("displayLogo", oAuthConsentAppDetail.displayLogo);
+    writer.writeStringValue("displayName", oAuthConsentAppDetail.displayName);
+    writer.writeStringValue("@odata.type", oAuthConsentAppDetail.odataType);
+    writer.writeAdditionalData(oAuthConsentAppDetail.additionalData);
 }
 // tslint:enable
 // eslint-enable

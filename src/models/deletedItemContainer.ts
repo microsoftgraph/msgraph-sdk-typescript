@@ -22,8 +22,8 @@ export function deserializeIntoDeletedItemContainer(deletedItemContainer: Delete
     }
 }
 export function serializeDeletedItemContainer(writer: SerializationWriter, deletedItemContainer: DeletedItemContainer | undefined = {} as DeletedItemContainer) : void {
-        serializeEntity(writer, deletedItemContainer)
-        writer.writeCollectionOfObjectValues<Workflow>("workflows", deletedItemContainer.workflows, serializeWorkflow);
+    serializeEntity(writer, deletedItemContainer)
+    writer.writeCollectionOfObjectValues<Workflow>("workflows", deletedItemContainer.workflows, serializeWorkflow);
 }
 // tslint:enable
 // eslint-enable

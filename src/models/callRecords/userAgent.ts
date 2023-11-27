@@ -30,10 +30,10 @@ export function deserializeIntoUserAgent(userAgent: UserAgent | undefined = {} a
     }
 }
 export function serializeUserAgent(writer: SerializationWriter, userAgent: UserAgent | undefined = {} as UserAgent) : void {
-        writer.writeStringValue("applicationVersion", userAgent.applicationVersion);
-        writer.writeStringValue("headerValue", userAgent.headerValue);
-        writer.writeStringValue("@odata.type", userAgent.odataType);
-        writer.writeAdditionalData(userAgent.additionalData);
+    writer.writeStringValue("applicationVersion", userAgent.applicationVersion);
+    writer.writeStringValue("headerValue", userAgent.headerValue);
+    writer.writeStringValue("@odata.type", userAgent.odataType);
+    writer.writeAdditionalData(userAgent.additionalData);
 }
 export interface UserAgent extends AdditionalDataHolder, Parsable {
     /**

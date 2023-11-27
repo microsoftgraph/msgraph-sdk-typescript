@@ -22,8 +22,8 @@ export interface InternalDomainFederationCollectionResponse extends BaseCollecti
     value?: InternalDomainFederation[];
 }
 export function serializeInternalDomainFederationCollectionResponse(writer: SerializationWriter, internalDomainFederationCollectionResponse: InternalDomainFederationCollectionResponse | undefined = {} as InternalDomainFederationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, internalDomainFederationCollectionResponse)
-        writer.writeCollectionOfObjectValues<InternalDomainFederation>("value", internalDomainFederationCollectionResponse.value, serializeInternalDomainFederation);
+    serializeBaseCollectionPaginationCountResponse(writer, internalDomainFederationCollectionResponse)
+    writer.writeCollectionOfObjectValues<InternalDomainFederation>("value", internalDomainFederationCollectionResponse.value, serializeInternalDomainFederation);
 }
 // tslint:enable
 // eslint-enable

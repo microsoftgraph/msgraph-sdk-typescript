@@ -37,11 +37,11 @@ export function deserializeIntoAppLogCollectionRequest(appLogCollectionRequest: 
     }
 }
 export function serializeAppLogCollectionRequest(writer: SerializationWriter, appLogCollectionRequest: AppLogCollectionRequest | undefined = {} as AppLogCollectionRequest) : void {
-        serializeEntity(writer, appLogCollectionRequest)
-        writer.writeDateValue("completedDateTime", appLogCollectionRequest.completedDateTime);
-        writer.writeCollectionOfPrimitiveValues<string>("customLogFolders", appLogCollectionRequest.customLogFolders);
-        writer.writeStringValue("errorMessage", appLogCollectionRequest.errorMessage);
-        writer.writeEnumValue<AppLogUploadState>("status", appLogCollectionRequest.status);
+    serializeEntity(writer, appLogCollectionRequest)
+    writer.writeDateValue("completedDateTime", appLogCollectionRequest.completedDateTime);
+    writer.writeCollectionOfPrimitiveValues<string>("customLogFolders", appLogCollectionRequest.customLogFolders);
+    writer.writeStringValue("errorMessage", appLogCollectionRequest.errorMessage);
+    writer.writeEnumValue<AppLogUploadState>("status", appLogCollectionRequest.status);
 }
 // tslint:enable
 // eslint-enable

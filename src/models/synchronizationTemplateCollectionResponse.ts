@@ -16,8 +16,8 @@ export function deserializeIntoSynchronizationTemplateCollectionResponse(synchro
     }
 }
 export function serializeSynchronizationTemplateCollectionResponse(writer: SerializationWriter, synchronizationTemplateCollectionResponse: SynchronizationTemplateCollectionResponse | undefined = {} as SynchronizationTemplateCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, synchronizationTemplateCollectionResponse)
-        writer.writeCollectionOfObjectValues<SynchronizationTemplate>("value", synchronizationTemplateCollectionResponse.value, serializeSynchronizationTemplate);
+    serializeBaseCollectionPaginationCountResponse(writer, synchronizationTemplateCollectionResponse)
+    writer.writeCollectionOfObjectValues<SynchronizationTemplate>("value", synchronizationTemplateCollectionResponse.value, serializeSynchronizationTemplate);
 }
 export interface SynchronizationTemplateCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

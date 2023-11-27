@@ -33,10 +33,10 @@ export interface EmailAddress extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeEmailAddress(writer: SerializationWriter, emailAddress: EmailAddress | undefined = {} as EmailAddress) : void {
-        writer.writeStringValue("address", emailAddress.address);
-        writer.writeStringValue("name", emailAddress.name);
-        writer.writeStringValue("@odata.type", emailAddress.odataType);
-        writer.writeAdditionalData(emailAddress.additionalData);
+    writer.writeStringValue("address", emailAddress.address);
+    writer.writeStringValue("name", emailAddress.name);
+    writer.writeStringValue("@odata.type", emailAddress.odataType);
+    writer.writeAdditionalData(emailAddress.additionalData);
 }
 // tslint:enable
 // eslint-enable

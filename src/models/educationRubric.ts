@@ -66,12 +66,12 @@ export interface EducationRubric extends Entity, Parsable {
     qualities?: RubricQuality[];
 }
 export function serializeEducationRubric(writer: SerializationWriter, educationRubric: EducationRubric | undefined = {} as EducationRubric) : void {
-        serializeEntity(writer, educationRubric)
-        writer.writeObjectValue<EducationItemBody>("description", educationRubric.description, serializeEducationItemBody);
-        writer.writeStringValue("displayName", educationRubric.displayName);
-        writer.writeObjectValue<EducationAssignmentGradeType>("grading", educationRubric.grading, serializeEducationAssignmentGradeType);
-        writer.writeCollectionOfObjectValues<RubricLevel>("levels", educationRubric.levels, serializeRubricLevel);
-        writer.writeCollectionOfObjectValues<RubricQuality>("qualities", educationRubric.qualities, serializeRubricQuality);
+    serializeEntity(writer, educationRubric)
+    writer.writeObjectValue<EducationItemBody>("description", educationRubric.description, serializeEducationItemBody);
+    writer.writeStringValue("displayName", educationRubric.displayName);
+    writer.writeObjectValue<EducationAssignmentGradeType>("grading", educationRubric.grading, serializeEducationAssignmentGradeType);
+    writer.writeCollectionOfObjectValues<RubricLevel>("levels", educationRubric.levels, serializeRubricLevel);
+    writer.writeCollectionOfObjectValues<RubricQuality>("qualities", educationRubric.qualities, serializeRubricQuality);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export function deserializeIntoContactFolderCollectionResponse(contactFolderColl
     }
 }
 export function serializeContactFolderCollectionResponse(writer: SerializationWriter, contactFolderCollectionResponse: ContactFolderCollectionResponse | undefined = {} as ContactFolderCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, contactFolderCollectionResponse)
-        writer.writeCollectionOfObjectValues<ContactFolder>("value", contactFolderCollectionResponse.value, serializeContactFolder);
+    serializeBaseCollectionPaginationCountResponse(writer, contactFolderCollectionResponse)
+    writer.writeCollectionOfObjectValues<ContactFolder>("value", contactFolderCollectionResponse.value, serializeContactFolder);
 }
 // tslint:enable
 // eslint-enable

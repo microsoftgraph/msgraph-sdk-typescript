@@ -22,8 +22,8 @@ export interface ItemActivityCollectionResponse extends BaseCollectionPagination
     value?: ItemActivity[];
 }
 export function serializeItemActivityCollectionResponse(writer: SerializationWriter, itemActivityCollectionResponse: ItemActivityCollectionResponse | undefined = {} as ItemActivityCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, itemActivityCollectionResponse)
-        writer.writeCollectionOfObjectValues<ItemActivity>("value", itemActivityCollectionResponse.value, serializeItemActivity);
+    serializeBaseCollectionPaginationCountResponse(writer, itemActivityCollectionResponse)
+    writer.writeCollectionOfObjectValues<ItemActivity>("value", itemActivityCollectionResponse.value, serializeItemActivity);
 }
 // tslint:enable
 // eslint-enable

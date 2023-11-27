@@ -31,10 +31,10 @@ export interface LandingPageDetail extends Entity, Parsable {
     language?: string;
 }
 export function serializeLandingPageDetail(writer: SerializationWriter, landingPageDetail: LandingPageDetail | undefined = {} as LandingPageDetail) : void {
-        serializeEntity(writer, landingPageDetail)
-        writer.writeStringValue("content", landingPageDetail.content);
-        writer.writeBooleanValue("isDefaultLangauge", landingPageDetail.isDefaultLangauge);
-        writer.writeStringValue("language", landingPageDetail.language);
+    serializeEntity(writer, landingPageDetail)
+    writer.writeStringValue("content", landingPageDetail.content);
+    writer.writeBooleanValue("isDefaultLangauge", landingPageDetail.isDefaultLangauge);
+    writer.writeStringValue("language", landingPageDetail.language);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export interface EventCollectionResponse extends BaseCollectionPaginationCountRe
     value?: Event[];
 }
 export function serializeEventCollectionResponse(writer: SerializationWriter, eventCollectionResponse: EventCollectionResponse | undefined = {} as EventCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, eventCollectionResponse)
-        writer.writeCollectionOfObjectValues<Event>("value", eventCollectionResponse.value, serializeEvent);
+    serializeBaseCollectionPaginationCountResponse(writer, eventCollectionResponse)
+    writer.writeCollectionOfObjectValues<Event>("value", eventCollectionResponse.value, serializeEvent);
 }
 // tslint:enable
 // eslint-enable

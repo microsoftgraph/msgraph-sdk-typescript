@@ -39,11 +39,11 @@ export function deserializeIntoCoachmarkLocation(coachmarkLocation: CoachmarkLoc
     }
 }
 export function serializeCoachmarkLocation(writer: SerializationWriter, coachmarkLocation: CoachmarkLocation | undefined = {} as CoachmarkLocation) : void {
-        writer.writeNumberValue("length", coachmarkLocation.length);
-        writer.writeStringValue("@odata.type", coachmarkLocation.odataType);
-        writer.writeNumberValue("offset", coachmarkLocation.offset);
-        writer.writeEnumValue<CoachmarkLocationType>("type", coachmarkLocation.type);
-        writer.writeAdditionalData(coachmarkLocation.additionalData);
+    writer.writeNumberValue("length", coachmarkLocation.length);
+    writer.writeStringValue("@odata.type", coachmarkLocation.odataType);
+    writer.writeNumberValue("offset", coachmarkLocation.offset);
+    writer.writeEnumValue<CoachmarkLocationType>("type", coachmarkLocation.type);
+    writer.writeAdditionalData(coachmarkLocation.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -20,10 +20,10 @@ export function deserializeIntoX509CertificateAuthenticationMethodConfiguration(
     }
 }
 export function serializeX509CertificateAuthenticationMethodConfiguration(writer: SerializationWriter, x509CertificateAuthenticationMethodConfiguration: X509CertificateAuthenticationMethodConfiguration | undefined = {} as X509CertificateAuthenticationMethodConfiguration) : void {
-        serializeAuthenticationMethodConfiguration(writer, x509CertificateAuthenticationMethodConfiguration)
-        writer.writeObjectValue<X509CertificateAuthenticationModeConfiguration>("authenticationModeConfiguration", x509CertificateAuthenticationMethodConfiguration.authenticationModeConfiguration, serializeX509CertificateAuthenticationModeConfiguration);
-        writer.writeCollectionOfObjectValues<X509CertificateUserBinding>("certificateUserBindings", x509CertificateAuthenticationMethodConfiguration.certificateUserBindings, serializeX509CertificateUserBinding);
-        writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", x509CertificateAuthenticationMethodConfiguration.includeTargets, serializeAuthenticationMethodTarget);
+    serializeAuthenticationMethodConfiguration(writer, x509CertificateAuthenticationMethodConfiguration)
+    writer.writeObjectValue<X509CertificateAuthenticationModeConfiguration>("authenticationModeConfiguration", x509CertificateAuthenticationMethodConfiguration.authenticationModeConfiguration, serializeX509CertificateAuthenticationModeConfiguration);
+    writer.writeCollectionOfObjectValues<X509CertificateUserBinding>("certificateUserBindings", x509CertificateAuthenticationMethodConfiguration.certificateUserBindings, serializeX509CertificateUserBinding);
+    writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", x509CertificateAuthenticationMethodConfiguration.includeTargets, serializeAuthenticationMethodTarget);
 }
 export interface X509CertificateAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration, Parsable {
     /**

@@ -223,45 +223,45 @@ export interface EducationUser extends Entity, Parsable {
     userType?: string;
 }
 export function serializeEducationUser(writer: SerializationWriter, educationUser: EducationUser | undefined = {} as EducationUser) : void {
-        serializeEntity(writer, educationUser)
-        writer.writeBooleanValue("accountEnabled", educationUser.accountEnabled);
-        writer.writeCollectionOfObjectValues<AssignedLicense>("assignedLicenses", educationUser.assignedLicenses, serializeAssignedLicense);
-        writer.writeCollectionOfObjectValues<AssignedPlan>("assignedPlans", educationUser.assignedPlans, serializeAssignedPlan);
-        writer.writeCollectionOfObjectValues<EducationAssignment>("assignments", educationUser.assignments, serializeEducationAssignment);
-        writer.writeCollectionOfPrimitiveValues<string>("businessPhones", educationUser.businessPhones);
-        writer.writeCollectionOfObjectValues<EducationClass>("classes", educationUser.classes, serializeEducationClass);
-        writer.writeObjectValue<IdentitySet>("createdBy", educationUser.createdBy, serializeIdentitySet);
-        writer.writeStringValue("department", educationUser.department);
-        writer.writeStringValue("displayName", educationUser.displayName);
-        writer.writeEnumValue<EducationExternalSource>("externalSource", educationUser.externalSource);
-        writer.writeStringValue("externalSourceDetail", educationUser.externalSourceDetail);
-        writer.writeStringValue("givenName", educationUser.givenName);
-        writer.writeStringValue("mail", educationUser.mail);
-        writer.writeObjectValue<PhysicalAddress>("mailingAddress", educationUser.mailingAddress, serializePhysicalAddress);
-        writer.writeStringValue("mailNickname", educationUser.mailNickname);
-        writer.writeStringValue("middleName", educationUser.middleName);
-        writer.writeStringValue("mobilePhone", educationUser.mobilePhone);
-        writer.writeStringValue("officeLocation", educationUser.officeLocation);
-        writer.writeObjectValue<EducationOnPremisesInfo>("onPremisesInfo", educationUser.onPremisesInfo, serializeEducationOnPremisesInfo);
-        writer.writeStringValue("passwordPolicies", educationUser.passwordPolicies);
-        writer.writeObjectValue<PasswordProfile>("passwordProfile", educationUser.passwordProfile, serializePasswordProfile);
-        writer.writeStringValue("preferredLanguage", educationUser.preferredLanguage);
-        writer.writeEnumValue<EducationUserRole>("primaryRole", educationUser.primaryRole);
-        writer.writeCollectionOfObjectValues<ProvisionedPlan>("provisionedPlans", educationUser.provisionedPlans, serializeProvisionedPlan);
-        writer.writeDateValue("refreshTokensValidFromDateTime", educationUser.refreshTokensValidFromDateTime);
-        writer.writeCollectionOfObjectValues<RelatedContact>("relatedContacts", educationUser.relatedContacts, serializeRelatedContact);
-        writer.writeObjectValue<PhysicalAddress>("residenceAddress", educationUser.residenceAddress, serializePhysicalAddress);
-        writer.writeCollectionOfObjectValues<EducationRubric>("rubrics", educationUser.rubrics, serializeEducationRubric);
-        writer.writeCollectionOfObjectValues<EducationSchool>("schools", educationUser.schools, serializeEducationSchool);
-        writer.writeBooleanValue("showInAddressList", educationUser.showInAddressList);
-        writer.writeObjectValue<EducationStudent>("student", educationUser.student, serializeEducationStudent);
-        writer.writeStringValue("surname", educationUser.surname);
-        writer.writeCollectionOfObjectValues<EducationClass>("taughtClasses", educationUser.taughtClasses, serializeEducationClass);
-        writer.writeObjectValue<EducationTeacher>("teacher", educationUser.teacher, serializeEducationTeacher);
-        writer.writeStringValue("usageLocation", educationUser.usageLocation);
-        writer.writeObjectValue<User>("user", educationUser.user, serializeUser);
-        writer.writeStringValue("userPrincipalName", educationUser.userPrincipalName);
-        writer.writeStringValue("userType", educationUser.userType);
+    serializeEntity(writer, educationUser)
+    writer.writeBooleanValue("accountEnabled", educationUser.accountEnabled);
+    writer.writeCollectionOfObjectValues<AssignedLicense>("assignedLicenses", educationUser.assignedLicenses, serializeAssignedLicense);
+    writer.writeCollectionOfObjectValues<AssignedPlan>("assignedPlans", educationUser.assignedPlans, serializeAssignedPlan);
+    writer.writeCollectionOfObjectValues<EducationAssignment>("assignments", educationUser.assignments, serializeEducationAssignment);
+    writer.writeCollectionOfPrimitiveValues<string>("businessPhones", educationUser.businessPhones);
+    writer.writeCollectionOfObjectValues<EducationClass>("classes", educationUser.classes, serializeEducationClass);
+    writer.writeObjectValue<IdentitySet>("createdBy", educationUser.createdBy, serializeIdentitySet);
+    writer.writeStringValue("department", educationUser.department);
+    writer.writeStringValue("displayName", educationUser.displayName);
+    writer.writeEnumValue<EducationExternalSource>("externalSource", educationUser.externalSource);
+    writer.writeStringValue("externalSourceDetail", educationUser.externalSourceDetail);
+    writer.writeStringValue("givenName", educationUser.givenName);
+    writer.writeStringValue("mail", educationUser.mail);
+    writer.writeObjectValue<PhysicalAddress>("mailingAddress", educationUser.mailingAddress, serializePhysicalAddress);
+    writer.writeStringValue("mailNickname", educationUser.mailNickname);
+    writer.writeStringValue("middleName", educationUser.middleName);
+    writer.writeStringValue("mobilePhone", educationUser.mobilePhone);
+    writer.writeStringValue("officeLocation", educationUser.officeLocation);
+    writer.writeObjectValue<EducationOnPremisesInfo>("onPremisesInfo", educationUser.onPremisesInfo, serializeEducationOnPremisesInfo);
+    writer.writeStringValue("passwordPolicies", educationUser.passwordPolicies);
+    writer.writeObjectValue<PasswordProfile>("passwordProfile", educationUser.passwordProfile, serializePasswordProfile);
+    writer.writeStringValue("preferredLanguage", educationUser.preferredLanguage);
+    writer.writeEnumValue<EducationUserRole>("primaryRole", educationUser.primaryRole);
+    writer.writeCollectionOfObjectValues<ProvisionedPlan>("provisionedPlans", educationUser.provisionedPlans, serializeProvisionedPlan);
+    writer.writeDateValue("refreshTokensValidFromDateTime", educationUser.refreshTokensValidFromDateTime);
+    writer.writeCollectionOfObjectValues<RelatedContact>("relatedContacts", educationUser.relatedContacts, serializeRelatedContact);
+    writer.writeObjectValue<PhysicalAddress>("residenceAddress", educationUser.residenceAddress, serializePhysicalAddress);
+    writer.writeCollectionOfObjectValues<EducationRubric>("rubrics", educationUser.rubrics, serializeEducationRubric);
+    writer.writeCollectionOfObjectValues<EducationSchool>("schools", educationUser.schools, serializeEducationSchool);
+    writer.writeBooleanValue("showInAddressList", educationUser.showInAddressList);
+    writer.writeObjectValue<EducationStudent>("student", educationUser.student, serializeEducationStudent);
+    writer.writeStringValue("surname", educationUser.surname);
+    writer.writeCollectionOfObjectValues<EducationClass>("taughtClasses", educationUser.taughtClasses, serializeEducationClass);
+    writer.writeObjectValue<EducationTeacher>("teacher", educationUser.teacher, serializeEducationTeacher);
+    writer.writeStringValue("usageLocation", educationUser.usageLocation);
+    writer.writeObjectValue<User>("user", educationUser.user, serializeUser);
+    writer.writeStringValue("userPrincipalName", educationUser.userPrincipalName);
+    writer.writeStringValue("userType", educationUser.userType);
 }
 // tslint:enable
 // eslint-enable

@@ -21,8 +21,8 @@ export function deserializeIntoBuiltInIdentityProvider(builtInIdentityProvider: 
     }
 }
 export function serializeBuiltInIdentityProvider(writer: SerializationWriter, builtInIdentityProvider: BuiltInIdentityProvider | undefined = {} as BuiltInIdentityProvider) : void {
-        serializeIdentityProviderBase(writer, builtInIdentityProvider)
-        writer.writeStringValue("identityProviderType", builtInIdentityProvider.identityProviderType);
+    serializeIdentityProviderBase(writer, builtInIdentityProvider)
+    writer.writeStringValue("identityProviderType", builtInIdentityProvider.identityProviderType);
 }
 // tslint:enable
 // eslint-enable

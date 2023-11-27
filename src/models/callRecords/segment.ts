@@ -49,13 +49,13 @@ export interface Segment extends Entity, Parsable {
     startDateTime?: Date;
 }
 export function serializeSegment(writer: SerializationWriter, segment: Segment | undefined = {} as Segment) : void {
-        serializeEntity(writer, segment)
-        writer.writeObjectValue<Endpoint>("callee", segment.callee, serializeEndpoint);
-        writer.writeObjectValue<Endpoint>("caller", segment.caller, serializeEndpoint);
-        writer.writeDateValue("endDateTime", segment.endDateTime);
-        writer.writeObjectValue<FailureInfo>("failureInfo", segment.failureInfo, serializeFailureInfo);
-        writer.writeCollectionOfObjectValues<Media>("media", segment.media, serializeMedia);
-        writer.writeDateValue("startDateTime", segment.startDateTime);
+    serializeEntity(writer, segment)
+    writer.writeObjectValue<Endpoint>("callee", segment.callee, serializeEndpoint);
+    writer.writeObjectValue<Endpoint>("caller", segment.caller, serializeEndpoint);
+    writer.writeDateValue("endDateTime", segment.endDateTime);
+    writer.writeObjectValue<FailureInfo>("failureInfo", segment.failureInfo, serializeFailureInfo);
+    writer.writeCollectionOfObjectValues<Media>("media", segment.media, serializeMedia);
+    writer.writeDateValue("startDateTime", segment.startDateTime);
 }
 // tslint:enable
 // eslint-enable

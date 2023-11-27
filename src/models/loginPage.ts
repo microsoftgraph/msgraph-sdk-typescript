@@ -69,17 +69,17 @@ export interface LoginPage extends Entity, Parsable {
     status?: SimulationContentStatus;
 }
 export function serializeLoginPage(writer: SerializationWriter, loginPage: LoginPage | undefined = {} as LoginPage) : void {
-        serializeEntity(writer, loginPage)
-        writer.writeStringValue("content", loginPage.content);
-        writer.writeObjectValue<EmailIdentity>("createdBy", loginPage.createdBy, serializeEmailIdentity);
-        writer.writeDateValue("createdDateTime", loginPage.createdDateTime);
-        writer.writeStringValue("description", loginPage.description);
-        writer.writeStringValue("displayName", loginPage.displayName);
-        writer.writeStringValue("language", loginPage.language);
-        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", loginPage.lastModifiedBy, serializeEmailIdentity);
-        writer.writeDateValue("lastModifiedDateTime", loginPage.lastModifiedDateTime);
-        writer.writeEnumValue<SimulationContentSource>("source", loginPage.source);
-        writer.writeEnumValue<SimulationContentStatus>("status", loginPage.status);
+    serializeEntity(writer, loginPage)
+    writer.writeStringValue("content", loginPage.content);
+    writer.writeObjectValue<EmailIdentity>("createdBy", loginPage.createdBy, serializeEmailIdentity);
+    writer.writeDateValue("createdDateTime", loginPage.createdDateTime);
+    writer.writeStringValue("description", loginPage.description);
+    writer.writeStringValue("displayName", loginPage.displayName);
+    writer.writeStringValue("language", loginPage.language);
+    writer.writeObjectValue<EmailIdentity>("lastModifiedBy", loginPage.lastModifiedBy, serializeEmailIdentity);
+    writer.writeDateValue("lastModifiedDateTime", loginPage.lastModifiedDateTime);
+    writer.writeEnumValue<SimulationContentSource>("source", loginPage.source);
+    writer.writeEnumValue<SimulationContentStatus>("status", loginPage.status);
 }
 // tslint:enable
 // eslint-enable

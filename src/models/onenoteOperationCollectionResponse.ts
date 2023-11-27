@@ -22,8 +22,8 @@ export interface OnenoteOperationCollectionResponse extends BaseCollectionPagina
     value?: OnenoteOperation[];
 }
 export function serializeOnenoteOperationCollectionResponse(writer: SerializationWriter, onenoteOperationCollectionResponse: OnenoteOperationCollectionResponse | undefined = {} as OnenoteOperationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, onenoteOperationCollectionResponse)
-        writer.writeCollectionOfObjectValues<OnenoteOperation>("value", onenoteOperationCollectionResponse.value, serializeOnenoteOperation);
+    serializeBaseCollectionPaginationCountResponse(writer, onenoteOperationCollectionResponse)
+    writer.writeCollectionOfObjectValues<OnenoteOperation>("value", onenoteOperationCollectionResponse.value, serializeOnenoteOperation);
 }
 // tslint:enable
 // eslint-enable

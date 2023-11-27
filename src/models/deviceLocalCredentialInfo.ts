@@ -37,11 +37,11 @@ export interface DeviceLocalCredentialInfo extends Entity, Parsable {
     refreshDateTime?: Date;
 }
 export function serializeDeviceLocalCredentialInfo(writer: SerializationWriter, deviceLocalCredentialInfo: DeviceLocalCredentialInfo | undefined = {} as DeviceLocalCredentialInfo) : void {
-        serializeEntity(writer, deviceLocalCredentialInfo)
-        writer.writeCollectionOfObjectValues<DeviceLocalCredential>("credentials", deviceLocalCredentialInfo.credentials, serializeDeviceLocalCredential);
-        writer.writeStringValue("deviceName", deviceLocalCredentialInfo.deviceName);
-        writer.writeDateValue("lastBackupDateTime", deviceLocalCredentialInfo.lastBackupDateTime);
-        writer.writeDateValue("refreshDateTime", deviceLocalCredentialInfo.refreshDateTime);
+    serializeEntity(writer, deviceLocalCredentialInfo)
+    writer.writeCollectionOfObjectValues<DeviceLocalCredential>("credentials", deviceLocalCredentialInfo.credentials, serializeDeviceLocalCredential);
+    writer.writeStringValue("deviceName", deviceLocalCredentialInfo.deviceName);
+    writer.writeDateValue("lastBackupDateTime", deviceLocalCredentialInfo.lastBackupDateTime);
+    writer.writeDateValue("refreshDateTime", deviceLocalCredentialInfo.refreshDateTime);
 }
 // tslint:enable
 // eslint-enable

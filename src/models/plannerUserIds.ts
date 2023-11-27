@@ -23,8 +23,8 @@ export interface PlannerUserIds extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializePlannerUserIds(writer: SerializationWriter, plannerUserIds: PlannerUserIds | undefined = {} as PlannerUserIds) : void {
-        writer.writeStringValue("@odata.type", plannerUserIds.odataType);
-        writer.writeAdditionalData(plannerUserIds.additionalData);
+    writer.writeStringValue("@odata.type", plannerUserIds.odataType);
+    writer.writeAdditionalData(plannerUserIds.additionalData);
 }
 // tslint:enable
 // eslint-enable

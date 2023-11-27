@@ -28,10 +28,10 @@ export interface MicrosoftTrainingAssignmentMapping extends Parsable, TrainingSe
     training?: Training;
 }
 export function serializeMicrosoftTrainingAssignmentMapping(writer: SerializationWriter, microsoftTrainingAssignmentMapping: MicrosoftTrainingAssignmentMapping | undefined = {} as MicrosoftTrainingAssignmentMapping) : void {
-        serializeTrainingSetting(writer, microsoftTrainingAssignmentMapping)
-        if(microsoftTrainingAssignmentMapping.assignedTo)
-        writer.writeEnumValue<TrainingAssignedTo>("assignedTo", ...microsoftTrainingAssignmentMapping.assignedTo);
-        writer.writeObjectValue<Training>("training", microsoftTrainingAssignmentMapping.training, serializeTraining);
+    serializeTrainingSetting(writer, microsoftTrainingAssignmentMapping)
+    if(microsoftTrainingAssignmentMapping.assignedTo)
+    writer.writeEnumValue<TrainingAssignedTo>("assignedTo", ...microsoftTrainingAssignmentMapping.assignedTo);
+    writer.writeObjectValue<Training>("training", microsoftTrainingAssignmentMapping.training, serializeTraining);
 }
 // tslint:enable
 // eslint-enable

@@ -16,7 +16,7 @@ export function deserializeIntoExclusionGroupAssignmentTarget(exclusionGroupAssi
 export interface ExclusionGroupAssignmentTarget extends GroupAssignmentTarget, Parsable {
 }
 export function serializeExclusionGroupAssignmentTarget(writer: SerializationWriter, exclusionGroupAssignmentTarget: ExclusionGroupAssignmentTarget | undefined = {} as ExclusionGroupAssignmentTarget) : void {
-        serializeGroupAssignmentTarget(writer, exclusionGroupAssignmentTarget)
+    serializeGroupAssignmentTarget(writer, exclusionGroupAssignmentTarget)
 }
 // tslint:enable
 // eslint-enable

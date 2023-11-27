@@ -32,10 +32,10 @@ export interface KubernetesSecretEvidence extends AlertEvidence, Parsable {
     secretType?: string;
 }
 export function serializeKubernetesSecretEvidence(writer: SerializationWriter, kubernetesSecretEvidence: KubernetesSecretEvidence | undefined = {} as KubernetesSecretEvidence) : void {
-        serializeAlertEvidence(writer, kubernetesSecretEvidence)
-        writer.writeStringValue("name", kubernetesSecretEvidence.name);
-        writer.writeObjectValue<KubernetesNamespaceEvidence>("namespace", kubernetesSecretEvidence.namespace, serializeKubernetesNamespaceEvidence);
-        writer.writeStringValue("secretType", kubernetesSecretEvidence.secretType);
+    serializeAlertEvidence(writer, kubernetesSecretEvidence)
+    writer.writeStringValue("name", kubernetesSecretEvidence.name);
+    writer.writeObjectValue<KubernetesNamespaceEvidence>("namespace", kubernetesSecretEvidence.namespace, serializeKubernetesNamespaceEvidence);
+    writer.writeStringValue("secretType", kubernetesSecretEvidence.secretType);
 }
 // tslint:enable
 // eslint-enable

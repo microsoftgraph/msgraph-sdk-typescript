@@ -21,15 +21,15 @@ export function deserializeIntoWin32LobAppMsiInformation(win32LobAppMsiInformati
     }
 }
 export function serializeWin32LobAppMsiInformation(writer: SerializationWriter, win32LobAppMsiInformation: Win32LobAppMsiInformation | undefined = {} as Win32LobAppMsiInformation) : void {
-        writer.writeStringValue("@odata.type", win32LobAppMsiInformation.odataType);
-        writer.writeEnumValue<Win32LobAppMsiPackageType>("packageType", win32LobAppMsiInformation.packageType);
-        writer.writeStringValue("productCode", win32LobAppMsiInformation.productCode);
-        writer.writeStringValue("productName", win32LobAppMsiInformation.productName);
-        writer.writeStringValue("productVersion", win32LobAppMsiInformation.productVersion);
-        writer.writeStringValue("publisher", win32LobAppMsiInformation.publisher);
-        writer.writeBooleanValue("requiresReboot", win32LobAppMsiInformation.requiresReboot);
-        writer.writeStringValue("upgradeCode", win32LobAppMsiInformation.upgradeCode);
-        writer.writeAdditionalData(win32LobAppMsiInformation.additionalData);
+    writer.writeStringValue("@odata.type", win32LobAppMsiInformation.odataType);
+    writer.writeEnumValue<Win32LobAppMsiPackageType>("packageType", win32LobAppMsiInformation.packageType);
+    writer.writeStringValue("productCode", win32LobAppMsiInformation.productCode);
+    writer.writeStringValue("productName", win32LobAppMsiInformation.productName);
+    writer.writeStringValue("productVersion", win32LobAppMsiInformation.productVersion);
+    writer.writeStringValue("publisher", win32LobAppMsiInformation.publisher);
+    writer.writeBooleanValue("requiresReboot", win32LobAppMsiInformation.requiresReboot);
+    writer.writeStringValue("upgradeCode", win32LobAppMsiInformation.upgradeCode);
+    writer.writeAdditionalData(win32LobAppMsiInformation.additionalData);
 }
 export interface Win32LobAppMsiInformation extends AdditionalDataHolder, Parsable {
     /**

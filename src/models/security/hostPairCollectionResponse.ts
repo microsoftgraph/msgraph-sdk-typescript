@@ -22,8 +22,8 @@ export interface HostPairCollectionResponse extends BaseCollectionPaginationCoun
     value?: HostPair[];
 }
 export function serializeHostPairCollectionResponse(writer: SerializationWriter, hostPairCollectionResponse: HostPairCollectionResponse | undefined = {} as HostPairCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, hostPairCollectionResponse)
-        writer.writeCollectionOfObjectValues<HostPair>("value", hostPairCollectionResponse.value, serializeHostPair);
+    serializeBaseCollectionPaginationCountResponse(writer, hostPairCollectionResponse)
+    writer.writeCollectionOfObjectValues<HostPair>("value", hostPairCollectionResponse.value, serializeHostPair);
 }
 // tslint:enable
 // eslint-enable

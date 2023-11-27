@@ -46,13 +46,13 @@ export interface ExtensionProperty extends DirectoryObject, Parsable {
     targetObjects?: string[];
 }
 export function serializeExtensionProperty(writer: SerializationWriter, extensionProperty: ExtensionProperty | undefined = {} as ExtensionProperty) : void {
-        serializeDirectoryObject(writer, extensionProperty)
-        writer.writeStringValue("appDisplayName", extensionProperty.appDisplayName);
-        writer.writeStringValue("dataType", extensionProperty.dataType);
-        writer.writeBooleanValue("isMultiValued", extensionProperty.isMultiValued);
-        writer.writeBooleanValue("isSyncedFromOnPremises", extensionProperty.isSyncedFromOnPremises);
-        writer.writeStringValue("name", extensionProperty.name);
-        writer.writeCollectionOfPrimitiveValues<string>("targetObjects", extensionProperty.targetObjects);
+    serializeDirectoryObject(writer, extensionProperty)
+    writer.writeStringValue("appDisplayName", extensionProperty.appDisplayName);
+    writer.writeStringValue("dataType", extensionProperty.dataType);
+    writer.writeBooleanValue("isMultiValued", extensionProperty.isMultiValued);
+    writer.writeBooleanValue("isSyncedFromOnPremises", extensionProperty.isSyncedFromOnPremises);
+    writer.writeStringValue("name", extensionProperty.name);
+    writer.writeCollectionOfPrimitiveValues<string>("targetObjects", extensionProperty.targetObjects);
 }
 // tslint:enable
 // eslint-enable

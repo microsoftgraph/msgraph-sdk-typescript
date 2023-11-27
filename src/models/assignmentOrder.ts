@@ -28,9 +28,9 @@ export function deserializeIntoAssignmentOrder(assignmentOrder: AssignmentOrder 
     }
 }
 export function serializeAssignmentOrder(writer: SerializationWriter, assignmentOrder: AssignmentOrder | undefined = {} as AssignmentOrder) : void {
-        writer.writeStringValue("@odata.type", assignmentOrder.odataType);
-        writer.writeCollectionOfPrimitiveValues<string>("order", assignmentOrder.order);
-        writer.writeAdditionalData(assignmentOrder.additionalData);
+    writer.writeStringValue("@odata.type", assignmentOrder.odataType);
+    writer.writeCollectionOfPrimitiveValues<string>("order", assignmentOrder.order);
+    writer.writeAdditionalData(assignmentOrder.additionalData);
 }
 // tslint:enable
 // eslint-enable

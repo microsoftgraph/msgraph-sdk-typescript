@@ -35,10 +35,10 @@ export interface MediaContentRatingAustralia extends AdditionalDataHolder, Parsa
     tvRating?: RatingAustraliaTelevisionType;
 }
 export function serializeMediaContentRatingAustralia(writer: SerializationWriter, mediaContentRatingAustralia: MediaContentRatingAustralia | undefined = {} as MediaContentRatingAustralia) : void {
-        writer.writeEnumValue<RatingAustraliaMoviesType>("movieRating", mediaContentRatingAustralia.movieRating);
-        writer.writeStringValue("@odata.type", mediaContentRatingAustralia.odataType);
-        writer.writeEnumValue<RatingAustraliaTelevisionType>("tvRating", mediaContentRatingAustralia.tvRating);
-        writer.writeAdditionalData(mediaContentRatingAustralia.additionalData);
+    writer.writeEnumValue<RatingAustraliaMoviesType>("movieRating", mediaContentRatingAustralia.movieRating);
+    writer.writeStringValue("@odata.type", mediaContentRatingAustralia.odataType);
+    writer.writeEnumValue<RatingAustraliaTelevisionType>("tvRating", mediaContentRatingAustralia.tvRating);
+    writer.writeAdditionalData(mediaContentRatingAustralia.additionalData);
 }
 // tslint:enable
 // eslint-enable

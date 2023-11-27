@@ -33,10 +33,10 @@ export interface RedirectUriSettings extends AdditionalDataHolder, Parsable {
     uri?: string;
 }
 export function serializeRedirectUriSettings(writer: SerializationWriter, redirectUriSettings: RedirectUriSettings | undefined = {} as RedirectUriSettings) : void {
-        writer.writeNumberValue("index", redirectUriSettings.index);
-        writer.writeStringValue("@odata.type", redirectUriSettings.odataType);
-        writer.writeStringValue("uri", redirectUriSettings.uri);
-        writer.writeAdditionalData(redirectUriSettings.additionalData);
+    writer.writeNumberValue("index", redirectUriSettings.index);
+    writer.writeStringValue("@odata.type", redirectUriSettings.odataType);
+    writer.writeStringValue("uri", redirectUriSettings.uri);
+    writer.writeAdditionalData(redirectUriSettings.additionalData);
 }
 // tslint:enable
 // eslint-enable

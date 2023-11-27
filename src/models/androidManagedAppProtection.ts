@@ -68,17 +68,17 @@ export function deserializeIntoAndroidManagedAppProtection(androidManagedAppProt
     }
 }
 export function serializeAndroidManagedAppProtection(writer: SerializationWriter, androidManagedAppProtection: AndroidManagedAppProtection | undefined = {} as AndroidManagedAppProtection) : void {
-        serializeTargetedManagedAppProtection(writer, androidManagedAppProtection)
-        writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", androidManagedAppProtection.apps, serializeManagedMobileApp);
-        writer.writeStringValue("customBrowserDisplayName", androidManagedAppProtection.customBrowserDisplayName);
-        writer.writeStringValue("customBrowserPackageId", androidManagedAppProtection.customBrowserPackageId);
-        writer.writeNumberValue("deployedAppCount", androidManagedAppProtection.deployedAppCount);
-        writer.writeObjectValue<ManagedAppPolicyDeploymentSummary>("deploymentSummary", androidManagedAppProtection.deploymentSummary, serializeManagedAppPolicyDeploymentSummary);
-        writer.writeBooleanValue("disableAppEncryptionIfDeviceEncryptionIsEnabled", androidManagedAppProtection.disableAppEncryptionIfDeviceEncryptionIsEnabled);
-        writer.writeBooleanValue("encryptAppData", androidManagedAppProtection.encryptAppData);
-        writer.writeStringValue("minimumRequiredPatchVersion", androidManagedAppProtection.minimumRequiredPatchVersion);
-        writer.writeStringValue("minimumWarningPatchVersion", androidManagedAppProtection.minimumWarningPatchVersion);
-        writer.writeBooleanValue("screenCaptureBlocked", androidManagedAppProtection.screenCaptureBlocked);
+    serializeTargetedManagedAppProtection(writer, androidManagedAppProtection)
+    writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", androidManagedAppProtection.apps, serializeManagedMobileApp);
+    writer.writeStringValue("customBrowserDisplayName", androidManagedAppProtection.customBrowserDisplayName);
+    writer.writeStringValue("customBrowserPackageId", androidManagedAppProtection.customBrowserPackageId);
+    writer.writeNumberValue("deployedAppCount", androidManagedAppProtection.deployedAppCount);
+    writer.writeObjectValue<ManagedAppPolicyDeploymentSummary>("deploymentSummary", androidManagedAppProtection.deploymentSummary, serializeManagedAppPolicyDeploymentSummary);
+    writer.writeBooleanValue("disableAppEncryptionIfDeviceEncryptionIsEnabled", androidManagedAppProtection.disableAppEncryptionIfDeviceEncryptionIsEnabled);
+    writer.writeBooleanValue("encryptAppData", androidManagedAppProtection.encryptAppData);
+    writer.writeStringValue("minimumRequiredPatchVersion", androidManagedAppProtection.minimumRequiredPatchVersion);
+    writer.writeStringValue("minimumWarningPatchVersion", androidManagedAppProtection.minimumWarningPatchVersion);
+    writer.writeBooleanValue("screenCaptureBlocked", androidManagedAppProtection.screenCaptureBlocked);
 }
 // tslint:enable
 // eslint-enable

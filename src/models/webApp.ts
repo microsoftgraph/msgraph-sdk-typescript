@@ -16,9 +16,9 @@ export function deserializeIntoWebApp(webApp: WebApp | undefined = {} as WebApp)
     }
 }
 export function serializeWebApp(writer: SerializationWriter, webApp: WebApp | undefined = {} as WebApp) : void {
-        serializeMobileApp(writer, webApp)
-        writer.writeStringValue("appUrl", webApp.appUrl);
-        writer.writeBooleanValue("useManagedBrowser", webApp.useManagedBrowser);
+    serializeMobileApp(writer, webApp)
+    writer.writeStringValue("appUrl", webApp.appUrl);
+    writer.writeBooleanValue("useManagedBrowser", webApp.useManagedBrowser);
 }
 export interface WebApp extends MobileApp, Parsable {
     /**

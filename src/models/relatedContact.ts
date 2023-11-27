@@ -49,13 +49,13 @@ export interface RelatedContact extends AdditionalDataHolder, Parsable {
     relationship?: ContactRelationship;
 }
 export function serializeRelatedContact(writer: SerializationWriter, relatedContact: RelatedContact | undefined = {} as RelatedContact) : void {
-        writer.writeBooleanValue("accessConsent", relatedContact.accessConsent);
-        writer.writeStringValue("displayName", relatedContact.displayName);
-        writer.writeStringValue("emailAddress", relatedContact.emailAddress);
-        writer.writeStringValue("mobilePhone", relatedContact.mobilePhone);
-        writer.writeStringValue("@odata.type", relatedContact.odataType);
-        writer.writeEnumValue<ContactRelationship>("relationship", relatedContact.relationship);
-        writer.writeAdditionalData(relatedContact.additionalData);
+    writer.writeBooleanValue("accessConsent", relatedContact.accessConsent);
+    writer.writeStringValue("displayName", relatedContact.displayName);
+    writer.writeStringValue("emailAddress", relatedContact.emailAddress);
+    writer.writeStringValue("mobilePhone", relatedContact.mobilePhone);
+    writer.writeStringValue("@odata.type", relatedContact.odataType);
+    writer.writeEnumValue<ContactRelationship>("relationship", relatedContact.relationship);
+    writer.writeAdditionalData(relatedContact.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -38,8 +38,8 @@ export interface MediaConfig extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeMediaConfig(writer: SerializationWriter, mediaConfig: MediaConfig | undefined = {} as MediaConfig) : void {
-        writer.writeStringValue("@odata.type", mediaConfig.odataType);
-        writer.writeAdditionalData(mediaConfig.additionalData);
+    writer.writeStringValue("@odata.type", mediaConfig.odataType);
+    writer.writeAdditionalData(mediaConfig.additionalData);
 }
 // tslint:enable
 // eslint-enable

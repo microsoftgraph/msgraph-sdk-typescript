@@ -16,7 +16,7 @@ export function deserializeIntoContentSharingSession(contentSharingSession: Cont
     }
 }
 export function serializeContentSharingSession(writer: SerializationWriter, contentSharingSession: ContentSharingSession | undefined = {} as ContentSharingSession) : void {
-        serializeEntity(writer, contentSharingSession)
+    serializeEntity(writer, contentSharingSession)
 }
 // tslint:enable
 // eslint-enable

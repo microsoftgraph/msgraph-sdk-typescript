@@ -22,8 +22,8 @@ export function deserializeIntoBookingCustomQuestionCollectionResponse(bookingCu
     }
 }
 export function serializeBookingCustomQuestionCollectionResponse(writer: SerializationWriter, bookingCustomQuestionCollectionResponse: BookingCustomQuestionCollectionResponse | undefined = {} as BookingCustomQuestionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, bookingCustomQuestionCollectionResponse)
-        writer.writeCollectionOfObjectValues<BookingCustomQuestion>("value", bookingCustomQuestionCollectionResponse.value, serializeBookingCustomQuestion);
+    serializeBaseCollectionPaginationCountResponse(writer, bookingCustomQuestionCollectionResponse)
+    writer.writeCollectionOfObjectValues<BookingCustomQuestion>("value", bookingCustomQuestionCollectionResponse.value, serializeBookingCustomQuestion);
 }
 // tslint:enable
 // eslint-enable

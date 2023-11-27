@@ -33,10 +33,10 @@ export interface ImplicitGrantSettings extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeImplicitGrantSettings(writer: SerializationWriter, implicitGrantSettings: ImplicitGrantSettings | undefined = {} as ImplicitGrantSettings) : void {
-        writer.writeBooleanValue("enableAccessTokenIssuance", implicitGrantSettings.enableAccessTokenIssuance);
-        writer.writeBooleanValue("enableIdTokenIssuance", implicitGrantSettings.enableIdTokenIssuance);
-        writer.writeStringValue("@odata.type", implicitGrantSettings.odataType);
-        writer.writeAdditionalData(implicitGrantSettings.additionalData);
+    writer.writeBooleanValue("enableAccessTokenIssuance", implicitGrantSettings.enableAccessTokenIssuance);
+    writer.writeBooleanValue("enableIdTokenIssuance", implicitGrantSettings.enableIdTokenIssuance);
+    writer.writeStringValue("@odata.type", implicitGrantSettings.odataType);
+    writer.writeAdditionalData(implicitGrantSettings.additionalData);
 }
 // tslint:enable
 // eslint-enable

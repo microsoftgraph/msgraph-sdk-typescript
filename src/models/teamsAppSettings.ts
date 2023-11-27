@@ -15,8 +15,8 @@ export function deserializeIntoTeamsAppSettings(teamsAppSettings: TeamsAppSettin
     }
 }
 export function serializeTeamsAppSettings(writer: SerializationWriter, teamsAppSettings: TeamsAppSettings | undefined = {} as TeamsAppSettings) : void {
-        serializeEntity(writer, teamsAppSettings)
-        writer.writeBooleanValue("allowUserRequestsForAppAccess", teamsAppSettings.allowUserRequestsForAppAccess);
+    serializeEntity(writer, teamsAppSettings)
+    writer.writeBooleanValue("allowUserRequestsForAppAccess", teamsAppSettings.allowUserRequestsForAppAccess);
 }
 export interface TeamsAppSettings extends Entity, Parsable {
     /**

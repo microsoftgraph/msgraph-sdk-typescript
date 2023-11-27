@@ -28,9 +28,9 @@ export interface PublicClientApplication extends AdditionalDataHolder, Parsable 
     redirectUris?: string[];
 }
 export function serializePublicClientApplication(writer: SerializationWriter, publicClientApplication: PublicClientApplication | undefined = {} as PublicClientApplication) : void {
-        writer.writeStringValue("@odata.type", publicClientApplication.odataType);
-        writer.writeCollectionOfPrimitiveValues<string>("redirectUris", publicClientApplication.redirectUris);
-        writer.writeAdditionalData(publicClientApplication.additionalData);
+    writer.writeStringValue("@odata.type", publicClientApplication.odataType);
+    writer.writeCollectionOfPrimitiveValues<string>("redirectUris", publicClientApplication.redirectUris);
+    writer.writeAdditionalData(publicClientApplication.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -16,9 +16,9 @@ export function deserializeIntoWindowsUpdateActiveHoursInstall(windowsUpdateActi
     }
 }
 export function serializeWindowsUpdateActiveHoursInstall(writer: SerializationWriter, windowsUpdateActiveHoursInstall: WindowsUpdateActiveHoursInstall | undefined = {} as WindowsUpdateActiveHoursInstall) : void {
-        serializeWindowsUpdateInstallScheduleType(writer, windowsUpdateActiveHoursInstall)
-        writer.writeTimeOnlyValue("activeHoursEnd", windowsUpdateActiveHoursInstall.activeHoursEnd);
-        writer.writeTimeOnlyValue("activeHoursStart", windowsUpdateActiveHoursInstall.activeHoursStart);
+    serializeWindowsUpdateInstallScheduleType(writer, windowsUpdateActiveHoursInstall)
+    writer.writeTimeOnlyValue("activeHoursEnd", windowsUpdateActiveHoursInstall.activeHoursEnd);
+    writer.writeTimeOnlyValue("activeHoursStart", windowsUpdateActiveHoursInstall.activeHoursStart);
 }
 export interface WindowsUpdateActiveHoursInstall extends Parsable, WindowsUpdateInstallScheduleType {
     /**

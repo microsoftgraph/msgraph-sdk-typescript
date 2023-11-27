@@ -44,8 +44,8 @@ export interface IpRange extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeIpRange(writer: SerializationWriter, ipRange: IpRange | undefined = {} as IpRange) : void {
-        writer.writeStringValue("@odata.type", ipRange.odataType);
-        writer.writeAdditionalData(ipRange.additionalData);
+    writer.writeStringValue("@odata.type", ipRange.odataType);
+    writer.writeAdditionalData(ipRange.additionalData);
 }
 // tslint:enable
 // eslint-enable

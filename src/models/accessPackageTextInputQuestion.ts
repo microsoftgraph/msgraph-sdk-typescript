@@ -26,9 +26,9 @@ export function deserializeIntoAccessPackageTextInputQuestion(accessPackageTextI
     }
 }
 export function serializeAccessPackageTextInputQuestion(writer: SerializationWriter, accessPackageTextInputQuestion: AccessPackageTextInputQuestion | undefined = {} as AccessPackageTextInputQuestion) : void {
-        serializeAccessPackageQuestion(writer, accessPackageTextInputQuestion)
-        writer.writeBooleanValue("isSingleLineQuestion", accessPackageTextInputQuestion.isSingleLineQuestion);
-        writer.writeStringValue("regexPattern", accessPackageTextInputQuestion.regexPattern);
+    serializeAccessPackageQuestion(writer, accessPackageTextInputQuestion)
+    writer.writeBooleanValue("isSingleLineQuestion", accessPackageTextInputQuestion.isSingleLineQuestion);
+    writer.writeStringValue("regexPattern", accessPackageTextInputQuestion.regexPattern);
 }
 // tslint:enable
 // eslint-enable

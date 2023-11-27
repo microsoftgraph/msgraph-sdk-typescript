@@ -16,7 +16,7 @@ export function deserializeIntoAndroidManagedAppRegistration(androidManagedAppRe
     }
 }
 export function serializeAndroidManagedAppRegistration(writer: SerializationWriter, androidManagedAppRegistration: AndroidManagedAppRegistration | undefined = {} as AndroidManagedAppRegistration) : void {
-        serializeManagedAppRegistration(writer, androidManagedAppRegistration)
+    serializeManagedAppRegistration(writer, androidManagedAppRegistration)
 }
 // tslint:enable
 // eslint-enable

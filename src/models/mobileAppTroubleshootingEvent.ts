@@ -22,8 +22,8 @@ export interface MobileAppTroubleshootingEvent extends Entity, Parsable {
     appLogCollectionRequests?: AppLogCollectionRequest[];
 }
 export function serializeMobileAppTroubleshootingEvent(writer: SerializationWriter, mobileAppTroubleshootingEvent: MobileAppTroubleshootingEvent | undefined = {} as MobileAppTroubleshootingEvent) : void {
-        serializeEntity(writer, mobileAppTroubleshootingEvent)
-        writer.writeCollectionOfObjectValues<AppLogCollectionRequest>("appLogCollectionRequests", mobileAppTroubleshootingEvent.appLogCollectionRequests, serializeAppLogCollectionRequest);
+    serializeEntity(writer, mobileAppTroubleshootingEvent)
+    writer.writeCollectionOfObjectValues<AppLogCollectionRequest>("appLogCollectionRequests", mobileAppTroubleshootingEvent.appLogCollectionRequests, serializeAppLogCollectionRequest);
 }
 // tslint:enable
 // eslint-enable

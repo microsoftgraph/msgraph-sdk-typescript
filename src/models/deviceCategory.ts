@@ -26,9 +26,9 @@ export interface DeviceCategory extends Entity, Parsable {
     displayName?: string;
 }
 export function serializeDeviceCategory(writer: SerializationWriter, deviceCategory: DeviceCategory | undefined = {} as DeviceCategory) : void {
-        serializeEntity(writer, deviceCategory)
-        writer.writeStringValue("description", deviceCategory.description);
-        writer.writeStringValue("displayName", deviceCategory.displayName);
+    serializeEntity(writer, deviceCategory)
+    writer.writeStringValue("description", deviceCategory.description);
+    writer.writeStringValue("displayName", deviceCategory.displayName);
 }
 // tslint:enable
 // eslint-enable

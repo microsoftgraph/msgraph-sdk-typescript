@@ -22,8 +22,8 @@ export interface PhoneAuthenticationMethodCollectionResponse extends BaseCollect
     value?: PhoneAuthenticationMethod[];
 }
 export function serializePhoneAuthenticationMethodCollectionResponse(writer: SerializationWriter, phoneAuthenticationMethodCollectionResponse: PhoneAuthenticationMethodCollectionResponse | undefined = {} as PhoneAuthenticationMethodCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, phoneAuthenticationMethodCollectionResponse)
-        writer.writeCollectionOfObjectValues<PhoneAuthenticationMethod>("value", phoneAuthenticationMethodCollectionResponse.value, serializePhoneAuthenticationMethod);
+    serializeBaseCollectionPaginationCountResponse(writer, phoneAuthenticationMethodCollectionResponse)
+    writer.writeCollectionOfObjectValues<PhoneAuthenticationMethod>("value", phoneAuthenticationMethodCollectionResponse.value, serializePhoneAuthenticationMethod);
 }
 // tslint:enable
 // eslint-enable

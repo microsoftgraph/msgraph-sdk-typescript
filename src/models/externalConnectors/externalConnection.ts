@@ -79,17 +79,17 @@ export interface ExternalConnection extends Entity, Parsable {
     state?: ConnectionState;
 }
 export function serializeExternalConnection(writer: SerializationWriter, externalConnection: ExternalConnection | undefined = {} as ExternalConnection) : void {
-        serializeEntity(writer, externalConnection)
-        writer.writeObjectValue<ActivitySettings>("activitySettings", externalConnection.activitySettings, serializeActivitySettings);
-        writer.writeObjectValue<Configuration>("configuration", externalConnection.configuration, serializeConfiguration);
-        writer.writeStringValue("connectorId", externalConnection.connectorId);
-        writer.writeStringValue("description", externalConnection.description);
-        writer.writeCollectionOfObjectValues<ExternalGroup>("groups", externalConnection.groups, serializeExternalGroup);
-        writer.writeCollectionOfObjectValues<ExternalItem>("items", externalConnection.items, serializeExternalItem);
-        writer.writeStringValue("name", externalConnection.name);
-        writer.writeCollectionOfObjectValues<ConnectionOperation>("operations", externalConnection.operations, serializeConnectionOperation);
-        writer.writeObjectValue<Schema>("schema", externalConnection.schema, serializeSchema);
-        writer.writeObjectValue<SearchSettings>("searchSettings", externalConnection.searchSettings, serializeSearchSettings);
+    serializeEntity(writer, externalConnection)
+    writer.writeObjectValue<ActivitySettings>("activitySettings", externalConnection.activitySettings, serializeActivitySettings);
+    writer.writeObjectValue<Configuration>("configuration", externalConnection.configuration, serializeConfiguration);
+    writer.writeStringValue("connectorId", externalConnection.connectorId);
+    writer.writeStringValue("description", externalConnection.description);
+    writer.writeCollectionOfObjectValues<ExternalGroup>("groups", externalConnection.groups, serializeExternalGroup);
+    writer.writeCollectionOfObjectValues<ExternalItem>("items", externalConnection.items, serializeExternalItem);
+    writer.writeStringValue("name", externalConnection.name);
+    writer.writeCollectionOfObjectValues<ConnectionOperation>("operations", externalConnection.operations, serializeConnectionOperation);
+    writer.writeObjectValue<Schema>("schema", externalConnection.schema, serializeSchema);
+    writer.writeObjectValue<SearchSettings>("searchSettings", externalConnection.searchSettings, serializeSearchSettings);
 }
 // tslint:enable
 // eslint-enable

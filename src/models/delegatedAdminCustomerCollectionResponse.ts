@@ -22,8 +22,8 @@ export function deserializeIntoDelegatedAdminCustomerCollectionResponse(delegate
     }
 }
 export function serializeDelegatedAdminCustomerCollectionResponse(writer: SerializationWriter, delegatedAdminCustomerCollectionResponse: DelegatedAdminCustomerCollectionResponse | undefined = {} as DelegatedAdminCustomerCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, delegatedAdminCustomerCollectionResponse)
-        writer.writeCollectionOfObjectValues<DelegatedAdminCustomer>("value", delegatedAdminCustomerCollectionResponse.value, serializeDelegatedAdminCustomer);
+    serializeBaseCollectionPaginationCountResponse(writer, delegatedAdminCustomerCollectionResponse)
+    writer.writeCollectionOfObjectValues<DelegatedAdminCustomer>("value", delegatedAdminCustomerCollectionResponse.value, serializeDelegatedAdminCustomer);
 }
 // tslint:enable
 // eslint-enable

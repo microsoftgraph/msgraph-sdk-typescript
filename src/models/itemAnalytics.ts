@@ -32,10 +32,10 @@ export interface ItemAnalytics extends Entity, Parsable {
     lastSevenDays?: ItemActivityStat;
 }
 export function serializeItemAnalytics(writer: SerializationWriter, itemAnalytics: ItemAnalytics | undefined = {} as ItemAnalytics) : void {
-        serializeEntity(writer, itemAnalytics)
-        writer.writeObjectValue<ItemActivityStat>("allTime", itemAnalytics.allTime, serializeItemActivityStat);
-        writer.writeCollectionOfObjectValues<ItemActivityStat>("itemActivityStats", itemAnalytics.itemActivityStats, serializeItemActivityStat);
-        writer.writeObjectValue<ItemActivityStat>("lastSevenDays", itemAnalytics.lastSevenDays, serializeItemActivityStat);
+    serializeEntity(writer, itemAnalytics)
+    writer.writeObjectValue<ItemActivityStat>("allTime", itemAnalytics.allTime, serializeItemActivityStat);
+    writer.writeCollectionOfObjectValues<ItemActivityStat>("itemActivityStats", itemAnalytics.itemActivityStats, serializeItemActivityStat);
+    writer.writeObjectValue<ItemActivityStat>("lastSevenDays", itemAnalytics.lastSevenDays, serializeItemActivityStat);
 }
 // tslint:enable
 // eslint-enable

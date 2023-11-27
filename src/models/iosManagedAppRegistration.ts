@@ -16,7 +16,7 @@ export function deserializeIntoIosManagedAppRegistration(iosManagedAppRegistrati
 export interface IosManagedAppRegistration extends ManagedAppRegistration, Parsable {
 }
 export function serializeIosManagedAppRegistration(writer: SerializationWriter, iosManagedAppRegistration: IosManagedAppRegistration | undefined = {} as IosManagedAppRegistration) : void {
-        serializeManagedAppRegistration(writer, iosManagedAppRegistration)
+    serializeManagedAppRegistration(writer, iosManagedAppRegistration)
 }
 // tslint:enable
 // eslint-enable

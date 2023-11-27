@@ -22,8 +22,8 @@ export interface Fido2AuthenticationMethodCollectionResponse extends BaseCollect
     value?: Fido2AuthenticationMethod[];
 }
 export function serializeFido2AuthenticationMethodCollectionResponse(writer: SerializationWriter, fido2AuthenticationMethodCollectionResponse: Fido2AuthenticationMethodCollectionResponse | undefined = {} as Fido2AuthenticationMethodCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, fido2AuthenticationMethodCollectionResponse)
-        writer.writeCollectionOfObjectValues<Fido2AuthenticationMethod>("value", fido2AuthenticationMethodCollectionResponse.value, serializeFido2AuthenticationMethod);
+    serializeBaseCollectionPaginationCountResponse(writer, fido2AuthenticationMethodCollectionResponse)
+    writer.writeCollectionOfObjectValues<Fido2AuthenticationMethod>("value", fido2AuthenticationMethodCollectionResponse.value, serializeFido2AuthenticationMethod);
 }
 // tslint:enable
 // eslint-enable

@@ -16,7 +16,7 @@ export function deserializeIntoOrganizationalBrandingLocalization(organizational
 export interface OrganizationalBrandingLocalization extends OrganizationalBrandingProperties, Parsable {
 }
 export function serializeOrganizationalBrandingLocalization(writer: SerializationWriter, organizationalBrandingLocalization: OrganizationalBrandingLocalization | undefined = {} as OrganizationalBrandingLocalization) : void {
-        serializeOrganizationalBrandingProperties(writer, organizationalBrandingLocalization)
+    serializeOrganizationalBrandingProperties(writer, organizationalBrandingLocalization)
 }
 // tslint:enable
 // eslint-enable

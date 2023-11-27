@@ -47,13 +47,13 @@ export function deserializeIntoAccessPackageResourceScope(accessPackageResourceS
     }
 }
 export function serializeAccessPackageResourceScope(writer: SerializationWriter, accessPackageResourceScope: AccessPackageResourceScope | undefined = {} as AccessPackageResourceScope) : void {
-        serializeEntity(writer, accessPackageResourceScope)
-        writer.writeStringValue("description", accessPackageResourceScope.description);
-        writer.writeStringValue("displayName", accessPackageResourceScope.displayName);
-        writer.writeBooleanValue("isRootScope", accessPackageResourceScope.isRootScope);
-        writer.writeStringValue("originId", accessPackageResourceScope.originId);
-        writer.writeStringValue("originSystem", accessPackageResourceScope.originSystem);
-        writer.writeObjectValue<AccessPackageResource>("resource", accessPackageResourceScope.resource, serializeAccessPackageResource);
+    serializeEntity(writer, accessPackageResourceScope)
+    writer.writeStringValue("description", accessPackageResourceScope.description);
+    writer.writeStringValue("displayName", accessPackageResourceScope.displayName);
+    writer.writeBooleanValue("isRootScope", accessPackageResourceScope.isRootScope);
+    writer.writeStringValue("originId", accessPackageResourceScope.originId);
+    writer.writeStringValue("originSystem", accessPackageResourceScope.originSystem);
+    writer.writeObjectValue<AccessPackageResource>("resource", accessPackageResourceScope.resource, serializeAccessPackageResource);
 }
 // tslint:enable
 // eslint-enable

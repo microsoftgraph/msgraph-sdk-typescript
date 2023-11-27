@@ -32,10 +32,10 @@ export function deserializeIntoChannelDeletedEventMessageDetail(channelDeletedEv
     }
 }
 export function serializeChannelDeletedEventMessageDetail(writer: SerializationWriter, channelDeletedEventMessageDetail: ChannelDeletedEventMessageDetail | undefined = {} as ChannelDeletedEventMessageDetail) : void {
-        serializeEventMessageDetail(writer, channelDeletedEventMessageDetail)
-        writer.writeStringValue("channelDisplayName", channelDeletedEventMessageDetail.channelDisplayName);
-        writer.writeStringValue("channelId", channelDeletedEventMessageDetail.channelId);
-        writer.writeObjectValue<IdentitySet>("initiator", channelDeletedEventMessageDetail.initiator, serializeIdentitySet);
+    serializeEventMessageDetail(writer, channelDeletedEventMessageDetail)
+    writer.writeStringValue("channelDisplayName", channelDeletedEventMessageDetail.channelDisplayName);
+    writer.writeStringValue("channelId", channelDeletedEventMessageDetail.channelId);
+    writer.writeObjectValue<IdentitySet>("initiator", channelDeletedEventMessageDetail.initiator, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

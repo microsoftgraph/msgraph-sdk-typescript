@@ -46,10 +46,10 @@ export function deserializeIntoAccessPackageAnswer(accessPackageAnswer: AccessPa
     }
 }
 export function serializeAccessPackageAnswer(writer: SerializationWriter, accessPackageAnswer: AccessPackageAnswer | undefined = {} as AccessPackageAnswer) : void {
-        writer.writeObjectValue<AccessPackageQuestion>("answeredQuestion", accessPackageAnswer.answeredQuestion, serializeAccessPackageQuestion);
-        writer.writeStringValue("displayValue", accessPackageAnswer.displayValue);
-        writer.writeStringValue("@odata.type", accessPackageAnswer.odataType);
-        writer.writeAdditionalData(accessPackageAnswer.additionalData);
+    writer.writeObjectValue<AccessPackageQuestion>("answeredQuestion", accessPackageAnswer.answeredQuestion, serializeAccessPackageQuestion);
+    writer.writeStringValue("displayValue", accessPackageAnswer.displayValue);
+    writer.writeStringValue("@odata.type", accessPackageAnswer.odataType);
+    writer.writeAdditionalData(accessPackageAnswer.additionalData);
 }
 // tslint:enable
 // eslint-enable

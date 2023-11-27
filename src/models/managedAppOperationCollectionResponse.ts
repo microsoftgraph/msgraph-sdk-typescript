@@ -22,8 +22,8 @@ export interface ManagedAppOperationCollectionResponse extends BaseCollectionPag
     value?: ManagedAppOperation[];
 }
 export function serializeManagedAppOperationCollectionResponse(writer: SerializationWriter, managedAppOperationCollectionResponse: ManagedAppOperationCollectionResponse | undefined = {} as ManagedAppOperationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, managedAppOperationCollectionResponse)
-        writer.writeCollectionOfObjectValues<ManagedAppOperation>("value", managedAppOperationCollectionResponse.value, serializeManagedAppOperation);
+    serializeBaseCollectionPaginationCountResponse(writer, managedAppOperationCollectionResponse)
+    writer.writeCollectionOfObjectValues<ManagedAppOperation>("value", managedAppOperationCollectionResponse.value, serializeManagedAppOperation);
 }
 // tslint:enable
 // eslint-enable

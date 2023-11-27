@@ -28,9 +28,9 @@ export function deserializeIntoTeamworkHostedContent(teamworkHostedContent: Team
     }
 }
 export function serializeTeamworkHostedContent(writer: SerializationWriter, teamworkHostedContent: TeamworkHostedContent | undefined = {} as TeamworkHostedContent) : void {
-        serializeEntity(writer, teamworkHostedContent)
-        writer.writeStringValue("contentBytes", teamworkHostedContent.contentBytes);
-        writer.writeStringValue("contentType", teamworkHostedContent.contentType);
+    serializeEntity(writer, teamworkHostedContent)
+    writer.writeStringValue("contentBytes", teamworkHostedContent.contentBytes);
+    writer.writeStringValue("contentType", teamworkHostedContent.contentType);
 }
 export interface TeamworkHostedContent extends Entity, Parsable {
     /**

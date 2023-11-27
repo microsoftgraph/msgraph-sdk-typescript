@@ -16,9 +16,9 @@ export function deserializeIntoWorkbookCommentReply(workbookCommentReply: Workbo
     }
 }
 export function serializeWorkbookCommentReply(writer: SerializationWriter, workbookCommentReply: WorkbookCommentReply | undefined = {} as WorkbookCommentReply) : void {
-        serializeEntity(writer, workbookCommentReply)
-        writer.writeStringValue("content", workbookCommentReply.content);
-        writer.writeStringValue("contentType", workbookCommentReply.contentType);
+    serializeEntity(writer, workbookCommentReply)
+    writer.writeStringValue("content", workbookCommentReply.content);
+    writer.writeStringValue("contentType", workbookCommentReply.contentType);
 }
 export interface WorkbookCommentReply extends Entity, Parsable {
     /**

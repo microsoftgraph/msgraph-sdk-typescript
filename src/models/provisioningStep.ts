@@ -51,13 +51,13 @@ export interface ProvisioningStep extends AdditionalDataHolder, Parsable {
     status?: ProvisioningResult;
 }
 export function serializeProvisioningStep(writer: SerializationWriter, provisioningStep: ProvisioningStep | undefined = {} as ProvisioningStep) : void {
-        writer.writeStringValue("description", provisioningStep.description);
-        writer.writeObjectValue<DetailsInfo>("details", provisioningStep.details, serializeDetailsInfo);
-        writer.writeStringValue("name", provisioningStep.name);
-        writer.writeStringValue("@odata.type", provisioningStep.odataType);
-        writer.writeEnumValue<ProvisioningStepType>("provisioningStepType", provisioningStep.provisioningStepType);
-        writer.writeEnumValue<ProvisioningResult>("status", provisioningStep.status);
-        writer.writeAdditionalData(provisioningStep.additionalData);
+    writer.writeStringValue("description", provisioningStep.description);
+    writer.writeObjectValue<DetailsInfo>("details", provisioningStep.details, serializeDetailsInfo);
+    writer.writeStringValue("name", provisioningStep.name);
+    writer.writeStringValue("@odata.type", provisioningStep.odataType);
+    writer.writeEnumValue<ProvisioningStepType>("provisioningStepType", provisioningStep.provisioningStepType);
+    writer.writeEnumValue<ProvisioningResult>("status", provisioningStep.status);
+    writer.writeAdditionalData(provisioningStep.additionalData);
 }
 // tslint:enable
 // eslint-enable

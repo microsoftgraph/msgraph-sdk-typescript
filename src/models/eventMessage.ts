@@ -87,17 +87,17 @@ export interface EventMessage extends Message, Parsable {
     type?: EventType;
 }
 export function serializeEventMessage(writer: SerializationWriter, eventMessage: EventMessage | undefined = {} as EventMessage) : void {
-        serializeMessage(writer, eventMessage)
-        writer.writeObjectValue<DateTimeTimeZone>("endDateTime", eventMessage.endDateTime, serializeDateTimeTimeZone);
-        writer.writeObjectValue<Event>("event", eventMessage.event, serializeEvent);
-        writer.writeBooleanValue("isAllDay", eventMessage.isAllDay);
-        writer.writeBooleanValue("isDelegated", eventMessage.isDelegated);
-        writer.writeBooleanValue("isOutOfDate", eventMessage.isOutOfDate);
-        writer.writeObjectValue<Location>("location", eventMessage.location, serializeLocation);
-        writer.writeEnumValue<MeetingMessageType>("meetingMessageType", eventMessage.meetingMessageType);
-        writer.writeObjectValue<PatternedRecurrence>("recurrence", eventMessage.recurrence, serializePatternedRecurrence);
-        writer.writeObjectValue<DateTimeTimeZone>("startDateTime", eventMessage.startDateTime, serializeDateTimeTimeZone);
-        writer.writeEnumValue<EventType>("type", eventMessage.type);
+    serializeMessage(writer, eventMessage)
+    writer.writeObjectValue<DateTimeTimeZone>("endDateTime", eventMessage.endDateTime, serializeDateTimeTimeZone);
+    writer.writeObjectValue<Event>("event", eventMessage.event, serializeEvent);
+    writer.writeBooleanValue("isAllDay", eventMessage.isAllDay);
+    writer.writeBooleanValue("isDelegated", eventMessage.isDelegated);
+    writer.writeBooleanValue("isOutOfDate", eventMessage.isOutOfDate);
+    writer.writeObjectValue<Location>("location", eventMessage.location, serializeLocation);
+    writer.writeEnumValue<MeetingMessageType>("meetingMessageType", eventMessage.meetingMessageType);
+    writer.writeObjectValue<PatternedRecurrence>("recurrence", eventMessage.recurrence, serializePatternedRecurrence);
+    writer.writeObjectValue<DateTimeTimeZone>("startDateTime", eventMessage.startDateTime, serializeDateTimeTimeZone);
+    writer.writeEnumValue<EventType>("type", eventMessage.type);
 }
 // tslint:enable
 // eslint-enable

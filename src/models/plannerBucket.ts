@@ -37,11 +37,11 @@ export interface PlannerBucket extends Entity, Parsable {
     tasks?: PlannerTask[];
 }
 export function serializePlannerBucket(writer: SerializationWriter, plannerBucket: PlannerBucket | undefined = {} as PlannerBucket) : void {
-        serializeEntity(writer, plannerBucket)
-        writer.writeStringValue("name", plannerBucket.name);
-        writer.writeStringValue("orderHint", plannerBucket.orderHint);
-        writer.writeStringValue("planId", plannerBucket.planId);
-        writer.writeCollectionOfObjectValues<PlannerTask>("tasks", plannerBucket.tasks, serializePlannerTask);
+    serializeEntity(writer, plannerBucket)
+    writer.writeStringValue("name", plannerBucket.name);
+    writer.writeStringValue("orderHint", plannerBucket.orderHint);
+    writer.writeStringValue("planId", plannerBucket.planId);
+    writer.writeCollectionOfObjectValues<PlannerTask>("tasks", plannerBucket.tasks, serializePlannerTask);
 }
 // tslint:enable
 // eslint-enable

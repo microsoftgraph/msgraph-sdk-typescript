@@ -21,13 +21,13 @@ export function deserializeIntoTemporaryAccessPassAuthenticationMethodConfigurat
     }
 }
 export function serializeTemporaryAccessPassAuthenticationMethodConfiguration(writer: SerializationWriter, temporaryAccessPassAuthenticationMethodConfiguration: TemporaryAccessPassAuthenticationMethodConfiguration | undefined = {} as TemporaryAccessPassAuthenticationMethodConfiguration) : void {
-        serializeAuthenticationMethodConfiguration(writer, temporaryAccessPassAuthenticationMethodConfiguration)
-        writer.writeNumberValue("defaultLength", temporaryAccessPassAuthenticationMethodConfiguration.defaultLength);
-        writer.writeNumberValue("defaultLifetimeInMinutes", temporaryAccessPassAuthenticationMethodConfiguration.defaultLifetimeInMinutes);
-        writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", temporaryAccessPassAuthenticationMethodConfiguration.includeTargets, serializeAuthenticationMethodTarget);
-        writer.writeBooleanValue("isUsableOnce", temporaryAccessPassAuthenticationMethodConfiguration.isUsableOnce);
-        writer.writeNumberValue("maximumLifetimeInMinutes", temporaryAccessPassAuthenticationMethodConfiguration.maximumLifetimeInMinutes);
-        writer.writeNumberValue("minimumLifetimeInMinutes", temporaryAccessPassAuthenticationMethodConfiguration.minimumLifetimeInMinutes);
+    serializeAuthenticationMethodConfiguration(writer, temporaryAccessPassAuthenticationMethodConfiguration)
+    writer.writeNumberValue("defaultLength", temporaryAccessPassAuthenticationMethodConfiguration.defaultLength);
+    writer.writeNumberValue("defaultLifetimeInMinutes", temporaryAccessPassAuthenticationMethodConfiguration.defaultLifetimeInMinutes);
+    writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", temporaryAccessPassAuthenticationMethodConfiguration.includeTargets, serializeAuthenticationMethodTarget);
+    writer.writeBooleanValue("isUsableOnce", temporaryAccessPassAuthenticationMethodConfiguration.isUsableOnce);
+    writer.writeNumberValue("maximumLifetimeInMinutes", temporaryAccessPassAuthenticationMethodConfiguration.maximumLifetimeInMinutes);
+    writer.writeNumberValue("minimumLifetimeInMinutes", temporaryAccessPassAuthenticationMethodConfiguration.minimumLifetimeInMinutes);
 }
 export interface TemporaryAccessPassAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration, Parsable {
     /**

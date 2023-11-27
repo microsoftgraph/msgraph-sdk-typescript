@@ -17,11 +17,11 @@ export function deserializeIntoWhoisNameserver(whoisNameserver: WhoisNameserver 
     }
 }
 export function serializeWhoisNameserver(writer: SerializationWriter, whoisNameserver: WhoisNameserver | undefined = {} as WhoisNameserver) : void {
-        writer.writeDateValue("firstSeenDateTime", whoisNameserver.firstSeenDateTime);
-        writer.writeObjectValue<Host>("host", whoisNameserver.host, serializeHost);
-        writer.writeDateValue("lastSeenDateTime", whoisNameserver.lastSeenDateTime);
-        writer.writeStringValue("@odata.type", whoisNameserver.odataType);
-        writer.writeAdditionalData(whoisNameserver.additionalData);
+    writer.writeDateValue("firstSeenDateTime", whoisNameserver.firstSeenDateTime);
+    writer.writeObjectValue<Host>("host", whoisNameserver.host, serializeHost);
+    writer.writeDateValue("lastSeenDateTime", whoisNameserver.lastSeenDateTime);
+    writer.writeStringValue("@odata.type", whoisNameserver.odataType);
+    writer.writeAdditionalData(whoisNameserver.additionalData);
 }
 export interface WhoisNameserver extends AdditionalDataHolder, Parsable {
     /**

@@ -17,9 +17,9 @@ export function deserializeIntoTimeBasedAttributeTrigger(timeBasedAttributeTrigg
     }
 }
 export function serializeTimeBasedAttributeTrigger(writer: SerializationWriter, timeBasedAttributeTrigger: TimeBasedAttributeTrigger | undefined = {} as TimeBasedAttributeTrigger) : void {
-        serializeWorkflowExecutionTrigger(writer, timeBasedAttributeTrigger)
-        writer.writeNumberValue("offsetInDays", timeBasedAttributeTrigger.offsetInDays);
-        writer.writeEnumValue<WorkflowTriggerTimeBasedAttribute>("timeBasedAttribute", timeBasedAttributeTrigger.timeBasedAttribute);
+    serializeWorkflowExecutionTrigger(writer, timeBasedAttributeTrigger)
+    writer.writeNumberValue("offsetInDays", timeBasedAttributeTrigger.offsetInDays);
+    writer.writeEnumValue<WorkflowTriggerTimeBasedAttribute>("timeBasedAttribute", timeBasedAttributeTrigger.timeBasedAttribute);
 }
 export interface TimeBasedAttributeTrigger extends Parsable, WorkflowExecutionTrigger {
     /**

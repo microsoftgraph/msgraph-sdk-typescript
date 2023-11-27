@@ -33,21 +33,21 @@ export function deserializeIntoTraining(training: Training | undefined = {} as T
     }
 }
 export function serializeTraining(writer: SerializationWriter, training: Training | undefined = {} as Training) : void {
-        serializeEntity(writer, training)
-        writer.writeEnumValue<TrainingAvailabilityStatus>("availabilityStatus", training.availabilityStatus);
-        writer.writeObjectValue<EmailIdentity>("createdBy", training.createdBy, serializeEmailIdentity);
-        writer.writeDateValue("createdDateTime", training.createdDateTime);
-        writer.writeStringValue("description", training.description);
-        writer.writeStringValue("displayName", training.displayName);
-        writer.writeNumberValue("durationInMinutes", training.durationInMinutes);
-        writer.writeBooleanValue("hasEvaluation", training.hasEvaluation);
-        writer.writeCollectionOfObjectValues<TrainingLanguageDetail>("languageDetails", training.languageDetails, serializeTrainingLanguageDetail);
-        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", training.lastModifiedBy, serializeEmailIdentity);
-        writer.writeDateValue("lastModifiedDateTime", training.lastModifiedDateTime);
-        writer.writeEnumValue<SimulationContentSource>("source", training.source);
-        writer.writeCollectionOfPrimitiveValues<string>("supportedLocales", training.supportedLocales);
-        writer.writeCollectionOfPrimitiveValues<string>("tags", training.tags);
-        writer.writeEnumValue<TrainingType>("type", training.type);
+    serializeEntity(writer, training)
+    writer.writeEnumValue<TrainingAvailabilityStatus>("availabilityStatus", training.availabilityStatus);
+    writer.writeObjectValue<EmailIdentity>("createdBy", training.createdBy, serializeEmailIdentity);
+    writer.writeDateValue("createdDateTime", training.createdDateTime);
+    writer.writeStringValue("description", training.description);
+    writer.writeStringValue("displayName", training.displayName);
+    writer.writeNumberValue("durationInMinutes", training.durationInMinutes);
+    writer.writeBooleanValue("hasEvaluation", training.hasEvaluation);
+    writer.writeCollectionOfObjectValues<TrainingLanguageDetail>("languageDetails", training.languageDetails, serializeTrainingLanguageDetail);
+    writer.writeObjectValue<EmailIdentity>("lastModifiedBy", training.lastModifiedBy, serializeEmailIdentity);
+    writer.writeDateValue("lastModifiedDateTime", training.lastModifiedDateTime);
+    writer.writeEnumValue<SimulationContentSource>("source", training.source);
+    writer.writeCollectionOfPrimitiveValues<string>("supportedLocales", training.supportedLocales);
+    writer.writeCollectionOfPrimitiveValues<string>("tags", training.tags);
+    writer.writeEnumValue<TrainingType>("type", training.type);
 }
 export interface Training extends Entity, Parsable {
     /**

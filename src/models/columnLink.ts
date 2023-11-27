@@ -21,8 +21,8 @@ export function deserializeIntoColumnLink(columnLink: ColumnLink | undefined = {
     }
 }
 export function serializeColumnLink(writer: SerializationWriter, columnLink: ColumnLink | undefined = {} as ColumnLink) : void {
-        serializeEntity(writer, columnLink)
-        writer.writeStringValue("name", columnLink.name);
+    serializeEntity(writer, columnLink)
+    writer.writeStringValue("name", columnLink.name);
 }
 // tslint:enable
 // eslint-enable

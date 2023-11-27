@@ -26,9 +26,9 @@ export interface IosVppAppAssignmentSettings extends MobileAppAssignmentSettings
     vpnConfigurationId?: string;
 }
 export function serializeIosVppAppAssignmentSettings(writer: SerializationWriter, iosVppAppAssignmentSettings: IosVppAppAssignmentSettings | undefined = {} as IosVppAppAssignmentSettings) : void {
-        serializeMobileAppAssignmentSettings(writer, iosVppAppAssignmentSettings)
-        writer.writeBooleanValue("useDeviceLicensing", iosVppAppAssignmentSettings.useDeviceLicensing);
-        writer.writeStringValue("vpnConfigurationId", iosVppAppAssignmentSettings.vpnConfigurationId);
+    serializeMobileAppAssignmentSettings(writer, iosVppAppAssignmentSettings)
+    writer.writeBooleanValue("useDeviceLicensing", iosVppAppAssignmentSettings.useDeviceLicensing);
+    writer.writeStringValue("vpnConfigurationId", iosVppAppAssignmentSettings.vpnConfigurationId);
 }
 // tslint:enable
 // eslint-enable

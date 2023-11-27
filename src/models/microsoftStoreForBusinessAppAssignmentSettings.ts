@@ -21,8 +21,8 @@ export interface MicrosoftStoreForBusinessAppAssignmentSettings extends MobileAp
     useDeviceContext?: boolean;
 }
 export function serializeMicrosoftStoreForBusinessAppAssignmentSettings(writer: SerializationWriter, microsoftStoreForBusinessAppAssignmentSettings: MicrosoftStoreForBusinessAppAssignmentSettings | undefined = {} as MicrosoftStoreForBusinessAppAssignmentSettings) : void {
-        serializeMobileAppAssignmentSettings(writer, microsoftStoreForBusinessAppAssignmentSettings)
-        writer.writeBooleanValue("useDeviceContext", microsoftStoreForBusinessAppAssignmentSettings.useDeviceContext);
+    serializeMobileAppAssignmentSettings(writer, microsoftStoreForBusinessAppAssignmentSettings)
+    writer.writeBooleanValue("useDeviceContext", microsoftStoreForBusinessAppAssignmentSettings.useDeviceContext);
 }
 // tslint:enable
 // eslint-enable

@@ -15,10 +15,10 @@ export function deserializeIntoWindowsInformationProtectionResourceCollection(wi
     }
 }
 export function serializeWindowsInformationProtectionResourceCollection(writer: SerializationWriter, windowsInformationProtectionResourceCollection: WindowsInformationProtectionResourceCollection | undefined = {} as WindowsInformationProtectionResourceCollection) : void {
-        writer.writeStringValue("displayName", windowsInformationProtectionResourceCollection.displayName);
-        writer.writeStringValue("@odata.type", windowsInformationProtectionResourceCollection.odataType);
-        writer.writeCollectionOfPrimitiveValues<string>("resources", windowsInformationProtectionResourceCollection.resources);
-        writer.writeAdditionalData(windowsInformationProtectionResourceCollection.additionalData);
+    writer.writeStringValue("displayName", windowsInformationProtectionResourceCollection.displayName);
+    writer.writeStringValue("@odata.type", windowsInformationProtectionResourceCollection.odataType);
+    writer.writeCollectionOfPrimitiveValues<string>("resources", windowsInformationProtectionResourceCollection.resources);
+    writer.writeAdditionalData(windowsInformationProtectionResourceCollection.additionalData);
 }
 export interface WindowsInformationProtectionResourceCollection extends AdditionalDataHolder, Parsable {
     /**

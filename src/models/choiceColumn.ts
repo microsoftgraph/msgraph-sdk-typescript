@@ -38,11 +38,11 @@ export function deserializeIntoChoiceColumn(choiceColumn: ChoiceColumn | undefin
     }
 }
 export function serializeChoiceColumn(writer: SerializationWriter, choiceColumn: ChoiceColumn | undefined = {} as ChoiceColumn) : void {
-        writer.writeBooleanValue("allowTextEntry", choiceColumn.allowTextEntry);
-        writer.writeCollectionOfPrimitiveValues<string>("choices", choiceColumn.choices);
-        writer.writeStringValue("displayAs", choiceColumn.displayAs);
-        writer.writeStringValue("@odata.type", choiceColumn.odataType);
-        writer.writeAdditionalData(choiceColumn.additionalData);
+    writer.writeBooleanValue("allowTextEntry", choiceColumn.allowTextEntry);
+    writer.writeCollectionOfPrimitiveValues<string>("choices", choiceColumn.choices);
+    writer.writeStringValue("displayAs", choiceColumn.displayAs);
+    writer.writeStringValue("@odata.type", choiceColumn.odataType);
+    writer.writeAdditionalData(choiceColumn.additionalData);
 }
 // tslint:enable
 // eslint-enable

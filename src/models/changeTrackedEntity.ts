@@ -77,7 +77,7 @@ export function deserializeIntoChangeTrackedEntity(changeTrackedEntity: ChangeTr
     }
 }
 export function serializeChangeTrackedEntity(writer: SerializationWriter, changeTrackedEntity: ChangeTrackedEntity | undefined = {} as ChangeTrackedEntity) : void {
-        serializeEntity(writer, changeTrackedEntity)
+    serializeEntity(writer, changeTrackedEntity)
 }
 // tslint:enable
 // eslint-enable

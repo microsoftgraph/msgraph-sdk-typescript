@@ -54,14 +54,14 @@ export interface Printer extends Parsable, PrinterBase {
     taskTriggers?: PrintTaskTrigger[];
 }
 export function serializePrinter(writer: SerializationWriter, printer: Printer | undefined = {} as Printer) : void {
-        serializePrinterBase(writer, printer)
-        writer.writeCollectionOfObjectValues<PrintConnector>("connectors", printer.connectors, serializePrintConnector);
-        writer.writeBooleanValue("hasPhysicalDevice", printer.hasPhysicalDevice);
-        writer.writeBooleanValue("isShared", printer.isShared);
-        writer.writeDateValue("lastSeenDateTime", printer.lastSeenDateTime);
-        writer.writeDateValue("registeredDateTime", printer.registeredDateTime);
-        writer.writeCollectionOfObjectValues<PrinterShare>("shares", printer.shares, serializePrinterShare);
-        writer.writeCollectionOfObjectValues<PrintTaskTrigger>("taskTriggers", printer.taskTriggers, serializePrintTaskTrigger);
+    serializePrinterBase(writer, printer)
+    writer.writeCollectionOfObjectValues<PrintConnector>("connectors", printer.connectors, serializePrintConnector);
+    writer.writeBooleanValue("hasPhysicalDevice", printer.hasPhysicalDevice);
+    writer.writeBooleanValue("isShared", printer.isShared);
+    writer.writeDateValue("lastSeenDateTime", printer.lastSeenDateTime);
+    writer.writeDateValue("registeredDateTime", printer.registeredDateTime);
+    writer.writeCollectionOfObjectValues<PrinterShare>("shares", printer.shares, serializePrinterShare);
+    writer.writeCollectionOfObjectValues<PrintTaskTrigger>("taskTriggers", printer.taskTriggers, serializePrintTaskTrigger);
 }
 // tslint:enable
 // eslint-enable

@@ -26,9 +26,9 @@ export function deserializeIntoChannelMembersNotificationRecipient(channelMember
     }
 }
 export function serializeChannelMembersNotificationRecipient(writer: SerializationWriter, channelMembersNotificationRecipient: ChannelMembersNotificationRecipient | undefined = {} as ChannelMembersNotificationRecipient) : void {
-        serializeTeamworkNotificationRecipient(writer, channelMembersNotificationRecipient)
-        writer.writeStringValue("channelId", channelMembersNotificationRecipient.channelId);
-        writer.writeStringValue("teamId", channelMembersNotificationRecipient.teamId);
+    serializeTeamworkNotificationRecipient(writer, channelMembersNotificationRecipient)
+    writer.writeStringValue("channelId", channelMembersNotificationRecipient.channelId);
+    writer.writeStringValue("teamId", channelMembersNotificationRecipient.teamId);
 }
 // tslint:enable
 // eslint-enable

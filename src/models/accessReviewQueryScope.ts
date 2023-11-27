@@ -43,10 +43,10 @@ export function deserializeIntoAccessReviewQueryScope(accessReviewQueryScope: Ac
     }
 }
 export function serializeAccessReviewQueryScope(writer: SerializationWriter, accessReviewQueryScope: AccessReviewQueryScope | undefined = {} as AccessReviewQueryScope) : void {
-        serializeAccessReviewScope(writer, accessReviewQueryScope)
-        writer.writeStringValue("query", accessReviewQueryScope.query);
-        writer.writeStringValue("queryRoot", accessReviewQueryScope.queryRoot);
-        writer.writeStringValue("queryType", accessReviewQueryScope.queryType);
+    serializeAccessReviewScope(writer, accessReviewQueryScope)
+    writer.writeStringValue("query", accessReviewQueryScope.query);
+    writer.writeStringValue("queryRoot", accessReviewQueryScope.queryRoot);
+    writer.writeStringValue("queryType", accessReviewQueryScope.queryType);
 }
 // tslint:enable
 // eslint-enable

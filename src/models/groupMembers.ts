@@ -26,9 +26,9 @@ export interface GroupMembers extends Parsable, SubjectSet {
     groupId?: string;
 }
 export function serializeGroupMembers(writer: SerializationWriter, groupMembers: GroupMembers | undefined = {} as GroupMembers) : void {
-        serializeSubjectSet(writer, groupMembers)
-        writer.writeStringValue("description", groupMembers.description);
-        writer.writeStringValue("groupId", groupMembers.groupId);
+    serializeSubjectSet(writer, groupMembers)
+    writer.writeStringValue("description", groupMembers.description);
+    writer.writeStringValue("groupId", groupMembers.groupId);
 }
 // tslint:enable
 // eslint-enable

@@ -21,8 +21,8 @@ export function deserializeIntoAndroidMobileAppIdentifier(androidMobileAppIdenti
     }
 }
 export function serializeAndroidMobileAppIdentifier(writer: SerializationWriter, androidMobileAppIdentifier: AndroidMobileAppIdentifier | undefined = {} as AndroidMobileAppIdentifier) : void {
-        serializeMobileAppIdentifier(writer, androidMobileAppIdentifier)
-        writer.writeStringValue("packageId", androidMobileAppIdentifier.packageId);
+    serializeMobileAppIdentifier(writer, androidMobileAppIdentifier)
+    writer.writeStringValue("packageId", androidMobileAppIdentifier.packageId);
 }
 // tslint:enable
 // eslint-enable

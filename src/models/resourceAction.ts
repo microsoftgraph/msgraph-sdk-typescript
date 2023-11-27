@@ -33,10 +33,10 @@ export interface ResourceAction extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeResourceAction(writer: SerializationWriter, resourceAction: ResourceAction | undefined = {} as ResourceAction) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("allowedResourceActions", resourceAction.allowedResourceActions);
-        writer.writeCollectionOfPrimitiveValues<string>("notAllowedResourceActions", resourceAction.notAllowedResourceActions);
-        writer.writeStringValue("@odata.type", resourceAction.odataType);
-        writer.writeAdditionalData(resourceAction.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("allowedResourceActions", resourceAction.allowedResourceActions);
+    writer.writeCollectionOfPrimitiveValues<string>("notAllowedResourceActions", resourceAction.notAllowedResourceActions);
+    writer.writeStringValue("@odata.type", resourceAction.odataType);
+    writer.writeAdditionalData(resourceAction.additionalData);
 }
 // tslint:enable
 // eslint-enable

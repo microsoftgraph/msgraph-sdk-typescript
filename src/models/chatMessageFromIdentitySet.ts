@@ -16,7 +16,7 @@ export function deserializeIntoChatMessageFromIdentitySet(chatMessageFromIdentit
     }
 }
 export function serializeChatMessageFromIdentitySet(writer: SerializationWriter, chatMessageFromIdentitySet: ChatMessageFromIdentitySet | undefined = {} as ChatMessageFromIdentitySet) : void {
-        serializeIdentitySet(writer, chatMessageFromIdentitySet)
+    serializeIdentitySet(writer, chatMessageFromIdentitySet)
 }
 // tslint:enable
 // eslint-enable

@@ -28,8 +28,8 @@ export function deserializeIntoWindowsUpdateInstallScheduleType(windowsUpdateIns
     }
 }
 export function serializeWindowsUpdateInstallScheduleType(writer: SerializationWriter, windowsUpdateInstallScheduleType: WindowsUpdateInstallScheduleType | undefined = {} as WindowsUpdateInstallScheduleType) : void {
-        writer.writeStringValue("@odata.type", windowsUpdateInstallScheduleType.odataType);
-        writer.writeAdditionalData(windowsUpdateInstallScheduleType.additionalData);
+    writer.writeStringValue("@odata.type", windowsUpdateInstallScheduleType.odataType);
+    writer.writeAdditionalData(windowsUpdateInstallScheduleType.additionalData);
 }
 export interface WindowsUpdateInstallScheduleType extends AdditionalDataHolder, Parsable {
     /**

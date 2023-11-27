@@ -48,10 +48,10 @@ export interface OfferShiftRequest extends Parsable, ScheduleChangeRequest {
     senderShiftId?: string;
 }
 export function serializeOfferShiftRequest(writer: SerializationWriter, offerShiftRequest: OfferShiftRequest | undefined = {} as OfferShiftRequest) : void {
-        serializeScheduleChangeRequest(writer, offerShiftRequest)
-        writer.writeStringValue("recipientActionMessage", offerShiftRequest.recipientActionMessage);
-        writer.writeStringValue("recipientUserId", offerShiftRequest.recipientUserId);
-        writer.writeStringValue("senderShiftId", offerShiftRequest.senderShiftId);
+    serializeScheduleChangeRequest(writer, offerShiftRequest)
+    writer.writeStringValue("recipientActionMessage", offerShiftRequest.recipientActionMessage);
+    writer.writeStringValue("recipientUserId", offerShiftRequest.recipientUserId);
+    writer.writeStringValue("senderShiftId", offerShiftRequest.senderShiftId);
 }
 // tslint:enable
 // eslint-enable

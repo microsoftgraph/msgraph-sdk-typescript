@@ -16,8 +16,8 @@ export function deserializeIntoTrainingReminderNotification(trainingReminderNoti
     }
 }
 export function serializeTrainingReminderNotification(writer: SerializationWriter, trainingReminderNotification: TrainingReminderNotification | undefined = {} as TrainingReminderNotification) : void {
-        serializeBaseEndUserNotification(writer, trainingReminderNotification)
-        writer.writeEnumValue<NotificationDeliveryFrequency>("deliveryFrequency", trainingReminderNotification.deliveryFrequency);
+    serializeBaseEndUserNotification(writer, trainingReminderNotification)
+    writer.writeEnumValue<NotificationDeliveryFrequency>("deliveryFrequency", trainingReminderNotification.deliveryFrequency);
 }
 export interface TrainingReminderNotification extends BaseEndUserNotification, Parsable {
     /**

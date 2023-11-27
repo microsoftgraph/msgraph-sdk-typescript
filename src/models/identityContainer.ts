@@ -46,12 +46,12 @@ export interface IdentityContainer extends Entity, Parsable {
     userFlowAttributes?: IdentityUserFlowAttribute[];
 }
 export function serializeIdentityContainer(writer: SerializationWriter, identityContainer: IdentityContainer | undefined = {} as IdentityContainer) : void {
-        serializeEntity(writer, identityContainer)
-        writer.writeCollectionOfObjectValues<IdentityApiConnector>("apiConnectors", identityContainer.apiConnectors, serializeIdentityApiConnector);
-        writer.writeCollectionOfObjectValues<B2xIdentityUserFlow>("b2xUserFlows", identityContainer.b2xUserFlows, serializeB2xIdentityUserFlow);
-        writer.writeObjectValue<ConditionalAccessRoot>("conditionalAccess", identityContainer.conditionalAccess, serializeConditionalAccessRoot);
-        writer.writeCollectionOfObjectValues<IdentityProviderBase>("identityProviders", identityContainer.identityProviders, serializeIdentityProviderBase);
-        writer.writeCollectionOfObjectValues<IdentityUserFlowAttribute>("userFlowAttributes", identityContainer.userFlowAttributes, serializeIdentityUserFlowAttribute);
+    serializeEntity(writer, identityContainer)
+    writer.writeCollectionOfObjectValues<IdentityApiConnector>("apiConnectors", identityContainer.apiConnectors, serializeIdentityApiConnector);
+    writer.writeCollectionOfObjectValues<B2xIdentityUserFlow>("b2xUserFlows", identityContainer.b2xUserFlows, serializeB2xIdentityUserFlow);
+    writer.writeObjectValue<ConditionalAccessRoot>("conditionalAccess", identityContainer.conditionalAccess, serializeConditionalAccessRoot);
+    writer.writeCollectionOfObjectValues<IdentityProviderBase>("identityProviders", identityContainer.identityProviders, serializeIdentityProviderBase);
+    writer.writeCollectionOfObjectValues<IdentityUserFlowAttribute>("userFlowAttributes", identityContainer.userFlowAttributes, serializeIdentityUserFlowAttribute);
 }
 // tslint:enable
 // eslint-enable

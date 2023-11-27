@@ -34,10 +34,10 @@ export interface ExternalItemContent extends AdditionalDataHolder, Parsable {
     value?: string;
 }
 export function serializeExternalItemContent(writer: SerializationWriter, externalItemContent: ExternalItemContent | undefined = {} as ExternalItemContent) : void {
-        writer.writeStringValue("@odata.type", externalItemContent.odataType);
-        writer.writeEnumValue<ExternalItemContentType>("type", externalItemContent.type);
-        writer.writeStringValue("value", externalItemContent.value);
-        writer.writeAdditionalData(externalItemContent.additionalData);
+    writer.writeStringValue("@odata.type", externalItemContent.odataType);
+    writer.writeEnumValue<ExternalItemContentType>("type", externalItemContent.type);
+    writer.writeStringValue("value", externalItemContent.value);
+    writer.writeAdditionalData(externalItemContent.additionalData);
 }
 // tslint:enable
 // eslint-enable

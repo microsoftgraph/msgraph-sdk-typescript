@@ -17,11 +17,11 @@ export function deserializeIntoSynchronizationSchedule(synchronizationSchedule: 
     }
 }
 export function serializeSynchronizationSchedule(writer: SerializationWriter, synchronizationSchedule: SynchronizationSchedule | undefined = {} as SynchronizationSchedule) : void {
-        writer.writeDateValue("expiration", synchronizationSchedule.expiration);
-        writer.writeDurationValue("interval", synchronizationSchedule.interval);
-        writer.writeStringValue("@odata.type", synchronizationSchedule.odataType);
-        writer.writeEnumValue<SynchronizationScheduleState>("state", synchronizationSchedule.state);
-        writer.writeAdditionalData(synchronizationSchedule.additionalData);
+    writer.writeDateValue("expiration", synchronizationSchedule.expiration);
+    writer.writeDurationValue("interval", synchronizationSchedule.interval);
+    writer.writeStringValue("@odata.type", synchronizationSchedule.odataType);
+    writer.writeEnumValue<SynchronizationScheduleState>("state", synchronizationSchedule.state);
+    writer.writeAdditionalData(synchronizationSchedule.additionalData);
 }
 export interface SynchronizationSchedule extends AdditionalDataHolder, Parsable {
     /**

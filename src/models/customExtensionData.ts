@@ -42,8 +42,8 @@ export function deserializeIntoCustomExtensionData(customExtensionData: CustomEx
     }
 }
 export function serializeCustomExtensionData(writer: SerializationWriter, customExtensionData: CustomExtensionData | undefined = {} as CustomExtensionData) : void {
-        writer.writeStringValue("@odata.type", customExtensionData.odataType);
-        writer.writeAdditionalData(customExtensionData.additionalData);
+    writer.writeStringValue("@odata.type", customExtensionData.odataType);
+    writer.writeAdditionalData(customExtensionData.additionalData);
 }
 // tslint:enable
 // eslint-enable

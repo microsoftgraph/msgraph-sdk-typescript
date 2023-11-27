@@ -22,8 +22,8 @@ export interface PermissionCollectionResponse extends BaseCollectionPaginationCo
     value?: Permission[];
 }
 export function serializePermissionCollectionResponse(writer: SerializationWriter, permissionCollectionResponse: PermissionCollectionResponse | undefined = {} as PermissionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, permissionCollectionResponse)
-        writer.writeCollectionOfObjectValues<Permission>("value", permissionCollectionResponse.value, serializePermission);
+    serializeBaseCollectionPaginationCountResponse(writer, permissionCollectionResponse)
+    writer.writeCollectionOfObjectValues<Permission>("value", permissionCollectionResponse.value, serializePermission);
 }
 // tslint:enable
 // eslint-enable

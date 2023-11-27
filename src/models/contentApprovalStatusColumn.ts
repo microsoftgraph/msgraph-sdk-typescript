@@ -23,8 +23,8 @@ export function deserializeIntoContentApprovalStatusColumn(contentApprovalStatus
     }
 }
 export function serializeContentApprovalStatusColumn(writer: SerializationWriter, contentApprovalStatusColumn: ContentApprovalStatusColumn | undefined = {} as ContentApprovalStatusColumn) : void {
-        writer.writeStringValue("@odata.type", contentApprovalStatusColumn.odataType);
-        writer.writeAdditionalData(contentApprovalStatusColumn.additionalData);
+    writer.writeStringValue("@odata.type", contentApprovalStatusColumn.odataType);
+    writer.writeAdditionalData(contentApprovalStatusColumn.additionalData);
 }
 // tslint:enable
 // eslint-enable

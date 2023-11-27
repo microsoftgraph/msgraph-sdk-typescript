@@ -21,8 +21,8 @@ export interface DomainDnsCnameRecord extends DomainDnsRecord, Parsable {
     canonicalName?: string;
 }
 export function serializeDomainDnsCnameRecord(writer: SerializationWriter, domainDnsCnameRecord: DomainDnsCnameRecord | undefined = {} as DomainDnsCnameRecord) : void {
-        serializeDomainDnsRecord(writer, domainDnsCnameRecord)
-        writer.writeStringValue("canonicalName", domainDnsCnameRecord.canonicalName);
+    serializeDomainDnsRecord(writer, domainDnsCnameRecord)
+    writer.writeStringValue("canonicalName", domainDnsCnameRecord.canonicalName);
 }
 // tslint:enable
 // eslint-enable

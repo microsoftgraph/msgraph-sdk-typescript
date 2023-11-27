@@ -34,10 +34,10 @@ export interface SecurityResource extends AdditionalDataHolder, Parsable {
     resourceType?: SecurityResourceType;
 }
 export function serializeSecurityResource(writer: SerializationWriter, securityResource: SecurityResource | undefined = {} as SecurityResource) : void {
-        writer.writeStringValue("@odata.type", securityResource.odataType);
-        writer.writeStringValue("resource", securityResource.resource);
-        writer.writeEnumValue<SecurityResourceType>("resourceType", securityResource.resourceType);
-        writer.writeAdditionalData(securityResource.additionalData);
+    writer.writeStringValue("@odata.type", securityResource.odataType);
+    writer.writeStringValue("resource", securityResource.resource);
+    writer.writeEnumValue<SecurityResourceType>("resourceType", securityResource.resourceType);
+    writer.writeAdditionalData(securityResource.additionalData);
 }
 // tslint:enable
 // eslint-enable

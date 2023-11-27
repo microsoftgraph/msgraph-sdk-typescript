@@ -16,7 +16,7 @@ export function deserializeIntoArticleIndicator(articleIndicator: ArticleIndicat
     }
 }
 export function serializeArticleIndicator(writer: SerializationWriter, articleIndicator: ArticleIndicator | undefined = {} as ArticleIndicator) : void {
-        serializeIndicator(writer, articleIndicator)
+    serializeIndicator(writer, articleIndicator)
 }
 // tslint:enable
 // eslint-enable

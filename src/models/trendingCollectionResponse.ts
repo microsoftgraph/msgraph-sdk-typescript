@@ -16,8 +16,8 @@ export function deserializeIntoTrendingCollectionResponse(trendingCollectionResp
     }
 }
 export function serializeTrendingCollectionResponse(writer: SerializationWriter, trendingCollectionResponse: TrendingCollectionResponse | undefined = {} as TrendingCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, trendingCollectionResponse)
-        writer.writeCollectionOfObjectValues<Trending>("value", trendingCollectionResponse.value, serializeTrending);
+    serializeBaseCollectionPaginationCountResponse(writer, trendingCollectionResponse)
+    writer.writeCollectionOfObjectValues<Trending>("value", trendingCollectionResponse.value, serializeTrending);
 }
 export interface TrendingCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

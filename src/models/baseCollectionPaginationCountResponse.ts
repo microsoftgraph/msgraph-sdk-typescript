@@ -526,9 +526,9 @@ export function deserializeIntoBaseCollectionPaginationCountResponse(baseCollect
     }
 }
 export function serializeBaseCollectionPaginationCountResponse(writer: SerializationWriter, baseCollectionPaginationCountResponse: BaseCollectionPaginationCountResponse | undefined = {} as BaseCollectionPaginationCountResponse) : void {
-        writer.writeNumberValue("@odata.count", baseCollectionPaginationCountResponse.odataCount);
-        writer.writeStringValue("@odata.nextLink", baseCollectionPaginationCountResponse.odataNextLink);
-        writer.writeAdditionalData(baseCollectionPaginationCountResponse.additionalData);
+    writer.writeNumberValue("@odata.count", baseCollectionPaginationCountResponse.odataCount);
+    writer.writeStringValue("@odata.nextLink", baseCollectionPaginationCountResponse.odataNextLink);
+    writer.writeAdditionalData(baseCollectionPaginationCountResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

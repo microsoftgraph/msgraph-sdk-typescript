@@ -38,9 +38,9 @@ export interface DeviceManagementTroubleshootingEvent extends Entity, Parsable {
     eventDateTime?: Date;
 }
 export function serializeDeviceManagementTroubleshootingEvent(writer: SerializationWriter, deviceManagementTroubleshootingEvent: DeviceManagementTroubleshootingEvent | undefined = {} as DeviceManagementTroubleshootingEvent) : void {
-        serializeEntity(writer, deviceManagementTroubleshootingEvent)
-        writer.writeStringValue("correlationId", deviceManagementTroubleshootingEvent.correlationId);
-        writer.writeDateValue("eventDateTime", deviceManagementTroubleshootingEvent.eventDateTime);
+    serializeEntity(writer, deviceManagementTroubleshootingEvent)
+    writer.writeStringValue("correlationId", deviceManagementTroubleshootingEvent.correlationId);
+    writer.writeDateValue("eventDateTime", deviceManagementTroubleshootingEvent.eventDateTime);
 }
 // tslint:enable
 // eslint-enable

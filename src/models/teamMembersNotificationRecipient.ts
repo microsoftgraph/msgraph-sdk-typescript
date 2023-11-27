@@ -15,8 +15,8 @@ export function deserializeIntoTeamMembersNotificationRecipient(teamMembersNotif
     }
 }
 export function serializeTeamMembersNotificationRecipient(writer: SerializationWriter, teamMembersNotificationRecipient: TeamMembersNotificationRecipient | undefined = {} as TeamMembersNotificationRecipient) : void {
-        serializeTeamworkNotificationRecipient(writer, teamMembersNotificationRecipient)
-        writer.writeStringValue("teamId", teamMembersNotificationRecipient.teamId);
+    serializeTeamworkNotificationRecipient(writer, teamMembersNotificationRecipient)
+    writer.writeStringValue("teamId", teamMembersNotificationRecipient.teamId);
 }
 export interface TeamMembersNotificationRecipient extends Parsable, TeamworkNotificationRecipient {
     /**

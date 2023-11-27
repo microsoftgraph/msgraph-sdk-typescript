@@ -22,8 +22,8 @@ export function deserializeIntoAppLogCollectionRequestCollectionResponse(appLogC
     }
 }
 export function serializeAppLogCollectionRequestCollectionResponse(writer: SerializationWriter, appLogCollectionRequestCollectionResponse: AppLogCollectionRequestCollectionResponse | undefined = {} as AppLogCollectionRequestCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, appLogCollectionRequestCollectionResponse)
-        writer.writeCollectionOfObjectValues<AppLogCollectionRequest>("value", appLogCollectionRequestCollectionResponse.value, serializeAppLogCollectionRequest);
+    serializeBaseCollectionPaginationCountResponse(writer, appLogCollectionRequestCollectionResponse)
+    writer.writeCollectionOfObjectValues<AppLogCollectionRequest>("value", appLogCollectionRequestCollectionResponse.value, serializeAppLogCollectionRequest);
 }
 // tslint:enable
 // eslint-enable

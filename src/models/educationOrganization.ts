@@ -49,11 +49,11 @@ export interface EducationOrganization extends Entity, Parsable {
     externalSourceDetail?: string;
 }
 export function serializeEducationOrganization(writer: SerializationWriter, educationOrganization: EducationOrganization | undefined = {} as EducationOrganization) : void {
-        serializeEntity(writer, educationOrganization)
-        writer.writeStringValue("description", educationOrganization.description);
-        writer.writeStringValue("displayName", educationOrganization.displayName);
-        writer.writeEnumValue<EducationExternalSource>("externalSource", educationOrganization.externalSource);
-        writer.writeStringValue("externalSourceDetail", educationOrganization.externalSourceDetail);
+    serializeEntity(writer, educationOrganization)
+    writer.writeStringValue("description", educationOrganization.description);
+    writer.writeStringValue("displayName", educationOrganization.displayName);
+    writer.writeEnumValue<EducationExternalSource>("externalSource", educationOrganization.externalSource);
+    writer.writeStringValue("externalSourceDetail", educationOrganization.externalSourceDetail);
 }
 // tslint:enable
 // eslint-enable

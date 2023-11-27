@@ -33,10 +33,10 @@ export function deserializeIntoAverageComparativeScore(averageComparativeScore: 
     }
 }
 export function serializeAverageComparativeScore(writer: SerializationWriter, averageComparativeScore: AverageComparativeScore | undefined = {} as AverageComparativeScore) : void {
-        writer.writeNumberValue("averageScore", averageComparativeScore.averageScore);
-        writer.writeStringValue("basis", averageComparativeScore.basis);
-        writer.writeStringValue("@odata.type", averageComparativeScore.odataType);
-        writer.writeAdditionalData(averageComparativeScore.additionalData);
+    writer.writeNumberValue("averageScore", averageComparativeScore.averageScore);
+    writer.writeStringValue("basis", averageComparativeScore.basis);
+    writer.writeStringValue("@odata.type", averageComparativeScore.odataType);
+    writer.writeAdditionalData(averageComparativeScore.additionalData);
 }
 // tslint:enable
 // eslint-enable

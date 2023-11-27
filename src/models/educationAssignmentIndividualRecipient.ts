@@ -21,8 +21,8 @@ export interface EducationAssignmentIndividualRecipient extends EducationAssignm
     recipients?: string[];
 }
 export function serializeEducationAssignmentIndividualRecipient(writer: SerializationWriter, educationAssignmentIndividualRecipient: EducationAssignmentIndividualRecipient | undefined = {} as EducationAssignmentIndividualRecipient) : void {
-        serializeEducationAssignmentRecipient(writer, educationAssignmentIndividualRecipient)
-        writer.writeCollectionOfPrimitiveValues<string>("recipients", educationAssignmentIndividualRecipient.recipients);
+    serializeEducationAssignmentRecipient(writer, educationAssignmentIndividualRecipient)
+    writer.writeCollectionOfPrimitiveValues<string>("recipients", educationAssignmentIndividualRecipient.recipients);
 }
 // tslint:enable
 // eslint-enable

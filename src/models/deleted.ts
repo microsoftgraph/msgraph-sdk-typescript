@@ -28,9 +28,9 @@ export function deserializeIntoDeleted(deleted: Deleted | undefined = {} as Dele
     }
 }
 export function serializeDeleted(writer: SerializationWriter, deleted: Deleted | undefined = {} as Deleted) : void {
-        writer.writeStringValue("@odata.type", deleted.odataType);
-        writer.writeStringValue("state", deleted.state);
-        writer.writeAdditionalData(deleted.additionalData);
+    writer.writeStringValue("@odata.type", deleted.odataType);
+    writer.writeStringValue("state", deleted.state);
+    writer.writeAdditionalData(deleted.additionalData);
 }
 // tslint:enable
 // eslint-enable

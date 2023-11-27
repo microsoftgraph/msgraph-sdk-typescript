@@ -16,9 +16,9 @@ export function deserializeIntoUnifiedRoleManagementPolicyAuthenticationContextR
     }
 }
 export function serializeUnifiedRoleManagementPolicyAuthenticationContextRule(writer: SerializationWriter, unifiedRoleManagementPolicyAuthenticationContextRule: UnifiedRoleManagementPolicyAuthenticationContextRule | undefined = {} as UnifiedRoleManagementPolicyAuthenticationContextRule) : void {
-        serializeUnifiedRoleManagementPolicyRule(writer, unifiedRoleManagementPolicyAuthenticationContextRule)
-        writer.writeStringValue("claimValue", unifiedRoleManagementPolicyAuthenticationContextRule.claimValue);
-        writer.writeBooleanValue("isEnabled", unifiedRoleManagementPolicyAuthenticationContextRule.isEnabled);
+    serializeUnifiedRoleManagementPolicyRule(writer, unifiedRoleManagementPolicyAuthenticationContextRule)
+    writer.writeStringValue("claimValue", unifiedRoleManagementPolicyAuthenticationContextRule.claimValue);
+    writer.writeBooleanValue("isEnabled", unifiedRoleManagementPolicyAuthenticationContextRule.isEnabled);
 }
 export interface UnifiedRoleManagementPolicyAuthenticationContextRule extends Parsable, UnifiedRoleManagementPolicyRule {
     /**

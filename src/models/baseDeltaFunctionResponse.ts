@@ -28,9 +28,9 @@ export function deserializeIntoBaseDeltaFunctionResponse(baseDeltaFunctionRespon
     }
 }
 export function serializeBaseDeltaFunctionResponse(writer: SerializationWriter, baseDeltaFunctionResponse: BaseDeltaFunctionResponse | undefined = {} as BaseDeltaFunctionResponse) : void {
-        writer.writeStringValue("@odata.deltaLink", baseDeltaFunctionResponse.odataDeltaLink);
-        writer.writeStringValue("@odata.nextLink", baseDeltaFunctionResponse.odataNextLink);
-        writer.writeAdditionalData(baseDeltaFunctionResponse.additionalData);
+    writer.writeStringValue("@odata.deltaLink", baseDeltaFunctionResponse.odataDeltaLink);
+    writer.writeStringValue("@odata.nextLink", baseDeltaFunctionResponse.odataNextLink);
+    writer.writeAdditionalData(baseDeltaFunctionResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

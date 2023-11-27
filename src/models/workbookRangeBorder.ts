@@ -18,11 +18,11 @@ export function deserializeIntoWorkbookRangeBorder(workbookRangeBorder: Workbook
     }
 }
 export function serializeWorkbookRangeBorder(writer: SerializationWriter, workbookRangeBorder: WorkbookRangeBorder | undefined = {} as WorkbookRangeBorder) : void {
-        serializeEntity(writer, workbookRangeBorder)
-        writer.writeStringValue("color", workbookRangeBorder.color);
-        writer.writeStringValue("sideIndex", workbookRangeBorder.sideIndex);
-        writer.writeStringValue("style", workbookRangeBorder.style);
-        writer.writeStringValue("weight", workbookRangeBorder.weight);
+    serializeEntity(writer, workbookRangeBorder)
+    writer.writeStringValue("color", workbookRangeBorder.color);
+    writer.writeStringValue("sideIndex", workbookRangeBorder.sideIndex);
+    writer.writeStringValue("style", workbookRangeBorder.style);
+    writer.writeStringValue("weight", workbookRangeBorder.weight);
 }
 export interface WorkbookRangeBorder extends Entity, Parsable {
     /**

@@ -50,13 +50,13 @@ export function deserializeIntoBucketAggregationDefinition(bucketAggregationDefi
     }
 }
 export function serializeBucketAggregationDefinition(writer: SerializationWriter, bucketAggregationDefinition: BucketAggregationDefinition | undefined = {} as BucketAggregationDefinition) : void {
-        writer.writeBooleanValue("isDescending", bucketAggregationDefinition.isDescending);
-        writer.writeNumberValue("minimumCount", bucketAggregationDefinition.minimumCount);
-        writer.writeStringValue("@odata.type", bucketAggregationDefinition.odataType);
-        writer.writeStringValue("prefixFilter", bucketAggregationDefinition.prefixFilter);
-        writer.writeCollectionOfObjectValues<BucketAggregationRange>("ranges", bucketAggregationDefinition.ranges, serializeBucketAggregationRange);
-        writer.writeEnumValue<BucketAggregationSortProperty>("sortBy", bucketAggregationDefinition.sortBy);
-        writer.writeAdditionalData(bucketAggregationDefinition.additionalData);
+    writer.writeBooleanValue("isDescending", bucketAggregationDefinition.isDescending);
+    writer.writeNumberValue("minimumCount", bucketAggregationDefinition.minimumCount);
+    writer.writeStringValue("@odata.type", bucketAggregationDefinition.odataType);
+    writer.writeStringValue("prefixFilter", bucketAggregationDefinition.prefixFilter);
+    writer.writeCollectionOfObjectValues<BucketAggregationRange>("ranges", bucketAggregationDefinition.ranges, serializeBucketAggregationRange);
+    writer.writeEnumValue<BucketAggregationSortProperty>("sortBy", bucketAggregationDefinition.sortBy);
+    writer.writeAdditionalData(bucketAggregationDefinition.additionalData);
 }
 // tslint:enable
 // eslint-enable

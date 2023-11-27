@@ -22,8 +22,8 @@ export interface ExternalActivityCollectionResponse extends BaseCollectionPagina
     value?: ExternalActivity[];
 }
 export function serializeExternalActivityCollectionResponse(writer: SerializationWriter, externalActivityCollectionResponse: ExternalActivityCollectionResponse | undefined = {} as ExternalActivityCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, externalActivityCollectionResponse)
-        writer.writeCollectionOfObjectValues<ExternalActivity>("value", externalActivityCollectionResponse.value, serializeExternalActivity);
+    serializeBaseCollectionPaginationCountResponse(writer, externalActivityCollectionResponse)
+    writer.writeCollectionOfObjectValues<ExternalActivity>("value", externalActivityCollectionResponse.value, serializeExternalActivity);
 }
 // tslint:enable
 // eslint-enable

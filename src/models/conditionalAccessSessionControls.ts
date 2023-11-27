@@ -52,13 +52,13 @@ export function deserializeIntoConditionalAccessSessionControls(conditionalAcces
     }
 }
 export function serializeConditionalAccessSessionControls(writer: SerializationWriter, conditionalAccessSessionControls: ConditionalAccessSessionControls | undefined = {} as ConditionalAccessSessionControls) : void {
-        writer.writeObjectValue<ApplicationEnforcedRestrictionsSessionControl>("applicationEnforcedRestrictions", conditionalAccessSessionControls.applicationEnforcedRestrictions, serializeApplicationEnforcedRestrictionsSessionControl);
-        writer.writeObjectValue<CloudAppSecuritySessionControl>("cloudAppSecurity", conditionalAccessSessionControls.cloudAppSecurity, serializeCloudAppSecuritySessionControl);
-        writer.writeBooleanValue("disableResilienceDefaults", conditionalAccessSessionControls.disableResilienceDefaults);
-        writer.writeStringValue("@odata.type", conditionalAccessSessionControls.odataType);
-        writer.writeObjectValue<PersistentBrowserSessionControl>("persistentBrowser", conditionalAccessSessionControls.persistentBrowser, serializePersistentBrowserSessionControl);
-        writer.writeObjectValue<SignInFrequencySessionControl>("signInFrequency", conditionalAccessSessionControls.signInFrequency, serializeSignInFrequencySessionControl);
-        writer.writeAdditionalData(conditionalAccessSessionControls.additionalData);
+    writer.writeObjectValue<ApplicationEnforcedRestrictionsSessionControl>("applicationEnforcedRestrictions", conditionalAccessSessionControls.applicationEnforcedRestrictions, serializeApplicationEnforcedRestrictionsSessionControl);
+    writer.writeObjectValue<CloudAppSecuritySessionControl>("cloudAppSecurity", conditionalAccessSessionControls.cloudAppSecurity, serializeCloudAppSecuritySessionControl);
+    writer.writeBooleanValue("disableResilienceDefaults", conditionalAccessSessionControls.disableResilienceDefaults);
+    writer.writeStringValue("@odata.type", conditionalAccessSessionControls.odataType);
+    writer.writeObjectValue<PersistentBrowserSessionControl>("persistentBrowser", conditionalAccessSessionControls.persistentBrowser, serializePersistentBrowserSessionControl);
+    writer.writeObjectValue<SignInFrequencySessionControl>("signInFrequency", conditionalAccessSessionControls.signInFrequency, serializeSignInFrequencySessionControl);
+    writer.writeAdditionalData(conditionalAccessSessionControls.additionalData);
 }
 // tslint:enable
 // eslint-enable

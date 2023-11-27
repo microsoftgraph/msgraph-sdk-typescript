@@ -22,8 +22,8 @@ export interface ResourceOperationCollectionResponse extends BaseCollectionPagin
     value?: ResourceOperation[];
 }
 export function serializeResourceOperationCollectionResponse(writer: SerializationWriter, resourceOperationCollectionResponse: ResourceOperationCollectionResponse | undefined = {} as ResourceOperationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, resourceOperationCollectionResponse)
-        writer.writeCollectionOfObjectValues<ResourceOperation>("value", resourceOperationCollectionResponse.value, serializeResourceOperation);
+    serializeBaseCollectionPaginationCountResponse(writer, resourceOperationCollectionResponse)
+    writer.writeCollectionOfObjectValues<ResourceOperation>("value", resourceOperationCollectionResponse.value, serializeResourceOperation);
 }
 // tslint:enable
 // eslint-enable

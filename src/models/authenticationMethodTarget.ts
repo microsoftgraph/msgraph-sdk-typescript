@@ -42,9 +42,9 @@ export function deserializeIntoAuthenticationMethodTarget(authenticationMethodTa
     }
 }
 export function serializeAuthenticationMethodTarget(writer: SerializationWriter, authenticationMethodTarget: AuthenticationMethodTarget | undefined = {} as AuthenticationMethodTarget) : void {
-        serializeEntity(writer, authenticationMethodTarget)
-        writer.writeBooleanValue("isRegistrationRequired", authenticationMethodTarget.isRegistrationRequired);
-        writer.writeEnumValue<AuthenticationMethodTargetType>("targetType", authenticationMethodTarget.targetType);
+    serializeEntity(writer, authenticationMethodTarget)
+    writer.writeBooleanValue("isRegistrationRequired", authenticationMethodTarget.isRegistrationRequired);
+    writer.writeEnumValue<AuthenticationMethodTargetType>("targetType", authenticationMethodTarget.targetType);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export interface ProfileCardPropertyCollectionResponse extends BaseCollectionPag
     value?: ProfileCardProperty[];
 }
 export function serializeProfileCardPropertyCollectionResponse(writer: SerializationWriter, profileCardPropertyCollectionResponse: ProfileCardPropertyCollectionResponse | undefined = {} as ProfileCardPropertyCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, profileCardPropertyCollectionResponse)
-        writer.writeCollectionOfObjectValues<ProfileCardProperty>("value", profileCardPropertyCollectionResponse.value, serializeProfileCardProperty);
+    serializeBaseCollectionPaginationCountResponse(writer, profileCardPropertyCollectionResponse)
+    writer.writeCollectionOfObjectValues<ProfileCardProperty>("value", profileCardPropertyCollectionResponse.value, serializeProfileCardProperty);
 }
 // tslint:enable
 // eslint-enable

@@ -49,13 +49,13 @@ export interface ResourceSpecificPermission extends AdditionalDataHolder, Parsab
     value?: string;
 }
 export function serializeResourceSpecificPermission(writer: SerializationWriter, resourceSpecificPermission: ResourceSpecificPermission | undefined = {} as ResourceSpecificPermission) : void {
-        writer.writeStringValue("description", resourceSpecificPermission.description);
-        writer.writeStringValue("displayName", resourceSpecificPermission.displayName);
-        writer.writeGuidValue("id", resourceSpecificPermission.id);
-        writer.writeBooleanValue("isEnabled", resourceSpecificPermission.isEnabled);
-        writer.writeStringValue("@odata.type", resourceSpecificPermission.odataType);
-        writer.writeStringValue("value", resourceSpecificPermission.value);
-        writer.writeAdditionalData(resourceSpecificPermission.additionalData);
+    writer.writeStringValue("description", resourceSpecificPermission.description);
+    writer.writeStringValue("displayName", resourceSpecificPermission.displayName);
+    writer.writeGuidValue("id", resourceSpecificPermission.id);
+    writer.writeBooleanValue("isEnabled", resourceSpecificPermission.isEnabled);
+    writer.writeStringValue("@odata.type", resourceSpecificPermission.odataType);
+    writer.writeStringValue("value", resourceSpecificPermission.value);
+    writer.writeAdditionalData(resourceSpecificPermission.additionalData);
 }
 // tslint:enable
 // eslint-enable

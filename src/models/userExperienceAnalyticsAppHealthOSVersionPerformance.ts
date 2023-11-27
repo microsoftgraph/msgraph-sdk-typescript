@@ -19,12 +19,12 @@ export function deserializeIntoUserExperienceAnalyticsAppHealthOSVersionPerforma
     }
 }
 export function serializeUserExperienceAnalyticsAppHealthOSVersionPerformance(writer: SerializationWriter, userExperienceAnalyticsAppHealthOSVersionPerformance: UserExperienceAnalyticsAppHealthOSVersionPerformance | undefined = {} as UserExperienceAnalyticsAppHealthOSVersionPerformance) : void {
-        serializeEntity(writer, userExperienceAnalyticsAppHealthOSVersionPerformance)
-        writer.writeNumberValue("activeDeviceCount", userExperienceAnalyticsAppHealthOSVersionPerformance.activeDeviceCount);
-        writer.writeNumberValue("meanTimeToFailureInMinutes", userExperienceAnalyticsAppHealthOSVersionPerformance.meanTimeToFailureInMinutes);
-        writer.writeStringValue("osBuildNumber", userExperienceAnalyticsAppHealthOSVersionPerformance.osBuildNumber);
-        writer.writeStringValue("osVersion", userExperienceAnalyticsAppHealthOSVersionPerformance.osVersion);
-        writer.writeNumberValue("osVersionAppHealthScore", userExperienceAnalyticsAppHealthOSVersionPerformance.osVersionAppHealthScore);
+    serializeEntity(writer, userExperienceAnalyticsAppHealthOSVersionPerformance)
+    writer.writeNumberValue("activeDeviceCount", userExperienceAnalyticsAppHealthOSVersionPerformance.activeDeviceCount);
+    writer.writeNumberValue("meanTimeToFailureInMinutes", userExperienceAnalyticsAppHealthOSVersionPerformance.meanTimeToFailureInMinutes);
+    writer.writeStringValue("osBuildNumber", userExperienceAnalyticsAppHealthOSVersionPerformance.osBuildNumber);
+    writer.writeStringValue("osVersion", userExperienceAnalyticsAppHealthOSVersionPerformance.osVersion);
+    writer.writeNumberValue("osVersionAppHealthScore", userExperienceAnalyticsAppHealthOSVersionPerformance.osVersionAppHealthScore);
 }
 export interface UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity, Parsable {
     /**

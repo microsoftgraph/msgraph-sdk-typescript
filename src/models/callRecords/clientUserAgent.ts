@@ -38,11 +38,11 @@ export function deserializeIntoClientUserAgent(clientUserAgent: ClientUserAgent 
     }
 }
 export function serializeClientUserAgent(writer: SerializationWriter, clientUserAgent: ClientUserAgent | undefined = {} as ClientUserAgent) : void {
-        serializeUserAgent(writer, clientUserAgent)
-        writer.writeStringValue("azureADAppId", clientUserAgent.azureADAppId);
-        writer.writeStringValue("communicationServiceId", clientUserAgent.communicationServiceId);
-        writer.writeEnumValue<ClientPlatform>("platform", clientUserAgent.platform);
-        writer.writeEnumValue<ProductFamily>("productFamily", clientUserAgent.productFamily);
+    serializeUserAgent(writer, clientUserAgent)
+    writer.writeStringValue("azureADAppId", clientUserAgent.azureADAppId);
+    writer.writeStringValue("communicationServiceId", clientUserAgent.communicationServiceId);
+    writer.writeEnumValue<ClientPlatform>("platform", clientUserAgent.platform);
+    writer.writeEnumValue<ProductFamily>("productFamily", clientUserAgent.productFamily);
 }
 // tslint:enable
 // eslint-enable

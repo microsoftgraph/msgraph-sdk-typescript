@@ -22,8 +22,8 @@ export function deserializeIntoAuthoredNoteCollectionResponse(authoredNoteCollec
     }
 }
 export function serializeAuthoredNoteCollectionResponse(writer: SerializationWriter, authoredNoteCollectionResponse: AuthoredNoteCollectionResponse | undefined = {} as AuthoredNoteCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, authoredNoteCollectionResponse)
-        writer.writeCollectionOfObjectValues<AuthoredNote>("value", authoredNoteCollectionResponse.value, serializeAuthoredNote);
+    serializeBaseCollectionPaginationCountResponse(writer, authoredNoteCollectionResponse)
+    writer.writeCollectionOfObjectValues<AuthoredNote>("value", authoredNoteCollectionResponse.value, serializeAuthoredNote);
 }
 // tslint:enable
 // eslint-enable

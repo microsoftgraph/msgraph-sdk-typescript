@@ -15,8 +15,8 @@ export function deserializeIntoSubjectRightsRequestEnumeratedMailboxLocation(sub
     }
 }
 export function serializeSubjectRightsRequestEnumeratedMailboxLocation(writer: SerializationWriter, subjectRightsRequestEnumeratedMailboxLocation: SubjectRightsRequestEnumeratedMailboxLocation | undefined = {} as SubjectRightsRequestEnumeratedMailboxLocation) : void {
-        serializeSubjectRightsRequestMailboxLocation(writer, subjectRightsRequestEnumeratedMailboxLocation)
-        writer.writeCollectionOfPrimitiveValues<string>("userPrincipalNames", subjectRightsRequestEnumeratedMailboxLocation.userPrincipalNames);
+    serializeSubjectRightsRequestMailboxLocation(writer, subjectRightsRequestEnumeratedMailboxLocation)
+    writer.writeCollectionOfPrimitiveValues<string>("userPrincipalNames", subjectRightsRequestEnumeratedMailboxLocation.userPrincipalNames);
 }
 export interface SubjectRightsRequestEnumeratedMailboxLocation extends Parsable, SubjectRightsRequestMailboxLocation {
     /**

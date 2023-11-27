@@ -22,8 +22,8 @@ export interface IosUpdateDeviceStatusCollectionResponse extends BaseCollectionP
     value?: IosUpdateDeviceStatus[];
 }
 export function serializeIosUpdateDeviceStatusCollectionResponse(writer: SerializationWriter, iosUpdateDeviceStatusCollectionResponse: IosUpdateDeviceStatusCollectionResponse | undefined = {} as IosUpdateDeviceStatusCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, iosUpdateDeviceStatusCollectionResponse)
-        writer.writeCollectionOfObjectValues<IosUpdateDeviceStatus>("value", iosUpdateDeviceStatusCollectionResponse.value, serializeIosUpdateDeviceStatus);
+    serializeBaseCollectionPaginationCountResponse(writer, iosUpdateDeviceStatusCollectionResponse)
+    writer.writeCollectionOfObjectValues<IosUpdateDeviceStatus>("value", iosUpdateDeviceStatusCollectionResponse.value, serializeIosUpdateDeviceStatus);
 }
 // tslint:enable
 // eslint-enable

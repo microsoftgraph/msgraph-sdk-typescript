@@ -48,13 +48,13 @@ export function deserializeIntoAccessReviewStage(accessReviewStage: AccessReview
     }
 }
 export function serializeAccessReviewStage(writer: SerializationWriter, accessReviewStage: AccessReviewStage | undefined = {} as AccessReviewStage) : void {
-        serializeEntity(writer, accessReviewStage)
-        writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItem>("decisions", accessReviewStage.decisions, serializeAccessReviewInstanceDecisionItem);
-        writer.writeDateValue("endDateTime", accessReviewStage.endDateTime);
-        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("fallbackReviewers", accessReviewStage.fallbackReviewers, serializeAccessReviewReviewerScope);
-        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("reviewers", accessReviewStage.reviewers, serializeAccessReviewReviewerScope);
-        writer.writeDateValue("startDateTime", accessReviewStage.startDateTime);
-        writer.writeStringValue("status", accessReviewStage.status);
+    serializeEntity(writer, accessReviewStage)
+    writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItem>("decisions", accessReviewStage.decisions, serializeAccessReviewInstanceDecisionItem);
+    writer.writeDateValue("endDateTime", accessReviewStage.endDateTime);
+    writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("fallbackReviewers", accessReviewStage.fallbackReviewers, serializeAccessReviewReviewerScope);
+    writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("reviewers", accessReviewStage.reviewers, serializeAccessReviewReviewerScope);
+    writer.writeDateValue("startDateTime", accessReviewStage.startDateTime);
+    writer.writeStringValue("status", accessReviewStage.status);
 }
 // tslint:enable
 // eslint-enable

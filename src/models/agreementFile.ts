@@ -22,8 +22,8 @@ export function deserializeIntoAgreementFile(agreementFile: AgreementFile | unde
     }
 }
 export function serializeAgreementFile(writer: SerializationWriter, agreementFile: AgreementFile | undefined = {} as AgreementFile) : void {
-        serializeAgreementFileProperties(writer, agreementFile)
-        writer.writeCollectionOfObjectValues<AgreementFileLocalization>("localizations", agreementFile.localizations, serializeAgreementFileLocalization);
+    serializeAgreementFileProperties(writer, agreementFile)
+    writer.writeCollectionOfObjectValues<AgreementFileLocalization>("localizations", agreementFile.localizations, serializeAgreementFileLocalization);
 }
 // tslint:enable
 // eslint-enable

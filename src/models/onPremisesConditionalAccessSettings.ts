@@ -37,11 +37,11 @@ export interface OnPremisesConditionalAccessSettings extends Entity, Parsable {
     overrideDefaultRule?: boolean;
 }
 export function serializeOnPremisesConditionalAccessSettings(writer: SerializationWriter, onPremisesConditionalAccessSettings: OnPremisesConditionalAccessSettings | undefined = {} as OnPremisesConditionalAccessSettings) : void {
-        serializeEntity(writer, onPremisesConditionalAccessSettings)
-        writer.writeBooleanValue("enabled", onPremisesConditionalAccessSettings.enabled);
-        writer.writeCollectionOfPrimitiveValues<Guid>("excludedGroups", onPremisesConditionalAccessSettings.excludedGroups);
-        writer.writeCollectionOfPrimitiveValues<Guid>("includedGroups", onPremisesConditionalAccessSettings.includedGroups);
-        writer.writeBooleanValue("overrideDefaultRule", onPremisesConditionalAccessSettings.overrideDefaultRule);
+    serializeEntity(writer, onPremisesConditionalAccessSettings)
+    writer.writeBooleanValue("enabled", onPremisesConditionalAccessSettings.enabled);
+    writer.writeCollectionOfPrimitiveValues<Guid>("excludedGroups", onPremisesConditionalAccessSettings.excludedGroups);
+    writer.writeCollectionOfPrimitiveValues<Guid>("includedGroups", onPremisesConditionalAccessSettings.includedGroups);
+    writer.writeBooleanValue("overrideDefaultRule", onPremisesConditionalAccessSettings.overrideDefaultRule);
 }
 // tslint:enable
 // eslint-enable

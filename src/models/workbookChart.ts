@@ -33,19 +33,19 @@ export function deserializeIntoWorkbookChart(workbookChart: WorkbookChart | unde
     }
 }
 export function serializeWorkbookChart(writer: SerializationWriter, workbookChart: WorkbookChart | undefined = {} as WorkbookChart) : void {
-        serializeEntity(writer, workbookChart)
-        writer.writeObjectValue<WorkbookChartAxes>("axes", workbookChart.axes, serializeWorkbookChartAxes);
-        writer.writeObjectValue<WorkbookChartDataLabels>("dataLabels", workbookChart.dataLabels, serializeWorkbookChartDataLabels);
-        writer.writeObjectValue<WorkbookChartAreaFormat>("format", workbookChart.format, serializeWorkbookChartAreaFormat);
-        writer.writeNumberValue("height", workbookChart.height);
-        writer.writeNumberValue("left", workbookChart.left);
-        writer.writeObjectValue<WorkbookChartLegend>("legend", workbookChart.legend, serializeWorkbookChartLegend);
-        writer.writeStringValue("name", workbookChart.name);
-        writer.writeCollectionOfObjectValues<WorkbookChartSeries>("series", workbookChart.series, serializeWorkbookChartSeries);
-        writer.writeObjectValue<WorkbookChartTitle>("title", workbookChart.title, serializeWorkbookChartTitle);
-        writer.writeNumberValue("top", workbookChart.top);
-        writer.writeNumberValue("width", workbookChart.width);
-        writer.writeObjectValue<WorkbookWorksheet>("worksheet", workbookChart.worksheet, serializeWorkbookWorksheet);
+    serializeEntity(writer, workbookChart)
+    writer.writeObjectValue<WorkbookChartAxes>("axes", workbookChart.axes, serializeWorkbookChartAxes);
+    writer.writeObjectValue<WorkbookChartDataLabels>("dataLabels", workbookChart.dataLabels, serializeWorkbookChartDataLabels);
+    writer.writeObjectValue<WorkbookChartAreaFormat>("format", workbookChart.format, serializeWorkbookChartAreaFormat);
+    writer.writeNumberValue("height", workbookChart.height);
+    writer.writeNumberValue("left", workbookChart.left);
+    writer.writeObjectValue<WorkbookChartLegend>("legend", workbookChart.legend, serializeWorkbookChartLegend);
+    writer.writeStringValue("name", workbookChart.name);
+    writer.writeCollectionOfObjectValues<WorkbookChartSeries>("series", workbookChart.series, serializeWorkbookChartSeries);
+    writer.writeObjectValue<WorkbookChartTitle>("title", workbookChart.title, serializeWorkbookChartTitle);
+    writer.writeNumberValue("top", workbookChart.top);
+    writer.writeNumberValue("width", workbookChart.width);
+    writer.writeObjectValue<WorkbookWorksheet>("worksheet", workbookChart.worksheet, serializeWorkbookWorksheet);
 }
 export interface WorkbookChart extends Entity, Parsable {
     /**

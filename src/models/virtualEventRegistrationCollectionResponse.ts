@@ -16,8 +16,8 @@ export function deserializeIntoVirtualEventRegistrationCollectionResponse(virtua
     }
 }
 export function serializeVirtualEventRegistrationCollectionResponse(writer: SerializationWriter, virtualEventRegistrationCollectionResponse: VirtualEventRegistrationCollectionResponse | undefined = {} as VirtualEventRegistrationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, virtualEventRegistrationCollectionResponse)
-        writer.writeCollectionOfObjectValues<VirtualEventRegistration>("value", virtualEventRegistrationCollectionResponse.value, serializeVirtualEventRegistration);
+    serializeBaseCollectionPaginationCountResponse(writer, virtualEventRegistrationCollectionResponse)
+    writer.writeCollectionOfObjectValues<VirtualEventRegistration>("value", virtualEventRegistrationCollectionResponse.value, serializeVirtualEventRegistration);
 }
 export interface VirtualEventRegistrationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

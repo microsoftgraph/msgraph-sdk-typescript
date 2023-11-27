@@ -16,8 +16,8 @@ export function deserializeIntoWorkbookOperationCollectionResponse(workbookOpera
     }
 }
 export function serializeWorkbookOperationCollectionResponse(writer: SerializationWriter, workbookOperationCollectionResponse: WorkbookOperationCollectionResponse | undefined = {} as WorkbookOperationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, workbookOperationCollectionResponse)
-        writer.writeCollectionOfObjectValues<WorkbookOperation>("value", workbookOperationCollectionResponse.value, serializeWorkbookOperation);
+    serializeBaseCollectionPaginationCountResponse(writer, workbookOperationCollectionResponse)
+    writer.writeCollectionOfObjectValues<WorkbookOperation>("value", workbookOperationCollectionResponse.value, serializeWorkbookOperation);
 }
 export interface WorkbookOperationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

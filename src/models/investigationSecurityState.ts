@@ -33,10 +33,10 @@ export interface InvestigationSecurityState extends AdditionalDataHolder, Parsab
     status?: string;
 }
 export function serializeInvestigationSecurityState(writer: SerializationWriter, investigationSecurityState: InvestigationSecurityState | undefined = {} as InvestigationSecurityState) : void {
-        writer.writeStringValue("name", investigationSecurityState.name);
-        writer.writeStringValue("@odata.type", investigationSecurityState.odataType);
-        writer.writeStringValue("status", investigationSecurityState.status);
-        writer.writeAdditionalData(investigationSecurityState.additionalData);
+    writer.writeStringValue("name", investigationSecurityState.name);
+    writer.writeStringValue("@odata.type", investigationSecurityState.odataType);
+    writer.writeStringValue("status", investigationSecurityState.status);
+    writer.writeAdditionalData(investigationSecurityState.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -40,15 +40,15 @@ export function deserializeIntoUnifiedRoleScheduleInstanceBase(unifiedRoleSchedu
     }
 }
 export function serializeUnifiedRoleScheduleInstanceBase(writer: SerializationWriter, unifiedRoleScheduleInstanceBase: UnifiedRoleScheduleInstanceBase | undefined = {} as UnifiedRoleScheduleInstanceBase) : void {
-        serializeEntity(writer, unifiedRoleScheduleInstanceBase)
-        writer.writeObjectValue<AppScope>("appScope", unifiedRoleScheduleInstanceBase.appScope, serializeAppScope);
-        writer.writeStringValue("appScopeId", unifiedRoleScheduleInstanceBase.appScopeId);
-        writer.writeObjectValue<DirectoryObject>("directoryScope", unifiedRoleScheduleInstanceBase.directoryScope, serializeDirectoryObject);
-        writer.writeStringValue("directoryScopeId", unifiedRoleScheduleInstanceBase.directoryScopeId);
-        writer.writeObjectValue<DirectoryObject>("principal", unifiedRoleScheduleInstanceBase.principal, serializeDirectoryObject);
-        writer.writeStringValue("principalId", unifiedRoleScheduleInstanceBase.principalId);
-        writer.writeObjectValue<UnifiedRoleDefinition>("roleDefinition", unifiedRoleScheduleInstanceBase.roleDefinition, serializeUnifiedRoleDefinition);
-        writer.writeStringValue("roleDefinitionId", unifiedRoleScheduleInstanceBase.roleDefinitionId);
+    serializeEntity(writer, unifiedRoleScheduleInstanceBase)
+    writer.writeObjectValue<AppScope>("appScope", unifiedRoleScheduleInstanceBase.appScope, serializeAppScope);
+    writer.writeStringValue("appScopeId", unifiedRoleScheduleInstanceBase.appScopeId);
+    writer.writeObjectValue<DirectoryObject>("directoryScope", unifiedRoleScheduleInstanceBase.directoryScope, serializeDirectoryObject);
+    writer.writeStringValue("directoryScopeId", unifiedRoleScheduleInstanceBase.directoryScopeId);
+    writer.writeObjectValue<DirectoryObject>("principal", unifiedRoleScheduleInstanceBase.principal, serializeDirectoryObject);
+    writer.writeStringValue("principalId", unifiedRoleScheduleInstanceBase.principalId);
+    writer.writeObjectValue<UnifiedRoleDefinition>("roleDefinition", unifiedRoleScheduleInstanceBase.roleDefinition, serializeUnifiedRoleDefinition);
+    writer.writeStringValue("roleDefinitionId", unifiedRoleScheduleInstanceBase.roleDefinitionId);
 }
 export interface UnifiedRoleScheduleInstanceBase extends Entity, Parsable {
     /**

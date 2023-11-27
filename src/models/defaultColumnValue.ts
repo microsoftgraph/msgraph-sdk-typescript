@@ -33,10 +33,10 @@ export function deserializeIntoDefaultColumnValue(defaultColumnValue: DefaultCol
     }
 }
 export function serializeDefaultColumnValue(writer: SerializationWriter, defaultColumnValue: DefaultColumnValue | undefined = {} as DefaultColumnValue) : void {
-        writer.writeStringValue("formula", defaultColumnValue.formula);
-        writer.writeStringValue("@odata.type", defaultColumnValue.odataType);
-        writer.writeStringValue("value", defaultColumnValue.value);
-        writer.writeAdditionalData(defaultColumnValue.additionalData);
+    writer.writeStringValue("formula", defaultColumnValue.formula);
+    writer.writeStringValue("@odata.type", defaultColumnValue.odataType);
+    writer.writeStringValue("value", defaultColumnValue.value);
+    writer.writeAdditionalData(defaultColumnValue.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -15,10 +15,10 @@ export function deserializeIntoTicketInfo(ticketInfo: TicketInfo | undefined = {
     }
 }
 export function serializeTicketInfo(writer: SerializationWriter, ticketInfo: TicketInfo | undefined = {} as TicketInfo) : void {
-        writer.writeStringValue("@odata.type", ticketInfo.odataType);
-        writer.writeStringValue("ticketNumber", ticketInfo.ticketNumber);
-        writer.writeStringValue("ticketSystem", ticketInfo.ticketSystem);
-        writer.writeAdditionalData(ticketInfo.additionalData);
+    writer.writeStringValue("@odata.type", ticketInfo.odataType);
+    writer.writeStringValue("ticketNumber", ticketInfo.ticketNumber);
+    writer.writeStringValue("ticketSystem", ticketInfo.ticketSystem);
+    writer.writeAdditionalData(ticketInfo.additionalData);
 }
 export interface TicketInfo extends AdditionalDataHolder, Parsable {
     /**

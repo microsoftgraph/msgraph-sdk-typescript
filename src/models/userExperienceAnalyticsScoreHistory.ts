@@ -15,8 +15,8 @@ export function deserializeIntoUserExperienceAnalyticsScoreHistory(userExperienc
     }
 }
 export function serializeUserExperienceAnalyticsScoreHistory(writer: SerializationWriter, userExperienceAnalyticsScoreHistory: UserExperienceAnalyticsScoreHistory | undefined = {} as UserExperienceAnalyticsScoreHistory) : void {
-        serializeEntity(writer, userExperienceAnalyticsScoreHistory)
-        writer.writeDateValue("startupDateTime", userExperienceAnalyticsScoreHistory.startupDateTime);
+    serializeEntity(writer, userExperienceAnalyticsScoreHistory)
+    writer.writeDateValue("startupDateTime", userExperienceAnalyticsScoreHistory.startupDateTime);
 }
 export interface UserExperienceAnalyticsScoreHistory extends Entity, Parsable {
     /**

@@ -22,8 +22,8 @@ export function deserializeIntoAccessReviewStageCollectionResponse(accessReviewS
     }
 }
 export function serializeAccessReviewStageCollectionResponse(writer: SerializationWriter, accessReviewStageCollectionResponse: AccessReviewStageCollectionResponse | undefined = {} as AccessReviewStageCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, accessReviewStageCollectionResponse)
-        writer.writeCollectionOfObjectValues<AccessReviewStage>("value", accessReviewStageCollectionResponse.value, serializeAccessReviewStage);
+    serializeBaseCollectionPaginationCountResponse(writer, accessReviewStageCollectionResponse)
+    writer.writeCollectionOfObjectValues<AccessReviewStage>("value", accessReviewStageCollectionResponse.value, serializeAccessReviewStage);
 }
 // tslint:enable
 // eslint-enable

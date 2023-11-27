@@ -22,8 +22,8 @@ export interface DirectoryObjectCollectionResponse extends BaseCollectionPaginat
     value?: DirectoryObject[];
 }
 export function serializeDirectoryObjectCollectionResponse(writer: SerializationWriter, directoryObjectCollectionResponse: DirectoryObjectCollectionResponse | undefined = {} as DirectoryObjectCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, directoryObjectCollectionResponse)
-        writer.writeCollectionOfObjectValues<DirectoryObject>("value", directoryObjectCollectionResponse.value, serializeDirectoryObject);
+    serializeBaseCollectionPaginationCountResponse(writer, directoryObjectCollectionResponse)
+    writer.writeCollectionOfObjectValues<DirectoryObject>("value", directoryObjectCollectionResponse.value, serializeDirectoryObject);
 }
 // tslint:enable
 // eslint-enable

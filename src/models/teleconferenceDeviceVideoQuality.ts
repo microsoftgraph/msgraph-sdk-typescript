@@ -30,11 +30,11 @@ export function deserializeIntoTeleconferenceDeviceVideoQuality(teleconferenceDe
     }
 }
 export function serializeTeleconferenceDeviceVideoQuality(writer: SerializationWriter, teleconferenceDeviceVideoQuality: TeleconferenceDeviceVideoQuality | undefined = {} as TeleconferenceDeviceVideoQuality) : void {
-        serializeTeleconferenceDeviceMediaQuality(writer, teleconferenceDeviceVideoQuality)
-        writer.writeNumberValue("averageInboundBitRate", teleconferenceDeviceVideoQuality.averageInboundBitRate);
-        writer.writeNumberValue("averageInboundFrameRate", teleconferenceDeviceVideoQuality.averageInboundFrameRate);
-        writer.writeNumberValue("averageOutboundBitRate", teleconferenceDeviceVideoQuality.averageOutboundBitRate);
-        writer.writeNumberValue("averageOutboundFrameRate", teleconferenceDeviceVideoQuality.averageOutboundFrameRate);
+    serializeTeleconferenceDeviceMediaQuality(writer, teleconferenceDeviceVideoQuality)
+    writer.writeNumberValue("averageInboundBitRate", teleconferenceDeviceVideoQuality.averageInboundBitRate);
+    writer.writeNumberValue("averageInboundFrameRate", teleconferenceDeviceVideoQuality.averageInboundFrameRate);
+    writer.writeNumberValue("averageOutboundBitRate", teleconferenceDeviceVideoQuality.averageOutboundBitRate);
+    writer.writeNumberValue("averageOutboundFrameRate", teleconferenceDeviceVideoQuality.averageOutboundFrameRate);
 }
 export interface TeleconferenceDeviceVideoQuality extends Parsable, TeleconferenceDeviceMediaQuality {
     /**

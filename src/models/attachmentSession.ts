@@ -31,10 +31,10 @@ export function deserializeIntoAttachmentSession(attachmentSession: AttachmentSe
     }
 }
 export function serializeAttachmentSession(writer: SerializationWriter, attachmentSession: AttachmentSession | undefined = {} as AttachmentSession) : void {
-        serializeEntity(writer, attachmentSession)
-        writer.writeStringValue("content", attachmentSession.content);
-        writer.writeDateValue("expirationDateTime", attachmentSession.expirationDateTime);
-        writer.writeCollectionOfPrimitiveValues<string>("nextExpectedRanges", attachmentSession.nextExpectedRanges);
+    serializeEntity(writer, attachmentSession)
+    writer.writeStringValue("content", attachmentSession.content);
+    writer.writeDateValue("expirationDateTime", attachmentSession.expirationDateTime);
+    writer.writeCollectionOfPrimitiveValues<string>("nextExpectedRanges", attachmentSession.nextExpectedRanges);
 }
 // tslint:enable
 // eslint-enable

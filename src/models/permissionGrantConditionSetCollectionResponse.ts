@@ -22,8 +22,8 @@ export interface PermissionGrantConditionSetCollectionResponse extends BaseColle
     value?: PermissionGrantConditionSet[];
 }
 export function serializePermissionGrantConditionSetCollectionResponse(writer: SerializationWriter, permissionGrantConditionSetCollectionResponse: PermissionGrantConditionSetCollectionResponse | undefined = {} as PermissionGrantConditionSetCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, permissionGrantConditionSetCollectionResponse)
-        writer.writeCollectionOfObjectValues<PermissionGrantConditionSet>("value", permissionGrantConditionSetCollectionResponse.value, serializePermissionGrantConditionSet);
+    serializeBaseCollectionPaginationCountResponse(writer, permissionGrantConditionSetCollectionResponse)
+    writer.writeCollectionOfObjectValues<PermissionGrantConditionSet>("value", permissionGrantConditionSetCollectionResponse.value, serializePermissionGrantConditionSet);
 }
 // tslint:enable
 // eslint-enable

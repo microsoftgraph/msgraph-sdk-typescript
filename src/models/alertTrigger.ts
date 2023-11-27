@@ -38,11 +38,11 @@ export function deserializeIntoAlertTrigger(alertTrigger: AlertTrigger | undefin
     }
 }
 export function serializeAlertTrigger(writer: SerializationWriter, alertTrigger: AlertTrigger | undefined = {} as AlertTrigger) : void {
-        writer.writeStringValue("name", alertTrigger.name);
-        writer.writeStringValue("@odata.type", alertTrigger.odataType);
-        writer.writeStringValue("type", alertTrigger.type);
-        writer.writeStringValue("value", alertTrigger.value);
-        writer.writeAdditionalData(alertTrigger.additionalData);
+    writer.writeStringValue("name", alertTrigger.name);
+    writer.writeStringValue("@odata.type", alertTrigger.odataType);
+    writer.writeStringValue("type", alertTrigger.type);
+    writer.writeStringValue("value", alertTrigger.value);
+    writer.writeAdditionalData(alertTrigger.additionalData);
 }
 // tslint:enable
 // eslint-enable

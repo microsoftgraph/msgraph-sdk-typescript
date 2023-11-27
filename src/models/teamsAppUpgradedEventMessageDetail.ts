@@ -18,10 +18,10 @@ export function deserializeIntoTeamsAppUpgradedEventMessageDetail(teamsAppUpgrad
     }
 }
 export function serializeTeamsAppUpgradedEventMessageDetail(writer: SerializationWriter, teamsAppUpgradedEventMessageDetail: TeamsAppUpgradedEventMessageDetail | undefined = {} as TeamsAppUpgradedEventMessageDetail) : void {
-        serializeEventMessageDetail(writer, teamsAppUpgradedEventMessageDetail)
-        writer.writeObjectValue<IdentitySet>("initiator", teamsAppUpgradedEventMessageDetail.initiator, serializeIdentitySet);
-        writer.writeStringValue("teamsAppDisplayName", teamsAppUpgradedEventMessageDetail.teamsAppDisplayName);
-        writer.writeStringValue("teamsAppId", teamsAppUpgradedEventMessageDetail.teamsAppId);
+    serializeEventMessageDetail(writer, teamsAppUpgradedEventMessageDetail)
+    writer.writeObjectValue<IdentitySet>("initiator", teamsAppUpgradedEventMessageDetail.initiator, serializeIdentitySet);
+    writer.writeStringValue("teamsAppDisplayName", teamsAppUpgradedEventMessageDetail.teamsAppDisplayName);
+    writer.writeStringValue("teamsAppId", teamsAppUpgradedEventMessageDetail.teamsAppId);
 }
 export interface TeamsAppUpgradedEventMessageDetail extends EventMessageDetail, Parsable {
     /**

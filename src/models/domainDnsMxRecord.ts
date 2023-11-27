@@ -26,9 +26,9 @@ export interface DomainDnsMxRecord extends DomainDnsRecord, Parsable {
     preference?: number;
 }
 export function serializeDomainDnsMxRecord(writer: SerializationWriter, domainDnsMxRecord: DomainDnsMxRecord | undefined = {} as DomainDnsMxRecord) : void {
-        serializeDomainDnsRecord(writer, domainDnsMxRecord)
-        writer.writeStringValue("mailExchange", domainDnsMxRecord.mailExchange);
-        writer.writeNumberValue("preference", domainDnsMxRecord.preference);
+    serializeDomainDnsRecord(writer, domainDnsMxRecord)
+    writer.writeStringValue("mailExchange", domainDnsMxRecord.mailExchange);
+    writer.writeNumberValue("preference", domainDnsMxRecord.preference);
 }
 // tslint:enable
 // eslint-enable

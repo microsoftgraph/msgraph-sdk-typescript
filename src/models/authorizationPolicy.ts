@@ -59,15 +59,15 @@ export function deserializeIntoAuthorizationPolicy(authorizationPolicy: Authoriz
     }
 }
 export function serializeAuthorizationPolicy(writer: SerializationWriter, authorizationPolicy: AuthorizationPolicy | undefined = {} as AuthorizationPolicy) : void {
-        serializePolicyBase(writer, authorizationPolicy)
-        writer.writeBooleanValue("allowedToSignUpEmailBasedSubscriptions", authorizationPolicy.allowedToSignUpEmailBasedSubscriptions);
-        writer.writeBooleanValue("allowedToUseSSPR", authorizationPolicy.allowedToUseSSPR);
-        writer.writeBooleanValue("allowEmailVerifiedUsersToJoinOrganization", authorizationPolicy.allowEmailVerifiedUsersToJoinOrganization);
-        writer.writeEnumValue<AllowInvitesFrom>("allowInvitesFrom", authorizationPolicy.allowInvitesFrom);
-        writer.writeBooleanValue("allowUserConsentForRiskyApps", authorizationPolicy.allowUserConsentForRiskyApps);
-        writer.writeBooleanValue("blockMsolPowerShell", authorizationPolicy.blockMsolPowerShell);
-        writer.writeObjectValue<DefaultUserRolePermissions>("defaultUserRolePermissions", authorizationPolicy.defaultUserRolePermissions, serializeDefaultUserRolePermissions);
-        writer.writeGuidValue("guestUserRoleId", authorizationPolicy.guestUserRoleId);
+    serializePolicyBase(writer, authorizationPolicy)
+    writer.writeBooleanValue("allowedToSignUpEmailBasedSubscriptions", authorizationPolicy.allowedToSignUpEmailBasedSubscriptions);
+    writer.writeBooleanValue("allowedToUseSSPR", authorizationPolicy.allowedToUseSSPR);
+    writer.writeBooleanValue("allowEmailVerifiedUsersToJoinOrganization", authorizationPolicy.allowEmailVerifiedUsersToJoinOrganization);
+    writer.writeEnumValue<AllowInvitesFrom>("allowInvitesFrom", authorizationPolicy.allowInvitesFrom);
+    writer.writeBooleanValue("allowUserConsentForRiskyApps", authorizationPolicy.allowUserConsentForRiskyApps);
+    writer.writeBooleanValue("blockMsolPowerShell", authorizationPolicy.blockMsolPowerShell);
+    writer.writeObjectValue<DefaultUserRolePermissions>("defaultUserRolePermissions", authorizationPolicy.defaultUserRolePermissions, serializeDefaultUserRolePermissions);
+    writer.writeGuidValue("guestUserRoleId", authorizationPolicy.guestUserRoleId);
 }
 // tslint:enable
 // eslint-enable

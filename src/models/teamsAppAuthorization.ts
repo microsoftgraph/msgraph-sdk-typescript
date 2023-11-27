@@ -15,9 +15,9 @@ export function deserializeIntoTeamsAppAuthorization(teamsAppAuthorization: Team
     }
 }
 export function serializeTeamsAppAuthorization(writer: SerializationWriter, teamsAppAuthorization: TeamsAppAuthorization | undefined = {} as TeamsAppAuthorization) : void {
-        writer.writeStringValue("@odata.type", teamsAppAuthorization.odataType);
-        writer.writeObjectValue<TeamsAppPermissionSet>("requiredPermissionSet", teamsAppAuthorization.requiredPermissionSet, serializeTeamsAppPermissionSet);
-        writer.writeAdditionalData(teamsAppAuthorization.additionalData);
+    writer.writeStringValue("@odata.type", teamsAppAuthorization.odataType);
+    writer.writeObjectValue<TeamsAppPermissionSet>("requiredPermissionSet", teamsAppAuthorization.requiredPermissionSet, serializeTeamsAppPermissionSet);
+    writer.writeAdditionalData(teamsAppAuthorization.additionalData);
 }
 export interface TeamsAppAuthorization extends AdditionalDataHolder, Parsable {
     /**

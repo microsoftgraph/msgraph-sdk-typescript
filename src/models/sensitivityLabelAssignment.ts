@@ -39,11 +39,11 @@ export interface SensitivityLabelAssignment extends AdditionalDataHolder, Parsab
     tenantId?: string;
 }
 export function serializeSensitivityLabelAssignment(writer: SerializationWriter, sensitivityLabelAssignment: SensitivityLabelAssignment | undefined = {} as SensitivityLabelAssignment) : void {
-        writer.writeEnumValue<SensitivityLabelAssignmentMethod>("assignmentMethod", sensitivityLabelAssignment.assignmentMethod);
-        writer.writeStringValue("@odata.type", sensitivityLabelAssignment.odataType);
-        writer.writeStringValue("sensitivityLabelId", sensitivityLabelAssignment.sensitivityLabelId);
-        writer.writeStringValue("tenantId", sensitivityLabelAssignment.tenantId);
-        writer.writeAdditionalData(sensitivityLabelAssignment.additionalData);
+    writer.writeEnumValue<SensitivityLabelAssignmentMethod>("assignmentMethod", sensitivityLabelAssignment.assignmentMethod);
+    writer.writeStringValue("@odata.type", sensitivityLabelAssignment.odataType);
+    writer.writeStringValue("sensitivityLabelId", sensitivityLabelAssignment.sensitivityLabelId);
+    writer.writeStringValue("tenantId", sensitivityLabelAssignment.tenantId);
+    writer.writeAdditionalData(sensitivityLabelAssignment.additionalData);
 }
 // tslint:enable
 // eslint-enable

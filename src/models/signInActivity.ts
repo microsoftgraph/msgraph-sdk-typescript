@@ -17,12 +17,12 @@ export function deserializeIntoSignInActivity(signInActivity: SignInActivity | u
     }
 }
 export function serializeSignInActivity(writer: SerializationWriter, signInActivity: SignInActivity | undefined = {} as SignInActivity) : void {
-        writer.writeDateValue("lastNonInteractiveSignInDateTime", signInActivity.lastNonInteractiveSignInDateTime);
-        writer.writeStringValue("lastNonInteractiveSignInRequestId", signInActivity.lastNonInteractiveSignInRequestId);
-        writer.writeDateValue("lastSignInDateTime", signInActivity.lastSignInDateTime);
-        writer.writeStringValue("lastSignInRequestId", signInActivity.lastSignInRequestId);
-        writer.writeStringValue("@odata.type", signInActivity.odataType);
-        writer.writeAdditionalData(signInActivity.additionalData);
+    writer.writeDateValue("lastNonInteractiveSignInDateTime", signInActivity.lastNonInteractiveSignInDateTime);
+    writer.writeStringValue("lastNonInteractiveSignInRequestId", signInActivity.lastNonInteractiveSignInRequestId);
+    writer.writeDateValue("lastSignInDateTime", signInActivity.lastSignInDateTime);
+    writer.writeStringValue("lastSignInRequestId", signInActivity.lastSignInRequestId);
+    writer.writeStringValue("@odata.type", signInActivity.odataType);
+    writer.writeAdditionalData(signInActivity.additionalData);
 }
 export interface SignInActivity extends AdditionalDataHolder, Parsable {
     /**

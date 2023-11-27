@@ -34,8 +34,8 @@ export function deserializeIntoAttendeeBase(attendeeBase: AttendeeBase | undefin
     }
 }
 export function serializeAttendeeBase(writer: SerializationWriter, attendeeBase: AttendeeBase | undefined = {} as AttendeeBase) : void {
-        serializeRecipient(writer, attendeeBase)
-        writer.writeEnumValue<AttendeeType>("type", attendeeBase.type);
+    serializeRecipient(writer, attendeeBase)
+    writer.writeEnumValue<AttendeeType>("type", attendeeBase.type);
 }
 // tslint:enable
 // eslint-enable

@@ -48,13 +48,13 @@ export function deserializeIntoAdministrativeUnit(administrativeUnit: Administra
     }
 }
 export function serializeAdministrativeUnit(writer: SerializationWriter, administrativeUnit: AdministrativeUnit | undefined = {} as AdministrativeUnit) : void {
-        serializeDirectoryObject(writer, administrativeUnit)
-        writer.writeStringValue("description", administrativeUnit.description);
-        writer.writeStringValue("displayName", administrativeUnit.displayName);
-        writer.writeCollectionOfObjectValues<Extension>("extensions", administrativeUnit.extensions, serializeExtension);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("members", administrativeUnit.members, serializeDirectoryObject);
-        writer.writeCollectionOfObjectValues<ScopedRoleMembership>("scopedRoleMembers", administrativeUnit.scopedRoleMembers, serializeScopedRoleMembership);
-        writer.writeStringValue("visibility", administrativeUnit.visibility);
+    serializeDirectoryObject(writer, administrativeUnit)
+    writer.writeStringValue("description", administrativeUnit.description);
+    writer.writeStringValue("displayName", administrativeUnit.displayName);
+    writer.writeCollectionOfObjectValues<Extension>("extensions", administrativeUnit.extensions, serializeExtension);
+    writer.writeCollectionOfObjectValues<DirectoryObject>("members", administrativeUnit.members, serializeDirectoryObject);
+    writer.writeCollectionOfObjectValues<ScopedRoleMembership>("scopedRoleMembers", administrativeUnit.scopedRoleMembers, serializeScopedRoleMembership);
+    writer.writeStringValue("visibility", administrativeUnit.visibility);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export function deserializeIntoAttackSimulationOperationCollectionResponse(attac
     }
 }
 export function serializeAttackSimulationOperationCollectionResponse(writer: SerializationWriter, attackSimulationOperationCollectionResponse: AttackSimulationOperationCollectionResponse | undefined = {} as AttackSimulationOperationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, attackSimulationOperationCollectionResponse)
-        writer.writeCollectionOfObjectValues<AttackSimulationOperation>("value", attackSimulationOperationCollectionResponse.value, serializeAttackSimulationOperation);
+    serializeBaseCollectionPaginationCountResponse(writer, attackSimulationOperationCollectionResponse)
+    writer.writeCollectionOfObjectValues<AttackSimulationOperation>("value", attackSimulationOperationCollectionResponse.value, serializeAttackSimulationOperation);
 }
 // tslint:enable
 // eslint-enable

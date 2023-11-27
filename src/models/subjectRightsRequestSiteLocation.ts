@@ -28,8 +28,8 @@ export function deserializeIntoSubjectRightsRequestSiteLocation(subjectRightsReq
     }
 }
 export function serializeSubjectRightsRequestSiteLocation(writer: SerializationWriter, subjectRightsRequestSiteLocation: SubjectRightsRequestSiteLocation | undefined = {} as SubjectRightsRequestSiteLocation) : void {
-        writer.writeStringValue("@odata.type", subjectRightsRequestSiteLocation.odataType);
-        writer.writeAdditionalData(subjectRightsRequestSiteLocation.additionalData);
+    writer.writeStringValue("@odata.type", subjectRightsRequestSiteLocation.odataType);
+    writer.writeAdditionalData(subjectRightsRequestSiteLocation.additionalData);
 }
 export interface SubjectRightsRequestSiteLocation extends AdditionalDataHolder, Parsable {
     /**

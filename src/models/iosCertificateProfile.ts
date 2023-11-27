@@ -16,7 +16,7 @@ export function deserializeIntoIosCertificateProfile(iosCertificateProfile: IosC
 export interface IosCertificateProfile extends DeviceConfiguration, Parsable {
 }
 export function serializeIosCertificateProfile(writer: SerializationWriter, iosCertificateProfile: IosCertificateProfile | undefined = {} as IosCertificateProfile) : void {
-        serializeDeviceConfiguration(writer, iosCertificateProfile)
+    serializeDeviceConfiguration(writer, iosCertificateProfile)
 }
 // tslint:enable
 // eslint-enable

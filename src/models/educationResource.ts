@@ -82,9 +82,9 @@ export interface EducationResource extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeEducationResource(writer: SerializationWriter, educationResource: EducationResource | undefined = {} as EducationResource) : void {
-        writer.writeStringValue("displayName", educationResource.displayName);
-        writer.writeStringValue("@odata.type", educationResource.odataType);
-        writer.writeAdditionalData(educationResource.additionalData);
+    writer.writeStringValue("displayName", educationResource.displayName);
+    writer.writeStringValue("@odata.type", educationResource.odataType);
+    writer.writeAdditionalData(educationResource.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -64,16 +64,16 @@ export interface DeviceManagementPartner extends Entity, Parsable {
     whenPartnerDevicesWillBeRemovedDateTime?: Date;
 }
 export function serializeDeviceManagementPartner(writer: SerializationWriter, deviceManagementPartner: DeviceManagementPartner | undefined = {} as DeviceManagementPartner) : void {
-        serializeEntity(writer, deviceManagementPartner)
-        writer.writeStringValue("displayName", deviceManagementPartner.displayName);
-        writer.writeCollectionOfObjectValues<DeviceManagementPartnerAssignment>("groupsRequiringPartnerEnrollment", deviceManagementPartner.groupsRequiringPartnerEnrollment, serializeDeviceManagementPartnerAssignment);
-        writer.writeBooleanValue("isConfigured", deviceManagementPartner.isConfigured);
-        writer.writeDateValue("lastHeartbeatDateTime", deviceManagementPartner.lastHeartbeatDateTime);
-        writer.writeEnumValue<DeviceManagementPartnerAppType>("partnerAppType", deviceManagementPartner.partnerAppType);
-        writer.writeEnumValue<DeviceManagementPartnerTenantState>("partnerState", deviceManagementPartner.partnerState);
-        writer.writeStringValue("singleTenantAppId", deviceManagementPartner.singleTenantAppId);
-        writer.writeDateValue("whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime", deviceManagementPartner.whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime);
-        writer.writeDateValue("whenPartnerDevicesWillBeRemovedDateTime", deviceManagementPartner.whenPartnerDevicesWillBeRemovedDateTime);
+    serializeEntity(writer, deviceManagementPartner)
+    writer.writeStringValue("displayName", deviceManagementPartner.displayName);
+    writer.writeCollectionOfObjectValues<DeviceManagementPartnerAssignment>("groupsRequiringPartnerEnrollment", deviceManagementPartner.groupsRequiringPartnerEnrollment, serializeDeviceManagementPartnerAssignment);
+    writer.writeBooleanValue("isConfigured", deviceManagementPartner.isConfigured);
+    writer.writeDateValue("lastHeartbeatDateTime", deviceManagementPartner.lastHeartbeatDateTime);
+    writer.writeEnumValue<DeviceManagementPartnerAppType>("partnerAppType", deviceManagementPartner.partnerAppType);
+    writer.writeEnumValue<DeviceManagementPartnerTenantState>("partnerState", deviceManagementPartner.partnerState);
+    writer.writeStringValue("singleTenantAppId", deviceManagementPartner.singleTenantAppId);
+    writer.writeDateValue("whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime", deviceManagementPartner.whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime);
+    writer.writeDateValue("whenPartnerDevicesWillBeRemovedDateTime", deviceManagementPartner.whenPartnerDevicesWillBeRemovedDateTime);
 }
 // tslint:enable
 // eslint-enable
