@@ -48,24 +48,24 @@ export function deserializeIntoThreatIntelligence(threatIntelligence: ThreatInte
     }
 }
 export function serializeThreatIntelligence(writer: SerializationWriter, threatIntelligence: ThreatIntelligence | undefined = {} as ThreatIntelligence) : void {
-        serializeEntity(writer, threatIntelligence)
-        writer.writeCollectionOfObjectValues<ArticleIndicator>("articleIndicators", threatIntelligence.articleIndicators, serializeArticleIndicator);
-        writer.writeCollectionOfObjectValues<Article>("articles", threatIntelligence.articles, serializeArticle);
-        writer.writeCollectionOfObjectValues<HostComponent>("hostComponents", threatIntelligence.hostComponents, serializeHostComponent);
-        writer.writeCollectionOfObjectValues<HostCookie>("hostCookies", threatIntelligence.hostCookies, serializeHostCookie);
-        writer.writeCollectionOfObjectValues<HostPair>("hostPairs", threatIntelligence.hostPairs, serializeHostPair);
-        writer.writeCollectionOfObjectValues<HostPort>("hostPorts", threatIntelligence.hostPorts, serializeHostPort);
-        writer.writeCollectionOfObjectValues<Host>("hosts", threatIntelligence.hosts, serializeHost);
-        writer.writeCollectionOfObjectValues<HostSslCertificate>("hostSslCertificates", threatIntelligence.hostSslCertificates, serializeHostSslCertificate);
-        writer.writeCollectionOfObjectValues<HostTracker>("hostTrackers", threatIntelligence.hostTrackers, serializeHostTracker);
-        writer.writeCollectionOfObjectValues<IntelligenceProfileIndicator>("intelligenceProfileIndicators", threatIntelligence.intelligenceProfileIndicators, serializeIntelligenceProfileIndicator);
-        writer.writeCollectionOfObjectValues<IntelligenceProfile>("intelProfiles", threatIntelligence.intelProfiles, serializeIntelligenceProfile);
-        writer.writeCollectionOfObjectValues<PassiveDnsRecord>("passiveDnsRecords", threatIntelligence.passiveDnsRecords, serializePassiveDnsRecord);
-        writer.writeCollectionOfObjectValues<SslCertificate>("sslCertificates", threatIntelligence.sslCertificates, serializeSslCertificate);
-        writer.writeCollectionOfObjectValues<Subdomain>("subdomains", threatIntelligence.subdomains, serializeSubdomain);
-        writer.writeCollectionOfObjectValues<Vulnerability>("vulnerabilities", threatIntelligence.vulnerabilities, serializeVulnerability);
-        writer.writeCollectionOfObjectValues<WhoisHistoryRecord>("whoisHistoryRecords", threatIntelligence.whoisHistoryRecords, serializeWhoisHistoryRecord);
-        writer.writeCollectionOfObjectValues<WhoisRecord>("whoisRecords", threatIntelligence.whoisRecords, serializeWhoisRecord);
+    serializeEntity(writer, threatIntelligence)
+    writer.writeCollectionOfObjectValues<ArticleIndicator>("articleIndicators", threatIntelligence.articleIndicators, serializeArticleIndicator);
+    writer.writeCollectionOfObjectValues<Article>("articles", threatIntelligence.articles, serializeArticle);
+    writer.writeCollectionOfObjectValues<HostComponent>("hostComponents", threatIntelligence.hostComponents, serializeHostComponent);
+    writer.writeCollectionOfObjectValues<HostCookie>("hostCookies", threatIntelligence.hostCookies, serializeHostCookie);
+    writer.writeCollectionOfObjectValues<HostPair>("hostPairs", threatIntelligence.hostPairs, serializeHostPair);
+    writer.writeCollectionOfObjectValues<HostPort>("hostPorts", threatIntelligence.hostPorts, serializeHostPort);
+    writer.writeCollectionOfObjectValues<Host>("hosts", threatIntelligence.hosts, serializeHost);
+    writer.writeCollectionOfObjectValues<HostSslCertificate>("hostSslCertificates", threatIntelligence.hostSslCertificates, serializeHostSslCertificate);
+    writer.writeCollectionOfObjectValues<HostTracker>("hostTrackers", threatIntelligence.hostTrackers, serializeHostTracker);
+    writer.writeCollectionOfObjectValues<IntelligenceProfileIndicator>("intelligenceProfileIndicators", threatIntelligence.intelligenceProfileIndicators, serializeIntelligenceProfileIndicator);
+    writer.writeCollectionOfObjectValues<IntelligenceProfile>("intelProfiles", threatIntelligence.intelProfiles, serializeIntelligenceProfile);
+    writer.writeCollectionOfObjectValues<PassiveDnsRecord>("passiveDnsRecords", threatIntelligence.passiveDnsRecords, serializePassiveDnsRecord);
+    writer.writeCollectionOfObjectValues<SslCertificate>("sslCertificates", threatIntelligence.sslCertificates, serializeSslCertificate);
+    writer.writeCollectionOfObjectValues<Subdomain>("subdomains", threatIntelligence.subdomains, serializeSubdomain);
+    writer.writeCollectionOfObjectValues<Vulnerability>("vulnerabilities", threatIntelligence.vulnerabilities, serializeVulnerability);
+    writer.writeCollectionOfObjectValues<WhoisHistoryRecord>("whoisHistoryRecords", threatIntelligence.whoisHistoryRecords, serializeWhoisHistoryRecord);
+    writer.writeCollectionOfObjectValues<WhoisRecord>("whoisRecords", threatIntelligence.whoisRecords, serializeWhoisRecord);
 }
 export interface ThreatIntelligence extends Entity, Parsable {
     /**

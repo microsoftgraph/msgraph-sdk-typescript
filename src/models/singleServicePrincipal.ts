@@ -16,9 +16,9 @@ export function deserializeIntoSingleServicePrincipal(singleServicePrincipal: Si
     }
 }
 export function serializeSingleServicePrincipal(writer: SerializationWriter, singleServicePrincipal: SingleServicePrincipal | undefined = {} as SingleServicePrincipal) : void {
-        serializeSubjectSet(writer, singleServicePrincipal)
-        writer.writeStringValue("description", singleServicePrincipal.description);
-        writer.writeStringValue("servicePrincipalId", singleServicePrincipal.servicePrincipalId);
+    serializeSubjectSet(writer, singleServicePrincipal)
+    writer.writeStringValue("description", singleServicePrincipal.description);
+    writer.writeStringValue("servicePrincipalId", singleServicePrincipal.servicePrincipalId);
 }
 export interface SingleServicePrincipal extends Parsable, SubjectSet {
     /**

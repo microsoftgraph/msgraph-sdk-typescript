@@ -26,16 +26,16 @@ export function deserializeIntoUnifiedRoleAssignment(unifiedRoleAssignment: Unif
     }
 }
 export function serializeUnifiedRoleAssignment(writer: SerializationWriter, unifiedRoleAssignment: UnifiedRoleAssignment | undefined = {} as UnifiedRoleAssignment) : void {
-        serializeEntity(writer, unifiedRoleAssignment)
-        writer.writeObjectValue<AppScope>("appScope", unifiedRoleAssignment.appScope, serializeAppScope);
-        writer.writeStringValue("appScopeId", unifiedRoleAssignment.appScopeId);
-        writer.writeStringValue("condition", unifiedRoleAssignment.condition);
-        writer.writeObjectValue<DirectoryObject>("directoryScope", unifiedRoleAssignment.directoryScope, serializeDirectoryObject);
-        writer.writeStringValue("directoryScopeId", unifiedRoleAssignment.directoryScopeId);
-        writer.writeObjectValue<DirectoryObject>("principal", unifiedRoleAssignment.principal, serializeDirectoryObject);
-        writer.writeStringValue("principalId", unifiedRoleAssignment.principalId);
-        writer.writeObjectValue<UnifiedRoleDefinition>("roleDefinition", unifiedRoleAssignment.roleDefinition, serializeUnifiedRoleDefinition);
-        writer.writeStringValue("roleDefinitionId", unifiedRoleAssignment.roleDefinitionId);
+    serializeEntity(writer, unifiedRoleAssignment)
+    writer.writeObjectValue<AppScope>("appScope", unifiedRoleAssignment.appScope, serializeAppScope);
+    writer.writeStringValue("appScopeId", unifiedRoleAssignment.appScopeId);
+    writer.writeStringValue("condition", unifiedRoleAssignment.condition);
+    writer.writeObjectValue<DirectoryObject>("directoryScope", unifiedRoleAssignment.directoryScope, serializeDirectoryObject);
+    writer.writeStringValue("directoryScopeId", unifiedRoleAssignment.directoryScopeId);
+    writer.writeObjectValue<DirectoryObject>("principal", unifiedRoleAssignment.principal, serializeDirectoryObject);
+    writer.writeStringValue("principalId", unifiedRoleAssignment.principalId);
+    writer.writeObjectValue<UnifiedRoleDefinition>("roleDefinition", unifiedRoleAssignment.roleDefinition, serializeUnifiedRoleDefinition);
+    writer.writeStringValue("roleDefinitionId", unifiedRoleAssignment.roleDefinitionId);
 }
 export interface UnifiedRoleAssignment extends Entity, Parsable {
     /**

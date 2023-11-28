@@ -27,8 +27,8 @@ export interface IsoWeekNumPostRequestBody extends AdditionalDataHolder, Parsabl
     date?: Json;
 }
 export function serializeIsoWeekNumPostRequestBody(writer: SerializationWriter, isoWeekNumPostRequestBody: IsoWeekNumPostRequestBody | undefined = {} as IsoWeekNumPostRequestBody) : void {
-        writer.writeObjectValue<Json>("date", isoWeekNumPostRequestBody.date, serializeJson);
-        writer.writeAdditionalData(isoWeekNumPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("date", isoWeekNumPostRequestBody.date, serializeJson);
+    writer.writeAdditionalData(isoWeekNumPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the isoWeekNum method.

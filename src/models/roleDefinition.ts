@@ -55,12 +55,12 @@ export interface RoleDefinition extends Entity, Parsable {
     rolePermissions?: RolePermission[];
 }
 export function serializeRoleDefinition(writer: SerializationWriter, roleDefinition: RoleDefinition | undefined = {} as RoleDefinition) : void {
-        serializeEntity(writer, roleDefinition)
-        writer.writeStringValue("description", roleDefinition.description);
-        writer.writeStringValue("displayName", roleDefinition.displayName);
-        writer.writeBooleanValue("isBuiltIn", roleDefinition.isBuiltIn);
-        writer.writeCollectionOfObjectValues<RoleAssignment>("roleAssignments", roleDefinition.roleAssignments, serializeRoleAssignment);
-        writer.writeCollectionOfObjectValues<RolePermission>("rolePermissions", roleDefinition.rolePermissions, serializeRolePermission);
+    serializeEntity(writer, roleDefinition)
+    writer.writeStringValue("description", roleDefinition.description);
+    writer.writeStringValue("displayName", roleDefinition.displayName);
+    writer.writeBooleanValue("isBuiltIn", roleDefinition.isBuiltIn);
+    writer.writeCollectionOfObjectValues<RoleAssignment>("roleAssignments", roleDefinition.roleAssignments, serializeRoleAssignment);
+    writer.writeCollectionOfObjectValues<RolePermission>("rolePermissions", roleDefinition.rolePermissions, serializeRolePermission);
 }
 // tslint:enable
 // eslint-enable

@@ -53,14 +53,14 @@ export function deserializeIntoContainerEvidence(containerEvidence: ContainerEvi
     }
 }
 export function serializeContainerEvidence(writer: SerializationWriter, containerEvidence: ContainerEvidence | undefined = {} as ContainerEvidence) : void {
-        serializeAlertEvidence(writer, containerEvidence)
-        writer.writeCollectionOfPrimitiveValues<string>("args", containerEvidence.args);
-        writer.writeCollectionOfPrimitiveValues<string>("command", containerEvidence.command);
-        writer.writeStringValue("containerId", containerEvidence.containerId);
-        writer.writeObjectValue<ContainerImageEvidence>("image", containerEvidence.image, serializeContainerImageEvidence);
-        writer.writeBooleanValue("isPrivileged", containerEvidence.isPrivileged);
-        writer.writeStringValue("name", containerEvidence.name);
-        writer.writeObjectValue<KubernetesPodEvidence>("pod", containerEvidence.pod, serializeKubernetesPodEvidence);
+    serializeAlertEvidence(writer, containerEvidence)
+    writer.writeCollectionOfPrimitiveValues<string>("args", containerEvidence.args);
+    writer.writeCollectionOfPrimitiveValues<string>("command", containerEvidence.command);
+    writer.writeStringValue("containerId", containerEvidence.containerId);
+    writer.writeObjectValue<ContainerImageEvidence>("image", containerEvidence.image, serializeContainerImageEvidence);
+    writer.writeBooleanValue("isPrivileged", containerEvidence.isPrivileged);
+    writer.writeStringValue("name", containerEvidence.name);
+    writer.writeObjectValue<KubernetesPodEvidence>("pod", containerEvidence.pod, serializeKubernetesPodEvidence);
 }
 // tslint:enable
 // eslint-enable

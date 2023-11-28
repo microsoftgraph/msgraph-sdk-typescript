@@ -18,13 +18,13 @@ export function deserializeIntoVirtualEventRegistrationQuestionAnswer(virtualEve
     }
 }
 export function serializeVirtualEventRegistrationQuestionAnswer(writer: SerializationWriter, virtualEventRegistrationQuestionAnswer: VirtualEventRegistrationQuestionAnswer | undefined = {} as VirtualEventRegistrationQuestionAnswer) : void {
-        writer.writeBooleanValue("booleanValue", virtualEventRegistrationQuestionAnswer.booleanValue);
-        writer.writeStringValue("displayName", virtualEventRegistrationQuestionAnswer.displayName);
-        writer.writeCollectionOfPrimitiveValues<string>("multiChoiceValues", virtualEventRegistrationQuestionAnswer.multiChoiceValues);
-        writer.writeStringValue("@odata.type", virtualEventRegistrationQuestionAnswer.odataType);
-        writer.writeStringValue("questionId", virtualEventRegistrationQuestionAnswer.questionId);
-        writer.writeStringValue("value", virtualEventRegistrationQuestionAnswer.value);
-        writer.writeAdditionalData(virtualEventRegistrationQuestionAnswer.additionalData);
+    writer.writeBooleanValue("booleanValue", virtualEventRegistrationQuestionAnswer.booleanValue);
+    writer.writeStringValue("displayName", virtualEventRegistrationQuestionAnswer.displayName);
+    writer.writeCollectionOfPrimitiveValues<string>("multiChoiceValues", virtualEventRegistrationQuestionAnswer.multiChoiceValues);
+    writer.writeStringValue("@odata.type", virtualEventRegistrationQuestionAnswer.odataType);
+    writer.writeStringValue("questionId", virtualEventRegistrationQuestionAnswer.questionId);
+    writer.writeStringValue("value", virtualEventRegistrationQuestionAnswer.value);
+    writer.writeAdditionalData(virtualEventRegistrationQuestionAnswer.additionalData);
 }
 export interface VirtualEventRegistrationQuestionAnswer extends AdditionalDataHolder, Parsable {
     /**

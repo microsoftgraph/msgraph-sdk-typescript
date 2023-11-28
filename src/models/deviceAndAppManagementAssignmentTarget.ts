@@ -47,8 +47,8 @@ export interface DeviceAndAppManagementAssignmentTarget extends AdditionalDataHo
     odataType?: string;
 }
 export function serializeDeviceAndAppManagementAssignmentTarget(writer: SerializationWriter, deviceAndAppManagementAssignmentTarget: DeviceAndAppManagementAssignmentTarget | undefined = {} as DeviceAndAppManagementAssignmentTarget) : void {
-        writer.writeStringValue("@odata.type", deviceAndAppManagementAssignmentTarget.odataType);
-        writer.writeAdditionalData(deviceAndAppManagementAssignmentTarget.additionalData);
+    writer.writeStringValue("@odata.type", deviceAndAppManagementAssignmentTarget.odataType);
+    writer.writeAdditionalData(deviceAndAppManagementAssignmentTarget.additionalData);
 }
 // tslint:enable
 // eslint-enable

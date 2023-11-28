@@ -13,8 +13,8 @@ export function deserializeIntoWindowsDefenderScanPostRequestBody(windowsDefende
     }
 }
 export function serializeWindowsDefenderScanPostRequestBody(writer: SerializationWriter, windowsDefenderScanPostRequestBody: WindowsDefenderScanPostRequestBody | undefined = {} as WindowsDefenderScanPostRequestBody) : void {
-        writer.writeBooleanValue("quickScan", windowsDefenderScanPostRequestBody.quickScan);
-        writer.writeAdditionalData(windowsDefenderScanPostRequestBody.additionalData);
+    writer.writeBooleanValue("quickScan", windowsDefenderScanPostRequestBody.quickScan);
+    writer.writeAdditionalData(windowsDefenderScanPostRequestBody.additionalData);
 }
 export interface WindowsDefenderScanPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

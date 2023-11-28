@@ -23,8 +23,8 @@ export interface RemoveHoldPostRequestBody extends AdditionalDataHolder, Parsabl
     ids?: string[];
 }
 export function serializeRemoveHoldPostRequestBody(writer: SerializationWriter, removeHoldPostRequestBody: RemoveHoldPostRequestBody | undefined = {} as RemoveHoldPostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("ids", removeHoldPostRequestBody.ids);
-        writer.writeAdditionalData(removeHoldPostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("ids", removeHoldPostRequestBody.ids);
+    writer.writeAdditionalData(removeHoldPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

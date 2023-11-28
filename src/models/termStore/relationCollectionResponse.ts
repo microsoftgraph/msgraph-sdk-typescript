@@ -22,8 +22,8 @@ export interface RelationCollectionResponse extends BaseCollectionPaginationCoun
     value?: Relation[];
 }
 export function serializeRelationCollectionResponse(writer: SerializationWriter, relationCollectionResponse: RelationCollectionResponse | undefined = {} as RelationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, relationCollectionResponse)
-        writer.writeCollectionOfObjectValues<Relation>("value", relationCollectionResponse.value, serializeRelation);
+    serializeBaseCollectionPaginationCountResponse(writer, relationCollectionResponse)
+    writer.writeCollectionOfObjectValues<Relation>("value", relationCollectionResponse.value, serializeRelation);
 }
 // tslint:enable
 // eslint-enable

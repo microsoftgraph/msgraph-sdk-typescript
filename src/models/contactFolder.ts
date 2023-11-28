@@ -49,13 +49,13 @@ export function deserializeIntoContactFolder(contactFolder: ContactFolder | unde
     }
 }
 export function serializeContactFolder(writer: SerializationWriter, contactFolder: ContactFolder | undefined = {} as ContactFolder) : void {
-        serializeEntity(writer, contactFolder)
-        writer.writeCollectionOfObjectValues<ContactFolder>("childFolders", contactFolder.childFolders, serializeContactFolder);
-        writer.writeCollectionOfObjectValues<Contact>("contacts", contactFolder.contacts, serializeContact);
-        writer.writeStringValue("displayName", contactFolder.displayName);
-        writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", contactFolder.multiValueExtendedProperties, serializeMultiValueLegacyExtendedProperty);
-        writer.writeStringValue("parentFolderId", contactFolder.parentFolderId);
-        writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", contactFolder.singleValueExtendedProperties, serializeSingleValueLegacyExtendedProperty);
+    serializeEntity(writer, contactFolder)
+    writer.writeCollectionOfObjectValues<ContactFolder>("childFolders", contactFolder.childFolders, serializeContactFolder);
+    writer.writeCollectionOfObjectValues<Contact>("contacts", contactFolder.contacts, serializeContact);
+    writer.writeStringValue("displayName", contactFolder.displayName);
+    writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", contactFolder.multiValueExtendedProperties, serializeMultiValueLegacyExtendedProperty);
+    writer.writeStringValue("parentFolderId", contactFolder.parentFolderId);
+    writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", contactFolder.singleValueExtendedProperties, serializeSingleValueLegacyExtendedProperty);
 }
 // tslint:enable
 // eslint-enable

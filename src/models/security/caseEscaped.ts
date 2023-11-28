@@ -60,13 +60,13 @@ export function deserializeIntoCaseEscaped(caseEscaped: CaseEscaped | undefined 
     }
 }
 export function serializeCaseEscaped(writer: SerializationWriter, caseEscaped: CaseEscaped | undefined = {} as CaseEscaped) : void {
-        serializeEntity(writer, caseEscaped)
-        writer.writeDateValue("createdDateTime", caseEscaped.createdDateTime);
-        writer.writeStringValue("description", caseEscaped.description);
-        writer.writeStringValue("displayName", caseEscaped.displayName);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", caseEscaped.lastModifiedBy, serializeIdentitySet);
-        writer.writeDateValue("lastModifiedDateTime", caseEscaped.lastModifiedDateTime);
-        writer.writeEnumValue<CaseStatus>("status", caseEscaped.status);
+    serializeEntity(writer, caseEscaped)
+    writer.writeDateValue("createdDateTime", caseEscaped.createdDateTime);
+    writer.writeStringValue("description", caseEscaped.description);
+    writer.writeStringValue("displayName", caseEscaped.displayName);
+    writer.writeObjectValue<IdentitySet>("lastModifiedBy", caseEscaped.lastModifiedBy, serializeIdentitySet);
+    writer.writeDateValue("lastModifiedDateTime", caseEscaped.lastModifiedDateTime);
+    writer.writeEnumValue<CaseStatus>("status", caseEscaped.status);
 }
 // tslint:enable
 // eslint-enable

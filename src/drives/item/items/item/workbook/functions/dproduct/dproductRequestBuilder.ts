@@ -37,10 +37,10 @@ export interface DproductPostRequestBody extends AdditionalDataHolder, Parsable 
     field?: Json;
 }
 export function serializeDproductPostRequestBody(writer: SerializationWriter, dproductPostRequestBody: DproductPostRequestBody | undefined = {} as DproductPostRequestBody) : void {
-        writer.writeObjectValue<Json>("criteria", dproductPostRequestBody.criteria, serializeJson);
-        writer.writeObjectValue<Json>("database", dproductPostRequestBody.database, serializeJson);
-        writer.writeObjectValue<Json>("field", dproductPostRequestBody.field, serializeJson);
-        writer.writeAdditionalData(dproductPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("criteria", dproductPostRequestBody.criteria, serializeJson);
+    writer.writeObjectValue<Json>("database", dproductPostRequestBody.database, serializeJson);
+    writer.writeObjectValue<Json>("field", dproductPostRequestBody.field, serializeJson);
+    writer.writeAdditionalData(dproductPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the dproduct method.

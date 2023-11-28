@@ -32,10 +32,10 @@ export interface ScopedRoleMembership extends Entity, Parsable {
     roleMemberInfo?: Identity;
 }
 export function serializeScopedRoleMembership(writer: SerializationWriter, scopedRoleMembership: ScopedRoleMembership | undefined = {} as ScopedRoleMembership) : void {
-        serializeEntity(writer, scopedRoleMembership)
-        writer.writeStringValue("administrativeUnitId", scopedRoleMembership.administrativeUnitId);
-        writer.writeStringValue("roleId", scopedRoleMembership.roleId);
-        writer.writeObjectValue<Identity>("roleMemberInfo", scopedRoleMembership.roleMemberInfo, serializeIdentity);
+    serializeEntity(writer, scopedRoleMembership)
+    writer.writeStringValue("administrativeUnitId", scopedRoleMembership.administrativeUnitId);
+    writer.writeStringValue("roleId", scopedRoleMembership.roleId);
+    writer.writeObjectValue<Identity>("roleMemberInfo", scopedRoleMembership.roleMemberInfo, serializeIdentity);
 }
 // tslint:enable
 // eslint-enable

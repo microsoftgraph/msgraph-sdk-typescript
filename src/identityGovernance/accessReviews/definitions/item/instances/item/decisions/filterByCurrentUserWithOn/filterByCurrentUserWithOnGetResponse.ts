@@ -22,8 +22,8 @@ export interface FilterByCurrentUserWithOnGetResponse extends BaseCollectionPagi
     value?: AccessReviewInstanceDecisionItem[];
 }
 export function serializeFilterByCurrentUserWithOnGetResponse(writer: SerializationWriter, filterByCurrentUserWithOnGetResponse: FilterByCurrentUserWithOnGetResponse | undefined = {} as FilterByCurrentUserWithOnGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
-        writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItem>("value", filterByCurrentUserWithOnGetResponse.value, serializeAccessReviewInstanceDecisionItem);
+    serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
+    writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItem>("value", filterByCurrentUserWithOnGetResponse.value, serializeAccessReviewInstanceDecisionItem);
 }
 // tslint:enable
 // eslint-enable

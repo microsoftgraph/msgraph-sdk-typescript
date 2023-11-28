@@ -25,8 +25,8 @@ export function deserializeIntoApplyDynamicFilterPostRequestBody(applyDynamicFil
     }
 }
 export function serializeApplyDynamicFilterPostRequestBody(writer: SerializationWriter, applyDynamicFilterPostRequestBody: ApplyDynamicFilterPostRequestBody | undefined = {} as ApplyDynamicFilterPostRequestBody) : void {
-        writer.writeStringValue("criteria", applyDynamicFilterPostRequestBody.criteria);
-        writer.writeAdditionalData(applyDynamicFilterPostRequestBody.additionalData);
+    writer.writeStringValue("criteria", applyDynamicFilterPostRequestBody.criteria);
+    writer.writeAdditionalData(applyDynamicFilterPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the applyDynamicFilter method.

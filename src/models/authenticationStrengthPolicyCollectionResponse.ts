@@ -22,8 +22,8 @@ export function deserializeIntoAuthenticationStrengthPolicyCollectionResponse(au
     }
 }
 export function serializeAuthenticationStrengthPolicyCollectionResponse(writer: SerializationWriter, authenticationStrengthPolicyCollectionResponse: AuthenticationStrengthPolicyCollectionResponse | undefined = {} as AuthenticationStrengthPolicyCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, authenticationStrengthPolicyCollectionResponse)
-        writer.writeCollectionOfObjectValues<AuthenticationStrengthPolicy>("value", authenticationStrengthPolicyCollectionResponse.value, serializeAuthenticationStrengthPolicy);
+    serializeBaseCollectionPaginationCountResponse(writer, authenticationStrengthPolicyCollectionResponse)
+    writer.writeCollectionOfObjectValues<AuthenticationStrengthPolicy>("value", authenticationStrengthPolicyCollectionResponse.value, serializeAuthenticationStrengthPolicy);
 }
 // tslint:enable
 // eslint-enable

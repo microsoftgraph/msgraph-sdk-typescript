@@ -22,8 +22,8 @@ export function deserializeIntoDelegatedPermissionClassificationCollectionRespon
     }
 }
 export function serializeDelegatedPermissionClassificationCollectionResponse(writer: SerializationWriter, delegatedPermissionClassificationCollectionResponse: DelegatedPermissionClassificationCollectionResponse | undefined = {} as DelegatedPermissionClassificationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, delegatedPermissionClassificationCollectionResponse)
-        writer.writeCollectionOfObjectValues<DelegatedPermissionClassification>("value", delegatedPermissionClassificationCollectionResponse.value, serializeDelegatedPermissionClassification);
+    serializeBaseCollectionPaginationCountResponse(writer, delegatedPermissionClassificationCollectionResponse)
+    writer.writeCollectionOfObjectValues<DelegatedPermissionClassification>("value", delegatedPermissionClassificationCollectionResponse.value, serializeDelegatedPermissionClassification);
 }
 // tslint:enable
 // eslint-enable

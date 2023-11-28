@@ -56,35 +56,35 @@ export function deserializeIntoSubjectRightsRequest(subjectRightsRequest: Subjec
     }
 }
 export function serializeSubjectRightsRequest(writer: SerializationWriter, subjectRightsRequest: SubjectRightsRequest | undefined = {} as SubjectRightsRequest) : void {
-        serializeEntity(writer, subjectRightsRequest)
-        writer.writeCollectionOfObjectValues<User>("approvers", subjectRightsRequest.approvers, serializeUser);
-        writer.writeObjectValue<Identity>("assignedTo", subjectRightsRequest.assignedTo, serializeIdentity);
-        writer.writeDateValue("closedDateTime", subjectRightsRequest.closedDateTime);
-        writer.writeCollectionOfObjectValues<User>("collaborators", subjectRightsRequest.collaborators, serializeUser);
-        writer.writeStringValue("contentQuery", subjectRightsRequest.contentQuery);
-        writer.writeObjectValue<IdentitySet>("createdBy", subjectRightsRequest.createdBy, serializeIdentitySet);
-        writer.writeDateValue("createdDateTime", subjectRightsRequest.createdDateTime);
-        writer.writeObjectValue<DataSubject>("dataSubject", subjectRightsRequest.dataSubject, serializeDataSubject);
-        writer.writeEnumValue<DataSubjectType>("dataSubjectType", subjectRightsRequest.dataSubjectType);
-        writer.writeStringValue("description", subjectRightsRequest.description);
-        writer.writeStringValue("displayName", subjectRightsRequest.displayName);
-        writer.writeStringValue("externalId", subjectRightsRequest.externalId);
-        writer.writeCollectionOfObjectValues<SubjectRightsRequestHistory>("history", subjectRightsRequest.history, serializeSubjectRightsRequestHistory);
-        writer.writeBooleanValue("includeAllVersions", subjectRightsRequest.includeAllVersions);
-        writer.writeBooleanValue("includeAuthoredContent", subjectRightsRequest.includeAuthoredContent);
-        writer.writeObjectValue<SubjectRightsRequestDetail>("insight", subjectRightsRequest.insight, serializeSubjectRightsRequestDetail);
-        writer.writeDateValue("internalDueDateTime", subjectRightsRequest.internalDueDateTime);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", subjectRightsRequest.lastModifiedBy, serializeIdentitySet);
-        writer.writeDateValue("lastModifiedDateTime", subjectRightsRequest.lastModifiedDateTime);
-        writer.writeObjectValue<SubjectRightsRequestMailboxLocation>("mailboxLocations", subjectRightsRequest.mailboxLocations, serializeSubjectRightsRequestMailboxLocation);
-        writer.writeCollectionOfObjectValues<AuthoredNote>("notes", subjectRightsRequest.notes, serializeAuthoredNote);
-        writer.writeBooleanValue("pauseAfterEstimate", subjectRightsRequest.pauseAfterEstimate);
-        writer.writeCollectionOfPrimitiveValues<string>("regulations", subjectRightsRequest.regulations);
-        writer.writeObjectValue<SubjectRightsRequestSiteLocation>("siteLocations", subjectRightsRequest.siteLocations, serializeSubjectRightsRequestSiteLocation);
-        writer.writeCollectionOfObjectValues<SubjectRightsRequestStageDetail>("stages", subjectRightsRequest.stages, serializeSubjectRightsRequestStageDetail);
-        writer.writeEnumValue<SubjectRightsRequestStatus>("status", subjectRightsRequest.status);
-        writer.writeObjectValue<Team>("team", subjectRightsRequest.team, serializeTeam);
-        writer.writeEnumValue<SubjectRightsRequestType>("type", subjectRightsRequest.type);
+    serializeEntity(writer, subjectRightsRequest)
+    writer.writeCollectionOfObjectValues<User>("approvers", subjectRightsRequest.approvers, serializeUser);
+    writer.writeObjectValue<Identity>("assignedTo", subjectRightsRequest.assignedTo, serializeIdentity);
+    writer.writeDateValue("closedDateTime", subjectRightsRequest.closedDateTime);
+    writer.writeCollectionOfObjectValues<User>("collaborators", subjectRightsRequest.collaborators, serializeUser);
+    writer.writeStringValue("contentQuery", subjectRightsRequest.contentQuery);
+    writer.writeObjectValue<IdentitySet>("createdBy", subjectRightsRequest.createdBy, serializeIdentitySet);
+    writer.writeDateValue("createdDateTime", subjectRightsRequest.createdDateTime);
+    writer.writeObjectValue<DataSubject>("dataSubject", subjectRightsRequest.dataSubject, serializeDataSubject);
+    writer.writeEnumValue<DataSubjectType>("dataSubjectType", subjectRightsRequest.dataSubjectType);
+    writer.writeStringValue("description", subjectRightsRequest.description);
+    writer.writeStringValue("displayName", subjectRightsRequest.displayName);
+    writer.writeStringValue("externalId", subjectRightsRequest.externalId);
+    writer.writeCollectionOfObjectValues<SubjectRightsRequestHistory>("history", subjectRightsRequest.history, serializeSubjectRightsRequestHistory);
+    writer.writeBooleanValue("includeAllVersions", subjectRightsRequest.includeAllVersions);
+    writer.writeBooleanValue("includeAuthoredContent", subjectRightsRequest.includeAuthoredContent);
+    writer.writeObjectValue<SubjectRightsRequestDetail>("insight", subjectRightsRequest.insight, serializeSubjectRightsRequestDetail);
+    writer.writeDateValue("internalDueDateTime", subjectRightsRequest.internalDueDateTime);
+    writer.writeObjectValue<IdentitySet>("lastModifiedBy", subjectRightsRequest.lastModifiedBy, serializeIdentitySet);
+    writer.writeDateValue("lastModifiedDateTime", subjectRightsRequest.lastModifiedDateTime);
+    writer.writeObjectValue<SubjectRightsRequestMailboxLocation>("mailboxLocations", subjectRightsRequest.mailboxLocations, serializeSubjectRightsRequestMailboxLocation);
+    writer.writeCollectionOfObjectValues<AuthoredNote>("notes", subjectRightsRequest.notes, serializeAuthoredNote);
+    writer.writeBooleanValue("pauseAfterEstimate", subjectRightsRequest.pauseAfterEstimate);
+    writer.writeCollectionOfPrimitiveValues<string>("regulations", subjectRightsRequest.regulations);
+    writer.writeObjectValue<SubjectRightsRequestSiteLocation>("siteLocations", subjectRightsRequest.siteLocations, serializeSubjectRightsRequestSiteLocation);
+    writer.writeCollectionOfObjectValues<SubjectRightsRequestStageDetail>("stages", subjectRightsRequest.stages, serializeSubjectRightsRequestStageDetail);
+    writer.writeEnumValue<SubjectRightsRequestStatus>("status", subjectRightsRequest.status);
+    writer.writeObjectValue<Team>("team", subjectRightsRequest.team, serializeTeam);
+    writer.writeEnumValue<SubjectRightsRequestType>("type", subjectRightsRequest.type);
 }
 export interface SubjectRightsRequest extends Entity, Parsable {
     /**

@@ -34,10 +34,10 @@ export function deserializeIntoDelegatedAdminAccessContainer(delegatedAdminAcces
     }
 }
 export function serializeDelegatedAdminAccessContainer(writer: SerializationWriter, delegatedAdminAccessContainer: DelegatedAdminAccessContainer | undefined = {} as DelegatedAdminAccessContainer) : void {
-        writer.writeStringValue("accessContainerId", delegatedAdminAccessContainer.accessContainerId);
-        writer.writeEnumValue<DelegatedAdminAccessContainerType>("accessContainerType", delegatedAdminAccessContainer.accessContainerType);
-        writer.writeStringValue("@odata.type", delegatedAdminAccessContainer.odataType);
-        writer.writeAdditionalData(delegatedAdminAccessContainer.additionalData);
+    writer.writeStringValue("accessContainerId", delegatedAdminAccessContainer.accessContainerId);
+    writer.writeEnumValue<DelegatedAdminAccessContainerType>("accessContainerType", delegatedAdminAccessContainer.accessContainerType);
+    writer.writeStringValue("@odata.type", delegatedAdminAccessContainer.odataType);
+    writer.writeAdditionalData(delegatedAdminAccessContainer.additionalData);
 }
 // tslint:enable
 // eslint-enable

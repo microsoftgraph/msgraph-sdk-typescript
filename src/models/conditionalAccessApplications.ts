@@ -49,13 +49,13 @@ export function deserializeIntoConditionalAccessApplications(conditionalAccessAp
     }
 }
 export function serializeConditionalAccessApplications(writer: SerializationWriter, conditionalAccessApplications: ConditionalAccessApplications | undefined = {} as ConditionalAccessApplications) : void {
-        writer.writeObjectValue<ConditionalAccessFilter>("applicationFilter", conditionalAccessApplications.applicationFilter, serializeConditionalAccessFilter);
-        writer.writeCollectionOfPrimitiveValues<string>("excludeApplications", conditionalAccessApplications.excludeApplications);
-        writer.writeCollectionOfPrimitiveValues<string>("includeApplications", conditionalAccessApplications.includeApplications);
-        writer.writeCollectionOfPrimitiveValues<string>("includeAuthenticationContextClassReferences", conditionalAccessApplications.includeAuthenticationContextClassReferences);
-        writer.writeCollectionOfPrimitiveValues<string>("includeUserActions", conditionalAccessApplications.includeUserActions);
-        writer.writeStringValue("@odata.type", conditionalAccessApplications.odataType);
-        writer.writeAdditionalData(conditionalAccessApplications.additionalData);
+    writer.writeObjectValue<ConditionalAccessFilter>("applicationFilter", conditionalAccessApplications.applicationFilter, serializeConditionalAccessFilter);
+    writer.writeCollectionOfPrimitiveValues<string>("excludeApplications", conditionalAccessApplications.excludeApplications);
+    writer.writeCollectionOfPrimitiveValues<string>("includeApplications", conditionalAccessApplications.includeApplications);
+    writer.writeCollectionOfPrimitiveValues<string>("includeAuthenticationContextClassReferences", conditionalAccessApplications.includeAuthenticationContextClassReferences);
+    writer.writeCollectionOfPrimitiveValues<string>("includeUserActions", conditionalAccessApplications.includeUserActions);
+    writer.writeStringValue("@odata.type", conditionalAccessApplications.odataType);
+    writer.writeAdditionalData(conditionalAccessApplications.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -24,8 +24,8 @@ export interface MarkChatReadForUserPostRequestBody extends AdditionalDataHolder
     user?: TeamworkUserIdentity;
 }
 export function serializeMarkChatReadForUserPostRequestBody(writer: SerializationWriter, markChatReadForUserPostRequestBody: MarkChatReadForUserPostRequestBody | undefined = {} as MarkChatReadForUserPostRequestBody) : void {
-        writer.writeObjectValue<TeamworkUserIdentity>("user", markChatReadForUserPostRequestBody.user, serializeTeamworkUserIdentity);
-        writer.writeAdditionalData(markChatReadForUserPostRequestBody.additionalData);
+    writer.writeObjectValue<TeamworkUserIdentity>("user", markChatReadForUserPostRequestBody.user, serializeTeamworkUserIdentity);
+    writer.writeAdditionalData(markChatReadForUserPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

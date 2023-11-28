@@ -39,11 +39,11 @@ export function deserializeIntoCvssSummary(cvssSummary: CvssSummary | undefined 
     }
 }
 export function serializeCvssSummary(writer: SerializationWriter, cvssSummary: CvssSummary | undefined = {} as CvssSummary) : void {
-        writer.writeStringValue("@odata.type", cvssSummary.odataType);
-        writer.writeNumberValue("score", cvssSummary.score);
-        writer.writeEnumValue<VulnerabilitySeverity>("severity", cvssSummary.severity);
-        writer.writeStringValue("vectorString", cvssSummary.vectorString);
-        writer.writeAdditionalData(cvssSummary.additionalData);
+    writer.writeStringValue("@odata.type", cvssSummary.odataType);
+    writer.writeNumberValue("score", cvssSummary.score);
+    writer.writeEnumValue<VulnerabilitySeverity>("severity", cvssSummary.severity);
+    writer.writeStringValue("vectorString", cvssSummary.vectorString);
+    writer.writeAdditionalData(cvssSummary.additionalData);
 }
 // tslint:enable
 // eslint-enable

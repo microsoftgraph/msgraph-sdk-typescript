@@ -22,8 +22,8 @@ export interface FilterByCurrentUserWithOnGetResponse extends BaseCollectionPagi
     value?: UserConsentRequest[];
 }
 export function serializeFilterByCurrentUserWithOnGetResponse(writer: SerializationWriter, filterByCurrentUserWithOnGetResponse: FilterByCurrentUserWithOnGetResponse | undefined = {} as FilterByCurrentUserWithOnGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
-        writer.writeCollectionOfObjectValues<UserConsentRequest>("value", filterByCurrentUserWithOnGetResponse.value, serializeUserConsentRequest);
+    serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
+    writer.writeCollectionOfObjectValues<UserConsentRequest>("value", filterByCurrentUserWithOnGetResponse.value, serializeUserConsentRequest);
 }
 // tslint:enable
 // eslint-enable

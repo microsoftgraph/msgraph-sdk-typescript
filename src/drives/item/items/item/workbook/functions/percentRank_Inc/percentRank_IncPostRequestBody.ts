@@ -34,10 +34,10 @@ export interface PercentRank_IncPostRequestBody extends AdditionalDataHolder, Pa
     x?: Json;
 }
 export function serializePercentRank_IncPostRequestBody(writer: SerializationWriter, percentRank_IncPostRequestBody: PercentRank_IncPostRequestBody | undefined = {} as PercentRank_IncPostRequestBody) : void {
-        writer.writeObjectValue<Json>("array", percentRank_IncPostRequestBody.array, serializeJson);
-        writer.writeObjectValue<Json>("significance", percentRank_IncPostRequestBody.significance, serializeJson);
-        writer.writeObjectValue<Json>("x", percentRank_IncPostRequestBody.x, serializeJson);
-        writer.writeAdditionalData(percentRank_IncPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("array", percentRank_IncPostRequestBody.array, serializeJson);
+    writer.writeObjectValue<Json>("significance", percentRank_IncPostRequestBody.significance, serializeJson);
+    writer.writeObjectValue<Json>("x", percentRank_IncPostRequestBody.x, serializeJson);
+    writer.writeAdditionalData(percentRank_IncPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

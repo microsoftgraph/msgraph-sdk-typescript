@@ -27,15 +27,15 @@ export function deserializeIntoSet(set: Set | undefined = {} as Set) : Record<st
     }
 }
 export function serializeSet(writer: SerializationWriter, set: Set | undefined = {} as Set) : void {
-        serializeEntity(writer, set)
-        writer.writeCollectionOfObjectValues<Term>("children", set.children, serializeTerm);
-        writer.writeDateValue("createdDateTime", set.createdDateTime);
-        writer.writeStringValue("description", set.description);
-        writer.writeCollectionOfObjectValues<LocalizedName>("localizedNames", set.localizedNames, serializeLocalizedName);
-        writer.writeObjectValue<Group>("parentGroup", set.parentGroup, serializeGroup);
-        writer.writeCollectionOfObjectValues<KeyValue>("properties", set.properties, serializeKeyValue);
-        writer.writeCollectionOfObjectValues<Relation>("relations", set.relations, serializeRelation);
-        writer.writeCollectionOfObjectValues<Term>("terms", set.terms, serializeTerm);
+    serializeEntity(writer, set)
+    writer.writeCollectionOfObjectValues<Term>("children", set.children, serializeTerm);
+    writer.writeDateValue("createdDateTime", set.createdDateTime);
+    writer.writeStringValue("description", set.description);
+    writer.writeCollectionOfObjectValues<LocalizedName>("localizedNames", set.localizedNames, serializeLocalizedName);
+    writer.writeObjectValue<Group>("parentGroup", set.parentGroup, serializeGroup);
+    writer.writeCollectionOfObjectValues<KeyValue>("properties", set.properties, serializeKeyValue);
+    writer.writeCollectionOfObjectValues<Relation>("relations", set.relations, serializeRelation);
+    writer.writeCollectionOfObjectValues<Term>("terms", set.terms, serializeTerm);
 }
 export interface Set extends Entity, Parsable {
     /**

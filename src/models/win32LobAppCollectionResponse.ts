@@ -16,8 +16,8 @@ export function deserializeIntoWin32LobAppCollectionResponse(win32LobAppCollecti
     }
 }
 export function serializeWin32LobAppCollectionResponse(writer: SerializationWriter, win32LobAppCollectionResponse: Win32LobAppCollectionResponse | undefined = {} as Win32LobAppCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, win32LobAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<Win32LobApp>("value", win32LobAppCollectionResponse.value, serializeWin32LobApp);
+    serializeBaseCollectionPaginationCountResponse(writer, win32LobAppCollectionResponse)
+    writer.writeCollectionOfObjectValues<Win32LobApp>("value", win32LobAppCollectionResponse.value, serializeWin32LobApp);
 }
 export interface Win32LobAppCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

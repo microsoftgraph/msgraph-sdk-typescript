@@ -34,10 +34,10 @@ export interface SearchAggregation extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeSearchAggregation(writer: SerializationWriter, searchAggregation: SearchAggregation | undefined = {} as SearchAggregation) : void {
-        writer.writeCollectionOfObjectValues<SearchBucket>("buckets", searchAggregation.buckets, serializeSearchBucket);
-        writer.writeStringValue("field", searchAggregation.field);
-        writer.writeStringValue("@odata.type", searchAggregation.odataType);
-        writer.writeAdditionalData(searchAggregation.additionalData);
+    writer.writeCollectionOfObjectValues<SearchBucket>("buckets", searchAggregation.buckets, serializeSearchBucket);
+    writer.writeStringValue("field", searchAggregation.field);
+    writer.writeStringValue("@odata.type", searchAggregation.odataType);
+    writer.writeAdditionalData(searchAggregation.additionalData);
 }
 // tslint:enable
 // eslint-enable

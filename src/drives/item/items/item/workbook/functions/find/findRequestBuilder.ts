@@ -37,10 +37,10 @@ export interface FindPostRequestBody extends AdditionalDataHolder, Parsable {
     withinText?: Json;
 }
 export function serializeFindPostRequestBody(writer: SerializationWriter, findPostRequestBody: FindPostRequestBody | undefined = {} as FindPostRequestBody) : void {
-        writer.writeObjectValue<Json>("findText", findPostRequestBody.findText, serializeJson);
-        writer.writeObjectValue<Json>("startNum", findPostRequestBody.startNum, serializeJson);
-        writer.writeObjectValue<Json>("withinText", findPostRequestBody.withinText, serializeJson);
-        writer.writeAdditionalData(findPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("findText", findPostRequestBody.findText, serializeJson);
+    writer.writeObjectValue<Json>("startNum", findPostRequestBody.startNum, serializeJson);
+    writer.writeObjectValue<Json>("withinText", findPostRequestBody.withinText, serializeJson);
+    writer.writeAdditionalData(findPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the find method.

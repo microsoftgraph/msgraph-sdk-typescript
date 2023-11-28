@@ -24,8 +24,8 @@ export interface NPostRequestBody extends AdditionalDataHolder, Parsable {
     value?: Json;
 }
 export function serializeNPostRequestBody(writer: SerializationWriter, nPostRequestBody: NPostRequestBody | undefined = {} as NPostRequestBody) : void {
-        writer.writeObjectValue<Json>("value", nPostRequestBody.value, serializeJson);
-        writer.writeAdditionalData(nPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("value", nPostRequestBody.value, serializeJson);
+    writer.writeAdditionalData(nPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

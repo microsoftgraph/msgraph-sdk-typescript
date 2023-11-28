@@ -22,8 +22,8 @@ export function deserializeIntoBaseItemCollectionResponse(baseItemCollectionResp
     }
 }
 export function serializeBaseItemCollectionResponse(writer: SerializationWriter, baseItemCollectionResponse: BaseItemCollectionResponse | undefined = {} as BaseItemCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, baseItemCollectionResponse)
-        writer.writeCollectionOfObjectValues<BaseItem>("value", baseItemCollectionResponse.value, serializeBaseItem);
+    serializeBaseCollectionPaginationCountResponse(writer, baseItemCollectionResponse)
+    writer.writeCollectionOfObjectValues<BaseItem>("value", baseItemCollectionResponse.value, serializeBaseItem);
 }
 // tslint:enable
 // eslint-enable

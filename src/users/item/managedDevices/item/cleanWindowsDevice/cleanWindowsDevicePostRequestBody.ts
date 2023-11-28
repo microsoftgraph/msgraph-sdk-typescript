@@ -23,8 +23,8 @@ export function deserializeIntoCleanWindowsDevicePostRequestBody(cleanWindowsDev
     }
 }
 export function serializeCleanWindowsDevicePostRequestBody(writer: SerializationWriter, cleanWindowsDevicePostRequestBody: CleanWindowsDevicePostRequestBody | undefined = {} as CleanWindowsDevicePostRequestBody) : void {
-        writer.writeBooleanValue("keepUserData", cleanWindowsDevicePostRequestBody.keepUserData);
-        writer.writeAdditionalData(cleanWindowsDevicePostRequestBody.additionalData);
+    writer.writeBooleanValue("keepUserData", cleanWindowsDevicePostRequestBody.keepUserData);
+    writer.writeAdditionalData(cleanWindowsDevicePostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

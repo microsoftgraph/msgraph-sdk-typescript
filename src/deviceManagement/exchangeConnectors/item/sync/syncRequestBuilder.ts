@@ -16,8 +16,8 @@ export function deserializeIntoSyncPostRequestBody(syncPostRequestBody: SyncPost
     }
 }
 export function serializeSyncPostRequestBody(writer: SerializationWriter, syncPostRequestBody: SyncPostRequestBody | undefined = {} as SyncPostRequestBody) : void {
-        writer.writeEnumValue<DeviceManagementExchangeConnectorSyncType>("syncType", syncPostRequestBody.syncType);
-        writer.writeAdditionalData(syncPostRequestBody.additionalData);
+    writer.writeEnumValue<DeviceManagementExchangeConnectorSyncType>("syncType", syncPostRequestBody.syncType);
+    writer.writeAdditionalData(syncPostRequestBody.additionalData);
 }
 export interface SyncPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

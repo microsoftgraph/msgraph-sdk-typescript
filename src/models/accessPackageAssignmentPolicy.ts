@@ -102,22 +102,22 @@ export function deserializeIntoAccessPackageAssignmentPolicy(accessPackageAssign
     }
 }
 export function serializeAccessPackageAssignmentPolicy(writer: SerializationWriter, accessPackageAssignmentPolicy: AccessPackageAssignmentPolicy | undefined = {} as AccessPackageAssignmentPolicy) : void {
-        serializeEntity(writer, accessPackageAssignmentPolicy)
-        writer.writeObjectValue<AccessPackage>("accessPackage", accessPackageAssignmentPolicy.accessPackage, serializeAccessPackage);
-        writer.writeEnumValue<AllowedTargetScope>("allowedTargetScope", accessPackageAssignmentPolicy.allowedTargetScope);
-        writer.writeObjectValue<AccessPackageAutomaticRequestSettings>("automaticRequestSettings", accessPackageAssignmentPolicy.automaticRequestSettings, serializeAccessPackageAutomaticRequestSettings);
-        writer.writeObjectValue<AccessPackageCatalog>("catalog", accessPackageAssignmentPolicy.catalog, serializeAccessPackageCatalog);
-        writer.writeDateValue("createdDateTime", accessPackageAssignmentPolicy.createdDateTime);
-        writer.writeCollectionOfObjectValues<CustomExtensionStageSetting>("customExtensionStageSettings", accessPackageAssignmentPolicy.customExtensionStageSettings, serializeCustomExtensionStageSetting);
-        writer.writeStringValue("description", accessPackageAssignmentPolicy.description);
-        writer.writeStringValue("displayName", accessPackageAssignmentPolicy.displayName);
-        writer.writeObjectValue<ExpirationPattern>("expiration", accessPackageAssignmentPolicy.expiration, serializeExpirationPattern);
-        writer.writeDateValue("modifiedDateTime", accessPackageAssignmentPolicy.modifiedDateTime);
-        writer.writeCollectionOfObjectValues<AccessPackageQuestion>("questions", accessPackageAssignmentPolicy.questions, serializeAccessPackageQuestion);
-        writer.writeObjectValue<AccessPackageAssignmentApprovalSettings>("requestApprovalSettings", accessPackageAssignmentPolicy.requestApprovalSettings, serializeAccessPackageAssignmentApprovalSettings);
-        writer.writeObjectValue<AccessPackageAssignmentRequestorSettings>("requestorSettings", accessPackageAssignmentPolicy.requestorSettings, serializeAccessPackageAssignmentRequestorSettings);
-        writer.writeObjectValue<AccessPackageAssignmentReviewSettings>("reviewSettings", accessPackageAssignmentPolicy.reviewSettings, serializeAccessPackageAssignmentReviewSettings);
-        writer.writeCollectionOfObjectValues<SubjectSet>("specificAllowedTargets", accessPackageAssignmentPolicy.specificAllowedTargets, serializeSubjectSet);
+    serializeEntity(writer, accessPackageAssignmentPolicy)
+    writer.writeObjectValue<AccessPackage>("accessPackage", accessPackageAssignmentPolicy.accessPackage, serializeAccessPackage);
+    writer.writeEnumValue<AllowedTargetScope>("allowedTargetScope", accessPackageAssignmentPolicy.allowedTargetScope);
+    writer.writeObjectValue<AccessPackageAutomaticRequestSettings>("automaticRequestSettings", accessPackageAssignmentPolicy.automaticRequestSettings, serializeAccessPackageAutomaticRequestSettings);
+    writer.writeObjectValue<AccessPackageCatalog>("catalog", accessPackageAssignmentPolicy.catalog, serializeAccessPackageCatalog);
+    writer.writeDateValue("createdDateTime", accessPackageAssignmentPolicy.createdDateTime);
+    writer.writeCollectionOfObjectValues<CustomExtensionStageSetting>("customExtensionStageSettings", accessPackageAssignmentPolicy.customExtensionStageSettings, serializeCustomExtensionStageSetting);
+    writer.writeStringValue("description", accessPackageAssignmentPolicy.description);
+    writer.writeStringValue("displayName", accessPackageAssignmentPolicy.displayName);
+    writer.writeObjectValue<ExpirationPattern>("expiration", accessPackageAssignmentPolicy.expiration, serializeExpirationPattern);
+    writer.writeDateValue("modifiedDateTime", accessPackageAssignmentPolicy.modifiedDateTime);
+    writer.writeCollectionOfObjectValues<AccessPackageQuestion>("questions", accessPackageAssignmentPolicy.questions, serializeAccessPackageQuestion);
+    writer.writeObjectValue<AccessPackageAssignmentApprovalSettings>("requestApprovalSettings", accessPackageAssignmentPolicy.requestApprovalSettings, serializeAccessPackageAssignmentApprovalSettings);
+    writer.writeObjectValue<AccessPackageAssignmentRequestorSettings>("requestorSettings", accessPackageAssignmentPolicy.requestorSettings, serializeAccessPackageAssignmentRequestorSettings);
+    writer.writeObjectValue<AccessPackageAssignmentReviewSettings>("reviewSettings", accessPackageAssignmentPolicy.reviewSettings, serializeAccessPackageAssignmentReviewSettings);
+    writer.writeCollectionOfObjectValues<SubjectSet>("specificAllowedTargets", accessPackageAssignmentPolicy.specificAllowedTargets, serializeSubjectSet);
 }
 // tslint:enable
 // eslint-enable

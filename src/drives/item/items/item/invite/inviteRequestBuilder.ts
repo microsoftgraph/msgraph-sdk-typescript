@@ -25,8 +25,8 @@ export interface InvitePostResponse extends BaseCollectionPaginationCountRespons
     value?: Permission[];
 }
 export function serializeInvitePostResponse(writer: SerializationWriter, invitePostResponse: InvitePostResponse | undefined = {} as InvitePostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, invitePostResponse)
-        writer.writeCollectionOfObjectValues<Permission>("value", invitePostResponse.value, serializePermission);
+    serializeBaseCollectionPaginationCountResponse(writer, invitePostResponse)
+    writer.writeCollectionOfObjectValues<Permission>("value", invitePostResponse.value, serializePermission);
 }
 /**
  * Provides operations to call the invite method.

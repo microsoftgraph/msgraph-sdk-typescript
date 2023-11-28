@@ -59,35 +59,35 @@ export function deserializeIntoTeam(team: Team | undefined = {} as Team) : Recor
     }
 }
 export function serializeTeam(writer: SerializationWriter, team: Team | undefined = {} as Team) : void {
-        serializeEntity(writer, team)
-        writer.writeCollectionOfObjectValues<Channel>("allChannels", team.allChannels, serializeChannel);
-        writer.writeCollectionOfObjectValues<Channel>("channels", team.channels, serializeChannel);
-        writer.writeStringValue("classification", team.classification);
-        writer.writeDateValue("createdDateTime", team.createdDateTime);
-        writer.writeStringValue("description", team.description);
-        writer.writeStringValue("displayName", team.displayName);
-        writer.writeObjectValue<TeamFunSettings>("funSettings", team.funSettings, serializeTeamFunSettings);
-        writer.writeObjectValue<Group>("group", team.group, serializeGroup);
-        writer.writeObjectValue<TeamGuestSettings>("guestSettings", team.guestSettings, serializeTeamGuestSettings);
-        writer.writeCollectionOfObjectValues<Channel>("incomingChannels", team.incomingChannels, serializeChannel);
-        writer.writeCollectionOfObjectValues<TeamsAppInstallation>("installedApps", team.installedApps, serializeTeamsAppInstallation);
-        writer.writeStringValue("internalId", team.internalId);
-        writer.writeBooleanValue("isArchived", team.isArchived);
-        writer.writeCollectionOfObjectValues<ConversationMember>("members", team.members, serializeConversationMember);
-        writer.writeObjectValue<TeamMemberSettings>("memberSettings", team.memberSettings, serializeTeamMemberSettings);
-        writer.writeObjectValue<TeamMessagingSettings>("messagingSettings", team.messagingSettings, serializeTeamMessagingSettings);
-        writer.writeCollectionOfObjectValues<TeamsAsyncOperation>("operations", team.operations, serializeTeamsAsyncOperation);
-        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("permissionGrants", team.permissionGrants, serializeResourceSpecificPermissionGrant);
-        writer.writeObjectValue<ProfilePhoto>("photo", team.photo, serializeProfilePhoto);
-        writer.writeObjectValue<Channel>("primaryChannel", team.primaryChannel, serializeChannel);
-        writer.writeObjectValue<Schedule>("schedule", team.schedule, serializeSchedule);
-        writer.writeEnumValue<TeamSpecialization>("specialization", team.specialization);
-        writer.writeObjectValue<TeamSummary>("summary", team.summary, serializeTeamSummary);
-        writer.writeCollectionOfObjectValues<TeamworkTag>("tags", team.tags, serializeTeamworkTag);
-        writer.writeObjectValue<TeamsTemplate>("template", team.template, serializeTeamsTemplate);
-        writer.writeStringValue("tenantId", team.tenantId);
-        writer.writeEnumValue<TeamVisibilityType>("visibility", team.visibility);
-        writer.writeStringValue("webUrl", team.webUrl);
+    serializeEntity(writer, team)
+    writer.writeCollectionOfObjectValues<Channel>("allChannels", team.allChannels, serializeChannel);
+    writer.writeCollectionOfObjectValues<Channel>("channels", team.channels, serializeChannel);
+    writer.writeStringValue("classification", team.classification);
+    writer.writeDateValue("createdDateTime", team.createdDateTime);
+    writer.writeStringValue("description", team.description);
+    writer.writeStringValue("displayName", team.displayName);
+    writer.writeObjectValue<TeamFunSettings>("funSettings", team.funSettings, serializeTeamFunSettings);
+    writer.writeObjectValue<Group>("group", team.group, serializeGroup);
+    writer.writeObjectValue<TeamGuestSettings>("guestSettings", team.guestSettings, serializeTeamGuestSettings);
+    writer.writeCollectionOfObjectValues<Channel>("incomingChannels", team.incomingChannels, serializeChannel);
+    writer.writeCollectionOfObjectValues<TeamsAppInstallation>("installedApps", team.installedApps, serializeTeamsAppInstallation);
+    writer.writeStringValue("internalId", team.internalId);
+    writer.writeBooleanValue("isArchived", team.isArchived);
+    writer.writeCollectionOfObjectValues<ConversationMember>("members", team.members, serializeConversationMember);
+    writer.writeObjectValue<TeamMemberSettings>("memberSettings", team.memberSettings, serializeTeamMemberSettings);
+    writer.writeObjectValue<TeamMessagingSettings>("messagingSettings", team.messagingSettings, serializeTeamMessagingSettings);
+    writer.writeCollectionOfObjectValues<TeamsAsyncOperation>("operations", team.operations, serializeTeamsAsyncOperation);
+    writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("permissionGrants", team.permissionGrants, serializeResourceSpecificPermissionGrant);
+    writer.writeObjectValue<ProfilePhoto>("photo", team.photo, serializeProfilePhoto);
+    writer.writeObjectValue<Channel>("primaryChannel", team.primaryChannel, serializeChannel);
+    writer.writeObjectValue<Schedule>("schedule", team.schedule, serializeSchedule);
+    writer.writeEnumValue<TeamSpecialization>("specialization", team.specialization);
+    writer.writeObjectValue<TeamSummary>("summary", team.summary, serializeTeamSummary);
+    writer.writeCollectionOfObjectValues<TeamworkTag>("tags", team.tags, serializeTeamworkTag);
+    writer.writeObjectValue<TeamsTemplate>("template", team.template, serializeTeamsTemplate);
+    writer.writeStringValue("tenantId", team.tenantId);
+    writer.writeEnumValue<TeamVisibilityType>("visibility", team.visibility);
+    writer.writeStringValue("webUrl", team.webUrl);
 }
 export interface Team extends Entity, Parsable {
     /**

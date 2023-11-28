@@ -27,8 +27,8 @@ export function deserializeIntoAveragePostRequestBody(averagePostRequestBody: Av
     }
 }
 export function serializeAveragePostRequestBody(writer: SerializationWriter, averagePostRequestBody: AveragePostRequestBody | undefined = {} as AveragePostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", averagePostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(averagePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", averagePostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(averagePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the average method.

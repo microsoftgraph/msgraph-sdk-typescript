@@ -13,8 +13,8 @@ export function deserializeIntoSetSolidColorPostRequestBody(setSolidColorPostReq
     }
 }
 export function serializeSetSolidColorPostRequestBody(writer: SerializationWriter, setSolidColorPostRequestBody: SetSolidColorPostRequestBody | undefined = {} as SetSolidColorPostRequestBody) : void {
-        writer.writeStringValue("color", setSolidColorPostRequestBody.color);
-        writer.writeAdditionalData(setSolidColorPostRequestBody.additionalData);
+    writer.writeStringValue("color", setSolidColorPostRequestBody.color);
+    writer.writeAdditionalData(setSolidColorPostRequestBody.additionalData);
 }
 export interface SetSolidColorPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

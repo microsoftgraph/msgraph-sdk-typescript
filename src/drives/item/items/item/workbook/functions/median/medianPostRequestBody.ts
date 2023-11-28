@@ -24,8 +24,8 @@ export interface MedianPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeMedianPostRequestBody(writer: SerializationWriter, medianPostRequestBody: MedianPostRequestBody | undefined = {} as MedianPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", medianPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(medianPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", medianPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(medianPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

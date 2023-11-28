@@ -22,8 +22,8 @@ export interface DeviceManagementTroubleshootingEventCollectionResponse extends 
     value?: DeviceManagementTroubleshootingEvent[];
 }
 export function serializeDeviceManagementTroubleshootingEventCollectionResponse(writer: SerializationWriter, deviceManagementTroubleshootingEventCollectionResponse: DeviceManagementTroubleshootingEventCollectionResponse | undefined = {} as DeviceManagementTroubleshootingEventCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, deviceManagementTroubleshootingEventCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceManagementTroubleshootingEvent>("value", deviceManagementTroubleshootingEventCollectionResponse.value, serializeDeviceManagementTroubleshootingEvent);
+    serializeBaseCollectionPaginationCountResponse(writer, deviceManagementTroubleshootingEventCollectionResponse)
+    writer.writeCollectionOfObjectValues<DeviceManagementTroubleshootingEvent>("value", deviceManagementTroubleshootingEventCollectionResponse.value, serializeDeviceManagementTroubleshootingEvent);
 }
 // tslint:enable
 // eslint-enable

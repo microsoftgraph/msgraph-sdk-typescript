@@ -15,8 +15,8 @@ export function deserializeIntoSetVerifiedPublisherPostRequestBody(setVerifiedPu
     }
 }
 export function serializeSetVerifiedPublisherPostRequestBody(writer: SerializationWriter, setVerifiedPublisherPostRequestBody: SetVerifiedPublisherPostRequestBody | undefined = {} as SetVerifiedPublisherPostRequestBody) : void {
-        writer.writeStringValue("verifiedPublisherId", setVerifiedPublisherPostRequestBody.verifiedPublisherId);
-        writer.writeAdditionalData(setVerifiedPublisherPostRequestBody.additionalData);
+    writer.writeStringValue("verifiedPublisherId", setVerifiedPublisherPostRequestBody.verifiedPublisherId);
+    writer.writeAdditionalData(setVerifiedPublisherPostRequestBody.additionalData);
 }
 export interface SetVerifiedPublisherPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

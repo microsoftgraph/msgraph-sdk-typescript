@@ -265,52 +265,52 @@ export function deserializeIntoApplication(application: Application | undefined 
     }
 }
 export function serializeApplication(writer: SerializationWriter, application: Application | undefined = {} as Application) : void {
-        serializeDirectoryObject(writer, application)
-        writer.writeCollectionOfObjectValues<AddIn>("addIns", application.addIns, serializeAddIn);
-        writer.writeObjectValue<ApiApplication>("api", application.api, serializeApiApplication);
-        writer.writeStringValue("appId", application.appId);
-        writer.writeStringValue("applicationTemplateId", application.applicationTemplateId);
-        writer.writeCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", application.appManagementPolicies, serializeAppManagementPolicy);
-        writer.writeCollectionOfObjectValues<AppRole>("appRoles", application.appRoles, serializeAppRole);
-        writer.writeObjectValue<Certification>("certification", application.certification, serializeCertification);
-        writer.writeDateValue("createdDateTime", application.createdDateTime);
-        writer.writeObjectValue<DirectoryObject>("createdOnBehalfOf", application.createdOnBehalfOf, serializeDirectoryObject);
-        writer.writeStringValue("defaultRedirectUri", application.defaultRedirectUri);
-        writer.writeStringValue("description", application.description);
-        writer.writeStringValue("disabledByMicrosoftStatus", application.disabledByMicrosoftStatus);
-        writer.writeStringValue("displayName", application.displayName);
-        writer.writeCollectionOfObjectValues<ExtensionProperty>("extensionProperties", application.extensionProperties, serializeExtensionProperty);
-        writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("federatedIdentityCredentials", application.federatedIdentityCredentials, serializeFederatedIdentityCredential);
-        writer.writeStringValue("groupMembershipClaims", application.groupMembershipClaims);
-        writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", application.homeRealmDiscoveryPolicies, serializeHomeRealmDiscoveryPolicy);
-        writer.writeCollectionOfPrimitiveValues<string>("identifierUris", application.identifierUris);
-        writer.writeObjectValue<InformationalUrl>("info", application.info, serializeInformationalUrl);
-        writer.writeBooleanValue("isDeviceOnlyAuthSupported", application.isDeviceOnlyAuthSupported);
-        writer.writeBooleanValue("isFallbackPublicClient", application.isFallbackPublicClient);
-        writer.writeCollectionOfObjectValues<KeyCredential>("keyCredentials", application.keyCredentials, serializeKeyCredential);
-        writer.writeStringValue("logo", application.logo);
-        writer.writeStringValue("notes", application.notes);
-        writer.writeBooleanValue("oauth2RequirePostResponse", application.oauth2RequirePostResponse);
-        writer.writeObjectValue<OptionalClaims>("optionalClaims", application.optionalClaims, serializeOptionalClaims);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("owners", application.owners, serializeDirectoryObject);
-        writer.writeObjectValue<ParentalControlSettings>("parentalControlSettings", application.parentalControlSettings, serializeParentalControlSettings);
-        writer.writeCollectionOfObjectValues<PasswordCredential>("passwordCredentials", application.passwordCredentials, serializePasswordCredential);
-        writer.writeObjectValue<PublicClientApplication>("publicClient", application.publicClient, serializePublicClientApplication);
-        writer.writeStringValue("publisherDomain", application.publisherDomain);
-        writer.writeObjectValue<RequestSignatureVerification>("requestSignatureVerification", application.requestSignatureVerification, serializeRequestSignatureVerification);
-        writer.writeCollectionOfObjectValues<RequiredResourceAccess>("requiredResourceAccess", application.requiredResourceAccess, serializeRequiredResourceAccess);
-        writer.writeStringValue("samlMetadataUrl", application.samlMetadataUrl);
-        writer.writeStringValue("serviceManagementReference", application.serviceManagementReference);
-        writer.writeObjectValue<ServicePrincipalLockConfiguration>("servicePrincipalLockConfiguration", application.servicePrincipalLockConfiguration, serializeServicePrincipalLockConfiguration);
-        writer.writeStringValue("signInAudience", application.signInAudience);
-        writer.writeObjectValue<SpaApplication>("spa", application.spa, serializeSpaApplication);
-        writer.writeObjectValue<Synchronization>("synchronization", application.synchronization, serializeSynchronization);
-        writer.writeCollectionOfPrimitiveValues<string>("tags", application.tags);
-        writer.writeGuidValue("tokenEncryptionKeyId", application.tokenEncryptionKeyId);
-        writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", application.tokenIssuancePolicies, serializeTokenIssuancePolicy);
-        writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", application.tokenLifetimePolicies, serializeTokenLifetimePolicy);
-        writer.writeObjectValue<VerifiedPublisher>("verifiedPublisher", application.verifiedPublisher, serializeVerifiedPublisher);
-        writer.writeObjectValue<WebApplication>("web", application.web, serializeWebApplication);
+    serializeDirectoryObject(writer, application)
+    writer.writeCollectionOfObjectValues<AddIn>("addIns", application.addIns, serializeAddIn);
+    writer.writeObjectValue<ApiApplication>("api", application.api, serializeApiApplication);
+    writer.writeStringValue("appId", application.appId);
+    writer.writeStringValue("applicationTemplateId", application.applicationTemplateId);
+    writer.writeCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", application.appManagementPolicies, serializeAppManagementPolicy);
+    writer.writeCollectionOfObjectValues<AppRole>("appRoles", application.appRoles, serializeAppRole);
+    writer.writeObjectValue<Certification>("certification", application.certification, serializeCertification);
+    writer.writeDateValue("createdDateTime", application.createdDateTime);
+    writer.writeObjectValue<DirectoryObject>("createdOnBehalfOf", application.createdOnBehalfOf, serializeDirectoryObject);
+    writer.writeStringValue("defaultRedirectUri", application.defaultRedirectUri);
+    writer.writeStringValue("description", application.description);
+    writer.writeStringValue("disabledByMicrosoftStatus", application.disabledByMicrosoftStatus);
+    writer.writeStringValue("displayName", application.displayName);
+    writer.writeCollectionOfObjectValues<ExtensionProperty>("extensionProperties", application.extensionProperties, serializeExtensionProperty);
+    writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("federatedIdentityCredentials", application.federatedIdentityCredentials, serializeFederatedIdentityCredential);
+    writer.writeStringValue("groupMembershipClaims", application.groupMembershipClaims);
+    writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", application.homeRealmDiscoveryPolicies, serializeHomeRealmDiscoveryPolicy);
+    writer.writeCollectionOfPrimitiveValues<string>("identifierUris", application.identifierUris);
+    writer.writeObjectValue<InformationalUrl>("info", application.info, serializeInformationalUrl);
+    writer.writeBooleanValue("isDeviceOnlyAuthSupported", application.isDeviceOnlyAuthSupported);
+    writer.writeBooleanValue("isFallbackPublicClient", application.isFallbackPublicClient);
+    writer.writeCollectionOfObjectValues<KeyCredential>("keyCredentials", application.keyCredentials, serializeKeyCredential);
+    writer.writeStringValue("logo", application.logo);
+    writer.writeStringValue("notes", application.notes);
+    writer.writeBooleanValue("oauth2RequirePostResponse", application.oauth2RequirePostResponse);
+    writer.writeObjectValue<OptionalClaims>("optionalClaims", application.optionalClaims, serializeOptionalClaims);
+    writer.writeCollectionOfObjectValues<DirectoryObject>("owners", application.owners, serializeDirectoryObject);
+    writer.writeObjectValue<ParentalControlSettings>("parentalControlSettings", application.parentalControlSettings, serializeParentalControlSettings);
+    writer.writeCollectionOfObjectValues<PasswordCredential>("passwordCredentials", application.passwordCredentials, serializePasswordCredential);
+    writer.writeObjectValue<PublicClientApplication>("publicClient", application.publicClient, serializePublicClientApplication);
+    writer.writeStringValue("publisherDomain", application.publisherDomain);
+    writer.writeObjectValue<RequestSignatureVerification>("requestSignatureVerification", application.requestSignatureVerification, serializeRequestSignatureVerification);
+    writer.writeCollectionOfObjectValues<RequiredResourceAccess>("requiredResourceAccess", application.requiredResourceAccess, serializeRequiredResourceAccess);
+    writer.writeStringValue("samlMetadataUrl", application.samlMetadataUrl);
+    writer.writeStringValue("serviceManagementReference", application.serviceManagementReference);
+    writer.writeObjectValue<ServicePrincipalLockConfiguration>("servicePrincipalLockConfiguration", application.servicePrincipalLockConfiguration, serializeServicePrincipalLockConfiguration);
+    writer.writeStringValue("signInAudience", application.signInAudience);
+    writer.writeObjectValue<SpaApplication>("spa", application.spa, serializeSpaApplication);
+    writer.writeObjectValue<Synchronization>("synchronization", application.synchronization, serializeSynchronization);
+    writer.writeCollectionOfPrimitiveValues<string>("tags", application.tags);
+    writer.writeGuidValue("tokenEncryptionKeyId", application.tokenEncryptionKeyId);
+    writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", application.tokenIssuancePolicies, serializeTokenIssuancePolicy);
+    writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", application.tokenLifetimePolicies, serializeTokenLifetimePolicy);
+    writer.writeObjectValue<VerifiedPublisher>("verifiedPublisher", application.verifiedPublisher, serializeVerifiedPublisher);
+    writer.writeObjectValue<WebApplication>("web", application.web, serializeWebApplication);
 }
 // tslint:enable
 // eslint-enable

@@ -26,8 +26,8 @@ export interface MutePostRequestBody extends AdditionalDataHolder, Parsable {
     clientContext?: string;
 }
 export function serializeMutePostRequestBody(writer: SerializationWriter, mutePostRequestBody: MutePostRequestBody | undefined = {} as MutePostRequestBody) : void {
-        writer.writeStringValue("clientContext", mutePostRequestBody.clientContext);
-        writer.writeAdditionalData(mutePostRequestBody.additionalData);
+    writer.writeStringValue("clientContext", mutePostRequestBody.clientContext);
+    writer.writeAdditionalData(mutePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the mute method.

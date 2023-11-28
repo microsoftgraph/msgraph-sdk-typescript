@@ -26,15 +26,15 @@ export function deserializeIntoWorkbookChartAxis(workbookChartAxis: WorkbookChar
     }
 }
 export function serializeWorkbookChartAxis(writer: SerializationWriter, workbookChartAxis: WorkbookChartAxis | undefined = {} as WorkbookChartAxis) : void {
-        serializeEntity(writer, workbookChartAxis)
-        writer.writeObjectValue<WorkbookChartAxisFormat>("format", workbookChartAxis.format, serializeWorkbookChartAxisFormat);
-        writer.writeObjectValue<WorkbookChartGridlines>("majorGridlines", workbookChartAxis.majorGridlines, serializeWorkbookChartGridlines);
-        writer.writeObjectValue<Json>("majorUnit", workbookChartAxis.majorUnit, serializeJson);
-        writer.writeObjectValue<Json>("maximum", workbookChartAxis.maximum, serializeJson);
-        writer.writeObjectValue<Json>("minimum", workbookChartAxis.minimum, serializeJson);
-        writer.writeObjectValue<WorkbookChartGridlines>("minorGridlines", workbookChartAxis.minorGridlines, serializeWorkbookChartGridlines);
-        writer.writeObjectValue<Json>("minorUnit", workbookChartAxis.minorUnit, serializeJson);
-        writer.writeObjectValue<WorkbookChartAxisTitle>("title", workbookChartAxis.title, serializeWorkbookChartAxisTitle);
+    serializeEntity(writer, workbookChartAxis)
+    writer.writeObjectValue<WorkbookChartAxisFormat>("format", workbookChartAxis.format, serializeWorkbookChartAxisFormat);
+    writer.writeObjectValue<WorkbookChartGridlines>("majorGridlines", workbookChartAxis.majorGridlines, serializeWorkbookChartGridlines);
+    writer.writeObjectValue<Json>("majorUnit", workbookChartAxis.majorUnit, serializeJson);
+    writer.writeObjectValue<Json>("maximum", workbookChartAxis.maximum, serializeJson);
+    writer.writeObjectValue<Json>("minimum", workbookChartAxis.minimum, serializeJson);
+    writer.writeObjectValue<WorkbookChartGridlines>("minorGridlines", workbookChartAxis.minorGridlines, serializeWorkbookChartGridlines);
+    writer.writeObjectValue<Json>("minorUnit", workbookChartAxis.minorUnit, serializeJson);
+    writer.writeObjectValue<WorkbookChartAxisTitle>("title", workbookChartAxis.title, serializeWorkbookChartAxisTitle);
 }
 export interface WorkbookChartAxis extends Entity, Parsable {
     /**

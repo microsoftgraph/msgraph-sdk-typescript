@@ -16,7 +16,7 @@ export function deserializeIntoClaimsMappingPolicy(claimsMappingPolicy: ClaimsMa
     }
 }
 export function serializeClaimsMappingPolicy(writer: SerializationWriter, claimsMappingPolicy: ClaimsMappingPolicy | undefined = {} as ClaimsMappingPolicy) : void {
-        serializeStsPolicy(writer, claimsMappingPolicy)
+    serializeStsPolicy(writer, claimsMappingPolicy)
 }
 // tslint:enable
 // eslint-enable

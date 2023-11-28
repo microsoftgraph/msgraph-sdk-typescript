@@ -23,8 +23,8 @@ export function deserializeIntoCheckMemberGroupsPostRequestBody(checkMemberGroup
     }
 }
 export function serializeCheckMemberGroupsPostRequestBody(writer: SerializationWriter, checkMemberGroupsPostRequestBody: CheckMemberGroupsPostRequestBody | undefined = {} as CheckMemberGroupsPostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("groupIds", checkMemberGroupsPostRequestBody.groupIds);
-        writer.writeAdditionalData(checkMemberGroupsPostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("groupIds", checkMemberGroupsPostRequestBody.groupIds);
+    writer.writeAdditionalData(checkMemberGroupsPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

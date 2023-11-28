@@ -44,12 +44,12 @@ export function deserializeIntoAddPostResponse(addPostResponse: AddPostResponse 
     }
 }
 export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: AddPostRequestBody | undefined = {} as AddPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<ConversationMember>("values", addPostRequestBody.values, serializeConversationMember);
-        writer.writeAdditionalData(addPostRequestBody.additionalData);
+    writer.writeCollectionOfObjectValues<ConversationMember>("values", addPostRequestBody.values, serializeConversationMember);
+    writer.writeAdditionalData(addPostRequestBody.additionalData);
 }
 export function serializeAddPostResponse(writer: SerializationWriter, addPostResponse: AddPostResponse | undefined = {} as AddPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, addPostResponse)
-        writer.writeCollectionOfObjectValues<ActionResultPart>("value", addPostResponse.value, serializeActionResultPart);
+    serializeBaseCollectionPaginationCountResponse(writer, addPostResponse)
+    writer.writeCollectionOfObjectValues<ActionResultPart>("value", addPostResponse.value, serializeActionResultPart);
 }
 /**
  * Provides operations to call the add method.

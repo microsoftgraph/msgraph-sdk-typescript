@@ -46,8 +46,8 @@ export interface GetManagedAppDiagnosticStatusesRequestBuilderGetQueryParameters
     top?: number;
 }
 export function serializeGetManagedAppDiagnosticStatusesGetResponse(writer: SerializationWriter, getManagedAppDiagnosticStatusesGetResponse: GetManagedAppDiagnosticStatusesGetResponse | undefined = {} as GetManagedAppDiagnosticStatusesGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getManagedAppDiagnosticStatusesGetResponse)
-        writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatus>("value", getManagedAppDiagnosticStatusesGetResponse.value, serializeManagedAppDiagnosticStatus);
+    serializeBaseCollectionPaginationCountResponse(writer, getManagedAppDiagnosticStatusesGetResponse)
+    writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatus>("value", getManagedAppDiagnosticStatusesGetResponse.value, serializeManagedAppDiagnosticStatus);
 }
 /**
  * Provides operations to call the getManagedAppDiagnosticStatuses method.

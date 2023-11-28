@@ -21,8 +21,8 @@ export interface OpenShiftItem extends Parsable, ShiftItem {
     openSlotCount?: number;
 }
 export function serializeOpenShiftItem(writer: SerializationWriter, openShiftItem: OpenShiftItem | undefined = {} as OpenShiftItem) : void {
-        serializeShiftItem(writer, openShiftItem)
-        writer.writeNumberValue("openSlotCount", openShiftItem.openSlotCount);
+    serializeShiftItem(writer, openShiftItem)
+    writer.writeNumberValue("openSlotCount", openShiftItem.openSlotCount);
 }
 // tslint:enable
 // eslint-enable

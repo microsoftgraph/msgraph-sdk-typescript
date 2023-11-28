@@ -22,8 +22,8 @@ export interface GetAttackSimulationRepeatOffendersGetResponse extends BaseColle
     value?: AttackSimulationRepeatOffender[];
 }
 export function serializeGetAttackSimulationRepeatOffendersGetResponse(writer: SerializationWriter, getAttackSimulationRepeatOffendersGetResponse: GetAttackSimulationRepeatOffendersGetResponse | undefined = {} as GetAttackSimulationRepeatOffendersGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationRepeatOffendersGetResponse)
-        writer.writeCollectionOfObjectValues<AttackSimulationRepeatOffender>("value", getAttackSimulationRepeatOffendersGetResponse.value, serializeAttackSimulationRepeatOffender);
+    serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationRepeatOffendersGetResponse)
+    writer.writeCollectionOfObjectValues<AttackSimulationRepeatOffender>("value", getAttackSimulationRepeatOffendersGetResponse.value, serializeAttackSimulationRepeatOffender);
 }
 // tslint:enable
 // eslint-enable

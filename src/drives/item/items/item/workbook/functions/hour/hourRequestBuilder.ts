@@ -27,8 +27,8 @@ export interface HourPostRequestBody extends AdditionalDataHolder, Parsable {
     serialNumber?: Json;
 }
 export function serializeHourPostRequestBody(writer: SerializationWriter, hourPostRequestBody: HourPostRequestBody | undefined = {} as HourPostRequestBody) : void {
-        writer.writeObjectValue<Json>("serialNumber", hourPostRequestBody.serialNumber, serializeJson);
-        writer.writeAdditionalData(hourPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("serialNumber", hourPostRequestBody.serialNumber, serializeJson);
+    writer.writeAdditionalData(hourPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the hour method.

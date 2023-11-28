@@ -22,8 +22,8 @@ export interface GetAttackSimulationSimulationUserCoverageGetResponse extends Ba
     value?: AttackSimulationSimulationUserCoverage[];
 }
 export function serializeGetAttackSimulationSimulationUserCoverageGetResponse(writer: SerializationWriter, getAttackSimulationSimulationUserCoverageGetResponse: GetAttackSimulationSimulationUserCoverageGetResponse | undefined = {} as GetAttackSimulationSimulationUserCoverageGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationSimulationUserCoverageGetResponse)
-        writer.writeCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>("value", getAttackSimulationSimulationUserCoverageGetResponse.value, serializeAttackSimulationSimulationUserCoverage);
+    serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationSimulationUserCoverageGetResponse)
+    writer.writeCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>("value", getAttackSimulationSimulationUserCoverageGetResponse.value, serializeAttackSimulationSimulationUserCoverage);
 }
 // tslint:enable
 // eslint-enable

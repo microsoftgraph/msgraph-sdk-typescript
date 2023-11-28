@@ -64,15 +64,15 @@ export function deserializeIntoAttackSimulationRoot(attackSimulationRoot: Attack
     }
 }
 export function serializeAttackSimulationRoot(writer: SerializationWriter, attackSimulationRoot: AttackSimulationRoot | undefined = {} as AttackSimulationRoot) : void {
-        serializeEntity(writer, attackSimulationRoot)
-        writer.writeCollectionOfObjectValues<EndUserNotification>("endUserNotifications", attackSimulationRoot.endUserNotifications, serializeEndUserNotification);
-        writer.writeCollectionOfObjectValues<LandingPage>("landingPages", attackSimulationRoot.landingPages, serializeLandingPage);
-        writer.writeCollectionOfObjectValues<LoginPage>("loginPages", attackSimulationRoot.loginPages, serializeLoginPage);
-        writer.writeCollectionOfObjectValues<AttackSimulationOperation>("operations", attackSimulationRoot.operations, serializeAttackSimulationOperation);
-        writer.writeCollectionOfObjectValues<Payload>("payloads", attackSimulationRoot.payloads, serializePayload);
-        writer.writeCollectionOfObjectValues<SimulationAutomation>("simulationAutomations", attackSimulationRoot.simulationAutomations, serializeSimulationAutomation);
-        writer.writeCollectionOfObjectValues<Simulation>("simulations", attackSimulationRoot.simulations, serializeSimulation);
-        writer.writeCollectionOfObjectValues<Training>("trainings", attackSimulationRoot.trainings, serializeTraining);
+    serializeEntity(writer, attackSimulationRoot)
+    writer.writeCollectionOfObjectValues<EndUserNotification>("endUserNotifications", attackSimulationRoot.endUserNotifications, serializeEndUserNotification);
+    writer.writeCollectionOfObjectValues<LandingPage>("landingPages", attackSimulationRoot.landingPages, serializeLandingPage);
+    writer.writeCollectionOfObjectValues<LoginPage>("loginPages", attackSimulationRoot.loginPages, serializeLoginPage);
+    writer.writeCollectionOfObjectValues<AttackSimulationOperation>("operations", attackSimulationRoot.operations, serializeAttackSimulationOperation);
+    writer.writeCollectionOfObjectValues<Payload>("payloads", attackSimulationRoot.payloads, serializePayload);
+    writer.writeCollectionOfObjectValues<SimulationAutomation>("simulationAutomations", attackSimulationRoot.simulationAutomations, serializeSimulationAutomation);
+    writer.writeCollectionOfObjectValues<Simulation>("simulations", attackSimulationRoot.simulations, serializeSimulation);
+    writer.writeCollectionOfObjectValues<Training>("trainings", attackSimulationRoot.trainings, serializeTraining);
 }
 // tslint:enable
 // eslint-enable

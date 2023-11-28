@@ -33,10 +33,10 @@ export interface PhoneAuthenticationMethod extends AuthenticationMethod, Parsabl
     smsSignInState?: AuthenticationMethodSignInState;
 }
 export function serializePhoneAuthenticationMethod(writer: SerializationWriter, phoneAuthenticationMethod: PhoneAuthenticationMethod | undefined = {} as PhoneAuthenticationMethod) : void {
-        serializeAuthenticationMethod(writer, phoneAuthenticationMethod)
-        writer.writeStringValue("phoneNumber", phoneAuthenticationMethod.phoneNumber);
-        writer.writeEnumValue<AuthenticationPhoneType>("phoneType", phoneAuthenticationMethod.phoneType);
-        writer.writeEnumValue<AuthenticationMethodSignInState>("smsSignInState", phoneAuthenticationMethod.smsSignInState);
+    serializeAuthenticationMethod(writer, phoneAuthenticationMethod)
+    writer.writeStringValue("phoneNumber", phoneAuthenticationMethod.phoneNumber);
+    writer.writeEnumValue<AuthenticationPhoneType>("phoneType", phoneAuthenticationMethod.phoneType);
+    writer.writeEnumValue<AuthenticationMethodSignInState>("smsSignInState", phoneAuthenticationMethod.smsSignInState);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export interface MobileAppAssignmentCollectionResponse extends BaseCollectionPag
     value?: MobileAppAssignment[];
 }
 export function serializeMobileAppAssignmentCollectionResponse(writer: SerializationWriter, mobileAppAssignmentCollectionResponse: MobileAppAssignmentCollectionResponse | undefined = {} as MobileAppAssignmentCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, mobileAppAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<MobileAppAssignment>("value", mobileAppAssignmentCollectionResponse.value, serializeMobileAppAssignment);
+    serializeBaseCollectionPaginationCountResponse(writer, mobileAppAssignmentCollectionResponse)
+    writer.writeCollectionOfObjectValues<MobileAppAssignment>("value", mobileAppAssignmentCollectionResponse.value, serializeMobileAppAssignment);
 }
 // tslint:enable
 // eslint-enable

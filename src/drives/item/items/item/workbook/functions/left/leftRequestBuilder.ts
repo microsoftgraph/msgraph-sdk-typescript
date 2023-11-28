@@ -32,9 +32,9 @@ export interface LeftPostRequestBody extends AdditionalDataHolder, Parsable {
     text?: Json;
 }
 export function serializeLeftPostRequestBody(writer: SerializationWriter, leftPostRequestBody: LeftPostRequestBody | undefined = {} as LeftPostRequestBody) : void {
-        writer.writeObjectValue<Json>("numChars", leftPostRequestBody.numChars, serializeJson);
-        writer.writeObjectValue<Json>("text", leftPostRequestBody.text, serializeJson);
-        writer.writeAdditionalData(leftPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("numChars", leftPostRequestBody.numChars, serializeJson);
+    writer.writeObjectValue<Json>("text", leftPostRequestBody.text, serializeJson);
+    writer.writeAdditionalData(leftPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the left method.

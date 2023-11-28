@@ -27,8 +27,8 @@ export interface GaussPostRequestBody extends AdditionalDataHolder, Parsable {
     x?: Json;
 }
 export function serializeGaussPostRequestBody(writer: SerializationWriter, gaussPostRequestBody: GaussPostRequestBody | undefined = {} as GaussPostRequestBody) : void {
-        writer.writeObjectValue<Json>("x", gaussPostRequestBody.x, serializeJson);
-        writer.writeAdditionalData(gaussPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("x", gaussPostRequestBody.x, serializeJson);
+    writer.writeAdditionalData(gaussPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the gauss method.

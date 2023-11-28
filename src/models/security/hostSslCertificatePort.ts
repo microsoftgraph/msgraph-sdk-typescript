@@ -38,11 +38,11 @@ export interface HostSslCertificatePort extends AdditionalDataHolder, Parsable {
     port?: number;
 }
 export function serializeHostSslCertificatePort(writer: SerializationWriter, hostSslCertificatePort: HostSslCertificatePort | undefined = {} as HostSslCertificatePort) : void {
-        writer.writeDateValue("firstSeenDateTime", hostSslCertificatePort.firstSeenDateTime);
-        writer.writeDateValue("lastSeenDateTime", hostSslCertificatePort.lastSeenDateTime);
-        writer.writeStringValue("@odata.type", hostSslCertificatePort.odataType);
-        writer.writeNumberValue("port", hostSslCertificatePort.port);
-        writer.writeAdditionalData(hostSslCertificatePort.additionalData);
+    writer.writeDateValue("firstSeenDateTime", hostSslCertificatePort.firstSeenDateTime);
+    writer.writeDateValue("lastSeenDateTime", hostSslCertificatePort.lastSeenDateTime);
+    writer.writeStringValue("@odata.type", hostSslCertificatePort.odataType);
+    writer.writeNumberValue("port", hostSslCertificatePort.port);
+    writer.writeAdditionalData(hostSslCertificatePort.additionalData);
 }
 // tslint:enable
 // eslint-enable

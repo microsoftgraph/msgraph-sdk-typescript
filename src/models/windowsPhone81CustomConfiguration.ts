@@ -16,8 +16,8 @@ export function deserializeIntoWindowsPhone81CustomConfiguration(windowsPhone81C
     }
 }
 export function serializeWindowsPhone81CustomConfiguration(writer: SerializationWriter, windowsPhone81CustomConfiguration: WindowsPhone81CustomConfiguration | undefined = {} as WindowsPhone81CustomConfiguration) : void {
-        serializeDeviceConfiguration(writer, windowsPhone81CustomConfiguration)
-        writer.writeCollectionOfObjectValues<OmaSetting>("omaSettings", windowsPhone81CustomConfiguration.omaSettings, serializeOmaSetting);
+    serializeDeviceConfiguration(writer, windowsPhone81CustomConfiguration)
+    writer.writeCollectionOfObjectValues<OmaSetting>("omaSettings", windowsPhone81CustomConfiguration.omaSettings, serializeOmaSetting);
 }
 export interface WindowsPhone81CustomConfiguration extends DeviceConfiguration, Parsable {
     /**

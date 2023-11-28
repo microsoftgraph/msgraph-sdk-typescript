@@ -32,9 +32,9 @@ export function deserializeIntoChoosePostRequestBody(choosePostRequestBody: Choo
     }
 }
 export function serializeChoosePostRequestBody(writer: SerializationWriter, choosePostRequestBody: ChoosePostRequestBody | undefined = {} as ChoosePostRequestBody) : void {
-        writer.writeObjectValue<Json>("indexNum", choosePostRequestBody.indexNum, serializeJson);
-        writer.writeObjectValue<Json>("values", choosePostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(choosePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("indexNum", choosePostRequestBody.indexNum, serializeJson);
+    writer.writeObjectValue<Json>("values", choosePostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(choosePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the choose method.

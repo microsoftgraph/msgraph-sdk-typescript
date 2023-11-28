@@ -15,10 +15,10 @@ export function deserializeIntoSharePostRequestBody(sharePostRequestBody: ShareP
     }
 }
 export function serializeSharePostRequestBody(writer: SerializationWriter, sharePostRequestBody: SharePostRequestBody | undefined = {} as SharePostRequestBody) : void {
-        writer.writeDateValue("endDateTime", sharePostRequestBody.endDateTime);
-        writer.writeBooleanValue("notifyTeam", sharePostRequestBody.notifyTeam);
-        writer.writeDateValue("startDateTime", sharePostRequestBody.startDateTime);
-        writer.writeAdditionalData(sharePostRequestBody.additionalData);
+    writer.writeDateValue("endDateTime", sharePostRequestBody.endDateTime);
+    writer.writeBooleanValue("notifyTeam", sharePostRequestBody.notifyTeam);
+    writer.writeDateValue("startDateTime", sharePostRequestBody.startDateTime);
+    writer.writeAdditionalData(sharePostRequestBody.additionalData);
 }
 export interface SharePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

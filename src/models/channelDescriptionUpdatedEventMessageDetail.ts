@@ -32,10 +32,10 @@ export function deserializeIntoChannelDescriptionUpdatedEventMessageDetail(chann
     }
 }
 export function serializeChannelDescriptionUpdatedEventMessageDetail(writer: SerializationWriter, channelDescriptionUpdatedEventMessageDetail: ChannelDescriptionUpdatedEventMessageDetail | undefined = {} as ChannelDescriptionUpdatedEventMessageDetail) : void {
-        serializeEventMessageDetail(writer, channelDescriptionUpdatedEventMessageDetail)
-        writer.writeStringValue("channelDescription", channelDescriptionUpdatedEventMessageDetail.channelDescription);
-        writer.writeStringValue("channelId", channelDescriptionUpdatedEventMessageDetail.channelId);
-        writer.writeObjectValue<IdentitySet>("initiator", channelDescriptionUpdatedEventMessageDetail.initiator, serializeIdentitySet);
+    serializeEventMessageDetail(writer, channelDescriptionUpdatedEventMessageDetail)
+    writer.writeStringValue("channelDescription", channelDescriptionUpdatedEventMessageDetail.channelDescription);
+    writer.writeStringValue("channelId", channelDescriptionUpdatedEventMessageDetail.channelId);
+    writer.writeObjectValue<IdentitySet>("initiator", channelDescriptionUpdatedEventMessageDetail.initiator, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

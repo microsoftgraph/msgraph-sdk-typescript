@@ -24,8 +24,8 @@ export function deserializeIntoArabicPostRequestBody(arabicPostRequestBody: Arab
     }
 }
 export function serializeArabicPostRequestBody(writer: SerializationWriter, arabicPostRequestBody: ArabicPostRequestBody | undefined = {} as ArabicPostRequestBody) : void {
-        writer.writeObjectValue<Json>("text", arabicPostRequestBody.text, serializeJson);
-        writer.writeAdditionalData(arabicPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("text", arabicPostRequestBody.text, serializeJson);
+    writer.writeAdditionalData(arabicPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

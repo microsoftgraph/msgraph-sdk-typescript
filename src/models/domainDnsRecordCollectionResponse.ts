@@ -22,8 +22,8 @@ export interface DomainDnsRecordCollectionResponse extends BaseCollectionPaginat
     value?: DomainDnsRecord[];
 }
 export function serializeDomainDnsRecordCollectionResponse(writer: SerializationWriter, domainDnsRecordCollectionResponse: DomainDnsRecordCollectionResponse | undefined = {} as DomainDnsRecordCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, domainDnsRecordCollectionResponse)
-        writer.writeCollectionOfObjectValues<DomainDnsRecord>("value", domainDnsRecordCollectionResponse.value, serializeDomainDnsRecord);
+    serializeBaseCollectionPaginationCountResponse(writer, domainDnsRecordCollectionResponse)
+    writer.writeCollectionOfObjectValues<DomainDnsRecord>("value", domainDnsRecordCollectionResponse.value, serializeDomainDnsRecord);
 }
 // tslint:enable
 // eslint-enable

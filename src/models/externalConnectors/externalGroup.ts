@@ -32,10 +32,10 @@ export interface ExternalGroup extends Entity, Parsable {
     members?: Identity[];
 }
 export function serializeExternalGroup(writer: SerializationWriter, externalGroup: ExternalGroup | undefined = {} as ExternalGroup) : void {
-        serializeEntity(writer, externalGroup)
-        writer.writeStringValue("description", externalGroup.description);
-        writer.writeStringValue("displayName", externalGroup.displayName);
-        writer.writeCollectionOfObjectValues<Identity>("members", externalGroup.members, serializeIdentity);
+    serializeEntity(writer, externalGroup)
+    writer.writeStringValue("description", externalGroup.description);
+    writer.writeStringValue("displayName", externalGroup.displayName);
+    writer.writeCollectionOfObjectValues<Identity>("members", externalGroup.members, serializeIdentity);
 }
 // tslint:enable
 // eslint-enable

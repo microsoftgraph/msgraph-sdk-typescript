@@ -35,10 +35,10 @@ export interface MediaContentRatingGermany extends AdditionalDataHolder, Parsabl
     tvRating?: RatingGermanyTelevisionType;
 }
 export function serializeMediaContentRatingGermany(writer: SerializationWriter, mediaContentRatingGermany: MediaContentRatingGermany | undefined = {} as MediaContentRatingGermany) : void {
-        writer.writeEnumValue<RatingGermanyMoviesType>("movieRating", mediaContentRatingGermany.movieRating);
-        writer.writeStringValue("@odata.type", mediaContentRatingGermany.odataType);
-        writer.writeEnumValue<RatingGermanyTelevisionType>("tvRating", mediaContentRatingGermany.tvRating);
-        writer.writeAdditionalData(mediaContentRatingGermany.additionalData);
+    writer.writeEnumValue<RatingGermanyMoviesType>("movieRating", mediaContentRatingGermany.movieRating);
+    writer.writeStringValue("@odata.type", mediaContentRatingGermany.odataType);
+    writer.writeEnumValue<RatingGermanyTelevisionType>("tvRating", mediaContentRatingGermany.tvRating);
+    writer.writeAdditionalData(mediaContentRatingGermany.additionalData);
 }
 // tslint:enable
 // eslint-enable

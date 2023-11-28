@@ -23,8 +23,8 @@ export function deserializeIntoClearPresencePostRequestBody(clearPresencePostReq
     }
 }
 export function serializeClearPresencePostRequestBody(writer: SerializationWriter, clearPresencePostRequestBody: ClearPresencePostRequestBody | undefined = {} as ClearPresencePostRequestBody) : void {
-        writer.writeStringValue("sessionId", clearPresencePostRequestBody.sessionId);
-        writer.writeAdditionalData(clearPresencePostRequestBody.additionalData);
+    writer.writeStringValue("sessionId", clearPresencePostRequestBody.sessionId);
+    writer.writeAdditionalData(clearPresencePostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

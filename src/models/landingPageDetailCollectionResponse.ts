@@ -22,8 +22,8 @@ export interface LandingPageDetailCollectionResponse extends BaseCollectionPagin
     value?: LandingPageDetail[];
 }
 export function serializeLandingPageDetailCollectionResponse(writer: SerializationWriter, landingPageDetailCollectionResponse: LandingPageDetailCollectionResponse | undefined = {} as LandingPageDetailCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, landingPageDetailCollectionResponse)
-        writer.writeCollectionOfObjectValues<LandingPageDetail>("value", landingPageDetailCollectionResponse.value, serializeLandingPageDetail);
+    serializeBaseCollectionPaginationCountResponse(writer, landingPageDetailCollectionResponse)
+    writer.writeCollectionOfObjectValues<LandingPageDetail>("value", landingPageDetailCollectionResponse.value, serializeLandingPageDetail);
 }
 // tslint:enable
 // eslint-enable

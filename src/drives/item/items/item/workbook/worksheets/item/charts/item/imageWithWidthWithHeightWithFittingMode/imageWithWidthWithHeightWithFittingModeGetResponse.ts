@@ -23,8 +23,8 @@ export interface ImageWithWidthWithHeightWithFittingModeGetResponse extends Addi
     value?: string;
 }
 export function serializeImageWithWidthWithHeightWithFittingModeGetResponse(writer: SerializationWriter, imageWithWidthWithHeightWithFittingModeGetResponse: ImageWithWidthWithHeightWithFittingModeGetResponse | undefined = {} as ImageWithWidthWithHeightWithFittingModeGetResponse) : void {
-        writer.writeStringValue("value", imageWithWidthWithHeightWithFittingModeGetResponse.value);
-        writer.writeAdditionalData(imageWithWidthWithHeightWithFittingModeGetResponse.additionalData);
+    writer.writeStringValue("value", imageWithWidthWithHeightWithFittingModeGetResponse.value);
+    writer.writeAdditionalData(imageWithWidthWithHeightWithFittingModeGetResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

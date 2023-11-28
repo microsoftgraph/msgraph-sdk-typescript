@@ -22,8 +22,8 @@ export interface DeviceComplianceSettingStateCollectionResponse extends BaseColl
     value?: DeviceComplianceSettingState[];
 }
 export function serializeDeviceComplianceSettingStateCollectionResponse(writer: SerializationWriter, deviceComplianceSettingStateCollectionResponse: DeviceComplianceSettingStateCollectionResponse | undefined = {} as DeviceComplianceSettingStateCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, deviceComplianceSettingStateCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceComplianceSettingState>("value", deviceComplianceSettingStateCollectionResponse.value, serializeDeviceComplianceSettingState);
+    serializeBaseCollectionPaginationCountResponse(writer, deviceComplianceSettingStateCollectionResponse)
+    writer.writeCollectionOfObjectValues<DeviceComplianceSettingState>("value", deviceComplianceSettingStateCollectionResponse.value, serializeDeviceComplianceSettingState);
 }
 // tslint:enable
 // eslint-enable

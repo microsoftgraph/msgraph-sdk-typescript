@@ -14,7 +14,7 @@ export function deserializeIntoUpdateRecordingStatusOperation(updateRecordingSta
     }
 }
 export function serializeUpdateRecordingStatusOperation(writer: SerializationWriter, updateRecordingStatusOperation: UpdateRecordingStatusOperation | undefined = {} as UpdateRecordingStatusOperation) : void {
-        serializeCommsOperation(writer, updateRecordingStatusOperation)
+    serializeCommsOperation(writer, updateRecordingStatusOperation)
 }
 export interface UpdateRecordingStatusOperation extends CommsOperation, Parsable {
 }

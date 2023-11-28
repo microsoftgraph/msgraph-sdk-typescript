@@ -60,15 +60,15 @@ export interface Notebook extends OnenoteEntityHierarchyModel, Parsable {
     userRole?: OnenoteUserRole;
 }
 export function serializeNotebook(writer: SerializationWriter, notebook: Notebook | undefined = {} as Notebook) : void {
-        serializeOnenoteEntityHierarchyModel(writer, notebook)
-        writer.writeBooleanValue("isDefault", notebook.isDefault);
-        writer.writeBooleanValue("isShared", notebook.isShared);
-        writer.writeObjectValue<NotebookLinks>("links", notebook.links, serializeNotebookLinks);
-        writer.writeCollectionOfObjectValues<SectionGroup>("sectionGroups", notebook.sectionGroups, serializeSectionGroup);
-        writer.writeStringValue("sectionGroupsUrl", notebook.sectionGroupsUrl);
-        writer.writeCollectionOfObjectValues<OnenoteSection>("sections", notebook.sections, serializeOnenoteSection);
-        writer.writeStringValue("sectionsUrl", notebook.sectionsUrl);
-        writer.writeEnumValue<OnenoteUserRole>("userRole", notebook.userRole);
+    serializeOnenoteEntityHierarchyModel(writer, notebook)
+    writer.writeBooleanValue("isDefault", notebook.isDefault);
+    writer.writeBooleanValue("isShared", notebook.isShared);
+    writer.writeObjectValue<NotebookLinks>("links", notebook.links, serializeNotebookLinks);
+    writer.writeCollectionOfObjectValues<SectionGroup>("sectionGroups", notebook.sectionGroups, serializeSectionGroup);
+    writer.writeStringValue("sectionGroupsUrl", notebook.sectionGroupsUrl);
+    writer.writeCollectionOfObjectValues<OnenoteSection>("sections", notebook.sections, serializeOnenoteSection);
+    writer.writeStringValue("sectionsUrl", notebook.sectionsUrl);
+    writer.writeEnumValue<OnenoteUserRole>("userRole", notebook.userRole);
 }
 // tslint:enable
 // eslint-enable

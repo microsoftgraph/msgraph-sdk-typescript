@@ -22,8 +22,8 @@ export interface OnlineMeetingCollectionResponse extends BaseCollectionPaginatio
     value?: OnlineMeeting[];
 }
 export function serializeOnlineMeetingCollectionResponse(writer: SerializationWriter, onlineMeetingCollectionResponse: OnlineMeetingCollectionResponse | undefined = {} as OnlineMeetingCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, onlineMeetingCollectionResponse)
-        writer.writeCollectionOfObjectValues<OnlineMeeting>("value", onlineMeetingCollectionResponse.value, serializeOnlineMeeting);
+    serializeBaseCollectionPaginationCountResponse(writer, onlineMeetingCollectionResponse)
+    writer.writeCollectionOfObjectValues<OnlineMeeting>("value", onlineMeetingCollectionResponse.value, serializeOnlineMeeting);
 }
 // tslint:enable
 // eslint-enable

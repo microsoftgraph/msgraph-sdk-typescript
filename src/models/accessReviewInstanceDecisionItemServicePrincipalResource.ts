@@ -21,8 +21,8 @@ export function deserializeIntoAccessReviewInstanceDecisionItemServicePrincipalR
     }
 }
 export function serializeAccessReviewInstanceDecisionItemServicePrincipalResource(writer: SerializationWriter, accessReviewInstanceDecisionItemServicePrincipalResource: AccessReviewInstanceDecisionItemServicePrincipalResource | undefined = {} as AccessReviewInstanceDecisionItemServicePrincipalResource) : void {
-        serializeAccessReviewInstanceDecisionItemResource(writer, accessReviewInstanceDecisionItemServicePrincipalResource)
-        writer.writeStringValue("appId", accessReviewInstanceDecisionItemServicePrincipalResource.appId);
+    serializeAccessReviewInstanceDecisionItemResource(writer, accessReviewInstanceDecisionItemServicePrincipalResource)
+    writer.writeStringValue("appId", accessReviewInstanceDecisionItemServicePrincipalResource.appId);
 }
 // tslint:enable
 // eslint-enable

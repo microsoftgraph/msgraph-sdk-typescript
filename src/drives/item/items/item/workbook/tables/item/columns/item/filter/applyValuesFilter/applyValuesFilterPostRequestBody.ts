@@ -24,8 +24,8 @@ export function deserializeIntoApplyValuesFilterPostRequestBody(applyValuesFilte
     }
 }
 export function serializeApplyValuesFilterPostRequestBody(writer: SerializationWriter, applyValuesFilterPostRequestBody: ApplyValuesFilterPostRequestBody | undefined = {} as ApplyValuesFilterPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", applyValuesFilterPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(applyValuesFilterPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", applyValuesFilterPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(applyValuesFilterPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

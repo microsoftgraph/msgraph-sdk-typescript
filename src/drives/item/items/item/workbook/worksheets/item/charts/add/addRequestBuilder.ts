@@ -37,10 +37,10 @@ export function deserializeIntoAddPostRequestBody(addPostRequestBody: AddPostReq
     }
 }
 export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: AddPostRequestBody | undefined = {} as AddPostRequestBody) : void {
-        writer.writeStringValue("seriesBy", addPostRequestBody.seriesBy);
-        writer.writeObjectValue<Json>("sourceData", addPostRequestBody.sourceData, serializeJson);
-        writer.writeStringValue("type", addPostRequestBody.type);
-        writer.writeAdditionalData(addPostRequestBody.additionalData);
+    writer.writeStringValue("seriesBy", addPostRequestBody.seriesBy);
+    writer.writeObjectValue<Json>("sourceData", addPostRequestBody.sourceData, serializeJson);
+    writer.writeStringValue("type", addPostRequestBody.type);
+    writer.writeAdditionalData(addPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the add method.

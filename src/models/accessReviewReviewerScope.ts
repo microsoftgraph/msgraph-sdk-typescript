@@ -38,11 +38,11 @@ export function deserializeIntoAccessReviewReviewerScope(accessReviewReviewerSco
     }
 }
 export function serializeAccessReviewReviewerScope(writer: SerializationWriter, accessReviewReviewerScope: AccessReviewReviewerScope | undefined = {} as AccessReviewReviewerScope) : void {
-        writer.writeStringValue("@odata.type", accessReviewReviewerScope.odataType);
-        writer.writeStringValue("query", accessReviewReviewerScope.query);
-        writer.writeStringValue("queryRoot", accessReviewReviewerScope.queryRoot);
-        writer.writeStringValue("queryType", accessReviewReviewerScope.queryType);
-        writer.writeAdditionalData(accessReviewReviewerScope.additionalData);
+    writer.writeStringValue("@odata.type", accessReviewReviewerScope.odataType);
+    writer.writeStringValue("query", accessReviewReviewerScope.query);
+    writer.writeStringValue("queryRoot", accessReviewReviewerScope.queryRoot);
+    writer.writeStringValue("queryType", accessReviewReviewerScope.queryType);
+    writer.writeAdditionalData(accessReviewReviewerScope.additionalData);
 }
 // tslint:enable
 // eslint-enable

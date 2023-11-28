@@ -28,9 +28,9 @@ export function deserializeIntoAuthorizationInfo(authorizationInfo: Authorizatio
     }
 }
 export function serializeAuthorizationInfo(writer: SerializationWriter, authorizationInfo: AuthorizationInfo | undefined = {} as AuthorizationInfo) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("certificateUserIds", authorizationInfo.certificateUserIds);
-        writer.writeStringValue("@odata.type", authorizationInfo.odataType);
-        writer.writeAdditionalData(authorizationInfo.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("certificateUserIds", authorizationInfo.certificateUserIds);
+    writer.writeStringValue("@odata.type", authorizationInfo.odataType);
+    writer.writeAdditionalData(authorizationInfo.additionalData);
 }
 // tslint:enable
 // eslint-enable

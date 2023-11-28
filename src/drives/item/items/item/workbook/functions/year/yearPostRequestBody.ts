@@ -14,8 +14,8 @@ export function deserializeIntoYearPostRequestBody(yearPostRequestBody: YearPost
     }
 }
 export function serializeYearPostRequestBody(writer: SerializationWriter, yearPostRequestBody: YearPostRequestBody | undefined = {} as YearPostRequestBody) : void {
-        writer.writeObjectValue<Json>("serialNumber", yearPostRequestBody.serialNumber, serializeJson);
-        writer.writeAdditionalData(yearPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("serialNumber", yearPostRequestBody.serialNumber, serializeJson);
+    writer.writeAdditionalData(yearPostRequestBody.additionalData);
 }
 export interface YearPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

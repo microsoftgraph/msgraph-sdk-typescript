@@ -27,8 +27,8 @@ export function deserializeIntoCschPostRequestBody(cschPostRequestBody: CschPost
     }
 }
 export function serializeCschPostRequestBody(writer: SerializationWriter, cschPostRequestBody: CschPostRequestBody | undefined = {} as CschPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", cschPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(cschPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", cschPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(cschPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the csch method.

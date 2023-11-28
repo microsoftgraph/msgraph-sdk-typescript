@@ -42,12 +42,12 @@ export interface SchemaExtension extends Entity, Parsable {
     targetTypes?: string[];
 }
 export function serializeSchemaExtension(writer: SerializationWriter, schemaExtension: SchemaExtension | undefined = {} as SchemaExtension) : void {
-        serializeEntity(writer, schemaExtension)
-        writer.writeStringValue("description", schemaExtension.description);
-        writer.writeStringValue("owner", schemaExtension.owner);
-        writer.writeCollectionOfObjectValues<ExtensionSchemaProperty>("properties", schemaExtension.properties, serializeExtensionSchemaProperty);
-        writer.writeStringValue("status", schemaExtension.status);
-        writer.writeCollectionOfPrimitiveValues<string>("targetTypes", schemaExtension.targetTypes);
+    serializeEntity(writer, schemaExtension)
+    writer.writeStringValue("description", schemaExtension.description);
+    writer.writeStringValue("owner", schemaExtension.owner);
+    writer.writeCollectionOfObjectValues<ExtensionSchemaProperty>("properties", schemaExtension.properties, serializeExtensionSchemaProperty);
+    writer.writeStringValue("status", schemaExtension.status);
+    writer.writeCollectionOfPrimitiveValues<string>("targetTypes", schemaExtension.targetTypes);
 }
 // tslint:enable
 // eslint-enable

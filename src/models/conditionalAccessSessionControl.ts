@@ -49,9 +49,9 @@ export function deserializeIntoConditionalAccessSessionControl(conditionalAccess
     }
 }
 export function serializeConditionalAccessSessionControl(writer: SerializationWriter, conditionalAccessSessionControl: ConditionalAccessSessionControl | undefined = {} as ConditionalAccessSessionControl) : void {
-        writer.writeBooleanValue("isEnabled", conditionalAccessSessionControl.isEnabled);
-        writer.writeStringValue("@odata.type", conditionalAccessSessionControl.odataType);
-        writer.writeAdditionalData(conditionalAccessSessionControl.additionalData);
+    writer.writeBooleanValue("isEnabled", conditionalAccessSessionControl.isEnabled);
+    writer.writeStringValue("@odata.type", conditionalAccessSessionControl.odataType);
+    writer.writeAdditionalData(conditionalAccessSessionControl.additionalData);
 }
 // tslint:enable
 // eslint-enable

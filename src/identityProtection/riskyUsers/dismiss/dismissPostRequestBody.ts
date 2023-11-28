@@ -23,8 +23,8 @@ export interface DismissPostRequestBody extends AdditionalDataHolder, Parsable {
     userIds?: string[];
 }
 export function serializeDismissPostRequestBody(writer: SerializationWriter, dismissPostRequestBody: DismissPostRequestBody | undefined = {} as DismissPostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("userIds", dismissPostRequestBody.userIds);
-        writer.writeAdditionalData(dismissPostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("userIds", dismissPostRequestBody.userIds);
+    writer.writeAdditionalData(dismissPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

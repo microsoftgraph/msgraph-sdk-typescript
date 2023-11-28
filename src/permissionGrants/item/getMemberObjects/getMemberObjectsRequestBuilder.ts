@@ -42,12 +42,12 @@ export interface GetMemberObjectsPostResponse extends BaseCollectionPaginationCo
     value?: string[];
 }
 export function serializeGetMemberObjectsPostRequestBody(writer: SerializationWriter, getMemberObjectsPostRequestBody: GetMemberObjectsPostRequestBody | undefined = {} as GetMemberObjectsPostRequestBody) : void {
-        writer.writeBooleanValue("securityEnabledOnly", getMemberObjectsPostRequestBody.securityEnabledOnly);
-        writer.writeAdditionalData(getMemberObjectsPostRequestBody.additionalData);
+    writer.writeBooleanValue("securityEnabledOnly", getMemberObjectsPostRequestBody.securityEnabledOnly);
+    writer.writeAdditionalData(getMemberObjectsPostRequestBody.additionalData);
 }
 export function serializeGetMemberObjectsPostResponse(writer: SerializationWriter, getMemberObjectsPostResponse: GetMemberObjectsPostResponse | undefined = {} as GetMemberObjectsPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getMemberObjectsPostResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getMemberObjectsPostResponse.value);
+    serializeBaseCollectionPaginationCountResponse(writer, getMemberObjectsPostResponse)
+    writer.writeCollectionOfPrimitiveValues<string>("value", getMemberObjectsPostResponse.value);
 }
 /**
  * Provides operations to call the getMemberObjects method.

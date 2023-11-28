@@ -34,8 +34,8 @@ export interface ListItemVersion extends BaseItemVersion, Parsable {
     fields?: FieldValueSet;
 }
 export function serializeListItemVersion(writer: SerializationWriter, listItemVersion: ListItemVersion | undefined = {} as ListItemVersion) : void {
-        serializeBaseItemVersion(writer, listItemVersion)
-        writer.writeObjectValue<FieldValueSet>("fields", listItemVersion.fields, serializeFieldValueSet);
+    serializeBaseItemVersion(writer, listItemVersion)
+    writer.writeObjectValue<FieldValueSet>("fields", listItemVersion.fields, serializeFieldValueSet);
 }
 // tslint:enable
 // eslint-enable

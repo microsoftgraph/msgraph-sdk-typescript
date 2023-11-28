@@ -22,8 +22,8 @@ export interface FilterByCurrentUserWithOnGetResponse extends BaseCollectionPagi
     value?: PrivilegedAccessGroupAssignmentScheduleRequest[];
 }
 export function serializeFilterByCurrentUserWithOnGetResponse(writer: SerializationWriter, filterByCurrentUserWithOnGetResponse: FilterByCurrentUserWithOnGetResponse | undefined = {} as FilterByCurrentUserWithOnGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
-        writer.writeCollectionOfObjectValues<PrivilegedAccessGroupAssignmentScheduleRequest>("value", filterByCurrentUserWithOnGetResponse.value, serializePrivilegedAccessGroupAssignmentScheduleRequest);
+    serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
+    writer.writeCollectionOfObjectValues<PrivilegedAccessGroupAssignmentScheduleRequest>("value", filterByCurrentUserWithOnGetResponse.value, serializePrivilegedAccessGroupAssignmentScheduleRequest);
 }
 // tslint:enable
 // eslint-enable

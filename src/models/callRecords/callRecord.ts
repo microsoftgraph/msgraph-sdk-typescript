@@ -70,18 +70,18 @@ export function deserializeIntoCallRecord(callRecord: CallRecord | undefined = {
     }
 }
 export function serializeCallRecord(writer: SerializationWriter, callRecord: CallRecord | undefined = {} as CallRecord) : void {
-        serializeEntity(writer, callRecord)
-        writer.writeDateValue("endDateTime", callRecord.endDateTime);
-        writer.writeStringValue("joinWebUrl", callRecord.joinWebUrl);
-        writer.writeDateValue("lastModifiedDateTime", callRecord.lastModifiedDateTime);
-        if(callRecord.modalities)
-        writer.writeEnumValue<Modality>("modalities", ...callRecord.modalities);
-        writer.writeObjectValue<IdentitySet>("organizer", callRecord.organizer, serializeIdentitySet);
-        writer.writeCollectionOfObjectValues<IdentitySet>("participants", callRecord.participants, serializeIdentitySet);
-        writer.writeCollectionOfObjectValues<Session>("sessions", callRecord.sessions, serializeSession);
-        writer.writeDateValue("startDateTime", callRecord.startDateTime);
-        writer.writeEnumValue<CallType>("type", callRecord.type);
-        writer.writeNumberValue("version", callRecord.version);
+    serializeEntity(writer, callRecord)
+    writer.writeDateValue("endDateTime", callRecord.endDateTime);
+    writer.writeStringValue("joinWebUrl", callRecord.joinWebUrl);
+    writer.writeDateValue("lastModifiedDateTime", callRecord.lastModifiedDateTime);
+    if(callRecord.modalities)
+    writer.writeEnumValue<Modality>("modalities", ...callRecord.modalities);
+    writer.writeObjectValue<IdentitySet>("organizer", callRecord.organizer, serializeIdentitySet);
+    writer.writeCollectionOfObjectValues<IdentitySet>("participants", callRecord.participants, serializeIdentitySet);
+    writer.writeCollectionOfObjectValues<Session>("sessions", callRecord.sessions, serializeSession);
+    writer.writeDateValue("startDateTime", callRecord.startDateTime);
+    writer.writeEnumValue<CallType>("type", callRecord.type);
+    writer.writeNumberValue("version", callRecord.version);
 }
 // tslint:enable
 // eslint-enable

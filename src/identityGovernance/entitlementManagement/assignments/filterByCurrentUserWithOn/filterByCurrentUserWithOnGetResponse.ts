@@ -22,8 +22,8 @@ export interface FilterByCurrentUserWithOnGetResponse extends BaseCollectionPagi
     value?: AccessPackageAssignment[];
 }
 export function serializeFilterByCurrentUserWithOnGetResponse(writer: SerializationWriter, filterByCurrentUserWithOnGetResponse: FilterByCurrentUserWithOnGetResponse | undefined = {} as FilterByCurrentUserWithOnGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", filterByCurrentUserWithOnGetResponse.value, serializeAccessPackageAssignment);
+    serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
+    writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", filterByCurrentUserWithOnGetResponse.value, serializeAccessPackageAssignment);
 }
 // tslint:enable
 // eslint-enable

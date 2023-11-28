@@ -27,8 +27,8 @@ export interface ImSqrtPostRequestBody extends AdditionalDataHolder, Parsable {
     inumber?: Json;
 }
 export function serializeImSqrtPostRequestBody(writer: SerializationWriter, imSqrtPostRequestBody: ImSqrtPostRequestBody | undefined = {} as ImSqrtPostRequestBody) : void {
-        writer.writeObjectValue<Json>("inumber", imSqrtPostRequestBody.inumber, serializeJson);
-        writer.writeAdditionalData(imSqrtPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("inumber", imSqrtPostRequestBody.inumber, serializeJson);
+    writer.writeAdditionalData(imSqrtPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the imSqrt method.

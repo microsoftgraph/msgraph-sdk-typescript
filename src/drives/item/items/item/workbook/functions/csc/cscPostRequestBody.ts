@@ -24,8 +24,8 @@ export function deserializeIntoCscPostRequestBody(cscPostRequestBody: CscPostReq
     }
 }
 export function serializeCscPostRequestBody(writer: SerializationWriter, cscPostRequestBody: CscPostRequestBody | undefined = {} as CscPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", cscPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(cscPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", cscPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(cscPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -18,9 +18,9 @@ export function deserializeIntoWorkbookChartPoint(workbookChartPoint: WorkbookCh
     }
 }
 export function serializeWorkbookChartPoint(writer: SerializationWriter, workbookChartPoint: WorkbookChartPoint | undefined = {} as WorkbookChartPoint) : void {
-        serializeEntity(writer, workbookChartPoint)
-        writer.writeObjectValue<WorkbookChartPointFormat>("format", workbookChartPoint.format, serializeWorkbookChartPointFormat);
-        writer.writeObjectValue<Json>("value", workbookChartPoint.value, serializeJson);
+    serializeEntity(writer, workbookChartPoint)
+    writer.writeObjectValue<WorkbookChartPointFormat>("format", workbookChartPoint.format, serializeWorkbookChartPointFormat);
+    writer.writeObjectValue<Json>("value", workbookChartPoint.value, serializeJson);
 }
 export interface WorkbookChartPoint extends Entity, Parsable {
     /**

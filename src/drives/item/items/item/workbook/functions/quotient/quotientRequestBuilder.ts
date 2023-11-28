@@ -32,9 +32,9 @@ export interface QuotientPostRequestBody extends AdditionalDataHolder, Parsable 
     numerator?: Json;
 }
 export function serializeQuotientPostRequestBody(writer: SerializationWriter, quotientPostRequestBody: QuotientPostRequestBody | undefined = {} as QuotientPostRequestBody) : void {
-        writer.writeObjectValue<Json>("denominator", quotientPostRequestBody.denominator, serializeJson);
-        writer.writeObjectValue<Json>("numerator", quotientPostRequestBody.numerator, serializeJson);
-        writer.writeAdditionalData(quotientPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("denominator", quotientPostRequestBody.denominator, serializeJson);
+    writer.writeObjectValue<Json>("numerator", quotientPostRequestBody.numerator, serializeJson);
+    writer.writeAdditionalData(quotientPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the quotient method.

@@ -16,8 +16,8 @@ export function deserializeIntoTodoTaskListCollectionResponse(todoTaskListCollec
     }
 }
 export function serializeTodoTaskListCollectionResponse(writer: SerializationWriter, todoTaskListCollectionResponse: TodoTaskListCollectionResponse | undefined = {} as TodoTaskListCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, todoTaskListCollectionResponse)
-        writer.writeCollectionOfObjectValues<TodoTaskList>("value", todoTaskListCollectionResponse.value, serializeTodoTaskList);
+    serializeBaseCollectionPaginationCountResponse(writer, todoTaskListCollectionResponse)
+    writer.writeCollectionOfObjectValues<TodoTaskList>("value", todoTaskListCollectionResponse.value, serializeTodoTaskList);
 }
 export interface TodoTaskListCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

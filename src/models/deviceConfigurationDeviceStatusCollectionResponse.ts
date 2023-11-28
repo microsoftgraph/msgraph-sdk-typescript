@@ -22,8 +22,8 @@ export interface DeviceConfigurationDeviceStatusCollectionResponse extends BaseC
     value?: DeviceConfigurationDeviceStatus[];
 }
 export function serializeDeviceConfigurationDeviceStatusCollectionResponse(writer: SerializationWriter, deviceConfigurationDeviceStatusCollectionResponse: DeviceConfigurationDeviceStatusCollectionResponse | undefined = {} as DeviceConfigurationDeviceStatusCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, deviceConfigurationDeviceStatusCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceConfigurationDeviceStatus>("value", deviceConfigurationDeviceStatusCollectionResponse.value, serializeDeviceConfigurationDeviceStatus);
+    serializeBaseCollectionPaginationCountResponse(writer, deviceConfigurationDeviceStatusCollectionResponse)
+    writer.writeCollectionOfObjectValues<DeviceConfigurationDeviceStatus>("value", deviceConfigurationDeviceStatusCollectionResponse.value, serializeDeviceConfigurationDeviceStatus);
 }
 // tslint:enable
 // eslint-enable

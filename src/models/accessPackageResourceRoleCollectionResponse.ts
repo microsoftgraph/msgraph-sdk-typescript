@@ -22,8 +22,8 @@ export function deserializeIntoAccessPackageResourceRoleCollectionResponse(acces
     }
 }
 export function serializeAccessPackageResourceRoleCollectionResponse(writer: SerializationWriter, accessPackageResourceRoleCollectionResponse: AccessPackageResourceRoleCollectionResponse | undefined = {} as AccessPackageResourceRoleCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, accessPackageResourceRoleCollectionResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageResourceRole>("value", accessPackageResourceRoleCollectionResponse.value, serializeAccessPackageResourceRole);
+    serializeBaseCollectionPaginationCountResponse(writer, accessPackageResourceRoleCollectionResponse)
+    writer.writeCollectionOfObjectValues<AccessPackageResourceRole>("value", accessPackageResourceRoleCollectionResponse.value, serializeAccessPackageResourceRole);
 }
 // tslint:enable
 // eslint-enable

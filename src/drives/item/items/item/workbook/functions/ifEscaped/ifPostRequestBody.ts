@@ -34,10 +34,10 @@ export interface IfPostRequestBody extends AdditionalDataHolder, Parsable {
     valueIfTrue?: Json;
 }
 export function serializeIfPostRequestBody(writer: SerializationWriter, ifPostRequestBody: IfPostRequestBody | undefined = {} as IfPostRequestBody) : void {
-        writer.writeObjectValue<Json>("logicalTest", ifPostRequestBody.logicalTest, serializeJson);
-        writer.writeObjectValue<Json>("valueIfFalse", ifPostRequestBody.valueIfFalse, serializeJson);
-        writer.writeObjectValue<Json>("valueIfTrue", ifPostRequestBody.valueIfTrue, serializeJson);
-        writer.writeAdditionalData(ifPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("logicalTest", ifPostRequestBody.logicalTest, serializeJson);
+    writer.writeObjectValue<Json>("valueIfFalse", ifPostRequestBody.valueIfFalse, serializeJson);
+    writer.writeObjectValue<Json>("valueIfTrue", ifPostRequestBody.valueIfTrue, serializeJson);
+    writer.writeAdditionalData(ifPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

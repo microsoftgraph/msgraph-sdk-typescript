@@ -22,8 +22,8 @@ export interface ManagedAppStatusRaw extends ManagedAppStatus, Parsable {
     content?: Json;
 }
 export function serializeManagedAppStatusRaw(writer: SerializationWriter, managedAppStatusRaw: ManagedAppStatusRaw | undefined = {} as ManagedAppStatusRaw) : void {
-        serializeManagedAppStatus(writer, managedAppStatusRaw)
-        writer.writeObjectValue<Json>("content", managedAppStatusRaw.content, serializeJson);
+    serializeManagedAppStatus(writer, managedAppStatusRaw)
+    writer.writeObjectValue<Json>("content", managedAppStatusRaw.content, serializeJson);
 }
 // tslint:enable
 // eslint-enable

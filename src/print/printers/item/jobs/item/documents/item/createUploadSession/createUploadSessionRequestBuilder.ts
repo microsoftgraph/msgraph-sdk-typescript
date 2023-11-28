@@ -27,8 +27,8 @@ export function deserializeIntoCreateUploadSessionPostRequestBody(createUploadSe
     }
 }
 export function serializeCreateUploadSessionPostRequestBody(writer: SerializationWriter, createUploadSessionPostRequestBody: CreateUploadSessionPostRequestBody | undefined = {} as CreateUploadSessionPostRequestBody) : void {
-        writer.writeObjectValue<PrintDocumentUploadProperties>("properties", createUploadSessionPostRequestBody.properties, serializePrintDocumentUploadProperties);
-        writer.writeAdditionalData(createUploadSessionPostRequestBody.additionalData);
+    writer.writeObjectValue<PrintDocumentUploadProperties>("properties", createUploadSessionPostRequestBody.properties, serializePrintDocumentUploadProperties);
+    writer.writeAdditionalData(createUploadSessionPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the createUploadSession method.

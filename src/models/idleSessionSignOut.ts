@@ -38,11 +38,11 @@ export interface IdleSessionSignOut extends AdditionalDataHolder, Parsable {
     warnAfterInSeconds?: number;
 }
 export function serializeIdleSessionSignOut(writer: SerializationWriter, idleSessionSignOut: IdleSessionSignOut | undefined = {} as IdleSessionSignOut) : void {
-        writer.writeBooleanValue("isEnabled", idleSessionSignOut.isEnabled);
-        writer.writeStringValue("@odata.type", idleSessionSignOut.odataType);
-        writer.writeNumberValue("signOutAfterInSeconds", idleSessionSignOut.signOutAfterInSeconds);
-        writer.writeNumberValue("warnAfterInSeconds", idleSessionSignOut.warnAfterInSeconds);
-        writer.writeAdditionalData(idleSessionSignOut.additionalData);
+    writer.writeBooleanValue("isEnabled", idleSessionSignOut.isEnabled);
+    writer.writeStringValue("@odata.type", idleSessionSignOut.odataType);
+    writer.writeNumberValue("signOutAfterInSeconds", idleSessionSignOut.signOutAfterInSeconds);
+    writer.writeNumberValue("warnAfterInSeconds", idleSessionSignOut.warnAfterInSeconds);
+    writer.writeAdditionalData(idleSessionSignOut.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -27,18 +27,18 @@ export function deserializeIntoSynchronizationRule(synchronizationRule: Synchron
     }
 }
 export function serializeSynchronizationRule(writer: SerializationWriter, synchronizationRule: SynchronizationRule | undefined = {} as SynchronizationRule) : void {
-        writer.writeObjectValue<ContainerFilter>("containerFilter", synchronizationRule.containerFilter, serializeContainerFilter);
-        writer.writeBooleanValue("editable", synchronizationRule.editable);
-        writer.writeObjectValue<GroupFilter>("groupFilter", synchronizationRule.groupFilter, serializeGroupFilter);
-        writer.writeStringValue("id", synchronizationRule.id);
-        writer.writeCollectionOfObjectValues<StringKeyStringValuePair>("metadata", synchronizationRule.metadata, serializeStringKeyStringValuePair);
-        writer.writeStringValue("name", synchronizationRule.name);
-        writer.writeCollectionOfObjectValues<ObjectMapping>("objectMappings", synchronizationRule.objectMappings, serializeObjectMapping);
-        writer.writeStringValue("@odata.type", synchronizationRule.odataType);
-        writer.writeNumberValue("priority", synchronizationRule.priority);
-        writer.writeStringValue("sourceDirectoryName", synchronizationRule.sourceDirectoryName);
-        writer.writeStringValue("targetDirectoryName", synchronizationRule.targetDirectoryName);
-        writer.writeAdditionalData(synchronizationRule.additionalData);
+    writer.writeObjectValue<ContainerFilter>("containerFilter", synchronizationRule.containerFilter, serializeContainerFilter);
+    writer.writeBooleanValue("editable", synchronizationRule.editable);
+    writer.writeObjectValue<GroupFilter>("groupFilter", synchronizationRule.groupFilter, serializeGroupFilter);
+    writer.writeStringValue("id", synchronizationRule.id);
+    writer.writeCollectionOfObjectValues<StringKeyStringValuePair>("metadata", synchronizationRule.metadata, serializeStringKeyStringValuePair);
+    writer.writeStringValue("name", synchronizationRule.name);
+    writer.writeCollectionOfObjectValues<ObjectMapping>("objectMappings", synchronizationRule.objectMappings, serializeObjectMapping);
+    writer.writeStringValue("@odata.type", synchronizationRule.odataType);
+    writer.writeNumberValue("priority", synchronizationRule.priority);
+    writer.writeStringValue("sourceDirectoryName", synchronizationRule.sourceDirectoryName);
+    writer.writeStringValue("targetDirectoryName", synchronizationRule.targetDirectoryName);
+    writer.writeAdditionalData(synchronizationRule.additionalData);
 }
 export interface SynchronizationRule extends AdditionalDataHolder, Parsable {
     /**

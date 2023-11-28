@@ -47,12 +47,12 @@ export function deserializeIntoAccrIntMPostRequestBody(accrIntMPostRequestBody: 
     }
 }
 export function serializeAccrIntMPostRequestBody(writer: SerializationWriter, accrIntMPostRequestBody: AccrIntMPostRequestBody | undefined = {} as AccrIntMPostRequestBody) : void {
-        writer.writeObjectValue<Json>("basis", accrIntMPostRequestBody.basis, serializeJson);
-        writer.writeObjectValue<Json>("issue", accrIntMPostRequestBody.issue, serializeJson);
-        writer.writeObjectValue<Json>("par", accrIntMPostRequestBody.par, serializeJson);
-        writer.writeObjectValue<Json>("rate", accrIntMPostRequestBody.rate, serializeJson);
-        writer.writeObjectValue<Json>("settlement", accrIntMPostRequestBody.settlement, serializeJson);
-        writer.writeAdditionalData(accrIntMPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("basis", accrIntMPostRequestBody.basis, serializeJson);
+    writer.writeObjectValue<Json>("issue", accrIntMPostRequestBody.issue, serializeJson);
+    writer.writeObjectValue<Json>("par", accrIntMPostRequestBody.par, serializeJson);
+    writer.writeObjectValue<Json>("rate", accrIntMPostRequestBody.rate, serializeJson);
+    writer.writeObjectValue<Json>("settlement", accrIntMPostRequestBody.settlement, serializeJson);
+    writer.writeAdditionalData(accrIntMPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the accrIntM method.

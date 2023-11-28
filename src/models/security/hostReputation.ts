@@ -33,10 +33,10 @@ export interface HostReputation extends Entity, Parsable {
     score?: number;
 }
 export function serializeHostReputation(writer: SerializationWriter, hostReputation: HostReputation | undefined = {} as HostReputation) : void {
-        serializeEntity(writer, hostReputation)
-        writer.writeEnumValue<HostReputationClassification>("classification", hostReputation.classification);
-        writer.writeCollectionOfObjectValues<HostReputationRule>("rules", hostReputation.rules, serializeHostReputationRule);
-        writer.writeNumberValue("score", hostReputation.score);
+    serializeEntity(writer, hostReputation)
+    writer.writeEnumValue<HostReputationClassification>("classification", hostReputation.classification);
+    writer.writeCollectionOfObjectValues<HostReputationRule>("rules", hostReputation.rules, serializeHostReputationRule);
+    writer.writeNumberValue("score", hostReputation.score);
 }
 // tslint:enable
 // eslint-enable

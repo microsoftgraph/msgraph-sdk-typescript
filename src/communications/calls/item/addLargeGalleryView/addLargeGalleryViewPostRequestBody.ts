@@ -23,8 +23,8 @@ export function deserializeIntoAddLargeGalleryViewPostRequestBody(addLargeGaller
     }
 }
 export function serializeAddLargeGalleryViewPostRequestBody(writer: SerializationWriter, addLargeGalleryViewPostRequestBody: AddLargeGalleryViewPostRequestBody | undefined = {} as AddLargeGalleryViewPostRequestBody) : void {
-        writer.writeStringValue("clientContext", addLargeGalleryViewPostRequestBody.clientContext);
-        writer.writeAdditionalData(addLargeGalleryViewPostRequestBody.additionalData);
+    writer.writeStringValue("clientContext", addLargeGalleryViewPostRequestBody.clientContext);
+    writer.writeAdditionalData(addLargeGalleryViewPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -15,8 +15,8 @@ export function deserializeIntoWorkbookRangeFill(workbookRangeFill: WorkbookRang
     }
 }
 export function serializeWorkbookRangeFill(writer: SerializationWriter, workbookRangeFill: WorkbookRangeFill | undefined = {} as WorkbookRangeFill) : void {
-        serializeEntity(writer, workbookRangeFill)
-        writer.writeStringValue("color", workbookRangeFill.color);
+    serializeEntity(writer, workbookRangeFill)
+    writer.writeStringValue("color", workbookRangeFill.color);
 }
 export interface WorkbookRangeFill extends Entity, Parsable {
     /**

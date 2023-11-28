@@ -33,10 +33,10 @@ export function deserializeIntoChannelIdentity(channelIdentity: ChannelIdentity 
     }
 }
 export function serializeChannelIdentity(writer: SerializationWriter, channelIdentity: ChannelIdentity | undefined = {} as ChannelIdentity) : void {
-        writer.writeStringValue("channelId", channelIdentity.channelId);
-        writer.writeStringValue("@odata.type", channelIdentity.odataType);
-        writer.writeStringValue("teamId", channelIdentity.teamId);
-        writer.writeAdditionalData(channelIdentity.additionalData);
+    writer.writeStringValue("channelId", channelIdentity.channelId);
+    writer.writeStringValue("@odata.type", channelIdentity.odataType);
+    writer.writeStringValue("teamId", channelIdentity.teamId);
+    writer.writeAdditionalData(channelIdentity.additionalData);
 }
 // tslint:enable
 // eslint-enable

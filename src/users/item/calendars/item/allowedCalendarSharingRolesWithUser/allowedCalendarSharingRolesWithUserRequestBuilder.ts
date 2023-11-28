@@ -46,9 +46,9 @@ export function deserializeIntoAllowedCalendarSharingRolesWithUserGetResponse(al
     }
 }
 export function serializeAllowedCalendarSharingRolesWithUserGetResponse(writer: SerializationWriter, allowedCalendarSharingRolesWithUserGetResponse: AllowedCalendarSharingRolesWithUserGetResponse | undefined = {} as AllowedCalendarSharingRolesWithUserGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, allowedCalendarSharingRolesWithUserGetResponse)
-        if(allowedCalendarSharingRolesWithUserGetResponse.value)
-        writer.writeEnumValue<CalendarRoleType>("value", ...allowedCalendarSharingRolesWithUserGetResponse.value);
+    serializeBaseCollectionPaginationCountResponse(writer, allowedCalendarSharingRolesWithUserGetResponse)
+    if(allowedCalendarSharingRolesWithUserGetResponse.value)
+    writer.writeEnumValue<CalendarRoleType>("value", ...allowedCalendarSharingRolesWithUserGetResponse.value);
 }
 /**
  * Provides operations to call the allowedCalendarSharingRoles method.

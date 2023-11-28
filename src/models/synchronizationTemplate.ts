@@ -24,14 +24,14 @@ export function deserializeIntoSynchronizationTemplate(synchronizationTemplate: 
     }
 }
 export function serializeSynchronizationTemplate(writer: SerializationWriter, synchronizationTemplate: SynchronizationTemplate | undefined = {} as SynchronizationTemplate) : void {
-        serializeEntity(writer, synchronizationTemplate)
-        writer.writeGuidValue("applicationId", synchronizationTemplate.applicationId);
-        writer.writeBooleanValue("default", synchronizationTemplate.defaultEscaped);
-        writer.writeStringValue("description", synchronizationTemplate.description);
-        writer.writeBooleanValue("discoverable", synchronizationTemplate.discoverable);
-        writer.writeStringValue("factoryTag", synchronizationTemplate.factoryTag);
-        writer.writeCollectionOfObjectValues<SynchronizationMetadataEntry>("metadata", synchronizationTemplate.metadata, serializeSynchronizationMetadataEntry);
-        writer.writeObjectValue<SynchronizationSchema>("schema", synchronizationTemplate.schema, serializeSynchronizationSchema);
+    serializeEntity(writer, synchronizationTemplate)
+    writer.writeGuidValue("applicationId", synchronizationTemplate.applicationId);
+    writer.writeBooleanValue("default", synchronizationTemplate.defaultEscaped);
+    writer.writeStringValue("description", synchronizationTemplate.description);
+    writer.writeBooleanValue("discoverable", synchronizationTemplate.discoverable);
+    writer.writeStringValue("factoryTag", synchronizationTemplate.factoryTag);
+    writer.writeCollectionOfObjectValues<SynchronizationMetadataEntry>("metadata", synchronizationTemplate.metadata, serializeSynchronizationMetadataEntry);
+    writer.writeObjectValue<SynchronizationSchema>("schema", synchronizationTemplate.schema, serializeSynchronizationSchema);
 }
 export interface SynchronizationTemplate extends Entity, Parsable {
     /**

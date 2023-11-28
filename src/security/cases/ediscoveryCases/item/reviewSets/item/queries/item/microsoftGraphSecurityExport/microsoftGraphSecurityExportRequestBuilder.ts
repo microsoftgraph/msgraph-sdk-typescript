@@ -42,11 +42,11 @@ export interface ExportPostRequestBody extends AdditionalDataHolder, Parsable {
     outputName?: string;
 }
 export function serializeExportPostRequestBody(writer: SerializationWriter, exportPostRequestBody: ExportPostRequestBody | undefined = {} as ExportPostRequestBody) : void {
-        writer.writeStringValue("description", exportPostRequestBody.description);
-        writer.writeEnumValue<ExportOptions[]>("exportOptions", exportPostRequestBody.exportOptions);
-        writer.writeEnumValue<ExportFileStructure>("exportStructure", exportPostRequestBody.exportStructure);
-        writer.writeStringValue("outputName", exportPostRequestBody.outputName);
-        writer.writeAdditionalData(exportPostRequestBody.additionalData);
+    writer.writeStringValue("description", exportPostRequestBody.description);
+    writer.writeEnumValue<ExportOptions[]>("exportOptions", exportPostRequestBody.exportOptions);
+    writer.writeEnumValue<ExportFileStructure>("exportStructure", exportPostRequestBody.exportStructure);
+    writer.writeStringValue("outputName", exportPostRequestBody.outputName);
+    writer.writeAdditionalData(exportPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the export method.

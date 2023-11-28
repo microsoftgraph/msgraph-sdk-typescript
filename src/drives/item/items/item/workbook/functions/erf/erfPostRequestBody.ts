@@ -29,9 +29,9 @@ export interface ErfPostRequestBody extends AdditionalDataHolder, Parsable {
     upperLimit?: Json;
 }
 export function serializeErfPostRequestBody(writer: SerializationWriter, erfPostRequestBody: ErfPostRequestBody | undefined = {} as ErfPostRequestBody) : void {
-        writer.writeObjectValue<Json>("lowerLimit", erfPostRequestBody.lowerLimit, serializeJson);
-        writer.writeObjectValue<Json>("upperLimit", erfPostRequestBody.upperLimit, serializeJson);
-        writer.writeAdditionalData(erfPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("lowerLimit", erfPostRequestBody.lowerLimit, serializeJson);
+    writer.writeObjectValue<Json>("upperLimit", erfPostRequestBody.upperLimit, serializeJson);
+    writer.writeAdditionalData(erfPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

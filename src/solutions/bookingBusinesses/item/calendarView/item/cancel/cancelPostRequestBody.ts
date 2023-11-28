@@ -23,8 +23,8 @@ export function deserializeIntoCancelPostRequestBody(cancelPostRequestBody: Canc
     }
 }
 export function serializeCancelPostRequestBody(writer: SerializationWriter, cancelPostRequestBody: CancelPostRequestBody | undefined = {} as CancelPostRequestBody) : void {
-        writer.writeStringValue("cancellationMessage", cancelPostRequestBody.cancellationMessage);
-        writer.writeAdditionalData(cancelPostRequestBody.additionalData);
+    writer.writeStringValue("cancellationMessage", cancelPostRequestBody.cancellationMessage);
+    writer.writeAdditionalData(cancelPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

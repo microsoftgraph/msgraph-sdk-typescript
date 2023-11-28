@@ -14,7 +14,7 @@ export function deserializeIntoWorkbookChartFill(workbookChartFill: WorkbookChar
     }
 }
 export function serializeWorkbookChartFill(writer: SerializationWriter, workbookChartFill: WorkbookChartFill | undefined = {} as WorkbookChartFill) : void {
-        serializeEntity(writer, workbookChartFill)
+    serializeEntity(writer, workbookChartFill)
 }
 export interface WorkbookChartFill extends Entity, Parsable {
 }

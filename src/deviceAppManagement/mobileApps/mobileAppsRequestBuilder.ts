@@ -186,10 +186,10 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the windowsWebApp objects.
+     * List properties and relationships of the managedIOSStoreApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowswebapp-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-managediosstoreapp-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<MobileAppsRequestBuilderGetQueryParameters> | undefined) : Promise<MobileAppCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -202,11 +202,11 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileAppCollectionResponse>(requestInfo, createMobileAppCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new managedIOSLobApp object.
+     * Create a new webApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-managedioslobapp-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-webapp-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileApp | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -219,7 +219,7 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the windowsWebApp objects.
+     * List properties and relationships of the managedIOSStoreApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -230,7 +230,7 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new managedIOSLobApp object.
+     * Create a new webApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

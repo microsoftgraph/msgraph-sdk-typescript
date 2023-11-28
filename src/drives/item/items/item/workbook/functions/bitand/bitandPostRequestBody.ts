@@ -29,9 +29,9 @@ export function deserializeIntoBitandPostRequestBody(bitandPostRequestBody: Bita
     }
 }
 export function serializeBitandPostRequestBody(writer: SerializationWriter, bitandPostRequestBody: BitandPostRequestBody | undefined = {} as BitandPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number1", bitandPostRequestBody.number1, serializeJson);
-        writer.writeObjectValue<Json>("number2", bitandPostRequestBody.number2, serializeJson);
-        writer.writeAdditionalData(bitandPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number1", bitandPostRequestBody.number1, serializeJson);
+    writer.writeObjectValue<Json>("number2", bitandPostRequestBody.number2, serializeJson);
+    writer.writeAdditionalData(bitandPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -23,8 +23,8 @@ export function deserializeIntoCalculatePostRequestBody(calculatePostRequestBody
     }
 }
 export function serializeCalculatePostRequestBody(writer: SerializationWriter, calculatePostRequestBody: CalculatePostRequestBody | undefined = {} as CalculatePostRequestBody) : void {
-        writer.writeStringValue("calculationType", calculatePostRequestBody.calculationType);
-        writer.writeAdditionalData(calculatePostRequestBody.additionalData);
+    writer.writeStringValue("calculationType", calculatePostRequestBody.calculationType);
+    writer.writeAdditionalData(calculatePostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

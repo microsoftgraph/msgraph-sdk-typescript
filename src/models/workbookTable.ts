@@ -32,21 +32,21 @@ export function deserializeIntoWorkbookTable(workbookTable: WorkbookTable | unde
     }
 }
 export function serializeWorkbookTable(writer: SerializationWriter, workbookTable: WorkbookTable | undefined = {} as WorkbookTable) : void {
-        serializeEntity(writer, workbookTable)
-        writer.writeCollectionOfObjectValues<WorkbookTableColumn>("columns", workbookTable.columns, serializeWorkbookTableColumn);
-        writer.writeBooleanValue("highlightFirstColumn", workbookTable.highlightFirstColumn);
-        writer.writeBooleanValue("highlightLastColumn", workbookTable.highlightLastColumn);
-        writer.writeStringValue("legacyId", workbookTable.legacyId);
-        writer.writeStringValue("name", workbookTable.name);
-        writer.writeCollectionOfObjectValues<WorkbookTableRow>("rows", workbookTable.rows, serializeWorkbookTableRow);
-        writer.writeBooleanValue("showBandedColumns", workbookTable.showBandedColumns);
-        writer.writeBooleanValue("showBandedRows", workbookTable.showBandedRows);
-        writer.writeBooleanValue("showFilterButton", workbookTable.showFilterButton);
-        writer.writeBooleanValue("showHeaders", workbookTable.showHeaders);
-        writer.writeBooleanValue("showTotals", workbookTable.showTotals);
-        writer.writeObjectValue<WorkbookTableSort>("sort", workbookTable.sort, serializeWorkbookTableSort);
-        writer.writeStringValue("style", workbookTable.style);
-        writer.writeObjectValue<WorkbookWorksheet>("worksheet", workbookTable.worksheet, serializeWorkbookWorksheet);
+    serializeEntity(writer, workbookTable)
+    writer.writeCollectionOfObjectValues<WorkbookTableColumn>("columns", workbookTable.columns, serializeWorkbookTableColumn);
+    writer.writeBooleanValue("highlightFirstColumn", workbookTable.highlightFirstColumn);
+    writer.writeBooleanValue("highlightLastColumn", workbookTable.highlightLastColumn);
+    writer.writeStringValue("legacyId", workbookTable.legacyId);
+    writer.writeStringValue("name", workbookTable.name);
+    writer.writeCollectionOfObjectValues<WorkbookTableRow>("rows", workbookTable.rows, serializeWorkbookTableRow);
+    writer.writeBooleanValue("showBandedColumns", workbookTable.showBandedColumns);
+    writer.writeBooleanValue("showBandedRows", workbookTable.showBandedRows);
+    writer.writeBooleanValue("showFilterButton", workbookTable.showFilterButton);
+    writer.writeBooleanValue("showHeaders", workbookTable.showHeaders);
+    writer.writeBooleanValue("showTotals", workbookTable.showTotals);
+    writer.writeObjectValue<WorkbookTableSort>("sort", workbookTable.sort, serializeWorkbookTableSort);
+    writer.writeStringValue("style", workbookTable.style);
+    writer.writeObjectValue<WorkbookWorksheet>("worksheet", workbookTable.worksheet, serializeWorkbookWorksheet);
 }
 export interface WorkbookTable extends Entity, Parsable {
     /**

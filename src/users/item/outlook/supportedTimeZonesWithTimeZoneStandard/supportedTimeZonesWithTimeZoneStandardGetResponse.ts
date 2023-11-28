@@ -16,8 +16,8 @@ export function deserializeIntoSupportedTimeZonesWithTimeZoneStandardGetResponse
     }
 }
 export function serializeSupportedTimeZonesWithTimeZoneStandardGetResponse(writer: SerializationWriter, supportedTimeZonesWithTimeZoneStandardGetResponse: SupportedTimeZonesWithTimeZoneStandardGetResponse | undefined = {} as SupportedTimeZonesWithTimeZoneStandardGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, supportedTimeZonesWithTimeZoneStandardGetResponse)
-        writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesWithTimeZoneStandardGetResponse.value, serializeTimeZoneInformation);
+    serializeBaseCollectionPaginationCountResponse(writer, supportedTimeZonesWithTimeZoneStandardGetResponse)
+    writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesWithTimeZoneStandardGetResponse.value, serializeTimeZoneInformation);
 }
 export interface SupportedTimeZonesWithTimeZoneStandardGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

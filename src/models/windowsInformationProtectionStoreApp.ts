@@ -14,7 +14,7 @@ export function deserializeIntoWindowsInformationProtectionStoreApp(windowsInfor
     }
 }
 export function serializeWindowsInformationProtectionStoreApp(writer: SerializationWriter, windowsInformationProtectionStoreApp: WindowsInformationProtectionStoreApp | undefined = {} as WindowsInformationProtectionStoreApp) : void {
-        serializeWindowsInformationProtectionApp(writer, windowsInformationProtectionStoreApp)
+    serializeWindowsInformationProtectionApp(writer, windowsInformationProtectionStoreApp)
 }
 export interface WindowsInformationProtectionStoreApp extends Parsable, WindowsInformationProtectionApp {
 }

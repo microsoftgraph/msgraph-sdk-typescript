@@ -63,16 +63,16 @@ export function deserializeIntoArticle(article: Article | undefined = {} as Arti
     }
 }
 export function serializeArticle(writer: SerializationWriter, article: Article | undefined = {} as Article) : void {
-        serializeEntity(writer, article)
-        writer.writeObjectValue<FormattedContent>("body", article.body, serializeFormattedContent);
-        writer.writeDateValue("createdDateTime", article.createdDateTime);
-        writer.writeStringValue("imageUrl", article.imageUrl);
-        writer.writeCollectionOfObjectValues<ArticleIndicator>("indicators", article.indicators, serializeArticleIndicator);
-        writer.writeBooleanValue("isFeatured", article.isFeatured);
-        writer.writeDateValue("lastUpdatedDateTime", article.lastUpdatedDateTime);
-        writer.writeObjectValue<FormattedContent>("summary", article.summary, serializeFormattedContent);
-        writer.writeCollectionOfPrimitiveValues<string>("tags", article.tags);
-        writer.writeStringValue("title", article.title);
+    serializeEntity(writer, article)
+    writer.writeObjectValue<FormattedContent>("body", article.body, serializeFormattedContent);
+    writer.writeDateValue("createdDateTime", article.createdDateTime);
+    writer.writeStringValue("imageUrl", article.imageUrl);
+    writer.writeCollectionOfObjectValues<ArticleIndicator>("indicators", article.indicators, serializeArticleIndicator);
+    writer.writeBooleanValue("isFeatured", article.isFeatured);
+    writer.writeDateValue("lastUpdatedDateTime", article.lastUpdatedDateTime);
+    writer.writeObjectValue<FormattedContent>("summary", article.summary, serializeFormattedContent);
+    writer.writeCollectionOfPrimitiveValues<string>("tags", article.tags);
+    writer.writeStringValue("title", article.title);
 }
 // tslint:enable
 // eslint-enable

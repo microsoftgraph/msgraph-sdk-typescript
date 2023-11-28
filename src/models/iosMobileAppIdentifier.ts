@@ -21,8 +21,8 @@ export interface IosMobileAppIdentifier extends MobileAppIdentifier, Parsable {
     bundleId?: string;
 }
 export function serializeIosMobileAppIdentifier(writer: SerializationWriter, iosMobileAppIdentifier: IosMobileAppIdentifier | undefined = {} as IosMobileAppIdentifier) : void {
-        serializeMobileAppIdentifier(writer, iosMobileAppIdentifier)
-        writer.writeStringValue("bundleId", iosMobileAppIdentifier.bundleId);
+    serializeMobileAppIdentifier(writer, iosMobileAppIdentifier)
+    writer.writeStringValue("bundleId", iosMobileAppIdentifier.bundleId);
 }
 // tslint:enable
 // eslint-enable

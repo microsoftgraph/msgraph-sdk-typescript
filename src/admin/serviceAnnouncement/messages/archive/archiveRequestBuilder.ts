@@ -44,12 +44,12 @@ export function deserializeIntoArchivePostResponse(archivePostResponse: ArchiveP
     }
 }
 export function serializeArchivePostRequestBody(writer: SerializationWriter, archivePostRequestBody: ArchivePostRequestBody | undefined = {} as ArchivePostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", archivePostRequestBody.messageIds);
-        writer.writeAdditionalData(archivePostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("messageIds", archivePostRequestBody.messageIds);
+    writer.writeAdditionalData(archivePostRequestBody.additionalData);
 }
 export function serializeArchivePostResponse(writer: SerializationWriter, archivePostResponse: ArchivePostResponse | undefined = {} as ArchivePostResponse) : void {
-        writer.writeBooleanValue("value", archivePostResponse.value);
-        writer.writeAdditionalData(archivePostResponse.additionalData);
+    writer.writeBooleanValue("value", archivePostResponse.value);
+    writer.writeAdditionalData(archivePostResponse.additionalData);
 }
 /**
  * Provides operations to call the archive method.

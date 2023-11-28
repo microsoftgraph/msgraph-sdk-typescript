@@ -39,11 +39,11 @@ export function deserializeIntoBinom_Dist_RangePostRequestBody(binom_Dist_RangeP
     }
 }
 export function serializeBinom_Dist_RangePostRequestBody(writer: SerializationWriter, binom_Dist_RangePostRequestBody: Binom_Dist_RangePostRequestBody | undefined = {} as Binom_Dist_RangePostRequestBody) : void {
-        writer.writeObjectValue<Json>("numberS", binom_Dist_RangePostRequestBody.numberS, serializeJson);
-        writer.writeObjectValue<Json>("numberS2", binom_Dist_RangePostRequestBody.numberS2, serializeJson);
-        writer.writeObjectValue<Json>("probabilityS", binom_Dist_RangePostRequestBody.probabilityS, serializeJson);
-        writer.writeObjectValue<Json>("trials", binom_Dist_RangePostRequestBody.trials, serializeJson);
-        writer.writeAdditionalData(binom_Dist_RangePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("numberS", binom_Dist_RangePostRequestBody.numberS, serializeJson);
+    writer.writeObjectValue<Json>("numberS2", binom_Dist_RangePostRequestBody.numberS2, serializeJson);
+    writer.writeObjectValue<Json>("probabilityS", binom_Dist_RangePostRequestBody.probabilityS, serializeJson);
+    writer.writeObjectValue<Json>("trials", binom_Dist_RangePostRequestBody.trials, serializeJson);
+    writer.writeAdditionalData(binom_Dist_RangePostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

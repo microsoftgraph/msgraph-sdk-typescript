@@ -29,9 +29,9 @@ export interface RedirectPostRequestBody extends AdditionalDataHolder, Parsable 
     destinationPrinterId?: string;
 }
 export function serializeRedirectPostRequestBody(writer: SerializationWriter, redirectPostRequestBody: RedirectPostRequestBody | undefined = {} as RedirectPostRequestBody) : void {
-        writer.writeObjectValue<PrintJobConfiguration>("configuration", redirectPostRequestBody.configuration, serializePrintJobConfiguration);
-        writer.writeStringValue("destinationPrinterId", redirectPostRequestBody.destinationPrinterId);
-        writer.writeAdditionalData(redirectPostRequestBody.additionalData);
+    writer.writeObjectValue<PrintJobConfiguration>("configuration", redirectPostRequestBody.configuration, serializePrintJobConfiguration);
+    writer.writeStringValue("destinationPrinterId", redirectPostRequestBody.destinationPrinterId);
+    writer.writeAdditionalData(redirectPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

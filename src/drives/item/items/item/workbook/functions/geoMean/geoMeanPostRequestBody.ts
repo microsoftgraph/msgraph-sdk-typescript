@@ -24,8 +24,8 @@ export interface GeoMeanPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeGeoMeanPostRequestBody(writer: SerializationWriter, geoMeanPostRequestBody: GeoMeanPostRequestBody | undefined = {} as GeoMeanPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", geoMeanPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(geoMeanPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", geoMeanPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(geoMeanPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

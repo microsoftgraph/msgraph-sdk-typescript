@@ -16,10 +16,10 @@ export function deserializeIntoT_DistPostRequestBody(t_DistPostRequestBody: T_Di
     }
 }
 export function serializeT_DistPostRequestBody(writer: SerializationWriter, t_DistPostRequestBody: T_DistPostRequestBody | undefined = {} as T_DistPostRequestBody) : void {
-        writer.writeObjectValue<Json>("cumulative", t_DistPostRequestBody.cumulative, serializeJson);
-        writer.writeObjectValue<Json>("degFreedom", t_DistPostRequestBody.degFreedom, serializeJson);
-        writer.writeObjectValue<Json>("x", t_DistPostRequestBody.x, serializeJson);
-        writer.writeAdditionalData(t_DistPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("cumulative", t_DistPostRequestBody.cumulative, serializeJson);
+    writer.writeObjectValue<Json>("degFreedom", t_DistPostRequestBody.degFreedom, serializeJson);
+    writer.writeObjectValue<Json>("x", t_DistPostRequestBody.x, serializeJson);
+    writer.writeAdditionalData(t_DistPostRequestBody.additionalData);
 }
 export interface T_DistPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

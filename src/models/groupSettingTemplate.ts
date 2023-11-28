@@ -32,10 +32,10 @@ export interface GroupSettingTemplate extends DirectoryObject, Parsable {
     values?: SettingTemplateValue[];
 }
 export function serializeGroupSettingTemplate(writer: SerializationWriter, groupSettingTemplate: GroupSettingTemplate | undefined = {} as GroupSettingTemplate) : void {
-        serializeDirectoryObject(writer, groupSettingTemplate)
-        writer.writeStringValue("description", groupSettingTemplate.description);
-        writer.writeStringValue("displayName", groupSettingTemplate.displayName);
-        writer.writeCollectionOfObjectValues<SettingTemplateValue>("values", groupSettingTemplate.values, serializeSettingTemplateValue);
+    serializeDirectoryObject(writer, groupSettingTemplate)
+    writer.writeStringValue("description", groupSettingTemplate.description);
+    writer.writeStringValue("displayName", groupSettingTemplate.displayName);
+    writer.writeCollectionOfObjectValues<SettingTemplateValue>("values", groupSettingTemplate.values, serializeSettingTemplateValue);
 }
 // tslint:enable
 // eslint-enable

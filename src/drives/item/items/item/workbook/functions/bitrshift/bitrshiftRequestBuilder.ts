@@ -32,9 +32,9 @@ export function deserializeIntoBitrshiftPostRequestBody(bitrshiftPostRequestBody
     }
 }
 export function serializeBitrshiftPostRequestBody(writer: SerializationWriter, bitrshiftPostRequestBody: BitrshiftPostRequestBody | undefined = {} as BitrshiftPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", bitrshiftPostRequestBody.number, serializeJson);
-        writer.writeObjectValue<Json>("shiftAmount", bitrshiftPostRequestBody.shiftAmount, serializeJson);
-        writer.writeAdditionalData(bitrshiftPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", bitrshiftPostRequestBody.number, serializeJson);
+    writer.writeObjectValue<Json>("shiftAmount", bitrshiftPostRequestBody.shiftAmount, serializeJson);
+    writer.writeAdditionalData(bitrshiftPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the bitrshift method.

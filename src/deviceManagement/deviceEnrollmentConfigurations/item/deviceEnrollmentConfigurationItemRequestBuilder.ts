@@ -50,9 +50,9 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder extends BaseRequest
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfiguration%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a deviceEnrollmentLimitConfiguration.
+     * Deletes a deviceEnrollmentWindowsHelloForBusinessConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentlimitconfiguration-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentwindowshelloforbusinessconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -81,11 +81,11 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder extends BaseRequest
         return this.requestAdapter.sendAsync<DeviceEnrollmentConfiguration>(requestInfo, createDeviceEnrollmentConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a deviceEnrollmentWindowsHelloForBusinessConfiguration object.
+     * Update the properties of a deviceEnrollmentLimitConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceEnrollmentConfiguration
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentwindowshelloforbusinessconfiguration-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentlimitconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceEnrollmentConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceEnrollmentConfiguration | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -98,7 +98,7 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder extends BaseRequest
         return this.requestAdapter.sendAsync<DeviceEnrollmentConfiguration>(requestInfo, createDeviceEnrollmentConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes a deviceEnrollmentLimitConfiguration.
+     * Deletes a deviceEnrollmentWindowsHelloForBusinessConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -120,7 +120,7 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * Update the properties of a deviceEnrollmentWindowsHelloForBusinessConfiguration object.
+     * Update the properties of a deviceEnrollmentLimitConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

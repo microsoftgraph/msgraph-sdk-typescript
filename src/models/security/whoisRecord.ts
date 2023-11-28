@@ -16,8 +16,8 @@ export function deserializeIntoWhoisRecord(whoisRecord: WhoisRecord | undefined 
     }
 }
 export function serializeWhoisRecord(writer: SerializationWriter, whoisRecord: WhoisRecord | undefined = {} as WhoisRecord) : void {
-        serializeWhoisBaseRecord(writer, whoisRecord)
-        writer.writeCollectionOfObjectValues<WhoisHistoryRecord>("history", whoisRecord.history, serializeWhoisHistoryRecord);
+    serializeWhoisBaseRecord(writer, whoisRecord)
+    writer.writeCollectionOfObjectValues<WhoisHistoryRecord>("history", whoisRecord.history, serializeWhoisHistoryRecord);
 }
 export interface WhoisRecord extends Parsable, WhoisBaseRecord {
     /**

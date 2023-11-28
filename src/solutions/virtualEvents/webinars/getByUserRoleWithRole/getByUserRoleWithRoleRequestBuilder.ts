@@ -54,8 +54,8 @@ export interface GetByUserRoleWithRoleRequestBuilderGetQueryParameters {
     top?: number;
 }
 export function serializeGetByUserRoleWithRoleGetResponse(writer: SerializationWriter, getByUserRoleWithRoleGetResponse: GetByUserRoleWithRoleGetResponse | undefined = {} as GetByUserRoleWithRoleGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getByUserRoleWithRoleGetResponse)
-        writer.writeCollectionOfObjectValues<VirtualEventWebinar>("value", getByUserRoleWithRoleGetResponse.value, serializeVirtualEventWebinar);
+    serializeBaseCollectionPaginationCountResponse(writer, getByUserRoleWithRoleGetResponse)
+    writer.writeCollectionOfObjectValues<VirtualEventWebinar>("value", getByUserRoleWithRoleGetResponse.value, serializeVirtualEventWebinar);
 }
 /**
  * Provides operations to call the getByUserRole method.

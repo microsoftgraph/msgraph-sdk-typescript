@@ -38,11 +38,11 @@ export interface InnerError extends AdditionalDataHolder, Parsable {
     requestId?: string;
 }
 export function serializeInnerError(writer: SerializationWriter, innerError: InnerError | undefined = {} as InnerError) : void {
-        writer.writeStringValue("client-request-id", innerError.clientRequestId);
-        writer.writeDateValue("Date", innerError.date);
-        writer.writeStringValue("@odata.type", innerError.odataType);
-        writer.writeStringValue("request-id", innerError.requestId);
-        writer.writeAdditionalData(innerError.additionalData);
+    writer.writeStringValue("client-request-id", innerError.clientRequestId);
+    writer.writeDateValue("Date", innerError.date);
+    writer.writeStringValue("@odata.type", innerError.odataType);
+    writer.writeStringValue("request-id", innerError.requestId);
+    writer.writeAdditionalData(innerError.additionalData);
 }
 // tslint:enable
 // eslint-enable

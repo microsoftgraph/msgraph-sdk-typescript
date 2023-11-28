@@ -22,8 +22,8 @@ export function deserializeIntoAuditEventCollectionResponse(auditEventCollection
     }
 }
 export function serializeAuditEventCollectionResponse(writer: SerializationWriter, auditEventCollectionResponse: AuditEventCollectionResponse | undefined = {} as AuditEventCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, auditEventCollectionResponse)
-        writer.writeCollectionOfObjectValues<AuditEvent>("value", auditEventCollectionResponse.value, serializeAuditEvent);
+    serializeBaseCollectionPaginationCountResponse(writer, auditEventCollectionResponse)
+    writer.writeCollectionOfObjectValues<AuditEvent>("value", auditEventCollectionResponse.value, serializeAuditEvent);
 }
 // tslint:enable
 // eslint-enable

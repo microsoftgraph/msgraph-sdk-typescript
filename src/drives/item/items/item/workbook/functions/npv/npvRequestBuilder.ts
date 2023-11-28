@@ -32,9 +32,9 @@ export interface NpvPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeNpvPostRequestBody(writer: SerializationWriter, npvPostRequestBody: NpvPostRequestBody | undefined = {} as NpvPostRequestBody) : void {
-        writer.writeObjectValue<Json>("rate", npvPostRequestBody.rate, serializeJson);
-        writer.writeObjectValue<Json>("values", npvPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(npvPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("rate", npvPostRequestBody.rate, serializeJson);
+    writer.writeObjectValue<Json>("values", npvPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(npvPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the npv method.

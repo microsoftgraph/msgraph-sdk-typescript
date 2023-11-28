@@ -18,9 +18,9 @@ export function deserializeIntoWorkbookChartTitleFormat(workbookChartTitleFormat
     }
 }
 export function serializeWorkbookChartTitleFormat(writer: SerializationWriter, workbookChartTitleFormat: WorkbookChartTitleFormat | undefined = {} as WorkbookChartTitleFormat) : void {
-        serializeEntity(writer, workbookChartTitleFormat)
-        writer.writeObjectValue<WorkbookChartFill>("fill", workbookChartTitleFormat.fill, serializeWorkbookChartFill);
-        writer.writeObjectValue<WorkbookChartFont>("font", workbookChartTitleFormat.font, serializeWorkbookChartFont);
+    serializeEntity(writer, workbookChartTitleFormat)
+    writer.writeObjectValue<WorkbookChartFill>("fill", workbookChartTitleFormat.fill, serializeWorkbookChartFill);
+    writer.writeObjectValue<WorkbookChartFont>("font", workbookChartTitleFormat.font, serializeWorkbookChartFont);
 }
 export interface WorkbookChartTitleFormat extends Entity, Parsable {
     /**

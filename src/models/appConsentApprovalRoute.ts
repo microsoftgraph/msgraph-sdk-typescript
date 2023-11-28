@@ -22,8 +22,8 @@ export function deserializeIntoAppConsentApprovalRoute(appConsentApprovalRoute: 
     }
 }
 export function serializeAppConsentApprovalRoute(writer: SerializationWriter, appConsentApprovalRoute: AppConsentApprovalRoute | undefined = {} as AppConsentApprovalRoute) : void {
-        serializeEntity(writer, appConsentApprovalRoute)
-        writer.writeCollectionOfObjectValues<AppConsentRequest>("appConsentRequests", appConsentApprovalRoute.appConsentRequests, serializeAppConsentRequest);
+    serializeEntity(writer, appConsentApprovalRoute)
+    writer.writeCollectionOfObjectValues<AppConsentRequest>("appConsentRequests", appConsentApprovalRoute.appConsentRequests, serializeAppConsentRequest);
 }
 // tslint:enable
 // eslint-enable

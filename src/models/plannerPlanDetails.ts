@@ -28,9 +28,9 @@ export interface PlannerPlanDetails extends Entity, Parsable {
     sharedWith?: PlannerUserIds;
 }
 export function serializePlannerPlanDetails(writer: SerializationWriter, plannerPlanDetails: PlannerPlanDetails | undefined = {} as PlannerPlanDetails) : void {
-        serializeEntity(writer, plannerPlanDetails)
-        writer.writeObjectValue<PlannerCategoryDescriptions>("categoryDescriptions", plannerPlanDetails.categoryDescriptions, serializePlannerCategoryDescriptions);
-        writer.writeObjectValue<PlannerUserIds>("sharedWith", plannerPlanDetails.sharedWith, serializePlannerUserIds);
+    serializeEntity(writer, plannerPlanDetails)
+    writer.writeObjectValue<PlannerCategoryDescriptions>("categoryDescriptions", plannerPlanDetails.categoryDescriptions, serializePlannerCategoryDescriptions);
+    writer.writeObjectValue<PlannerUserIds>("sharedWith", plannerPlanDetails.sharedWith, serializePlannerUserIds);
 }
 // tslint:enable
 // eslint-enable

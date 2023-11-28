@@ -24,8 +24,8 @@ export interface OnenotePatchContentPostRequestBody extends AdditionalDataHolder
     commands?: OnenotePatchContentCommand[];
 }
 export function serializeOnenotePatchContentPostRequestBody(writer: SerializationWriter, onenotePatchContentPostRequestBody: OnenotePatchContentPostRequestBody | undefined = {} as OnenotePatchContentPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<OnenotePatchContentCommand>("commands", onenotePatchContentPostRequestBody.commands, serializeOnenotePatchContentCommand);
-        writer.writeAdditionalData(onenotePatchContentPostRequestBody.additionalData);
+    writer.writeCollectionOfObjectValues<OnenotePatchContentCommand>("commands", onenotePatchContentPostRequestBody.commands, serializeOnenotePatchContentCommand);
+    writer.writeAdditionalData(onenotePatchContentPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

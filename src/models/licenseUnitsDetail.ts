@@ -43,12 +43,12 @@ export interface LicenseUnitsDetail extends AdditionalDataHolder, Parsable {
     warning?: number;
 }
 export function serializeLicenseUnitsDetail(writer: SerializationWriter, licenseUnitsDetail: LicenseUnitsDetail | undefined = {} as LicenseUnitsDetail) : void {
-        writer.writeNumberValue("enabled", licenseUnitsDetail.enabled);
-        writer.writeNumberValue("lockedOut", licenseUnitsDetail.lockedOut);
-        writer.writeStringValue("@odata.type", licenseUnitsDetail.odataType);
-        writer.writeNumberValue("suspended", licenseUnitsDetail.suspended);
-        writer.writeNumberValue("warning", licenseUnitsDetail.warning);
-        writer.writeAdditionalData(licenseUnitsDetail.additionalData);
+    writer.writeNumberValue("enabled", licenseUnitsDetail.enabled);
+    writer.writeNumberValue("lockedOut", licenseUnitsDetail.lockedOut);
+    writer.writeStringValue("@odata.type", licenseUnitsDetail.odataType);
+    writer.writeNumberValue("suspended", licenseUnitsDetail.suspended);
+    writer.writeNumberValue("warning", licenseUnitsDetail.warning);
+    writer.writeAdditionalData(licenseUnitsDetail.additionalData);
 }
 // tslint:enable
 // eslint-enable

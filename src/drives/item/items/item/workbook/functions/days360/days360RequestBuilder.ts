@@ -37,10 +37,10 @@ export function deserializeIntoDays360PostRequestBody(days360PostRequestBody: Da
     }
 }
 export function serializeDays360PostRequestBody(writer: SerializationWriter, days360PostRequestBody: Days360PostRequestBody | undefined = {} as Days360PostRequestBody) : void {
-        writer.writeObjectValue<Json>("endDate", days360PostRequestBody.endDate, serializeJson);
-        writer.writeObjectValue<Json>("method", days360PostRequestBody.method, serializeJson);
-        writer.writeObjectValue<Json>("startDate", days360PostRequestBody.startDate, serializeJson);
-        writer.writeAdditionalData(days360PostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("endDate", days360PostRequestBody.endDate, serializeJson);
+    writer.writeObjectValue<Json>("method", days360PostRequestBody.method, serializeJson);
+    writer.writeObjectValue<Json>("startDate", days360PostRequestBody.startDate, serializeJson);
+    writer.writeAdditionalData(days360PostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the days360 method.

@@ -35,8 +35,8 @@ export function deserializeIntoCustomExtensionEndpointConfiguration(customExtens
     }
 }
 export function serializeCustomExtensionEndpointConfiguration(writer: SerializationWriter, customExtensionEndpointConfiguration: CustomExtensionEndpointConfiguration | undefined = {} as CustomExtensionEndpointConfiguration) : void {
-        writer.writeStringValue("@odata.type", customExtensionEndpointConfiguration.odataType);
-        writer.writeAdditionalData(customExtensionEndpointConfiguration.additionalData);
+    writer.writeStringValue("@odata.type", customExtensionEndpointConfiguration.odataType);
+    writer.writeAdditionalData(customExtensionEndpointConfiguration.additionalData);
 }
 // tslint:enable
 // eslint-enable

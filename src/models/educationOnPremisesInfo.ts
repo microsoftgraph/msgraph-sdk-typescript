@@ -28,9 +28,9 @@ export interface EducationOnPremisesInfo extends AdditionalDataHolder, Parsable 
     odataType?: string;
 }
 export function serializeEducationOnPremisesInfo(writer: SerializationWriter, educationOnPremisesInfo: EducationOnPremisesInfo | undefined = {} as EducationOnPremisesInfo) : void {
-        writer.writeStringValue("immutableId", educationOnPremisesInfo.immutableId);
-        writer.writeStringValue("@odata.type", educationOnPremisesInfo.odataType);
-        writer.writeAdditionalData(educationOnPremisesInfo.additionalData);
+    writer.writeStringValue("immutableId", educationOnPremisesInfo.immutableId);
+    writer.writeStringValue("@odata.type", educationOnPremisesInfo.odataType);
+    writer.writeAdditionalData(educationOnPremisesInfo.additionalData);
 }
 // tslint:enable
 // eslint-enable

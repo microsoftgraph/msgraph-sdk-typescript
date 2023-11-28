@@ -15,9 +15,9 @@ export function deserializeIntoUpdateRecordingStatusPostRequestBody(updateRecord
     }
 }
 export function serializeUpdateRecordingStatusPostRequestBody(writer: SerializationWriter, updateRecordingStatusPostRequestBody: UpdateRecordingStatusPostRequestBody | undefined = {} as UpdateRecordingStatusPostRequestBody) : void {
-        writer.writeStringValue("clientContext", updateRecordingStatusPostRequestBody.clientContext);
-        writer.writeEnumValue<RecordingStatus>("status", updateRecordingStatusPostRequestBody.status);
-        writer.writeAdditionalData(updateRecordingStatusPostRequestBody.additionalData);
+    writer.writeStringValue("clientContext", updateRecordingStatusPostRequestBody.clientContext);
+    writer.writeEnumValue<RecordingStatus>("status", updateRecordingStatusPostRequestBody.status);
+    writer.writeAdditionalData(updateRecordingStatusPostRequestBody.additionalData);
 }
 export interface UpdateRecordingStatusPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

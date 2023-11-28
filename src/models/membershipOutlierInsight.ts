@@ -55,14 +55,14 @@ export interface MembershipOutlierInsight extends GovernanceInsight, Parsable {
     outlierMemberType?: OutlierMemberType;
 }
 export function serializeMembershipOutlierInsight(writer: SerializationWriter, membershipOutlierInsight: MembershipOutlierInsight | undefined = {} as MembershipOutlierInsight) : void {
-        serializeGovernanceInsight(writer, membershipOutlierInsight)
-        writer.writeObjectValue<DirectoryObject>("container", membershipOutlierInsight.container, serializeDirectoryObject);
-        writer.writeStringValue("containerId", membershipOutlierInsight.containerId);
-        writer.writeObjectValue<User>("lastModifiedBy", membershipOutlierInsight.lastModifiedBy, serializeUser);
-        writer.writeObjectValue<DirectoryObject>("member", membershipOutlierInsight.member, serializeDirectoryObject);
-        writer.writeStringValue("memberId", membershipOutlierInsight.memberId);
-        writer.writeEnumValue<OutlierContainerType>("outlierContainerType", membershipOutlierInsight.outlierContainerType);
-        writer.writeEnumValue<OutlierMemberType>("outlierMemberType", membershipOutlierInsight.outlierMemberType);
+    serializeGovernanceInsight(writer, membershipOutlierInsight)
+    writer.writeObjectValue<DirectoryObject>("container", membershipOutlierInsight.container, serializeDirectoryObject);
+    writer.writeStringValue("containerId", membershipOutlierInsight.containerId);
+    writer.writeObjectValue<User>("lastModifiedBy", membershipOutlierInsight.lastModifiedBy, serializeUser);
+    writer.writeObjectValue<DirectoryObject>("member", membershipOutlierInsight.member, serializeDirectoryObject);
+    writer.writeStringValue("memberId", membershipOutlierInsight.memberId);
+    writer.writeEnumValue<OutlierContainerType>("outlierContainerType", membershipOutlierInsight.outlierContainerType);
+    writer.writeEnumValue<OutlierMemberType>("outlierMemberType", membershipOutlierInsight.outlierMemberType);
 }
 // tslint:enable
 // eslint-enable

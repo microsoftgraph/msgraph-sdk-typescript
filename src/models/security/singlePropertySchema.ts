@@ -15,10 +15,10 @@ export function deserializeIntoSinglePropertySchema(singlePropertySchema: Single
     }
 }
 export function serializeSinglePropertySchema(writer: SerializationWriter, singlePropertySchema: SinglePropertySchema | undefined = {} as SinglePropertySchema) : void {
-        writer.writeStringValue("name", singlePropertySchema.name);
-        writer.writeStringValue("@odata.type", singlePropertySchema.odataType);
-        writer.writeStringValue("type", singlePropertySchema.type);
-        writer.writeAdditionalData(singlePropertySchema.additionalData);
+    writer.writeStringValue("name", singlePropertySchema.name);
+    writer.writeStringValue("@odata.type", singlePropertySchema.odataType);
+    writer.writeStringValue("type", singlePropertySchema.type);
+    writer.writeAdditionalData(singlePropertySchema.additionalData);
 }
 export interface SinglePropertySchema extends AdditionalDataHolder, Parsable {
     /**

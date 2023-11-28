@@ -24,8 +24,8 @@ export interface NotPostRequestBody extends AdditionalDataHolder, Parsable {
     logical?: Json;
 }
 export function serializeNotPostRequestBody(writer: SerializationWriter, notPostRequestBody: NotPostRequestBody | undefined = {} as NotPostRequestBody) : void {
-        writer.writeObjectValue<Json>("logical", notPostRequestBody.logical, serializeJson);
-        writer.writeAdditionalData(notPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("logical", notPostRequestBody.logical, serializeJson);
+    writer.writeAdditionalData(notPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

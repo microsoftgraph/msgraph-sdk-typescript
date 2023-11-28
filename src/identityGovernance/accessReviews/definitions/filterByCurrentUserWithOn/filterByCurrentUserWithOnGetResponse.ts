@@ -22,8 +22,8 @@ export interface FilterByCurrentUserWithOnGetResponse extends BaseCollectionPagi
     value?: AccessReviewScheduleDefinition[];
 }
 export function serializeFilterByCurrentUserWithOnGetResponse(writer: SerializationWriter, filterByCurrentUserWithOnGetResponse: FilterByCurrentUserWithOnGetResponse | undefined = {} as FilterByCurrentUserWithOnGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
-        writer.writeCollectionOfObjectValues<AccessReviewScheduleDefinition>("value", filterByCurrentUserWithOnGetResponse.value, serializeAccessReviewScheduleDefinition);
+    serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
+    writer.writeCollectionOfObjectValues<AccessReviewScheduleDefinition>("value", filterByCurrentUserWithOnGetResponse.value, serializeAccessReviewScheduleDefinition);
 }
 // tslint:enable
 // eslint-enable

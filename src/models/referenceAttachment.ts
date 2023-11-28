@@ -16,7 +16,7 @@ export function deserializeIntoReferenceAttachment(referenceAttachment: Referenc
 export interface ReferenceAttachment extends Attachment, Parsable {
 }
 export function serializeReferenceAttachment(writer: SerializationWriter, referenceAttachment: ReferenceAttachment | undefined = {} as ReferenceAttachment) : void {
-        serializeAttachment(writer, referenceAttachment)
+    serializeAttachment(writer, referenceAttachment)
 }
 // tslint:enable
 // eslint-enable

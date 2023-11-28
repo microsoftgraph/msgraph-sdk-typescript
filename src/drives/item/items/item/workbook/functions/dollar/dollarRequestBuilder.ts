@@ -32,9 +32,9 @@ export interface DollarPostRequestBody extends AdditionalDataHolder, Parsable {
     number?: Json;
 }
 export function serializeDollarPostRequestBody(writer: SerializationWriter, dollarPostRequestBody: DollarPostRequestBody | undefined = {} as DollarPostRequestBody) : void {
-        writer.writeObjectValue<Json>("decimals", dollarPostRequestBody.decimals, serializeJson);
-        writer.writeObjectValue<Json>("number", dollarPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(dollarPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("decimals", dollarPostRequestBody.decimals, serializeJson);
+    writer.writeObjectValue<Json>("number", dollarPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(dollarPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the dollar method.

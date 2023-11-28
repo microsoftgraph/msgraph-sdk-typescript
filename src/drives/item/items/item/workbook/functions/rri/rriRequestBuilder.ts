@@ -37,10 +37,10 @@ export interface RriPostRequestBody extends AdditionalDataHolder, Parsable {
     pv?: Json;
 }
 export function serializeRriPostRequestBody(writer: SerializationWriter, rriPostRequestBody: RriPostRequestBody | undefined = {} as RriPostRequestBody) : void {
-        writer.writeObjectValue<Json>("fv", rriPostRequestBody.fv, serializeJson);
-        writer.writeObjectValue<Json>("nper", rriPostRequestBody.nper, serializeJson);
-        writer.writeObjectValue<Json>("pv", rriPostRequestBody.pv, serializeJson);
-        writer.writeAdditionalData(rriPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("fv", rriPostRequestBody.fv, serializeJson);
+    writer.writeObjectValue<Json>("nper", rriPostRequestBody.nper, serializeJson);
+    writer.writeObjectValue<Json>("pv", rriPostRequestBody.pv, serializeJson);
+    writer.writeAdditionalData(rriPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the rri method.

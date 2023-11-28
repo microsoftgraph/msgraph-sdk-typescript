@@ -23,8 +23,8 @@ export interface InstantiatePostRequestBody extends AdditionalDataHolder, Parsab
     displayName?: string;
 }
 export function serializeInstantiatePostRequestBody(writer: SerializationWriter, instantiatePostRequestBody: InstantiatePostRequestBody | undefined = {} as InstantiatePostRequestBody) : void {
-        writer.writeStringValue("displayName", instantiatePostRequestBody.displayName);
-        writer.writeAdditionalData(instantiatePostRequestBody.additionalData);
+    writer.writeStringValue("displayName", instantiatePostRequestBody.displayName);
+    writer.writeAdditionalData(instantiatePostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

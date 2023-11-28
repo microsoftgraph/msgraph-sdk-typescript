@@ -22,8 +22,8 @@ export function deserializeIntoChatCollectionResponse(chatCollectionResponse: Ch
     }
 }
 export function serializeChatCollectionResponse(writer: SerializationWriter, chatCollectionResponse: ChatCollectionResponse | undefined = {} as ChatCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, chatCollectionResponse)
-        writer.writeCollectionOfObjectValues<Chat>("value", chatCollectionResponse.value, serializeChat);
+    serializeBaseCollectionPaginationCountResponse(writer, chatCollectionResponse)
+    writer.writeCollectionOfObjectValues<Chat>("value", chatCollectionResponse.value, serializeChat);
 }
 // tslint:enable
 // eslint-enable

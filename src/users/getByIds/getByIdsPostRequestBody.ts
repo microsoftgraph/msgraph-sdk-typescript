@@ -28,9 +28,9 @@ export interface GetByIdsPostRequestBody extends AdditionalDataHolder, Parsable 
     types?: string[];
 }
 export function serializeGetByIdsPostRequestBody(writer: SerializationWriter, getByIdsPostRequestBody: GetByIdsPostRequestBody | undefined = {} as GetByIdsPostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("ids", getByIdsPostRequestBody.ids);
-        writer.writeCollectionOfPrimitiveValues<string>("types", getByIdsPostRequestBody.types);
-        writer.writeAdditionalData(getByIdsPostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("ids", getByIdsPostRequestBody.ids);
+    writer.writeCollectionOfPrimitiveValues<string>("types", getByIdsPostRequestBody.types);
+    writer.writeAdditionalData(getByIdsPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

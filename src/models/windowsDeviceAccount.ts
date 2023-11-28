@@ -29,9 +29,9 @@ export function deserializeIntoWindowsDeviceAccount(windowsDeviceAccount: Window
     }
 }
 export function serializeWindowsDeviceAccount(writer: SerializationWriter, windowsDeviceAccount: WindowsDeviceAccount | undefined = {} as WindowsDeviceAccount) : void {
-        writer.writeStringValue("@odata.type", windowsDeviceAccount.odataType);
-        writer.writeStringValue("password", windowsDeviceAccount.password);
-        writer.writeAdditionalData(windowsDeviceAccount.additionalData);
+    writer.writeStringValue("@odata.type", windowsDeviceAccount.odataType);
+    writer.writeStringValue("password", windowsDeviceAccount.password);
+    writer.writeAdditionalData(windowsDeviceAccount.additionalData);
 }
 export interface WindowsDeviceAccount extends AdditionalDataHolder, Parsable {
     /**

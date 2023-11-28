@@ -48,11 +48,11 @@ export function deserializeIntoAttachmentBase(attachmentBase: AttachmentBase | u
     }
 }
 export function serializeAttachmentBase(writer: SerializationWriter, attachmentBase: AttachmentBase | undefined = {} as AttachmentBase) : void {
-        serializeEntity(writer, attachmentBase)
-        writer.writeStringValue("contentType", attachmentBase.contentType);
-        writer.writeDateValue("lastModifiedDateTime", attachmentBase.lastModifiedDateTime);
-        writer.writeStringValue("name", attachmentBase.name);
-        writer.writeNumberValue("size", attachmentBase.size);
+    serializeEntity(writer, attachmentBase)
+    writer.writeStringValue("contentType", attachmentBase.contentType);
+    writer.writeDateValue("lastModifiedDateTime", attachmentBase.lastModifiedDateTime);
+    writer.writeStringValue("name", attachmentBase.name);
+    writer.writeNumberValue("size", attachmentBase.size);
 }
 // tslint:enable
 // eslint-enable

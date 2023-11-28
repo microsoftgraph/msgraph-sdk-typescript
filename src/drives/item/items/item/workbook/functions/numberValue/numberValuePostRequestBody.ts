@@ -34,10 +34,10 @@ export interface NumberValuePostRequestBody extends AdditionalDataHolder, Parsab
     text?: Json;
 }
 export function serializeNumberValuePostRequestBody(writer: SerializationWriter, numberValuePostRequestBody: NumberValuePostRequestBody | undefined = {} as NumberValuePostRequestBody) : void {
-        writer.writeObjectValue<Json>("decimalSeparator", numberValuePostRequestBody.decimalSeparator, serializeJson);
-        writer.writeObjectValue<Json>("groupSeparator", numberValuePostRequestBody.groupSeparator, serializeJson);
-        writer.writeObjectValue<Json>("text", numberValuePostRequestBody.text, serializeJson);
-        writer.writeAdditionalData(numberValuePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("decimalSeparator", numberValuePostRequestBody.decimalSeparator, serializeJson);
+    writer.writeObjectValue<Json>("groupSeparator", numberValuePostRequestBody.groupSeparator, serializeJson);
+    writer.writeObjectValue<Json>("text", numberValuePostRequestBody.text, serializeJson);
+    writer.writeAdditionalData(numberValuePostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

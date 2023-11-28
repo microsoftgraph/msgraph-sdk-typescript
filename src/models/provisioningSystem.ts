@@ -22,8 +22,8 @@ export interface ProvisioningSystem extends Identity, Parsable {
     details?: DetailsInfo;
 }
 export function serializeProvisioningSystem(writer: SerializationWriter, provisioningSystem: ProvisioningSystem | undefined = {} as ProvisioningSystem) : void {
-        serializeIdentity(writer, provisioningSystem)
-        writer.writeObjectValue<DetailsInfo>("details", provisioningSystem.details, serializeDetailsInfo);
+    serializeIdentity(writer, provisioningSystem)
+    writer.writeObjectValue<DetailsInfo>("details", provisioningSystem.details, serializeDetailsInfo);
 }
 // tslint:enable
 // eslint-enable

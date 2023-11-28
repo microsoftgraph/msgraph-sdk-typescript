@@ -23,8 +23,8 @@ export interface MovePostRequestBody extends AdditionalDataHolder, Parsable {
     destinationId?: string;
 }
 export function serializeMovePostRequestBody(writer: SerializationWriter, movePostRequestBody: MovePostRequestBody | undefined = {} as MovePostRequestBody) : void {
-        writer.writeStringValue("DestinationId", movePostRequestBody.destinationId);
-        writer.writeAdditionalData(movePostRequestBody.additionalData);
+    writer.writeStringValue("DestinationId", movePostRequestBody.destinationId);
+    writer.writeAdditionalData(movePostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

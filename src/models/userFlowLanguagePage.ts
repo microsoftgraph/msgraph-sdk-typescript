@@ -14,7 +14,7 @@ export function deserializeIntoUserFlowLanguagePage(userFlowLanguagePage: UserFl
     }
 }
 export function serializeUserFlowLanguagePage(writer: SerializationWriter, userFlowLanguagePage: UserFlowLanguagePage | undefined = {} as UserFlowLanguagePage) : void {
-        serializeEntity(writer, userFlowLanguagePage)
+    serializeEntity(writer, userFlowLanguagePage)
 }
 export interface UserFlowLanguagePage extends Entity, Parsable {
 }

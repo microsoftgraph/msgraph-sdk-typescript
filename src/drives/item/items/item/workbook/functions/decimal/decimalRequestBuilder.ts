@@ -32,9 +32,9 @@ export function deserializeIntoDecimalPostRequestBody(decimalPostRequestBody: De
     }
 }
 export function serializeDecimalPostRequestBody(writer: SerializationWriter, decimalPostRequestBody: DecimalPostRequestBody | undefined = {} as DecimalPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", decimalPostRequestBody.number, serializeJson);
-        writer.writeObjectValue<Json>("radix", decimalPostRequestBody.radix, serializeJson);
-        writer.writeAdditionalData(decimalPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", decimalPostRequestBody.number, serializeJson);
+    writer.writeObjectValue<Json>("radix", decimalPostRequestBody.radix, serializeJson);
+    writer.writeAdditionalData(decimalPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the decimal method.

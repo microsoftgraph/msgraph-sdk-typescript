@@ -16,7 +16,7 @@ export function deserializeIntoSecurityReportsRoot(securityReportsRoot: Security
 export interface SecurityReportsRoot extends Entity, Parsable {
 }
 export function serializeSecurityReportsRoot(writer: SerializationWriter, securityReportsRoot: SecurityReportsRoot | undefined = {} as SecurityReportsRoot) : void {
-        serializeEntity(writer, securityReportsRoot)
+    serializeEntity(writer, securityReportsRoot)
 }
 // tslint:enable
 // eslint-enable

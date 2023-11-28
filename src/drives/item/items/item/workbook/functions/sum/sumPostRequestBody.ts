@@ -14,8 +14,8 @@ export function deserializeIntoSumPostRequestBody(sumPostRequestBody: SumPostReq
     }
 }
 export function serializeSumPostRequestBody(writer: SerializationWriter, sumPostRequestBody: SumPostRequestBody | undefined = {} as SumPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", sumPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(sumPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", sumPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(sumPostRequestBody.additionalData);
 }
 export interface SumPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

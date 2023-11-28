@@ -26,8 +26,8 @@ export interface GetMemberGroupsPostRequestBody extends AdditionalDataHolder, Pa
     securityEnabledOnly?: boolean;
 }
 export function serializeGetMemberGroupsPostRequestBody(writer: SerializationWriter, getMemberGroupsPostRequestBody: GetMemberGroupsPostRequestBody | undefined = {} as GetMemberGroupsPostRequestBody) : void {
-        writer.writeBooleanValue("securityEnabledOnly", getMemberGroupsPostRequestBody.securityEnabledOnly);
-        writer.writeAdditionalData(getMemberGroupsPostRequestBody.additionalData);
+    writer.writeBooleanValue("securityEnabledOnly", getMemberGroupsPostRequestBody.securityEnabledOnly);
+    writer.writeAdditionalData(getMemberGroupsPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the getMemberGroups method.

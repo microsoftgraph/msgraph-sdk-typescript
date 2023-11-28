@@ -16,8 +16,8 @@ export function deserializeIntoUserExperienceAnalyticsDeviceStartupProcessCollec
     }
 }
 export function serializeUserExperienceAnalyticsDeviceStartupProcessCollectionResponse(writer: SerializationWriter, userExperienceAnalyticsDeviceStartupProcessCollectionResponse: UserExperienceAnalyticsDeviceStartupProcessCollectionResponse | undefined = {} as UserExperienceAnalyticsDeviceStartupProcessCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, userExperienceAnalyticsDeviceStartupProcessCollectionResponse)
-        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsDeviceStartupProcess>("value", userExperienceAnalyticsDeviceStartupProcessCollectionResponse.value, serializeUserExperienceAnalyticsDeviceStartupProcess);
+    serializeBaseCollectionPaginationCountResponse(writer, userExperienceAnalyticsDeviceStartupProcessCollectionResponse)
+    writer.writeCollectionOfObjectValues<UserExperienceAnalyticsDeviceStartupProcess>("value", userExperienceAnalyticsDeviceStartupProcessCollectionResponse.value, serializeUserExperienceAnalyticsDeviceStartupProcess);
 }
 export interface UserExperienceAnalyticsDeviceStartupProcessCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

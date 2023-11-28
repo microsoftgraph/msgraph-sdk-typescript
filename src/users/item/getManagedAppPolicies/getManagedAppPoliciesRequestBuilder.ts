@@ -54,8 +54,8 @@ export interface GetManagedAppPoliciesRequestBuilderGetQueryParameters {
     top?: number;
 }
 export function serializeGetManagedAppPoliciesGetResponse(writer: SerializationWriter, getManagedAppPoliciesGetResponse: GetManagedAppPoliciesGetResponse | undefined = {} as GetManagedAppPoliciesGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getManagedAppPoliciesGetResponse)
-        writer.writeCollectionOfObjectValues<ManagedAppPolicy>("value", getManagedAppPoliciesGetResponse.value, serializeManagedAppPolicy);
+    serializeBaseCollectionPaginationCountResponse(writer, getManagedAppPoliciesGetResponse)
+    writer.writeCollectionOfObjectValues<ManagedAppPolicy>("value", getManagedAppPoliciesGetResponse.value, serializeManagedAppPolicy);
 }
 /**
  * Provides operations to call the getManagedAppPolicies method.

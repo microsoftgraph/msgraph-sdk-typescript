@@ -47,12 +47,12 @@ export function deserializeIntoAdmin(admin: Admin | undefined = {} as Admin) : R
     }
 }
 export function serializeAdmin(writer: SerializationWriter, admin: Admin | undefined = {} as Admin) : void {
-        writer.writeObjectValue<Edge>("edge", admin.edge, serializeEdge);
-        writer.writeStringValue("@odata.type", admin.odataType);
-        writer.writeObjectValue<PeopleAdminSettings>("people", admin.people, serializePeopleAdminSettings);
-        writer.writeObjectValue<ServiceAnnouncement>("serviceAnnouncement", admin.serviceAnnouncement, serializeServiceAnnouncement);
-        writer.writeObjectValue<Sharepoint>("sharepoint", admin.sharepoint, serializeSharepoint);
-        writer.writeAdditionalData(admin.additionalData);
+    writer.writeObjectValue<Edge>("edge", admin.edge, serializeEdge);
+    writer.writeStringValue("@odata.type", admin.odataType);
+    writer.writeObjectValue<PeopleAdminSettings>("people", admin.people, serializePeopleAdminSettings);
+    writer.writeObjectValue<ServiceAnnouncement>("serviceAnnouncement", admin.serviceAnnouncement, serializeServiceAnnouncement);
+    writer.writeObjectValue<Sharepoint>("sharepoint", admin.sharepoint, serializeSharepoint);
+    writer.writeAdditionalData(admin.additionalData);
 }
 // tslint:enable
 // eslint-enable

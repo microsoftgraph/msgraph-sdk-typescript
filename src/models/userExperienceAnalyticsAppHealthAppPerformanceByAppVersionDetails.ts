@@ -22,15 +22,15 @@ export function deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByA
     }
 }
 export function serializeUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails(writer: SerializationWriter, userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails: UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails | undefined = {} as UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails) : void {
-        serializeEntity(writer, userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails)
-        writer.writeNumberValue("appCrashCount", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.appCrashCount);
-        writer.writeStringValue("appDisplayName", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.appDisplayName);
-        writer.writeStringValue("appName", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.appName);
-        writer.writeStringValue("appPublisher", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.appPublisher);
-        writer.writeStringValue("appVersion", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.appVersion);
-        writer.writeNumberValue("deviceCountWithCrashes", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.deviceCountWithCrashes);
-        writer.writeBooleanValue("isLatestUsedVersion", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.isLatestUsedVersion);
-        writer.writeBooleanValue("isMostUsedVersion", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.isMostUsedVersion);
+    serializeEntity(writer, userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails)
+    writer.writeNumberValue("appCrashCount", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.appCrashCount);
+    writer.writeStringValue("appDisplayName", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.appDisplayName);
+    writer.writeStringValue("appName", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.appName);
+    writer.writeStringValue("appPublisher", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.appPublisher);
+    writer.writeStringValue("appVersion", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.appVersion);
+    writer.writeNumberValue("deviceCountWithCrashes", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.deviceCountWithCrashes);
+    writer.writeBooleanValue("isLatestUsedVersion", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.isLatestUsedVersion);
+    writer.writeBooleanValue("isMostUsedVersion", userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails.isMostUsedVersion);
 }
 export interface UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends Entity, Parsable {
     /**

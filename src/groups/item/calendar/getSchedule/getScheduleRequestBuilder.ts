@@ -42,11 +42,11 @@ export interface GetSchedulePostRequestBody extends AdditionalDataHolder, Parsab
     startTime?: DateTimeTimeZone;
 }
 export function serializeGetSchedulePostRequestBody(writer: SerializationWriter, getSchedulePostRequestBody: GetSchedulePostRequestBody | undefined = {} as GetSchedulePostRequestBody) : void {
-        writer.writeNumberValue("AvailabilityViewInterval", getSchedulePostRequestBody.availabilityViewInterval);
-        writer.writeObjectValue<DateTimeTimeZone>("EndTime", getSchedulePostRequestBody.endTime, serializeDateTimeTimeZone);
-        writer.writeCollectionOfPrimitiveValues<string>("Schedules", getSchedulePostRequestBody.schedules);
-        writer.writeObjectValue<DateTimeTimeZone>("StartTime", getSchedulePostRequestBody.startTime, serializeDateTimeTimeZone);
-        writer.writeAdditionalData(getSchedulePostRequestBody.additionalData);
+    writer.writeNumberValue("AvailabilityViewInterval", getSchedulePostRequestBody.availabilityViewInterval);
+    writer.writeObjectValue<DateTimeTimeZone>("EndTime", getSchedulePostRequestBody.endTime, serializeDateTimeTimeZone);
+    writer.writeCollectionOfPrimitiveValues<string>("Schedules", getSchedulePostRequestBody.schedules);
+    writer.writeObjectValue<DateTimeTimeZone>("StartTime", getSchedulePostRequestBody.startTime, serializeDateTimeTimeZone);
+    writer.writeAdditionalData(getSchedulePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the getSchedule method.

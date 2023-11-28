@@ -39,11 +39,11 @@ export interface PlannerTaskDetails extends Entity, Parsable {
     references?: PlannerExternalReferences;
 }
 export function serializePlannerTaskDetails(writer: SerializationWriter, plannerTaskDetails: PlannerTaskDetails | undefined = {} as PlannerTaskDetails) : void {
-        serializeEntity(writer, plannerTaskDetails)
-        writer.writeObjectValue<PlannerChecklistItems>("checklist", plannerTaskDetails.checklist, serializePlannerChecklistItems);
-        writer.writeStringValue("description", plannerTaskDetails.description);
-        writer.writeEnumValue<PlannerPreviewType>("previewType", plannerTaskDetails.previewType);
-        writer.writeObjectValue<PlannerExternalReferences>("references", plannerTaskDetails.references, serializePlannerExternalReferences);
+    serializeEntity(writer, plannerTaskDetails)
+    writer.writeObjectValue<PlannerChecklistItems>("checklist", plannerTaskDetails.checklist, serializePlannerChecklistItems);
+    writer.writeStringValue("description", plannerTaskDetails.description);
+    writer.writeEnumValue<PlannerPreviewType>("previewType", plannerTaskDetails.previewType);
+    writer.writeObjectValue<PlannerExternalReferences>("references", plannerTaskDetails.references, serializePlannerExternalReferences);
 }
 // tslint:enable
 // eslint-enable

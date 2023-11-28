@@ -27,9 +27,9 @@ export interface ParticipantLeftNotification extends Entity, Parsable {
     participantId?: string;
 }
 export function serializeParticipantLeftNotification(writer: SerializationWriter, participantLeftNotification: ParticipantLeftNotification | undefined = {} as ParticipantLeftNotification) : void {
-        serializeEntity(writer, participantLeftNotification)
-        writer.writeObjectValue<Call>("call", participantLeftNotification.call, serializeCall);
-        writer.writeStringValue("participantId", participantLeftNotification.participantId);
+    serializeEntity(writer, participantLeftNotification)
+    writer.writeObjectValue<Call>("call", participantLeftNotification.call, serializeCall);
+    writer.writeStringValue("participantId", participantLeftNotification.participantId);
 }
 // tslint:enable
 // eslint-enable

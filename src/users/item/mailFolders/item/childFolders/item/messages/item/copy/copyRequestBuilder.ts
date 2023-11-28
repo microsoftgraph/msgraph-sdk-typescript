@@ -26,8 +26,8 @@ export function deserializeIntoCopyPostRequestBody(copyPostRequestBody: CopyPost
     }
 }
 export function serializeCopyPostRequestBody(writer: SerializationWriter, copyPostRequestBody: CopyPostRequestBody | undefined = {} as CopyPostRequestBody) : void {
-        writer.writeStringValue("DestinationId", copyPostRequestBody.destinationId);
-        writer.writeAdditionalData(copyPostRequestBody.additionalData);
+    writer.writeStringValue("DestinationId", copyPostRequestBody.destinationId);
+    writer.writeAdditionalData(copyPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the copy method.

@@ -137,7 +137,7 @@ export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the deviceAppManagement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceAppManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceappmanagement-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-deviceappmanagement-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<DeviceAppManagementRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceAppManagement | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -154,7 +154,7 @@ export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceAppManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-deviceappmanagement-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-unlock-deviceappmanagement-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceAppManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceAppManagement | undefined> {
         const requestInfo = this.toPatchRequestInformation(

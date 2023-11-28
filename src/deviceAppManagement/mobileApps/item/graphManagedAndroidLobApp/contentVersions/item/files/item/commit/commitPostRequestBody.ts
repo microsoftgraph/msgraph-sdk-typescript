@@ -24,8 +24,8 @@ export function deserializeIntoCommitPostRequestBody(commitPostRequestBody: Comm
     }
 }
 export function serializeCommitPostRequestBody(writer: SerializationWriter, commitPostRequestBody: CommitPostRequestBody | undefined = {} as CommitPostRequestBody) : void {
-        writer.writeObjectValue<FileEncryptionInfo>("fileEncryptionInfo", commitPostRequestBody.fileEncryptionInfo, serializeFileEncryptionInfo);
-        writer.writeAdditionalData(commitPostRequestBody.additionalData);
+    writer.writeObjectValue<FileEncryptionInfo>("fileEncryptionInfo", commitPostRequestBody.fileEncryptionInfo, serializeFileEncryptionInfo);
+    writer.writeAdditionalData(commitPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

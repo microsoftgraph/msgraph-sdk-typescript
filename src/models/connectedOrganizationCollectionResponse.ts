@@ -22,8 +22,8 @@ export function deserializeIntoConnectedOrganizationCollectionResponse(connected
     }
 }
 export function serializeConnectedOrganizationCollectionResponse(writer: SerializationWriter, connectedOrganizationCollectionResponse: ConnectedOrganizationCollectionResponse | undefined = {} as ConnectedOrganizationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, connectedOrganizationCollectionResponse)
-        writer.writeCollectionOfObjectValues<ConnectedOrganization>("value", connectedOrganizationCollectionResponse.value, serializeConnectedOrganization);
+    serializeBaseCollectionPaginationCountResponse(writer, connectedOrganizationCollectionResponse)
+    writer.writeCollectionOfObjectValues<ConnectedOrganization>("value", connectedOrganizationCollectionResponse.value, serializeConnectedOrganization);
 }
 // tslint:enable
 // eslint-enable

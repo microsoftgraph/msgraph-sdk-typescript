@@ -37,11 +37,11 @@ export interface RemoteAssistancePartner extends Entity, Parsable {
     onboardingUrl?: string;
 }
 export function serializeRemoteAssistancePartner(writer: SerializationWriter, remoteAssistancePartner: RemoteAssistancePartner | undefined = {} as RemoteAssistancePartner) : void {
-        serializeEntity(writer, remoteAssistancePartner)
-        writer.writeStringValue("displayName", remoteAssistancePartner.displayName);
-        writer.writeDateValue("lastConnectionDateTime", remoteAssistancePartner.lastConnectionDateTime);
-        writer.writeEnumValue<RemoteAssistanceOnboardingStatus>("onboardingStatus", remoteAssistancePartner.onboardingStatus);
-        writer.writeStringValue("onboardingUrl", remoteAssistancePartner.onboardingUrl);
+    serializeEntity(writer, remoteAssistancePartner)
+    writer.writeStringValue("displayName", remoteAssistancePartner.displayName);
+    writer.writeDateValue("lastConnectionDateTime", remoteAssistancePartner.lastConnectionDateTime);
+    writer.writeEnumValue<RemoteAssistanceOnboardingStatus>("onboardingStatus", remoteAssistancePartner.onboardingStatus);
+    writer.writeStringValue("onboardingUrl", remoteAssistancePartner.onboardingUrl);
 }
 // tslint:enable
 // eslint-enable

@@ -43,12 +43,12 @@ export function deserializeIntoAddPostResponse(addPostResponse: AddPostResponse 
     }
 }
 export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: AddPostRequestBody | undefined = {} as AddPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<Site>("value", addPostRequestBody.value, serializeSite);
-        writer.writeAdditionalData(addPostRequestBody.additionalData);
+    writer.writeCollectionOfObjectValues<Site>("value", addPostRequestBody.value, serializeSite);
+    writer.writeAdditionalData(addPostRequestBody.additionalData);
 }
 export function serializeAddPostResponse(writer: SerializationWriter, addPostResponse: AddPostResponse | undefined = {} as AddPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, addPostResponse)
-        writer.writeCollectionOfObjectValues<Site>("value", addPostResponse.value, serializeSite);
+    serializeBaseCollectionPaginationCountResponse(writer, addPostResponse)
+    writer.writeCollectionOfObjectValues<Site>("value", addPostResponse.value, serializeSite);
 }
 /**
  * Provides operations to call the add method.

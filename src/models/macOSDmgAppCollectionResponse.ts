@@ -22,8 +22,8 @@ export interface MacOSDmgAppCollectionResponse extends BaseCollectionPaginationC
     value?: MacOSDmgApp[];
 }
 export function serializeMacOSDmgAppCollectionResponse(writer: SerializationWriter, macOSDmgAppCollectionResponse: MacOSDmgAppCollectionResponse | undefined = {} as MacOSDmgAppCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, macOSDmgAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<MacOSDmgApp>("value", macOSDmgAppCollectionResponse.value, serializeMacOSDmgApp);
+    serializeBaseCollectionPaginationCountResponse(writer, macOSDmgAppCollectionResponse)
+    writer.writeCollectionOfObjectValues<MacOSDmgApp>("value", macOSDmgAppCollectionResponse.value, serializeMacOSDmgApp);
 }
 // tslint:enable
 // eslint-enable

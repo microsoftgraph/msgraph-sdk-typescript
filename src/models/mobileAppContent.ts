@@ -28,9 +28,9 @@ export interface MobileAppContent extends Entity, Parsable {
     files?: MobileAppContentFile[];
 }
 export function serializeMobileAppContent(writer: SerializationWriter, mobileAppContent: MobileAppContent | undefined = {} as MobileAppContent) : void {
-        serializeEntity(writer, mobileAppContent)
-        writer.writeCollectionOfObjectValues<MobileContainedApp>("containedApps", mobileAppContent.containedApps, serializeMobileContainedApp);
-        writer.writeCollectionOfObjectValues<MobileAppContentFile>("files", mobileAppContent.files, serializeMobileAppContentFile);
+    serializeEntity(writer, mobileAppContent)
+    writer.writeCollectionOfObjectValues<MobileContainedApp>("containedApps", mobileAppContent.containedApps, serializeMobileContainedApp);
+    writer.writeCollectionOfObjectValues<MobileAppContentFile>("files", mobileAppContent.files, serializeMobileAppContentFile);
 }
 // tslint:enable
 // eslint-enable

@@ -58,14 +58,14 @@ export interface Directory extends Entity, Parsable {
     onPremisesSynchronization?: OnPremisesDirectorySynchronization[];
 }
 export function serializeDirectory(writer: SerializationWriter, directory: Directory | undefined = {} as Directory) : void {
-        serializeEntity(writer, directory)
-        writer.writeCollectionOfObjectValues<AdministrativeUnit>("administrativeUnits", directory.administrativeUnits, serializeAdministrativeUnit);
-        writer.writeCollectionOfObjectValues<AttributeSet>("attributeSets", directory.attributeSets, serializeAttributeSet);
-        writer.writeCollectionOfObjectValues<CustomSecurityAttributeDefinition>("customSecurityAttributeDefinitions", directory.customSecurityAttributeDefinitions, serializeCustomSecurityAttributeDefinition);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("deletedItems", directory.deletedItems, serializeDirectoryObject);
-        writer.writeCollectionOfObjectValues<DeviceLocalCredentialInfo>("deviceLocalCredentials", directory.deviceLocalCredentials, serializeDeviceLocalCredentialInfo);
-        writer.writeCollectionOfObjectValues<IdentityProviderBase>("federationConfigurations", directory.federationConfigurations, serializeIdentityProviderBase);
-        writer.writeCollectionOfObjectValues<OnPremisesDirectorySynchronization>("onPremisesSynchronization", directory.onPremisesSynchronization, serializeOnPremisesDirectorySynchronization);
+    serializeEntity(writer, directory)
+    writer.writeCollectionOfObjectValues<AdministrativeUnit>("administrativeUnits", directory.administrativeUnits, serializeAdministrativeUnit);
+    writer.writeCollectionOfObjectValues<AttributeSet>("attributeSets", directory.attributeSets, serializeAttributeSet);
+    writer.writeCollectionOfObjectValues<CustomSecurityAttributeDefinition>("customSecurityAttributeDefinitions", directory.customSecurityAttributeDefinitions, serializeCustomSecurityAttributeDefinition);
+    writer.writeCollectionOfObjectValues<DirectoryObject>("deletedItems", directory.deletedItems, serializeDirectoryObject);
+    writer.writeCollectionOfObjectValues<DeviceLocalCredentialInfo>("deviceLocalCredentials", directory.deviceLocalCredentials, serializeDeviceLocalCredentialInfo);
+    writer.writeCollectionOfObjectValues<IdentityProviderBase>("federationConfigurations", directory.federationConfigurations, serializeIdentityProviderBase);
+    writer.writeCollectionOfObjectValues<OnPremisesDirectorySynchronization>("onPremisesSynchronization", directory.onPremisesSynchronization, serializeOnPremisesDirectorySynchronization);
 }
 // tslint:enable
 // eslint-enable

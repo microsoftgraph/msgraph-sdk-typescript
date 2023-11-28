@@ -31,9 +31,9 @@ export interface MarkChatUnreadForUserPostRequestBody extends AdditionalDataHold
     user?: TeamworkUserIdentity;
 }
 export function serializeMarkChatUnreadForUserPostRequestBody(writer: SerializationWriter, markChatUnreadForUserPostRequestBody: MarkChatUnreadForUserPostRequestBody | undefined = {} as MarkChatUnreadForUserPostRequestBody) : void {
-        writer.writeDateValue("lastMessageReadDateTime", markChatUnreadForUserPostRequestBody.lastMessageReadDateTime);
-        writer.writeObjectValue<TeamworkUserIdentity>("user", markChatUnreadForUserPostRequestBody.user, serializeTeamworkUserIdentity);
-        writer.writeAdditionalData(markChatUnreadForUserPostRequestBody.additionalData);
+    writer.writeDateValue("lastMessageReadDateTime", markChatUnreadForUserPostRequestBody.lastMessageReadDateTime);
+    writer.writeObjectValue<TeamworkUserIdentity>("user", markChatUnreadForUserPostRequestBody.user, serializeTeamworkUserIdentity);
+    writer.writeAdditionalData(markChatUnreadForUserPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the markChatUnreadForUser method.

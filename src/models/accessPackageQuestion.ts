@@ -57,12 +57,12 @@ export function deserializeIntoAccessPackageQuestion(accessPackageQuestion: Acce
     }
 }
 export function serializeAccessPackageQuestion(writer: SerializationWriter, accessPackageQuestion: AccessPackageQuestion | undefined = {} as AccessPackageQuestion) : void {
-        serializeEntity(writer, accessPackageQuestion)
-        writer.writeBooleanValue("isAnswerEditable", accessPackageQuestion.isAnswerEditable);
-        writer.writeBooleanValue("isRequired", accessPackageQuestion.isRequired);
-        writer.writeCollectionOfObjectValues<AccessPackageLocalizedText>("localizations", accessPackageQuestion.localizations, serializeAccessPackageLocalizedText);
-        writer.writeNumberValue("sequence", accessPackageQuestion.sequence);
-        writer.writeStringValue("text", accessPackageQuestion.text);
+    serializeEntity(writer, accessPackageQuestion)
+    writer.writeBooleanValue("isAnswerEditable", accessPackageQuestion.isAnswerEditable);
+    writer.writeBooleanValue("isRequired", accessPackageQuestion.isRequired);
+    writer.writeCollectionOfObjectValues<AccessPackageLocalizedText>("localizations", accessPackageQuestion.localizations, serializeAccessPackageLocalizedText);
+    writer.writeNumberValue("sequence", accessPackageQuestion.sequence);
+    writer.writeStringValue("text", accessPackageQuestion.text);
 }
 // tslint:enable
 // eslint-enable

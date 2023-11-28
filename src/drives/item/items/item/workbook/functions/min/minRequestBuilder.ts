@@ -27,8 +27,8 @@ export interface MinPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeMinPostRequestBody(writer: SerializationWriter, minPostRequestBody: MinPostRequestBody | undefined = {} as MinPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", minPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(minPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", minPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(minPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the min method.

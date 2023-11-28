@@ -17,9 +17,9 @@ export function deserializeIntoWindowsUpdateScheduledInstall(windowsUpdateSchedu
     }
 }
 export function serializeWindowsUpdateScheduledInstall(writer: SerializationWriter, windowsUpdateScheduledInstall: WindowsUpdateScheduledInstall | undefined = {} as WindowsUpdateScheduledInstall) : void {
-        serializeWindowsUpdateInstallScheduleType(writer, windowsUpdateScheduledInstall)
-        writer.writeEnumValue<WeeklySchedule>("scheduledInstallDay", windowsUpdateScheduledInstall.scheduledInstallDay);
-        writer.writeTimeOnlyValue("scheduledInstallTime", windowsUpdateScheduledInstall.scheduledInstallTime);
+    serializeWindowsUpdateInstallScheduleType(writer, windowsUpdateScheduledInstall)
+    writer.writeEnumValue<WeeklySchedule>("scheduledInstallDay", windowsUpdateScheduledInstall.scheduledInstallDay);
+    writer.writeTimeOnlyValue("scheduledInstallTime", windowsUpdateScheduledInstall.scheduledInstallTime);
 }
 export interface WindowsUpdateScheduledInstall extends Parsable, WindowsUpdateInstallScheduleType {
     /**

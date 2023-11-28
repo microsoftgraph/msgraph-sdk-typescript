@@ -26,9 +26,9 @@ export interface JoinMeetingIdMeetingInfo extends MeetingInfo, Parsable {
     passcode?: string;
 }
 export function serializeJoinMeetingIdMeetingInfo(writer: SerializationWriter, joinMeetingIdMeetingInfo: JoinMeetingIdMeetingInfo | undefined = {} as JoinMeetingIdMeetingInfo) : void {
-        serializeMeetingInfo(writer, joinMeetingIdMeetingInfo)
-        writer.writeStringValue("joinMeetingId", joinMeetingIdMeetingInfo.joinMeetingId);
-        writer.writeStringValue("passcode", joinMeetingIdMeetingInfo.passcode);
+    serializeMeetingInfo(writer, joinMeetingIdMeetingInfo)
+    writer.writeStringValue("joinMeetingId", joinMeetingIdMeetingInfo.joinMeetingId);
+    writer.writeStringValue("passcode", joinMeetingIdMeetingInfo.passcode);
 }
 // tslint:enable
 // eslint-enable

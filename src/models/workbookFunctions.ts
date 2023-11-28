@@ -14,7 +14,7 @@ export function deserializeIntoWorkbookFunctions(workbookFunctions: WorkbookFunc
     }
 }
 export function serializeWorkbookFunctions(writer: SerializationWriter, workbookFunctions: WorkbookFunctions | undefined = {} as WorkbookFunctions) : void {
-        serializeEntity(writer, workbookFunctions)
+    serializeEntity(writer, workbookFunctions)
 }
 export interface WorkbookFunctions extends Entity, Parsable {
 }

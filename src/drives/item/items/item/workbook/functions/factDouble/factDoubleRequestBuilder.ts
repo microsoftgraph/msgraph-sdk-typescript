@@ -27,8 +27,8 @@ export interface FactDoublePostRequestBody extends AdditionalDataHolder, Parsabl
     number?: Json;
 }
 export function serializeFactDoublePostRequestBody(writer: SerializationWriter, factDoublePostRequestBody: FactDoublePostRequestBody | undefined = {} as FactDoublePostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", factDoublePostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(factDoublePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", factDoublePostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(factDoublePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the factDouble method.

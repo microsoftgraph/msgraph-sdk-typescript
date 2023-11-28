@@ -28,9 +28,9 @@ export function deserializeIntoCrossTenantUserSyncInbound(crossTenantUserSyncInb
     }
 }
 export function serializeCrossTenantUserSyncInbound(writer: SerializationWriter, crossTenantUserSyncInbound: CrossTenantUserSyncInbound | undefined = {} as CrossTenantUserSyncInbound) : void {
-        writer.writeBooleanValue("isSyncAllowed", crossTenantUserSyncInbound.isSyncAllowed);
-        writer.writeStringValue("@odata.type", crossTenantUserSyncInbound.odataType);
-        writer.writeAdditionalData(crossTenantUserSyncInbound.additionalData);
+    writer.writeBooleanValue("isSyncAllowed", crossTenantUserSyncInbound.isSyncAllowed);
+    writer.writeStringValue("@odata.type", crossTenantUserSyncInbound.odataType);
+    writer.writeAdditionalData(crossTenantUserSyncInbound.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -37,10 +37,10 @@ export interface FixedPostRequestBody extends AdditionalDataHolder, Parsable {
     number?: Json;
 }
 export function serializeFixedPostRequestBody(writer: SerializationWriter, fixedPostRequestBody: FixedPostRequestBody | undefined = {} as FixedPostRequestBody) : void {
-        writer.writeObjectValue<Json>("decimals", fixedPostRequestBody.decimals, serializeJson);
-        writer.writeObjectValue<Json>("noCommas", fixedPostRequestBody.noCommas, serializeJson);
-        writer.writeObjectValue<Json>("number", fixedPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(fixedPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("decimals", fixedPostRequestBody.decimals, serializeJson);
+    writer.writeObjectValue<Json>("noCommas", fixedPostRequestBody.noCommas, serializeJson);
+    writer.writeObjectValue<Json>("number", fixedPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(fixedPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the fixed method.

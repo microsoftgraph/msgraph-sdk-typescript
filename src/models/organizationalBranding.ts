@@ -22,8 +22,8 @@ export interface OrganizationalBranding extends OrganizationalBrandingProperties
     localizations?: OrganizationalBrandingLocalization[];
 }
 export function serializeOrganizationalBranding(writer: SerializationWriter, organizationalBranding: OrganizationalBranding | undefined = {} as OrganizationalBranding) : void {
-        serializeOrganizationalBrandingProperties(writer, organizationalBranding)
-        writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalization>("localizations", organizationalBranding.localizations, serializeOrganizationalBrandingLocalization);
+    serializeOrganizationalBrandingProperties(writer, organizationalBranding)
+    writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalization>("localizations", organizationalBranding.localizations, serializeOrganizationalBrandingLocalization);
 }
 // tslint:enable
 // eslint-enable

@@ -17,11 +17,11 @@ export function deserializeIntoTeamworkActivityTopic(teamworkActivityTopic: Team
     }
 }
 export function serializeTeamworkActivityTopic(writer: SerializationWriter, teamworkActivityTopic: TeamworkActivityTopic | undefined = {} as TeamworkActivityTopic) : void {
-        writer.writeStringValue("@odata.type", teamworkActivityTopic.odataType);
-        writer.writeEnumValue<TeamworkActivityTopicSource>("source", teamworkActivityTopic.source);
-        writer.writeStringValue("value", teamworkActivityTopic.value);
-        writer.writeStringValue("webUrl", teamworkActivityTopic.webUrl);
-        writer.writeAdditionalData(teamworkActivityTopic.additionalData);
+    writer.writeStringValue("@odata.type", teamworkActivityTopic.odataType);
+    writer.writeEnumValue<TeamworkActivityTopicSource>("source", teamworkActivityTopic.source);
+    writer.writeStringValue("value", teamworkActivityTopic.value);
+    writer.writeStringValue("webUrl", teamworkActivityTopic.webUrl);
+    writer.writeAdditionalData(teamworkActivityTopic.additionalData);
 }
 export interface TeamworkActivityTopic extends AdditionalDataHolder, Parsable {
     /**

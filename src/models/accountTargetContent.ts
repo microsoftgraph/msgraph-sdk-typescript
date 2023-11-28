@@ -44,9 +44,9 @@ export function deserializeIntoAccountTargetContent(accountTargetContent: Accoun
     }
 }
 export function serializeAccountTargetContent(writer: SerializationWriter, accountTargetContent: AccountTargetContent | undefined = {} as AccountTargetContent) : void {
-        writer.writeStringValue("@odata.type", accountTargetContent.odataType);
-        writer.writeEnumValue<AccountTargetContentType>("type", accountTargetContent.type);
-        writer.writeAdditionalData(accountTargetContent.additionalData);
+    writer.writeStringValue("@odata.type", accountTargetContent.odataType);
+    writer.writeEnumValue<AccountTargetContentType>("type", accountTargetContent.type);
+    writer.writeAdditionalData(accountTargetContent.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export interface DriveItemVersionCollectionResponse extends BaseCollectionPagina
     value?: DriveItemVersion[];
 }
 export function serializeDriveItemVersionCollectionResponse(writer: SerializationWriter, driveItemVersionCollectionResponse: DriveItemVersionCollectionResponse | undefined = {} as DriveItemVersionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, driveItemVersionCollectionResponse)
-        writer.writeCollectionOfObjectValues<DriveItemVersion>("value", driveItemVersionCollectionResponse.value, serializeDriveItemVersion);
+    serializeBaseCollectionPaginationCountResponse(writer, driveItemVersionCollectionResponse)
+    writer.writeCollectionOfObjectValues<DriveItemVersion>("value", driveItemVersionCollectionResponse.value, serializeDriveItemVersion);
 }
 // tslint:enable
 // eslint-enable

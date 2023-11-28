@@ -46,12 +46,12 @@ export function deserializeIntoCopyNotebookPostRequestBody(copyNotebookPostReque
     }
 }
 export function serializeCopyNotebookPostRequestBody(writer: SerializationWriter, copyNotebookPostRequestBody: CopyNotebookPostRequestBody | undefined = {} as CopyNotebookPostRequestBody) : void {
-        writer.writeStringValue("groupId", copyNotebookPostRequestBody.groupId);
-        writer.writeStringValue("notebookFolder", copyNotebookPostRequestBody.notebookFolder);
-        writer.writeStringValue("renameAs", copyNotebookPostRequestBody.renameAs);
-        writer.writeStringValue("siteCollectionId", copyNotebookPostRequestBody.siteCollectionId);
-        writer.writeStringValue("siteId", copyNotebookPostRequestBody.siteId);
-        writer.writeAdditionalData(copyNotebookPostRequestBody.additionalData);
+    writer.writeStringValue("groupId", copyNotebookPostRequestBody.groupId);
+    writer.writeStringValue("notebookFolder", copyNotebookPostRequestBody.notebookFolder);
+    writer.writeStringValue("renameAs", copyNotebookPostRequestBody.renameAs);
+    writer.writeStringValue("siteCollectionId", copyNotebookPostRequestBody.siteCollectionId);
+    writer.writeStringValue("siteId", copyNotebookPostRequestBody.siteId);
+    writer.writeAdditionalData(copyNotebookPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the copyNotebook method.

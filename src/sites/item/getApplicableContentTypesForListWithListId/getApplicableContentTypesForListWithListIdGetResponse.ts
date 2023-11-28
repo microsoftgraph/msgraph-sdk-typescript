@@ -22,8 +22,8 @@ export interface GetApplicableContentTypesForListWithListIdGetResponse extends B
     value?: ContentType[];
 }
 export function serializeGetApplicableContentTypesForListWithListIdGetResponse(writer: SerializationWriter, getApplicableContentTypesForListWithListIdGetResponse: GetApplicableContentTypesForListWithListIdGetResponse | undefined = {} as GetApplicableContentTypesForListWithListIdGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getApplicableContentTypesForListWithListIdGetResponse)
-        writer.writeCollectionOfObjectValues<ContentType>("value", getApplicableContentTypesForListWithListIdGetResponse.value, serializeContentType);
+    serializeBaseCollectionPaginationCountResponse(writer, getApplicableContentTypesForListWithListIdGetResponse)
+    writer.writeCollectionOfObjectValues<ContentType>("value", getApplicableContentTypesForListWithListIdGetResponse.value, serializeContentType);
 }
 // tslint:enable
 // eslint-enable

@@ -34,10 +34,10 @@ export interface EventQuery extends AdditionalDataHolder, Parsable {
     queryType?: QueryType;
 }
 export function serializeEventQuery(writer: SerializationWriter, eventQuery: EventQuery | undefined = {} as EventQuery) : void {
-        writer.writeStringValue("@odata.type", eventQuery.odataType);
-        writer.writeStringValue("query", eventQuery.query);
-        writer.writeEnumValue<QueryType>("queryType", eventQuery.queryType);
-        writer.writeAdditionalData(eventQuery.additionalData);
+    writer.writeStringValue("@odata.type", eventQuery.odataType);
+    writer.writeStringValue("query", eventQuery.query);
+    writer.writeEnumValue<QueryType>("queryType", eventQuery.queryType);
+    writer.writeAdditionalData(eventQuery.additionalData);
 }
 // tslint:enable
 // eslint-enable

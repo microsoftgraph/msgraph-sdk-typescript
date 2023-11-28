@@ -27,8 +27,8 @@ export function deserializeIntoAscPostRequestBody(ascPostRequestBody: AscPostReq
     }
 }
 export function serializeAscPostRequestBody(writer: SerializationWriter, ascPostRequestBody: AscPostRequestBody | undefined = {} as AscPostRequestBody) : void {
-        writer.writeObjectValue<Json>("text", ascPostRequestBody.text, serializeJson);
-        writer.writeAdditionalData(ascPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("text", ascPostRequestBody.text, serializeJson);
+    writer.writeAdditionalData(ascPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the asc method.

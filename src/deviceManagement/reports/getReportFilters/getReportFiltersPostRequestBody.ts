@@ -63,16 +63,16 @@ export interface GetReportFiltersPostRequestBody extends AdditionalDataHolder, P
     top?: number;
 }
 export function serializeGetReportFiltersPostRequestBody(writer: SerializationWriter, getReportFiltersPostRequestBody: GetReportFiltersPostRequestBody | undefined = {} as GetReportFiltersPostRequestBody) : void {
-        writer.writeStringValue("filter", getReportFiltersPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getReportFiltersPostRequestBody.groupBy);
-        writer.writeStringValue("name", getReportFiltersPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getReportFiltersPostRequestBody.orderBy);
-        writer.writeStringValue("search", getReportFiltersPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getReportFiltersPostRequestBody.select);
-        writer.writeStringValue("sessionId", getReportFiltersPostRequestBody.sessionId);
-        writer.writeNumberValue("skip", getReportFiltersPostRequestBody.skip);
-        writer.writeNumberValue("top", getReportFiltersPostRequestBody.top);
-        writer.writeAdditionalData(getReportFiltersPostRequestBody.additionalData);
+    writer.writeStringValue("filter", getReportFiltersPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getReportFiltersPostRequestBody.groupBy);
+    writer.writeStringValue("name", getReportFiltersPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getReportFiltersPostRequestBody.orderBy);
+    writer.writeStringValue("search", getReportFiltersPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getReportFiltersPostRequestBody.select);
+    writer.writeStringValue("sessionId", getReportFiltersPostRequestBody.sessionId);
+    writer.writeNumberValue("skip", getReportFiltersPostRequestBody.skip);
+    writer.writeNumberValue("top", getReportFiltersPostRequestBody.top);
+    writer.writeAdditionalData(getReportFiltersPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

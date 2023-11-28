@@ -16,10 +16,10 @@ export function deserializeIntoTimeSlot(timeSlot: TimeSlot | undefined = {} as T
     }
 }
 export function serializeTimeSlot(writer: SerializationWriter, timeSlot: TimeSlot | undefined = {} as TimeSlot) : void {
-        writer.writeObjectValue<DateTimeTimeZone>("end", timeSlot.end, serializeDateTimeTimeZone);
-        writer.writeStringValue("@odata.type", timeSlot.odataType);
-        writer.writeObjectValue<DateTimeTimeZone>("start", timeSlot.start, serializeDateTimeTimeZone);
-        writer.writeAdditionalData(timeSlot.additionalData);
+    writer.writeObjectValue<DateTimeTimeZone>("end", timeSlot.end, serializeDateTimeTimeZone);
+    writer.writeStringValue("@odata.type", timeSlot.odataType);
+    writer.writeObjectValue<DateTimeTimeZone>("start", timeSlot.start, serializeDateTimeTimeZone);
+    writer.writeAdditionalData(timeSlot.additionalData);
 }
 export interface TimeSlot extends AdditionalDataHolder, Parsable {
     /**

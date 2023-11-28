@@ -16,10 +16,10 @@ export function deserializeIntoTeamsAppResourceSpecificPermission(teamsAppResour
     }
 }
 export function serializeTeamsAppResourceSpecificPermission(writer: SerializationWriter, teamsAppResourceSpecificPermission: TeamsAppResourceSpecificPermission | undefined = {} as TeamsAppResourceSpecificPermission) : void {
-        writer.writeStringValue("@odata.type", teamsAppResourceSpecificPermission.odataType);
-        writer.writeEnumValue<TeamsAppResourceSpecificPermissionType>("permissionType", teamsAppResourceSpecificPermission.permissionType);
-        writer.writeStringValue("permissionValue", teamsAppResourceSpecificPermission.permissionValue);
-        writer.writeAdditionalData(teamsAppResourceSpecificPermission.additionalData);
+    writer.writeStringValue("@odata.type", teamsAppResourceSpecificPermission.odataType);
+    writer.writeEnumValue<TeamsAppResourceSpecificPermissionType>("permissionType", teamsAppResourceSpecificPermission.permissionType);
+    writer.writeStringValue("permissionValue", teamsAppResourceSpecificPermission.permissionValue);
+    writer.writeAdditionalData(teamsAppResourceSpecificPermission.additionalData);
 }
 export interface TeamsAppResourceSpecificPermission extends AdditionalDataHolder, Parsable {
     /**

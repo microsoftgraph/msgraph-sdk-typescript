@@ -16,8 +16,8 @@ export function deserializeIntoServiceHealthIssueCollectionResponse(serviceHealt
     }
 }
 export function serializeServiceHealthIssueCollectionResponse(writer: SerializationWriter, serviceHealthIssueCollectionResponse: ServiceHealthIssueCollectionResponse | undefined = {} as ServiceHealthIssueCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, serviceHealthIssueCollectionResponse)
-        writer.writeCollectionOfObjectValues<ServiceHealthIssue>("value", serviceHealthIssueCollectionResponse.value, serializeServiceHealthIssue);
+    serializeBaseCollectionPaginationCountResponse(writer, serviceHealthIssueCollectionResponse)
+    writer.writeCollectionOfObjectValues<ServiceHealthIssue>("value", serviceHealthIssueCollectionResponse.value, serializeServiceHealthIssue);
 }
 export interface ServiceHealthIssueCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

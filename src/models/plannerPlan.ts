@@ -61,15 +61,15 @@ export interface PlannerPlan extends Entity, Parsable {
     title?: string;
 }
 export function serializePlannerPlan(writer: SerializationWriter, plannerPlan: PlannerPlan | undefined = {} as PlannerPlan) : void {
-        serializeEntity(writer, plannerPlan)
-        writer.writeCollectionOfObjectValues<PlannerBucket>("buckets", plannerPlan.buckets, serializePlannerBucket);
-        writer.writeObjectValue<PlannerPlanContainer>("container", plannerPlan.container, serializePlannerPlanContainer);
-        writer.writeObjectValue<IdentitySet>("createdBy", plannerPlan.createdBy, serializeIdentitySet);
-        writer.writeDateValue("createdDateTime", plannerPlan.createdDateTime);
-        writer.writeObjectValue<PlannerPlanDetails>("details", plannerPlan.details, serializePlannerPlanDetails);
-        writer.writeStringValue("owner", plannerPlan.owner);
-        writer.writeCollectionOfObjectValues<PlannerTask>("tasks", plannerPlan.tasks, serializePlannerTask);
-        writer.writeStringValue("title", plannerPlan.title);
+    serializeEntity(writer, plannerPlan)
+    writer.writeCollectionOfObjectValues<PlannerBucket>("buckets", plannerPlan.buckets, serializePlannerBucket);
+    writer.writeObjectValue<PlannerPlanContainer>("container", plannerPlan.container, serializePlannerPlanContainer);
+    writer.writeObjectValue<IdentitySet>("createdBy", plannerPlan.createdBy, serializeIdentitySet);
+    writer.writeDateValue("createdDateTime", plannerPlan.createdDateTime);
+    writer.writeObjectValue<PlannerPlanDetails>("details", plannerPlan.details, serializePlannerPlanDetails);
+    writer.writeStringValue("owner", plannerPlan.owner);
+    writer.writeCollectionOfObjectValues<PlannerTask>("tasks", plannerPlan.tasks, serializePlannerTask);
+    writer.writeStringValue("title", plannerPlan.title);
 }
 // tslint:enable
 // eslint-enable

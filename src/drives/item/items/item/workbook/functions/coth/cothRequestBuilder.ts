@@ -27,8 +27,8 @@ export function deserializeIntoCothPostRequestBody(cothPostRequestBody: CothPost
     }
 }
 export function serializeCothPostRequestBody(writer: SerializationWriter, cothPostRequestBody: CothPostRequestBody | undefined = {} as CothPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", cothPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(cothPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", cothPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(cothPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the coth method.

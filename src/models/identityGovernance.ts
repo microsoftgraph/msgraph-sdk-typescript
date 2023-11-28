@@ -59,14 +59,14 @@ export interface IdentityGovernance extends AdditionalDataHolder, Parsable {
     termsOfUse?: TermsOfUseContainer;
 }
 export function serializeIdentityGovernance(writer: SerializationWriter, identityGovernance: IdentityGovernance | undefined = {} as IdentityGovernance) : void {
-        writer.writeObjectValue<AccessReviewSet>("accessReviews", identityGovernance.accessReviews, serializeAccessReviewSet);
-        writer.writeObjectValue<AppConsentApprovalRoute>("appConsent", identityGovernance.appConsent, serializeAppConsentApprovalRoute);
-        writer.writeObjectValue<EntitlementManagement>("entitlementManagement", identityGovernance.entitlementManagement, serializeEntitlementManagement);
-        writer.writeObjectValue<LifecycleWorkflowsContainer>("lifecycleWorkflows", identityGovernance.lifecycleWorkflows, serializeLifecycleWorkflowsContainer);
-        writer.writeStringValue("@odata.type", identityGovernance.odataType);
-        writer.writeObjectValue<PrivilegedAccessRoot>("privilegedAccess", identityGovernance.privilegedAccess, serializePrivilegedAccessRoot);
-        writer.writeObjectValue<TermsOfUseContainer>("termsOfUse", identityGovernance.termsOfUse, serializeTermsOfUseContainer);
-        writer.writeAdditionalData(identityGovernance.additionalData);
+    writer.writeObjectValue<AccessReviewSet>("accessReviews", identityGovernance.accessReviews, serializeAccessReviewSet);
+    writer.writeObjectValue<AppConsentApprovalRoute>("appConsent", identityGovernance.appConsent, serializeAppConsentApprovalRoute);
+    writer.writeObjectValue<EntitlementManagement>("entitlementManagement", identityGovernance.entitlementManagement, serializeEntitlementManagement);
+    writer.writeObjectValue<LifecycleWorkflowsContainer>("lifecycleWorkflows", identityGovernance.lifecycleWorkflows, serializeLifecycleWorkflowsContainer);
+    writer.writeStringValue("@odata.type", identityGovernance.odataType);
+    writer.writeObjectValue<PrivilegedAccessRoot>("privilegedAccess", identityGovernance.privilegedAccess, serializePrivilegedAccessRoot);
+    writer.writeObjectValue<TermsOfUseContainer>("termsOfUse", identityGovernance.termsOfUse, serializeTermsOfUseContainer);
+    writer.writeAdditionalData(identityGovernance.additionalData);
 }
 // tslint:enable
 // eslint-enable

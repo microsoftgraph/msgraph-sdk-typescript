@@ -26,8 +26,8 @@ export interface FavoritePostRequestBody extends AdditionalDataHolder, Parsable 
     messageIds?: string[];
 }
 export function serializeFavoritePostRequestBody(writer: SerializationWriter, favoritePostRequestBody: FavoritePostRequestBody | undefined = {} as FavoritePostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", favoritePostRequestBody.messageIds);
-        writer.writeAdditionalData(favoritePostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("messageIds", favoritePostRequestBody.messageIds);
+    writer.writeAdditionalData(favoritePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the favorite method.

@@ -22,8 +22,8 @@ export interface MdmWindowsInformationProtectionPolicyCollectionResponse extends
     value?: MdmWindowsInformationProtectionPolicy[];
 }
 export function serializeMdmWindowsInformationProtectionPolicyCollectionResponse(writer: SerializationWriter, mdmWindowsInformationProtectionPolicyCollectionResponse: MdmWindowsInformationProtectionPolicyCollectionResponse | undefined = {} as MdmWindowsInformationProtectionPolicyCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, mdmWindowsInformationProtectionPolicyCollectionResponse)
-        writer.writeCollectionOfObjectValues<MdmWindowsInformationProtectionPolicy>("value", mdmWindowsInformationProtectionPolicyCollectionResponse.value, serializeMdmWindowsInformationProtectionPolicy);
+    serializeBaseCollectionPaginationCountResponse(writer, mdmWindowsInformationProtectionPolicyCollectionResponse)
+    writer.writeCollectionOfObjectValues<MdmWindowsInformationProtectionPolicy>("value", mdmWindowsInformationProtectionPolicyCollectionResponse.value, serializeMdmWindowsInformationProtectionPolicy);
 }
 // tslint:enable
 // eslint-enable

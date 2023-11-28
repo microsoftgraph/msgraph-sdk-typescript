@@ -24,8 +24,8 @@ export interface ErfCPostRequestBody extends AdditionalDataHolder, Parsable {
     x?: Json;
 }
 export function serializeErfCPostRequestBody(writer: SerializationWriter, erfCPostRequestBody: ErfCPostRequestBody | undefined = {} as ErfCPostRequestBody) : void {
-        writer.writeObjectValue<Json>("x", erfCPostRequestBody.x, serializeJson);
-        writer.writeAdditionalData(erfCPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("x", erfCPostRequestBody.x, serializeJson);
+    writer.writeAdditionalData(erfCPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

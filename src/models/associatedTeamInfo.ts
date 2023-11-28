@@ -16,7 +16,7 @@ export function deserializeIntoAssociatedTeamInfo(associatedTeamInfo: Associated
     }
 }
 export function serializeAssociatedTeamInfo(writer: SerializationWriter, associatedTeamInfo: AssociatedTeamInfo | undefined = {} as AssociatedTeamInfo) : void {
-        serializeTeamInfo(writer, associatedTeamInfo)
+    serializeTeamInfo(writer, associatedTeamInfo)
 }
 // tslint:enable
 // eslint-enable

@@ -46,12 +46,12 @@ export function deserializeIntoAuthenticationMethodsRegistrationCampaign(authent
     }
 }
 export function serializeAuthenticationMethodsRegistrationCampaign(writer: SerializationWriter, authenticationMethodsRegistrationCampaign: AuthenticationMethodsRegistrationCampaign | undefined = {} as AuthenticationMethodsRegistrationCampaign) : void {
-        writer.writeCollectionOfObjectValues<ExcludeTarget>("excludeTargets", authenticationMethodsRegistrationCampaign.excludeTargets, serializeExcludeTarget);
-        writer.writeCollectionOfObjectValues<AuthenticationMethodsRegistrationCampaignIncludeTarget>("includeTargets", authenticationMethodsRegistrationCampaign.includeTargets, serializeAuthenticationMethodsRegistrationCampaignIncludeTarget);
-        writer.writeStringValue("@odata.type", authenticationMethodsRegistrationCampaign.odataType);
-        writer.writeNumberValue("snoozeDurationInDays", authenticationMethodsRegistrationCampaign.snoozeDurationInDays);
-        writer.writeEnumValue<AdvancedConfigState>("state", authenticationMethodsRegistrationCampaign.state);
-        writer.writeAdditionalData(authenticationMethodsRegistrationCampaign.additionalData);
+    writer.writeCollectionOfObjectValues<ExcludeTarget>("excludeTargets", authenticationMethodsRegistrationCampaign.excludeTargets, serializeExcludeTarget);
+    writer.writeCollectionOfObjectValues<AuthenticationMethodsRegistrationCampaignIncludeTarget>("includeTargets", authenticationMethodsRegistrationCampaign.includeTargets, serializeAuthenticationMethodsRegistrationCampaignIncludeTarget);
+    writer.writeStringValue("@odata.type", authenticationMethodsRegistrationCampaign.odataType);
+    writer.writeNumberValue("snoozeDurationInDays", authenticationMethodsRegistrationCampaign.snoozeDurationInDays);
+    writer.writeEnumValue<AdvancedConfigState>("state", authenticationMethodsRegistrationCampaign.state);
+    writer.writeAdditionalData(authenticationMethodsRegistrationCampaign.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -38,11 +38,11 @@ export interface ItemPreviewInfo extends AdditionalDataHolder, Parsable {
     postUrl?: string;
 }
 export function serializeItemPreviewInfo(writer: SerializationWriter, itemPreviewInfo: ItemPreviewInfo | undefined = {} as ItemPreviewInfo) : void {
-        writer.writeStringValue("getUrl", itemPreviewInfo.getUrl);
-        writer.writeStringValue("@odata.type", itemPreviewInfo.odataType);
-        writer.writeStringValue("postParameters", itemPreviewInfo.postParameters);
-        writer.writeStringValue("postUrl", itemPreviewInfo.postUrl);
-        writer.writeAdditionalData(itemPreviewInfo.additionalData);
+    writer.writeStringValue("getUrl", itemPreviewInfo.getUrl);
+    writer.writeStringValue("@odata.type", itemPreviewInfo.odataType);
+    writer.writeStringValue("postParameters", itemPreviewInfo.postParameters);
+    writer.writeStringValue("postUrl", itemPreviewInfo.postUrl);
+    writer.writeAdditionalData(itemPreviewInfo.additionalData);
 }
 // tslint:enable
 // eslint-enable

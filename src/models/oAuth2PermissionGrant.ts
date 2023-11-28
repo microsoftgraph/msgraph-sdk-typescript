@@ -41,12 +41,12 @@ export interface OAuth2PermissionGrant extends Entity, Parsable {
     scope?: string;
 }
 export function serializeOAuth2PermissionGrant(writer: SerializationWriter, oAuth2PermissionGrant: OAuth2PermissionGrant | undefined = {} as OAuth2PermissionGrant) : void {
-        serializeEntity(writer, oAuth2PermissionGrant)
-        writer.writeStringValue("clientId", oAuth2PermissionGrant.clientId);
-        writer.writeStringValue("consentType", oAuth2PermissionGrant.consentType);
-        writer.writeStringValue("principalId", oAuth2PermissionGrant.principalId);
-        writer.writeStringValue("resourceId", oAuth2PermissionGrant.resourceId);
-        writer.writeStringValue("scope", oAuth2PermissionGrant.scope);
+    serializeEntity(writer, oAuth2PermissionGrant)
+    writer.writeStringValue("clientId", oAuth2PermissionGrant.clientId);
+    writer.writeStringValue("consentType", oAuth2PermissionGrant.consentType);
+    writer.writeStringValue("principalId", oAuth2PermissionGrant.principalId);
+    writer.writeStringValue("resourceId", oAuth2PermissionGrant.resourceId);
+    writer.writeStringValue("scope", oAuth2PermissionGrant.scope);
 }
 // tslint:enable
 // eslint-enable

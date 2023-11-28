@@ -21,8 +21,8 @@ export interface EducationPowerPointResource extends EducationResource, Parsable
     fileUrl?: string;
 }
 export function serializeEducationPowerPointResource(writer: SerializationWriter, educationPowerPointResource: EducationPowerPointResource | undefined = {} as EducationPowerPointResource) : void {
-        serializeEducationResource(writer, educationPowerPointResource)
-        writer.writeStringValue("fileUrl", educationPowerPointResource.fileUrl);
+    serializeEducationResource(writer, educationPowerPointResource)
+    writer.writeStringValue("fileUrl", educationPowerPointResource.fileUrl);
 }
 // tslint:enable
 // eslint-enable

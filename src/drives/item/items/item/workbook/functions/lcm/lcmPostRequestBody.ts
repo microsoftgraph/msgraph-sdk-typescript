@@ -24,8 +24,8 @@ export interface LcmPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeLcmPostRequestBody(writer: SerializationWriter, lcmPostRequestBody: LcmPostRequestBody | undefined = {} as LcmPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", lcmPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(lcmPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", lcmPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(lcmPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

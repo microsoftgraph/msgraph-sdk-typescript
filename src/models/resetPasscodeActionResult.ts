@@ -21,8 +21,8 @@ export interface ResetPasscodeActionResult extends DeviceActionResult, Parsable 
     passcode?: string;
 }
 export function serializeResetPasscodeActionResult(writer: SerializationWriter, resetPasscodeActionResult: ResetPasscodeActionResult | undefined = {} as ResetPasscodeActionResult) : void {
-        serializeDeviceActionResult(writer, resetPasscodeActionResult)
-        writer.writeStringValue("passcode", resetPasscodeActionResult.passcode);
+    serializeDeviceActionResult(writer, resetPasscodeActionResult)
+    writer.writeStringValue("passcode", resetPasscodeActionResult.passcode);
 }
 // tslint:enable
 // eslint-enable

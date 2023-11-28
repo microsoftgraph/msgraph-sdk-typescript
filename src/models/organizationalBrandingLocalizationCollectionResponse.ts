@@ -22,8 +22,8 @@ export interface OrganizationalBrandingLocalizationCollectionResponse extends Ba
     value?: OrganizationalBrandingLocalization[];
 }
 export function serializeOrganizationalBrandingLocalizationCollectionResponse(writer: SerializationWriter, organizationalBrandingLocalizationCollectionResponse: OrganizationalBrandingLocalizationCollectionResponse | undefined = {} as OrganizationalBrandingLocalizationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, organizationalBrandingLocalizationCollectionResponse)
-        writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalization>("value", organizationalBrandingLocalizationCollectionResponse.value, serializeOrganizationalBrandingLocalization);
+    serializeBaseCollectionPaginationCountResponse(writer, organizationalBrandingLocalizationCollectionResponse)
+    writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalization>("value", organizationalBrandingLocalizationCollectionResponse.value, serializeOrganizationalBrandingLocalization);
 }
 // tslint:enable
 // eslint-enable

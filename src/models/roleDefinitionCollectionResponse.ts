@@ -22,8 +22,8 @@ export interface RoleDefinitionCollectionResponse extends BaseCollectionPaginati
     value?: RoleDefinition[];
 }
 export function serializeRoleDefinitionCollectionResponse(writer: SerializationWriter, roleDefinitionCollectionResponse: RoleDefinitionCollectionResponse | undefined = {} as RoleDefinitionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, roleDefinitionCollectionResponse)
-        writer.writeCollectionOfObjectValues<RoleDefinition>("value", roleDefinitionCollectionResponse.value, serializeRoleDefinition);
+    serializeBaseCollectionPaginationCountResponse(writer, roleDefinitionCollectionResponse)
+    writer.writeCollectionOfObjectValues<RoleDefinition>("value", roleDefinitionCollectionResponse.value, serializeRoleDefinition);
 }
 // tslint:enable
 // eslint-enable

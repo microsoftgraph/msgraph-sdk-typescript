@@ -26,8 +26,8 @@ export function deserializeIntoAddPostRequestBody(addPostRequestBody: AddPostReq
     }
 }
 export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: AddPostRequestBody | undefined = {} as AddPostRequestBody) : void {
-        writer.writeStringValue("name", addPostRequestBody.name);
-        writer.writeAdditionalData(addPostRequestBody.additionalData);
+    writer.writeStringValue("name", addPostRequestBody.name);
+    writer.writeAdditionalData(addPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the add method.

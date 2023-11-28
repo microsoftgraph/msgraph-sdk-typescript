@@ -137,29 +137,29 @@ export interface Payload extends Entity, Parsable {
     theme?: PayloadTheme;
 }
 export function serializePayload(writer: SerializationWriter, payload: Payload | undefined = {} as Payload) : void {
-        serializeEntity(writer, payload)
-        writer.writeEnumValue<PayloadBrand>("brand", payload.brand);
-        writer.writeEnumValue<PayloadComplexity>("complexity", payload.complexity);
-        writer.writeObjectValue<EmailIdentity>("createdBy", payload.createdBy, serializeEmailIdentity);
-        writer.writeDateValue("createdDateTime", payload.createdDateTime);
-        writer.writeStringValue("description", payload.description);
-        writer.writeObjectValue<PayloadDetail>("detail", payload.detail, serializePayloadDetail);
-        writer.writeStringValue("displayName", payload.displayName);
-        writer.writeEnumValue<PayloadIndustry>("industry", payload.industry);
-        writer.writeBooleanValue("isAutomated", payload.isAutomated);
-        writer.writeBooleanValue("isControversial", payload.isControversial);
-        writer.writeBooleanValue("isCurrentEvent", payload.isCurrentEvent);
-        writer.writeStringValue("language", payload.language);
-        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", payload.lastModifiedBy, serializeEmailIdentity);
-        writer.writeDateValue("lastModifiedDateTime", payload.lastModifiedDateTime);
-        writer.writeCollectionOfPrimitiveValues<string>("payloadTags", payload.payloadTags);
-        writer.writeEnumValue<PayloadDeliveryPlatform>("platform", payload.platform);
-        writer.writeNumberValue("predictedCompromiseRate", payload.predictedCompromiseRate);
-        writer.writeEnumValue<SimulationAttackType>("simulationAttackType", payload.simulationAttackType);
-        writer.writeEnumValue<SimulationContentSource>("source", payload.source);
-        writer.writeEnumValue<SimulationContentStatus>("status", payload.status);
-        writer.writeEnumValue<SimulationAttackTechnique>("technique", payload.technique);
-        writer.writeEnumValue<PayloadTheme>("theme", payload.theme);
+    serializeEntity(writer, payload)
+    writer.writeEnumValue<PayloadBrand>("brand", payload.brand);
+    writer.writeEnumValue<PayloadComplexity>("complexity", payload.complexity);
+    writer.writeObjectValue<EmailIdentity>("createdBy", payload.createdBy, serializeEmailIdentity);
+    writer.writeDateValue("createdDateTime", payload.createdDateTime);
+    writer.writeStringValue("description", payload.description);
+    writer.writeObjectValue<PayloadDetail>("detail", payload.detail, serializePayloadDetail);
+    writer.writeStringValue("displayName", payload.displayName);
+    writer.writeEnumValue<PayloadIndustry>("industry", payload.industry);
+    writer.writeBooleanValue("isAutomated", payload.isAutomated);
+    writer.writeBooleanValue("isControversial", payload.isControversial);
+    writer.writeBooleanValue("isCurrentEvent", payload.isCurrentEvent);
+    writer.writeStringValue("language", payload.language);
+    writer.writeObjectValue<EmailIdentity>("lastModifiedBy", payload.lastModifiedBy, serializeEmailIdentity);
+    writer.writeDateValue("lastModifiedDateTime", payload.lastModifiedDateTime);
+    writer.writeCollectionOfPrimitiveValues<string>("payloadTags", payload.payloadTags);
+    writer.writeEnumValue<PayloadDeliveryPlatform>("platform", payload.platform);
+    writer.writeNumberValue("predictedCompromiseRate", payload.predictedCompromiseRate);
+    writer.writeEnumValue<SimulationAttackType>("simulationAttackType", payload.simulationAttackType);
+    writer.writeEnumValue<SimulationContentSource>("source", payload.source);
+    writer.writeEnumValue<SimulationContentStatus>("status", payload.status);
+    writer.writeEnumValue<SimulationAttackTechnique>("technique", payload.technique);
+    writer.writeEnumValue<PayloadTheme>("theme", payload.theme);
 }
 // tslint:enable
 // eslint-enable

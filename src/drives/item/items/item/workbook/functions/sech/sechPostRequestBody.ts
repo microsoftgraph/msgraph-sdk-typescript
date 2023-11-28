@@ -24,8 +24,8 @@ export interface SechPostRequestBody extends AdditionalDataHolder, Parsable {
     number?: Json;
 }
 export function serializeSechPostRequestBody(writer: SerializationWriter, sechPostRequestBody: SechPostRequestBody | undefined = {} as SechPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", sechPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(sechPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", sechPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(sechPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -23,8 +23,8 @@ export function deserializeIntoApplyCellColorFilterPostRequestBody(applyCellColo
     }
 }
 export function serializeApplyCellColorFilterPostRequestBody(writer: SerializationWriter, applyCellColorFilterPostRequestBody: ApplyCellColorFilterPostRequestBody | undefined = {} as ApplyCellColorFilterPostRequestBody) : void {
-        writer.writeStringValue("color", applyCellColorFilterPostRequestBody.color);
-        writer.writeAdditionalData(applyCellColorFilterPostRequestBody.additionalData);
+    writer.writeStringValue("color", applyCellColorFilterPostRequestBody.color);
+    writer.writeAdditionalData(applyCellColorFilterPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -23,8 +23,8 @@ export interface ImageGetResponse extends AdditionalDataHolder, Parsable {
     value?: string;
 }
 export function serializeImageGetResponse(writer: SerializationWriter, imageGetResponse: ImageGetResponse | undefined = {} as ImageGetResponse) : void {
-        writer.writeStringValue("value", imageGetResponse.value);
-        writer.writeAdditionalData(imageGetResponse.additionalData);
+    writer.writeStringValue("value", imageGetResponse.value);
+    writer.writeAdditionalData(imageGetResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

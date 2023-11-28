@@ -44,12 +44,12 @@ export function deserializeIntoCallEndedEventMessageDetail(callEndedEventMessage
     }
 }
 export function serializeCallEndedEventMessageDetail(writer: SerializationWriter, callEndedEventMessageDetail: CallEndedEventMessageDetail | undefined = {} as CallEndedEventMessageDetail) : void {
-        serializeEventMessageDetail(writer, callEndedEventMessageDetail)
-        writer.writeDurationValue("callDuration", callEndedEventMessageDetail.callDuration);
-        writer.writeEnumValue<TeamworkCallEventType>("callEventType", callEndedEventMessageDetail.callEventType);
-        writer.writeStringValue("callId", callEndedEventMessageDetail.callId);
-        writer.writeCollectionOfObjectValues<CallParticipantInfo>("callParticipants", callEndedEventMessageDetail.callParticipants, serializeCallParticipantInfo);
-        writer.writeObjectValue<IdentitySet>("initiator", callEndedEventMessageDetail.initiator, serializeIdentitySet);
+    serializeEventMessageDetail(writer, callEndedEventMessageDetail)
+    writer.writeDurationValue("callDuration", callEndedEventMessageDetail.callDuration);
+    writer.writeEnumValue<TeamworkCallEventType>("callEventType", callEndedEventMessageDetail.callEventType);
+    writer.writeStringValue("callId", callEndedEventMessageDetail.callId);
+    writer.writeCollectionOfObjectValues<CallParticipantInfo>("callParticipants", callEndedEventMessageDetail.callParticipants, serializeCallParticipantInfo);
+    writer.writeObjectValue<IdentitySet>("initiator", callEndedEventMessageDetail.initiator, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

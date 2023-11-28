@@ -16,10 +16,10 @@ export function deserializeIntoTbillYieldPostRequestBody(tbillYieldPostRequestBo
     }
 }
 export function serializeTbillYieldPostRequestBody(writer: SerializationWriter, tbillYieldPostRequestBody: TbillYieldPostRequestBody | undefined = {} as TbillYieldPostRequestBody) : void {
-        writer.writeObjectValue<Json>("maturity", tbillYieldPostRequestBody.maturity, serializeJson);
-        writer.writeObjectValue<Json>("pr", tbillYieldPostRequestBody.pr, serializeJson);
-        writer.writeObjectValue<Json>("settlement", tbillYieldPostRequestBody.settlement, serializeJson);
-        writer.writeAdditionalData(tbillYieldPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("maturity", tbillYieldPostRequestBody.maturity, serializeJson);
+    writer.writeObjectValue<Json>("pr", tbillYieldPostRequestBody.pr, serializeJson);
+    writer.writeObjectValue<Json>("settlement", tbillYieldPostRequestBody.settlement, serializeJson);
+    writer.writeAdditionalData(tbillYieldPostRequestBody.additionalData);
 }
 export interface TbillYieldPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

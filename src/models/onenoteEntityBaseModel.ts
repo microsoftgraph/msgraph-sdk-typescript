@@ -51,8 +51,8 @@ export interface OnenoteEntityBaseModel extends Entity, Parsable {
     self?: string;
 }
 export function serializeOnenoteEntityBaseModel(writer: SerializationWriter, onenoteEntityBaseModel: OnenoteEntityBaseModel | undefined = {} as OnenoteEntityBaseModel) : void {
-        serializeEntity(writer, onenoteEntityBaseModel)
-        writer.writeStringValue("self", onenoteEntityBaseModel.self);
+    serializeEntity(writer, onenoteEntityBaseModel)
+    writer.writeStringValue("self", onenoteEntityBaseModel.self);
 }
 // tslint:enable
 // eslint-enable

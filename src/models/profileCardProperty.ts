@@ -27,9 +27,9 @@ export interface ProfileCardProperty extends Entity, Parsable {
     directoryPropertyName?: string;
 }
 export function serializeProfileCardProperty(writer: SerializationWriter, profileCardProperty: ProfileCardProperty | undefined = {} as ProfileCardProperty) : void {
-        serializeEntity(writer, profileCardProperty)
-        writer.writeCollectionOfObjectValues<ProfileCardAnnotation>("annotations", profileCardProperty.annotations, serializeProfileCardAnnotation);
-        writer.writeStringValue("directoryPropertyName", profileCardProperty.directoryPropertyName);
+    serializeEntity(writer, profileCardProperty)
+    writer.writeCollectionOfObjectValues<ProfileCardAnnotation>("annotations", profileCardProperty.annotations, serializeProfileCardAnnotation);
+    writer.writeStringValue("directoryPropertyName", profileCardProperty.directoryPropertyName);
 }
 // tslint:enable
 // eslint-enable

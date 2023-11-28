@@ -29,9 +29,9 @@ export interface GetMailTipsPostRequestBody extends AdditionalDataHolder, Parsab
     mailTipsOptions?: MailTipsType[];
 }
 export function serializeGetMailTipsPostRequestBody(writer: SerializationWriter, getMailTipsPostRequestBody: GetMailTipsPostRequestBody | undefined = {} as GetMailTipsPostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("EmailAddresses", getMailTipsPostRequestBody.emailAddresses);
-        writer.writeEnumValue<MailTipsType[]>("MailTipsOptions", getMailTipsPostRequestBody.mailTipsOptions);
-        writer.writeAdditionalData(getMailTipsPostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("EmailAddresses", getMailTipsPostRequestBody.emailAddresses);
+    writer.writeEnumValue<MailTipsType[]>("MailTipsOptions", getMailTipsPostRequestBody.mailTipsOptions);
+    writer.writeAdditionalData(getMailTipsPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

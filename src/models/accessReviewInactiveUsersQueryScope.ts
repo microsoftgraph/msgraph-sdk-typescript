@@ -21,8 +21,8 @@ export function deserializeIntoAccessReviewInactiveUsersQueryScope(accessReviewI
     }
 }
 export function serializeAccessReviewInactiveUsersQueryScope(writer: SerializationWriter, accessReviewInactiveUsersQueryScope: AccessReviewInactiveUsersQueryScope | undefined = {} as AccessReviewInactiveUsersQueryScope) : void {
-        serializeAccessReviewQueryScope(writer, accessReviewInactiveUsersQueryScope)
-        writer.writeDurationValue("inactiveDuration", accessReviewInactiveUsersQueryScope.inactiveDuration);
+    serializeAccessReviewQueryScope(writer, accessReviewInactiveUsersQueryScope)
+    writer.writeDurationValue("inactiveDuration", accessReviewInactiveUsersQueryScope.inactiveDuration);
 }
 // tslint:enable
 // eslint-enable

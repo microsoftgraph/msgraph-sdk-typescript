@@ -32,9 +32,9 @@ export function deserializeIntoCountIfPostRequestBody(countIfPostRequestBody: Co
     }
 }
 export function serializeCountIfPostRequestBody(writer: SerializationWriter, countIfPostRequestBody: CountIfPostRequestBody | undefined = {} as CountIfPostRequestBody) : void {
-        writer.writeObjectValue<Json>("criteria", countIfPostRequestBody.criteria, serializeJson);
-        writer.writeObjectValue<Json>("range", countIfPostRequestBody.range, serializeJson);
-        writer.writeAdditionalData(countIfPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("criteria", countIfPostRequestBody.criteria, serializeJson);
+    writer.writeObjectValue<Json>("range", countIfPostRequestBody.range, serializeJson);
+    writer.writeAdditionalData(countIfPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the countIf method.

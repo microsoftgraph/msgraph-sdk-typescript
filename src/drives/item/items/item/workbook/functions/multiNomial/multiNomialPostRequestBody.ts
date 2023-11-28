@@ -24,8 +24,8 @@ export interface MultiNomialPostRequestBody extends AdditionalDataHolder, Parsab
     values?: Json;
 }
 export function serializeMultiNomialPostRequestBody(writer: SerializationWriter, multiNomialPostRequestBody: MultiNomialPostRequestBody | undefined = {} as MultiNomialPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", multiNomialPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(multiNomialPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", multiNomialPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(multiNomialPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

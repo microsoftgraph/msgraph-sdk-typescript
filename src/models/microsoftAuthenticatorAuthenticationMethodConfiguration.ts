@@ -33,10 +33,10 @@ export interface MicrosoftAuthenticatorAuthenticationMethodConfiguration extends
     isSoftwareOathEnabled?: boolean;
 }
 export function serializeMicrosoftAuthenticatorAuthenticationMethodConfiguration(writer: SerializationWriter, microsoftAuthenticatorAuthenticationMethodConfiguration: MicrosoftAuthenticatorAuthenticationMethodConfiguration | undefined = {} as MicrosoftAuthenticatorAuthenticationMethodConfiguration) : void {
-        serializeAuthenticationMethodConfiguration(writer, microsoftAuthenticatorAuthenticationMethodConfiguration)
-        writer.writeObjectValue<MicrosoftAuthenticatorFeatureSettings>("featureSettings", microsoftAuthenticatorAuthenticationMethodConfiguration.featureSettings, serializeMicrosoftAuthenticatorFeatureSettings);
-        writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodTarget>("includeTargets", microsoftAuthenticatorAuthenticationMethodConfiguration.includeTargets, serializeMicrosoftAuthenticatorAuthenticationMethodTarget);
-        writer.writeBooleanValue("isSoftwareOathEnabled", microsoftAuthenticatorAuthenticationMethodConfiguration.isSoftwareOathEnabled);
+    serializeAuthenticationMethodConfiguration(writer, microsoftAuthenticatorAuthenticationMethodConfiguration)
+    writer.writeObjectValue<MicrosoftAuthenticatorFeatureSettings>("featureSettings", microsoftAuthenticatorAuthenticationMethodConfiguration.featureSettings, serializeMicrosoftAuthenticatorFeatureSettings);
+    writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodTarget>("includeTargets", microsoftAuthenticatorAuthenticationMethodConfiguration.includeTargets, serializeMicrosoftAuthenticatorAuthenticationMethodTarget);
+    writer.writeBooleanValue("isSoftwareOathEnabled", microsoftAuthenticatorAuthenticationMethodConfiguration.isSoftwareOathEnabled);
 }
 // tslint:enable
 // eslint-enable

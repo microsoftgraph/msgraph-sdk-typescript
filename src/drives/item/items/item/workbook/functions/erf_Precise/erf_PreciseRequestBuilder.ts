@@ -27,8 +27,8 @@ export interface Erf_PrecisePostRequestBody extends AdditionalDataHolder, Parsab
     x?: Json;
 }
 export function serializeErf_PrecisePostRequestBody(writer: SerializationWriter, erf_PrecisePostRequestBody: Erf_PrecisePostRequestBody | undefined = {} as Erf_PrecisePostRequestBody) : void {
-        writer.writeObjectValue<Json>("X", erf_PrecisePostRequestBody.x, serializeJson);
-        writer.writeAdditionalData(erf_PrecisePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("X", erf_PrecisePostRequestBody.x, serializeJson);
+    writer.writeAdditionalData(erf_PrecisePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the erf_Precise method.

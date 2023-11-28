@@ -22,8 +22,8 @@ export function deserializeIntoAndroidWorkProfileCustomConfiguration(androidWork
     }
 }
 export function serializeAndroidWorkProfileCustomConfiguration(writer: SerializationWriter, androidWorkProfileCustomConfiguration: AndroidWorkProfileCustomConfiguration | undefined = {} as AndroidWorkProfileCustomConfiguration) : void {
-        serializeDeviceConfiguration(writer, androidWorkProfileCustomConfiguration)
-        writer.writeCollectionOfObjectValues<OmaSetting>("omaSettings", androidWorkProfileCustomConfiguration.omaSettings, serializeOmaSetting);
+    serializeDeviceConfiguration(writer, androidWorkProfileCustomConfiguration)
+    writer.writeCollectionOfObjectValues<OmaSetting>("omaSettings", androidWorkProfileCustomConfiguration.omaSettings, serializeOmaSetting);
 }
 // tslint:enable
 // eslint-enable

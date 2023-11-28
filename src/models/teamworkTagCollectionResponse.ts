@@ -16,8 +16,8 @@ export function deserializeIntoTeamworkTagCollectionResponse(teamworkTagCollecti
     }
 }
 export function serializeTeamworkTagCollectionResponse(writer: SerializationWriter, teamworkTagCollectionResponse: TeamworkTagCollectionResponse | undefined = {} as TeamworkTagCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, teamworkTagCollectionResponse)
-        writer.writeCollectionOfObjectValues<TeamworkTag>("value", teamworkTagCollectionResponse.value, serializeTeamworkTag);
+    serializeBaseCollectionPaginationCountResponse(writer, teamworkTagCollectionResponse)
+    writer.writeCollectionOfObjectValues<TeamworkTag>("value", teamworkTagCollectionResponse.value, serializeTeamworkTag);
 }
 export interface TeamworkTagCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -24,8 +24,8 @@ export interface GetApplicablePolicyRequirementsPostResponse extends BaseCollect
     value?: AccessPackageAssignmentRequestRequirements[];
 }
 export function serializeGetApplicablePolicyRequirementsPostResponse(writer: SerializationWriter, getApplicablePolicyRequirementsPostResponse: GetApplicablePolicyRequirementsPostResponse | undefined = {} as GetApplicablePolicyRequirementsPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getApplicablePolicyRequirementsPostResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestRequirements>("value", getApplicablePolicyRequirementsPostResponse.value, serializeAccessPackageAssignmentRequestRequirements);
+    serializeBaseCollectionPaginationCountResponse(writer, getApplicablePolicyRequirementsPostResponse)
+    writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestRequirements>("value", getApplicablePolicyRequirementsPostResponse.value, serializeAccessPackageAssignmentRequestRequirements);
 }
 /**
  * Provides operations to call the getApplicablePolicyRequirements method.

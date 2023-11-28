@@ -44,12 +44,12 @@ export function deserializeIntoAddGroupPostResponse(addGroupPostResponse: AddGro
     }
 }
 export function serializeAddGroupPostRequestBody(writer: SerializationWriter, addGroupPostRequestBody: AddGroupPostRequestBody | undefined = {} as AddGroupPostRequestBody) : void {
-        writer.writeStringValue("groupId", addGroupPostRequestBody.groupId);
-        writer.writeAdditionalData(addGroupPostRequestBody.additionalData);
+    writer.writeStringValue("groupId", addGroupPostRequestBody.groupId);
+    writer.writeAdditionalData(addGroupPostRequestBody.additionalData);
 }
 export function serializeAddGroupPostResponse(writer: SerializationWriter, addGroupPostResponse: AddGroupPostResponse | undefined = {} as AddGroupPostResponse) : void {
-        writer.writeBooleanValue("value", addGroupPostResponse.value);
-        writer.writeAdditionalData(addGroupPostResponse.additionalData);
+    writer.writeBooleanValue("value", addGroupPostResponse.value);
+    writer.writeAdditionalData(addGroupPostResponse.additionalData);
 }
 /**
  * Provides operations to call the addGroup method.

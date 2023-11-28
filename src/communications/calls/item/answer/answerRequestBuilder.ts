@@ -48,13 +48,13 @@ export function deserializeIntoAnswerPostRequestBody(answerPostRequestBody: Answ
     }
 }
 export function serializeAnswerPostRequestBody(writer: SerializationWriter, answerPostRequestBody: AnswerPostRequestBody | undefined = {} as AnswerPostRequestBody) : void {
-        if(answerPostRequestBody.acceptedModalities)
-        writer.writeEnumValue<Modality>("acceptedModalities", ...answerPostRequestBody.acceptedModalities);
-        writer.writeStringValue("callbackUri", answerPostRequestBody.callbackUri);
-        writer.writeObjectValue<IncomingCallOptions>("callOptions", answerPostRequestBody.callOptions, serializeIncomingCallOptions);
-        writer.writeObjectValue<MediaConfig>("mediaConfig", answerPostRequestBody.mediaConfig, serializeMediaConfig);
-        writer.writeNumberValue("participantCapacity", answerPostRequestBody.participantCapacity);
-        writer.writeAdditionalData(answerPostRequestBody.additionalData);
+    if(answerPostRequestBody.acceptedModalities)
+    writer.writeEnumValue<Modality>("acceptedModalities", ...answerPostRequestBody.acceptedModalities);
+    writer.writeStringValue("callbackUri", answerPostRequestBody.callbackUri);
+    writer.writeObjectValue<IncomingCallOptions>("callOptions", answerPostRequestBody.callOptions, serializeIncomingCallOptions);
+    writer.writeObjectValue<MediaConfig>("mediaConfig", answerPostRequestBody.mediaConfig, serializeMediaConfig);
+    writer.writeNumberValue("participantCapacity", answerPostRequestBody.participantCapacity);
+    writer.writeAdditionalData(answerPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the answer method.

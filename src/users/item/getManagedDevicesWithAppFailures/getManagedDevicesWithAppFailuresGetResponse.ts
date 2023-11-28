@@ -21,8 +21,8 @@ export interface GetManagedDevicesWithAppFailuresGetResponse extends BaseCollect
     value?: string[];
 }
 export function serializeGetManagedDevicesWithAppFailuresGetResponse(writer: SerializationWriter, getManagedDevicesWithAppFailuresGetResponse: GetManagedDevicesWithAppFailuresGetResponse | undefined = {} as GetManagedDevicesWithAppFailuresGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getManagedDevicesWithAppFailuresGetResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getManagedDevicesWithAppFailuresGetResponse.value);
+    serializeBaseCollectionPaginationCountResponse(writer, getManagedDevicesWithAppFailuresGetResponse)
+    writer.writeCollectionOfPrimitiveValues<string>("value", getManagedDevicesWithAppFailuresGetResponse.value);
 }
 // tslint:enable
 // eslint-enable

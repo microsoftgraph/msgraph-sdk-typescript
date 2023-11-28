@@ -15,8 +15,8 @@ export function deserializeIntoWindowsWebApp(windowsWebApp: WindowsWebApp | unde
     }
 }
 export function serializeWindowsWebApp(writer: SerializationWriter, windowsWebApp: WindowsWebApp | undefined = {} as WindowsWebApp) : void {
-        serializeMobileApp(writer, windowsWebApp)
-        writer.writeStringValue("appUrl", windowsWebApp.appUrl);
+    serializeMobileApp(writer, windowsWebApp)
+    writer.writeStringValue("appUrl", windowsWebApp.appUrl);
 }
 export interface WindowsWebApp extends MobileApp, Parsable {
     /**

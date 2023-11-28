@@ -28,9 +28,9 @@ export interface ExternalLink extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeExternalLink(writer: SerializationWriter, externalLink: ExternalLink | undefined = {} as ExternalLink) : void {
-        writer.writeStringValue("href", externalLink.href);
-        writer.writeStringValue("@odata.type", externalLink.odataType);
-        writer.writeAdditionalData(externalLink.additionalData);
+    writer.writeStringValue("href", externalLink.href);
+    writer.writeStringValue("@odata.type", externalLink.odataType);
+    writer.writeAdditionalData(externalLink.additionalData);
 }
 // tslint:enable
 // eslint-enable

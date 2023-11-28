@@ -42,12 +42,12 @@ export function deserializeIntoCheckMemberObjectsPostResponse(checkMemberObjects
     }
 }
 export function serializeCheckMemberObjectsPostRequestBody(writer: SerializationWriter, checkMemberObjectsPostRequestBody: CheckMemberObjectsPostRequestBody | undefined = {} as CheckMemberObjectsPostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("ids", checkMemberObjectsPostRequestBody.ids);
-        writer.writeAdditionalData(checkMemberObjectsPostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("ids", checkMemberObjectsPostRequestBody.ids);
+    writer.writeAdditionalData(checkMemberObjectsPostRequestBody.additionalData);
 }
 export function serializeCheckMemberObjectsPostResponse(writer: SerializationWriter, checkMemberObjectsPostResponse: CheckMemberObjectsPostResponse | undefined = {} as CheckMemberObjectsPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, checkMemberObjectsPostResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", checkMemberObjectsPostResponse.value);
+    serializeBaseCollectionPaginationCountResponse(writer, checkMemberObjectsPostResponse)
+    writer.writeCollectionOfPrimitiveValues<string>("value", checkMemberObjectsPostResponse.value);
 }
 /**
  * Provides operations to call the checkMemberObjects method.

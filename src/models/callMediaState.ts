@@ -29,9 +29,9 @@ export function deserializeIntoCallMediaState(callMediaState: CallMediaState | u
     }
 }
 export function serializeCallMediaState(writer: SerializationWriter, callMediaState: CallMediaState | undefined = {} as CallMediaState) : void {
-        writer.writeEnumValue<MediaState>("audio", callMediaState.audio);
-        writer.writeStringValue("@odata.type", callMediaState.odataType);
-        writer.writeAdditionalData(callMediaState.additionalData);
+    writer.writeEnumValue<MediaState>("audio", callMediaState.audio);
+    writer.writeStringValue("@odata.type", callMediaState.odataType);
+    writer.writeAdditionalData(callMediaState.additionalData);
 }
 // tslint:enable
 // eslint-enable

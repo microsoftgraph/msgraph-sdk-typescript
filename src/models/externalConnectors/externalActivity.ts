@@ -45,10 +45,10 @@ export interface ExternalActivity extends Entity, Parsable {
     type?: ExternalActivityType;
 }
 export function serializeExternalActivity(writer: SerializationWriter, externalActivity: ExternalActivity | undefined = {} as ExternalActivity) : void {
-        serializeEntity(writer, externalActivity)
-        writer.writeObjectValue<Identity>("performedBy", externalActivity.performedBy, serializeIdentity);
-        writer.writeDateValue("startDateTime", externalActivity.startDateTime);
-        writer.writeEnumValue<ExternalActivityType>("type", externalActivity.type);
+    serializeEntity(writer, externalActivity)
+    writer.writeObjectValue<Identity>("performedBy", externalActivity.performedBy, serializeIdentity);
+    writer.writeDateValue("startDateTime", externalActivity.startDateTime);
+    writer.writeEnumValue<ExternalActivityType>("type", externalActivity.type);
 }
 // tslint:enable
 // eslint-enable

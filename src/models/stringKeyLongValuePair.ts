@@ -15,10 +15,10 @@ export function deserializeIntoStringKeyLongValuePair(stringKeyLongValuePair: St
     }
 }
 export function serializeStringKeyLongValuePair(writer: SerializationWriter, stringKeyLongValuePair: StringKeyLongValuePair | undefined = {} as StringKeyLongValuePair) : void {
-        writer.writeStringValue("key", stringKeyLongValuePair.key);
-        writer.writeStringValue("@odata.type", stringKeyLongValuePair.odataType);
-        writer.writeNumberValue("value", stringKeyLongValuePair.value);
-        writer.writeAdditionalData(stringKeyLongValuePair.additionalData);
+    writer.writeStringValue("key", stringKeyLongValuePair.key);
+    writer.writeStringValue("@odata.type", stringKeyLongValuePair.odataType);
+    writer.writeNumberValue("value", stringKeyLongValuePair.value);
+    writer.writeAdditionalData(stringKeyLongValuePair.additionalData);
 }
 export interface StringKeyLongValuePair extends AdditionalDataHolder, Parsable {
     /**

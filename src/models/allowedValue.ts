@@ -21,8 +21,8 @@ export function deserializeIntoAllowedValue(allowedValue: AllowedValue | undefin
     }
 }
 export function serializeAllowedValue(writer: SerializationWriter, allowedValue: AllowedValue | undefined = {} as AllowedValue) : void {
-        serializeEntity(writer, allowedValue)
-        writer.writeBooleanValue("isActive", allowedValue.isActive);
+    serializeEntity(writer, allowedValue)
+    writer.writeBooleanValue("isActive", allowedValue.isActive);
 }
 // tslint:enable
 // eslint-enable

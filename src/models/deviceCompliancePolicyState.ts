@@ -49,13 +49,13 @@ export interface DeviceCompliancePolicyState extends Entity, Parsable {
     version?: number;
 }
 export function serializeDeviceCompliancePolicyState(writer: SerializationWriter, deviceCompliancePolicyState: DeviceCompliancePolicyState | undefined = {} as DeviceCompliancePolicyState) : void {
-        serializeEntity(writer, deviceCompliancePolicyState)
-        writer.writeStringValue("displayName", deviceCompliancePolicyState.displayName);
-        writer.writeEnumValue<PolicyPlatformType>("platformType", deviceCompliancePolicyState.platformType);
-        writer.writeNumberValue("settingCount", deviceCompliancePolicyState.settingCount);
-        writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingState>("settingStates", deviceCompliancePolicyState.settingStates, serializeDeviceCompliancePolicySettingState);
-        writer.writeEnumValue<ComplianceStatus>("state", deviceCompliancePolicyState.state);
-        writer.writeNumberValue("version", deviceCompliancePolicyState.version);
+    serializeEntity(writer, deviceCompliancePolicyState)
+    writer.writeStringValue("displayName", deviceCompliancePolicyState.displayName);
+    writer.writeEnumValue<PolicyPlatformType>("platformType", deviceCompliancePolicyState.platformType);
+    writer.writeNumberValue("settingCount", deviceCompliancePolicyState.settingCount);
+    writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingState>("settingStates", deviceCompliancePolicyState.settingStates, serializeDeviceCompliancePolicySettingState);
+    writer.writeEnumValue<ComplianceStatus>("state", deviceCompliancePolicyState.state);
+    writer.writeNumberValue("version", deviceCompliancePolicyState.version);
 }
 // tslint:enable
 // eslint-enable

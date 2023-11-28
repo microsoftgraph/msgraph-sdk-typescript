@@ -16,10 +16,10 @@ export function deserializeIntoTimePostRequestBody(timePostRequestBody: TimePost
     }
 }
 export function serializeTimePostRequestBody(writer: SerializationWriter, timePostRequestBody: TimePostRequestBody | undefined = {} as TimePostRequestBody) : void {
-        writer.writeObjectValue<Json>("hour", timePostRequestBody.hour, serializeJson);
-        writer.writeObjectValue<Json>("minute", timePostRequestBody.minute, serializeJson);
-        writer.writeObjectValue<Json>("second", timePostRequestBody.second, serializeJson);
-        writer.writeAdditionalData(timePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("hour", timePostRequestBody.hour, serializeJson);
+    writer.writeObjectValue<Json>("minute", timePostRequestBody.minute, serializeJson);
+    writer.writeObjectValue<Json>("second", timePostRequestBody.second, serializeJson);
+    writer.writeAdditionalData(timePostRequestBody.additionalData);
 }
 export interface TimePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

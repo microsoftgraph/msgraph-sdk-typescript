@@ -47,27 +47,27 @@ export function deserializeIntoSite(site: Site | undefined = {} as Site) : Recor
     }
 }
 export function serializeSite(writer: SerializationWriter, site: Site | undefined = {} as Site) : void {
-        serializeBaseItem(writer, site)
-        writer.writeObjectValue<ItemAnalytics>("analytics", site.analytics, serializeItemAnalytics);
-        writer.writeCollectionOfObjectValues<ColumnDefinition>("columns", site.columns, serializeColumnDefinition);
-        writer.writeCollectionOfObjectValues<ContentType>("contentTypes", site.contentTypes, serializeContentType);
-        writer.writeStringValue("displayName", site.displayName);
-        writer.writeObjectValue<Drive>("drive", site.drive, serializeDrive);
-        writer.writeCollectionOfObjectValues<Drive>("drives", site.drives, serializeDrive);
-        writer.writeObjectValue<PublicError>("error", site.errorEscaped, serializePublicError);
-        writer.writeCollectionOfObjectValues<ColumnDefinition>("externalColumns", site.externalColumns, serializeColumnDefinition);
-        writer.writeBooleanValue("isPersonalSite", site.isPersonalSite);
-        writer.writeCollectionOfObjectValues<BaseItem>("items", site.items, serializeBaseItem);
-        writer.writeCollectionOfObjectValues<List>("lists", site.lists, serializeList);
-        writer.writeObjectValue<Onenote>("onenote", site.onenote, serializeOnenote);
-        writer.writeCollectionOfObjectValues<RichLongRunningOperation>("operations", site.operations, serializeRichLongRunningOperation);
-        writer.writeCollectionOfObjectValues<Permission>("permissions", site.permissions, serializePermission);
-        writer.writeObjectValue<Root>("root", site.root, serializeRoot);
-        writer.writeObjectValue<SharepointIds>("sharepointIds", site.sharepointIds, serializeSharepointIds);
-        writer.writeObjectValue<SiteCollection>("siteCollection", site.siteCollection, serializeSiteCollection);
-        writer.writeCollectionOfObjectValues<Site>("sites", site.sites, serializeSite);
-        writer.writeObjectValue<Store>("termStore", site.termStore, serializeStore);
-        writer.writeCollectionOfObjectValues<Store>("termStores", site.termStores, serializeStore);
+    serializeBaseItem(writer, site)
+    writer.writeObjectValue<ItemAnalytics>("analytics", site.analytics, serializeItemAnalytics);
+    writer.writeCollectionOfObjectValues<ColumnDefinition>("columns", site.columns, serializeColumnDefinition);
+    writer.writeCollectionOfObjectValues<ContentType>("contentTypes", site.contentTypes, serializeContentType);
+    writer.writeStringValue("displayName", site.displayName);
+    writer.writeObjectValue<Drive>("drive", site.drive, serializeDrive);
+    writer.writeCollectionOfObjectValues<Drive>("drives", site.drives, serializeDrive);
+    writer.writeObjectValue<PublicError>("error", site.errorEscaped, serializePublicError);
+    writer.writeCollectionOfObjectValues<ColumnDefinition>("externalColumns", site.externalColumns, serializeColumnDefinition);
+    writer.writeBooleanValue("isPersonalSite", site.isPersonalSite);
+    writer.writeCollectionOfObjectValues<BaseItem>("items", site.items, serializeBaseItem);
+    writer.writeCollectionOfObjectValues<List>("lists", site.lists, serializeList);
+    writer.writeObjectValue<Onenote>("onenote", site.onenote, serializeOnenote);
+    writer.writeCollectionOfObjectValues<RichLongRunningOperation>("operations", site.operations, serializeRichLongRunningOperation);
+    writer.writeCollectionOfObjectValues<Permission>("permissions", site.permissions, serializePermission);
+    writer.writeObjectValue<Root>("root", site.root, serializeRoot);
+    writer.writeObjectValue<SharepointIds>("sharepointIds", site.sharepointIds, serializeSharepointIds);
+    writer.writeObjectValue<SiteCollection>("siteCollection", site.siteCollection, serializeSiteCollection);
+    writer.writeCollectionOfObjectValues<Site>("sites", site.sites, serializeSite);
+    writer.writeObjectValue<Store>("termStore", site.termStore, serializeStore);
+    writer.writeCollectionOfObjectValues<Store>("termStores", site.termStores, serializeStore);
 }
 export interface Site extends BaseItem, Parsable {
     /**

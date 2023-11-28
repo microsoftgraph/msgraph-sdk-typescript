@@ -21,8 +21,8 @@ export interface OmaSettingInteger extends OmaSetting, Parsable {
     value?: number;
 }
 export function serializeOmaSettingInteger(writer: SerializationWriter, omaSettingInteger: OmaSettingInteger | undefined = {} as OmaSettingInteger) : void {
-        serializeOmaSetting(writer, omaSettingInteger)
-        writer.writeNumberValue("value", omaSettingInteger.value);
+    serializeOmaSetting(writer, omaSettingInteger)
+    writer.writeNumberValue("value", omaSettingInteger.value);
 }
 // tslint:enable
 // eslint-enable

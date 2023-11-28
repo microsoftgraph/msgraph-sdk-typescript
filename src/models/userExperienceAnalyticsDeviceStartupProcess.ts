@@ -19,12 +19,12 @@ export function deserializeIntoUserExperienceAnalyticsDeviceStartupProcess(userE
     }
 }
 export function serializeUserExperienceAnalyticsDeviceStartupProcess(writer: SerializationWriter, userExperienceAnalyticsDeviceStartupProcess: UserExperienceAnalyticsDeviceStartupProcess | undefined = {} as UserExperienceAnalyticsDeviceStartupProcess) : void {
-        serializeEntity(writer, userExperienceAnalyticsDeviceStartupProcess)
-        writer.writeStringValue("managedDeviceId", userExperienceAnalyticsDeviceStartupProcess.managedDeviceId);
-        writer.writeStringValue("processName", userExperienceAnalyticsDeviceStartupProcess.processName);
-        writer.writeStringValue("productName", userExperienceAnalyticsDeviceStartupProcess.productName);
-        writer.writeStringValue("publisher", userExperienceAnalyticsDeviceStartupProcess.publisher);
-        writer.writeNumberValue("startupImpactInMs", userExperienceAnalyticsDeviceStartupProcess.startupImpactInMs);
+    serializeEntity(writer, userExperienceAnalyticsDeviceStartupProcess)
+    writer.writeStringValue("managedDeviceId", userExperienceAnalyticsDeviceStartupProcess.managedDeviceId);
+    writer.writeStringValue("processName", userExperienceAnalyticsDeviceStartupProcess.processName);
+    writer.writeStringValue("productName", userExperienceAnalyticsDeviceStartupProcess.productName);
+    writer.writeStringValue("publisher", userExperienceAnalyticsDeviceStartupProcess.publisher);
+    writer.writeNumberValue("startupImpactInMs", userExperienceAnalyticsDeviceStartupProcess.startupImpactInMs);
 }
 export interface UserExperienceAnalyticsDeviceStartupProcess extends Entity, Parsable {
     /**

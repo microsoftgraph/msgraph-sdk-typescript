@@ -22,8 +22,8 @@ export interface IdentityCollectionResponse extends BaseCollectionPaginationCoun
     value?: Identity[];
 }
 export function serializeIdentityCollectionResponse(writer: SerializationWriter, identityCollectionResponse: IdentityCollectionResponse | undefined = {} as IdentityCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, identityCollectionResponse)
-        writer.writeCollectionOfObjectValues<Identity>("value", identityCollectionResponse.value, serializeIdentity);
+    serializeBaseCollectionPaginationCountResponse(writer, identityCollectionResponse)
+    writer.writeCollectionOfObjectValues<Identity>("value", identityCollectionResponse.value, serializeIdentity);
 }
 // tslint:enable
 // eslint-enable

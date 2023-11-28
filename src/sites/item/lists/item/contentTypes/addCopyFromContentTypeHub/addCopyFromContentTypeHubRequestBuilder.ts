@@ -26,8 +26,8 @@ export function deserializeIntoAddCopyFromContentTypeHubPostRequestBody(addCopyF
     }
 }
 export function serializeAddCopyFromContentTypeHubPostRequestBody(writer: SerializationWriter, addCopyFromContentTypeHubPostRequestBody: AddCopyFromContentTypeHubPostRequestBody | undefined = {} as AddCopyFromContentTypeHubPostRequestBody) : void {
-        writer.writeStringValue("contentTypeId", addCopyFromContentTypeHubPostRequestBody.contentTypeId);
-        writer.writeAdditionalData(addCopyFromContentTypeHubPostRequestBody.additionalData);
+    writer.writeStringValue("contentTypeId", addCopyFromContentTypeHubPostRequestBody.contentTypeId);
+    writer.writeAdditionalData(addCopyFromContentTypeHubPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the addCopyFromContentTypeHub method.

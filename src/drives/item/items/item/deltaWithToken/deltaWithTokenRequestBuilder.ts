@@ -54,8 +54,8 @@ export function deserializeIntoDeltaWithTokenGetResponse(deltaWithTokenGetRespon
     }
 }
 export function serializeDeltaWithTokenGetResponse(writer: SerializationWriter, deltaWithTokenGetResponse: DeltaWithTokenGetResponse | undefined = {} as DeltaWithTokenGetResponse) : void {
-        serializeBaseDeltaFunctionResponse(writer, deltaWithTokenGetResponse)
-        writer.writeCollectionOfObjectValues<DriveItem>("value", deltaWithTokenGetResponse.value, serializeDriveItem);
+    serializeBaseDeltaFunctionResponse(writer, deltaWithTokenGetResponse)
+    writer.writeCollectionOfObjectValues<DriveItem>("value", deltaWithTokenGetResponse.value, serializeDriveItem);
 }
 /**
  * Provides operations to call the delta method.

@@ -30,9 +30,9 @@ export function deserializeIntoAcceptPostRequestBody(acceptPostRequestBody: Acce
     }
 }
 export function serializeAcceptPostRequestBody(writer: SerializationWriter, acceptPostRequestBody: AcceptPostRequestBody | undefined = {} as AcceptPostRequestBody) : void {
-        writer.writeStringValue("Comment", acceptPostRequestBody.comment);
-        writer.writeBooleanValue("SendResponse", acceptPostRequestBody.sendResponse);
-        writer.writeAdditionalData(acceptPostRequestBody.additionalData);
+    writer.writeStringValue("Comment", acceptPostRequestBody.comment);
+    writer.writeBooleanValue("SendResponse", acceptPostRequestBody.sendResponse);
+    writer.writeAdditionalData(acceptPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the accept method.

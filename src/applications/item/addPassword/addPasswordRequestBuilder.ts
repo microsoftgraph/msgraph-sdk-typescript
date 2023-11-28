@@ -26,8 +26,8 @@ export function deserializeIntoAddPasswordPostRequestBody(addPasswordPostRequest
     }
 }
 export function serializeAddPasswordPostRequestBody(writer: SerializationWriter, addPasswordPostRequestBody: AddPasswordPostRequestBody | undefined = {} as AddPasswordPostRequestBody) : void {
-        writer.writeObjectValue<PasswordCredential>("passwordCredential", addPasswordPostRequestBody.passwordCredential, serializePasswordCredential);
-        writer.writeAdditionalData(addPasswordPostRequestBody.additionalData);
+    writer.writeObjectValue<PasswordCredential>("passwordCredential", addPasswordPostRequestBody.passwordCredential, serializePasswordCredential);
+    writer.writeAdditionalData(addPasswordPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the addPassword method.

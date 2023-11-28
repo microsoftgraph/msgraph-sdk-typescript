@@ -36,11 +36,11 @@ export interface EmailPayloadDetail extends Parsable, PayloadDetail {
     subject?: string;
 }
 export function serializeEmailPayloadDetail(writer: SerializationWriter, emailPayloadDetail: EmailPayloadDetail | undefined = {} as EmailPayloadDetail) : void {
-        serializePayloadDetail(writer, emailPayloadDetail)
-        writer.writeStringValue("fromEmail", emailPayloadDetail.fromEmail);
-        writer.writeStringValue("fromName", emailPayloadDetail.fromName);
-        writer.writeBooleanValue("isExternalSender", emailPayloadDetail.isExternalSender);
-        writer.writeStringValue("subject", emailPayloadDetail.subject);
+    serializePayloadDetail(writer, emailPayloadDetail)
+    writer.writeStringValue("fromEmail", emailPayloadDetail.fromEmail);
+    writer.writeStringValue("fromName", emailPayloadDetail.fromName);
+    writer.writeBooleanValue("isExternalSender", emailPayloadDetail.isExternalSender);
+    writer.writeStringValue("subject", emailPayloadDetail.subject);
 }
 // tslint:enable
 // eslint-enable

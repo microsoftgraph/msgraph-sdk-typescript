@@ -16,7 +16,7 @@ export function deserializeIntoAllDevicesAssignmentTarget(allDevicesAssignmentTa
     }
 }
 export function serializeAllDevicesAssignmentTarget(writer: SerializationWriter, allDevicesAssignmentTarget: AllDevicesAssignmentTarget | undefined = {} as AllDevicesAssignmentTarget) : void {
-        serializeDeviceAndAppManagementAssignmentTarget(writer, allDevicesAssignmentTarget)
+    serializeDeviceAndAppManagementAssignmentTarget(writer, allDevicesAssignmentTarget)
 }
 // tslint:enable
 // eslint-enable

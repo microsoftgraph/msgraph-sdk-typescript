@@ -27,8 +27,8 @@ export function deserializeIntoCleanPostRequestBody(cleanPostRequestBody: CleanP
     }
 }
 export function serializeCleanPostRequestBody(writer: SerializationWriter, cleanPostRequestBody: CleanPostRequestBody | undefined = {} as CleanPostRequestBody) : void {
-        writer.writeObjectValue<Json>("text", cleanPostRequestBody.text, serializeJson);
-        writer.writeAdditionalData(cleanPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("text", cleanPostRequestBody.text, serializeJson);
+    writer.writeAdditionalData(cleanPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the clean method.

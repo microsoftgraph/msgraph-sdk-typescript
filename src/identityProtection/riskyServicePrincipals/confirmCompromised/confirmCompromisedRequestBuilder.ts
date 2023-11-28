@@ -25,8 +25,8 @@ export function deserializeIntoConfirmCompromisedPostRequestBody(confirmCompromi
     }
 }
 export function serializeConfirmCompromisedPostRequestBody(writer: SerializationWriter, confirmCompromisedPostRequestBody: ConfirmCompromisedPostRequestBody | undefined = {} as ConfirmCompromisedPostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("servicePrincipalIds", confirmCompromisedPostRequestBody.servicePrincipalIds);
-        writer.writeAdditionalData(confirmCompromisedPostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("servicePrincipalIds", confirmCompromisedPostRequestBody.servicePrincipalIds);
+    writer.writeAdditionalData(confirmCompromisedPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the confirmCompromised method.

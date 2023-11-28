@@ -15,8 +15,8 @@ export function deserializeIntoSubjectRightsRequestEnumeratedSiteLocation(subjec
     }
 }
 export function serializeSubjectRightsRequestEnumeratedSiteLocation(writer: SerializationWriter, subjectRightsRequestEnumeratedSiteLocation: SubjectRightsRequestEnumeratedSiteLocation | undefined = {} as SubjectRightsRequestEnumeratedSiteLocation) : void {
-        serializeSubjectRightsRequestSiteLocation(writer, subjectRightsRequestEnumeratedSiteLocation)
-        writer.writeCollectionOfPrimitiveValues<string>("urls", subjectRightsRequestEnumeratedSiteLocation.urls);
+    serializeSubjectRightsRequestSiteLocation(writer, subjectRightsRequestEnumeratedSiteLocation)
+    writer.writeCollectionOfPrimitiveValues<string>("urls", subjectRightsRequestEnumeratedSiteLocation.urls);
 }
 export interface SubjectRightsRequestEnumeratedSiteLocation extends Parsable, SubjectRightsRequestSiteLocation {
     /**

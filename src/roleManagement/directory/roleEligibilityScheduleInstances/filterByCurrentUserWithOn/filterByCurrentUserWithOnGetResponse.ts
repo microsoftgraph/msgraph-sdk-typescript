@@ -22,8 +22,8 @@ export interface FilterByCurrentUserWithOnGetResponse extends BaseCollectionPagi
     value?: UnifiedRoleEligibilityScheduleInstance[];
 }
 export function serializeFilterByCurrentUserWithOnGetResponse(writer: SerializationWriter, filterByCurrentUserWithOnGetResponse: FilterByCurrentUserWithOnGetResponse | undefined = {} as FilterByCurrentUserWithOnGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
-        writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleInstance>("value", filterByCurrentUserWithOnGetResponse.value, serializeUnifiedRoleEligibilityScheduleInstance);
+    serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
+    writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleInstance>("value", filterByCurrentUserWithOnGetResponse.value, serializeUnifiedRoleEligibilityScheduleInstance);
 }
 // tslint:enable
 // eslint-enable

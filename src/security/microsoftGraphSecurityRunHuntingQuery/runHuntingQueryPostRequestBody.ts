@@ -23,8 +23,8 @@ export interface RunHuntingQueryPostRequestBody extends AdditionalDataHolder, Pa
     query?: string;
 }
 export function serializeRunHuntingQueryPostRequestBody(writer: SerializationWriter, runHuntingQueryPostRequestBody: RunHuntingQueryPostRequestBody | undefined = {} as RunHuntingQueryPostRequestBody) : void {
-        writer.writeStringValue("query", runHuntingQueryPostRequestBody.query);
-        writer.writeAdditionalData(runHuntingQueryPostRequestBody.additionalData);
+    writer.writeStringValue("query", runHuntingQueryPostRequestBody.query);
+    writer.writeAdditionalData(runHuntingQueryPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

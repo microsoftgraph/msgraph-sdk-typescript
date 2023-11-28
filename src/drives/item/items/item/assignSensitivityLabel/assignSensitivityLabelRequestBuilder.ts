@@ -36,10 +36,10 @@ export function deserializeIntoAssignSensitivityLabelPostRequestBody(assignSensi
     }
 }
 export function serializeAssignSensitivityLabelPostRequestBody(writer: SerializationWriter, assignSensitivityLabelPostRequestBody: AssignSensitivityLabelPostRequestBody | undefined = {} as AssignSensitivityLabelPostRequestBody) : void {
-        writer.writeEnumValue<SensitivityLabelAssignmentMethod>("assignmentMethod", assignSensitivityLabelPostRequestBody.assignmentMethod);
-        writer.writeStringValue("justificationText", assignSensitivityLabelPostRequestBody.justificationText);
-        writer.writeStringValue("sensitivityLabelId", assignSensitivityLabelPostRequestBody.sensitivityLabelId);
-        writer.writeAdditionalData(assignSensitivityLabelPostRequestBody.additionalData);
+    writer.writeEnumValue<SensitivityLabelAssignmentMethod>("assignmentMethod", assignSensitivityLabelPostRequestBody.assignmentMethod);
+    writer.writeStringValue("justificationText", assignSensitivityLabelPostRequestBody.justificationText);
+    writer.writeStringValue("sensitivityLabelId", assignSensitivityLabelPostRequestBody.sensitivityLabelId);
+    writer.writeAdditionalData(assignSensitivityLabelPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the assignSensitivityLabel method.

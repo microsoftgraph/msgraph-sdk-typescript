@@ -25,8 +25,8 @@ export function deserializeIntoAbortPostRequestBody(abortPostRequestBody: AbortP
     }
 }
 export function serializeAbortPostRequestBody(writer: SerializationWriter, abortPostRequestBody: AbortPostRequestBody | undefined = {} as AbortPostRequestBody) : void {
-        writer.writeStringValue("reason", abortPostRequestBody.reason);
-        writer.writeAdditionalData(abortPostRequestBody.additionalData);
+    writer.writeStringValue("reason", abortPostRequestBody.reason);
+    writer.writeAdditionalData(abortPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the abort method.

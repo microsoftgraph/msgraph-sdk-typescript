@@ -16,8 +16,8 @@ export function deserializeIntoTeamsTabCollectionResponse(teamsTabCollectionResp
     }
 }
 export function serializeTeamsTabCollectionResponse(writer: SerializationWriter, teamsTabCollectionResponse: TeamsTabCollectionResponse | undefined = {} as TeamsTabCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, teamsTabCollectionResponse)
-        writer.writeCollectionOfObjectValues<TeamsTab>("value", teamsTabCollectionResponse.value, serializeTeamsTab);
+    serializeBaseCollectionPaginationCountResponse(writer, teamsTabCollectionResponse)
+    writer.writeCollectionOfObjectValues<TeamsTab>("value", teamsTabCollectionResponse.value, serializeTeamsTab);
 }
 export interface TeamsTabCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

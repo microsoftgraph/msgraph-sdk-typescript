@@ -17,8 +17,8 @@ export function deserializeIntoTPostRequestBody(tPostRequestBody: TPostRequestBo
     }
 }
 export function serializeTPostRequestBody(writer: SerializationWriter, tPostRequestBody: TPostRequestBody | undefined = {} as TPostRequestBody) : void {
-        writer.writeObjectValue<Json>("value", tPostRequestBody.value, serializeJson);
-        writer.writeAdditionalData(tPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("value", tPostRequestBody.value, serializeJson);
+    writer.writeAdditionalData(tPostRequestBody.additionalData);
 }
 export interface TPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

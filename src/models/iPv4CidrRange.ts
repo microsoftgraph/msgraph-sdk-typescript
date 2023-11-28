@@ -21,8 +21,8 @@ export interface IPv4CidrRange extends IpRange, Parsable {
     cidrAddress?: string;
 }
 export function serializeIPv4CidrRange(writer: SerializationWriter, iPv4CidrRange: IPv4CidrRange | undefined = {} as IPv4CidrRange) : void {
-        serializeIpRange(writer, iPv4CidrRange)
-        writer.writeStringValue("cidrAddress", iPv4CidrRange.cidrAddress);
+    serializeIpRange(writer, iPv4CidrRange)
+    writer.writeStringValue("cidrAddress", iPv4CidrRange.cidrAddress);
 }
 // tslint:enable
 // eslint-enable

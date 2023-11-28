@@ -32,9 +32,9 @@ export interface EoMonthPostRequestBody extends AdditionalDataHolder, Parsable {
     startDate?: Json;
 }
 export function serializeEoMonthPostRequestBody(writer: SerializationWriter, eoMonthPostRequestBody: EoMonthPostRequestBody | undefined = {} as EoMonthPostRequestBody) : void {
-        writer.writeObjectValue<Json>("months", eoMonthPostRequestBody.months, serializeJson);
-        writer.writeObjectValue<Json>("startDate", eoMonthPostRequestBody.startDate, serializeJson);
-        writer.writeAdditionalData(eoMonthPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("months", eoMonthPostRequestBody.months, serializeJson);
+    writer.writeObjectValue<Json>("startDate", eoMonthPostRequestBody.startDate, serializeJson);
+    writer.writeAdditionalData(eoMonthPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the eoMonth method.

@@ -24,14 +24,14 @@ export function deserializeIntoTaskProcessingResult(taskProcessingResult: TaskPr
     }
 }
 export function serializeTaskProcessingResult(writer: SerializationWriter, taskProcessingResult: TaskProcessingResult | undefined = {} as TaskProcessingResult) : void {
-        serializeEntity(writer, taskProcessingResult)
-        writer.writeDateValue("completedDateTime", taskProcessingResult.completedDateTime);
-        writer.writeDateValue("createdDateTime", taskProcessingResult.createdDateTime);
-        writer.writeStringValue("failureReason", taskProcessingResult.failureReason);
-        writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", taskProcessingResult.processingStatus);
-        writer.writeDateValue("startedDateTime", taskProcessingResult.startedDateTime);
-        writer.writeObjectValue<User>("subject", taskProcessingResult.subject, serializeUser);
-        writer.writeObjectValue<Task>("task", taskProcessingResult.task, serializeTask);
+    serializeEntity(writer, taskProcessingResult)
+    writer.writeDateValue("completedDateTime", taskProcessingResult.completedDateTime);
+    writer.writeDateValue("createdDateTime", taskProcessingResult.createdDateTime);
+    writer.writeStringValue("failureReason", taskProcessingResult.failureReason);
+    writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", taskProcessingResult.processingStatus);
+    writer.writeDateValue("startedDateTime", taskProcessingResult.startedDateTime);
+    writer.writeObjectValue<User>("subject", taskProcessingResult.subject, serializeUser);
+    writer.writeObjectValue<Task>("task", taskProcessingResult.task, serializeTask);
 }
 export interface TaskProcessingResult extends Entity, Parsable {
     /**

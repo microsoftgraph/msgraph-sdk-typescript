@@ -32,9 +32,9 @@ export interface RoundDownPostRequestBody extends AdditionalDataHolder, Parsable
     numDigits?: Json;
 }
 export function serializeRoundDownPostRequestBody(writer: SerializationWriter, roundDownPostRequestBody: RoundDownPostRequestBody | undefined = {} as RoundDownPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", roundDownPostRequestBody.number, serializeJson);
-        writer.writeObjectValue<Json>("numDigits", roundDownPostRequestBody.numDigits, serializeJson);
-        writer.writeAdditionalData(roundDownPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", roundDownPostRequestBody.number, serializeJson);
+    writer.writeObjectValue<Json>("numDigits", roundDownPostRequestBody.numDigits, serializeJson);
+    writer.writeAdditionalData(roundDownPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the roundDown method.

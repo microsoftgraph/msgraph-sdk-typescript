@@ -27,8 +27,8 @@ export interface IsTextPostRequestBody extends AdditionalDataHolder, Parsable {
     value?: Json;
 }
 export function serializeIsTextPostRequestBody(writer: SerializationWriter, isTextPostRequestBody: IsTextPostRequestBody | undefined = {} as IsTextPostRequestBody) : void {
-        writer.writeObjectValue<Json>("value", isTextPostRequestBody.value, serializeJson);
-        writer.writeAdditionalData(isTextPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("value", isTextPostRequestBody.value, serializeJson);
+    writer.writeAdditionalData(isTextPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the isText method.

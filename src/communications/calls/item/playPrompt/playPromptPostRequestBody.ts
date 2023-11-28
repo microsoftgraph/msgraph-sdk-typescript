@@ -29,9 +29,9 @@ export interface PlayPromptPostRequestBody extends AdditionalDataHolder, Parsabl
     prompts?: Prompt[];
 }
 export function serializePlayPromptPostRequestBody(writer: SerializationWriter, playPromptPostRequestBody: PlayPromptPostRequestBody | undefined = {} as PlayPromptPostRequestBody) : void {
-        writer.writeStringValue("clientContext", playPromptPostRequestBody.clientContext);
-        writer.writeCollectionOfObjectValues<Prompt>("prompts", playPromptPostRequestBody.prompts, serializePrompt);
-        writer.writeAdditionalData(playPromptPostRequestBody.additionalData);
+    writer.writeStringValue("clientContext", playPromptPostRequestBody.clientContext);
+    writer.writeCollectionOfObjectValues<Prompt>("prompts", playPromptPostRequestBody.prompts, serializePrompt);
+    writer.writeAdditionalData(playPromptPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

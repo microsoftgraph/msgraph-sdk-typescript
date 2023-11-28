@@ -22,8 +22,8 @@ export function deserializeIntoConditionalAccessTemplateCollectionResponse(condi
     }
 }
 export function serializeConditionalAccessTemplateCollectionResponse(writer: SerializationWriter, conditionalAccessTemplateCollectionResponse: ConditionalAccessTemplateCollectionResponse | undefined = {} as ConditionalAccessTemplateCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, conditionalAccessTemplateCollectionResponse)
-        writer.writeCollectionOfObjectValues<ConditionalAccessTemplate>("value", conditionalAccessTemplateCollectionResponse.value, serializeConditionalAccessTemplate);
+    serializeBaseCollectionPaginationCountResponse(writer, conditionalAccessTemplateCollectionResponse)
+    writer.writeCollectionOfObjectValues<ConditionalAccessTemplate>("value", conditionalAccessTemplateCollectionResponse.value, serializeConditionalAccessTemplate);
 }
 // tslint:enable
 // eslint-enable

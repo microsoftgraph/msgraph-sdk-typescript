@@ -46,8 +46,8 @@ export interface GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateT
     top?: number;
 }
 export function serializeGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse: GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse | undefined = {} as GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<ArchivedPrintJob>("value", getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse.value, serializeArchivedPrintJob);
+    serializeBaseCollectionPaginationCountResponse(writer, getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse)
+    writer.writeCollectionOfObjectValues<ArchivedPrintJob>("value", getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse.value, serializeArchivedPrintJob);
 }
 /**
  * Provides operations to call the getUserArchivedPrintJobs method.

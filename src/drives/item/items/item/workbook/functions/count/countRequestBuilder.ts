@@ -27,8 +27,8 @@ export function deserializeIntoCountPostRequestBody(countPostRequestBody: CountP
     }
 }
 export function serializeCountPostRequestBody(writer: SerializationWriter, countPostRequestBody: CountPostRequestBody | undefined = {} as CountPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", countPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(countPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", countPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(countPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the count method.

@@ -14,8 +14,8 @@ export function deserializeIntoTargetAppsPostRequestBody(targetAppsPostRequestBo
     }
 }
 export function serializeTargetAppsPostRequestBody(writer: SerializationWriter, targetAppsPostRequestBody: TargetAppsPostRequestBody | undefined = {} as TargetAppsPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", targetAppsPostRequestBody.apps, serializeManagedMobileApp);
-        writer.writeAdditionalData(targetAppsPostRequestBody.additionalData);
+    writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", targetAppsPostRequestBody.apps, serializeManagedMobileApp);
+    writer.writeAdditionalData(targetAppsPostRequestBody.additionalData);
 }
 export interface TargetAppsPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

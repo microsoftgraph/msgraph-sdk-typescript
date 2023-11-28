@@ -22,8 +22,8 @@ export interface FederatedIdentityCredentialCollectionResponse extends BaseColle
     value?: FederatedIdentityCredential[];
 }
 export function serializeFederatedIdentityCredentialCollectionResponse(writer: SerializationWriter, federatedIdentityCredentialCollectionResponse: FederatedIdentityCredentialCollectionResponse | undefined = {} as FederatedIdentityCredentialCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, federatedIdentityCredentialCollectionResponse)
-        writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("value", federatedIdentityCredentialCollectionResponse.value, serializeFederatedIdentityCredential);
+    serializeBaseCollectionPaginationCountResponse(writer, federatedIdentityCredentialCollectionResponse)
+    writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("value", federatedIdentityCredentialCollectionResponse.value, serializeFederatedIdentityCredential);
 }
 // tslint:enable
 // eslint-enable

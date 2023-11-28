@@ -17,11 +17,11 @@ export function deserializeIntoWebsite(website: Website | undefined = {} as Webs
     }
 }
 export function serializeWebsite(writer: SerializationWriter, website: Website | undefined = {} as Website) : void {
-        writer.writeStringValue("address", website.address);
-        writer.writeStringValue("displayName", website.displayName);
-        writer.writeStringValue("@odata.type", website.odataType);
-        writer.writeEnumValue<WebsiteType>("type", website.type);
-        writer.writeAdditionalData(website.additionalData);
+    writer.writeStringValue("address", website.address);
+    writer.writeStringValue("displayName", website.displayName);
+    writer.writeStringValue("@odata.type", website.odataType);
+    writer.writeEnumValue<WebsiteType>("type", website.type);
+    writer.writeAdditionalData(website.additionalData);
 }
 export interface Website extends AdditionalDataHolder, Parsable {
     /**

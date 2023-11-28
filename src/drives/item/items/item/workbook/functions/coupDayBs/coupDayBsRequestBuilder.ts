@@ -42,11 +42,11 @@ export function deserializeIntoCoupDayBsPostRequestBody(coupDayBsPostRequestBody
     }
 }
 export function serializeCoupDayBsPostRequestBody(writer: SerializationWriter, coupDayBsPostRequestBody: CoupDayBsPostRequestBody | undefined = {} as CoupDayBsPostRequestBody) : void {
-        writer.writeObjectValue<Json>("basis", coupDayBsPostRequestBody.basis, serializeJson);
-        writer.writeObjectValue<Json>("frequency", coupDayBsPostRequestBody.frequency, serializeJson);
-        writer.writeObjectValue<Json>("maturity", coupDayBsPostRequestBody.maturity, serializeJson);
-        writer.writeObjectValue<Json>("settlement", coupDayBsPostRequestBody.settlement, serializeJson);
-        writer.writeAdditionalData(coupDayBsPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("basis", coupDayBsPostRequestBody.basis, serializeJson);
+    writer.writeObjectValue<Json>("frequency", coupDayBsPostRequestBody.frequency, serializeJson);
+    writer.writeObjectValue<Json>("maturity", coupDayBsPostRequestBody.maturity, serializeJson);
+    writer.writeObjectValue<Json>("settlement", coupDayBsPostRequestBody.settlement, serializeJson);
+    writer.writeAdditionalData(coupDayBsPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the coupDayBs method.

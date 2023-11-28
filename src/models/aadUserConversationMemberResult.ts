@@ -21,8 +21,8 @@ export function deserializeIntoAadUserConversationMemberResult(aadUserConversati
     }
 }
 export function serializeAadUserConversationMemberResult(writer: SerializationWriter, aadUserConversationMemberResult: AadUserConversationMemberResult | undefined = {} as AadUserConversationMemberResult) : void {
-        serializeActionResultPart(writer, aadUserConversationMemberResult)
-        writer.writeStringValue("userId", aadUserConversationMemberResult.userId);
+    serializeActionResultPart(writer, aadUserConversationMemberResult)
+    writer.writeStringValue("userId", aadUserConversationMemberResult.userId);
 }
 // tslint:enable
 // eslint-enable

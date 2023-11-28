@@ -26,9 +26,9 @@ export interface RecordOperation extends CommsOperation, Parsable {
     recordingLocation?: string;
 }
 export function serializeRecordOperation(writer: SerializationWriter, recordOperation: RecordOperation | undefined = {} as RecordOperation) : void {
-        serializeCommsOperation(writer, recordOperation)
-        writer.writeStringValue("recordingAccessToken", recordOperation.recordingAccessToken);
-        writer.writeStringValue("recordingLocation", recordOperation.recordingLocation);
+    serializeCommsOperation(writer, recordOperation)
+    writer.writeStringValue("recordingAccessToken", recordOperation.recordingAccessToken);
+    writer.writeStringValue("recordingLocation", recordOperation.recordingLocation);
 }
 // tslint:enable
 // eslint-enable

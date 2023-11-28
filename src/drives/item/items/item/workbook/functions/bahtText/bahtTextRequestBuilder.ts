@@ -27,8 +27,8 @@ export function deserializeIntoBahtTextPostRequestBody(bahtTextPostRequestBody: 
     }
 }
 export function serializeBahtTextPostRequestBody(writer: SerializationWriter, bahtTextPostRequestBody: BahtTextPostRequestBody | undefined = {} as BahtTextPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", bahtTextPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(bahtTextPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", bahtTextPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(bahtTextPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the bahtText method.

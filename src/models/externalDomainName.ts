@@ -16,7 +16,7 @@ export function deserializeIntoExternalDomainName(externalDomainName: ExternalDo
 export interface ExternalDomainName extends Entity, Parsable {
 }
 export function serializeExternalDomainName(writer: SerializationWriter, externalDomainName: ExternalDomainName | undefined = {} as ExternalDomainName) : void {
-        serializeEntity(writer, externalDomainName)
+    serializeEntity(writer, externalDomainName)
 }
 // tslint:enable
 // eslint-enable

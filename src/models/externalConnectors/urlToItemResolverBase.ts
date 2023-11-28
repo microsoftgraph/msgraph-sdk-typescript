@@ -26,9 +26,9 @@ export function deserializeIntoUrlToItemResolverBase(urlToItemResolverBase: UrlT
     }
 }
 export function serializeUrlToItemResolverBase(writer: SerializationWriter, urlToItemResolverBase: UrlToItemResolverBase | undefined = {} as UrlToItemResolverBase) : void {
-        writer.writeStringValue("@odata.type", urlToItemResolverBase.odataType);
-        writer.writeNumberValue("priority", urlToItemResolverBase.priority);
-        writer.writeAdditionalData(urlToItemResolverBase.additionalData);
+    writer.writeStringValue("@odata.type", urlToItemResolverBase.odataType);
+    writer.writeNumberValue("priority", urlToItemResolverBase.priority);
+    writer.writeAdditionalData(urlToItemResolverBase.additionalData);
 }
 export interface UrlToItemResolverBase extends AdditionalDataHolder, Parsable {
     /**

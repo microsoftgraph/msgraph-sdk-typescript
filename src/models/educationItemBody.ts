@@ -34,10 +34,10 @@ export interface EducationItemBody extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeEducationItemBody(writer: SerializationWriter, educationItemBody: EducationItemBody | undefined = {} as EducationItemBody) : void {
-        writer.writeStringValue("content", educationItemBody.content);
-        writer.writeEnumValue<BodyType>("contentType", educationItemBody.contentType);
-        writer.writeStringValue("@odata.type", educationItemBody.odataType);
-        writer.writeAdditionalData(educationItemBody.additionalData);
+    writer.writeStringValue("content", educationItemBody.content);
+    writer.writeEnumValue<BodyType>("contentType", educationItemBody.contentType);
+    writer.writeStringValue("@odata.type", educationItemBody.odataType);
+    writer.writeAdditionalData(educationItemBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -57,12 +57,12 @@ export interface SamlOrWsFedProvider extends IdentityProviderBase, Parsable {
     signingCertificate?: string;
 }
 export function serializeSamlOrWsFedProvider(writer: SerializationWriter, samlOrWsFedProvider: SamlOrWsFedProvider | undefined = {} as SamlOrWsFedProvider) : void {
-        serializeIdentityProviderBase(writer, samlOrWsFedProvider)
-        writer.writeStringValue("issuerUri", samlOrWsFedProvider.issuerUri);
-        writer.writeStringValue("metadataExchangeUri", samlOrWsFedProvider.metadataExchangeUri);
-        writer.writeStringValue("passiveSignInUri", samlOrWsFedProvider.passiveSignInUri);
-        writer.writeEnumValue<AuthenticationProtocol>("preferredAuthenticationProtocol", samlOrWsFedProvider.preferredAuthenticationProtocol);
-        writer.writeStringValue("signingCertificate", samlOrWsFedProvider.signingCertificate);
+    serializeIdentityProviderBase(writer, samlOrWsFedProvider)
+    writer.writeStringValue("issuerUri", samlOrWsFedProvider.issuerUri);
+    writer.writeStringValue("metadataExchangeUri", samlOrWsFedProvider.metadataExchangeUri);
+    writer.writeStringValue("passiveSignInUri", samlOrWsFedProvider.passiveSignInUri);
+    writer.writeEnumValue<AuthenticationProtocol>("preferredAuthenticationProtocol", samlOrWsFedProvider.preferredAuthenticationProtocol);
+    writer.writeStringValue("signingCertificate", samlOrWsFedProvider.signingCertificate);
 }
 // tslint:enable
 // eslint-enable

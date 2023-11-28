@@ -15,9 +15,9 @@ export function deserializeIntoT_InvPostRequestBody(t_InvPostRequestBody: T_InvP
     }
 }
 export function serializeT_InvPostRequestBody(writer: SerializationWriter, t_InvPostRequestBody: T_InvPostRequestBody | undefined = {} as T_InvPostRequestBody) : void {
-        writer.writeObjectValue<Json>("degFreedom", t_InvPostRequestBody.degFreedom, serializeJson);
-        writer.writeObjectValue<Json>("probability", t_InvPostRequestBody.probability, serializeJson);
-        writer.writeAdditionalData(t_InvPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("degFreedom", t_InvPostRequestBody.degFreedom, serializeJson);
+    writer.writeObjectValue<Json>("probability", t_InvPostRequestBody.probability, serializeJson);
+    writer.writeAdditionalData(t_InvPostRequestBody.additionalData);
 }
 export interface T_InvPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

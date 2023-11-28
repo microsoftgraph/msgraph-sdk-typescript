@@ -24,8 +24,8 @@ export function deserializeIntoAddActivitiesPostRequestBody(addActivitiesPostReq
     }
 }
 export function serializeAddActivitiesPostRequestBody(writer: SerializationWriter, addActivitiesPostRequestBody: AddActivitiesPostRequestBody | undefined = {} as AddActivitiesPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<ExternalActivity>("activities", addActivitiesPostRequestBody.activities, serializeExternalActivity);
-        writer.writeAdditionalData(addActivitiesPostRequestBody.additionalData);
+    writer.writeCollectionOfObjectValues<ExternalActivity>("activities", addActivitiesPostRequestBody.activities, serializeExternalActivity);
+    writer.writeAdditionalData(addActivitiesPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

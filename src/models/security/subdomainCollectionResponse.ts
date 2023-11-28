@@ -16,8 +16,8 @@ export function deserializeIntoSubdomainCollectionResponse(subdomainCollectionRe
     }
 }
 export function serializeSubdomainCollectionResponse(writer: SerializationWriter, subdomainCollectionResponse: SubdomainCollectionResponse | undefined = {} as SubdomainCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, subdomainCollectionResponse)
-        writer.writeCollectionOfObjectValues<Subdomain>("value", subdomainCollectionResponse.value, serializeSubdomain);
+    serializeBaseCollectionPaginationCountResponse(writer, subdomainCollectionResponse)
+    writer.writeCollectionOfObjectValues<Subdomain>("value", subdomainCollectionResponse.value, serializeSubdomain);
 }
 export interface SubdomainCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

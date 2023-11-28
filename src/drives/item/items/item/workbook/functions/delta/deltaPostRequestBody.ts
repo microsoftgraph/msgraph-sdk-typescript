@@ -29,9 +29,9 @@ export function deserializeIntoDeltaPostRequestBody(deltaPostRequestBody: DeltaP
     }
 }
 export function serializeDeltaPostRequestBody(writer: SerializationWriter, deltaPostRequestBody: DeltaPostRequestBody | undefined = {} as DeltaPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number1", deltaPostRequestBody.number1, serializeJson);
-        writer.writeObjectValue<Json>("number2", deltaPostRequestBody.number2, serializeJson);
-        writer.writeAdditionalData(deltaPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number1", deltaPostRequestBody.number1, serializeJson);
+    writer.writeObjectValue<Json>("number2", deltaPostRequestBody.number2, serializeJson);
+    writer.writeAdditionalData(deltaPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

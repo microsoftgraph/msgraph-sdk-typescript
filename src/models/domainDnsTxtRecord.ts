@@ -21,8 +21,8 @@ export interface DomainDnsTxtRecord extends DomainDnsRecord, Parsable {
     text?: string;
 }
 export function serializeDomainDnsTxtRecord(writer: SerializationWriter, domainDnsTxtRecord: DomainDnsTxtRecord | undefined = {} as DomainDnsTxtRecord) : void {
-        serializeDomainDnsRecord(writer, domainDnsTxtRecord)
-        writer.writeStringValue("text", domainDnsTxtRecord.text);
+    serializeDomainDnsRecord(writer, domainDnsTxtRecord)
+    writer.writeStringValue("text", domainDnsTxtRecord.text);
 }
 // tslint:enable
 // eslint-enable

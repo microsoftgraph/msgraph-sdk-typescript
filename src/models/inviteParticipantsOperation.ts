@@ -22,8 +22,8 @@ export interface InviteParticipantsOperation extends CommsOperation, Parsable {
     participants?: InvitationParticipantInfo[];
 }
 export function serializeInviteParticipantsOperation(writer: SerializationWriter, inviteParticipantsOperation: InviteParticipantsOperation | undefined = {} as InviteParticipantsOperation) : void {
-        serializeCommsOperation(writer, inviteParticipantsOperation)
-        writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("participants", inviteParticipantsOperation.participants, serializeInvitationParticipantInfo);
+    serializeCommsOperation(writer, inviteParticipantsOperation)
+    writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("participants", inviteParticipantsOperation.participants, serializeInvitationParticipantInfo);
 }
 // tslint:enable
 // eslint-enable

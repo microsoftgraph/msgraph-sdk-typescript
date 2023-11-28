@@ -32,9 +32,9 @@ export interface EdatePostRequestBody extends AdditionalDataHolder, Parsable {
     startDate?: Json;
 }
 export function serializeEdatePostRequestBody(writer: SerializationWriter, edatePostRequestBody: EdatePostRequestBody | undefined = {} as EdatePostRequestBody) : void {
-        writer.writeObjectValue<Json>("months", edatePostRequestBody.months, serializeJson);
-        writer.writeObjectValue<Json>("startDate", edatePostRequestBody.startDate, serializeJson);
-        writer.writeAdditionalData(edatePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("months", edatePostRequestBody.months, serializeJson);
+    writer.writeObjectValue<Json>("startDate", edatePostRequestBody.startDate, serializeJson);
+    writer.writeAdditionalData(edatePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the edate method.

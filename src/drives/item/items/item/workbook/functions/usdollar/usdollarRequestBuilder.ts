@@ -18,9 +18,9 @@ export function deserializeIntoUsdollarPostRequestBody(usdollarPostRequestBody: 
     }
 }
 export function serializeUsdollarPostRequestBody(writer: SerializationWriter, usdollarPostRequestBody: UsdollarPostRequestBody | undefined = {} as UsdollarPostRequestBody) : void {
-        writer.writeObjectValue<Json>("decimals", usdollarPostRequestBody.decimals, serializeJson);
-        writer.writeObjectValue<Json>("number", usdollarPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(usdollarPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("decimals", usdollarPostRequestBody.decimals, serializeJson);
+    writer.writeObjectValue<Json>("number", usdollarPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(usdollarPostRequestBody.additionalData);
 }
 export interface UsdollarPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

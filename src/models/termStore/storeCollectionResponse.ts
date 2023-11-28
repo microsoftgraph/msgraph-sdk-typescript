@@ -16,8 +16,8 @@ export function deserializeIntoStoreCollectionResponse(storeCollectionResponse: 
     }
 }
 export function serializeStoreCollectionResponse(writer: SerializationWriter, storeCollectionResponse: StoreCollectionResponse | undefined = {} as StoreCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, storeCollectionResponse)
-        writer.writeCollectionOfObjectValues<Store>("value", storeCollectionResponse.value, serializeStore);
+    serializeBaseCollectionPaginationCountResponse(writer, storeCollectionResponse)
+    writer.writeCollectionOfObjectValues<Store>("value", storeCollectionResponse.value, serializeStore);
 }
 export interface StoreCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

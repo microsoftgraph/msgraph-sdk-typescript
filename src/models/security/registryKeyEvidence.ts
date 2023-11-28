@@ -26,9 +26,9 @@ export interface RegistryKeyEvidence extends AlertEvidence, Parsable {
     registryKey?: string;
 }
 export function serializeRegistryKeyEvidence(writer: SerializationWriter, registryKeyEvidence: RegistryKeyEvidence | undefined = {} as RegistryKeyEvidence) : void {
-        serializeAlertEvidence(writer, registryKeyEvidence)
-        writer.writeStringValue("registryHive", registryKeyEvidence.registryHive);
-        writer.writeStringValue("registryKey", registryKeyEvidence.registryKey);
+    serializeAlertEvidence(writer, registryKeyEvidence)
+    writer.writeStringValue("registryHive", registryKeyEvidence.registryHive);
+    writer.writeStringValue("registryKey", registryKeyEvidence.registryKey);
 }
 // tslint:enable
 // eslint-enable

@@ -32,9 +32,9 @@ export interface RoundUpPostRequestBody extends AdditionalDataHolder, Parsable {
     numDigits?: Json;
 }
 export function serializeRoundUpPostRequestBody(writer: SerializationWriter, roundUpPostRequestBody: RoundUpPostRequestBody | undefined = {} as RoundUpPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", roundUpPostRequestBody.number, serializeJson);
-        writer.writeObjectValue<Json>("numDigits", roundUpPostRequestBody.numDigits, serializeJson);
-        writer.writeAdditionalData(roundUpPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", roundUpPostRequestBody.number, serializeJson);
+    writer.writeObjectValue<Json>("numDigits", roundUpPostRequestBody.numDigits, serializeJson);
+    writer.writeAdditionalData(roundUpPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the roundUp method.

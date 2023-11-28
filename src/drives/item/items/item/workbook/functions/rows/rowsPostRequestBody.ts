@@ -24,8 +24,8 @@ export interface RowsPostRequestBody extends AdditionalDataHolder, Parsable {
     array?: Json;
 }
 export function serializeRowsPostRequestBody(writer: SerializationWriter, rowsPostRequestBody: RowsPostRequestBody | undefined = {} as RowsPostRequestBody) : void {
-        writer.writeObjectValue<Json>("array", rowsPostRequestBody.array, serializeJson);
-        writer.writeAdditionalData(rowsPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("array", rowsPostRequestBody.array, serializeJson);
+    writer.writeAdditionalData(rowsPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

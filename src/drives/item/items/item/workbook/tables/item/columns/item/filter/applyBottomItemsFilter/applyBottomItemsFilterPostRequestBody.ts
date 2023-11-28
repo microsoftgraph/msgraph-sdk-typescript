@@ -23,8 +23,8 @@ export function deserializeIntoApplyBottomItemsFilterPostRequestBody(applyBottom
     }
 }
 export function serializeApplyBottomItemsFilterPostRequestBody(writer: SerializationWriter, applyBottomItemsFilterPostRequestBody: ApplyBottomItemsFilterPostRequestBody | undefined = {} as ApplyBottomItemsFilterPostRequestBody) : void {
-        writer.writeNumberValue("count", applyBottomItemsFilterPostRequestBody.count);
-        writer.writeAdditionalData(applyBottomItemsFilterPostRequestBody.additionalData);
+    writer.writeNumberValue("count", applyBottomItemsFilterPostRequestBody.count);
+    writer.writeAdditionalData(applyBottomItemsFilterPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

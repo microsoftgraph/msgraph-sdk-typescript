@@ -22,8 +22,8 @@ export interface QueryPostResponse extends BaseCollectionPaginationCountResponse
     value?: SearchResponse[];
 }
 export function serializeQueryPostResponse(writer: SerializationWriter, queryPostResponse: QueryPostResponse | undefined = {} as QueryPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, queryPostResponse)
-        writer.writeCollectionOfObjectValues<SearchResponse>("value", queryPostResponse.value, serializeSearchResponse);
+    serializeBaseCollectionPaginationCountResponse(writer, queryPostResponse)
+    writer.writeCollectionOfObjectValues<SearchResponse>("value", queryPostResponse.value, serializeSearchResponse);
 }
 // tslint:enable
 // eslint-enable

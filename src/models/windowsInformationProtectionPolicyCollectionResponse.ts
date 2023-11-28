@@ -16,8 +16,8 @@ export function deserializeIntoWindowsInformationProtectionPolicyCollectionRespo
     }
 }
 export function serializeWindowsInformationProtectionPolicyCollectionResponse(writer: SerializationWriter, windowsInformationProtectionPolicyCollectionResponse: WindowsInformationProtectionPolicyCollectionResponse | undefined = {} as WindowsInformationProtectionPolicyCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, windowsInformationProtectionPolicyCollectionResponse)
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionPolicy>("value", windowsInformationProtectionPolicyCollectionResponse.value, serializeWindowsInformationProtectionPolicy);
+    serializeBaseCollectionPaginationCountResponse(writer, windowsInformationProtectionPolicyCollectionResponse)
+    writer.writeCollectionOfObjectValues<WindowsInformationProtectionPolicy>("value", windowsInformationProtectionPolicyCollectionResponse.value, serializeWindowsInformationProtectionPolicy);
 }
 export interface WindowsInformationProtectionPolicyCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

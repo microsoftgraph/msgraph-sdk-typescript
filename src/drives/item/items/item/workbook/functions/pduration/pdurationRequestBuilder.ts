@@ -37,10 +37,10 @@ export interface PdurationPostRequestBody extends AdditionalDataHolder, Parsable
     rate?: Json;
 }
 export function serializePdurationPostRequestBody(writer: SerializationWriter, pdurationPostRequestBody: PdurationPostRequestBody | undefined = {} as PdurationPostRequestBody) : void {
-        writer.writeObjectValue<Json>("fv", pdurationPostRequestBody.fv, serializeJson);
-        writer.writeObjectValue<Json>("pv", pdurationPostRequestBody.pv, serializeJson);
-        writer.writeObjectValue<Json>("rate", pdurationPostRequestBody.rate, serializeJson);
-        writer.writeAdditionalData(pdurationPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("fv", pdurationPostRequestBody.fv, serializeJson);
+    writer.writeObjectValue<Json>("pv", pdurationPostRequestBody.pv, serializeJson);
+    writer.writeObjectValue<Json>("rate", pdurationPostRequestBody.rate, serializeJson);
+    writer.writeAdditionalData(pdurationPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the pduration method.

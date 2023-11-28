@@ -28,9 +28,9 @@ export function deserializeIntoAppConsentRequestScope(appConsentRequestScope: Ap
     }
 }
 export function serializeAppConsentRequestScope(writer: SerializationWriter, appConsentRequestScope: AppConsentRequestScope | undefined = {} as AppConsentRequestScope) : void {
-        writer.writeStringValue("displayName", appConsentRequestScope.displayName);
-        writer.writeStringValue("@odata.type", appConsentRequestScope.odataType);
-        writer.writeAdditionalData(appConsentRequestScope.additionalData);
+    writer.writeStringValue("displayName", appConsentRequestScope.displayName);
+    writer.writeStringValue("@odata.type", appConsentRequestScope.odataType);
+    writer.writeAdditionalData(appConsentRequestScope.additionalData);
 }
 // tslint:enable
 // eslint-enable

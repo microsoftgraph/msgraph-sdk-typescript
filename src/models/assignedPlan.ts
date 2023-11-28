@@ -44,12 +44,12 @@ export function deserializeIntoAssignedPlan(assignedPlan: AssignedPlan | undefin
     }
 }
 export function serializeAssignedPlan(writer: SerializationWriter, assignedPlan: AssignedPlan | undefined = {} as AssignedPlan) : void {
-        writer.writeDateValue("assignedDateTime", assignedPlan.assignedDateTime);
-        writer.writeStringValue("capabilityStatus", assignedPlan.capabilityStatus);
-        writer.writeStringValue("@odata.type", assignedPlan.odataType);
-        writer.writeStringValue("service", assignedPlan.service);
-        writer.writeGuidValue("servicePlanId", assignedPlan.servicePlanId);
-        writer.writeAdditionalData(assignedPlan.additionalData);
+    writer.writeDateValue("assignedDateTime", assignedPlan.assignedDateTime);
+    writer.writeStringValue("capabilityStatus", assignedPlan.capabilityStatus);
+    writer.writeStringValue("@odata.type", assignedPlan.odataType);
+    writer.writeStringValue("service", assignedPlan.service);
+    writer.writeGuidValue("servicePlanId", assignedPlan.servicePlanId);
+    writer.writeAdditionalData(assignedPlan.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -82,19 +82,19 @@ export function deserializeIntoBrowserSite(browserSite: BrowserSite | undefined 
     }
 }
 export function serializeBrowserSite(writer: SerializationWriter, browserSite: BrowserSite | undefined = {} as BrowserSite) : void {
-        serializeEntity(writer, browserSite)
-        writer.writeBooleanValue("allowRedirect", browserSite.allowRedirect);
-        writer.writeStringValue("comment", browserSite.comment);
-        writer.writeEnumValue<BrowserSiteCompatibilityMode>("compatibilityMode", browserSite.compatibilityMode);
-        writer.writeDateValue("createdDateTime", browserSite.createdDateTime);
-        writer.writeDateValue("deletedDateTime", browserSite.deletedDateTime);
-        writer.writeCollectionOfObjectValues<BrowserSiteHistory>("history", browserSite.history, serializeBrowserSiteHistory);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", browserSite.lastModifiedBy, serializeIdentitySet);
-        writer.writeDateValue("lastModifiedDateTime", browserSite.lastModifiedDateTime);
-        writer.writeEnumValue<BrowserSiteMergeType>("mergeType", browserSite.mergeType);
-        writer.writeEnumValue<BrowserSiteStatus>("status", browserSite.status);
-        writer.writeEnumValue<BrowserSiteTargetEnvironment>("targetEnvironment", browserSite.targetEnvironment);
-        writer.writeStringValue("webUrl", browserSite.webUrl);
+    serializeEntity(writer, browserSite)
+    writer.writeBooleanValue("allowRedirect", browserSite.allowRedirect);
+    writer.writeStringValue("comment", browserSite.comment);
+    writer.writeEnumValue<BrowserSiteCompatibilityMode>("compatibilityMode", browserSite.compatibilityMode);
+    writer.writeDateValue("createdDateTime", browserSite.createdDateTime);
+    writer.writeDateValue("deletedDateTime", browserSite.deletedDateTime);
+    writer.writeCollectionOfObjectValues<BrowserSiteHistory>("history", browserSite.history, serializeBrowserSiteHistory);
+    writer.writeObjectValue<IdentitySet>("lastModifiedBy", browserSite.lastModifiedBy, serializeIdentitySet);
+    writer.writeDateValue("lastModifiedDateTime", browserSite.lastModifiedDateTime);
+    writer.writeEnumValue<BrowserSiteMergeType>("mergeType", browserSite.mergeType);
+    writer.writeEnumValue<BrowserSiteStatus>("status", browserSite.status);
+    writer.writeEnumValue<BrowserSiteTargetEnvironment>("targetEnvironment", browserSite.targetEnvironment);
+    writer.writeStringValue("webUrl", browserSite.webUrl);
 }
 // tslint:enable
 // eslint-enable

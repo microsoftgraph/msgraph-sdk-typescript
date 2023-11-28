@@ -38,11 +38,11 @@ export interface EducationRubricOutcome extends EducationOutcome, Parsable {
     rubricQualitySelectedLevels?: RubricQualitySelectedColumnModel[];
 }
 export function serializeEducationRubricOutcome(writer: SerializationWriter, educationRubricOutcome: EducationRubricOutcome | undefined = {} as EducationRubricOutcome) : void {
-        serializeEducationOutcome(writer, educationRubricOutcome)
-        writer.writeCollectionOfObjectValues<RubricQualityFeedbackModel>("publishedRubricQualityFeedback", educationRubricOutcome.publishedRubricQualityFeedback, serializeRubricQualityFeedbackModel);
-        writer.writeCollectionOfObjectValues<RubricQualitySelectedColumnModel>("publishedRubricQualitySelectedLevels", educationRubricOutcome.publishedRubricQualitySelectedLevels, serializeRubricQualitySelectedColumnModel);
-        writer.writeCollectionOfObjectValues<RubricQualityFeedbackModel>("rubricQualityFeedback", educationRubricOutcome.rubricQualityFeedback, serializeRubricQualityFeedbackModel);
-        writer.writeCollectionOfObjectValues<RubricQualitySelectedColumnModel>("rubricQualitySelectedLevels", educationRubricOutcome.rubricQualitySelectedLevels, serializeRubricQualitySelectedColumnModel);
+    serializeEducationOutcome(writer, educationRubricOutcome)
+    writer.writeCollectionOfObjectValues<RubricQualityFeedbackModel>("publishedRubricQualityFeedback", educationRubricOutcome.publishedRubricQualityFeedback, serializeRubricQualityFeedbackModel);
+    writer.writeCollectionOfObjectValues<RubricQualitySelectedColumnModel>("publishedRubricQualitySelectedLevels", educationRubricOutcome.publishedRubricQualitySelectedLevels, serializeRubricQualitySelectedColumnModel);
+    writer.writeCollectionOfObjectValues<RubricQualityFeedbackModel>("rubricQualityFeedback", educationRubricOutcome.rubricQualityFeedback, serializeRubricQualityFeedbackModel);
+    writer.writeCollectionOfObjectValues<RubricQualitySelectedColumnModel>("rubricQualitySelectedLevels", educationRubricOutcome.rubricQualitySelectedLevels, serializeRubricQualitySelectedColumnModel);
 }
 // tslint:enable
 // eslint-enable

@@ -47,12 +47,12 @@ export interface IdentityProtectionRoot extends AdditionalDataHolder, Parsable {
     servicePrincipalRiskDetections?: ServicePrincipalRiskDetection[];
 }
 export function serializeIdentityProtectionRoot(writer: SerializationWriter, identityProtectionRoot: IdentityProtectionRoot | undefined = {} as IdentityProtectionRoot) : void {
-        writer.writeStringValue("@odata.type", identityProtectionRoot.odataType);
-        writer.writeCollectionOfObjectValues<RiskDetection>("riskDetections", identityProtectionRoot.riskDetections, serializeRiskDetection);
-        writer.writeCollectionOfObjectValues<RiskyServicePrincipal>("riskyServicePrincipals", identityProtectionRoot.riskyServicePrincipals, serializeRiskyServicePrincipal);
-        writer.writeCollectionOfObjectValues<RiskyUser>("riskyUsers", identityProtectionRoot.riskyUsers, serializeRiskyUser);
-        writer.writeCollectionOfObjectValues<ServicePrincipalRiskDetection>("servicePrincipalRiskDetections", identityProtectionRoot.servicePrincipalRiskDetections, serializeServicePrincipalRiskDetection);
-        writer.writeAdditionalData(identityProtectionRoot.additionalData);
+    writer.writeStringValue("@odata.type", identityProtectionRoot.odataType);
+    writer.writeCollectionOfObjectValues<RiskDetection>("riskDetections", identityProtectionRoot.riskDetections, serializeRiskDetection);
+    writer.writeCollectionOfObjectValues<RiskyServicePrincipal>("riskyServicePrincipals", identityProtectionRoot.riskyServicePrincipals, serializeRiskyServicePrincipal);
+    writer.writeCollectionOfObjectValues<RiskyUser>("riskyUsers", identityProtectionRoot.riskyUsers, serializeRiskyUser);
+    writer.writeCollectionOfObjectValues<ServicePrincipalRiskDetection>("servicePrincipalRiskDetections", identityProtectionRoot.servicePrincipalRiskDetections, serializeServicePrincipalRiskDetection);
+    writer.writeAdditionalData(identityProtectionRoot.additionalData);
 }
 // tslint:enable
 // eslint-enable

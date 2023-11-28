@@ -26,8 +26,8 @@ export interface ScheduleActionsForRulesPostRequestBody extends AdditionalDataHo
     deviceComplianceScheduledActionForRules?: DeviceComplianceScheduledActionForRule[];
 }
 export function serializeScheduleActionsForRulesPostRequestBody(writer: SerializationWriter, scheduleActionsForRulesPostRequestBody: ScheduleActionsForRulesPostRequestBody | undefined = {} as ScheduleActionsForRulesPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>("deviceComplianceScheduledActionForRules", scheduleActionsForRulesPostRequestBody.deviceComplianceScheduledActionForRules, serializeDeviceComplianceScheduledActionForRule);
-        writer.writeAdditionalData(scheduleActionsForRulesPostRequestBody.additionalData);
+    writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>("deviceComplianceScheduledActionForRules", scheduleActionsForRulesPostRequestBody.deviceComplianceScheduledActionForRules, serializeDeviceComplianceScheduledActionForRule);
+    writer.writeAdditionalData(scheduleActionsForRulesPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the scheduleActionsForRules method.

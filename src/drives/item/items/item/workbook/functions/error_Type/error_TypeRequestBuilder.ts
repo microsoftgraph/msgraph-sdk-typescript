@@ -27,8 +27,8 @@ export interface Error_TypePostRequestBody extends AdditionalDataHolder, Parsabl
     errorVal?: Json;
 }
 export function serializeError_TypePostRequestBody(writer: SerializationWriter, error_TypePostRequestBody: Error_TypePostRequestBody | undefined = {} as Error_TypePostRequestBody) : void {
-        writer.writeObjectValue<Json>("errorVal", error_TypePostRequestBody.errorVal, serializeJson);
-        writer.writeAdditionalData(error_TypePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("errorVal", error_TypePostRequestBody.errorVal, serializeJson);
+    writer.writeAdditionalData(error_TypePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the error_Type method.

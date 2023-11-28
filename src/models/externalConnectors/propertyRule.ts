@@ -45,12 +45,12 @@ export interface PropertyRule extends AdditionalDataHolder, Parsable {
     valuesJoinedBy?: BinaryOperator;
 }
 export function serializePropertyRule(writer: SerializationWriter, propertyRule: PropertyRule | undefined = {} as PropertyRule) : void {
-        writer.writeStringValue("@odata.type", propertyRule.odataType);
-        writer.writeEnumValue<RuleOperation>("operation", propertyRule.operation);
-        writer.writeStringValue("property", propertyRule.property);
-        writer.writeCollectionOfPrimitiveValues<string>("values", propertyRule.values);
-        writer.writeEnumValue<BinaryOperator>("valuesJoinedBy", propertyRule.valuesJoinedBy);
-        writer.writeAdditionalData(propertyRule.additionalData);
+    writer.writeStringValue("@odata.type", propertyRule.odataType);
+    writer.writeEnumValue<RuleOperation>("operation", propertyRule.operation);
+    writer.writeStringValue("property", propertyRule.property);
+    writer.writeCollectionOfPrimitiveValues<string>("values", propertyRule.values);
+    writer.writeEnumValue<BinaryOperator>("valuesJoinedBy", propertyRule.valuesJoinedBy);
+    writer.writeAdditionalData(propertyRule.additionalData);
 }
 // tslint:enable
 // eslint-enable

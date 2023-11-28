@@ -49,13 +49,13 @@ export interface ProvisioningErrorInfo extends AdditionalDataHolder, Parsable {
     recommendedAction?: string;
 }
 export function serializeProvisioningErrorInfo(writer: SerializationWriter, provisioningErrorInfo: ProvisioningErrorInfo | undefined = {} as ProvisioningErrorInfo) : void {
-        writer.writeStringValue("additionalDetails", provisioningErrorInfo.additionalDetails);
-        writer.writeEnumValue<ProvisioningStatusErrorCategory>("errorCategory", provisioningErrorInfo.errorCategory);
-        writer.writeStringValue("errorCode", provisioningErrorInfo.errorCode);
-        writer.writeStringValue("@odata.type", provisioningErrorInfo.odataType);
-        writer.writeStringValue("reason", provisioningErrorInfo.reason);
-        writer.writeStringValue("recommendedAction", provisioningErrorInfo.recommendedAction);
-        writer.writeAdditionalData(provisioningErrorInfo.additionalData);
+    writer.writeStringValue("additionalDetails", provisioningErrorInfo.additionalDetails);
+    writer.writeEnumValue<ProvisioningStatusErrorCategory>("errorCategory", provisioningErrorInfo.errorCategory);
+    writer.writeStringValue("errorCode", provisioningErrorInfo.errorCode);
+    writer.writeStringValue("@odata.type", provisioningErrorInfo.odataType);
+    writer.writeStringValue("reason", provisioningErrorInfo.reason);
+    writer.writeStringValue("recommendedAction", provisioningErrorInfo.recommendedAction);
+    writer.writeAdditionalData(provisioningErrorInfo.additionalData);
 }
 // tslint:enable
 // eslint-enable

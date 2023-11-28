@@ -99,10 +99,10 @@ export interface Identity extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeIdentity(writer: SerializationWriter, identity: Identity | undefined = {} as Identity) : void {
-        writer.writeStringValue("displayName", identity.displayName);
-        writer.writeStringValue("id", identity.id);
-        writer.writeStringValue("@odata.type", identity.odataType);
-        writer.writeAdditionalData(identity.additionalData);
+    writer.writeStringValue("displayName", identity.displayName);
+    writer.writeStringValue("id", identity.id);
+    writer.writeStringValue("@odata.type", identity.odataType);
+    writer.writeAdditionalData(identity.additionalData);
 }
 // tslint:enable
 // eslint-enable

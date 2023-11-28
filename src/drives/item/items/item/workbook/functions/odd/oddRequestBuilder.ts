@@ -27,8 +27,8 @@ export interface OddPostRequestBody extends AdditionalDataHolder, Parsable {
     number?: Json;
 }
 export function serializeOddPostRequestBody(writer: SerializationWriter, oddPostRequestBody: OddPostRequestBody | undefined = {} as OddPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", oddPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(oddPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", oddPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(oddPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the odd method.

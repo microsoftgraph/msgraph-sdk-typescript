@@ -22,8 +22,8 @@ export interface ManagedAndroidLobAppCollectionResponse extends BaseCollectionPa
     value?: ManagedAndroidLobApp[];
 }
 export function serializeManagedAndroidLobAppCollectionResponse(writer: SerializationWriter, managedAndroidLobAppCollectionResponse: ManagedAndroidLobAppCollectionResponse | undefined = {} as ManagedAndroidLobAppCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, managedAndroidLobAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<ManagedAndroidLobApp>("value", managedAndroidLobAppCollectionResponse.value, serializeManagedAndroidLobApp);
+    serializeBaseCollectionPaginationCountResponse(writer, managedAndroidLobAppCollectionResponse)
+    writer.writeCollectionOfObjectValues<ManagedAndroidLobApp>("value", managedAndroidLobAppCollectionResponse.value, serializeManagedAndroidLobApp);
 }
 // tslint:enable
 // eslint-enable

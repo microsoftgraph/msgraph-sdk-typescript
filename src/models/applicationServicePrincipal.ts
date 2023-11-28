@@ -35,10 +35,10 @@ export function deserializeIntoApplicationServicePrincipal(applicationServicePri
     }
 }
 export function serializeApplicationServicePrincipal(writer: SerializationWriter, applicationServicePrincipal: ApplicationServicePrincipal | undefined = {} as ApplicationServicePrincipal) : void {
-        writer.writeObjectValue<Application>("application", applicationServicePrincipal.application, serializeApplication);
-        writer.writeStringValue("@odata.type", applicationServicePrincipal.odataType);
-        writer.writeObjectValue<ServicePrincipal>("servicePrincipal", applicationServicePrincipal.servicePrincipal, serializeServicePrincipal);
-        writer.writeAdditionalData(applicationServicePrincipal.additionalData);
+    writer.writeObjectValue<Application>("application", applicationServicePrincipal.application, serializeApplication);
+    writer.writeStringValue("@odata.type", applicationServicePrincipal.odataType);
+    writer.writeObjectValue<ServicePrincipal>("servicePrincipal", applicationServicePrincipal.servicePrincipal, serializeServicePrincipal);
+    writer.writeAdditionalData(applicationServicePrincipal.additionalData);
 }
 // tslint:enable
 // eslint-enable

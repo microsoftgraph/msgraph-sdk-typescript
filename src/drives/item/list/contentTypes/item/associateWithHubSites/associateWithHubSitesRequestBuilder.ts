@@ -30,9 +30,9 @@ export function deserializeIntoAssociateWithHubSitesPostRequestBody(associateWit
     }
 }
 export function serializeAssociateWithHubSitesPostRequestBody(writer: SerializationWriter, associateWithHubSitesPostRequestBody: AssociateWithHubSitesPostRequestBody | undefined = {} as AssociateWithHubSitesPostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("hubSiteUrls", associateWithHubSitesPostRequestBody.hubSiteUrls);
-        writer.writeBooleanValue("propagateToExistingLists", associateWithHubSitesPostRequestBody.propagateToExistingLists);
-        writer.writeAdditionalData(associateWithHubSitesPostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("hubSiteUrls", associateWithHubSitesPostRequestBody.hubSiteUrls);
+    writer.writeBooleanValue("propagateToExistingLists", associateWithHubSitesPostRequestBody.propagateToExistingLists);
+    writer.writeAdditionalData(associateWithHubSitesPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the associateWithHubSites method.

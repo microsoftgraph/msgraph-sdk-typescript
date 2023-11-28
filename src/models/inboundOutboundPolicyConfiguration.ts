@@ -33,10 +33,10 @@ export interface InboundOutboundPolicyConfiguration extends AdditionalDataHolder
     outboundAllowed?: boolean;
 }
 export function serializeInboundOutboundPolicyConfiguration(writer: SerializationWriter, inboundOutboundPolicyConfiguration: InboundOutboundPolicyConfiguration | undefined = {} as InboundOutboundPolicyConfiguration) : void {
-        writer.writeBooleanValue("inboundAllowed", inboundOutboundPolicyConfiguration.inboundAllowed);
-        writer.writeStringValue("@odata.type", inboundOutboundPolicyConfiguration.odataType);
-        writer.writeBooleanValue("outboundAllowed", inboundOutboundPolicyConfiguration.outboundAllowed);
-        writer.writeAdditionalData(inboundOutboundPolicyConfiguration.additionalData);
+    writer.writeBooleanValue("inboundAllowed", inboundOutboundPolicyConfiguration.inboundAllowed);
+    writer.writeStringValue("@odata.type", inboundOutboundPolicyConfiguration.odataType);
+    writer.writeBooleanValue("outboundAllowed", inboundOutboundPolicyConfiguration.outboundAllowed);
+    writer.writeAdditionalData(inboundOutboundPolicyConfiguration.additionalData);
 }
 // tslint:enable
 // eslint-enable

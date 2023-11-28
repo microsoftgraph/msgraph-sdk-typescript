@@ -22,8 +22,8 @@ export interface RiskyUserCollectionResponse extends BaseCollectionPaginationCou
     value?: RiskyUser[];
 }
 export function serializeRiskyUserCollectionResponse(writer: SerializationWriter, riskyUserCollectionResponse: RiskyUserCollectionResponse | undefined = {} as RiskyUserCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, riskyUserCollectionResponse)
-        writer.writeCollectionOfObjectValues<RiskyUser>("value", riskyUserCollectionResponse.value, serializeRiskyUser);
+    serializeBaseCollectionPaginationCountResponse(writer, riskyUserCollectionResponse)
+    writer.writeCollectionOfObjectValues<RiskyUser>("value", riskyUserCollectionResponse.value, serializeRiskyUser);
 }
 // tslint:enable
 // eslint-enable

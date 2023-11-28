@@ -28,9 +28,9 @@ export function deserializeIntoAgreementFileData(agreementFileData: AgreementFil
     }
 }
 export function serializeAgreementFileData(writer: SerializationWriter, agreementFileData: AgreementFileData | undefined = {} as AgreementFileData) : void {
-        writer.writeStringValue("data", agreementFileData.data);
-        writer.writeStringValue("@odata.type", agreementFileData.odataType);
-        writer.writeAdditionalData(agreementFileData.additionalData);
+    writer.writeStringValue("data", agreementFileData.data);
+    writer.writeStringValue("@odata.type", agreementFileData.odataType);
+    writer.writeAdditionalData(agreementFileData.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -23,8 +23,8 @@ export interface GetNotebookFromWebUrlPostRequestBody extends AdditionalDataHold
     webUrl?: string;
 }
 export function serializeGetNotebookFromWebUrlPostRequestBody(writer: SerializationWriter, getNotebookFromWebUrlPostRequestBody: GetNotebookFromWebUrlPostRequestBody | undefined = {} as GetNotebookFromWebUrlPostRequestBody) : void {
-        writer.writeStringValue("webUrl", getNotebookFromWebUrlPostRequestBody.webUrl);
-        writer.writeAdditionalData(getNotebookFromWebUrlPostRequestBody.additionalData);
+    writer.writeStringValue("webUrl", getNotebookFromWebUrlPostRequestBody.webUrl);
+    writer.writeAdditionalData(getNotebookFromWebUrlPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

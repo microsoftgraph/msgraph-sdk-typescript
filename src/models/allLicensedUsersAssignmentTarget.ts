@@ -16,7 +16,7 @@ export function deserializeIntoAllLicensedUsersAssignmentTarget(allLicensedUsers
     }
 }
 export function serializeAllLicensedUsersAssignmentTarget(writer: SerializationWriter, allLicensedUsersAssignmentTarget: AllLicensedUsersAssignmentTarget | undefined = {} as AllLicensedUsersAssignmentTarget) : void {
-        serializeDeviceAndAppManagementAssignmentTarget(writer, allLicensedUsersAssignmentTarget)
+    serializeDeviceAndAppManagementAssignmentTarget(writer, allLicensedUsersAssignmentTarget)
 }
 // tslint:enable
 // eslint-enable

@@ -16,7 +16,7 @@ export function deserializeIntoNoTrainingSetting(noTrainingSetting: NoTrainingSe
 export interface NoTrainingSetting extends Parsable, TrainingSetting {
 }
 export function serializeNoTrainingSetting(writer: SerializationWriter, noTrainingSetting: NoTrainingSetting | undefined = {} as NoTrainingSetting) : void {
-        serializeTrainingSetting(writer, noTrainingSetting)
+    serializeTrainingSetting(writer, noTrainingSetting)
 }
 // tslint:enable
 // eslint-enable

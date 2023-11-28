@@ -45,8 +45,8 @@ export interface OnenoteEntitySchemaObjectModel extends OnenoteEntityBaseModel, 
     createdDateTime?: Date;
 }
 export function serializeOnenoteEntitySchemaObjectModel(writer: SerializationWriter, onenoteEntitySchemaObjectModel: OnenoteEntitySchemaObjectModel | undefined = {} as OnenoteEntitySchemaObjectModel) : void {
-        serializeOnenoteEntityBaseModel(writer, onenoteEntitySchemaObjectModel)
-        writer.writeDateValue("createdDateTime", onenoteEntitySchemaObjectModel.createdDateTime);
+    serializeOnenoteEntityBaseModel(writer, onenoteEntitySchemaObjectModel)
+    writer.writeDateValue("createdDateTime", onenoteEntitySchemaObjectModel.createdDateTime);
 }
 // tslint:enable
 // eslint-enable

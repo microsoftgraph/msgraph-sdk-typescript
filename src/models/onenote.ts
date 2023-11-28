@@ -52,13 +52,13 @@ export interface Onenote extends Entity, Parsable {
     sections?: OnenoteSection[];
 }
 export function serializeOnenote(writer: SerializationWriter, onenote: Onenote | undefined = {} as Onenote) : void {
-        serializeEntity(writer, onenote)
-        writer.writeCollectionOfObjectValues<Notebook>("notebooks", onenote.notebooks, serializeNotebook);
-        writer.writeCollectionOfObjectValues<OnenoteOperation>("operations", onenote.operations, serializeOnenoteOperation);
-        writer.writeCollectionOfObjectValues<OnenotePage>("pages", onenote.pages, serializeOnenotePage);
-        writer.writeCollectionOfObjectValues<OnenoteResource>("resources", onenote.resources, serializeOnenoteResource);
-        writer.writeCollectionOfObjectValues<SectionGroup>("sectionGroups", onenote.sectionGroups, serializeSectionGroup);
-        writer.writeCollectionOfObjectValues<OnenoteSection>("sections", onenote.sections, serializeOnenoteSection);
+    serializeEntity(writer, onenote)
+    writer.writeCollectionOfObjectValues<Notebook>("notebooks", onenote.notebooks, serializeNotebook);
+    writer.writeCollectionOfObjectValues<OnenoteOperation>("operations", onenote.operations, serializeOnenoteOperation);
+    writer.writeCollectionOfObjectValues<OnenotePage>("pages", onenote.pages, serializeOnenotePage);
+    writer.writeCollectionOfObjectValues<OnenoteResource>("resources", onenote.resources, serializeOnenoteResource);
+    writer.writeCollectionOfObjectValues<SectionGroup>("sectionGroups", onenote.sectionGroups, serializeSectionGroup);
+    writer.writeCollectionOfObjectValues<OnenoteSection>("sections", onenote.sections, serializeOnenoteSection);
 }
 // tslint:enable
 // eslint-enable

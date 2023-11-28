@@ -34,10 +34,10 @@ export interface RedirectPostRequestBody extends AdditionalDataHolder, Parsable 
     timeout?: number;
 }
 export function serializeRedirectPostRequestBody(writer: SerializationWriter, redirectPostRequestBody: RedirectPostRequestBody | undefined = {} as RedirectPostRequestBody) : void {
-        writer.writeStringValue("callbackUri", redirectPostRequestBody.callbackUri);
-        writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("targets", redirectPostRequestBody.targets, serializeInvitationParticipantInfo);
-        writer.writeNumberValue("timeout", redirectPostRequestBody.timeout);
-        writer.writeAdditionalData(redirectPostRequestBody.additionalData);
+    writer.writeStringValue("callbackUri", redirectPostRequestBody.callbackUri);
+    writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("targets", redirectPostRequestBody.targets, serializeInvitationParticipantInfo);
+    writer.writeNumberValue("timeout", redirectPostRequestBody.timeout);
+    writer.writeAdditionalData(redirectPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

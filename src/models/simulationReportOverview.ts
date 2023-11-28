@@ -20,12 +20,12 @@ export function deserializeIntoSimulationReportOverview(simulationReportOverview
     }
 }
 export function serializeSimulationReportOverview(writer: SerializationWriter, simulationReportOverview: SimulationReportOverview | undefined = {} as SimulationReportOverview) : void {
-        writer.writeStringValue("@odata.type", simulationReportOverview.odataType);
-        writer.writeCollectionOfObjectValues<RecommendedAction>("recommendedActions", simulationReportOverview.recommendedActions, serializeRecommendedAction);
-        writer.writeNumberValue("resolvedTargetsCount", simulationReportOverview.resolvedTargetsCount);
-        writer.writeObjectValue<SimulationEventsContent>("simulationEventsContent", simulationReportOverview.simulationEventsContent, serializeSimulationEventsContent);
-        writer.writeObjectValue<TrainingEventsContent>("trainingEventsContent", simulationReportOverview.trainingEventsContent, serializeTrainingEventsContent);
-        writer.writeAdditionalData(simulationReportOverview.additionalData);
+    writer.writeStringValue("@odata.type", simulationReportOverview.odataType);
+    writer.writeCollectionOfObjectValues<RecommendedAction>("recommendedActions", simulationReportOverview.recommendedActions, serializeRecommendedAction);
+    writer.writeNumberValue("resolvedTargetsCount", simulationReportOverview.resolvedTargetsCount);
+    writer.writeObjectValue<SimulationEventsContent>("simulationEventsContent", simulationReportOverview.simulationEventsContent, serializeSimulationEventsContent);
+    writer.writeObjectValue<TrainingEventsContent>("trainingEventsContent", simulationReportOverview.trainingEventsContent, serializeTrainingEventsContent);
+    writer.writeAdditionalData(simulationReportOverview.additionalData);
 }
 export interface SimulationReportOverview extends AdditionalDataHolder, Parsable {
     /**

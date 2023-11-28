@@ -26,9 +26,9 @@ export interface SecurityGroupEvidence extends AlertEvidence, Parsable {
     securityGroupId?: string;
 }
 export function serializeSecurityGroupEvidence(writer: SerializationWriter, securityGroupEvidence: SecurityGroupEvidence | undefined = {} as SecurityGroupEvidence) : void {
-        serializeAlertEvidence(writer, securityGroupEvidence)
-        writer.writeStringValue("displayName", securityGroupEvidence.displayName);
-        writer.writeStringValue("securityGroupId", securityGroupEvidence.securityGroupId);
+    serializeAlertEvidence(writer, securityGroupEvidence)
+    writer.writeStringValue("displayName", securityGroupEvidence.displayName);
+    writer.writeStringValue("securityGroupId", securityGroupEvidence.securityGroupId);
 }
 // tslint:enable
 // eslint-enable

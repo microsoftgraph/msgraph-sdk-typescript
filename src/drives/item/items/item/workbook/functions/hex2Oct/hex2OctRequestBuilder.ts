@@ -32,9 +32,9 @@ export interface Hex2OctPostRequestBody extends AdditionalDataHolder, Parsable {
     places?: Json;
 }
 export function serializeHex2OctPostRequestBody(writer: SerializationWriter, hex2OctPostRequestBody: Hex2OctPostRequestBody | undefined = {} as Hex2OctPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", hex2OctPostRequestBody.number, serializeJson);
-        writer.writeObjectValue<Json>("places", hex2OctPostRequestBody.places, serializeJson);
-        writer.writeAdditionalData(hex2OctPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", hex2OctPostRequestBody.number, serializeJson);
+    writer.writeObjectValue<Json>("places", hex2OctPostRequestBody.places, serializeJson);
+    writer.writeAdditionalData(hex2OctPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the hex2Oct method.

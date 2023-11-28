@@ -63,16 +63,16 @@ export interface GetPolicyNonComplianceMetadataPostRequestBody extends Additiona
     top?: number;
 }
 export function serializeGetPolicyNonComplianceMetadataPostRequestBody(writer: SerializationWriter, getPolicyNonComplianceMetadataPostRequestBody: GetPolicyNonComplianceMetadataPostRequestBody | undefined = {} as GetPolicyNonComplianceMetadataPostRequestBody) : void {
-        writer.writeStringValue("filter", getPolicyNonComplianceMetadataPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getPolicyNonComplianceMetadataPostRequestBody.groupBy);
-        writer.writeStringValue("name", getPolicyNonComplianceMetadataPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getPolicyNonComplianceMetadataPostRequestBody.orderBy);
-        writer.writeStringValue("search", getPolicyNonComplianceMetadataPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getPolicyNonComplianceMetadataPostRequestBody.select);
-        writer.writeStringValue("sessionId", getPolicyNonComplianceMetadataPostRequestBody.sessionId);
-        writer.writeNumberValue("skip", getPolicyNonComplianceMetadataPostRequestBody.skip);
-        writer.writeNumberValue("top", getPolicyNonComplianceMetadataPostRequestBody.top);
-        writer.writeAdditionalData(getPolicyNonComplianceMetadataPostRequestBody.additionalData);
+    writer.writeStringValue("filter", getPolicyNonComplianceMetadataPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getPolicyNonComplianceMetadataPostRequestBody.groupBy);
+    writer.writeStringValue("name", getPolicyNonComplianceMetadataPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getPolicyNonComplianceMetadataPostRequestBody.orderBy);
+    writer.writeStringValue("search", getPolicyNonComplianceMetadataPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getPolicyNonComplianceMetadataPostRequestBody.select);
+    writer.writeStringValue("sessionId", getPolicyNonComplianceMetadataPostRequestBody.sessionId);
+    writer.writeNumberValue("skip", getPolicyNonComplianceMetadataPostRequestBody.skip);
+    writer.writeNumberValue("top", getPolicyNonComplianceMetadataPostRequestBody.top);
+    writer.writeAdditionalData(getPolicyNonComplianceMetadataPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

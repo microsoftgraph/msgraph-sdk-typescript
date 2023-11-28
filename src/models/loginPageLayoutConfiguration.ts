@@ -39,11 +39,11 @@ export interface LoginPageLayoutConfiguration extends AdditionalDataHolder, Pars
     odataType?: string;
 }
 export function serializeLoginPageLayoutConfiguration(writer: SerializationWriter, loginPageLayoutConfiguration: LoginPageLayoutConfiguration | undefined = {} as LoginPageLayoutConfiguration) : void {
-        writer.writeBooleanValue("isFooterShown", loginPageLayoutConfiguration.isFooterShown);
-        writer.writeBooleanValue("isHeaderShown", loginPageLayoutConfiguration.isHeaderShown);
-        writer.writeEnumValue<LayoutTemplateType>("layoutTemplateType", loginPageLayoutConfiguration.layoutTemplateType);
-        writer.writeStringValue("@odata.type", loginPageLayoutConfiguration.odataType);
-        writer.writeAdditionalData(loginPageLayoutConfiguration.additionalData);
+    writer.writeBooleanValue("isFooterShown", loginPageLayoutConfiguration.isFooterShown);
+    writer.writeBooleanValue("isHeaderShown", loginPageLayoutConfiguration.isHeaderShown);
+    writer.writeEnumValue<LayoutTemplateType>("layoutTemplateType", loginPageLayoutConfiguration.layoutTemplateType);
+    writer.writeStringValue("@odata.type", loginPageLayoutConfiguration.odataType);
+    writer.writeAdditionalData(loginPageLayoutConfiguration.additionalData);
 }
 // tslint:enable
 // eslint-enable

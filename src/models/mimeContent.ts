@@ -33,10 +33,10 @@ export interface MimeContent extends AdditionalDataHolder, Parsable {
     value?: string;
 }
 export function serializeMimeContent(writer: SerializationWriter, mimeContent: MimeContent | undefined = {} as MimeContent) : void {
-        writer.writeStringValue("@odata.type", mimeContent.odataType);
-        writer.writeStringValue("type", mimeContent.type);
-        writer.writeStringValue("value", mimeContent.value);
-        writer.writeAdditionalData(mimeContent.additionalData);
+    writer.writeStringValue("@odata.type", mimeContent.odataType);
+    writer.writeStringValue("type", mimeContent.type);
+    writer.writeStringValue("value", mimeContent.value);
+    writer.writeAdditionalData(mimeContent.additionalData);
 }
 // tslint:enable
 // eslint-enable

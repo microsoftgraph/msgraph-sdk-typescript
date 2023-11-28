@@ -34,10 +34,10 @@ export interface FileHash extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeFileHash(writer: SerializationWriter, fileHash: FileHash | undefined = {} as FileHash) : void {
-        writer.writeEnumValue<FileHashType>("hashType", fileHash.hashType);
-        writer.writeStringValue("hashValue", fileHash.hashValue);
-        writer.writeStringValue("@odata.type", fileHash.odataType);
-        writer.writeAdditionalData(fileHash.additionalData);
+    writer.writeEnumValue<FileHashType>("hashType", fileHash.hashType);
+    writer.writeStringValue("hashValue", fileHash.hashValue);
+    writer.writeStringValue("@odata.type", fileHash.odataType);
+    writer.writeAdditionalData(fileHash.additionalData);
 }
 // tslint:enable
 // eslint-enable

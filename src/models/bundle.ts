@@ -34,10 +34,10 @@ export function deserializeIntoBundle(bundle: Bundle | undefined = {} as Bundle)
     }
 }
 export function serializeBundle(writer: SerializationWriter, bundle: Bundle | undefined = {} as Bundle) : void {
-        writer.writeObjectValue<Album>("album", bundle.album, serializeAlbum);
-        writer.writeNumberValue("childCount", bundle.childCount);
-        writer.writeStringValue("@odata.type", bundle.odataType);
-        writer.writeAdditionalData(bundle.additionalData);
+    writer.writeObjectValue<Album>("album", bundle.album, serializeAlbum);
+    writer.writeNumberValue("childCount", bundle.childCount);
+    writer.writeStringValue("@odata.type", bundle.odataType);
+    writer.writeAdditionalData(bundle.additionalData);
 }
 // tslint:enable
 // eslint-enable

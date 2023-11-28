@@ -33,10 +33,10 @@ export interface ImportedWindowsAutopilotDeviceIdentityUpload extends Entity, Pa
     status?: ImportedWindowsAutopilotDeviceIdentityUploadStatus;
 }
 export function serializeImportedWindowsAutopilotDeviceIdentityUpload(writer: SerializationWriter, importedWindowsAutopilotDeviceIdentityUpload: ImportedWindowsAutopilotDeviceIdentityUpload | undefined = {} as ImportedWindowsAutopilotDeviceIdentityUpload) : void {
-        serializeEntity(writer, importedWindowsAutopilotDeviceIdentityUpload)
-        writer.writeDateValue("createdDateTimeUtc", importedWindowsAutopilotDeviceIdentityUpload.createdDateTimeUtc);
-        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("deviceIdentities", importedWindowsAutopilotDeviceIdentityUpload.deviceIdentities, serializeImportedWindowsAutopilotDeviceIdentity);
-        writer.writeEnumValue<ImportedWindowsAutopilotDeviceIdentityUploadStatus>("status", importedWindowsAutopilotDeviceIdentityUpload.status);
+    serializeEntity(writer, importedWindowsAutopilotDeviceIdentityUpload)
+    writer.writeDateValue("createdDateTimeUtc", importedWindowsAutopilotDeviceIdentityUpload.createdDateTimeUtc);
+    writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("deviceIdentities", importedWindowsAutopilotDeviceIdentityUpload.deviceIdentities, serializeImportedWindowsAutopilotDeviceIdentity);
+    writer.writeEnumValue<ImportedWindowsAutopilotDeviceIdentityUploadStatus>("status", importedWindowsAutopilotDeviceIdentityUpload.status);
 }
 // tslint:enable
 // eslint-enable

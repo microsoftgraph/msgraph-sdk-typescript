@@ -21,8 +21,8 @@ export interface EducationWordResource extends EducationResource, Parsable {
     fileUrl?: string;
 }
 export function serializeEducationWordResource(writer: SerializationWriter, educationWordResource: EducationWordResource | undefined = {} as EducationWordResource) : void {
-        serializeEducationResource(writer, educationWordResource)
-        writer.writeStringValue("fileUrl", educationWordResource.fileUrl);
+    serializeEducationResource(writer, educationWordResource)
+    writer.writeStringValue("fileUrl", educationWordResource.fileUrl);
 }
 // tslint:enable
 // eslint-enable

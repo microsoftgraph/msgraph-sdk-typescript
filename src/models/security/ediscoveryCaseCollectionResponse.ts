@@ -22,8 +22,8 @@ export interface EdiscoveryCaseCollectionResponse extends BaseCollectionPaginati
     value?: EdiscoveryCase[];
 }
 export function serializeEdiscoveryCaseCollectionResponse(writer: SerializationWriter, ediscoveryCaseCollectionResponse: EdiscoveryCaseCollectionResponse | undefined = {} as EdiscoveryCaseCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, ediscoveryCaseCollectionResponse)
-        writer.writeCollectionOfObjectValues<EdiscoveryCase>("value", ediscoveryCaseCollectionResponse.value, serializeEdiscoveryCase);
+    serializeBaseCollectionPaginationCountResponse(writer, ediscoveryCaseCollectionResponse)
+    writer.writeCollectionOfObjectValues<EdiscoveryCase>("value", ediscoveryCaseCollectionResponse.value, serializeEdiscoveryCase);
 }
 // tslint:enable
 // eslint-enable

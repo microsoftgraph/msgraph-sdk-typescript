@@ -27,8 +27,8 @@ export interface DevSqPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeDevSqPostRequestBody(writer: SerializationWriter, devSqPostRequestBody: DevSqPostRequestBody | undefined = {} as DevSqPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", devSqPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(devSqPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", devSqPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(devSqPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the devSq method.

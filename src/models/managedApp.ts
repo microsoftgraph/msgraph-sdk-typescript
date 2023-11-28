@@ -51,9 +51,9 @@ export interface ManagedApp extends MobileApp, Parsable {
     version?: string;
 }
 export function serializeManagedApp(writer: SerializationWriter, managedApp: ManagedApp | undefined = {} as ManagedApp) : void {
-        serializeMobileApp(writer, managedApp)
-        writer.writeEnumValue<ManagedAppAvailability>("appAvailability", managedApp.appAvailability);
-        writer.writeStringValue("version", managedApp.version);
+    serializeMobileApp(writer, managedApp)
+    writer.writeEnumValue<ManagedAppAvailability>("appAvailability", managedApp.appAvailability);
+    writer.writeStringValue("version", managedApp.version);
 }
 // tslint:enable
 // eslint-enable

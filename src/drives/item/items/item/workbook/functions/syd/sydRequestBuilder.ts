@@ -20,11 +20,11 @@ export function deserializeIntoSydPostRequestBody(sydPostRequestBody: SydPostReq
     }
 }
 export function serializeSydPostRequestBody(writer: SerializationWriter, sydPostRequestBody: SydPostRequestBody | undefined = {} as SydPostRequestBody) : void {
-        writer.writeObjectValue<Json>("cost", sydPostRequestBody.cost, serializeJson);
-        writer.writeObjectValue<Json>("life", sydPostRequestBody.life, serializeJson);
-        writer.writeObjectValue<Json>("per", sydPostRequestBody.per, serializeJson);
-        writer.writeObjectValue<Json>("salvage", sydPostRequestBody.salvage, serializeJson);
-        writer.writeAdditionalData(sydPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("cost", sydPostRequestBody.cost, serializeJson);
+    writer.writeObjectValue<Json>("life", sydPostRequestBody.life, serializeJson);
+    writer.writeObjectValue<Json>("per", sydPostRequestBody.per, serializeJson);
+    writer.writeObjectValue<Json>("salvage", sydPostRequestBody.salvage, serializeJson);
+    writer.writeAdditionalData(sydPostRequestBody.additionalData);
 }
 export interface SydPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

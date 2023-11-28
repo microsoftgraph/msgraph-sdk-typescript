@@ -17,9 +17,9 @@ export function deserializeIntoSharedWithChannelTeamInfo(sharedWithChannelTeamIn
     }
 }
 export function serializeSharedWithChannelTeamInfo(writer: SerializationWriter, sharedWithChannelTeamInfo: SharedWithChannelTeamInfo | undefined = {} as SharedWithChannelTeamInfo) : void {
-        serializeTeamInfo(writer, sharedWithChannelTeamInfo)
-        writer.writeCollectionOfObjectValues<ConversationMember>("allowedMembers", sharedWithChannelTeamInfo.allowedMembers, serializeConversationMember);
-        writer.writeBooleanValue("isHostTeam", sharedWithChannelTeamInfo.isHostTeam);
+    serializeTeamInfo(writer, sharedWithChannelTeamInfo)
+    writer.writeCollectionOfObjectValues<ConversationMember>("allowedMembers", sharedWithChannelTeamInfo.allowedMembers, serializeConversationMember);
+    writer.writeBooleanValue("isHostTeam", sharedWithChannelTeamInfo.isHostTeam);
 }
 export interface SharedWithChannelTeamInfo extends Parsable, TeamInfo {
     /**

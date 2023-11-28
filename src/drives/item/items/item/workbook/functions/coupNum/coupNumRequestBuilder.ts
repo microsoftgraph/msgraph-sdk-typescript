@@ -42,11 +42,11 @@ export function deserializeIntoCoupNumPostRequestBody(coupNumPostRequestBody: Co
     }
 }
 export function serializeCoupNumPostRequestBody(writer: SerializationWriter, coupNumPostRequestBody: CoupNumPostRequestBody | undefined = {} as CoupNumPostRequestBody) : void {
-        writer.writeObjectValue<Json>("basis", coupNumPostRequestBody.basis, serializeJson);
-        writer.writeObjectValue<Json>("frequency", coupNumPostRequestBody.frequency, serializeJson);
-        writer.writeObjectValue<Json>("maturity", coupNumPostRequestBody.maturity, serializeJson);
-        writer.writeObjectValue<Json>("settlement", coupNumPostRequestBody.settlement, serializeJson);
-        writer.writeAdditionalData(coupNumPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("basis", coupNumPostRequestBody.basis, serializeJson);
+    writer.writeObjectValue<Json>("frequency", coupNumPostRequestBody.frequency, serializeJson);
+    writer.writeObjectValue<Json>("maturity", coupNumPostRequestBody.maturity, serializeJson);
+    writer.writeObjectValue<Json>("settlement", coupNumPostRequestBody.settlement, serializeJson);
+    writer.writeAdditionalData(coupNumPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the coupNum method.

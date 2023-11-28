@@ -26,8 +26,8 @@ export interface ProtectPostRequestBody extends AdditionalDataHolder, Parsable {
     options?: WorkbookWorksheetProtectionOptions;
 }
 export function serializeProtectPostRequestBody(writer: SerializationWriter, protectPostRequestBody: ProtectPostRequestBody | undefined = {} as ProtectPostRequestBody) : void {
-        writer.writeObjectValue<WorkbookWorksheetProtectionOptions>("options", protectPostRequestBody.options, serializeWorkbookWorksheetProtectionOptions);
-        writer.writeAdditionalData(protectPostRequestBody.additionalData);
+    writer.writeObjectValue<WorkbookWorksheetProtectionOptions>("options", protectPostRequestBody.options, serializeWorkbookWorksheetProtectionOptions);
+    writer.writeAdditionalData(protectPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the protect method.

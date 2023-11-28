@@ -28,8 +28,8 @@ export function deserializeIntoUserExperienceAnalyticsInsightValue(userExperienc
     }
 }
 export function serializeUserExperienceAnalyticsInsightValue(writer: SerializationWriter, userExperienceAnalyticsInsightValue: UserExperienceAnalyticsInsightValue | undefined = {} as UserExperienceAnalyticsInsightValue) : void {
-        writer.writeStringValue("@odata.type", userExperienceAnalyticsInsightValue.odataType);
-        writer.writeAdditionalData(userExperienceAnalyticsInsightValue.additionalData);
+    writer.writeStringValue("@odata.type", userExperienceAnalyticsInsightValue.odataType);
+    writer.writeAdditionalData(userExperienceAnalyticsInsightValue.additionalData);
 }
 export interface UserExperienceAnalyticsInsightValue extends AdditionalDataHolder, Parsable {
     /**

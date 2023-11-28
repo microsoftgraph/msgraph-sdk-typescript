@@ -46,8 +46,8 @@ export interface GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryPa
     top?: number;
 }
 export function serializeGetAttackSimulationTrainingUserCoverageGetResponse(writer: SerializationWriter, getAttackSimulationTrainingUserCoverageGetResponse: GetAttackSimulationTrainingUserCoverageGetResponse | undefined = {} as GetAttackSimulationTrainingUserCoverageGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationTrainingUserCoverageGetResponse)
-        writer.writeCollectionOfObjectValues<AttackSimulationTrainingUserCoverage>("value", getAttackSimulationTrainingUserCoverageGetResponse.value, serializeAttackSimulationTrainingUserCoverage);
+    serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationTrainingUserCoverageGetResponse)
+    writer.writeCollectionOfObjectValues<AttackSimulationTrainingUserCoverage>("value", getAttackSimulationTrainingUserCoverageGetResponse.value, serializeAttackSimulationTrainingUserCoverage);
 }
 /**
  * Provides operations to call the getAttackSimulationTrainingUserCoverage method.

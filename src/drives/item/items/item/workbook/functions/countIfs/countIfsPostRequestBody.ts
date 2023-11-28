@@ -24,8 +24,8 @@ export function deserializeIntoCountIfsPostRequestBody(countIfsPostRequestBody: 
     }
 }
 export function serializeCountIfsPostRequestBody(writer: SerializationWriter, countIfsPostRequestBody: CountIfsPostRequestBody | undefined = {} as CountIfsPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", countIfsPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(countIfsPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", countIfsPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(countIfsPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

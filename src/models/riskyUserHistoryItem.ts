@@ -32,10 +32,10 @@ export interface RiskyUserHistoryItem extends Parsable, RiskyUser {
     userId?: string;
 }
 export function serializeRiskyUserHistoryItem(writer: SerializationWriter, riskyUserHistoryItem: RiskyUserHistoryItem | undefined = {} as RiskyUserHistoryItem) : void {
-        serializeRiskyUser(writer, riskyUserHistoryItem)
-        writer.writeObjectValue<RiskUserActivity>("activity", riskyUserHistoryItem.activity, serializeRiskUserActivity);
-        writer.writeStringValue("initiatedBy", riskyUserHistoryItem.initiatedBy);
-        writer.writeStringValue("userId", riskyUserHistoryItem.userId);
+    serializeRiskyUser(writer, riskyUserHistoryItem)
+    writer.writeObjectValue<RiskUserActivity>("activity", riskyUserHistoryItem.activity, serializeRiskUserActivity);
+    writer.writeStringValue("initiatedBy", riskyUserHistoryItem.initiatedBy);
+    writer.writeStringValue("userId", riskyUserHistoryItem.userId);
 }
 // tslint:enable
 // eslint-enable

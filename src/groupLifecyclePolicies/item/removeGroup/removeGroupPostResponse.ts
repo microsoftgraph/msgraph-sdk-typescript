@@ -23,8 +23,8 @@ export interface RemoveGroupPostResponse extends AdditionalDataHolder, Parsable 
     value?: boolean;
 }
 export function serializeRemoveGroupPostResponse(writer: SerializationWriter, removeGroupPostResponse: RemoveGroupPostResponse | undefined = {} as RemoveGroupPostResponse) : void {
-        writer.writeBooleanValue("value", removeGroupPostResponse.value);
-        writer.writeAdditionalData(removeGroupPostResponse.additionalData);
+    writer.writeBooleanValue("value", removeGroupPostResponse.value);
+    writer.writeAdditionalData(removeGroupPostResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

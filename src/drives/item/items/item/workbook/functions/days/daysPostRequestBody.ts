@@ -29,9 +29,9 @@ export function deserializeIntoDaysPostRequestBody(daysPostRequestBody: DaysPost
     }
 }
 export function serializeDaysPostRequestBody(writer: SerializationWriter, daysPostRequestBody: DaysPostRequestBody | undefined = {} as DaysPostRequestBody) : void {
-        writer.writeObjectValue<Json>("endDate", daysPostRequestBody.endDate, serializeJson);
-        writer.writeObjectValue<Json>("startDate", daysPostRequestBody.startDate, serializeJson);
-        writer.writeAdditionalData(daysPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("endDate", daysPostRequestBody.endDate, serializeJson);
+    writer.writeObjectValue<Json>("startDate", daysPostRequestBody.startDate, serializeJson);
+    writer.writeAdditionalData(daysPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

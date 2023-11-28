@@ -16,8 +16,8 @@ export function deserializeIntoSetOrderPostRequestBody(setOrderPostRequestBody: 
     }
 }
 export function serializeSetOrderPostRequestBody(writer: SerializationWriter, setOrderPostRequestBody: SetOrderPostRequestBody | undefined = {} as SetOrderPostRequestBody) : void {
-        writer.writeObjectValue<AssignmentOrder>("newAssignmentOrder", setOrderPostRequestBody.newAssignmentOrder, serializeAssignmentOrder);
-        writer.writeAdditionalData(setOrderPostRequestBody.additionalData);
+    writer.writeObjectValue<AssignmentOrder>("newAssignmentOrder", setOrderPostRequestBody.newAssignmentOrder, serializeAssignmentOrder);
+    writer.writeAdditionalData(setOrderPostRequestBody.additionalData);
 }
 export interface SetOrderPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

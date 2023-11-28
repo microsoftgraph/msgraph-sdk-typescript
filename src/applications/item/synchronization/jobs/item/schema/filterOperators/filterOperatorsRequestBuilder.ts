@@ -54,8 +54,8 @@ export interface FilterOperatorsRequestBuilderGetQueryParameters {
     top?: number;
 }
 export function serializeFilterOperatorsGetResponse(writer: SerializationWriter, filterOperatorsGetResponse: FilterOperatorsGetResponse | undefined = {} as FilterOperatorsGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, filterOperatorsGetResponse)
-        writer.writeCollectionOfObjectValues<FilterOperatorSchema>("value", filterOperatorsGetResponse.value, serializeFilterOperatorSchema);
+    serializeBaseCollectionPaginationCountResponse(writer, filterOperatorsGetResponse)
+    writer.writeCollectionOfObjectValues<FilterOperatorSchema>("value", filterOperatorsGetResponse.value, serializeFilterOperatorSchema);
 }
 /**
  * Provides operations to call the filterOperators method.

@@ -42,11 +42,11 @@ export function deserializeIntoCoupNcdPostRequestBody(coupNcdPostRequestBody: Co
     }
 }
 export function serializeCoupNcdPostRequestBody(writer: SerializationWriter, coupNcdPostRequestBody: CoupNcdPostRequestBody | undefined = {} as CoupNcdPostRequestBody) : void {
-        writer.writeObjectValue<Json>("basis", coupNcdPostRequestBody.basis, serializeJson);
-        writer.writeObjectValue<Json>("frequency", coupNcdPostRequestBody.frequency, serializeJson);
-        writer.writeObjectValue<Json>("maturity", coupNcdPostRequestBody.maturity, serializeJson);
-        writer.writeObjectValue<Json>("settlement", coupNcdPostRequestBody.settlement, serializeJson);
-        writer.writeAdditionalData(coupNcdPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("basis", coupNcdPostRequestBody.basis, serializeJson);
+    writer.writeObjectValue<Json>("frequency", coupNcdPostRequestBody.frequency, serializeJson);
+    writer.writeObjectValue<Json>("maturity", coupNcdPostRequestBody.maturity, serializeJson);
+    writer.writeObjectValue<Json>("settlement", coupNcdPostRequestBody.settlement, serializeJson);
+    writer.writeAdditionalData(coupNcdPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the coupNcd method.

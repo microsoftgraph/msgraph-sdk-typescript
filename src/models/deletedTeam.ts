@@ -22,8 +22,8 @@ export function deserializeIntoDeletedTeam(deletedTeam: DeletedTeam | undefined 
     }
 }
 export function serializeDeletedTeam(writer: SerializationWriter, deletedTeam: DeletedTeam | undefined = {} as DeletedTeam) : void {
-        serializeEntity(writer, deletedTeam)
-        writer.writeCollectionOfObjectValues<Channel>("channels", deletedTeam.channels, serializeChannel);
+    serializeEntity(writer, deletedTeam)
+    writer.writeCollectionOfObjectValues<Channel>("channels", deletedTeam.channels, serializeChannel);
 }
 // tslint:enable
 // eslint-enable

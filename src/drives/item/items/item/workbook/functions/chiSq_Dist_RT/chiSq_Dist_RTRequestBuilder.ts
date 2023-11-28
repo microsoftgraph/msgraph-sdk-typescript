@@ -32,9 +32,9 @@ export function deserializeIntoChiSq_Dist_RTPostRequestBody(chiSq_Dist_RTPostReq
     }
 }
 export function serializeChiSq_Dist_RTPostRequestBody(writer: SerializationWriter, chiSq_Dist_RTPostRequestBody: ChiSq_Dist_RTPostRequestBody | undefined = {} as ChiSq_Dist_RTPostRequestBody) : void {
-        writer.writeObjectValue<Json>("degFreedom", chiSq_Dist_RTPostRequestBody.degFreedom, serializeJson);
-        writer.writeObjectValue<Json>("x", chiSq_Dist_RTPostRequestBody.x, serializeJson);
-        writer.writeAdditionalData(chiSq_Dist_RTPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("degFreedom", chiSq_Dist_RTPostRequestBody.degFreedom, serializeJson);
+    writer.writeObjectValue<Json>("x", chiSq_Dist_RTPostRequestBody.x, serializeJson);
+    writer.writeAdditionalData(chiSq_Dist_RTPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the chiSq_Dist_RT method.

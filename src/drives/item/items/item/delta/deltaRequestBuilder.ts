@@ -54,8 +54,8 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: DeltaGetRespon
     }
 }
 export function serializeDeltaGetResponse(writer: SerializationWriter, deltaGetResponse: DeltaGetResponse | undefined = {} as DeltaGetResponse) : void {
-        serializeBaseDeltaFunctionResponse(writer, deltaGetResponse)
-        writer.writeCollectionOfObjectValues<DriveItem>("value", deltaGetResponse.value, serializeDriveItem);
+    serializeBaseDeltaFunctionResponse(writer, deltaGetResponse)
+    writer.writeCollectionOfObjectValues<DriveItem>("value", deltaGetResponse.value, serializeDriveItem);
 }
 /**
  * Provides operations to call the delta method.

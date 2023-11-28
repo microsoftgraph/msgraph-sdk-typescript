@@ -33,9 +33,9 @@ export function deserializeIntoAssignLicensePostRequestBody(assignLicensePostReq
     }
 }
 export function serializeAssignLicensePostRequestBody(writer: SerializationWriter, assignLicensePostRequestBody: AssignLicensePostRequestBody | undefined = {} as AssignLicensePostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<AssignedLicense>("addLicenses", assignLicensePostRequestBody.addLicenses, serializeAssignedLicense);
-        writer.writeCollectionOfPrimitiveValues<Guid>("removeLicenses", assignLicensePostRequestBody.removeLicenses);
-        writer.writeAdditionalData(assignLicensePostRequestBody.additionalData);
+    writer.writeCollectionOfObjectValues<AssignedLicense>("addLicenses", assignLicensePostRequestBody.addLicenses, serializeAssignedLicense);
+    writer.writeCollectionOfPrimitiveValues<Guid>("removeLicenses", assignLicensePostRequestBody.removeLicenses);
+    writer.writeAdditionalData(assignLicensePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the assignLicense method.

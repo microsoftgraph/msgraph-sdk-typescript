@@ -36,10 +36,10 @@ export function deserializeIntoAddFormulaLocalPostRequestBody(addFormulaLocalPos
     }
 }
 export function serializeAddFormulaLocalPostRequestBody(writer: SerializationWriter, addFormulaLocalPostRequestBody: AddFormulaLocalPostRequestBody | undefined = {} as AddFormulaLocalPostRequestBody) : void {
-        writer.writeStringValue("comment", addFormulaLocalPostRequestBody.comment);
-        writer.writeStringValue("formula", addFormulaLocalPostRequestBody.formula);
-        writer.writeStringValue("name", addFormulaLocalPostRequestBody.name);
-        writer.writeAdditionalData(addFormulaLocalPostRequestBody.additionalData);
+    writer.writeStringValue("comment", addFormulaLocalPostRequestBody.comment);
+    writer.writeStringValue("formula", addFormulaLocalPostRequestBody.formula);
+    writer.writeStringValue("name", addFormulaLocalPostRequestBody.name);
+    writer.writeAdditionalData(addFormulaLocalPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the addFormulaLocal method.

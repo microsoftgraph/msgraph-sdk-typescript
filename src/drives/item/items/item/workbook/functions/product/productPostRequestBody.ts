@@ -24,8 +24,8 @@ export interface ProductPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeProductPostRequestBody(writer: SerializationWriter, productPostRequestBody: ProductPostRequestBody | undefined = {} as ProductPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", productPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(productPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", productPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(productPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

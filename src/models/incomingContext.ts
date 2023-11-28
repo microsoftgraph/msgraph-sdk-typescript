@@ -44,12 +44,12 @@ export interface IncomingContext extends AdditionalDataHolder, Parsable {
     transferor?: IdentitySet;
 }
 export function serializeIncomingContext(writer: SerializationWriter, incomingContext: IncomingContext | undefined = {} as IncomingContext) : void {
-        writer.writeStringValue("observedParticipantId", incomingContext.observedParticipantId);
-        writer.writeStringValue("@odata.type", incomingContext.odataType);
-        writer.writeObjectValue<IdentitySet>("onBehalfOf", incomingContext.onBehalfOf, serializeIdentitySet);
-        writer.writeStringValue("sourceParticipantId", incomingContext.sourceParticipantId);
-        writer.writeObjectValue<IdentitySet>("transferor", incomingContext.transferor, serializeIdentitySet);
-        writer.writeAdditionalData(incomingContext.additionalData);
+    writer.writeStringValue("observedParticipantId", incomingContext.observedParticipantId);
+    writer.writeStringValue("@odata.type", incomingContext.odataType);
+    writer.writeObjectValue<IdentitySet>("onBehalfOf", incomingContext.onBehalfOf, serializeIdentitySet);
+    writer.writeStringValue("sourceParticipantId", incomingContext.sourceParticipantId);
+    writer.writeObjectValue<IdentitySet>("transferor", incomingContext.transferor, serializeIdentitySet);
+    writer.writeAdditionalData(incomingContext.additionalData);
 }
 // tslint:enable
 // eslint-enable

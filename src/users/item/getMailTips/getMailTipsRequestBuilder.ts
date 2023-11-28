@@ -25,8 +25,8 @@ export interface GetMailTipsPostResponse extends BaseCollectionPaginationCountRe
     value?: MailTips[];
 }
 export function serializeGetMailTipsPostResponse(writer: SerializationWriter, getMailTipsPostResponse: GetMailTipsPostResponse | undefined = {} as GetMailTipsPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getMailTipsPostResponse)
-        writer.writeCollectionOfObjectValues<MailTips>("value", getMailTipsPostResponse.value, serializeMailTips);
+    serializeBaseCollectionPaginationCountResponse(writer, getMailTipsPostResponse)
+    writer.writeCollectionOfObjectValues<MailTips>("value", getMailTipsPostResponse.value, serializeMailTips);
 }
 /**
  * Provides operations to call the getMailTips method.

@@ -22,8 +22,8 @@ export interface EdiscoveryCustodianCollectionResponse extends BaseCollectionPag
     value?: EdiscoveryCustodian[];
 }
 export function serializeEdiscoveryCustodianCollectionResponse(writer: SerializationWriter, ediscoveryCustodianCollectionResponse: EdiscoveryCustodianCollectionResponse | undefined = {} as EdiscoveryCustodianCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, ediscoveryCustodianCollectionResponse)
-        writer.writeCollectionOfObjectValues<EdiscoveryCustodian>("value", ediscoveryCustodianCollectionResponse.value, serializeEdiscoveryCustodian);
+    serializeBaseCollectionPaginationCountResponse(writer, ediscoveryCustodianCollectionResponse)
+    writer.writeCollectionOfObjectValues<EdiscoveryCustodian>("value", ediscoveryCustodianCollectionResponse.value, serializeEdiscoveryCustodian);
 }
 // tslint:enable
 // eslint-enable

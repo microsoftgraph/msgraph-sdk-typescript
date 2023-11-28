@@ -32,10 +32,10 @@ export function deserializeIntoDelegatedPermissionClassification(delegatedPermis
     }
 }
 export function serializeDelegatedPermissionClassification(writer: SerializationWriter, delegatedPermissionClassification: DelegatedPermissionClassification | undefined = {} as DelegatedPermissionClassification) : void {
-        serializeEntity(writer, delegatedPermissionClassification)
-        writer.writeEnumValue<PermissionClassificationType>("classification", delegatedPermissionClassification.classification);
-        writer.writeStringValue("permissionId", delegatedPermissionClassification.permissionId);
-        writer.writeStringValue("permissionName", delegatedPermissionClassification.permissionName);
+    serializeEntity(writer, delegatedPermissionClassification)
+    writer.writeEnumValue<PermissionClassificationType>("classification", delegatedPermissionClassification.classification);
+    writer.writeStringValue("permissionId", delegatedPermissionClassification.permissionId);
+    writer.writeStringValue("permissionName", delegatedPermissionClassification.permissionName);
 }
 // tslint:enable
 // eslint-enable

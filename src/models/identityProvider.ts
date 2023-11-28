@@ -36,11 +36,11 @@ export interface IdentityProvider extends Entity, Parsable {
     type?: string;
 }
 export function serializeIdentityProvider(writer: SerializationWriter, identityProvider: IdentityProvider | undefined = {} as IdentityProvider) : void {
-        serializeEntity(writer, identityProvider)
-        writer.writeStringValue("clientId", identityProvider.clientId);
-        writer.writeStringValue("clientSecret", identityProvider.clientSecret);
-        writer.writeStringValue("name", identityProvider.name);
-        writer.writeStringValue("type", identityProvider.type);
+    serializeEntity(writer, identityProvider)
+    writer.writeStringValue("clientId", identityProvider.clientId);
+    writer.writeStringValue("clientSecret", identityProvider.clientSecret);
+    writer.writeStringValue("name", identityProvider.name);
+    writer.writeStringValue("type", identityProvider.type);
 }
 // tslint:enable
 // eslint-enable

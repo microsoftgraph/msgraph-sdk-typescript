@@ -30,9 +30,9 @@ export function deserializeIntoAddToReviewSetPostRequestBody(addToReviewSetPostR
     }
 }
 export function serializeAddToReviewSetPostRequestBody(writer: SerializationWriter, addToReviewSetPostRequestBody: AddToReviewSetPostRequestBody | undefined = {} as AddToReviewSetPostRequestBody) : void {
-        writer.writeEnumValue<AdditionalDataOptions[]>("additionalDataOptions", addToReviewSetPostRequestBody.additionalDataOptions);
-        writer.writeObjectValue<EdiscoverySearch>("search", addToReviewSetPostRequestBody.search, serializeEdiscoverySearch);
-        writer.writeAdditionalData(addToReviewSetPostRequestBody.additionalData);
+    writer.writeEnumValue<AdditionalDataOptions[]>("additionalDataOptions", addToReviewSetPostRequestBody.additionalDataOptions);
+    writer.writeObjectValue<EdiscoverySearch>("search", addToReviewSetPostRequestBody.search, serializeEdiscoverySearch);
+    writer.writeAdditionalData(addToReviewSetPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

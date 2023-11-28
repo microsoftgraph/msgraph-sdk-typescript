@@ -32,9 +32,9 @@ export interface PermutationaPostRequestBody extends AdditionalDataHolder, Parsa
     numberChosen?: Json;
 }
 export function serializePermutationaPostRequestBody(writer: SerializationWriter, permutationaPostRequestBody: PermutationaPostRequestBody | undefined = {} as PermutationaPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", permutationaPostRequestBody.number, serializeJson);
-        writer.writeObjectValue<Json>("numberChosen", permutationaPostRequestBody.numberChosen, serializeJson);
-        writer.writeAdditionalData(permutationaPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", permutationaPostRequestBody.number, serializeJson);
+    writer.writeObjectValue<Json>("numberChosen", permutationaPostRequestBody.numberChosen, serializeJson);
+    writer.writeAdditionalData(permutationaPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the permutationa method.

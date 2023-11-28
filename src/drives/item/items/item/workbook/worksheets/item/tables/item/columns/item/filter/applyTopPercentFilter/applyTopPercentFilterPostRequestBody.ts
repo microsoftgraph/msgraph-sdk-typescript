@@ -23,8 +23,8 @@ export function deserializeIntoApplyTopPercentFilterPostRequestBody(applyTopPerc
     }
 }
 export function serializeApplyTopPercentFilterPostRequestBody(writer: SerializationWriter, applyTopPercentFilterPostRequestBody: ApplyTopPercentFilterPostRequestBody | undefined = {} as ApplyTopPercentFilterPostRequestBody) : void {
-        writer.writeNumberValue("percent", applyTopPercentFilterPostRequestBody.percent);
-        writer.writeAdditionalData(applyTopPercentFilterPostRequestBody.additionalData);
+    writer.writeNumberValue("percent", applyTopPercentFilterPostRequestBody.percent);
+    writer.writeAdditionalData(applyTopPercentFilterPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

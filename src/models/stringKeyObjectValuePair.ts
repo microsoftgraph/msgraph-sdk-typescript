@@ -14,9 +14,9 @@ export function deserializeIntoStringKeyObjectValuePair(stringKeyObjectValuePair
     }
 }
 export function serializeStringKeyObjectValuePair(writer: SerializationWriter, stringKeyObjectValuePair: StringKeyObjectValuePair | undefined = {} as StringKeyObjectValuePair) : void {
-        writer.writeStringValue("key", stringKeyObjectValuePair.key);
-        writer.writeStringValue("@odata.type", stringKeyObjectValuePair.odataType);
-        writer.writeAdditionalData(stringKeyObjectValuePair.additionalData);
+    writer.writeStringValue("key", stringKeyObjectValuePair.key);
+    writer.writeStringValue("@odata.type", stringKeyObjectValuePair.odataType);
+    writer.writeAdditionalData(stringKeyObjectValuePair.additionalData);
 }
 export interface StringKeyObjectValuePair extends AdditionalDataHolder, Parsable {
     /**

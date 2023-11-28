@@ -35,10 +35,10 @@ export interface RetentionEventStatus extends AdditionalDataHolder, Parsable {
     status?: EventStatusType;
 }
 export function serializeRetentionEventStatus(writer: SerializationWriter, retentionEventStatus: RetentionEventStatus | undefined = {} as RetentionEventStatus) : void {
-        writer.writeObjectValue<PublicError>("error", retentionEventStatus.errorEscaped, serializePublicError);
-        writer.writeStringValue("@odata.type", retentionEventStatus.odataType);
-        writer.writeEnumValue<EventStatusType>("status", retentionEventStatus.status);
-        writer.writeAdditionalData(retentionEventStatus.additionalData);
+    writer.writeObjectValue<PublicError>("error", retentionEventStatus.errorEscaped, serializePublicError);
+    writer.writeStringValue("@odata.type", retentionEventStatus.odataType);
+    writer.writeEnumValue<EventStatusType>("status", retentionEventStatus.status);
+    writer.writeAdditionalData(retentionEventStatus.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -25,8 +25,8 @@ export interface DownloadApplePushNotificationCertificateSigningRequestGetRespon
     value?: string;
 }
 export function serializeDownloadApplePushNotificationCertificateSigningRequestGetResponse(writer: SerializationWriter, downloadApplePushNotificationCertificateSigningRequestGetResponse: DownloadApplePushNotificationCertificateSigningRequestGetResponse | undefined = {} as DownloadApplePushNotificationCertificateSigningRequestGetResponse) : void {
-        writer.writeStringValue("value", downloadApplePushNotificationCertificateSigningRequestGetResponse.value);
-        writer.writeAdditionalData(downloadApplePushNotificationCertificateSigningRequestGetResponse.additionalData);
+    writer.writeStringValue("value", downloadApplePushNotificationCertificateSigningRequestGetResponse.value);
+    writer.writeAdditionalData(downloadApplePushNotificationCertificateSigningRequestGetResponse.additionalData);
 }
 /**
  * Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method.

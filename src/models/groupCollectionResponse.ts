@@ -22,8 +22,8 @@ export interface GroupCollectionResponse extends BaseCollectionPaginationCountRe
     value?: Group[];
 }
 export function serializeGroupCollectionResponse(writer: SerializationWriter, groupCollectionResponse: GroupCollectionResponse | undefined = {} as GroupCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, groupCollectionResponse)
-        writer.writeCollectionOfObjectValues<Group>("value", groupCollectionResponse.value, serializeGroup);
+    serializeBaseCollectionPaginationCountResponse(writer, groupCollectionResponse)
+    writer.writeCollectionOfObjectValues<Group>("value", groupCollectionResponse.value, serializeGroup);
 }
 // tslint:enable
 // eslint-enable

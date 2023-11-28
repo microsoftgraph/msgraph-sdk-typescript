@@ -56,14 +56,14 @@ export function deserializeIntoAutomaticRepliesSetting(automaticRepliesSetting: 
     }
 }
 export function serializeAutomaticRepliesSetting(writer: SerializationWriter, automaticRepliesSetting: AutomaticRepliesSetting | undefined = {} as AutomaticRepliesSetting) : void {
-        writer.writeEnumValue<ExternalAudienceScope>("externalAudience", automaticRepliesSetting.externalAudience);
-        writer.writeStringValue("externalReplyMessage", automaticRepliesSetting.externalReplyMessage);
-        writer.writeStringValue("internalReplyMessage", automaticRepliesSetting.internalReplyMessage);
-        writer.writeStringValue("@odata.type", automaticRepliesSetting.odataType);
-        writer.writeObjectValue<DateTimeTimeZone>("scheduledEndDateTime", automaticRepliesSetting.scheduledEndDateTime, serializeDateTimeTimeZone);
-        writer.writeObjectValue<DateTimeTimeZone>("scheduledStartDateTime", automaticRepliesSetting.scheduledStartDateTime, serializeDateTimeTimeZone);
-        writer.writeEnumValue<AutomaticRepliesStatus>("status", automaticRepliesSetting.status);
-        writer.writeAdditionalData(automaticRepliesSetting.additionalData);
+    writer.writeEnumValue<ExternalAudienceScope>("externalAudience", automaticRepliesSetting.externalAudience);
+    writer.writeStringValue("externalReplyMessage", automaticRepliesSetting.externalReplyMessage);
+    writer.writeStringValue("internalReplyMessage", automaticRepliesSetting.internalReplyMessage);
+    writer.writeStringValue("@odata.type", automaticRepliesSetting.odataType);
+    writer.writeObjectValue<DateTimeTimeZone>("scheduledEndDateTime", automaticRepliesSetting.scheduledEndDateTime, serializeDateTimeTimeZone);
+    writer.writeObjectValue<DateTimeTimeZone>("scheduledStartDateTime", automaticRepliesSetting.scheduledStartDateTime, serializeDateTimeTimeZone);
+    writer.writeEnumValue<AutomaticRepliesStatus>("status", automaticRepliesSetting.status);
+    writer.writeAdditionalData(automaticRepliesSetting.additionalData);
 }
 // tslint:enable
 // eslint-enable

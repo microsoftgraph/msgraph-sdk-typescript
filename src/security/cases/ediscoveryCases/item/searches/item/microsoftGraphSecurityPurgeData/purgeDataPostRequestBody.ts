@@ -30,9 +30,9 @@ export interface PurgeDataPostRequestBody extends AdditionalDataHolder, Parsable
     purgeType?: PurgeType;
 }
 export function serializePurgeDataPostRequestBody(writer: SerializationWriter, purgeDataPostRequestBody: PurgeDataPostRequestBody | undefined = {} as PurgeDataPostRequestBody) : void {
-        writer.writeEnumValue<PurgeAreas[]>("purgeAreas", purgeDataPostRequestBody.purgeAreas);
-        writer.writeEnumValue<PurgeType>("purgeType", purgeDataPostRequestBody.purgeType);
-        writer.writeAdditionalData(purgeDataPostRequestBody.additionalData);
+    writer.writeEnumValue<PurgeAreas[]>("purgeAreas", purgeDataPostRequestBody.purgeAreas);
+    writer.writeEnumValue<PurgeType>("purgeType", purgeDataPostRequestBody.purgeType);
+    writer.writeAdditionalData(purgeDataPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

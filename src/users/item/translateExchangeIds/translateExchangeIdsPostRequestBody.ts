@@ -16,10 +16,10 @@ export function deserializeIntoTranslateExchangeIdsPostRequestBody(translateExch
     }
 }
 export function serializeTranslateExchangeIdsPostRequestBody(writer: SerializationWriter, translateExchangeIdsPostRequestBody: TranslateExchangeIdsPostRequestBody | undefined = {} as TranslateExchangeIdsPostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("InputIds", translateExchangeIdsPostRequestBody.inputIds);
-        writer.writeEnumValue<ExchangeIdFormat>("SourceIdType", translateExchangeIdsPostRequestBody.sourceIdType);
-        writer.writeEnumValue<ExchangeIdFormat>("TargetIdType", translateExchangeIdsPostRequestBody.targetIdType);
-        writer.writeAdditionalData(translateExchangeIdsPostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("InputIds", translateExchangeIdsPostRequestBody.inputIds);
+    writer.writeEnumValue<ExchangeIdFormat>("SourceIdType", translateExchangeIdsPostRequestBody.sourceIdType);
+    writer.writeEnumValue<ExchangeIdFormat>("TargetIdType", translateExchangeIdsPostRequestBody.targetIdType);
+    writer.writeAdditionalData(translateExchangeIdsPostRequestBody.additionalData);
 }
 export interface TranslateExchangeIdsPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

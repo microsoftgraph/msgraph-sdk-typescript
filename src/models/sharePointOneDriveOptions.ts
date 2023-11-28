@@ -15,9 +15,9 @@ export function deserializeIntoSharePointOneDriveOptions(sharePointOneDriveOptio
     }
 }
 export function serializeSharePointOneDriveOptions(writer: SerializationWriter, sharePointOneDriveOptions: SharePointOneDriveOptions | undefined = {} as SharePointOneDriveOptions) : void {
-        writer.writeEnumValue<SearchContent[]>("includeContent", sharePointOneDriveOptions.includeContent);
-        writer.writeStringValue("@odata.type", sharePointOneDriveOptions.odataType);
-        writer.writeAdditionalData(sharePointOneDriveOptions.additionalData);
+    writer.writeEnumValue<SearchContent[]>("includeContent", sharePointOneDriveOptions.includeContent);
+    writer.writeStringValue("@odata.type", sharePointOneDriveOptions.odataType);
+    writer.writeAdditionalData(sharePointOneDriveOptions.additionalData);
 }
 export interface SharePointOneDriveOptions extends AdditionalDataHolder, Parsable {
     /**

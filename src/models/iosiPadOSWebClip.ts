@@ -26,9 +26,9 @@ export interface IosiPadOSWebClip extends MobileApp, Parsable {
     useManagedBrowser?: boolean;
 }
 export function serializeIosiPadOSWebClip(writer: SerializationWriter, iosiPadOSWebClip: IosiPadOSWebClip | undefined = {} as IosiPadOSWebClip) : void {
-        serializeMobileApp(writer, iosiPadOSWebClip)
-        writer.writeStringValue("appUrl", iosiPadOSWebClip.appUrl);
-        writer.writeBooleanValue("useManagedBrowser", iosiPadOSWebClip.useManagedBrowser);
+    serializeMobileApp(writer, iosiPadOSWebClip)
+    writer.writeStringValue("appUrl", iosiPadOSWebClip.appUrl);
+    writer.writeBooleanValue("useManagedBrowser", iosiPadOSWebClip.useManagedBrowser);
 }
 // tslint:enable
 // eslint-enable

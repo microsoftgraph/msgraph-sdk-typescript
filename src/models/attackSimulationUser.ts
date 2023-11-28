@@ -38,11 +38,11 @@ export function deserializeIntoAttackSimulationUser(attackSimulationUser: Attack
     }
 }
 export function serializeAttackSimulationUser(writer: SerializationWriter, attackSimulationUser: AttackSimulationUser | undefined = {} as AttackSimulationUser) : void {
-        writer.writeStringValue("displayName", attackSimulationUser.displayName);
-        writer.writeStringValue("email", attackSimulationUser.email);
-        writer.writeStringValue("@odata.type", attackSimulationUser.odataType);
-        writer.writeStringValue("userId", attackSimulationUser.userId);
-        writer.writeAdditionalData(attackSimulationUser.additionalData);
+    writer.writeStringValue("displayName", attackSimulationUser.displayName);
+    writer.writeStringValue("email", attackSimulationUser.email);
+    writer.writeStringValue("@odata.type", attackSimulationUser.odataType);
+    writer.writeStringValue("userId", attackSimulationUser.userId);
+    writer.writeAdditionalData(attackSimulationUser.additionalData);
 }
 // tslint:enable
 // eslint-enable

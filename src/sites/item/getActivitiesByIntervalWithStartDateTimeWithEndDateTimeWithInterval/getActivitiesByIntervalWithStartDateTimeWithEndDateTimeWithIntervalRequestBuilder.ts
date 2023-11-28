@@ -54,8 +54,8 @@ export interface GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInte
     top?: number;
 }
 export function serializeGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse(writer: SerializationWriter, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse: GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse | undefined = {} as GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse)
-        writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse.value, serializeItemActivityStat);
+    serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse)
+    writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse.value, serializeItemActivityStat);
 }
 /**
  * Provides operations to call the getActivitiesByInterval method.

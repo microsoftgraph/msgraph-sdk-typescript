@@ -15,8 +15,8 @@ export function deserializeIntoTargetManager(targetManager: TargetManager | unde
     }
 }
 export function serializeTargetManager(writer: SerializationWriter, targetManager: TargetManager | undefined = {} as TargetManager) : void {
-        serializeSubjectSet(writer, targetManager)
-        writer.writeNumberValue("managerLevel", targetManager.managerLevel);
+    serializeSubjectSet(writer, targetManager)
+    writer.writeNumberValue("managerLevel", targetManager.managerLevel);
 }
 export interface TargetManager extends Parsable, SubjectSet {
     /**

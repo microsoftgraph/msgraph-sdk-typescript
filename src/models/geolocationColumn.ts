@@ -23,8 +23,8 @@ export interface GeolocationColumn extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeGeolocationColumn(writer: SerializationWriter, geolocationColumn: GeolocationColumn | undefined = {} as GeolocationColumn) : void {
-        writer.writeStringValue("@odata.type", geolocationColumn.odataType);
-        writer.writeAdditionalData(geolocationColumn.additionalData);
+    writer.writeStringValue("@odata.type", geolocationColumn.odataType);
+    writer.writeAdditionalData(geolocationColumn.additionalData);
 }
 // tslint:enable
 // eslint-enable

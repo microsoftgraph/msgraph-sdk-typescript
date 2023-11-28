@@ -21,8 +21,8 @@ export interface EducationCategory extends Entity, Parsable {
     displayName?: string;
 }
 export function serializeEducationCategory(writer: SerializationWriter, educationCategory: EducationCategory | undefined = {} as EducationCategory) : void {
-        serializeEntity(writer, educationCategory)
-        writer.writeStringValue("displayName", educationCategory.displayName);
+    serializeEntity(writer, educationCategory)
+    writer.writeStringValue("displayName", educationCategory.displayName);
 }
 // tslint:enable
 // eslint-enable

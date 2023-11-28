@@ -53,13 +53,13 @@ export function deserializeIntoCreateOrGetPostRequestBody(createOrGetPostRequest
     }
 }
 export function serializeCreateOrGetPostRequestBody(writer: SerializationWriter, createOrGetPostRequestBody: CreateOrGetPostRequestBody | undefined = {} as CreateOrGetPostRequestBody) : void {
-        writer.writeObjectValue<ChatInfo>("chatInfo", createOrGetPostRequestBody.chatInfo, serializeChatInfo);
-        writer.writeDateValue("endDateTime", createOrGetPostRequestBody.endDateTime);
-        writer.writeStringValue("externalId", createOrGetPostRequestBody.externalId);
-        writer.writeObjectValue<MeetingParticipants>("participants", createOrGetPostRequestBody.participants, serializeMeetingParticipants);
-        writer.writeDateValue("startDateTime", createOrGetPostRequestBody.startDateTime);
-        writer.writeStringValue("subject", createOrGetPostRequestBody.subject);
-        writer.writeAdditionalData(createOrGetPostRequestBody.additionalData);
+    writer.writeObjectValue<ChatInfo>("chatInfo", createOrGetPostRequestBody.chatInfo, serializeChatInfo);
+    writer.writeDateValue("endDateTime", createOrGetPostRequestBody.endDateTime);
+    writer.writeStringValue("externalId", createOrGetPostRequestBody.externalId);
+    writer.writeObjectValue<MeetingParticipants>("participants", createOrGetPostRequestBody.participants, serializeMeetingParticipants);
+    writer.writeDateValue("startDateTime", createOrGetPostRequestBody.startDateTime);
+    writer.writeStringValue("subject", createOrGetPostRequestBody.subject);
+    writer.writeAdditionalData(createOrGetPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the createOrGet method.

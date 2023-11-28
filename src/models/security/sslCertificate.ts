@@ -26,17 +26,17 @@ export function deserializeIntoSslCertificate(sslCertificate: SslCertificate | u
     }
 }
 export function serializeSslCertificate(writer: SerializationWriter, sslCertificate: SslCertificate | undefined = {} as SslCertificate) : void {
-        serializeArtifact(writer, sslCertificate)
-        writer.writeDateValue("expirationDateTime", sslCertificate.expirationDateTime);
-        writer.writeStringValue("fingerprint", sslCertificate.fingerprint);
-        writer.writeDateValue("firstSeenDateTime", sslCertificate.firstSeenDateTime);
-        writer.writeDateValue("issueDateTime", sslCertificate.issueDateTime);
-        writer.writeObjectValue<SslCertificateEntity>("issuer", sslCertificate.issuer, serializeSslCertificateEntity);
-        writer.writeDateValue("lastSeenDateTime", sslCertificate.lastSeenDateTime);
-        writer.writeCollectionOfObjectValues<Host>("relatedHosts", sslCertificate.relatedHosts, serializeHost);
-        writer.writeStringValue("serialNumber", sslCertificate.serialNumber);
-        writer.writeStringValue("sha1", sslCertificate.sha1);
-        writer.writeObjectValue<SslCertificateEntity>("subject", sslCertificate.subject, serializeSslCertificateEntity);
+    serializeArtifact(writer, sslCertificate)
+    writer.writeDateValue("expirationDateTime", sslCertificate.expirationDateTime);
+    writer.writeStringValue("fingerprint", sslCertificate.fingerprint);
+    writer.writeDateValue("firstSeenDateTime", sslCertificate.firstSeenDateTime);
+    writer.writeDateValue("issueDateTime", sslCertificate.issueDateTime);
+    writer.writeObjectValue<SslCertificateEntity>("issuer", sslCertificate.issuer, serializeSslCertificateEntity);
+    writer.writeDateValue("lastSeenDateTime", sslCertificate.lastSeenDateTime);
+    writer.writeCollectionOfObjectValues<Host>("relatedHosts", sslCertificate.relatedHosts, serializeHost);
+    writer.writeStringValue("serialNumber", sslCertificate.serialNumber);
+    writer.writeStringValue("sha1", sslCertificate.sha1);
+    writer.writeObjectValue<SslCertificateEntity>("subject", sslCertificate.subject, serializeSslCertificateEntity);
 }
 export interface SslCertificate extends Artifact, Parsable {
     /**

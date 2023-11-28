@@ -47,13 +47,13 @@ export function deserializeIntoConversation(conversation: Conversation | undefin
     }
 }
 export function serializeConversation(writer: SerializationWriter, conversation: Conversation | undefined = {} as Conversation) : void {
-        serializeEntity(writer, conversation)
-        writer.writeBooleanValue("hasAttachments", conversation.hasAttachments);
-        writer.writeDateValue("lastDeliveredDateTime", conversation.lastDeliveredDateTime);
-        writer.writeStringValue("preview", conversation.preview);
-        writer.writeCollectionOfObjectValues<ConversationThread>("threads", conversation.threads, serializeConversationThread);
-        writer.writeStringValue("topic", conversation.topic);
-        writer.writeCollectionOfPrimitiveValues<string>("uniqueSenders", conversation.uniqueSenders);
+    serializeEntity(writer, conversation)
+    writer.writeBooleanValue("hasAttachments", conversation.hasAttachments);
+    writer.writeDateValue("lastDeliveredDateTime", conversation.lastDeliveredDateTime);
+    writer.writeStringValue("preview", conversation.preview);
+    writer.writeCollectionOfObjectValues<ConversationThread>("threads", conversation.threads, serializeConversationThread);
+    writer.writeStringValue("topic", conversation.topic);
+    writer.writeCollectionOfPrimitiveValues<string>("uniqueSenders", conversation.uniqueSenders);
 }
 // tslint:enable
 // eslint-enable

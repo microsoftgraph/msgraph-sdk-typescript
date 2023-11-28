@@ -20,13 +20,13 @@ export function deserializeIntoUnifiedRbacResourceAction(unifiedRbacResourceActi
     }
 }
 export function serializeUnifiedRbacResourceAction(writer: SerializationWriter, unifiedRbacResourceAction: UnifiedRbacResourceAction | undefined = {} as UnifiedRbacResourceAction) : void {
-        serializeEntity(writer, unifiedRbacResourceAction)
-        writer.writeStringValue("actionVerb", unifiedRbacResourceAction.actionVerb);
-        writer.writeStringValue("authenticationContextId", unifiedRbacResourceAction.authenticationContextId);
-        writer.writeStringValue("description", unifiedRbacResourceAction.description);
-        writer.writeBooleanValue("isAuthenticationContextSettable", unifiedRbacResourceAction.isAuthenticationContextSettable);
-        writer.writeStringValue("name", unifiedRbacResourceAction.name);
-        writer.writeStringValue("resourceScopeId", unifiedRbacResourceAction.resourceScopeId);
+    serializeEntity(writer, unifiedRbacResourceAction)
+    writer.writeStringValue("actionVerb", unifiedRbacResourceAction.actionVerb);
+    writer.writeStringValue("authenticationContextId", unifiedRbacResourceAction.authenticationContextId);
+    writer.writeStringValue("description", unifiedRbacResourceAction.description);
+    writer.writeBooleanValue("isAuthenticationContextSettable", unifiedRbacResourceAction.isAuthenticationContextSettable);
+    writer.writeStringValue("name", unifiedRbacResourceAction.name);
+    writer.writeStringValue("resourceScopeId", unifiedRbacResourceAction.resourceScopeId);
 }
 export interface UnifiedRbacResourceAction extends Entity, Parsable {
     /**

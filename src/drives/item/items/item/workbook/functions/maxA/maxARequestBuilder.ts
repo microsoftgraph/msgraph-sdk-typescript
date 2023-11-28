@@ -27,8 +27,8 @@ export interface MaxAPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeMaxAPostRequestBody(writer: SerializationWriter, maxAPostRequestBody: MaxAPostRequestBody | undefined = {} as MaxAPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", maxAPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(maxAPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", maxAPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(maxAPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the maxA method.

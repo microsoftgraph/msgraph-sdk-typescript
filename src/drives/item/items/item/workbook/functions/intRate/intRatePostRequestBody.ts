@@ -44,12 +44,12 @@ export interface IntRatePostRequestBody extends AdditionalDataHolder, Parsable {
     settlement?: Json;
 }
 export function serializeIntRatePostRequestBody(writer: SerializationWriter, intRatePostRequestBody: IntRatePostRequestBody | undefined = {} as IntRatePostRequestBody) : void {
-        writer.writeObjectValue<Json>("basis", intRatePostRequestBody.basis, serializeJson);
-        writer.writeObjectValue<Json>("investment", intRatePostRequestBody.investment, serializeJson);
-        writer.writeObjectValue<Json>("maturity", intRatePostRequestBody.maturity, serializeJson);
-        writer.writeObjectValue<Json>("redemption", intRatePostRequestBody.redemption, serializeJson);
-        writer.writeObjectValue<Json>("settlement", intRatePostRequestBody.settlement, serializeJson);
-        writer.writeAdditionalData(intRatePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("basis", intRatePostRequestBody.basis, serializeJson);
+    writer.writeObjectValue<Json>("investment", intRatePostRequestBody.investment, serializeJson);
+    writer.writeObjectValue<Json>("maturity", intRatePostRequestBody.maturity, serializeJson);
+    writer.writeObjectValue<Json>("redemption", intRatePostRequestBody.redemption, serializeJson);
+    writer.writeObjectValue<Json>("settlement", intRatePostRequestBody.settlement, serializeJson);
+    writer.writeAdditionalData(intRatePostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

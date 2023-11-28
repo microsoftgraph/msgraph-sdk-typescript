@@ -31,9 +31,9 @@ export function deserializeIntoAddPostRequestBody(addPostRequestBody: AddPostReq
     }
 }
 export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: AddPostRequestBody | undefined = {} as AddPostRequestBody) : void {
-        writer.writeStringValue("address", addPostRequestBody.address);
-        writer.writeBooleanValue("hasHeaders", addPostRequestBody.hasHeaders);
-        writer.writeAdditionalData(addPostRequestBody.additionalData);
+    writer.writeStringValue("address", addPostRequestBody.address);
+    writer.writeBooleanValue("hasHeaders", addPostRequestBody.hasHeaders);
+    writer.writeAdditionalData(addPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the add method.

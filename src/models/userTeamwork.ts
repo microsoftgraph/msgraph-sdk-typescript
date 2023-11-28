@@ -18,9 +18,9 @@ export function deserializeIntoUserTeamwork(userTeamwork: UserTeamwork | undefin
     }
 }
 export function serializeUserTeamwork(writer: SerializationWriter, userTeamwork: UserTeamwork | undefined = {} as UserTeamwork) : void {
-        serializeEntity(writer, userTeamwork)
-        writer.writeCollectionOfObjectValues<AssociatedTeamInfo>("associatedTeams", userTeamwork.associatedTeams, serializeAssociatedTeamInfo);
-        writer.writeCollectionOfObjectValues<UserScopeTeamsAppInstallation>("installedApps", userTeamwork.installedApps, serializeUserScopeTeamsAppInstallation);
+    serializeEntity(writer, userTeamwork)
+    writer.writeCollectionOfObjectValues<AssociatedTeamInfo>("associatedTeams", userTeamwork.associatedTeams, serializeAssociatedTeamInfo);
+    writer.writeCollectionOfObjectValues<UserScopeTeamsAppInstallation>("installedApps", userTeamwork.installedApps, serializeUserScopeTeamsAppInstallation);
 }
 export interface UserTeamwork extends Entity, Parsable {
     /**

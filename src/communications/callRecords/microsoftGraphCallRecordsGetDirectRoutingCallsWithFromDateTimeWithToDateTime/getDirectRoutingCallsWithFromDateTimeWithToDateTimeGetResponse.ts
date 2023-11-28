@@ -22,8 +22,8 @@ export interface GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse 
     value?: DirectRoutingLogRow[];
 }
 export function serializeGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse(writer: SerializationWriter, getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse: GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse | undefined = {} as GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<DirectRoutingLogRow>("value", getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse.value, serializeDirectRoutingLogRow);
+    serializeBaseCollectionPaginationCountResponse(writer, getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse)
+    writer.writeCollectionOfObjectValues<DirectRoutingLogRow>("value", getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse.value, serializeDirectRoutingLogRow);
 }
 // tslint:enable
 // eslint-enable

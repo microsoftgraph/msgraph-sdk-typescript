@@ -36,10 +36,10 @@ export function deserializeIntoDeclinePostRequestBody(declinePostRequestBody: De
     }
 }
 export function serializeDeclinePostRequestBody(writer: SerializationWriter, declinePostRequestBody: DeclinePostRequestBody | undefined = {} as DeclinePostRequestBody) : void {
-        writer.writeStringValue("Comment", declinePostRequestBody.comment);
-        writer.writeObjectValue<TimeSlot>("ProposedNewTime", declinePostRequestBody.proposedNewTime, serializeTimeSlot);
-        writer.writeBooleanValue("SendResponse", declinePostRequestBody.sendResponse);
-        writer.writeAdditionalData(declinePostRequestBody.additionalData);
+    writer.writeStringValue("Comment", declinePostRequestBody.comment);
+    writer.writeObjectValue<TimeSlot>("ProposedNewTime", declinePostRequestBody.proposedNewTime, serializeTimeSlot);
+    writer.writeBooleanValue("SendResponse", declinePostRequestBody.sendResponse);
+    writer.writeAdditionalData(declinePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the decline method.

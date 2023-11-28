@@ -328,23 +328,23 @@ export interface ManagedDevice extends Entity, Parsable {
     windowsProtectionState?: WindowsProtectionState;
 }
 export function serializeManagedDevice(writer: SerializationWriter, managedDevice: ManagedDevice | undefined = {} as ManagedDevice) : void {
-        serializeEntity(writer, managedDevice)
-        writer.writeEnumValue<ComplianceState>("complianceState", managedDevice.complianceState);
-        writer.writeObjectValue<DeviceCategory>("deviceCategory", managedDevice.deviceCategory, serializeDeviceCategory);
-        writer.writeCollectionOfObjectValues<DeviceCompliancePolicyState>("deviceCompliancePolicyStates", managedDevice.deviceCompliancePolicyStates, serializeDeviceCompliancePolicyState);
-        writer.writeCollectionOfObjectValues<DeviceConfigurationState>("deviceConfigurationStates", managedDevice.deviceConfigurationStates, serializeDeviceConfigurationState);
-        writer.writeEnumValue<DeviceEnrollmentType>("deviceEnrollmentType", managedDevice.deviceEnrollmentType);
-        writer.writeEnumValue<DeviceRegistrationState>("deviceRegistrationState", managedDevice.deviceRegistrationState);
-        writer.writeEnumValue<DeviceManagementExchangeAccessState>("exchangeAccessState", managedDevice.exchangeAccessState);
-        writer.writeEnumValue<DeviceManagementExchangeAccessStateReason>("exchangeAccessStateReason", managedDevice.exchangeAccessStateReason);
-        writer.writeCollectionOfObjectValues<DeviceLogCollectionResponse>("logCollectionRequests", managedDevice.logCollectionRequests, serializeDeviceLogCollectionResponse);
-        writer.writeStringValue("managedDeviceName", managedDevice.managedDeviceName);
-        writer.writeEnumValue<ManagedDeviceOwnerType>("managedDeviceOwnerType", managedDevice.managedDeviceOwnerType);
-        writer.writeEnumValue<ManagementAgentType>("managementAgent", managedDevice.managementAgent);
-        writer.writeStringValue("notes", managedDevice.notes);
-        writer.writeEnumValue<ManagedDevicePartnerReportedHealthState>("partnerReportedThreatState", managedDevice.partnerReportedThreatState);
-        writer.writeCollectionOfObjectValues<User>("users", managedDevice.users, serializeUser);
-        writer.writeObjectValue<WindowsProtectionState>("windowsProtectionState", managedDevice.windowsProtectionState, serializeWindowsProtectionState);
+    serializeEntity(writer, managedDevice)
+    writer.writeEnumValue<ComplianceState>("complianceState", managedDevice.complianceState);
+    writer.writeObjectValue<DeviceCategory>("deviceCategory", managedDevice.deviceCategory, serializeDeviceCategory);
+    writer.writeCollectionOfObjectValues<DeviceCompliancePolicyState>("deviceCompliancePolicyStates", managedDevice.deviceCompliancePolicyStates, serializeDeviceCompliancePolicyState);
+    writer.writeCollectionOfObjectValues<DeviceConfigurationState>("deviceConfigurationStates", managedDevice.deviceConfigurationStates, serializeDeviceConfigurationState);
+    writer.writeEnumValue<DeviceEnrollmentType>("deviceEnrollmentType", managedDevice.deviceEnrollmentType);
+    writer.writeEnumValue<DeviceRegistrationState>("deviceRegistrationState", managedDevice.deviceRegistrationState);
+    writer.writeEnumValue<DeviceManagementExchangeAccessState>("exchangeAccessState", managedDevice.exchangeAccessState);
+    writer.writeEnumValue<DeviceManagementExchangeAccessStateReason>("exchangeAccessStateReason", managedDevice.exchangeAccessStateReason);
+    writer.writeCollectionOfObjectValues<DeviceLogCollectionResponse>("logCollectionRequests", managedDevice.logCollectionRequests, serializeDeviceLogCollectionResponse);
+    writer.writeStringValue("managedDeviceName", managedDevice.managedDeviceName);
+    writer.writeEnumValue<ManagedDeviceOwnerType>("managedDeviceOwnerType", managedDevice.managedDeviceOwnerType);
+    writer.writeEnumValue<ManagementAgentType>("managementAgent", managedDevice.managementAgent);
+    writer.writeStringValue("notes", managedDevice.notes);
+    writer.writeEnumValue<ManagedDevicePartnerReportedHealthState>("partnerReportedThreatState", managedDevice.partnerReportedThreatState);
+    writer.writeCollectionOfObjectValues<User>("users", managedDevice.users, serializeUser);
+    writer.writeObjectValue<WindowsProtectionState>("windowsProtectionState", managedDevice.windowsProtectionState, serializeWindowsProtectionState);
 }
 // tslint:enable
 // eslint-enable

@@ -27,8 +27,8 @@ export function deserializeIntoAsinPostRequestBody(asinPostRequestBody: AsinPost
     }
 }
 export function serializeAsinPostRequestBody(writer: SerializationWriter, asinPostRequestBody: AsinPostRequestBody | undefined = {} as AsinPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", asinPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(asinPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", asinPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(asinPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the asin method.

@@ -27,8 +27,8 @@ export interface IsNonTextPostRequestBody extends AdditionalDataHolder, Parsable
     value?: Json;
 }
 export function serializeIsNonTextPostRequestBody(writer: SerializationWriter, isNonTextPostRequestBody: IsNonTextPostRequestBody | undefined = {} as IsNonTextPostRequestBody) : void {
-        writer.writeObjectValue<Json>("value", isNonTextPostRequestBody.value, serializeJson);
-        writer.writeAdditionalData(isNonTextPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("value", isNonTextPostRequestBody.value, serializeJson);
+    writer.writeAdditionalData(isNonTextPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the isNonText method.

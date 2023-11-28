@@ -28,9 +28,9 @@ export interface MembersDeletedEventMessageDetail extends EventMessageDetail, Pa
     members?: TeamworkUserIdentity[];
 }
 export function serializeMembersDeletedEventMessageDetail(writer: SerializationWriter, membersDeletedEventMessageDetail: MembersDeletedEventMessageDetail | undefined = {} as MembersDeletedEventMessageDetail) : void {
-        serializeEventMessageDetail(writer, membersDeletedEventMessageDetail)
-        writer.writeObjectValue<IdentitySet>("initiator", membersDeletedEventMessageDetail.initiator, serializeIdentitySet);
-        writer.writeCollectionOfObjectValues<TeamworkUserIdentity>("members", membersDeletedEventMessageDetail.members, serializeTeamworkUserIdentity);
+    serializeEventMessageDetail(writer, membersDeletedEventMessageDetail)
+    writer.writeObjectValue<IdentitySet>("initiator", membersDeletedEventMessageDetail.initiator, serializeIdentitySet);
+    writer.writeCollectionOfObjectValues<TeamworkUserIdentity>("members", membersDeletedEventMessageDetail.members, serializeTeamworkUserIdentity);
 }
 // tslint:enable
 // eslint-enable

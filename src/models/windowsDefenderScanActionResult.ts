@@ -15,8 +15,8 @@ export function deserializeIntoWindowsDefenderScanActionResult(windowsDefenderSc
     }
 }
 export function serializeWindowsDefenderScanActionResult(writer: SerializationWriter, windowsDefenderScanActionResult: WindowsDefenderScanActionResult | undefined = {} as WindowsDefenderScanActionResult) : void {
-        serializeDeviceActionResult(writer, windowsDefenderScanActionResult)
-        writer.writeStringValue("scanType", windowsDefenderScanActionResult.scanType);
+    serializeDeviceActionResult(writer, windowsDefenderScanActionResult)
+    writer.writeStringValue("scanType", windowsDefenderScanActionResult.scanType);
 }
 export interface WindowsDefenderScanActionResult extends DeviceActionResult, Parsable {
     /**

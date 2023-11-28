@@ -71,12 +71,12 @@ export interface DeviceActionResult extends AdditionalDataHolder, Parsable {
     startDateTime?: Date;
 }
 export function serializeDeviceActionResult(writer: SerializationWriter, deviceActionResult: DeviceActionResult | undefined = {} as DeviceActionResult) : void {
-        writer.writeStringValue("actionName", deviceActionResult.actionName);
-        writer.writeEnumValue<ActionState>("actionState", deviceActionResult.actionState);
-        writer.writeDateValue("lastUpdatedDateTime", deviceActionResult.lastUpdatedDateTime);
-        writer.writeStringValue("@odata.type", deviceActionResult.odataType);
-        writer.writeDateValue("startDateTime", deviceActionResult.startDateTime);
-        writer.writeAdditionalData(deviceActionResult.additionalData);
+    writer.writeStringValue("actionName", deviceActionResult.actionName);
+    writer.writeEnumValue<ActionState>("actionState", deviceActionResult.actionState);
+    writer.writeDateValue("lastUpdatedDateTime", deviceActionResult.lastUpdatedDateTime);
+    writer.writeStringValue("@odata.type", deviceActionResult.odataType);
+    writer.writeDateValue("startDateTime", deviceActionResult.startDateTime);
+    writer.writeAdditionalData(deviceActionResult.additionalData);
 }
 // tslint:enable
 // eslint-enable

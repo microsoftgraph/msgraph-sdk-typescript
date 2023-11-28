@@ -27,16 +27,16 @@ export function deserializeIntoWorkflow(workflow: Workflow | undefined = {} as W
     }
 }
 export function serializeWorkflow(writer: SerializationWriter, workflow: Workflow | undefined = {} as Workflow) : void {
-        serializeWorkflowBase(writer, workflow)
-        writer.writeDateValue("deletedDateTime", workflow.deletedDateTime);
-        writer.writeCollectionOfObjectValues<UserProcessingResult>("executionScope", workflow.executionScope, serializeUserProcessingResult);
-        writer.writeStringValue("id", workflow.id);
-        writer.writeDateValue("nextScheduleRunDateTime", workflow.nextScheduleRunDateTime);
-        writer.writeCollectionOfObjectValues<Run>("runs", workflow.runs, serializeRun);
-        writer.writeCollectionOfObjectValues<TaskReport>("taskReports", workflow.taskReports, serializeTaskReport);
-        writer.writeCollectionOfObjectValues<UserProcessingResult>("userProcessingResults", workflow.userProcessingResults, serializeUserProcessingResult);
-        writer.writeNumberValue("version", workflow.version);
-        writer.writeCollectionOfObjectValues<WorkflowVersion>("versions", workflow.versions, serializeWorkflowVersion);
+    serializeWorkflowBase(writer, workflow)
+    writer.writeDateValue("deletedDateTime", workflow.deletedDateTime);
+    writer.writeCollectionOfObjectValues<UserProcessingResult>("executionScope", workflow.executionScope, serializeUserProcessingResult);
+    writer.writeStringValue("id", workflow.id);
+    writer.writeDateValue("nextScheduleRunDateTime", workflow.nextScheduleRunDateTime);
+    writer.writeCollectionOfObjectValues<Run>("runs", workflow.runs, serializeRun);
+    writer.writeCollectionOfObjectValues<TaskReport>("taskReports", workflow.taskReports, serializeTaskReport);
+    writer.writeCollectionOfObjectValues<UserProcessingResult>("userProcessingResults", workflow.userProcessingResults, serializeUserProcessingResult);
+    writer.writeNumberValue("version", workflow.version);
+    writer.writeCollectionOfObjectValues<WorkflowVersion>("versions", workflow.versions, serializeWorkflowVersion);
 }
 export interface Workflow extends Parsable, WorkflowBase {
     /**

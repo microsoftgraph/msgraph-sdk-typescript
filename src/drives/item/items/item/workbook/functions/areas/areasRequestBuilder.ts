@@ -27,8 +27,8 @@ export function deserializeIntoAreasPostRequestBody(areasPostRequestBody: AreasP
     }
 }
 export function serializeAreasPostRequestBody(writer: SerializationWriter, areasPostRequestBody: AreasPostRequestBody | undefined = {} as AreasPostRequestBody) : void {
-        writer.writeObjectValue<Json>("reference", areasPostRequestBody.reference, serializeJson);
-        writer.writeAdditionalData(areasPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("reference", areasPostRequestBody.reference, serializeJson);
+    writer.writeAdditionalData(areasPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the areas method.

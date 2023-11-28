@@ -37,10 +37,10 @@ export interface DsumPostRequestBody extends AdditionalDataHolder, Parsable {
     field?: Json;
 }
 export function serializeDsumPostRequestBody(writer: SerializationWriter, dsumPostRequestBody: DsumPostRequestBody | undefined = {} as DsumPostRequestBody) : void {
-        writer.writeObjectValue<Json>("criteria", dsumPostRequestBody.criteria, serializeJson);
-        writer.writeObjectValue<Json>("database", dsumPostRequestBody.database, serializeJson);
-        writer.writeObjectValue<Json>("field", dsumPostRequestBody.field, serializeJson);
-        writer.writeAdditionalData(dsumPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("criteria", dsumPostRequestBody.criteria, serializeJson);
+    writer.writeObjectValue<Json>("database", dsumPostRequestBody.database, serializeJson);
+    writer.writeObjectValue<Json>("field", dsumPostRequestBody.field, serializeJson);
+    writer.writeAdditionalData(dsumPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the dsum method.

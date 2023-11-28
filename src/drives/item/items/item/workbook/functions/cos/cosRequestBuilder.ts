@@ -27,8 +27,8 @@ export function deserializeIntoCosPostRequestBody(cosPostRequestBody: CosPostReq
     }
 }
 export function serializeCosPostRequestBody(writer: SerializationWriter, cosPostRequestBody: CosPostRequestBody | undefined = {} as CosPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", cosPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(cosPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", cosPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(cosPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the cos method.

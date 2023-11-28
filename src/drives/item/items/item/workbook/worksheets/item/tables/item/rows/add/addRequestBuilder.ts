@@ -32,9 +32,9 @@ export function deserializeIntoAddPostRequestBody(addPostRequestBody: AddPostReq
     }
 }
 export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: AddPostRequestBody | undefined = {} as AddPostRequestBody) : void {
-        writer.writeNumberValue("index", addPostRequestBody.index);
-        writer.writeObjectValue<Json>("values", addPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(addPostRequestBody.additionalData);
+    writer.writeNumberValue("index", addPostRequestBody.index);
+    writer.writeObjectValue<Json>("values", addPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(addPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the add method.

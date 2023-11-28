@@ -17,12 +17,12 @@ export function deserializeIntoWindowsInformationProtectionDataRecoveryCertifica
     }
 }
 export function serializeWindowsInformationProtectionDataRecoveryCertificate(writer: SerializationWriter, windowsInformationProtectionDataRecoveryCertificate: WindowsInformationProtectionDataRecoveryCertificate | undefined = {} as WindowsInformationProtectionDataRecoveryCertificate) : void {
-        writer.writeStringValue("certificate", windowsInformationProtectionDataRecoveryCertificate.certificate);
-        writer.writeStringValue("description", windowsInformationProtectionDataRecoveryCertificate.description);
-        writer.writeDateValue("expirationDateTime", windowsInformationProtectionDataRecoveryCertificate.expirationDateTime);
-        writer.writeStringValue("@odata.type", windowsInformationProtectionDataRecoveryCertificate.odataType);
-        writer.writeStringValue("subjectName", windowsInformationProtectionDataRecoveryCertificate.subjectName);
-        writer.writeAdditionalData(windowsInformationProtectionDataRecoveryCertificate.additionalData);
+    writer.writeStringValue("certificate", windowsInformationProtectionDataRecoveryCertificate.certificate);
+    writer.writeStringValue("description", windowsInformationProtectionDataRecoveryCertificate.description);
+    writer.writeDateValue("expirationDateTime", windowsInformationProtectionDataRecoveryCertificate.expirationDateTime);
+    writer.writeStringValue("@odata.type", windowsInformationProtectionDataRecoveryCertificate.odataType);
+    writer.writeStringValue("subjectName", windowsInformationProtectionDataRecoveryCertificate.subjectName);
+    writer.writeAdditionalData(windowsInformationProtectionDataRecoveryCertificate.additionalData);
 }
 export interface WindowsInformationProtectionDataRecoveryCertificate extends AdditionalDataHolder, Parsable {
     /**

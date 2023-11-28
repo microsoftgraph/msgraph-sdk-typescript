@@ -17,8 +17,8 @@ export function deserializeIntoVar_SPostRequestBody(var_SPostRequestBody: Var_SP
     }
 }
 export function serializeVar_SPostRequestBody(writer: SerializationWriter, var_SPostRequestBody: Var_SPostRequestBody | undefined = {} as Var_SPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", var_SPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(var_SPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", var_SPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(var_SPostRequestBody.additionalData);
 }
 export interface Var_SPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

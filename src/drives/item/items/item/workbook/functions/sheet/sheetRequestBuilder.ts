@@ -17,8 +17,8 @@ export function deserializeIntoSheetPostRequestBody(sheetPostRequestBody: SheetP
     }
 }
 export function serializeSheetPostRequestBody(writer: SerializationWriter, sheetPostRequestBody: SheetPostRequestBody | undefined = {} as SheetPostRequestBody) : void {
-        writer.writeObjectValue<Json>("value", sheetPostRequestBody.value, serializeJson);
-        writer.writeAdditionalData(sheetPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("value", sheetPostRequestBody.value, serializeJson);
+    writer.writeAdditionalData(sheetPostRequestBody.additionalData);
 }
 export interface SheetPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

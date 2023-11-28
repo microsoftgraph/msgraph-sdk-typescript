@@ -54,14 +54,14 @@ export interface PayloadCoachmark extends AdditionalDataHolder, Parsable {
     order?: string;
 }
 export function serializePayloadCoachmark(writer: SerializationWriter, payloadCoachmark: PayloadCoachmark | undefined = {} as PayloadCoachmark) : void {
-        writer.writeObjectValue<CoachmarkLocation>("coachmarkLocation", payloadCoachmark.coachmarkLocation, serializeCoachmarkLocation);
-        writer.writeStringValue("description", payloadCoachmark.description);
-        writer.writeStringValue("indicator", payloadCoachmark.indicator);
-        writer.writeBooleanValue("isValid", payloadCoachmark.isValid);
-        writer.writeStringValue("language", payloadCoachmark.language);
-        writer.writeStringValue("@odata.type", payloadCoachmark.odataType);
-        writer.writeStringValue("order", payloadCoachmark.order);
-        writer.writeAdditionalData(payloadCoachmark.additionalData);
+    writer.writeObjectValue<CoachmarkLocation>("coachmarkLocation", payloadCoachmark.coachmarkLocation, serializeCoachmarkLocation);
+    writer.writeStringValue("description", payloadCoachmark.description);
+    writer.writeStringValue("indicator", payloadCoachmark.indicator);
+    writer.writeBooleanValue("isValid", payloadCoachmark.isValid);
+    writer.writeStringValue("language", payloadCoachmark.language);
+    writer.writeStringValue("@odata.type", payloadCoachmark.odataType);
+    writer.writeStringValue("order", payloadCoachmark.order);
+    writer.writeAdditionalData(payloadCoachmark.additionalData);
 }
 // tslint:enable
 // eslint-enable

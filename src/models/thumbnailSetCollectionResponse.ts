@@ -16,8 +16,8 @@ export function deserializeIntoThumbnailSetCollectionResponse(thumbnailSetCollec
     }
 }
 export function serializeThumbnailSetCollectionResponse(writer: SerializationWriter, thumbnailSetCollectionResponse: ThumbnailSetCollectionResponse | undefined = {} as ThumbnailSetCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, thumbnailSetCollectionResponse)
-        writer.writeCollectionOfObjectValues<ThumbnailSet>("value", thumbnailSetCollectionResponse.value, serializeThumbnailSet);
+    serializeBaseCollectionPaginationCountResponse(writer, thumbnailSetCollectionResponse)
+    writer.writeCollectionOfObjectValues<ThumbnailSet>("value", thumbnailSetCollectionResponse.value, serializeThumbnailSet);
 }
 export interface ThumbnailSetCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -35,10 +35,10 @@ export interface OnlineMeetingRestricted extends AdditionalDataHolder, Parsable 
     videoDisabled?: OnlineMeetingVideoDisabledReason[];
 }
 export function serializeOnlineMeetingRestricted(writer: SerializationWriter, onlineMeetingRestricted: OnlineMeetingRestricted | undefined = {} as OnlineMeetingRestricted) : void {
-        writer.writeEnumValue<OnlineMeetingContentSharingDisabledReason[]>("contentSharingDisabled", onlineMeetingRestricted.contentSharingDisabled);
-        writer.writeStringValue("@odata.type", onlineMeetingRestricted.odataType);
-        writer.writeEnumValue<OnlineMeetingVideoDisabledReason[]>("videoDisabled", onlineMeetingRestricted.videoDisabled);
-        writer.writeAdditionalData(onlineMeetingRestricted.additionalData);
+    writer.writeEnumValue<OnlineMeetingContentSharingDisabledReason[]>("contentSharingDisabled", onlineMeetingRestricted.contentSharingDisabled);
+    writer.writeStringValue("@odata.type", onlineMeetingRestricted.odataType);
+    writer.writeEnumValue<OnlineMeetingVideoDisabledReason[]>("videoDisabled", onlineMeetingRestricted.videoDisabled);
+    writer.writeAdditionalData(onlineMeetingRestricted.additionalData);
 }
 // tslint:enable
 // eslint-enable

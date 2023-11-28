@@ -32,9 +32,9 @@ export interface Oct2BinPostRequestBody extends AdditionalDataHolder, Parsable {
     places?: Json;
 }
 export function serializeOct2BinPostRequestBody(writer: SerializationWriter, oct2BinPostRequestBody: Oct2BinPostRequestBody | undefined = {} as Oct2BinPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", oct2BinPostRequestBody.number, serializeJson);
-        writer.writeObjectValue<Json>("places", oct2BinPostRequestBody.places, serializeJson);
-        writer.writeAdditionalData(oct2BinPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", oct2BinPostRequestBody.number, serializeJson);
+    writer.writeObjectValue<Json>("places", oct2BinPostRequestBody.places, serializeJson);
+    writer.writeAdditionalData(oct2BinPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the oct2Bin method.

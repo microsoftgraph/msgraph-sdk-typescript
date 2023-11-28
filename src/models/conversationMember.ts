@@ -58,10 +58,10 @@ export function deserializeIntoConversationMember(conversationMember: Conversati
     }
 }
 export function serializeConversationMember(writer: SerializationWriter, conversationMember: ConversationMember | undefined = {} as ConversationMember) : void {
-        serializeEntity(writer, conversationMember)
-        writer.writeStringValue("displayName", conversationMember.displayName);
-        writer.writeCollectionOfPrimitiveValues<string>("roles", conversationMember.roles);
-        writer.writeDateValue("visibleHistoryStartDateTime", conversationMember.visibleHistoryStartDateTime);
+    serializeEntity(writer, conversationMember)
+    writer.writeStringValue("displayName", conversationMember.displayName);
+    writer.writeCollectionOfPrimitiveValues<string>("roles", conversationMember.roles);
+    writer.writeDateValue("visibleHistoryStartDateTime", conversationMember.visibleHistoryStartDateTime);
 }
 // tslint:enable
 // eslint-enable

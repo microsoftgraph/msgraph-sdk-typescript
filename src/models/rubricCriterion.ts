@@ -29,9 +29,9 @@ export interface RubricCriterion extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeRubricCriterion(writer: SerializationWriter, rubricCriterion: RubricCriterion | undefined = {} as RubricCriterion) : void {
-        writer.writeObjectValue<EducationItemBody>("description", rubricCriterion.description, serializeEducationItemBody);
-        writer.writeStringValue("@odata.type", rubricCriterion.odataType);
-        writer.writeAdditionalData(rubricCriterion.additionalData);
+    writer.writeObjectValue<EducationItemBody>("description", rubricCriterion.description, serializeEducationItemBody);
+    writer.writeStringValue("@odata.type", rubricCriterion.odataType);
+    writer.writeAdditionalData(rubricCriterion.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -21,8 +21,8 @@ export interface RemoteLockActionResult extends DeviceActionResult, Parsable {
     unlockPin?: string;
 }
 export function serializeRemoteLockActionResult(writer: SerializationWriter, remoteLockActionResult: RemoteLockActionResult | undefined = {} as RemoteLockActionResult) : void {
-        serializeDeviceActionResult(writer, remoteLockActionResult)
-        writer.writeStringValue("unlockPin", remoteLockActionResult.unlockPin);
+    serializeDeviceActionResult(writer, remoteLockActionResult)
+    writer.writeStringValue("unlockPin", remoteLockActionResult.unlockPin);
 }
 // tslint:enable
 // eslint-enable

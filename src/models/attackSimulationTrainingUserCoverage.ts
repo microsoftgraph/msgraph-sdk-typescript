@@ -35,10 +35,10 @@ export function deserializeIntoAttackSimulationTrainingUserCoverage(attackSimula
     }
 }
 export function serializeAttackSimulationTrainingUserCoverage(writer: SerializationWriter, attackSimulationTrainingUserCoverage: AttackSimulationTrainingUserCoverage | undefined = {} as AttackSimulationTrainingUserCoverage) : void {
-        writer.writeObjectValue<AttackSimulationUser>("attackSimulationUser", attackSimulationTrainingUserCoverage.attackSimulationUser, serializeAttackSimulationUser);
-        writer.writeStringValue("@odata.type", attackSimulationTrainingUserCoverage.odataType);
-        writer.writeCollectionOfObjectValues<UserTrainingStatusInfo>("userTrainings", attackSimulationTrainingUserCoverage.userTrainings, serializeUserTrainingStatusInfo);
-        writer.writeAdditionalData(attackSimulationTrainingUserCoverage.additionalData);
+    writer.writeObjectValue<AttackSimulationUser>("attackSimulationUser", attackSimulationTrainingUserCoverage.attackSimulationUser, serializeAttackSimulationUser);
+    writer.writeStringValue("@odata.type", attackSimulationTrainingUserCoverage.odataType);
+    writer.writeCollectionOfObjectValues<UserTrainingStatusInfo>("userTrainings", attackSimulationTrainingUserCoverage.userTrainings, serializeUserTrainingStatusInfo);
+    writer.writeAdditionalData(attackSimulationTrainingUserCoverage.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -21,8 +21,8 @@ export interface PrintUsageByUser extends Parsable, PrintUsage {
     userPrincipalName?: string;
 }
 export function serializePrintUsageByUser(writer: SerializationWriter, printUsageByUser: PrintUsageByUser | undefined = {} as PrintUsageByUser) : void {
-        serializePrintUsage(writer, printUsageByUser)
-        writer.writeStringValue("userPrincipalName", printUsageByUser.userPrincipalName);
+    serializePrintUsage(writer, printUsageByUser)
+    writer.writeStringValue("userPrincipalName", printUsageByUser.userPrincipalName);
 }
 // tslint:enable
 // eslint-enable

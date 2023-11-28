@@ -32,10 +32,10 @@ export interface IdentityApiConnector extends Entity, Parsable {
     targetUrl?: string;
 }
 export function serializeIdentityApiConnector(writer: SerializationWriter, identityApiConnector: IdentityApiConnector | undefined = {} as IdentityApiConnector) : void {
-        serializeEntity(writer, identityApiConnector)
-        writer.writeObjectValue<ApiAuthenticationConfigurationBase>("authenticationConfiguration", identityApiConnector.authenticationConfiguration, serializeApiAuthenticationConfigurationBase);
-        writer.writeStringValue("displayName", identityApiConnector.displayName);
-        writer.writeStringValue("targetUrl", identityApiConnector.targetUrl);
+    serializeEntity(writer, identityApiConnector)
+    writer.writeObjectValue<ApiAuthenticationConfigurationBase>("authenticationConfiguration", identityApiConnector.authenticationConfiguration, serializeApiAuthenticationConfigurationBase);
+    writer.writeStringValue("displayName", identityApiConnector.displayName);
+    writer.writeStringValue("targetUrl", identityApiConnector.targetUrl);
 }
 // tslint:enable
 // eslint-enable

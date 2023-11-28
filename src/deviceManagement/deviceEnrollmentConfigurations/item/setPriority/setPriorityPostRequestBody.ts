@@ -13,8 +13,8 @@ export function deserializeIntoSetPriorityPostRequestBody(setPriorityPostRequest
     }
 }
 export function serializeSetPriorityPostRequestBody(writer: SerializationWriter, setPriorityPostRequestBody: SetPriorityPostRequestBody | undefined = {} as SetPriorityPostRequestBody) : void {
-        writer.writeNumberValue("priority", setPriorityPostRequestBody.priority);
-        writer.writeAdditionalData(setPriorityPostRequestBody.additionalData);
+    writer.writeNumberValue("priority", setPriorityPostRequestBody.priority);
+    writer.writeAdditionalData(setPriorityPostRequestBody.additionalData);
 }
 export interface SetPriorityPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

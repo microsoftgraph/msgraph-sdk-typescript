@@ -22,8 +22,8 @@ export interface DeviceLocalCredentialInfoCollectionResponse extends BaseCollect
     value?: DeviceLocalCredentialInfo[];
 }
 export function serializeDeviceLocalCredentialInfoCollectionResponse(writer: SerializationWriter, deviceLocalCredentialInfoCollectionResponse: DeviceLocalCredentialInfoCollectionResponse | undefined = {} as DeviceLocalCredentialInfoCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, deviceLocalCredentialInfoCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceLocalCredentialInfo>("value", deviceLocalCredentialInfoCollectionResponse.value, serializeDeviceLocalCredentialInfo);
+    serializeBaseCollectionPaginationCountResponse(writer, deviceLocalCredentialInfoCollectionResponse)
+    writer.writeCollectionOfObjectValues<DeviceLocalCredentialInfo>("value", deviceLocalCredentialInfoCollectionResponse.value, serializeDeviceLocalCredentialInfo);
 }
 // tslint:enable
 // eslint-enable

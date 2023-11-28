@@ -24,8 +24,8 @@ export interface ImaginaryPostRequestBody extends AdditionalDataHolder, Parsable
     inumber?: Json;
 }
 export function serializeImaginaryPostRequestBody(writer: SerializationWriter, imaginaryPostRequestBody: ImaginaryPostRequestBody | undefined = {} as ImaginaryPostRequestBody) : void {
-        writer.writeObjectValue<Json>("inumber", imaginaryPostRequestBody.inumber, serializeJson);
-        writer.writeAdditionalData(imaginaryPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("inumber", imaginaryPostRequestBody.inumber, serializeJson);
+    writer.writeAdditionalData(imaginaryPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

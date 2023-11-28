@@ -16,8 +16,8 @@ export function deserializeIntoWorkbookFilter(workbookFilter: WorkbookFilter | u
     }
 }
 export function serializeWorkbookFilter(writer: SerializationWriter, workbookFilter: WorkbookFilter | undefined = {} as WorkbookFilter) : void {
-        serializeEntity(writer, workbookFilter)
-        writer.writeObjectValue<WorkbookFilterCriteria>("criteria", workbookFilter.criteria, serializeWorkbookFilterCriteria);
+    serializeEntity(writer, workbookFilter)
+    writer.writeObjectValue<WorkbookFilterCriteria>("criteria", workbookFilter.criteria, serializeWorkbookFilterCriteria);
 }
 export interface WorkbookFilter extends Entity, Parsable {
     /**

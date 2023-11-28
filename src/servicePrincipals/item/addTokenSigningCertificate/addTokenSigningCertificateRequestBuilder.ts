@@ -31,9 +31,9 @@ export function deserializeIntoAddTokenSigningCertificatePostRequestBody(addToke
     }
 }
 export function serializeAddTokenSigningCertificatePostRequestBody(writer: SerializationWriter, addTokenSigningCertificatePostRequestBody: AddTokenSigningCertificatePostRequestBody | undefined = {} as AddTokenSigningCertificatePostRequestBody) : void {
-        writer.writeStringValue("displayName", addTokenSigningCertificatePostRequestBody.displayName);
-        writer.writeDateValue("endDateTime", addTokenSigningCertificatePostRequestBody.endDateTime);
-        writer.writeAdditionalData(addTokenSigningCertificatePostRequestBody.additionalData);
+    writer.writeStringValue("displayName", addTokenSigningCertificatePostRequestBody.displayName);
+    writer.writeDateValue("endDateTime", addTokenSigningCertificatePostRequestBody.endDateTime);
+    writer.writeAdditionalData(addTokenSigningCertificatePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the addTokenSigningCertificate method.

@@ -28,9 +28,9 @@ export function deserializeIntoAssignUserToDevicePostRequestBody(assignUserToDev
     }
 }
 export function serializeAssignUserToDevicePostRequestBody(writer: SerializationWriter, assignUserToDevicePostRequestBody: AssignUserToDevicePostRequestBody | undefined = {} as AssignUserToDevicePostRequestBody) : void {
-        writer.writeStringValue("addressableUserName", assignUserToDevicePostRequestBody.addressableUserName);
-        writer.writeStringValue("userPrincipalName", assignUserToDevicePostRequestBody.userPrincipalName);
-        writer.writeAdditionalData(assignUserToDevicePostRequestBody.additionalData);
+    writer.writeStringValue("addressableUserName", assignUserToDevicePostRequestBody.addressableUserName);
+    writer.writeStringValue("userPrincipalName", assignUserToDevicePostRequestBody.userPrincipalName);
+    writer.writeAdditionalData(assignUserToDevicePostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -21,8 +21,8 @@ export interface DeviceEnrollmentLimitConfiguration extends DeviceEnrollmentConf
     limit?: number;
 }
 export function serializeDeviceEnrollmentLimitConfiguration(writer: SerializationWriter, deviceEnrollmentLimitConfiguration: DeviceEnrollmentLimitConfiguration | undefined = {} as DeviceEnrollmentLimitConfiguration) : void {
-        serializeDeviceEnrollmentConfiguration(writer, deviceEnrollmentLimitConfiguration)
-        writer.writeNumberValue("limit", deviceEnrollmentLimitConfiguration.limit);
+    serializeDeviceEnrollmentConfiguration(writer, deviceEnrollmentLimitConfiguration)
+    writer.writeNumberValue("limit", deviceEnrollmentLimitConfiguration.limit);
 }
 // tslint:enable
 // eslint-enable

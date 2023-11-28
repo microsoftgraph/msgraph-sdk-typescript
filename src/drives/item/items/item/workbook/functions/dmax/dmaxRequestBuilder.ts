@@ -37,10 +37,10 @@ export interface DmaxPostRequestBody extends AdditionalDataHolder, Parsable {
     field?: Json;
 }
 export function serializeDmaxPostRequestBody(writer: SerializationWriter, dmaxPostRequestBody: DmaxPostRequestBody | undefined = {} as DmaxPostRequestBody) : void {
-        writer.writeObjectValue<Json>("criteria", dmaxPostRequestBody.criteria, serializeJson);
-        writer.writeObjectValue<Json>("database", dmaxPostRequestBody.database, serializeJson);
-        writer.writeObjectValue<Json>("field", dmaxPostRequestBody.field, serializeJson);
-        writer.writeAdditionalData(dmaxPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("criteria", dmaxPostRequestBody.criteria, serializeJson);
+    writer.writeObjectValue<Json>("database", dmaxPostRequestBody.database, serializeJson);
+    writer.writeObjectValue<Json>("field", dmaxPostRequestBody.field, serializeJson);
+    writer.writeAdditionalData(dmaxPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the dmax method.

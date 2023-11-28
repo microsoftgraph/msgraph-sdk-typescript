@@ -29,9 +29,9 @@ export function deserializeIntoBesselJPostRequestBody(besselJPostRequestBody: Be
     }
 }
 export function serializeBesselJPostRequestBody(writer: SerializationWriter, besselJPostRequestBody: BesselJPostRequestBody | undefined = {} as BesselJPostRequestBody) : void {
-        writer.writeObjectValue<Json>("n", besselJPostRequestBody.n, serializeJson);
-        writer.writeObjectValue<Json>("x", besselJPostRequestBody.x, serializeJson);
-        writer.writeAdditionalData(besselJPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("n", besselJPostRequestBody.n, serializeJson);
+    writer.writeObjectValue<Json>("x", besselJPostRequestBody.x, serializeJson);
+    writer.writeAdditionalData(besselJPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

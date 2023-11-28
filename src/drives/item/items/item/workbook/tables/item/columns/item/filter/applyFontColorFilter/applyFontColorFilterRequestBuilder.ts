@@ -25,8 +25,8 @@ export function deserializeIntoApplyFontColorFilterPostRequestBody(applyFontColo
     }
 }
 export function serializeApplyFontColorFilterPostRequestBody(writer: SerializationWriter, applyFontColorFilterPostRequestBody: ApplyFontColorFilterPostRequestBody | undefined = {} as ApplyFontColorFilterPostRequestBody) : void {
-        writer.writeStringValue("color", applyFontColorFilterPostRequestBody.color);
-        writer.writeAdditionalData(applyFontColorFilterPostRequestBody.additionalData);
+    writer.writeStringValue("color", applyFontColorFilterPostRequestBody.color);
+    writer.writeAdditionalData(applyFontColorFilterPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the applyFontColorFilter method.

@@ -16,7 +16,7 @@ export function deserializeIntoOutgoingCallOptions(outgoingCallOptions: Outgoing
 export interface OutgoingCallOptions extends CallOptions, Parsable {
 }
 export function serializeOutgoingCallOptions(writer: SerializationWriter, outgoingCallOptions: OutgoingCallOptions | undefined = {} as OutgoingCallOptions) : void {
-        serializeCallOptions(writer, outgoingCallOptions)
+    serializeCallOptions(writer, outgoingCallOptions)
 }
 // tslint:enable
 // eslint-enable

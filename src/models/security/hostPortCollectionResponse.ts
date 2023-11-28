@@ -22,8 +22,8 @@ export interface HostPortCollectionResponse extends BaseCollectionPaginationCoun
     value?: HostPort[];
 }
 export function serializeHostPortCollectionResponse(writer: SerializationWriter, hostPortCollectionResponse: HostPortCollectionResponse | undefined = {} as HostPortCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, hostPortCollectionResponse)
-        writer.writeCollectionOfObjectValues<HostPort>("value", hostPortCollectionResponse.value, serializeHostPort);
+    serializeBaseCollectionPaginationCountResponse(writer, hostPortCollectionResponse)
+    writer.writeCollectionOfObjectValues<HostPort>("value", hostPortCollectionResponse.value, serializeHostPort);
 }
 // tslint:enable
 // eslint-enable

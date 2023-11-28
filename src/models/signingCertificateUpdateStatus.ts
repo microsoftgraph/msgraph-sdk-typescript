@@ -15,10 +15,10 @@ export function deserializeIntoSigningCertificateUpdateStatus(signingCertificate
     }
 }
 export function serializeSigningCertificateUpdateStatus(writer: SerializationWriter, signingCertificateUpdateStatus: SigningCertificateUpdateStatus | undefined = {} as SigningCertificateUpdateStatus) : void {
-        writer.writeStringValue("certificateUpdateResult", signingCertificateUpdateStatus.certificateUpdateResult);
-        writer.writeDateValue("lastRunDateTime", signingCertificateUpdateStatus.lastRunDateTime);
-        writer.writeStringValue("@odata.type", signingCertificateUpdateStatus.odataType);
-        writer.writeAdditionalData(signingCertificateUpdateStatus.additionalData);
+    writer.writeStringValue("certificateUpdateResult", signingCertificateUpdateStatus.certificateUpdateResult);
+    writer.writeDateValue("lastRunDateTime", signingCertificateUpdateStatus.lastRunDateTime);
+    writer.writeStringValue("@odata.type", signingCertificateUpdateStatus.odataType);
+    writer.writeAdditionalData(signingCertificateUpdateStatus.additionalData);
 }
 export interface SigningCertificateUpdateStatus extends AdditionalDataHolder, Parsable {
     /**

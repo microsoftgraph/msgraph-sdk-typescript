@@ -22,8 +22,8 @@ export interface ManagedDeviceMobileAppConfigurationCollectionResponse extends B
     value?: ManagedDeviceMobileAppConfiguration[];
 }
 export function serializeManagedDeviceMobileAppConfigurationCollectionResponse(writer: SerializationWriter, managedDeviceMobileAppConfigurationCollectionResponse: ManagedDeviceMobileAppConfigurationCollectionResponse | undefined = {} as ManagedDeviceMobileAppConfigurationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, managedDeviceMobileAppConfigurationCollectionResponse)
-        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfiguration>("value", managedDeviceMobileAppConfigurationCollectionResponse.value, serializeManagedDeviceMobileAppConfiguration);
+    serializeBaseCollectionPaginationCountResponse(writer, managedDeviceMobileAppConfigurationCollectionResponse)
+    writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfiguration>("value", managedDeviceMobileAppConfigurationCollectionResponse.value, serializeManagedDeviceMobileAppConfiguration);
 }
 // tslint:enable
 // eslint-enable

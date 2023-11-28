@@ -29,9 +29,9 @@ export function deserializeIntoChiSq_Inv_RTPostRequestBody(chiSq_Inv_RTPostReque
     }
 }
 export function serializeChiSq_Inv_RTPostRequestBody(writer: SerializationWriter, chiSq_Inv_RTPostRequestBody: ChiSq_Inv_RTPostRequestBody | undefined = {} as ChiSq_Inv_RTPostRequestBody) : void {
-        writer.writeObjectValue<Json>("degFreedom", chiSq_Inv_RTPostRequestBody.degFreedom, serializeJson);
-        writer.writeObjectValue<Json>("probability", chiSq_Inv_RTPostRequestBody.probability, serializeJson);
-        writer.writeAdditionalData(chiSq_Inv_RTPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("degFreedom", chiSq_Inv_RTPostRequestBody.degFreedom, serializeJson);
+    writer.writeObjectValue<Json>("probability", chiSq_Inv_RTPostRequestBody.probability, serializeJson);
+    writer.writeAdditionalData(chiSq_Inv_RTPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

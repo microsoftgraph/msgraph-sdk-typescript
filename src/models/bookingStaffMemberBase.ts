@@ -28,7 +28,7 @@ export function deserializeIntoBookingStaffMemberBase(bookingStaffMemberBase: Bo
     }
 }
 export function serializeBookingStaffMemberBase(writer: SerializationWriter, bookingStaffMemberBase: BookingStaffMemberBase | undefined = {} as BookingStaffMemberBase) : void {
-        serializeEntity(writer, bookingStaffMemberBase)
+    serializeEntity(writer, bookingStaffMemberBase)
 }
 // tslint:enable
 // eslint-enable

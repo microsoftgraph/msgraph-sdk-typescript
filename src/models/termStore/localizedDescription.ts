@@ -33,10 +33,10 @@ export interface LocalizedDescription extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeLocalizedDescription(writer: SerializationWriter, localizedDescription: LocalizedDescription | undefined = {} as LocalizedDescription) : void {
-        writer.writeStringValue("description", localizedDescription.description);
-        writer.writeStringValue("languageTag", localizedDescription.languageTag);
-        writer.writeStringValue("@odata.type", localizedDescription.odataType);
-        writer.writeAdditionalData(localizedDescription.additionalData);
+    writer.writeStringValue("description", localizedDescription.description);
+    writer.writeStringValue("languageTag", localizedDescription.languageTag);
+    writer.writeStringValue("@odata.type", localizedDescription.odataType);
+    writer.writeAdditionalData(localizedDescription.additionalData);
 }
 // tslint:enable
 // eslint-enable

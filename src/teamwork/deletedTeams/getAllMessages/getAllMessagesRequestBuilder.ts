@@ -58,8 +58,8 @@ export interface GetAllMessagesRequestBuilderGetQueryParameters {
     top?: number;
 }
 export function serializeGetAllMessagesGetResponse(writer: SerializationWriter, getAllMessagesGetResponse: GetAllMessagesGetResponse | undefined = {} as GetAllMessagesGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getAllMessagesGetResponse)
-        writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllMessagesGetResponse.value, serializeChatMessage);
+    serializeBaseCollectionPaginationCountResponse(writer, getAllMessagesGetResponse)
+    writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllMessagesGetResponse.value, serializeChatMessage);
 }
 /**
  * Provides operations to call the getAllMessages method.

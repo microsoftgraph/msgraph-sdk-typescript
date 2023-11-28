@@ -21,8 +21,8 @@ export interface IdentitySecurityDefaultsEnforcementPolicy extends Parsable, Pol
     isEnabled?: boolean;
 }
 export function serializeIdentitySecurityDefaultsEnforcementPolicy(writer: SerializationWriter, identitySecurityDefaultsEnforcementPolicy: IdentitySecurityDefaultsEnforcementPolicy | undefined = {} as IdentitySecurityDefaultsEnforcementPolicy) : void {
-        serializePolicyBase(writer, identitySecurityDefaultsEnforcementPolicy)
-        writer.writeBooleanValue("isEnabled", identitySecurityDefaultsEnforcementPolicy.isEnabled);
+    serializePolicyBase(writer, identitySecurityDefaultsEnforcementPolicy)
+    writer.writeBooleanValue("isEnabled", identitySecurityDefaultsEnforcementPolicy.isEnabled);
 }
 // tslint:enable
 // eslint-enable

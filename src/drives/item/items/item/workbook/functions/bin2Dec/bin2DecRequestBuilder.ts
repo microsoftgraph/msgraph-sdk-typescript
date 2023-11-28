@@ -27,8 +27,8 @@ export function deserializeIntoBin2DecPostRequestBody(bin2DecPostRequestBody: Bi
     }
 }
 export function serializeBin2DecPostRequestBody(writer: SerializationWriter, bin2DecPostRequestBody: Bin2DecPostRequestBody | undefined = {} as Bin2DecPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", bin2DecPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(bin2DecPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", bin2DecPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(bin2DecPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the bin2Dec method.

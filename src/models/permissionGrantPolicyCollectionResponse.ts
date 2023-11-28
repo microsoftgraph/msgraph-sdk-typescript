@@ -22,8 +22,8 @@ export interface PermissionGrantPolicyCollectionResponse extends BaseCollectionP
     value?: PermissionGrantPolicy[];
 }
 export function serializePermissionGrantPolicyCollectionResponse(writer: SerializationWriter, permissionGrantPolicyCollectionResponse: PermissionGrantPolicyCollectionResponse | undefined = {} as PermissionGrantPolicyCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, permissionGrantPolicyCollectionResponse)
-        writer.writeCollectionOfObjectValues<PermissionGrantPolicy>("value", permissionGrantPolicyCollectionResponse.value, serializePermissionGrantPolicy);
+    serializeBaseCollectionPaginationCountResponse(writer, permissionGrantPolicyCollectionResponse)
+    writer.writeCollectionOfObjectValues<PermissionGrantPolicy>("value", permissionGrantPolicyCollectionResponse.value, serializePermissionGrantPolicy);
 }
 // tslint:enable
 // eslint-enable

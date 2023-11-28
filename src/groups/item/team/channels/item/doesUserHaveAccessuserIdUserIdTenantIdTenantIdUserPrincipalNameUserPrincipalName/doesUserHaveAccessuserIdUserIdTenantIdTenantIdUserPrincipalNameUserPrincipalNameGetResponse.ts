@@ -23,8 +23,8 @@ export interface DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalName
     value?: boolean;
 }
 export function serializeDoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse(writer: SerializationWriter, doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse: DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse | undefined = {} as DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse) : void {
-        writer.writeBooleanValue("value", doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse.value);
-        writer.writeAdditionalData(doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse.additionalData);
+    writer.writeBooleanValue("value", doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse.value);
+    writer.writeAdditionalData(doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

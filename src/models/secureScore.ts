@@ -69,17 +69,17 @@ export interface SecureScore extends Entity, Parsable {
     vendorInformation?: SecurityVendorInformation;
 }
 export function serializeSecureScore(writer: SerializationWriter, secureScore: SecureScore | undefined = {} as SecureScore) : void {
-        serializeEntity(writer, secureScore)
-        writer.writeNumberValue("activeUserCount", secureScore.activeUserCount);
-        writer.writeCollectionOfObjectValues<AverageComparativeScore>("averageComparativeScores", secureScore.averageComparativeScores, serializeAverageComparativeScore);
-        writer.writeStringValue("azureTenantId", secureScore.azureTenantId);
-        writer.writeCollectionOfObjectValues<ControlScore>("controlScores", secureScore.controlScores, serializeControlScore);
-        writer.writeDateValue("createdDateTime", secureScore.createdDateTime);
-        writer.writeNumberValue("currentScore", secureScore.currentScore);
-        writer.writeCollectionOfPrimitiveValues<string>("enabledServices", secureScore.enabledServices);
-        writer.writeNumberValue("licensedUserCount", secureScore.licensedUserCount);
-        writer.writeNumberValue("maxScore", secureScore.maxScore);
-        writer.writeObjectValue<SecurityVendorInformation>("vendorInformation", secureScore.vendorInformation, serializeSecurityVendorInformation);
+    serializeEntity(writer, secureScore)
+    writer.writeNumberValue("activeUserCount", secureScore.activeUserCount);
+    writer.writeCollectionOfObjectValues<AverageComparativeScore>("averageComparativeScores", secureScore.averageComparativeScores, serializeAverageComparativeScore);
+    writer.writeStringValue("azureTenantId", secureScore.azureTenantId);
+    writer.writeCollectionOfObjectValues<ControlScore>("controlScores", secureScore.controlScores, serializeControlScore);
+    writer.writeDateValue("createdDateTime", secureScore.createdDateTime);
+    writer.writeNumberValue("currentScore", secureScore.currentScore);
+    writer.writeCollectionOfPrimitiveValues<string>("enabledServices", secureScore.enabledServices);
+    writer.writeNumberValue("licensedUserCount", secureScore.licensedUserCount);
+    writer.writeNumberValue("maxScore", secureScore.maxScore);
+    writer.writeObjectValue<SecurityVendorInformation>("vendorInformation", secureScore.vendorInformation, serializeSecurityVendorInformation);
 }
 // tslint:enable
 // eslint-enable

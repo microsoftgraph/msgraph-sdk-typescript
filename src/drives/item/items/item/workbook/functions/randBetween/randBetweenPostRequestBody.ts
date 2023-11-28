@@ -29,9 +29,9 @@ export interface RandBetweenPostRequestBody extends AdditionalDataHolder, Parsab
     top?: Json;
 }
 export function serializeRandBetweenPostRequestBody(writer: SerializationWriter, randBetweenPostRequestBody: RandBetweenPostRequestBody | undefined = {} as RandBetweenPostRequestBody) : void {
-        writer.writeObjectValue<Json>("bottom", randBetweenPostRequestBody.bottom, serializeJson);
-        writer.writeObjectValue<Json>("top", randBetweenPostRequestBody.top, serializeJson);
-        writer.writeAdditionalData(randBetweenPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("bottom", randBetweenPostRequestBody.bottom, serializeJson);
+    writer.writeObjectValue<Json>("top", randBetweenPostRequestBody.top, serializeJson);
+    writer.writeAdditionalData(randBetweenPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

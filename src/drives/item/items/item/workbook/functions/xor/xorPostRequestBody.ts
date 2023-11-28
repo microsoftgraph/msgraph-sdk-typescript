@@ -14,8 +14,8 @@ export function deserializeIntoXorPostRequestBody(xorPostRequestBody: XorPostReq
     }
 }
 export function serializeXorPostRequestBody(writer: SerializationWriter, xorPostRequestBody: XorPostRequestBody | undefined = {} as XorPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", xorPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(xorPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", xorPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(xorPostRequestBody.additionalData);
 }
 export interface XorPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

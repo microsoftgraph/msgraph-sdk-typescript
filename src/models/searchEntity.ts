@@ -16,7 +16,7 @@ export function deserializeIntoSearchEntity(searchEntity: SearchEntity | undefin
 export interface SearchEntity extends Entity, Parsable {
 }
 export function serializeSearchEntity(writer: SerializationWriter, searchEntity: SearchEntity | undefined = {} as SearchEntity) : void {
-        serializeEntity(writer, searchEntity)
+    serializeEntity(writer, searchEntity)
 }
 // tslint:enable
 // eslint-enable

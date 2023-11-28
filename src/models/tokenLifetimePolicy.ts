@@ -14,7 +14,7 @@ export function deserializeIntoTokenLifetimePolicy(tokenLifetimePolicy: TokenLif
     }
 }
 export function serializeTokenLifetimePolicy(writer: SerializationWriter, tokenLifetimePolicy: TokenLifetimePolicy | undefined = {} as TokenLifetimePolicy) : void {
-        serializeStsPolicy(writer, tokenLifetimePolicy)
+    serializeStsPolicy(writer, tokenLifetimePolicy)
 }
 export interface TokenLifetimePolicy extends Parsable, StsPolicy {
 }

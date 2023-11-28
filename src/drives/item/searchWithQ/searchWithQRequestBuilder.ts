@@ -54,8 +54,8 @@ export interface SearchWithQRequestBuilderGetQueryParameters {
     top?: number;
 }
 export function serializeSearchWithQGetResponse(writer: SerializationWriter, searchWithQGetResponse: SearchWithQGetResponse | undefined = {} as SearchWithQGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, searchWithQGetResponse)
-        writer.writeCollectionOfObjectValues<DriveItem>("value", searchWithQGetResponse.value, serializeDriveItem);
+    serializeBaseCollectionPaginationCountResponse(writer, searchWithQGetResponse)
+    writer.writeCollectionOfObjectValues<DriveItem>("value", searchWithQGetResponse.value, serializeDriveItem);
 }
 /**
  * Provides operations to call the search method.

@@ -23,8 +23,8 @@ export interface RevokeSignInSessionsPostResponse extends AdditionalDataHolder, 
     value?: boolean;
 }
 export function serializeRevokeSignInSessionsPostResponse(writer: SerializationWriter, revokeSignInSessionsPostResponse: RevokeSignInSessionsPostResponse | undefined = {} as RevokeSignInSessionsPostResponse) : void {
-        writer.writeBooleanValue("value", revokeSignInSessionsPostResponse.value);
-        writer.writeAdditionalData(revokeSignInSessionsPostResponse.additionalData);
+    writer.writeBooleanValue("value", revokeSignInSessionsPostResponse.value);
+    writer.writeAdditionalData(revokeSignInSessionsPostResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

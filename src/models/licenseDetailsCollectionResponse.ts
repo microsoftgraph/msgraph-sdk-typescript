@@ -22,8 +22,8 @@ export interface LicenseDetailsCollectionResponse extends BaseCollectionPaginati
     value?: LicenseDetails[];
 }
 export function serializeLicenseDetailsCollectionResponse(writer: SerializationWriter, licenseDetailsCollectionResponse: LicenseDetailsCollectionResponse | undefined = {} as LicenseDetailsCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, licenseDetailsCollectionResponse)
-        writer.writeCollectionOfObjectValues<LicenseDetails>("value", licenseDetailsCollectionResponse.value, serializeLicenseDetails);
+    serializeBaseCollectionPaginationCountResponse(writer, licenseDetailsCollectionResponse)
+    writer.writeCollectionOfObjectValues<LicenseDetails>("value", licenseDetailsCollectionResponse.value, serializeLicenseDetails);
 }
 // tslint:enable
 // eslint-enable

@@ -26,9 +26,9 @@ export interface DirectoryRoleTemplate extends DirectoryObject, Parsable {
     displayName?: string;
 }
 export function serializeDirectoryRoleTemplate(writer: SerializationWriter, directoryRoleTemplate: DirectoryRoleTemplate | undefined = {} as DirectoryRoleTemplate) : void {
-        serializeDirectoryObject(writer, directoryRoleTemplate)
-        writer.writeStringValue("description", directoryRoleTemplate.description);
-        writer.writeStringValue("displayName", directoryRoleTemplate.displayName);
+    serializeDirectoryObject(writer, directoryRoleTemplate)
+    writer.writeStringValue("description", directoryRoleTemplate.description);
+    writer.writeStringValue("displayName", directoryRoleTemplate.displayName);
 }
 // tslint:enable
 // eslint-enable

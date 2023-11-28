@@ -23,8 +23,8 @@ export interface ImageWithWidthGetResponse extends AdditionalDataHolder, Parsabl
     value?: string;
 }
 export function serializeImageWithWidthGetResponse(writer: SerializationWriter, imageWithWidthGetResponse: ImageWithWidthGetResponse | undefined = {} as ImageWithWidthGetResponse) : void {
-        writer.writeStringValue("value", imageWithWidthGetResponse.value);
-        writer.writeAdditionalData(imageWithWidthGetResponse.additionalData);
+    writer.writeStringValue("value", imageWithWidthGetResponse.value);
+    writer.writeAdditionalData(imageWithWidthGetResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

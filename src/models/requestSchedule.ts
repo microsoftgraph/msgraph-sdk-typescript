@@ -40,11 +40,11 @@ export interface RequestSchedule extends AdditionalDataHolder, Parsable {
     startDateTime?: Date;
 }
 export function serializeRequestSchedule(writer: SerializationWriter, requestSchedule: RequestSchedule | undefined = {} as RequestSchedule) : void {
-        writer.writeObjectValue<ExpirationPattern>("expiration", requestSchedule.expiration, serializeExpirationPattern);
-        writer.writeStringValue("@odata.type", requestSchedule.odataType);
-        writer.writeObjectValue<PatternedRecurrence>("recurrence", requestSchedule.recurrence, serializePatternedRecurrence);
-        writer.writeDateValue("startDateTime", requestSchedule.startDateTime);
-        writer.writeAdditionalData(requestSchedule.additionalData);
+    writer.writeObjectValue<ExpirationPattern>("expiration", requestSchedule.expiration, serializeExpirationPattern);
+    writer.writeStringValue("@odata.type", requestSchedule.odataType);
+    writer.writeObjectValue<PatternedRecurrence>("recurrence", requestSchedule.recurrence, serializePatternedRecurrence);
+    writer.writeDateValue("startDateTime", requestSchedule.startDateTime);
+    writer.writeAdditionalData(requestSchedule.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -35,8 +35,8 @@ export interface EducationSubmissionRecipient extends AdditionalDataHolder, Pars
     odataType?: string;
 }
 export function serializeEducationSubmissionRecipient(writer: SerializationWriter, educationSubmissionRecipient: EducationSubmissionRecipient | undefined = {} as EducationSubmissionRecipient) : void {
-        writer.writeStringValue("@odata.type", educationSubmissionRecipient.odataType);
-        writer.writeAdditionalData(educationSubmissionRecipient.additionalData);
+    writer.writeStringValue("@odata.type", educationSubmissionRecipient.odataType);
+    writer.writeAdditionalData(educationSubmissionRecipient.additionalData);
 }
 // tslint:enable
 // eslint-enable

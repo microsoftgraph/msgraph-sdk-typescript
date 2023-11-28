@@ -55,14 +55,14 @@ export interface PrivilegedAccessGroupEligibilityScheduleRequest extends Parsabl
     targetScheduleId?: string;
 }
 export function serializePrivilegedAccessGroupEligibilityScheduleRequest(writer: SerializationWriter, privilegedAccessGroupEligibilityScheduleRequest: PrivilegedAccessGroupEligibilityScheduleRequest | undefined = {} as PrivilegedAccessGroupEligibilityScheduleRequest) : void {
-        serializePrivilegedAccessScheduleRequest(writer, privilegedAccessGroupEligibilityScheduleRequest)
-        writer.writeEnumValue<PrivilegedAccessGroupRelationships>("accessId", privilegedAccessGroupEligibilityScheduleRequest.accessId);
-        writer.writeObjectValue<Group>("group", privilegedAccessGroupEligibilityScheduleRequest.group, serializeGroup);
-        writer.writeStringValue("groupId", privilegedAccessGroupEligibilityScheduleRequest.groupId);
-        writer.writeObjectValue<DirectoryObject>("principal", privilegedAccessGroupEligibilityScheduleRequest.principal, serializeDirectoryObject);
-        writer.writeStringValue("principalId", privilegedAccessGroupEligibilityScheduleRequest.principalId);
-        writer.writeObjectValue<PrivilegedAccessGroupEligibilitySchedule>("targetSchedule", privilegedAccessGroupEligibilityScheduleRequest.targetSchedule, serializePrivilegedAccessGroupEligibilitySchedule);
-        writer.writeStringValue("targetScheduleId", privilegedAccessGroupEligibilityScheduleRequest.targetScheduleId);
+    serializePrivilegedAccessScheduleRequest(writer, privilegedAccessGroupEligibilityScheduleRequest)
+    writer.writeEnumValue<PrivilegedAccessGroupRelationships>("accessId", privilegedAccessGroupEligibilityScheduleRequest.accessId);
+    writer.writeObjectValue<Group>("group", privilegedAccessGroupEligibilityScheduleRequest.group, serializeGroup);
+    writer.writeStringValue("groupId", privilegedAccessGroupEligibilityScheduleRequest.groupId);
+    writer.writeObjectValue<DirectoryObject>("principal", privilegedAccessGroupEligibilityScheduleRequest.principal, serializeDirectoryObject);
+    writer.writeStringValue("principalId", privilegedAccessGroupEligibilityScheduleRequest.principalId);
+    writer.writeObjectValue<PrivilegedAccessGroupEligibilitySchedule>("targetSchedule", privilegedAccessGroupEligibilityScheduleRequest.targetSchedule, serializePrivilegedAccessGroupEligibilitySchedule);
+    writer.writeStringValue("targetScheduleId", privilegedAccessGroupEligibilityScheduleRequest.targetScheduleId);
 }
 // tslint:enable
 // eslint-enable

@@ -26,9 +26,9 @@ export function deserializeIntoBasicAuthentication(basicAuthentication: BasicAut
     }
 }
 export function serializeBasicAuthentication(writer: SerializationWriter, basicAuthentication: BasicAuthentication | undefined = {} as BasicAuthentication) : void {
-        serializeApiAuthenticationConfigurationBase(writer, basicAuthentication)
-        writer.writeStringValue("password", basicAuthentication.password);
-        writer.writeStringValue("username", basicAuthentication.username);
+    serializeApiAuthenticationConfigurationBase(writer, basicAuthentication)
+    writer.writeStringValue("password", basicAuthentication.password);
+    writer.writeStringValue("username", basicAuthentication.username);
 }
 // tslint:enable
 // eslint-enable

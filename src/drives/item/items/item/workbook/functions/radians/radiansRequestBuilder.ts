@@ -27,8 +27,8 @@ export interface RadiansPostRequestBody extends AdditionalDataHolder, Parsable {
     angle?: Json;
 }
 export function serializeRadiansPostRequestBody(writer: SerializationWriter, radiansPostRequestBody: RadiansPostRequestBody | undefined = {} as RadiansPostRequestBody) : void {
-        writer.writeObjectValue<Json>("angle", radiansPostRequestBody.angle, serializeJson);
-        writer.writeAdditionalData(radiansPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("angle", radiansPostRequestBody.angle, serializeJson);
+    writer.writeAdditionalData(radiansPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the radians method.

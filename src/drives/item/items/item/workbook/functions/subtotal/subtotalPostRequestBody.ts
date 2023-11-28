@@ -15,9 +15,9 @@ export function deserializeIntoSubtotalPostRequestBody(subtotalPostRequestBody: 
     }
 }
 export function serializeSubtotalPostRequestBody(writer: SerializationWriter, subtotalPostRequestBody: SubtotalPostRequestBody | undefined = {} as SubtotalPostRequestBody) : void {
-        writer.writeObjectValue<Json>("functionNum", subtotalPostRequestBody.functionNum, serializeJson);
-        writer.writeObjectValue<Json>("values", subtotalPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(subtotalPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("functionNum", subtotalPostRequestBody.functionNum, serializeJson);
+    writer.writeObjectValue<Json>("values", subtotalPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(subtotalPostRequestBody.additionalData);
 }
 export interface SubtotalPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

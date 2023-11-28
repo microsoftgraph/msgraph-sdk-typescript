@@ -47,13 +47,13 @@ export function deserializeIntoDataPolicyOperation(dataPolicyOperation: DataPoli
     }
 }
 export function serializeDataPolicyOperation(writer: SerializationWriter, dataPolicyOperation: DataPolicyOperation | undefined = {} as DataPolicyOperation) : void {
-        serializeEntity(writer, dataPolicyOperation)
-        writer.writeDateValue("completedDateTime", dataPolicyOperation.completedDateTime);
-        writer.writeNumberValue("progress", dataPolicyOperation.progress);
-        writer.writeEnumValue<DataPolicyOperationStatus>("status", dataPolicyOperation.status);
-        writer.writeStringValue("storageLocation", dataPolicyOperation.storageLocation);
-        writer.writeDateValue("submittedDateTime", dataPolicyOperation.submittedDateTime);
-        writer.writeStringValue("userId", dataPolicyOperation.userId);
+    serializeEntity(writer, dataPolicyOperation)
+    writer.writeDateValue("completedDateTime", dataPolicyOperation.completedDateTime);
+    writer.writeNumberValue("progress", dataPolicyOperation.progress);
+    writer.writeEnumValue<DataPolicyOperationStatus>("status", dataPolicyOperation.status);
+    writer.writeStringValue("storageLocation", dataPolicyOperation.storageLocation);
+    writer.writeDateValue("submittedDateTime", dataPolicyOperation.submittedDateTime);
+    writer.writeStringValue("userId", dataPolicyOperation.userId);
 }
 // tslint:enable
 // eslint-enable

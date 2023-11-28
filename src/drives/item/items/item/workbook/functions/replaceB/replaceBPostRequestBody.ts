@@ -39,11 +39,11 @@ export interface ReplaceBPostRequestBody extends AdditionalDataHolder, Parsable 
     startNum?: Json;
 }
 export function serializeReplaceBPostRequestBody(writer: SerializationWriter, replaceBPostRequestBody: ReplaceBPostRequestBody | undefined = {} as ReplaceBPostRequestBody) : void {
-        writer.writeObjectValue<Json>("newText", replaceBPostRequestBody.newText, serializeJson);
-        writer.writeObjectValue<Json>("numBytes", replaceBPostRequestBody.numBytes, serializeJson);
-        writer.writeObjectValue<Json>("oldText", replaceBPostRequestBody.oldText, serializeJson);
-        writer.writeObjectValue<Json>("startNum", replaceBPostRequestBody.startNum, serializeJson);
-        writer.writeAdditionalData(replaceBPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("newText", replaceBPostRequestBody.newText, serializeJson);
+    writer.writeObjectValue<Json>("numBytes", replaceBPostRequestBody.numBytes, serializeJson);
+    writer.writeObjectValue<Json>("oldText", replaceBPostRequestBody.oldText, serializeJson);
+    writer.writeObjectValue<Json>("startNum", replaceBPostRequestBody.startNum, serializeJson);
+    writer.writeAdditionalData(replaceBPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

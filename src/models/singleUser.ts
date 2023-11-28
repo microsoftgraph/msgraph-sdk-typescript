@@ -16,9 +16,9 @@ export function deserializeIntoSingleUser(singleUser: SingleUser | undefined = {
     }
 }
 export function serializeSingleUser(writer: SerializationWriter, singleUser: SingleUser | undefined = {} as SingleUser) : void {
-        serializeSubjectSet(writer, singleUser)
-        writer.writeStringValue("description", singleUser.description);
-        writer.writeStringValue("userId", singleUser.userId);
+    serializeSubjectSet(writer, singleUser)
+    writer.writeStringValue("description", singleUser.description);
+    writer.writeStringValue("userId", singleUser.userId);
 }
 export interface SingleUser extends Parsable, SubjectSet {
     /**

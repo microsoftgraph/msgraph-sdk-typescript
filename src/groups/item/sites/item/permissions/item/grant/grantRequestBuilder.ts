@@ -49,13 +49,13 @@ export interface GrantPostResponse extends BaseCollectionPaginationCountResponse
     value?: Permission[];
 }
 export function serializeGrantPostRequestBody(writer: SerializationWriter, grantPostRequestBody: GrantPostRequestBody | undefined = {} as GrantPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", grantPostRequestBody.recipients, serializeDriveRecipient);
-        writer.writeCollectionOfPrimitiveValues<string>("roles", grantPostRequestBody.roles);
-        writer.writeAdditionalData(grantPostRequestBody.additionalData);
+    writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", grantPostRequestBody.recipients, serializeDriveRecipient);
+    writer.writeCollectionOfPrimitiveValues<string>("roles", grantPostRequestBody.roles);
+    writer.writeAdditionalData(grantPostRequestBody.additionalData);
 }
 export function serializeGrantPostResponse(writer: SerializationWriter, grantPostResponse: GrantPostResponse | undefined = {} as GrantPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, grantPostResponse)
-        writer.writeCollectionOfObjectValues<Permission>("value", grantPostResponse.value, serializePermission);
+    serializeBaseCollectionPaginationCountResponse(writer, grantPostResponse)
+    writer.writeCollectionOfObjectValues<Permission>("value", grantPostResponse.value, serializePermission);
 }
 /**
  * Provides operations to call the grant method.

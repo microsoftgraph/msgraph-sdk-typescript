@@ -22,8 +22,8 @@ export interface GetByUserIdAndRoleWithUserIdWithRoleGetResponse extends BaseCol
     value?: VirtualEventWebinar[];
 }
 export function serializeGetByUserIdAndRoleWithUserIdWithRoleGetResponse(writer: SerializationWriter, getByUserIdAndRoleWithUserIdWithRoleGetResponse: GetByUserIdAndRoleWithUserIdWithRoleGetResponse | undefined = {} as GetByUserIdAndRoleWithUserIdWithRoleGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getByUserIdAndRoleWithUserIdWithRoleGetResponse)
-        writer.writeCollectionOfObjectValues<VirtualEventWebinar>("value", getByUserIdAndRoleWithUserIdWithRoleGetResponse.value, serializeVirtualEventWebinar);
+    serializeBaseCollectionPaginationCountResponse(writer, getByUserIdAndRoleWithUserIdWithRoleGetResponse)
+    writer.writeCollectionOfObjectValues<VirtualEventWebinar>("value", getByUserIdAndRoleWithUserIdWithRoleGetResponse.value, serializeVirtualEventWebinar);
 }
 // tslint:enable
 // eslint-enable

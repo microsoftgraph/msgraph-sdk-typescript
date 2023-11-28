@@ -25,8 +25,8 @@ export interface GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetRespons
     value?: string;
 }
 export function serializeGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse(writer: SerializationWriter, getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse: GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse | undefined = {} as GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse) : void {
-        writer.writeStringValue("value", getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.value);
-        writer.writeAdditionalData(getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.additionalData);
+    writer.writeStringValue("value", getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.value);
+    writer.writeAdditionalData(getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.additionalData);
 }
 /**
  * Provides operations to call the getOmaSettingPlainTextValue method.

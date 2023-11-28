@@ -18,10 +18,10 @@ export function deserializeIntoWorkbookChartAxisTitle(workbookChartAxisTitle: Wo
     }
 }
 export function serializeWorkbookChartAxisTitle(writer: SerializationWriter, workbookChartAxisTitle: WorkbookChartAxisTitle | undefined = {} as WorkbookChartAxisTitle) : void {
-        serializeEntity(writer, workbookChartAxisTitle)
-        writer.writeObjectValue<WorkbookChartAxisTitleFormat>("format", workbookChartAxisTitle.format, serializeWorkbookChartAxisTitleFormat);
-        writer.writeStringValue("text", workbookChartAxisTitle.text);
-        writer.writeBooleanValue("visible", workbookChartAxisTitle.visible);
+    serializeEntity(writer, workbookChartAxisTitle)
+    writer.writeObjectValue<WorkbookChartAxisTitleFormat>("format", workbookChartAxisTitle.format, serializeWorkbookChartAxisTitleFormat);
+    writer.writeStringValue("text", workbookChartAxisTitle.text);
+    writer.writeBooleanValue("visible", workbookChartAxisTitle.visible);
 }
 export interface WorkbookChartAxisTitle extends Entity, Parsable {
     /**

@@ -24,8 +24,8 @@ export interface ImLog10PostRequestBody extends AdditionalDataHolder, Parsable {
     inumber?: Json;
 }
 export function serializeImLog10PostRequestBody(writer: SerializationWriter, imLog10PostRequestBody: ImLog10PostRequestBody | undefined = {} as ImLog10PostRequestBody) : void {
-        writer.writeObjectValue<Json>("inumber", imLog10PostRequestBody.inumber, serializeJson);
-        writer.writeAdditionalData(imLog10PostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("inumber", imLog10PostRequestBody.inumber, serializeJson);
+    writer.writeAdditionalData(imLog10PostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

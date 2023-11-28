@@ -22,8 +22,8 @@ export interface PersistentBrowserSessionControl extends ConditionalAccessSessio
     mode?: PersistentBrowserSessionMode;
 }
 export function serializePersistentBrowserSessionControl(writer: SerializationWriter, persistentBrowserSessionControl: PersistentBrowserSessionControl | undefined = {} as PersistentBrowserSessionControl) : void {
-        serializeConditionalAccessSessionControl(writer, persistentBrowserSessionControl)
-        writer.writeEnumValue<PersistentBrowserSessionMode>("mode", persistentBrowserSessionControl.mode);
+    serializeConditionalAccessSessionControl(writer, persistentBrowserSessionControl)
+    writer.writeEnumValue<PersistentBrowserSessionMode>("mode", persistentBrowserSessionControl.mode);
 }
 // tslint:enable
 // eslint-enable

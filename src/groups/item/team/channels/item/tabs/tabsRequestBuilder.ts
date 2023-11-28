@@ -90,7 +90,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TeamsTabCollectionResponse>(requestInfo, createTeamsTabCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Adds (pins) a tab to the specified channel within a team. The corresponding app must already be installed in the team.
+     * Add (pin) a tab to the specified channel within a team. The app must be preinstalled in the team and have the configurableTabs property defined in the app manifest.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamsTab
@@ -118,7 +118,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Adds (pins) a tab to the specified channel within a team. The corresponding app must already be installed in the team.
+     * Add (pin) a tab to the specified channel within a team. The app must be preinstalled in the team and have the configurableTabs property defined in the app manifest.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

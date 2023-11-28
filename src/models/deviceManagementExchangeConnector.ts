@@ -63,16 +63,16 @@ export interface DeviceManagementExchangeConnector extends Entity, Parsable {
     version?: string;
 }
 export function serializeDeviceManagementExchangeConnector(writer: SerializationWriter, deviceManagementExchangeConnector: DeviceManagementExchangeConnector | undefined = {} as DeviceManagementExchangeConnector) : void {
-        serializeEntity(writer, deviceManagementExchangeConnector)
-        writer.writeStringValue("connectorServerName", deviceManagementExchangeConnector.connectorServerName);
-        writer.writeStringValue("exchangeAlias", deviceManagementExchangeConnector.exchangeAlias);
-        writer.writeEnumValue<DeviceManagementExchangeConnectorType>("exchangeConnectorType", deviceManagementExchangeConnector.exchangeConnectorType);
-        writer.writeStringValue("exchangeOrganization", deviceManagementExchangeConnector.exchangeOrganization);
-        writer.writeDateValue("lastSyncDateTime", deviceManagementExchangeConnector.lastSyncDateTime);
-        writer.writeStringValue("primarySmtpAddress", deviceManagementExchangeConnector.primarySmtpAddress);
-        writer.writeStringValue("serverName", deviceManagementExchangeConnector.serverName);
-        writer.writeEnumValue<DeviceManagementExchangeConnectorStatus>("status", deviceManagementExchangeConnector.status);
-        writer.writeStringValue("version", deviceManagementExchangeConnector.version);
+    serializeEntity(writer, deviceManagementExchangeConnector)
+    writer.writeStringValue("connectorServerName", deviceManagementExchangeConnector.connectorServerName);
+    writer.writeStringValue("exchangeAlias", deviceManagementExchangeConnector.exchangeAlias);
+    writer.writeEnumValue<DeviceManagementExchangeConnectorType>("exchangeConnectorType", deviceManagementExchangeConnector.exchangeConnectorType);
+    writer.writeStringValue("exchangeOrganization", deviceManagementExchangeConnector.exchangeOrganization);
+    writer.writeDateValue("lastSyncDateTime", deviceManagementExchangeConnector.lastSyncDateTime);
+    writer.writeStringValue("primarySmtpAddress", deviceManagementExchangeConnector.primarySmtpAddress);
+    writer.writeStringValue("serverName", deviceManagementExchangeConnector.serverName);
+    writer.writeEnumValue<DeviceManagementExchangeConnectorStatus>("status", deviceManagementExchangeConnector.status);
+    writer.writeStringValue("version", deviceManagementExchangeConnector.version);
 }
 // tslint:enable
 // eslint-enable

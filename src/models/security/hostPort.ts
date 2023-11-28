@@ -77,18 +77,18 @@ export interface HostPort extends Entity, Parsable {
     timesObserved?: number;
 }
 export function serializeHostPort(writer: SerializationWriter, hostPort: HostPort | undefined = {} as HostPort) : void {
-        serializeEntity(writer, hostPort)
-        writer.writeCollectionOfObjectValues<HostPortBanner>("banners", hostPort.banners, serializeHostPortBanner);
-        writer.writeDateValue("firstSeenDateTime", hostPort.firstSeenDateTime);
-        writer.writeObjectValue<Host>("host", hostPort.host, serializeHost);
-        writer.writeDateValue("lastScanDateTime", hostPort.lastScanDateTime);
-        writer.writeDateValue("lastSeenDateTime", hostPort.lastSeenDateTime);
-        writer.writeObjectValue<SslCertificate>("mostRecentSslCertificate", hostPort.mostRecentSslCertificate, serializeSslCertificate);
-        writer.writeNumberValue("port", hostPort.port);
-        writer.writeEnumValue<HostPortProtocol>("protocol", hostPort.protocol);
-        writer.writeCollectionOfObjectValues<HostPortComponent>("services", hostPort.services, serializeHostPortComponent);
-        writer.writeEnumValue<HostPortStatus>("status", hostPort.status);
-        writer.writeNumberValue("timesObserved", hostPort.timesObserved);
+    serializeEntity(writer, hostPort)
+    writer.writeCollectionOfObjectValues<HostPortBanner>("banners", hostPort.banners, serializeHostPortBanner);
+    writer.writeDateValue("firstSeenDateTime", hostPort.firstSeenDateTime);
+    writer.writeObjectValue<Host>("host", hostPort.host, serializeHost);
+    writer.writeDateValue("lastScanDateTime", hostPort.lastScanDateTime);
+    writer.writeDateValue("lastSeenDateTime", hostPort.lastSeenDateTime);
+    writer.writeObjectValue<SslCertificate>("mostRecentSslCertificate", hostPort.mostRecentSslCertificate, serializeSslCertificate);
+    writer.writeNumberValue("port", hostPort.port);
+    writer.writeEnumValue<HostPortProtocol>("protocol", hostPort.protocol);
+    writer.writeCollectionOfObjectValues<HostPortComponent>("services", hostPort.services, serializeHostPortComponent);
+    writer.writeEnumValue<HostPortStatus>("status", hostPort.status);
+    writer.writeNumberValue("timesObserved", hostPort.timesObserved);
 }
 // tslint:enable
 // eslint-enable

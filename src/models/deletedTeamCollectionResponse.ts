@@ -22,8 +22,8 @@ export function deserializeIntoDeletedTeamCollectionResponse(deletedTeamCollecti
     }
 }
 export function serializeDeletedTeamCollectionResponse(writer: SerializationWriter, deletedTeamCollectionResponse: DeletedTeamCollectionResponse | undefined = {} as DeletedTeamCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, deletedTeamCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeletedTeam>("value", deletedTeamCollectionResponse.value, serializeDeletedTeam);
+    serializeBaseCollectionPaginationCountResponse(writer, deletedTeamCollectionResponse)
+    writer.writeCollectionOfObjectValues<DeletedTeam>("value", deletedTeamCollectionResponse.value, serializeDeletedTeam);
 }
 // tslint:enable
 // eslint-enable

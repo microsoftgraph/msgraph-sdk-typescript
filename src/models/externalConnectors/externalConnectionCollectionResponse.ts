@@ -22,8 +22,8 @@ export interface ExternalConnectionCollectionResponse extends BaseCollectionPagi
     value?: ExternalConnection[];
 }
 export function serializeExternalConnectionCollectionResponse(writer: SerializationWriter, externalConnectionCollectionResponse: ExternalConnectionCollectionResponse | undefined = {} as ExternalConnectionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, externalConnectionCollectionResponse)
-        writer.writeCollectionOfObjectValues<ExternalConnection>("value", externalConnectionCollectionResponse.value, serializeExternalConnection);
+    serializeBaseCollectionPaginationCountResponse(writer, externalConnectionCollectionResponse)
+    writer.writeCollectionOfObjectValues<ExternalConnection>("value", externalConnectionCollectionResponse.value, serializeExternalConnection);
 }
 // tslint:enable
 // eslint-enable

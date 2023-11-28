@@ -24,8 +24,8 @@ export function deserializeIntoCheckMemberGroupsPostResponse(checkMemberGroupsPo
     }
 }
 export function serializeCheckMemberGroupsPostResponse(writer: SerializationWriter, checkMemberGroupsPostResponse: CheckMemberGroupsPostResponse | undefined = {} as CheckMemberGroupsPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, checkMemberGroupsPostResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", checkMemberGroupsPostResponse.value);
+    serializeBaseCollectionPaginationCountResponse(writer, checkMemberGroupsPostResponse)
+    writer.writeCollectionOfPrimitiveValues<string>("value", checkMemberGroupsPostResponse.value);
 }
 /**
  * Provides operations to call the checkMemberGroups method.

@@ -47,12 +47,12 @@ export interface PvPostRequestBody extends AdditionalDataHolder, Parsable {
     type?: Json;
 }
 export function serializePvPostRequestBody(writer: SerializationWriter, pvPostRequestBody: PvPostRequestBody | undefined = {} as PvPostRequestBody) : void {
-        writer.writeObjectValue<Json>("fv", pvPostRequestBody.fv, serializeJson);
-        writer.writeObjectValue<Json>("nper", pvPostRequestBody.nper, serializeJson);
-        writer.writeObjectValue<Json>("pmt", pvPostRequestBody.pmt, serializeJson);
-        writer.writeObjectValue<Json>("rate", pvPostRequestBody.rate, serializeJson);
-        writer.writeObjectValue<Json>("type", pvPostRequestBody.type, serializeJson);
-        writer.writeAdditionalData(pvPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("fv", pvPostRequestBody.fv, serializeJson);
+    writer.writeObjectValue<Json>("nper", pvPostRequestBody.nper, serializeJson);
+    writer.writeObjectValue<Json>("pmt", pvPostRequestBody.pmt, serializeJson);
+    writer.writeObjectValue<Json>("rate", pvPostRequestBody.rate, serializeJson);
+    writer.writeObjectValue<Json>("type", pvPostRequestBody.type, serializeJson);
+    writer.writeAdditionalData(pvPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the pv method.

@@ -17,10 +17,10 @@ export function deserializeIntoSetUserPreferredPresencePostRequestBody(setUserPr
     }
 }
 export function serializeSetUserPreferredPresencePostRequestBody(writer: SerializationWriter, setUserPreferredPresencePostRequestBody: SetUserPreferredPresencePostRequestBody | undefined = {} as SetUserPreferredPresencePostRequestBody) : void {
-        writer.writeStringValue("activity", setUserPreferredPresencePostRequestBody.activity);
-        writer.writeStringValue("availability", setUserPreferredPresencePostRequestBody.availability);
-        writer.writeDurationValue("expirationDuration", setUserPreferredPresencePostRequestBody.expirationDuration);
-        writer.writeAdditionalData(setUserPreferredPresencePostRequestBody.additionalData);
+    writer.writeStringValue("activity", setUserPreferredPresencePostRequestBody.activity);
+    writer.writeStringValue("availability", setUserPreferredPresencePostRequestBody.availability);
+    writer.writeDurationValue("expirationDuration", setUserPreferredPresencePostRequestBody.expirationDuration);
+    writer.writeAdditionalData(setUserPreferredPresencePostRequestBody.additionalData);
 }
 export interface SetUserPreferredPresencePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

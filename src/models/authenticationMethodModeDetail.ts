@@ -27,9 +27,9 @@ export function deserializeIntoAuthenticationMethodModeDetail(authenticationMeth
     }
 }
 export function serializeAuthenticationMethodModeDetail(writer: SerializationWriter, authenticationMethodModeDetail: AuthenticationMethodModeDetail | undefined = {} as AuthenticationMethodModeDetail) : void {
-        serializeEntity(writer, authenticationMethodModeDetail)
-        writer.writeEnumValue<BaseAuthenticationMethod>("authenticationMethod", authenticationMethodModeDetail.authenticationMethod);
-        writer.writeStringValue("displayName", authenticationMethodModeDetail.displayName);
+    serializeEntity(writer, authenticationMethodModeDetail)
+    writer.writeEnumValue<BaseAuthenticationMethod>("authenticationMethod", authenticationMethodModeDetail.authenticationMethod);
+    writer.writeStringValue("displayName", authenticationMethodModeDetail.displayName);
 }
 // tslint:enable
 // eslint-enable

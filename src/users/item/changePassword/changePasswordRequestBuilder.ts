@@ -30,9 +30,9 @@ export function deserializeIntoChangePasswordPostRequestBody(changePasswordPostR
     }
 }
 export function serializeChangePasswordPostRequestBody(writer: SerializationWriter, changePasswordPostRequestBody: ChangePasswordPostRequestBody | undefined = {} as ChangePasswordPostRequestBody) : void {
-        writer.writeStringValue("currentPassword", changePasswordPostRequestBody.currentPassword);
-        writer.writeStringValue("newPassword", changePasswordPostRequestBody.newPassword);
-        writer.writeAdditionalData(changePasswordPostRequestBody.additionalData);
+    writer.writeStringValue("currentPassword", changePasswordPostRequestBody.currentPassword);
+    writer.writeStringValue("newPassword", changePasswordPostRequestBody.newPassword);
+    writer.writeAdditionalData(changePasswordPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the changePassword method.

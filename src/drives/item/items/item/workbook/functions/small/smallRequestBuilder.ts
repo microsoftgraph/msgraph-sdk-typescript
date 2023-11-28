@@ -18,9 +18,9 @@ export function deserializeIntoSmallPostRequestBody(smallPostRequestBody: SmallP
     }
 }
 export function serializeSmallPostRequestBody(writer: SerializationWriter, smallPostRequestBody: SmallPostRequestBody | undefined = {} as SmallPostRequestBody) : void {
-        writer.writeObjectValue<Json>("array", smallPostRequestBody.array, serializeJson);
-        writer.writeObjectValue<Json>("k", smallPostRequestBody.k, serializeJson);
-        writer.writeAdditionalData(smallPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("array", smallPostRequestBody.array, serializeJson);
+    writer.writeObjectValue<Json>("k", smallPostRequestBody.k, serializeJson);
+    writer.writeAdditionalData(smallPostRequestBody.additionalData);
 }
 export interface SmallPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

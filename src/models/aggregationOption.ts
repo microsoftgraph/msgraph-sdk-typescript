@@ -39,11 +39,11 @@ export function deserializeIntoAggregationOption(aggregationOption: AggregationO
     }
 }
 export function serializeAggregationOption(writer: SerializationWriter, aggregationOption: AggregationOption | undefined = {} as AggregationOption) : void {
-        writer.writeObjectValue<BucketAggregationDefinition>("bucketDefinition", aggregationOption.bucketDefinition, serializeBucketAggregationDefinition);
-        writer.writeStringValue("field", aggregationOption.field);
-        writer.writeStringValue("@odata.type", aggregationOption.odataType);
-        writer.writeNumberValue("size", aggregationOption.size);
-        writer.writeAdditionalData(aggregationOption.additionalData);
+    writer.writeObjectValue<BucketAggregationDefinition>("bucketDefinition", aggregationOption.bucketDefinition, serializeBucketAggregationDefinition);
+    writer.writeStringValue("field", aggregationOption.field);
+    writer.writeStringValue("@odata.type", aggregationOption.odataType);
+    writer.writeNumberValue("size", aggregationOption.size);
+    writer.writeAdditionalData(aggregationOption.additionalData);
 }
 // tslint:enable
 // eslint-enable

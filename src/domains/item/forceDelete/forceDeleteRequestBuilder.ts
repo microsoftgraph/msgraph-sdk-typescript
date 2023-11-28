@@ -25,8 +25,8 @@ export interface ForceDeletePostRequestBody extends AdditionalDataHolder, Parsab
     disableUserAccounts?: boolean;
 }
 export function serializeForceDeletePostRequestBody(writer: SerializationWriter, forceDeletePostRequestBody: ForceDeletePostRequestBody | undefined = {} as ForceDeletePostRequestBody) : void {
-        writer.writeBooleanValue("disableUserAccounts", forceDeletePostRequestBody.disableUserAccounts);
-        writer.writeAdditionalData(forceDeletePostRequestBody.additionalData);
+    writer.writeBooleanValue("disableUserAccounts", forceDeletePostRequestBody.disableUserAccounts);
+    writer.writeAdditionalData(forceDeletePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the forceDelete method.

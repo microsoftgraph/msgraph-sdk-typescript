@@ -32,10 +32,10 @@ export interface GroupSetting extends Entity, Parsable {
     values?: SettingValue[];
 }
 export function serializeGroupSetting(writer: SerializationWriter, groupSetting: GroupSetting | undefined = {} as GroupSetting) : void {
-        serializeEntity(writer, groupSetting)
-        writer.writeStringValue("displayName", groupSetting.displayName);
-        writer.writeStringValue("templateId", groupSetting.templateId);
-        writer.writeCollectionOfObjectValues<SettingValue>("values", groupSetting.values, serializeSettingValue);
+    serializeEntity(writer, groupSetting)
+    writer.writeStringValue("displayName", groupSetting.displayName);
+    writer.writeStringValue("templateId", groupSetting.templateId);
+    writer.writeCollectionOfObjectValues<SettingValue>("values", groupSetting.values, serializeSettingValue);
 }
 // tslint:enable
 // eslint-enable

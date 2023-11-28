@@ -34,10 +34,10 @@ export interface F_Inv_RTPostRequestBody extends AdditionalDataHolder, Parsable 
     probability?: Json;
 }
 export function serializeF_Inv_RTPostRequestBody(writer: SerializationWriter, f_Inv_RTPostRequestBody: F_Inv_RTPostRequestBody | undefined = {} as F_Inv_RTPostRequestBody) : void {
-        writer.writeObjectValue<Json>("degFreedom1", f_Inv_RTPostRequestBody.degFreedom1, serializeJson);
-        writer.writeObjectValue<Json>("degFreedom2", f_Inv_RTPostRequestBody.degFreedom2, serializeJson);
-        writer.writeObjectValue<Json>("probability", f_Inv_RTPostRequestBody.probability, serializeJson);
-        writer.writeAdditionalData(f_Inv_RTPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("degFreedom1", f_Inv_RTPostRequestBody.degFreedom1, serializeJson);
+    writer.writeObjectValue<Json>("degFreedom2", f_Inv_RTPostRequestBody.degFreedom2, serializeJson);
+    writer.writeObjectValue<Json>("probability", f_Inv_RTPostRequestBody.probability, serializeJson);
+    writer.writeAdditionalData(f_Inv_RTPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

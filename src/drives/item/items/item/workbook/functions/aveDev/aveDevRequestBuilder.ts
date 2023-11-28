@@ -27,8 +27,8 @@ export function deserializeIntoAveDevPostRequestBody(aveDevPostRequestBody: AveD
     }
 }
 export function serializeAveDevPostRequestBody(writer: SerializationWriter, aveDevPostRequestBody: AveDevPostRequestBody | undefined = {} as AveDevPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", aveDevPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(aveDevPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", aveDevPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(aveDevPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the aveDev method.

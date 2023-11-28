@@ -28,9 +28,9 @@ export interface EdiscoveryAddToReviewSetOperation extends CaseOperation, Parsab
     search?: EdiscoverySearch;
 }
 export function serializeEdiscoveryAddToReviewSetOperation(writer: SerializationWriter, ediscoveryAddToReviewSetOperation: EdiscoveryAddToReviewSetOperation | undefined = {} as EdiscoveryAddToReviewSetOperation) : void {
-        serializeCaseOperation(writer, ediscoveryAddToReviewSetOperation)
-        writer.writeObjectValue<EdiscoveryReviewSet>("reviewSet", ediscoveryAddToReviewSetOperation.reviewSet, serializeEdiscoveryReviewSet);
-        writer.writeObjectValue<EdiscoverySearch>("search", ediscoveryAddToReviewSetOperation.search, serializeEdiscoverySearch);
+    serializeCaseOperation(writer, ediscoveryAddToReviewSetOperation)
+    writer.writeObjectValue<EdiscoveryReviewSet>("reviewSet", ediscoveryAddToReviewSetOperation.reviewSet, serializeEdiscoveryReviewSet);
+    writer.writeObjectValue<EdiscoverySearch>("search", ediscoveryAddToReviewSetOperation.search, serializeEdiscoverySearch);
 }
 // tslint:enable
 // eslint-enable

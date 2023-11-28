@@ -23,8 +23,8 @@ export interface GetPresencesByUserIdPostRequestBody extends AdditionalDataHolde
     ids?: string[];
 }
 export function serializeGetPresencesByUserIdPostRequestBody(writer: SerializationWriter, getPresencesByUserIdPostRequestBody: GetPresencesByUserIdPostRequestBody | undefined = {} as GetPresencesByUserIdPostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("ids", getPresencesByUserIdPostRequestBody.ids);
-        writer.writeAdditionalData(getPresencesByUserIdPostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("ids", getPresencesByUserIdPostRequestBody.ids);
+    writer.writeAdditionalData(getPresencesByUserIdPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

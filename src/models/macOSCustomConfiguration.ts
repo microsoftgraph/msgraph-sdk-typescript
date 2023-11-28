@@ -31,10 +31,10 @@ export interface MacOSCustomConfiguration extends DeviceConfiguration, Parsable 
     payloadName?: string;
 }
 export function serializeMacOSCustomConfiguration(writer: SerializationWriter, macOSCustomConfiguration: MacOSCustomConfiguration | undefined = {} as MacOSCustomConfiguration) : void {
-        serializeDeviceConfiguration(writer, macOSCustomConfiguration)
-        writer.writeStringValue("payload", macOSCustomConfiguration.payload);
-        writer.writeStringValue("payloadFileName", macOSCustomConfiguration.payloadFileName);
-        writer.writeStringValue("payloadName", macOSCustomConfiguration.payloadName);
+    serializeDeviceConfiguration(writer, macOSCustomConfiguration)
+    writer.writeStringValue("payload", macOSCustomConfiguration.payload);
+    writer.writeStringValue("payloadFileName", macOSCustomConfiguration.payloadFileName);
+    writer.writeStringValue("payloadName", macOSCustomConfiguration.payloadName);
 }
 // tslint:enable
 // eslint-enable

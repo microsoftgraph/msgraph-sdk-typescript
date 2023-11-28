@@ -32,9 +32,9 @@ export interface DollarDePostRequestBody extends AdditionalDataHolder, Parsable 
     fractionalDollar?: Json;
 }
 export function serializeDollarDePostRequestBody(writer: SerializationWriter, dollarDePostRequestBody: DollarDePostRequestBody | undefined = {} as DollarDePostRequestBody) : void {
-        writer.writeObjectValue<Json>("fraction", dollarDePostRequestBody.fraction, serializeJson);
-        writer.writeObjectValue<Json>("fractionalDollar", dollarDePostRequestBody.fractionalDollar, serializeJson);
-        writer.writeAdditionalData(dollarDePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("fraction", dollarDePostRequestBody.fraction, serializeJson);
+    writer.writeObjectValue<Json>("fractionalDollar", dollarDePostRequestBody.fractionalDollar, serializeJson);
+    writer.writeAdditionalData(dollarDePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the dollarDe method.

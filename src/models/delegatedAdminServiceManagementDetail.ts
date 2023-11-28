@@ -26,9 +26,9 @@ export function deserializeIntoDelegatedAdminServiceManagementDetail(delegatedAd
     }
 }
 export function serializeDelegatedAdminServiceManagementDetail(writer: SerializationWriter, delegatedAdminServiceManagementDetail: DelegatedAdminServiceManagementDetail | undefined = {} as DelegatedAdminServiceManagementDetail) : void {
-        serializeEntity(writer, delegatedAdminServiceManagementDetail)
-        writer.writeStringValue("serviceManagementUrl", delegatedAdminServiceManagementDetail.serviceManagementUrl);
-        writer.writeStringValue("serviceName", delegatedAdminServiceManagementDetail.serviceName);
+    serializeEntity(writer, delegatedAdminServiceManagementDetail)
+    writer.writeStringValue("serviceManagementUrl", delegatedAdminServiceManagementDetail.serviceManagementUrl);
+    writer.writeStringValue("serviceName", delegatedAdminServiceManagementDetail.serviceName);
 }
 // tslint:enable
 // eslint-enable

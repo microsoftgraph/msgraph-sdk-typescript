@@ -54,8 +54,8 @@ export interface RecentRequestBuilderGetQueryParameters {
     top?: number;
 }
 export function serializeRecentGetResponse(writer: SerializationWriter, recentGetResponse: RecentGetResponse | undefined = {} as RecentGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, recentGetResponse)
-        writer.writeCollectionOfObjectValues<UserActivity>("value", recentGetResponse.value, serializeUserActivity);
+    serializeBaseCollectionPaginationCountResponse(writer, recentGetResponse)
+    writer.writeCollectionOfObjectValues<UserActivity>("value", recentGetResponse.value, serializeUserActivity);
 }
 /**
  * Provides operations to call the recent method.

@@ -23,14 +23,14 @@ export function deserializeIntoWindowsAppX(windowsAppX: WindowsAppX | undefined 
     }
 }
 export function serializeWindowsAppX(writer: SerializationWriter, windowsAppX: WindowsAppX | undefined = {} as WindowsAppX) : void {
-        serializeMobileLobApp(writer, windowsAppX)
-        writer.writeEnumValue<WindowsArchitecture[]>("applicableArchitectures", windowsAppX.applicableArchitectures);
-        writer.writeStringValue("identityName", windowsAppX.identityName);
-        writer.writeStringValue("identityPublisherHash", windowsAppX.identityPublisherHash);
-        writer.writeStringValue("identityResourceIdentifier", windowsAppX.identityResourceIdentifier);
-        writer.writeStringValue("identityVersion", windowsAppX.identityVersion);
-        writer.writeBooleanValue("isBundle", windowsAppX.isBundle);
-        writer.writeObjectValue<WindowsMinimumOperatingSystem>("minimumSupportedOperatingSystem", windowsAppX.minimumSupportedOperatingSystem, serializeWindowsMinimumOperatingSystem);
+    serializeMobileLobApp(writer, windowsAppX)
+    writer.writeEnumValue<WindowsArchitecture[]>("applicableArchitectures", windowsAppX.applicableArchitectures);
+    writer.writeStringValue("identityName", windowsAppX.identityName);
+    writer.writeStringValue("identityPublisherHash", windowsAppX.identityPublisherHash);
+    writer.writeStringValue("identityResourceIdentifier", windowsAppX.identityResourceIdentifier);
+    writer.writeStringValue("identityVersion", windowsAppX.identityVersion);
+    writer.writeBooleanValue("isBundle", windowsAppX.isBundle);
+    writer.writeObjectValue<WindowsMinimumOperatingSystem>("minimumSupportedOperatingSystem", windowsAppX.minimumSupportedOperatingSystem, serializeWindowsMinimumOperatingSystem);
 }
 export interface WindowsAppX extends MobileLobApp, Parsable {
     /**

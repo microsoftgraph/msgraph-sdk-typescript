@@ -38,11 +38,11 @@ export function deserializeIntoAlternativeSecurityId(alternativeSecurityId: Alte
     }
 }
 export function serializeAlternativeSecurityId(writer: SerializationWriter, alternativeSecurityId: AlternativeSecurityId | undefined = {} as AlternativeSecurityId) : void {
-        writer.writeStringValue("identityProvider", alternativeSecurityId.identityProvider);
-        writer.writeStringValue("key", alternativeSecurityId.key);
-        writer.writeStringValue("@odata.type", alternativeSecurityId.odataType);
-        writer.writeNumberValue("type", alternativeSecurityId.type);
-        writer.writeAdditionalData(alternativeSecurityId.additionalData);
+    writer.writeStringValue("identityProvider", alternativeSecurityId.identityProvider);
+    writer.writeStringValue("key", alternativeSecurityId.key);
+    writer.writeStringValue("@odata.type", alternativeSecurityId.odataType);
+    writer.writeNumberValue("type", alternativeSecurityId.type);
+    writer.writeAdditionalData(alternativeSecurityId.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -39,11 +39,11 @@ export interface File extends AdditionalDataHolder, Parsable {
     processingMetadata?: boolean;
 }
 export function serializeFile(writer: SerializationWriter, file: File | undefined = {} as File) : void {
-        writer.writeObjectValue<Hashes>("hashes", file.hashes, serializeHashes);
-        writer.writeStringValue("mimeType", file.mimeType);
-        writer.writeStringValue("@odata.type", file.odataType);
-        writer.writeBooleanValue("processingMetadata", file.processingMetadata);
-        writer.writeAdditionalData(file.additionalData);
+    writer.writeObjectValue<Hashes>("hashes", file.hashes, serializeHashes);
+    writer.writeStringValue("mimeType", file.mimeType);
+    writer.writeStringValue("@odata.type", file.odataType);
+    writer.writeBooleanValue("processingMetadata", file.processingMetadata);
+    writer.writeAdditionalData(file.additionalData);
 }
 // tslint:enable
 // eslint-enable

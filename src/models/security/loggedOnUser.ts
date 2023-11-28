@@ -33,10 +33,10 @@ export interface LoggedOnUser extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeLoggedOnUser(writer: SerializationWriter, loggedOnUser: LoggedOnUser | undefined = {} as LoggedOnUser) : void {
-        writer.writeStringValue("accountName", loggedOnUser.accountName);
-        writer.writeStringValue("domainName", loggedOnUser.domainName);
-        writer.writeStringValue("@odata.type", loggedOnUser.odataType);
-        writer.writeAdditionalData(loggedOnUser.additionalData);
+    writer.writeStringValue("accountName", loggedOnUser.accountName);
+    writer.writeStringValue("domainName", loggedOnUser.domainName);
+    writer.writeStringValue("@odata.type", loggedOnUser.odataType);
+    writer.writeAdditionalData(loggedOnUser.additionalData);
 }
 // tslint:enable
 // eslint-enable

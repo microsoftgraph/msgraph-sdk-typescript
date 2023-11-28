@@ -17,10 +17,10 @@ export function deserializeIntoSocialIdentityProvider(socialIdentityProvider: So
     }
 }
 export function serializeSocialIdentityProvider(writer: SerializationWriter, socialIdentityProvider: SocialIdentityProvider | undefined = {} as SocialIdentityProvider) : void {
-        serializeIdentityProviderBase(writer, socialIdentityProvider)
-        writer.writeStringValue("clientId", socialIdentityProvider.clientId);
-        writer.writeStringValue("clientSecret", socialIdentityProvider.clientSecret);
-        writer.writeStringValue("identityProviderType", socialIdentityProvider.identityProviderType);
+    serializeIdentityProviderBase(writer, socialIdentityProvider)
+    writer.writeStringValue("clientId", socialIdentityProvider.clientId);
+    writer.writeStringValue("clientSecret", socialIdentityProvider.clientSecret);
+    writer.writeStringValue("identityProviderType", socialIdentityProvider.identityProviderType);
 }
 export interface SocialIdentityProvider extends IdentityProviderBase, Parsable {
     /**

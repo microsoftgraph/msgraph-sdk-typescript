@@ -22,8 +22,8 @@ export interface FunctionsGetResponse extends BaseCollectionPaginationCountRespo
     value?: AttributeMappingFunctionSchema[];
 }
 export function serializeFunctionsGetResponse(writer: SerializationWriter, functionsGetResponse: FunctionsGetResponse | undefined = {} as FunctionsGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, functionsGetResponse)
-        writer.writeCollectionOfObjectValues<AttributeMappingFunctionSchema>("value", functionsGetResponse.value, serializeAttributeMappingFunctionSchema);
+    serializeBaseCollectionPaginationCountResponse(writer, functionsGetResponse)
+    writer.writeCollectionOfObjectValues<AttributeMappingFunctionSchema>("value", functionsGetResponse.value, serializeAttributeMappingFunctionSchema);
 }
 // tslint:enable
 // eslint-enable

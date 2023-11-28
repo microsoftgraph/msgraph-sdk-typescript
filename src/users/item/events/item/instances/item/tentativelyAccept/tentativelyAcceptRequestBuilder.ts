@@ -18,10 +18,10 @@ export function deserializeIntoTentativelyAcceptPostRequestBody(tentativelyAccep
     }
 }
 export function serializeTentativelyAcceptPostRequestBody(writer: SerializationWriter, tentativelyAcceptPostRequestBody: TentativelyAcceptPostRequestBody | undefined = {} as TentativelyAcceptPostRequestBody) : void {
-        writer.writeStringValue("Comment", tentativelyAcceptPostRequestBody.comment);
-        writer.writeObjectValue<TimeSlot>("ProposedNewTime", tentativelyAcceptPostRequestBody.proposedNewTime, serializeTimeSlot);
-        writer.writeBooleanValue("SendResponse", tentativelyAcceptPostRequestBody.sendResponse);
-        writer.writeAdditionalData(tentativelyAcceptPostRequestBody.additionalData);
+    writer.writeStringValue("Comment", tentativelyAcceptPostRequestBody.comment);
+    writer.writeObjectValue<TimeSlot>("ProposedNewTime", tentativelyAcceptPostRequestBody.proposedNewTime, serializeTimeSlot);
+    writer.writeBooleanValue("SendResponse", tentativelyAcceptPostRequestBody.sendResponse);
+    writer.writeAdditionalData(tentativelyAcceptPostRequestBody.additionalData);
 }
 export interface TentativelyAcceptPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

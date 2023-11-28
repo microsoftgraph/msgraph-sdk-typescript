@@ -27,8 +27,8 @@ export interface ImSecPostRequestBody extends AdditionalDataHolder, Parsable {
     inumber?: Json;
 }
 export function serializeImSecPostRequestBody(writer: SerializationWriter, imSecPostRequestBody: ImSecPostRequestBody | undefined = {} as ImSecPostRequestBody) : void {
-        writer.writeObjectValue<Json>("inumber", imSecPostRequestBody.inumber, serializeJson);
-        writer.writeAdditionalData(imSecPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("inumber", imSecPostRequestBody.inumber, serializeJson);
+    writer.writeAdditionalData(imSecPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the imSec method.

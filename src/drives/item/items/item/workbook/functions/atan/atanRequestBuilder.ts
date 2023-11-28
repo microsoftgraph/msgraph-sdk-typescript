@@ -27,8 +27,8 @@ export function deserializeIntoAtanPostRequestBody(atanPostRequestBody: AtanPost
     }
 }
 export function serializeAtanPostRequestBody(writer: SerializationWriter, atanPostRequestBody: AtanPostRequestBody | undefined = {} as AtanPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", atanPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(atanPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", atanPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(atanPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the atan method.

@@ -27,8 +27,8 @@ export function deserializeIntoCotPostRequestBody(cotPostRequestBody: CotPostReq
     }
 }
 export function serializeCotPostRequestBody(writer: SerializationWriter, cotPostRequestBody: CotPostRequestBody | undefined = {} as CotPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", cotPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(cotPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", cotPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(cotPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the cot method.

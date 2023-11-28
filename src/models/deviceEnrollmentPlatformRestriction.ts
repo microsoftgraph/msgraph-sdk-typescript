@@ -43,12 +43,12 @@ export interface DeviceEnrollmentPlatformRestriction extends AdditionalDataHolde
     platformBlocked?: boolean;
 }
 export function serializeDeviceEnrollmentPlatformRestriction(writer: SerializationWriter, deviceEnrollmentPlatformRestriction: DeviceEnrollmentPlatformRestriction | undefined = {} as DeviceEnrollmentPlatformRestriction) : void {
-        writer.writeStringValue("@odata.type", deviceEnrollmentPlatformRestriction.odataType);
-        writer.writeStringValue("osMaximumVersion", deviceEnrollmentPlatformRestriction.osMaximumVersion);
-        writer.writeStringValue("osMinimumVersion", deviceEnrollmentPlatformRestriction.osMinimumVersion);
-        writer.writeBooleanValue("personalDeviceEnrollmentBlocked", deviceEnrollmentPlatformRestriction.personalDeviceEnrollmentBlocked);
-        writer.writeBooleanValue("platformBlocked", deviceEnrollmentPlatformRestriction.platformBlocked);
-        writer.writeAdditionalData(deviceEnrollmentPlatformRestriction.additionalData);
+    writer.writeStringValue("@odata.type", deviceEnrollmentPlatformRestriction.odataType);
+    writer.writeStringValue("osMaximumVersion", deviceEnrollmentPlatformRestriction.osMaximumVersion);
+    writer.writeStringValue("osMinimumVersion", deviceEnrollmentPlatformRestriction.osMinimumVersion);
+    writer.writeBooleanValue("personalDeviceEnrollmentBlocked", deviceEnrollmentPlatformRestriction.personalDeviceEnrollmentBlocked);
+    writer.writeBooleanValue("platformBlocked", deviceEnrollmentPlatformRestriction.platformBlocked);
+    writer.writeAdditionalData(deviceEnrollmentPlatformRestriction.additionalData);
 }
 // tslint:enable
 // eslint-enable

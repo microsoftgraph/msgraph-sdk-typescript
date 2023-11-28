@@ -24,8 +24,8 @@ export interface ImSumPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeImSumPostRequestBody(writer: SerializationWriter, imSumPostRequestBody: ImSumPostRequestBody | undefined = {} as ImSumPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", imSumPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(imSumPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", imSumPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(imSumPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

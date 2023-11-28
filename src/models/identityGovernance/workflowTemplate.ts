@@ -22,12 +22,12 @@ export function deserializeIntoWorkflowTemplate(workflowTemplate: WorkflowTempla
     }
 }
 export function serializeWorkflowTemplate(writer: SerializationWriter, workflowTemplate: WorkflowTemplate | undefined = {} as WorkflowTemplate) : void {
-        serializeEntity(writer, workflowTemplate)
-        writer.writeEnumValue<LifecycleWorkflowCategory>("category", workflowTemplate.category);
-        writer.writeStringValue("description", workflowTemplate.description);
-        writer.writeStringValue("displayName", workflowTemplate.displayName);
-        writer.writeObjectValue<WorkflowExecutionConditions>("executionConditions", workflowTemplate.executionConditions, serializeWorkflowExecutionConditions);
-        writer.writeCollectionOfObjectValues<Task>("tasks", workflowTemplate.tasks, serializeTask);
+    serializeEntity(writer, workflowTemplate)
+    writer.writeEnumValue<LifecycleWorkflowCategory>("category", workflowTemplate.category);
+    writer.writeStringValue("description", workflowTemplate.description);
+    writer.writeStringValue("displayName", workflowTemplate.displayName);
+    writer.writeObjectValue<WorkflowExecutionConditions>("executionConditions", workflowTemplate.executionConditions, serializeWorkflowExecutionConditions);
+    writer.writeCollectionOfObjectValues<Task>("tasks", workflowTemplate.tasks, serializeTask);
 }
 export interface WorkflowTemplate extends Entity, Parsable {
     /**

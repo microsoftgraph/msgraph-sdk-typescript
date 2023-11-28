@@ -15,8 +15,8 @@ export function deserializeIntoSetMobileDeviceManagementAuthorityPostResponse(se
     }
 }
 export function serializeSetMobileDeviceManagementAuthorityPostResponse(writer: SerializationWriter, setMobileDeviceManagementAuthorityPostResponse: SetMobileDeviceManagementAuthorityPostResponse | undefined = {} as SetMobileDeviceManagementAuthorityPostResponse) : void {
-        writer.writeNumberValue("value", setMobileDeviceManagementAuthorityPostResponse.value);
-        writer.writeAdditionalData(setMobileDeviceManagementAuthorityPostResponse.additionalData);
+    writer.writeNumberValue("value", setMobileDeviceManagementAuthorityPostResponse.value);
+    writer.writeAdditionalData(setMobileDeviceManagementAuthorityPostResponse.additionalData);
 }
 export interface SetMobileDeviceManagementAuthorityPostResponse extends AdditionalDataHolder, Parsable {
     /**

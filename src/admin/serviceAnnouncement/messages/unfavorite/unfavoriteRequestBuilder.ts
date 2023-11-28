@@ -24,12 +24,12 @@ export function deserializeIntoUnfavoritePostResponse(unfavoritePostResponse: Un
     }
 }
 export function serializeUnfavoritePostRequestBody(writer: SerializationWriter, unfavoritePostRequestBody: UnfavoritePostRequestBody | undefined = {} as UnfavoritePostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", unfavoritePostRequestBody.messageIds);
-        writer.writeAdditionalData(unfavoritePostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("messageIds", unfavoritePostRequestBody.messageIds);
+    writer.writeAdditionalData(unfavoritePostRequestBody.additionalData);
 }
 export function serializeUnfavoritePostResponse(writer: SerializationWriter, unfavoritePostResponse: UnfavoritePostResponse | undefined = {} as UnfavoritePostResponse) : void {
-        writer.writeBooleanValue("value", unfavoritePostResponse.value);
-        writer.writeAdditionalData(unfavoritePostResponse.additionalData);
+    writer.writeBooleanValue("value", unfavoritePostResponse.value);
+    writer.writeAdditionalData(unfavoritePostResponse.additionalData);
 }
 export interface UnfavoritePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

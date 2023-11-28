@@ -77,18 +77,18 @@ export interface Drive extends BaseItem, Parsable {
     system?: SystemFacet;
 }
 export function serializeDrive(writer: SerializationWriter, drive: Drive | undefined = {} as Drive) : void {
-        serializeBaseItem(writer, drive)
-        writer.writeCollectionOfObjectValues<DriveItem>("bundles", drive.bundles, serializeDriveItem);
-        writer.writeStringValue("driveType", drive.driveType);
-        writer.writeCollectionOfObjectValues<DriveItem>("following", drive.following, serializeDriveItem);
-        writer.writeCollectionOfObjectValues<DriveItem>("items", drive.items, serializeDriveItem);
-        writer.writeObjectValue<List>("list", drive.list, serializeList);
-        writer.writeObjectValue<IdentitySet>("owner", drive.owner, serializeIdentitySet);
-        writer.writeObjectValue<Quota>("quota", drive.quota, serializeQuota);
-        writer.writeObjectValue<DriveItem>("root", drive.root, serializeDriveItem);
-        writer.writeObjectValue<SharepointIds>("sharePointIds", drive.sharePointIds, serializeSharepointIds);
-        writer.writeCollectionOfObjectValues<DriveItem>("special", drive.special, serializeDriveItem);
-        writer.writeObjectValue<SystemFacet>("system", drive.system, serializeSystemFacet);
+    serializeBaseItem(writer, drive)
+    writer.writeCollectionOfObjectValues<DriveItem>("bundles", drive.bundles, serializeDriveItem);
+    writer.writeStringValue("driveType", drive.driveType);
+    writer.writeCollectionOfObjectValues<DriveItem>("following", drive.following, serializeDriveItem);
+    writer.writeCollectionOfObjectValues<DriveItem>("items", drive.items, serializeDriveItem);
+    writer.writeObjectValue<List>("list", drive.list, serializeList);
+    writer.writeObjectValue<IdentitySet>("owner", drive.owner, serializeIdentitySet);
+    writer.writeObjectValue<Quota>("quota", drive.quota, serializeQuota);
+    writer.writeObjectValue<DriveItem>("root", drive.root, serializeDriveItem);
+    writer.writeObjectValue<SharepointIds>("sharePointIds", drive.sharePointIds, serializeSharepointIds);
+    writer.writeCollectionOfObjectValues<DriveItem>("special", drive.special, serializeDriveItem);
+    writer.writeObjectValue<SystemFacet>("system", drive.system, serializeSystemFacet);
 }
 // tslint:enable
 // eslint-enable

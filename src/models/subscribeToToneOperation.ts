@@ -14,7 +14,7 @@ export function deserializeIntoSubscribeToToneOperation(subscribeToToneOperation
     }
 }
 export function serializeSubscribeToToneOperation(writer: SerializationWriter, subscribeToToneOperation: SubscribeToToneOperation | undefined = {} as SubscribeToToneOperation) : void {
-        serializeCommsOperation(writer, subscribeToToneOperation)
+    serializeCommsOperation(writer, subscribeToToneOperation)
 }
 export interface SubscribeToToneOperation extends CommsOperation, Parsable {
 }

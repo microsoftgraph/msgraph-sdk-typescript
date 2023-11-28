@@ -34,10 +34,10 @@ export interface MeetingParticipants extends AdditionalDataHolder, Parsable {
     organizer?: MeetingParticipantInfo;
 }
 export function serializeMeetingParticipants(writer: SerializationWriter, meetingParticipants: MeetingParticipants | undefined = {} as MeetingParticipants) : void {
-        writer.writeCollectionOfObjectValues<MeetingParticipantInfo>("attendees", meetingParticipants.attendees, serializeMeetingParticipantInfo);
-        writer.writeStringValue("@odata.type", meetingParticipants.odataType);
-        writer.writeObjectValue<MeetingParticipantInfo>("organizer", meetingParticipants.organizer, serializeMeetingParticipantInfo);
-        writer.writeAdditionalData(meetingParticipants.additionalData);
+    writer.writeCollectionOfObjectValues<MeetingParticipantInfo>("attendees", meetingParticipants.attendees, serializeMeetingParticipantInfo);
+    writer.writeStringValue("@odata.type", meetingParticipants.odataType);
+    writer.writeObjectValue<MeetingParticipantInfo>("organizer", meetingParticipants.organizer, serializeMeetingParticipantInfo);
+    writer.writeAdditionalData(meetingParticipants.additionalData);
 }
 // tslint:enable
 // eslint-enable

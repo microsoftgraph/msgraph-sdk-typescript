@@ -52,11 +52,11 @@ export interface ManagedMobileLobApp extends ManagedApp, Parsable {
     size?: number;
 }
 export function serializeManagedMobileLobApp(writer: SerializationWriter, managedMobileLobApp: ManagedMobileLobApp | undefined = {} as ManagedMobileLobApp) : void {
-        serializeManagedApp(writer, managedMobileLobApp)
-        writer.writeStringValue("committedContentVersion", managedMobileLobApp.committedContentVersion);
-        writer.writeCollectionOfObjectValues<MobileAppContent>("contentVersions", managedMobileLobApp.contentVersions, serializeMobileAppContent);
-        writer.writeStringValue("fileName", managedMobileLobApp.fileName);
-        writer.writeNumberValue("size", managedMobileLobApp.size);
+    serializeManagedApp(writer, managedMobileLobApp)
+    writer.writeStringValue("committedContentVersion", managedMobileLobApp.committedContentVersion);
+    writer.writeCollectionOfObjectValues<MobileAppContent>("contentVersions", managedMobileLobApp.contentVersions, serializeMobileAppContent);
+    writer.writeStringValue("fileName", managedMobileLobApp.fileName);
+    writer.writeNumberValue("size", managedMobileLobApp.size);
 }
 // tslint:enable
 // eslint-enable

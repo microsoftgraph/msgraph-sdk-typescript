@@ -13,8 +13,8 @@ export function deserializeIntoUnmutePostRequestBody(unmutePostRequestBody: Unmu
     }
 }
 export function serializeUnmutePostRequestBody(writer: SerializationWriter, unmutePostRequestBody: UnmutePostRequestBody | undefined = {} as UnmutePostRequestBody) : void {
-        writer.writeStringValue("clientContext", unmutePostRequestBody.clientContext);
-        writer.writeAdditionalData(unmutePostRequestBody.additionalData);
+    writer.writeStringValue("clientContext", unmutePostRequestBody.clientContext);
+    writer.writeAdditionalData(unmutePostRequestBody.additionalData);
 }
 export interface UnmutePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

@@ -40,8 +40,8 @@ export function deserializeIntoUnifiedRoleManagementPolicyRule(unifiedRoleManage
     }
 }
 export function serializeUnifiedRoleManagementPolicyRule(writer: SerializationWriter, unifiedRoleManagementPolicyRule: UnifiedRoleManagementPolicyRule | undefined = {} as UnifiedRoleManagementPolicyRule) : void {
-        serializeEntity(writer, unifiedRoleManagementPolicyRule)
-        writer.writeObjectValue<UnifiedRoleManagementPolicyRuleTarget>("target", unifiedRoleManagementPolicyRule.target, serializeUnifiedRoleManagementPolicyRuleTarget);
+    serializeEntity(writer, unifiedRoleManagementPolicyRule)
+    writer.writeObjectValue<UnifiedRoleManagementPolicyRuleTarget>("target", unifiedRoleManagementPolicyRule.target, serializeUnifiedRoleManagementPolicyRuleTarget);
 }
 export interface UnifiedRoleManagementPolicyRule extends Entity, Parsable {
     /**

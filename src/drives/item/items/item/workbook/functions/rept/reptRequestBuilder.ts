@@ -32,9 +32,9 @@ export interface ReptPostRequestBody extends AdditionalDataHolder, Parsable {
     text?: Json;
 }
 export function serializeReptPostRequestBody(writer: SerializationWriter, reptPostRequestBody: ReptPostRequestBody | undefined = {} as ReptPostRequestBody) : void {
-        writer.writeObjectValue<Json>("numberTimes", reptPostRequestBody.numberTimes, serializeJson);
-        writer.writeObjectValue<Json>("text", reptPostRequestBody.text, serializeJson);
-        writer.writeAdditionalData(reptPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("numberTimes", reptPostRequestBody.numberTimes, serializeJson);
+    writer.writeObjectValue<Json>("text", reptPostRequestBody.text, serializeJson);
+    writer.writeAdditionalData(reptPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the rept method.

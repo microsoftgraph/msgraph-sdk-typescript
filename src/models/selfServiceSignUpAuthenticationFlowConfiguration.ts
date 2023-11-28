@@ -28,9 +28,9 @@ export interface SelfServiceSignUpAuthenticationFlowConfiguration extends Additi
     odataType?: string;
 }
 export function serializeSelfServiceSignUpAuthenticationFlowConfiguration(writer: SerializationWriter, selfServiceSignUpAuthenticationFlowConfiguration: SelfServiceSignUpAuthenticationFlowConfiguration | undefined = {} as SelfServiceSignUpAuthenticationFlowConfiguration) : void {
-        writer.writeBooleanValue("isEnabled", selfServiceSignUpAuthenticationFlowConfiguration.isEnabled);
-        writer.writeStringValue("@odata.type", selfServiceSignUpAuthenticationFlowConfiguration.odataType);
-        writer.writeAdditionalData(selfServiceSignUpAuthenticationFlowConfiguration.additionalData);
+    writer.writeBooleanValue("isEnabled", selfServiceSignUpAuthenticationFlowConfiguration.isEnabled);
+    writer.writeStringValue("@odata.type", selfServiceSignUpAuthenticationFlowConfiguration.odataType);
+    writer.writeAdditionalData(selfServiceSignUpAuthenticationFlowConfiguration.additionalData);
 }
 // tslint:enable
 // eslint-enable

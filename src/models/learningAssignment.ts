@@ -44,12 +44,12 @@ export interface LearningAssignment extends LearningCourseActivity, Parsable {
     notes?: ItemBody;
 }
 export function serializeLearningAssignment(writer: SerializationWriter, learningAssignment: LearningAssignment | undefined = {} as LearningAssignment) : void {
-        serializeLearningCourseActivity(writer, learningAssignment)
-        writer.writeDateValue("assignedDateTime", learningAssignment.assignedDateTime);
-        writer.writeStringValue("assignerUserId", learningAssignment.assignerUserId);
-        writer.writeEnumValue<AssignmentType>("assignmentType", learningAssignment.assignmentType);
-        writer.writeObjectValue<DateTimeTimeZone>("dueDateTime", learningAssignment.dueDateTime, serializeDateTimeTimeZone);
-        writer.writeObjectValue<ItemBody>("notes", learningAssignment.notes, serializeItemBody);
+    serializeLearningCourseActivity(writer, learningAssignment)
+    writer.writeDateValue("assignedDateTime", learningAssignment.assignedDateTime);
+    writer.writeStringValue("assignerUserId", learningAssignment.assignerUserId);
+    writer.writeEnumValue<AssignmentType>("assignmentType", learningAssignment.assignmentType);
+    writer.writeObjectValue<DateTimeTimeZone>("dueDateTime", learningAssignment.dueDateTime, serializeDateTimeTimeZone);
+    writer.writeObjectValue<ItemBody>("notes", learningAssignment.notes, serializeItemBody);
 }
 // tslint:enable
 // eslint-enable

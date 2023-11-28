@@ -43,12 +43,12 @@ export interface GetAvailableExtensionPropertiesPostResponse extends BaseCollect
     value?: ExtensionProperty[];
 }
 export function serializeGetAvailableExtensionPropertiesPostRequestBody(writer: SerializationWriter, getAvailableExtensionPropertiesPostRequestBody: GetAvailableExtensionPropertiesPostRequestBody | undefined = {} as GetAvailableExtensionPropertiesPostRequestBody) : void {
-        writer.writeBooleanValue("isSyncedFromOnPremises", getAvailableExtensionPropertiesPostRequestBody.isSyncedFromOnPremises);
-        writer.writeAdditionalData(getAvailableExtensionPropertiesPostRequestBody.additionalData);
+    writer.writeBooleanValue("isSyncedFromOnPremises", getAvailableExtensionPropertiesPostRequestBody.isSyncedFromOnPremises);
+    writer.writeAdditionalData(getAvailableExtensionPropertiesPostRequestBody.additionalData);
 }
 export function serializeGetAvailableExtensionPropertiesPostResponse(writer: SerializationWriter, getAvailableExtensionPropertiesPostResponse: GetAvailableExtensionPropertiesPostResponse | undefined = {} as GetAvailableExtensionPropertiesPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getAvailableExtensionPropertiesPostResponse)
-        writer.writeCollectionOfObjectValues<ExtensionProperty>("value", getAvailableExtensionPropertiesPostResponse.value, serializeExtensionProperty);
+    serializeBaseCollectionPaginationCountResponse(writer, getAvailableExtensionPropertiesPostResponse)
+    writer.writeCollectionOfObjectValues<ExtensionProperty>("value", getAvailableExtensionPropertiesPostResponse.value, serializeExtensionProperty);
 }
 /**
  * Provides operations to call the getAvailableExtensionProperties method.

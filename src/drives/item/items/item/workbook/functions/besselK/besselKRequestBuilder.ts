@@ -32,9 +32,9 @@ export function deserializeIntoBesselKPostRequestBody(besselKPostRequestBody: Be
     }
 }
 export function serializeBesselKPostRequestBody(writer: SerializationWriter, besselKPostRequestBody: BesselKPostRequestBody | undefined = {} as BesselKPostRequestBody) : void {
-        writer.writeObjectValue<Json>("n", besselKPostRequestBody.n, serializeJson);
-        writer.writeObjectValue<Json>("x", besselKPostRequestBody.x, serializeJson);
-        writer.writeAdditionalData(besselKPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("n", besselKPostRequestBody.n, serializeJson);
+    writer.writeObjectValue<Json>("x", besselKPostRequestBody.x, serializeJson);
+    writer.writeAdditionalData(besselKPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the besselK method.

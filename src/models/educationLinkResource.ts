@@ -21,8 +21,8 @@ export interface EducationLinkResource extends EducationResource, Parsable {
     link?: string;
 }
 export function serializeEducationLinkResource(writer: SerializationWriter, educationLinkResource: EducationLinkResource | undefined = {} as EducationLinkResource) : void {
-        serializeEducationResource(writer, educationLinkResource)
-        writer.writeStringValue("link", educationLinkResource.link);
+    serializeEducationResource(writer, educationLinkResource)
+    writer.writeStringValue("link", educationLinkResource.link);
 }
 // tslint:enable
 // eslint-enable

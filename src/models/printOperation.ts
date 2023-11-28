@@ -39,9 +39,9 @@ export interface PrintOperation extends Entity, Parsable {
     status?: PrintOperationStatus;
 }
 export function serializePrintOperation(writer: SerializationWriter, printOperation: PrintOperation | undefined = {} as PrintOperation) : void {
-        serializeEntity(writer, printOperation)
-        writer.writeDateValue("createdDateTime", printOperation.createdDateTime);
-        writer.writeObjectValue<PrintOperationStatus>("status", printOperation.status, serializePrintOperationStatus);
+    serializeEntity(writer, printOperation)
+    writer.writeDateValue("createdDateTime", printOperation.createdDateTime);
+    writer.writeObjectValue<PrintOperationStatus>("status", printOperation.status, serializePrintOperationStatus);
 }
 // tslint:enable
 // eslint-enable

@@ -21,8 +21,8 @@ export interface GetAuditActivityTypesWithCategoryGetResponse extends BaseCollec
     value?: string[];
 }
 export function serializeGetAuditActivityTypesWithCategoryGetResponse(writer: SerializationWriter, getAuditActivityTypesWithCategoryGetResponse: GetAuditActivityTypesWithCategoryGetResponse | undefined = {} as GetAuditActivityTypesWithCategoryGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getAuditActivityTypesWithCategoryGetResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getAuditActivityTypesWithCategoryGetResponse.value);
+    serializeBaseCollectionPaginationCountResponse(writer, getAuditActivityTypesWithCategoryGetResponse)
+    writer.writeCollectionOfPrimitiveValues<string>("value", getAuditActivityTypesWithCategoryGetResponse.value);
 }
 // tslint:enable
 // eslint-enable

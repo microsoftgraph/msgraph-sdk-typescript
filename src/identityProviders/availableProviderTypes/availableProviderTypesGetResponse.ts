@@ -21,8 +21,8 @@ export function deserializeIntoAvailableProviderTypesGetResponse(availableProvid
     }
 }
 export function serializeAvailableProviderTypesGetResponse(writer: SerializationWriter, availableProviderTypesGetResponse: AvailableProviderTypesGetResponse | undefined = {} as AvailableProviderTypesGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, availableProviderTypesGetResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", availableProviderTypesGetResponse.value);
+    serializeBaseCollectionPaginationCountResponse(writer, availableProviderTypesGetResponse)
+    writer.writeCollectionOfPrimitiveValues<string>("value", availableProviderTypesGetResponse.value);
 }
 // tslint:enable
 // eslint-enable

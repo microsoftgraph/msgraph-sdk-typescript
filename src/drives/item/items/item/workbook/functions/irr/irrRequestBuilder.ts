@@ -32,9 +32,9 @@ export interface IrrPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeIrrPostRequestBody(writer: SerializationWriter, irrPostRequestBody: IrrPostRequestBody | undefined = {} as IrrPostRequestBody) : void {
-        writer.writeObjectValue<Json>("guess", irrPostRequestBody.guess, serializeJson);
-        writer.writeObjectValue<Json>("values", irrPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(irrPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("guess", irrPostRequestBody.guess, serializeJson);
+    writer.writeObjectValue<Json>("values", irrPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(irrPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the irr method.

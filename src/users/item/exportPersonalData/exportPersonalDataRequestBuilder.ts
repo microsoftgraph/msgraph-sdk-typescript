@@ -25,8 +25,8 @@ export interface ExportPersonalDataPostRequestBody extends AdditionalDataHolder,
     storageLocation?: string;
 }
 export function serializeExportPersonalDataPostRequestBody(writer: SerializationWriter, exportPersonalDataPostRequestBody: ExportPersonalDataPostRequestBody | undefined = {} as ExportPersonalDataPostRequestBody) : void {
-        writer.writeStringValue("storageLocation", exportPersonalDataPostRequestBody.storageLocation);
-        writer.writeAdditionalData(exportPersonalDataPostRequestBody.additionalData);
+    writer.writeStringValue("storageLocation", exportPersonalDataPostRequestBody.storageLocation);
+    writer.writeAdditionalData(exportPersonalDataPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the exportPersonalData method.

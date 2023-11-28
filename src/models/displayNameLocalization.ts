@@ -33,10 +33,10 @@ export interface DisplayNameLocalization extends AdditionalDataHolder, Parsable 
     odataType?: string;
 }
 export function serializeDisplayNameLocalization(writer: SerializationWriter, displayNameLocalization: DisplayNameLocalization | undefined = {} as DisplayNameLocalization) : void {
-        writer.writeStringValue("displayName", displayNameLocalization.displayName);
-        writer.writeStringValue("languageTag", displayNameLocalization.languageTag);
-        writer.writeStringValue("@odata.type", displayNameLocalization.odataType);
-        writer.writeAdditionalData(displayNameLocalization.additionalData);
+    writer.writeStringValue("displayName", displayNameLocalization.displayName);
+    writer.writeStringValue("languageTag", displayNameLocalization.languageTag);
+    writer.writeStringValue("@odata.type", displayNameLocalization.odataType);
+    writer.writeAdditionalData(displayNameLocalization.additionalData);
 }
 // tslint:enable
 // eslint-enable

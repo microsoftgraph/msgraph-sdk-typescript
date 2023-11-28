@@ -29,9 +29,9 @@ export interface RejectPostRequestBody extends AdditionalDataHolder, Parsable {
     reason?: RejectReason;
 }
 export function serializeRejectPostRequestBody(writer: SerializationWriter, rejectPostRequestBody: RejectPostRequestBody | undefined = {} as RejectPostRequestBody) : void {
-        writer.writeStringValue("callbackUri", rejectPostRequestBody.callbackUri);
-        writer.writeEnumValue<RejectReason>("reason", rejectPostRequestBody.reason);
-        writer.writeAdditionalData(rejectPostRequestBody.additionalData);
+    writer.writeStringValue("callbackUri", rejectPostRequestBody.callbackUri);
+    writer.writeEnumValue<RejectReason>("reason", rejectPostRequestBody.reason);
+    writer.writeAdditionalData(rejectPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

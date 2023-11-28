@@ -88,18 +88,18 @@ export interface ManagedDeviceMobileAppConfiguration extends Entity, Parsable {
     version?: number;
 }
 export function serializeManagedDeviceMobileAppConfiguration(writer: SerializationWriter, managedDeviceMobileAppConfiguration: ManagedDeviceMobileAppConfiguration | undefined = {} as ManagedDeviceMobileAppConfiguration) : void {
-        serializeEntity(writer, managedDeviceMobileAppConfiguration)
-        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignment>("assignments", managedDeviceMobileAppConfiguration.assignments, serializeManagedDeviceMobileAppConfigurationAssignment);
-        writer.writeDateValue("createdDateTime", managedDeviceMobileAppConfiguration.createdDateTime);
-        writer.writeStringValue("description", managedDeviceMobileAppConfiguration.description);
-        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationDeviceStatus>("deviceStatuses", managedDeviceMobileAppConfiguration.deviceStatuses, serializeManagedDeviceMobileAppConfigurationDeviceStatus);
-        writer.writeObjectValue<ManagedDeviceMobileAppConfigurationDeviceSummary>("deviceStatusSummary", managedDeviceMobileAppConfiguration.deviceStatusSummary, serializeManagedDeviceMobileAppConfigurationDeviceSummary);
-        writer.writeStringValue("displayName", managedDeviceMobileAppConfiguration.displayName);
-        writer.writeDateValue("lastModifiedDateTime", managedDeviceMobileAppConfiguration.lastModifiedDateTime);
-        writer.writeCollectionOfPrimitiveValues<string>("targetedMobileApps", managedDeviceMobileAppConfiguration.targetedMobileApps);
-        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationUserStatus>("userStatuses", managedDeviceMobileAppConfiguration.userStatuses, serializeManagedDeviceMobileAppConfigurationUserStatus);
-        writer.writeObjectValue<ManagedDeviceMobileAppConfigurationUserSummary>("userStatusSummary", managedDeviceMobileAppConfiguration.userStatusSummary, serializeManagedDeviceMobileAppConfigurationUserSummary);
-        writer.writeNumberValue("version", managedDeviceMobileAppConfiguration.version);
+    serializeEntity(writer, managedDeviceMobileAppConfiguration)
+    writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignment>("assignments", managedDeviceMobileAppConfiguration.assignments, serializeManagedDeviceMobileAppConfigurationAssignment);
+    writer.writeDateValue("createdDateTime", managedDeviceMobileAppConfiguration.createdDateTime);
+    writer.writeStringValue("description", managedDeviceMobileAppConfiguration.description);
+    writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationDeviceStatus>("deviceStatuses", managedDeviceMobileAppConfiguration.deviceStatuses, serializeManagedDeviceMobileAppConfigurationDeviceStatus);
+    writer.writeObjectValue<ManagedDeviceMobileAppConfigurationDeviceSummary>("deviceStatusSummary", managedDeviceMobileAppConfiguration.deviceStatusSummary, serializeManagedDeviceMobileAppConfigurationDeviceSummary);
+    writer.writeStringValue("displayName", managedDeviceMobileAppConfiguration.displayName);
+    writer.writeDateValue("lastModifiedDateTime", managedDeviceMobileAppConfiguration.lastModifiedDateTime);
+    writer.writeCollectionOfPrimitiveValues<string>("targetedMobileApps", managedDeviceMobileAppConfiguration.targetedMobileApps);
+    writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationUserStatus>("userStatuses", managedDeviceMobileAppConfiguration.userStatuses, serializeManagedDeviceMobileAppConfigurationUserStatus);
+    writer.writeObjectValue<ManagedDeviceMobileAppConfigurationUserSummary>("userStatusSummary", managedDeviceMobileAppConfiguration.userStatusSummary, serializeManagedDeviceMobileAppConfigurationUserSummary);
+    writer.writeNumberValue("version", managedDeviceMobileAppConfiguration.version);
 }
 // tslint:enable
 // eslint-enable

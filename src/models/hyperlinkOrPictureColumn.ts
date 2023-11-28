@@ -28,9 +28,9 @@ export interface HyperlinkOrPictureColumn extends AdditionalDataHolder, Parsable
     odataType?: string;
 }
 export function serializeHyperlinkOrPictureColumn(writer: SerializationWriter, hyperlinkOrPictureColumn: HyperlinkOrPictureColumn | undefined = {} as HyperlinkOrPictureColumn) : void {
-        writer.writeBooleanValue("isPicture", hyperlinkOrPictureColumn.isPicture);
-        writer.writeStringValue("@odata.type", hyperlinkOrPictureColumn.odataType);
-        writer.writeAdditionalData(hyperlinkOrPictureColumn.additionalData);
+    writer.writeBooleanValue("isPicture", hyperlinkOrPictureColumn.isPicture);
+    writer.writeStringValue("@odata.type", hyperlinkOrPictureColumn.odataType);
+    writer.writeAdditionalData(hyperlinkOrPictureColumn.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -38,11 +38,11 @@ export interface MacOSLobChildApp extends AdditionalDataHolder, Parsable {
     versionNumber?: string;
 }
 export function serializeMacOSLobChildApp(writer: SerializationWriter, macOSLobChildApp: MacOSLobChildApp | undefined = {} as MacOSLobChildApp) : void {
-        writer.writeStringValue("buildNumber", macOSLobChildApp.buildNumber);
-        writer.writeStringValue("bundleId", macOSLobChildApp.bundleId);
-        writer.writeStringValue("@odata.type", macOSLobChildApp.odataType);
-        writer.writeStringValue("versionNumber", macOSLobChildApp.versionNumber);
-        writer.writeAdditionalData(macOSLobChildApp.additionalData);
+    writer.writeStringValue("buildNumber", macOSLobChildApp.buildNumber);
+    writer.writeStringValue("bundleId", macOSLobChildApp.bundleId);
+    writer.writeStringValue("@odata.type", macOSLobChildApp.odataType);
+    writer.writeStringValue("versionNumber", macOSLobChildApp.versionNumber);
+    writer.writeAdditionalData(macOSLobChildApp.additionalData);
 }
 // tslint:enable
 // eslint-enable

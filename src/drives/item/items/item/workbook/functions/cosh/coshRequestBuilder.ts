@@ -27,8 +27,8 @@ export function deserializeIntoCoshPostRequestBody(coshPostRequestBody: CoshPost
     }
 }
 export function serializeCoshPostRequestBody(writer: SerializationWriter, coshPostRequestBody: CoshPostRequestBody | undefined = {} as CoshPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", coshPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(coshPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", coshPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(coshPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the cosh method.

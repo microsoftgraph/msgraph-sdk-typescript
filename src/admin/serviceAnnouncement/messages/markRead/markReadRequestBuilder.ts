@@ -44,12 +44,12 @@ export interface MarkReadPostResponse extends AdditionalDataHolder, Parsable {
     value?: boolean;
 }
 export function serializeMarkReadPostRequestBody(writer: SerializationWriter, markReadPostRequestBody: MarkReadPostRequestBody | undefined = {} as MarkReadPostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", markReadPostRequestBody.messageIds);
-        writer.writeAdditionalData(markReadPostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("messageIds", markReadPostRequestBody.messageIds);
+    writer.writeAdditionalData(markReadPostRequestBody.additionalData);
 }
 export function serializeMarkReadPostResponse(writer: SerializationWriter, markReadPostResponse: MarkReadPostResponse | undefined = {} as MarkReadPostResponse) : void {
-        writer.writeBooleanValue("value", markReadPostResponse.value);
-        writer.writeAdditionalData(markReadPostResponse.additionalData);
+    writer.writeBooleanValue("value", markReadPostResponse.value);
+    writer.writeAdditionalData(markReadPostResponse.additionalData);
 }
 /**
  * Provides operations to call the markRead method.

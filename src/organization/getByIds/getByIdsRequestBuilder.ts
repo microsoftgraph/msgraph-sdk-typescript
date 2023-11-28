@@ -25,8 +25,8 @@ export interface GetByIdsPostResponse extends BaseCollectionPaginationCountRespo
     value?: DirectoryObject[];
 }
 export function serializeGetByIdsPostResponse(writer: SerializationWriter, getByIdsPostResponse: GetByIdsPostResponse | undefined = {} as GetByIdsPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getByIdsPostResponse)
-        writer.writeCollectionOfObjectValues<DirectoryObject>("value", getByIdsPostResponse.value, serializeDirectoryObject);
+    serializeBaseCollectionPaginationCountResponse(writer, getByIdsPostResponse)
+    writer.writeCollectionOfObjectValues<DirectoryObject>("value", getByIdsPostResponse.value, serializeDirectoryObject);
 }
 /**
  * Provides operations to call the getByIds method.

@@ -37,11 +37,11 @@ export interface RichLongRunningOperation extends LongRunningOperation, Parsable
     type?: string;
 }
 export function serializeRichLongRunningOperation(writer: SerializationWriter, richLongRunningOperation: RichLongRunningOperation | undefined = {} as RichLongRunningOperation) : void {
-        serializeLongRunningOperation(writer, richLongRunningOperation)
-        writer.writeObjectValue<PublicError>("error", richLongRunningOperation.errorEscaped, serializePublicError);
-        writer.writeNumberValue("percentageComplete", richLongRunningOperation.percentageComplete);
-        writer.writeStringValue("resourceId", richLongRunningOperation.resourceId);
-        writer.writeStringValue("type", richLongRunningOperation.type);
+    serializeLongRunningOperation(writer, richLongRunningOperation)
+    writer.writeObjectValue<PublicError>("error", richLongRunningOperation.errorEscaped, serializePublicError);
+    writer.writeNumberValue("percentageComplete", richLongRunningOperation.percentageComplete);
+    writer.writeStringValue("resourceId", richLongRunningOperation.resourceId);
+    writer.writeStringValue("type", richLongRunningOperation.type);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export function deserializeIntoChatMessageHostedContentCollectionResponse(chatMe
     }
 }
 export function serializeChatMessageHostedContentCollectionResponse(writer: SerializationWriter, chatMessageHostedContentCollectionResponse: ChatMessageHostedContentCollectionResponse | undefined = {} as ChatMessageHostedContentCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, chatMessageHostedContentCollectionResponse)
-        writer.writeCollectionOfObjectValues<ChatMessageHostedContent>("value", chatMessageHostedContentCollectionResponse.value, serializeChatMessageHostedContent);
+    serializeBaseCollectionPaginationCountResponse(writer, chatMessageHostedContentCollectionResponse)
+    writer.writeCollectionOfObjectValues<ChatMessageHostedContent>("value", chatMessageHostedContentCollectionResponse.value, serializeChatMessageHostedContent);
 }
 // tslint:enable
 // eslint-enable

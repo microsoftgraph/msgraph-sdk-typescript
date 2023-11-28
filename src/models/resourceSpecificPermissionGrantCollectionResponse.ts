@@ -22,8 +22,8 @@ export interface ResourceSpecificPermissionGrantCollectionResponse extends BaseC
     value?: ResourceSpecificPermissionGrant[];
 }
 export function serializeResourceSpecificPermissionGrantCollectionResponse(writer: SerializationWriter, resourceSpecificPermissionGrantCollectionResponse: ResourceSpecificPermissionGrantCollectionResponse | undefined = {} as ResourceSpecificPermissionGrantCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, resourceSpecificPermissionGrantCollectionResponse)
-        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("value", resourceSpecificPermissionGrantCollectionResponse.value, serializeResourceSpecificPermissionGrant);
+    serializeBaseCollectionPaginationCountResponse(writer, resourceSpecificPermissionGrantCollectionResponse)
+    writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("value", resourceSpecificPermissionGrantCollectionResponse.value, serializeResourceSpecificPermissionGrant);
 }
 // tslint:enable
 // eslint-enable

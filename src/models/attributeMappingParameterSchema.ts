@@ -44,12 +44,12 @@ export function deserializeIntoAttributeMappingParameterSchema(attributeMappingP
     }
 }
 export function serializeAttributeMappingParameterSchema(writer: SerializationWriter, attributeMappingParameterSchema: AttributeMappingParameterSchema | undefined = {} as AttributeMappingParameterSchema) : void {
-        writer.writeBooleanValue("allowMultipleOccurrences", attributeMappingParameterSchema.allowMultipleOccurrences);
-        writer.writeStringValue("name", attributeMappingParameterSchema.name);
-        writer.writeStringValue("@odata.type", attributeMappingParameterSchema.odataType);
-        writer.writeBooleanValue("required", attributeMappingParameterSchema.required);
-        writer.writeEnumValue<AttributeType>("type", attributeMappingParameterSchema.type);
-        writer.writeAdditionalData(attributeMappingParameterSchema.additionalData);
+    writer.writeBooleanValue("allowMultipleOccurrences", attributeMappingParameterSchema.allowMultipleOccurrences);
+    writer.writeStringValue("name", attributeMappingParameterSchema.name);
+    writer.writeStringValue("@odata.type", attributeMappingParameterSchema.odataType);
+    writer.writeBooleanValue("required", attributeMappingParameterSchema.required);
+    writer.writeEnumValue<AttributeType>("type", attributeMappingParameterSchema.type);
+    writer.writeAdditionalData(attributeMappingParameterSchema.additionalData);
 }
 // tslint:enable
 // eslint-enable

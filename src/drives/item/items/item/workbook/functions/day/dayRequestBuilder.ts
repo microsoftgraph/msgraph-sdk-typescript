@@ -27,8 +27,8 @@ export function deserializeIntoDayPostRequestBody(dayPostRequestBody: DayPostReq
     }
 }
 export function serializeDayPostRequestBody(writer: SerializationWriter, dayPostRequestBody: DayPostRequestBody | undefined = {} as DayPostRequestBody) : void {
-        writer.writeObjectValue<Json>("serialNumber", dayPostRequestBody.serialNumber, serializeJson);
-        writer.writeAdditionalData(dayPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("serialNumber", dayPostRequestBody.serialNumber, serializeJson);
+    writer.writeAdditionalData(dayPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the day method.

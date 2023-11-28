@@ -15,9 +15,9 @@ export function deserializeIntoTeamsAppPermissionSet(teamsAppPermissionSet: Team
     }
 }
 export function serializeTeamsAppPermissionSet(writer: SerializationWriter, teamsAppPermissionSet: TeamsAppPermissionSet | undefined = {} as TeamsAppPermissionSet) : void {
-        writer.writeStringValue("@odata.type", teamsAppPermissionSet.odataType);
-        writer.writeCollectionOfObjectValues<TeamsAppResourceSpecificPermission>("resourceSpecificPermissions", teamsAppPermissionSet.resourceSpecificPermissions, serializeTeamsAppResourceSpecificPermission);
-        writer.writeAdditionalData(teamsAppPermissionSet.additionalData);
+    writer.writeStringValue("@odata.type", teamsAppPermissionSet.odataType);
+    writer.writeCollectionOfObjectValues<TeamsAppResourceSpecificPermission>("resourceSpecificPermissions", teamsAppPermissionSet.resourceSpecificPermissions, serializeTeamsAppResourceSpecificPermission);
+    writer.writeAdditionalData(teamsAppPermissionSet.additionalData);
 }
 export interface TeamsAppPermissionSet extends AdditionalDataHolder, Parsable {
     /**

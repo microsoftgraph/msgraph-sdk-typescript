@@ -13,8 +13,8 @@ export function deserializeIntoSetReactionPostRequestBody(setReactionPostRequest
     }
 }
 export function serializeSetReactionPostRequestBody(writer: SerializationWriter, setReactionPostRequestBody: SetReactionPostRequestBody | undefined = {} as SetReactionPostRequestBody) : void {
-        writer.writeStringValue("reactionType", setReactionPostRequestBody.reactionType);
-        writer.writeAdditionalData(setReactionPostRequestBody.additionalData);
+    writer.writeStringValue("reactionType", setReactionPostRequestBody.reactionType);
+    writer.writeAdditionalData(setReactionPostRequestBody.additionalData);
 }
 export interface SetReactionPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

@@ -44,12 +44,12 @@ export interface MarkUnreadPostResponse extends AdditionalDataHolder, Parsable {
     value?: boolean;
 }
 export function serializeMarkUnreadPostRequestBody(writer: SerializationWriter, markUnreadPostRequestBody: MarkUnreadPostRequestBody | undefined = {} as MarkUnreadPostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", markUnreadPostRequestBody.messageIds);
-        writer.writeAdditionalData(markUnreadPostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("messageIds", markUnreadPostRequestBody.messageIds);
+    writer.writeAdditionalData(markUnreadPostRequestBody.additionalData);
 }
 export function serializeMarkUnreadPostResponse(writer: SerializationWriter, markUnreadPostResponse: MarkUnreadPostResponse | undefined = {} as MarkUnreadPostResponse) : void {
-        writer.writeBooleanValue("value", markUnreadPostResponse.value);
-        writer.writeAdditionalData(markUnreadPostResponse.additionalData);
+    writer.writeBooleanValue("value", markUnreadPostResponse.value);
+    writer.writeAdditionalData(markUnreadPostResponse.additionalData);
 }
 /**
  * Provides operations to call the markUnread method.

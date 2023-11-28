@@ -22,8 +22,8 @@ export interface DeviceCompliancePolicyAssignment extends Entity, Parsable {
     target?: DeviceAndAppManagementAssignmentTarget;
 }
 export function serializeDeviceCompliancePolicyAssignment(writer: SerializationWriter, deviceCompliancePolicyAssignment: DeviceCompliancePolicyAssignment | undefined = {} as DeviceCompliancePolicyAssignment) : void {
-        serializeEntity(writer, deviceCompliancePolicyAssignment)
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", deviceCompliancePolicyAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
+    serializeEntity(writer, deviceCompliancePolicyAssignment)
+    writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", deviceCompliancePolicyAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
 }
 // tslint:enable
 // eslint-enable

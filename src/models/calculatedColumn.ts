@@ -38,11 +38,11 @@ export function deserializeIntoCalculatedColumn(calculatedColumn: CalculatedColu
     }
 }
 export function serializeCalculatedColumn(writer: SerializationWriter, calculatedColumn: CalculatedColumn | undefined = {} as CalculatedColumn) : void {
-        writer.writeStringValue("format", calculatedColumn.format);
-        writer.writeStringValue("formula", calculatedColumn.formula);
-        writer.writeStringValue("@odata.type", calculatedColumn.odataType);
-        writer.writeStringValue("outputType", calculatedColumn.outputType);
-        writer.writeAdditionalData(calculatedColumn.additionalData);
+    writer.writeStringValue("format", calculatedColumn.format);
+    writer.writeStringValue("formula", calculatedColumn.formula);
+    writer.writeStringValue("@odata.type", calculatedColumn.odataType);
+    writer.writeStringValue("outputType", calculatedColumn.outputType);
+    writer.writeAdditionalData(calculatedColumn.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -16,9 +16,9 @@ export function deserializeIntoValidatePermissionPostRequestBody(validatePermiss
     }
 }
 export function serializeValidatePermissionPostRequestBody(writer: SerializationWriter, validatePermissionPostRequestBody: ValidatePermissionPostRequestBody | undefined = {} as ValidatePermissionPostRequestBody) : void {
-        writer.writeStringValue("challengeToken", validatePermissionPostRequestBody.challengeToken);
-        writer.writeStringValue("password", validatePermissionPostRequestBody.password);
-        writer.writeAdditionalData(validatePermissionPostRequestBody.additionalData);
+    writer.writeStringValue("challengeToken", validatePermissionPostRequestBody.challengeToken);
+    writer.writeStringValue("password", validatePermissionPostRequestBody.password);
+    writer.writeAdditionalData(validatePermissionPostRequestBody.additionalData);
 }
 export interface ValidatePermissionPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

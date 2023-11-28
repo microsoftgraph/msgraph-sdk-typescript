@@ -25,8 +25,8 @@ export function deserializeIntoWorkflowExecutionTrigger(workflowExecutionTrigger
     }
 }
 export function serializeWorkflowExecutionTrigger(writer: SerializationWriter, workflowExecutionTrigger: WorkflowExecutionTrigger | undefined = {} as WorkflowExecutionTrigger) : void {
-        writer.writeStringValue("@odata.type", workflowExecutionTrigger.odataType);
-        writer.writeAdditionalData(workflowExecutionTrigger.additionalData);
+    writer.writeStringValue("@odata.type", workflowExecutionTrigger.odataType);
+    writer.writeAdditionalData(workflowExecutionTrigger.additionalData);
 }
 export interface WorkflowExecutionTrigger extends AdditionalDataHolder, Parsable {
     /**

@@ -51,14 +51,14 @@ export interface ManagedDeviceMobileAppConfigurationUserSummary extends Entity, 
     successCount?: number;
 }
 export function serializeManagedDeviceMobileAppConfigurationUserSummary(writer: SerializationWriter, managedDeviceMobileAppConfigurationUserSummary: ManagedDeviceMobileAppConfigurationUserSummary | undefined = {} as ManagedDeviceMobileAppConfigurationUserSummary) : void {
-        serializeEntity(writer, managedDeviceMobileAppConfigurationUserSummary)
-        writer.writeNumberValue("configurationVersion", managedDeviceMobileAppConfigurationUserSummary.configurationVersion);
-        writer.writeNumberValue("errorCount", managedDeviceMobileAppConfigurationUserSummary.errorCount);
-        writer.writeNumberValue("failedCount", managedDeviceMobileAppConfigurationUserSummary.failedCount);
-        writer.writeDateValue("lastUpdateDateTime", managedDeviceMobileAppConfigurationUserSummary.lastUpdateDateTime);
-        writer.writeNumberValue("notApplicableCount", managedDeviceMobileAppConfigurationUserSummary.notApplicableCount);
-        writer.writeNumberValue("pendingCount", managedDeviceMobileAppConfigurationUserSummary.pendingCount);
-        writer.writeNumberValue("successCount", managedDeviceMobileAppConfigurationUserSummary.successCount);
+    serializeEntity(writer, managedDeviceMobileAppConfigurationUserSummary)
+    writer.writeNumberValue("configurationVersion", managedDeviceMobileAppConfigurationUserSummary.configurationVersion);
+    writer.writeNumberValue("errorCount", managedDeviceMobileAppConfigurationUserSummary.errorCount);
+    writer.writeNumberValue("failedCount", managedDeviceMobileAppConfigurationUserSummary.failedCount);
+    writer.writeDateValue("lastUpdateDateTime", managedDeviceMobileAppConfigurationUserSummary.lastUpdateDateTime);
+    writer.writeNumberValue("notApplicableCount", managedDeviceMobileAppConfigurationUserSummary.notApplicableCount);
+    writer.writeNumberValue("pendingCount", managedDeviceMobileAppConfigurationUserSummary.pendingCount);
+    writer.writeNumberValue("successCount", managedDeviceMobileAppConfigurationUserSummary.successCount);
 }
 // tslint:enable
 // eslint-enable

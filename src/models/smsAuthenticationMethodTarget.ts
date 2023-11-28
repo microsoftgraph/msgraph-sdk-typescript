@@ -15,8 +15,8 @@ export function deserializeIntoSmsAuthenticationMethodTarget(smsAuthenticationMe
     }
 }
 export function serializeSmsAuthenticationMethodTarget(writer: SerializationWriter, smsAuthenticationMethodTarget: SmsAuthenticationMethodTarget | undefined = {} as SmsAuthenticationMethodTarget) : void {
-        serializeAuthenticationMethodTarget(writer, smsAuthenticationMethodTarget)
-        writer.writeBooleanValue("isUsableForSignIn", smsAuthenticationMethodTarget.isUsableForSignIn);
+    serializeAuthenticationMethodTarget(writer, smsAuthenticationMethodTarget)
+    writer.writeBooleanValue("isUsableForSignIn", smsAuthenticationMethodTarget.isUsableForSignIn);
 }
 export interface SmsAuthenticationMethodTarget extends AuthenticationMethodTarget, Parsable {
     /**

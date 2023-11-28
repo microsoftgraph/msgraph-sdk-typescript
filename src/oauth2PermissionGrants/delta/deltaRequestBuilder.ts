@@ -54,8 +54,8 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: DeltaGetRespon
     }
 }
 export function serializeDeltaGetResponse(writer: SerializationWriter, deltaGetResponse: DeltaGetResponse | undefined = {} as DeltaGetResponse) : void {
-        serializeBaseDeltaFunctionResponse(writer, deltaGetResponse)
-        writer.writeCollectionOfObjectValues<OAuth2PermissionGrant>("value", deltaGetResponse.value, serializeOAuth2PermissionGrant);
+    serializeBaseDeltaFunctionResponse(writer, deltaGetResponse)
+    writer.writeCollectionOfObjectValues<OAuth2PermissionGrant>("value", deltaGetResponse.value, serializeOAuth2PermissionGrant);
 }
 /**
  * Provides operations to call the delta method.

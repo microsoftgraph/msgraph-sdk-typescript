@@ -23,8 +23,8 @@ export interface ResetPasswordPostRequestBody extends AdditionalDataHolder, Pars
     newPassword?: string;
 }
 export function serializeResetPasswordPostRequestBody(writer: SerializationWriter, resetPasswordPostRequestBody: ResetPasswordPostRequestBody | undefined = {} as ResetPasswordPostRequestBody) : void {
-        writer.writeStringValue("newPassword", resetPasswordPostRequestBody.newPassword);
-        writer.writeAdditionalData(resetPasswordPostRequestBody.additionalData);
+    writer.writeStringValue("newPassword", resetPasswordPostRequestBody.newPassword);
+    writer.writeAdditionalData(resetPasswordPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

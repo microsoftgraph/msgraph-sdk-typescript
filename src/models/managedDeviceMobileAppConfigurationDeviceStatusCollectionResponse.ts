@@ -22,8 +22,8 @@ export interface ManagedDeviceMobileAppConfigurationDeviceStatusCollectionRespon
     value?: ManagedDeviceMobileAppConfigurationDeviceStatus[];
 }
 export function serializeManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse(writer: SerializationWriter, managedDeviceMobileAppConfigurationDeviceStatusCollectionResponse: ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse | undefined = {} as ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, managedDeviceMobileAppConfigurationDeviceStatusCollectionResponse)
-        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationDeviceStatus>("value", managedDeviceMobileAppConfigurationDeviceStatusCollectionResponse.value, serializeManagedDeviceMobileAppConfigurationDeviceStatus);
+    serializeBaseCollectionPaginationCountResponse(writer, managedDeviceMobileAppConfigurationDeviceStatusCollectionResponse)
+    writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationDeviceStatus>("value", managedDeviceMobileAppConfigurationDeviceStatusCollectionResponse.value, serializeManagedDeviceMobileAppConfigurationDeviceStatus);
 }
 // tslint:enable
 // eslint-enable

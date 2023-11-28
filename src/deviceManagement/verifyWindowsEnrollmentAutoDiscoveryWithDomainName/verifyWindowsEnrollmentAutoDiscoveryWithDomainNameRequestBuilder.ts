@@ -15,8 +15,8 @@ export function deserializeIntoVerifyWindowsEnrollmentAutoDiscoveryWithDomainNam
     }
 }
 export function serializeVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse(writer: SerializationWriter, verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse: VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse | undefined = {} as VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse) : void {
-        writer.writeBooleanValue("value", verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.value);
-        writer.writeAdditionalData(verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.additionalData);
+    writer.writeBooleanValue("value", verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.value);
+    writer.writeAdditionalData(verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.additionalData);
 }
 export interface VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse extends AdditionalDataHolder, Parsable {
     /**

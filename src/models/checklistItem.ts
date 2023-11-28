@@ -36,11 +36,11 @@ export function deserializeIntoChecklistItem(checklistItem: ChecklistItem | unde
     }
 }
 export function serializeChecklistItem(writer: SerializationWriter, checklistItem: ChecklistItem | undefined = {} as ChecklistItem) : void {
-        serializeEntity(writer, checklistItem)
-        writer.writeDateValue("checkedDateTime", checklistItem.checkedDateTime);
-        writer.writeDateValue("createdDateTime", checklistItem.createdDateTime);
-        writer.writeStringValue("displayName", checklistItem.displayName);
-        writer.writeBooleanValue("isChecked", checklistItem.isChecked);
+    serializeEntity(writer, checklistItem)
+    writer.writeDateValue("checkedDateTime", checklistItem.checkedDateTime);
+    writer.writeDateValue("createdDateTime", checklistItem.createdDateTime);
+    writer.writeStringValue("displayName", checklistItem.displayName);
+    writer.writeBooleanValue("isChecked", checklistItem.isChecked);
 }
 // tslint:enable
 // eslint-enable

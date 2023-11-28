@@ -47,12 +47,12 @@ export interface PmtPostRequestBody extends AdditionalDataHolder, Parsable {
     type?: Json;
 }
 export function serializePmtPostRequestBody(writer: SerializationWriter, pmtPostRequestBody: PmtPostRequestBody | undefined = {} as PmtPostRequestBody) : void {
-        writer.writeObjectValue<Json>("fv", pmtPostRequestBody.fv, serializeJson);
-        writer.writeObjectValue<Json>("nper", pmtPostRequestBody.nper, serializeJson);
-        writer.writeObjectValue<Json>("pv", pmtPostRequestBody.pv, serializeJson);
-        writer.writeObjectValue<Json>("rate", pmtPostRequestBody.rate, serializeJson);
-        writer.writeObjectValue<Json>("type", pmtPostRequestBody.type, serializeJson);
-        writer.writeAdditionalData(pmtPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("fv", pmtPostRequestBody.fv, serializeJson);
+    writer.writeObjectValue<Json>("nper", pmtPostRequestBody.nper, serializeJson);
+    writer.writeObjectValue<Json>("pv", pmtPostRequestBody.pv, serializeJson);
+    writer.writeObjectValue<Json>("rate", pmtPostRequestBody.rate, serializeJson);
+    writer.writeObjectValue<Json>("type", pmtPostRequestBody.type, serializeJson);
+    writer.writeAdditionalData(pmtPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the pmt method.

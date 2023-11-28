@@ -29,9 +29,9 @@ export interface RemoveKeyPostRequestBody extends AdditionalDataHolder, Parsable
     proof?: string;
 }
 export function serializeRemoveKeyPostRequestBody(writer: SerializationWriter, removeKeyPostRequestBody: RemoveKeyPostRequestBody | undefined = {} as RemoveKeyPostRequestBody) : void {
-        writer.writeGuidValue("keyId", removeKeyPostRequestBody.keyId);
-        writer.writeStringValue("proof", removeKeyPostRequestBody.proof);
-        writer.writeAdditionalData(removeKeyPostRequestBody.additionalData);
+    writer.writeGuidValue("keyId", removeKeyPostRequestBody.keyId);
+    writer.writeStringValue("proof", removeKeyPostRequestBody.proof);
+    writer.writeAdditionalData(removeKeyPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

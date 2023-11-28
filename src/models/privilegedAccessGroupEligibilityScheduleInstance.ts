@@ -55,14 +55,14 @@ export interface PrivilegedAccessGroupEligibilityScheduleInstance extends Parsab
     principalId?: string;
 }
 export function serializePrivilegedAccessGroupEligibilityScheduleInstance(writer: SerializationWriter, privilegedAccessGroupEligibilityScheduleInstance: PrivilegedAccessGroupEligibilityScheduleInstance | undefined = {} as PrivilegedAccessGroupEligibilityScheduleInstance) : void {
-        serializePrivilegedAccessScheduleInstance(writer, privilegedAccessGroupEligibilityScheduleInstance)
-        writer.writeEnumValue<PrivilegedAccessGroupRelationships>("accessId", privilegedAccessGroupEligibilityScheduleInstance.accessId);
-        writer.writeStringValue("eligibilityScheduleId", privilegedAccessGroupEligibilityScheduleInstance.eligibilityScheduleId);
-        writer.writeObjectValue<Group>("group", privilegedAccessGroupEligibilityScheduleInstance.group, serializeGroup);
-        writer.writeStringValue("groupId", privilegedAccessGroupEligibilityScheduleInstance.groupId);
-        writer.writeEnumValue<PrivilegedAccessGroupMemberType>("memberType", privilegedAccessGroupEligibilityScheduleInstance.memberType);
-        writer.writeObjectValue<DirectoryObject>("principal", privilegedAccessGroupEligibilityScheduleInstance.principal, serializeDirectoryObject);
-        writer.writeStringValue("principalId", privilegedAccessGroupEligibilityScheduleInstance.principalId);
+    serializePrivilegedAccessScheduleInstance(writer, privilegedAccessGroupEligibilityScheduleInstance)
+    writer.writeEnumValue<PrivilegedAccessGroupRelationships>("accessId", privilegedAccessGroupEligibilityScheduleInstance.accessId);
+    writer.writeStringValue("eligibilityScheduleId", privilegedAccessGroupEligibilityScheduleInstance.eligibilityScheduleId);
+    writer.writeObjectValue<Group>("group", privilegedAccessGroupEligibilityScheduleInstance.group, serializeGroup);
+    writer.writeStringValue("groupId", privilegedAccessGroupEligibilityScheduleInstance.groupId);
+    writer.writeEnumValue<PrivilegedAccessGroupMemberType>("memberType", privilegedAccessGroupEligibilityScheduleInstance.memberType);
+    writer.writeObjectValue<DirectoryObject>("principal", privilegedAccessGroupEligibilityScheduleInstance.principal, serializeDirectoryObject);
+    writer.writeStringValue("principalId", privilegedAccessGroupEligibilityScheduleInstance.principalId);
 }
 // tslint:enable
 // eslint-enable

@@ -17,9 +17,9 @@ export function deserializeIntoVirtualEventSession(virtualEventSession: VirtualE
     }
 }
 export function serializeVirtualEventSession(writer: SerializationWriter, virtualEventSession: VirtualEventSession | undefined = {} as VirtualEventSession) : void {
-        serializeOnlineMeetingBase(writer, virtualEventSession)
-        writer.writeObjectValue<DateTimeTimeZone>("endDateTime", virtualEventSession.endDateTime, serializeDateTimeTimeZone);
-        writer.writeObjectValue<DateTimeTimeZone>("startDateTime", virtualEventSession.startDateTime, serializeDateTimeTimeZone);
+    serializeOnlineMeetingBase(writer, virtualEventSession)
+    writer.writeObjectValue<DateTimeTimeZone>("endDateTime", virtualEventSession.endDateTime, serializeDateTimeTimeZone);
+    writer.writeObjectValue<DateTimeTimeZone>("startDateTime", virtualEventSession.startDateTime, serializeDateTimeTimeZone);
 }
 export interface VirtualEventSession extends OnlineMeetingBase, Parsable {
     /**

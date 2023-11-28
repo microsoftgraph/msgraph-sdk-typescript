@@ -23,8 +23,8 @@ export interface PromotePostResponse extends AdditionalDataHolder, Parsable {
     value?: boolean;
 }
 export function serializePromotePostResponse(writer: SerializationWriter, promotePostResponse: PromotePostResponse | undefined = {} as PromotePostResponse) : void {
-        writer.writeBooleanValue("value", promotePostResponse.value);
-        writer.writeAdditionalData(promotePostResponse.additionalData);
+    writer.writeBooleanValue("value", promotePostResponse.value);
+    writer.writeAdditionalData(promotePostResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

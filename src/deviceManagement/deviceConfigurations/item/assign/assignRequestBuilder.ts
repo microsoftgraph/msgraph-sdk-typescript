@@ -43,12 +43,12 @@ export function deserializeIntoAssignPostResponse(assignPostResponse: AssignPost
     }
 }
 export function serializeAssignPostRequestBody(writer: SerializationWriter, assignPostRequestBody: AssignPostRequestBody | undefined = {} as AssignPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<DeviceConfigurationAssignment>("assignments", assignPostRequestBody.assignments, serializeDeviceConfigurationAssignment);
-        writer.writeAdditionalData(assignPostRequestBody.additionalData);
+    writer.writeCollectionOfObjectValues<DeviceConfigurationAssignment>("assignments", assignPostRequestBody.assignments, serializeDeviceConfigurationAssignment);
+    writer.writeAdditionalData(assignPostRequestBody.additionalData);
 }
 export function serializeAssignPostResponse(writer: SerializationWriter, assignPostResponse: AssignPostResponse | undefined = {} as AssignPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, assignPostResponse)
-        writer.writeCollectionOfObjectValues<DeviceConfigurationAssignment>("value", assignPostResponse.value, serializeDeviceConfigurationAssignment);
+    serializeBaseCollectionPaginationCountResponse(writer, assignPostResponse)
+    writer.writeCollectionOfObjectValues<DeviceConfigurationAssignment>("value", assignPostResponse.value, serializeDeviceConfigurationAssignment);
 }
 /**
  * Provides operations to call the assign method.

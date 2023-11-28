@@ -27,8 +27,8 @@ export interface EvenPostRequestBody extends AdditionalDataHolder, Parsable {
     number?: Json;
 }
 export function serializeEvenPostRequestBody(writer: SerializationWriter, evenPostRequestBody: EvenPostRequestBody | undefined = {} as EvenPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", evenPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(evenPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", evenPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(evenPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the even method.

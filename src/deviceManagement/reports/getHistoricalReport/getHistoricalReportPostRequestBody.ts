@@ -58,15 +58,15 @@ export interface GetHistoricalReportPostRequestBody extends AdditionalDataHolder
     top?: number;
 }
 export function serializeGetHistoricalReportPostRequestBody(writer: SerializationWriter, getHistoricalReportPostRequestBody: GetHistoricalReportPostRequestBody | undefined = {} as GetHistoricalReportPostRequestBody) : void {
-        writer.writeStringValue("filter", getHistoricalReportPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getHistoricalReportPostRequestBody.groupBy);
-        writer.writeStringValue("name", getHistoricalReportPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getHistoricalReportPostRequestBody.orderBy);
-        writer.writeStringValue("search", getHistoricalReportPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getHistoricalReportPostRequestBody.select);
-        writer.writeNumberValue("skip", getHistoricalReportPostRequestBody.skip);
-        writer.writeNumberValue("top", getHistoricalReportPostRequestBody.top);
-        writer.writeAdditionalData(getHistoricalReportPostRequestBody.additionalData);
+    writer.writeStringValue("filter", getHistoricalReportPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getHistoricalReportPostRequestBody.groupBy);
+    writer.writeStringValue("name", getHistoricalReportPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getHistoricalReportPostRequestBody.orderBy);
+    writer.writeStringValue("search", getHistoricalReportPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getHistoricalReportPostRequestBody.select);
+    writer.writeNumberValue("skip", getHistoricalReportPostRequestBody.skip);
+    writer.writeNumberValue("top", getHistoricalReportPostRequestBody.top);
+    writer.writeAdditionalData(getHistoricalReportPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -53,14 +53,14 @@ export interface PhysicalOfficeAddress extends AdditionalDataHolder, Parsable {
     street?: string;
 }
 export function serializePhysicalOfficeAddress(writer: SerializationWriter, physicalOfficeAddress: PhysicalOfficeAddress | undefined = {} as PhysicalOfficeAddress) : void {
-        writer.writeStringValue("city", physicalOfficeAddress.city);
-        writer.writeStringValue("countryOrRegion", physicalOfficeAddress.countryOrRegion);
-        writer.writeStringValue("@odata.type", physicalOfficeAddress.odataType);
-        writer.writeStringValue("officeLocation", physicalOfficeAddress.officeLocation);
-        writer.writeStringValue("postalCode", physicalOfficeAddress.postalCode);
-        writer.writeStringValue("state", physicalOfficeAddress.state);
-        writer.writeStringValue("street", physicalOfficeAddress.street);
-        writer.writeAdditionalData(physicalOfficeAddress.additionalData);
+    writer.writeStringValue("city", physicalOfficeAddress.city);
+    writer.writeStringValue("countryOrRegion", physicalOfficeAddress.countryOrRegion);
+    writer.writeStringValue("@odata.type", physicalOfficeAddress.odataType);
+    writer.writeStringValue("officeLocation", physicalOfficeAddress.officeLocation);
+    writer.writeStringValue("postalCode", physicalOfficeAddress.postalCode);
+    writer.writeStringValue("state", physicalOfficeAddress.state);
+    writer.writeStringValue("street", physicalOfficeAddress.street);
+    writer.writeAdditionalData(physicalOfficeAddress.additionalData);
 }
 // tslint:enable
 // eslint-enable

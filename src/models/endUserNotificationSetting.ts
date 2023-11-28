@@ -56,11 +56,11 @@ export interface EndUserNotificationSetting extends AdditionalDataHolder, Parsab
     settingType?: EndUserNotificationSettingType;
 }
 export function serializeEndUserNotificationSetting(writer: SerializationWriter, endUserNotificationSetting: EndUserNotificationSetting | undefined = {} as EndUserNotificationSetting) : void {
-        writer.writeEnumValue<EndUserNotificationPreference>("notificationPreference", endUserNotificationSetting.notificationPreference);
-        writer.writeStringValue("@odata.type", endUserNotificationSetting.odataType);
-        writer.writeObjectValue<PositiveReinforcementNotification>("positiveReinforcement", endUserNotificationSetting.positiveReinforcement, serializePositiveReinforcementNotification);
-        writer.writeEnumValue<EndUserNotificationSettingType>("settingType", endUserNotificationSetting.settingType);
-        writer.writeAdditionalData(endUserNotificationSetting.additionalData);
+    writer.writeEnumValue<EndUserNotificationPreference>("notificationPreference", endUserNotificationSetting.notificationPreference);
+    writer.writeStringValue("@odata.type", endUserNotificationSetting.odataType);
+    writer.writeObjectValue<PositiveReinforcementNotification>("positiveReinforcement", endUserNotificationSetting.positiveReinforcement, serializePositiveReinforcementNotification);
+    writer.writeEnumValue<EndUserNotificationSettingType>("settingType", endUserNotificationSetting.settingType);
+    writer.writeAdditionalData(endUserNotificationSetting.additionalData);
 }
 // tslint:enable
 // eslint-enable

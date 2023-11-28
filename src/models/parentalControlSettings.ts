@@ -33,10 +33,10 @@ export interface ParentalControlSettings extends AdditionalDataHolder, Parsable 
     odataType?: string;
 }
 export function serializeParentalControlSettings(writer: SerializationWriter, parentalControlSettings: ParentalControlSettings | undefined = {} as ParentalControlSettings) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("countriesBlockedForMinors", parentalControlSettings.countriesBlockedForMinors);
-        writer.writeStringValue("legalAgeGroupRule", parentalControlSettings.legalAgeGroupRule);
-        writer.writeStringValue("@odata.type", parentalControlSettings.odataType);
-        writer.writeAdditionalData(parentalControlSettings.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("countriesBlockedForMinors", parentalControlSettings.countriesBlockedForMinors);
+    writer.writeStringValue("legalAgeGroupRule", parentalControlSettings.legalAgeGroupRule);
+    writer.writeStringValue("@odata.type", parentalControlSettings.odataType);
+    writer.writeAdditionalData(parentalControlSettings.additionalData);
 }
 // tslint:enable
 // eslint-enable

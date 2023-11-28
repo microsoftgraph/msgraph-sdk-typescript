@@ -34,10 +34,10 @@ export interface Folder extends AdditionalDataHolder, Parsable {
     view?: FolderView;
 }
 export function serializeFolder(writer: SerializationWriter, folder: Folder | undefined = {} as Folder) : void {
-        writer.writeNumberValue("childCount", folder.childCount);
-        writer.writeStringValue("@odata.type", folder.odataType);
-        writer.writeObjectValue<FolderView>("view", folder.view, serializeFolderView);
-        writer.writeAdditionalData(folder.additionalData);
+    writer.writeNumberValue("childCount", folder.childCount);
+    writer.writeStringValue("@odata.type", folder.odataType);
+    writer.writeObjectValue<FolderView>("view", folder.view, serializeFolderView);
+    writer.writeAdditionalData(folder.additionalData);
 }
 // tslint:enable
 // eslint-enable

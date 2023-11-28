@@ -29,9 +29,9 @@ export interface LeftbPostRequestBody extends AdditionalDataHolder, Parsable {
     text?: Json;
 }
 export function serializeLeftbPostRequestBody(writer: SerializationWriter, leftbPostRequestBody: LeftbPostRequestBody | undefined = {} as LeftbPostRequestBody) : void {
-        writer.writeObjectValue<Json>("numBytes", leftbPostRequestBody.numBytes, serializeJson);
-        writer.writeObjectValue<Json>("text", leftbPostRequestBody.text, serializeJson);
-        writer.writeAdditionalData(leftbPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("numBytes", leftbPostRequestBody.numBytes, serializeJson);
+    writer.writeObjectValue<Json>("text", leftbPostRequestBody.text, serializeJson);
+    writer.writeAdditionalData(leftbPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

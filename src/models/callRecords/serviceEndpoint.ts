@@ -14,7 +14,7 @@ export function deserializeIntoServiceEndpoint(serviceEndpoint: ServiceEndpoint 
     }
 }
 export function serializeServiceEndpoint(writer: SerializationWriter, serviceEndpoint: ServiceEndpoint | undefined = {} as ServiceEndpoint) : void {
-        serializeEndpoint(writer, serviceEndpoint)
+    serializeEndpoint(writer, serviceEndpoint)
 }
 export interface ServiceEndpoint extends Endpoint, Parsable {
 }

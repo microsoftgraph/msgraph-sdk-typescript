@@ -28,9 +28,9 @@ export interface PackageEscaped extends AdditionalDataHolder, Parsable {
     type?: string;
 }
 export function serializePackageEscaped(writer: SerializationWriter, packageEscaped: PackageEscaped | undefined = {} as PackageEscaped) : void {
-        writer.writeStringValue("@odata.type", packageEscaped.odataType);
-        writer.writeStringValue("type", packageEscaped.type);
-        writer.writeAdditionalData(packageEscaped.additionalData);
+    writer.writeStringValue("@odata.type", packageEscaped.odataType);
+    writer.writeStringValue("type", packageEscaped.type);
+    writer.writeAdditionalData(packageEscaped.additionalData);
 }
 // tslint:enable
 // eslint-enable

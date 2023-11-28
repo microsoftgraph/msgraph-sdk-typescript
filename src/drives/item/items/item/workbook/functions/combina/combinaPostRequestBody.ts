@@ -29,9 +29,9 @@ export function deserializeIntoCombinaPostRequestBody(combinaPostRequestBody: Co
     }
 }
 export function serializeCombinaPostRequestBody(writer: SerializationWriter, combinaPostRequestBody: CombinaPostRequestBody | undefined = {} as CombinaPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", combinaPostRequestBody.number, serializeJson);
-        writer.writeObjectValue<Json>("numberChosen", combinaPostRequestBody.numberChosen, serializeJson);
-        writer.writeAdditionalData(combinaPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", combinaPostRequestBody.number, serializeJson);
+    writer.writeObjectValue<Json>("numberChosen", combinaPostRequestBody.numberChosen, serializeJson);
+    writer.writeAdditionalData(combinaPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

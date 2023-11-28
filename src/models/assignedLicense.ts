@@ -34,10 +34,10 @@ export function deserializeIntoAssignedLicense(assignedLicense: AssignedLicense 
     }
 }
 export function serializeAssignedLicense(writer: SerializationWriter, assignedLicense: AssignedLicense | undefined = {} as AssignedLicense) : void {
-        writer.writeCollectionOfPrimitiveValues<Guid>("disabledPlans", assignedLicense.disabledPlans);
-        writer.writeStringValue("@odata.type", assignedLicense.odataType);
-        writer.writeGuidValue("skuId", assignedLicense.skuId);
-        writer.writeAdditionalData(assignedLicense.additionalData);
+    writer.writeCollectionOfPrimitiveValues<Guid>("disabledPlans", assignedLicense.disabledPlans);
+    writer.writeStringValue("@odata.type", assignedLicense.odataType);
+    writer.writeGuidValue("skuId", assignedLicense.skuId);
+    writer.writeAdditionalData(assignedLicense.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -27,8 +27,8 @@ export function deserializeIntoConcatenatePostRequestBody(concatenatePostRequest
     }
 }
 export function serializeConcatenatePostRequestBody(writer: SerializationWriter, concatenatePostRequestBody: ConcatenatePostRequestBody | undefined = {} as ConcatenatePostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", concatenatePostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(concatenatePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", concatenatePostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(concatenatePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the concatenate method.

@@ -15,10 +15,10 @@ export function deserializeIntoSortProperty(sortProperty: SortProperty | undefin
     }
 }
 export function serializeSortProperty(writer: SerializationWriter, sortProperty: SortProperty | undefined = {} as SortProperty) : void {
-        writer.writeBooleanValue("isDescending", sortProperty.isDescending);
-        writer.writeStringValue("name", sortProperty.name);
-        writer.writeStringValue("@odata.type", sortProperty.odataType);
-        writer.writeAdditionalData(sortProperty.additionalData);
+    writer.writeBooleanValue("isDescending", sortProperty.isDescending);
+    writer.writeStringValue("name", sortProperty.name);
+    writer.writeStringValue("@odata.type", sortProperty.odataType);
+    writer.writeAdditionalData(sortProperty.additionalData);
 }
 export interface SortProperty extends AdditionalDataHolder, Parsable {
     /**

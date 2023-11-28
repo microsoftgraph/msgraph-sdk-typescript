@@ -14,9 +14,9 @@ export function deserializeIntoUnifiedRole(unifiedRole: UnifiedRole | undefined 
     }
 }
 export function serializeUnifiedRole(writer: SerializationWriter, unifiedRole: UnifiedRole | undefined = {} as UnifiedRole) : void {
-        writer.writeStringValue("@odata.type", unifiedRole.odataType);
-        writer.writeStringValue("roleDefinitionId", unifiedRole.roleDefinitionId);
-        writer.writeAdditionalData(unifiedRole.additionalData);
+    writer.writeStringValue("@odata.type", unifiedRole.odataType);
+    writer.writeStringValue("roleDefinitionId", unifiedRole.roleDefinitionId);
+    writer.writeAdditionalData(unifiedRole.additionalData);
 }
 export interface UnifiedRole extends AdditionalDataHolder, Parsable {
     /**

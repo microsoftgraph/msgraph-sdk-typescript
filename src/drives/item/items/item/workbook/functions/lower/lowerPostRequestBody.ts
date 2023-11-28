@@ -24,8 +24,8 @@ export interface LowerPostRequestBody extends AdditionalDataHolder, Parsable {
     text?: Json;
 }
 export function serializeLowerPostRequestBody(writer: SerializationWriter, lowerPostRequestBody: LowerPostRequestBody | undefined = {} as LowerPostRequestBody) : void {
-        writer.writeObjectValue<Json>("text", lowerPostRequestBody.text, serializeJson);
-        writer.writeAdditionalData(lowerPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("text", lowerPostRequestBody.text, serializeJson);
+    writer.writeAdditionalData(lowerPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

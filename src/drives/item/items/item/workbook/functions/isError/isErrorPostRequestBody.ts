@@ -24,8 +24,8 @@ export interface IsErrorPostRequestBody extends AdditionalDataHolder, Parsable {
     value?: Json;
 }
 export function serializeIsErrorPostRequestBody(writer: SerializationWriter, isErrorPostRequestBody: IsErrorPostRequestBody | undefined = {} as IsErrorPostRequestBody) : void {
-        writer.writeObjectValue<Json>("value", isErrorPostRequestBody.value, serializeJson);
-        writer.writeAdditionalData(isErrorPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("value", isErrorPostRequestBody.value, serializeJson);
+    writer.writeAdditionalData(isErrorPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

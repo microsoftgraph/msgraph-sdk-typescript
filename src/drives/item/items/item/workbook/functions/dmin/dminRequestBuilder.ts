@@ -37,10 +37,10 @@ export interface DminPostRequestBody extends AdditionalDataHolder, Parsable {
     field?: Json;
 }
 export function serializeDminPostRequestBody(writer: SerializationWriter, dminPostRequestBody: DminPostRequestBody | undefined = {} as DminPostRequestBody) : void {
-        writer.writeObjectValue<Json>("criteria", dminPostRequestBody.criteria, serializeJson);
-        writer.writeObjectValue<Json>("database", dminPostRequestBody.database, serializeJson);
-        writer.writeObjectValue<Json>("field", dminPostRequestBody.field, serializeJson);
-        writer.writeAdditionalData(dminPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("criteria", dminPostRequestBody.criteria, serializeJson);
+    writer.writeObjectValue<Json>("database", dminPostRequestBody.database, serializeJson);
+    writer.writeObjectValue<Json>("field", dminPostRequestBody.field, serializeJson);
+    writer.writeAdditionalData(dminPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the dmin method.

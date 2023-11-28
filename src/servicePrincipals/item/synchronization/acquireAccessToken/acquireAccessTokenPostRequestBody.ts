@@ -24,8 +24,8 @@ export function deserializeIntoAcquireAccessTokenPostRequestBody(acquireAccessTo
     }
 }
 export function serializeAcquireAccessTokenPostRequestBody(writer: SerializationWriter, acquireAccessTokenPostRequestBody: AcquireAccessTokenPostRequestBody | undefined = {} as AcquireAccessTokenPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("credentials", acquireAccessTokenPostRequestBody.credentials, serializeSynchronizationSecretKeyStringValuePair);
-        writer.writeAdditionalData(acquireAccessTokenPostRequestBody.additionalData);
+    writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("credentials", acquireAccessTokenPostRequestBody.credentials, serializeSynchronizationSecretKeyStringValuePair);
+    writer.writeAdditionalData(acquireAccessTokenPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

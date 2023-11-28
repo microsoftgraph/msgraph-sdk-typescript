@@ -67,11 +67,11 @@ export class RoleDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RoleDefinition>(requestInfo, createRoleDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a roleDefinition object.
+     * Update the properties of a deviceAndAppManagementRoleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RoleDefinition
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: RoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RoleDefinition | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -106,7 +106,7 @@ export class RoleDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a roleDefinition object.
+     * Update the properties of a deviceAndAppManagementRoleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

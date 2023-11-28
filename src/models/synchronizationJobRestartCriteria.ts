@@ -15,9 +15,9 @@ export function deserializeIntoSynchronizationJobRestartCriteria(synchronization
     }
 }
 export function serializeSynchronizationJobRestartCriteria(writer: SerializationWriter, synchronizationJobRestartCriteria: SynchronizationJobRestartCriteria | undefined = {} as SynchronizationJobRestartCriteria) : void {
-        writer.writeStringValue("@odata.type", synchronizationJobRestartCriteria.odataType);
-        writer.writeEnumValue<SynchronizationJobRestartScope[]>("resetScope", synchronizationJobRestartCriteria.resetScope);
-        writer.writeAdditionalData(synchronizationJobRestartCriteria.additionalData);
+    writer.writeStringValue("@odata.type", synchronizationJobRestartCriteria.odataType);
+    writer.writeEnumValue<SynchronizationJobRestartScope[]>("resetScope", synchronizationJobRestartCriteria.resetScope);
+    writer.writeAdditionalData(synchronizationJobRestartCriteria.additionalData);
 }
 export interface SynchronizationJobRestartCriteria extends AdditionalDataHolder, Parsable {
     /**

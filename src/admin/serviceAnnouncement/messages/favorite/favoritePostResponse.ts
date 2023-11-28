@@ -23,8 +23,8 @@ export interface FavoritePostResponse extends AdditionalDataHolder, Parsable {
     value?: boolean;
 }
 export function serializeFavoritePostResponse(writer: SerializationWriter, favoritePostResponse: FavoritePostResponse | undefined = {} as FavoritePostResponse) : void {
-        writer.writeBooleanValue("value", favoritePostResponse.value);
-        writer.writeAdditionalData(favoritePostResponse.additionalData);
+    writer.writeBooleanValue("value", favoritePostResponse.value);
+    writer.writeAdditionalData(favoritePostResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

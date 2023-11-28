@@ -14,8 +14,8 @@ export function deserializeIntoTimevaluePostRequestBody(timevaluePostRequestBody
     }
 }
 export function serializeTimevaluePostRequestBody(writer: SerializationWriter, timevaluePostRequestBody: TimevaluePostRequestBody | undefined = {} as TimevaluePostRequestBody) : void {
-        writer.writeObjectValue<Json>("timeText", timevaluePostRequestBody.timeText, serializeJson);
-        writer.writeAdditionalData(timevaluePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("timeText", timevaluePostRequestBody.timeText, serializeJson);
+    writer.writeAdditionalData(timevaluePostRequestBody.additionalData);
 }
 export interface TimevaluePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

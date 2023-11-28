@@ -44,12 +44,12 @@ export function deserializeIntoBeta_InvPostRequestBody(beta_InvPostRequestBody: 
     }
 }
 export function serializeBeta_InvPostRequestBody(writer: SerializationWriter, beta_InvPostRequestBody: Beta_InvPostRequestBody | undefined = {} as Beta_InvPostRequestBody) : void {
-        writer.writeObjectValue<Json>("A", beta_InvPostRequestBody.a, serializeJson);
-        writer.writeObjectValue<Json>("alpha", beta_InvPostRequestBody.alpha, serializeJson);
-        writer.writeObjectValue<Json>("B", beta_InvPostRequestBody.b, serializeJson);
-        writer.writeObjectValue<Json>("beta", beta_InvPostRequestBody.beta, serializeJson);
-        writer.writeObjectValue<Json>("probability", beta_InvPostRequestBody.probability, serializeJson);
-        writer.writeAdditionalData(beta_InvPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("A", beta_InvPostRequestBody.a, serializeJson);
+    writer.writeObjectValue<Json>("alpha", beta_InvPostRequestBody.alpha, serializeJson);
+    writer.writeObjectValue<Json>("B", beta_InvPostRequestBody.b, serializeJson);
+    writer.writeObjectValue<Json>("beta", beta_InvPostRequestBody.beta, serializeJson);
+    writer.writeObjectValue<Json>("probability", beta_InvPostRequestBody.probability, serializeJson);
+    writer.writeAdditionalData(beta_InvPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -23,8 +23,8 @@ export function deserializeIntoApplyHoldPostRequestBody(applyHoldPostRequestBody
     }
 }
 export function serializeApplyHoldPostRequestBody(writer: SerializationWriter, applyHoldPostRequestBody: ApplyHoldPostRequestBody | undefined = {} as ApplyHoldPostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("ids", applyHoldPostRequestBody.ids);
-        writer.writeAdditionalData(applyHoldPostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("ids", applyHoldPostRequestBody.ids);
+    writer.writeAdditionalData(applyHoldPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

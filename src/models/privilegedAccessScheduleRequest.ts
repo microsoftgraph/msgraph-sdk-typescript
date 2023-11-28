@@ -59,12 +59,12 @@ export interface PrivilegedAccessScheduleRequest extends Parsable, Request {
     ticketInfo?: TicketInfo;
 }
 export function serializePrivilegedAccessScheduleRequest(writer: SerializationWriter, privilegedAccessScheduleRequest: PrivilegedAccessScheduleRequest | undefined = {} as PrivilegedAccessScheduleRequest) : void {
-        serializeRequest(writer, privilegedAccessScheduleRequest)
-        writer.writeEnumValue<ScheduleRequestActions>("action", privilegedAccessScheduleRequest.action);
-        writer.writeBooleanValue("isValidationOnly", privilegedAccessScheduleRequest.isValidationOnly);
-        writer.writeStringValue("justification", privilegedAccessScheduleRequest.justification);
-        writer.writeObjectValue<RequestSchedule>("scheduleInfo", privilegedAccessScheduleRequest.scheduleInfo, serializeRequestSchedule);
-        writer.writeObjectValue<TicketInfo>("ticketInfo", privilegedAccessScheduleRequest.ticketInfo, serializeTicketInfo);
+    serializeRequest(writer, privilegedAccessScheduleRequest)
+    writer.writeEnumValue<ScheduleRequestActions>("action", privilegedAccessScheduleRequest.action);
+    writer.writeBooleanValue("isValidationOnly", privilegedAccessScheduleRequest.isValidationOnly);
+    writer.writeStringValue("justification", privilegedAccessScheduleRequest.justification);
+    writer.writeObjectValue<RequestSchedule>("scheduleInfo", privilegedAccessScheduleRequest.scheduleInfo, serializeRequestSchedule);
+    writer.writeObjectValue<TicketInfo>("ticketInfo", privilegedAccessScheduleRequest.ticketInfo, serializeTicketInfo);
 }
 // tslint:enable
 // eslint-enable

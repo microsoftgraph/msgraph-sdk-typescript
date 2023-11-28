@@ -29,9 +29,9 @@ export interface Iso_CeilingPostRequestBody extends AdditionalDataHolder, Parsab
     significance?: Json;
 }
 export function serializeIso_CeilingPostRequestBody(writer: SerializationWriter, iso_CeilingPostRequestBody: Iso_CeilingPostRequestBody | undefined = {} as Iso_CeilingPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", iso_CeilingPostRequestBody.number, serializeJson);
-        writer.writeObjectValue<Json>("significance", iso_CeilingPostRequestBody.significance, serializeJson);
-        writer.writeAdditionalData(iso_CeilingPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", iso_CeilingPostRequestBody.number, serializeJson);
+    writer.writeObjectValue<Json>("significance", iso_CeilingPostRequestBody.significance, serializeJson);
+    writer.writeAdditionalData(iso_CeilingPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

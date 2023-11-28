@@ -27,8 +27,8 @@ export function deserializeIntoAcosPostRequestBody(acosPostRequestBody: AcosPost
     }
 }
 export function serializeAcosPostRequestBody(writer: SerializationWriter, acosPostRequestBody: AcosPostRequestBody | undefined = {} as AcosPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", acosPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(acosPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", acosPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(acosPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the acos method.

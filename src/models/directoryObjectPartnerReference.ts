@@ -37,11 +37,11 @@ export interface DirectoryObjectPartnerReference extends DirectoryObject, Parsab
     objectType?: string;
 }
 export function serializeDirectoryObjectPartnerReference(writer: SerializationWriter, directoryObjectPartnerReference: DirectoryObjectPartnerReference | undefined = {} as DirectoryObjectPartnerReference) : void {
-        serializeDirectoryObject(writer, directoryObjectPartnerReference)
-        writer.writeStringValue("description", directoryObjectPartnerReference.description);
-        writer.writeStringValue("displayName", directoryObjectPartnerReference.displayName);
-        writer.writeGuidValue("externalPartnerTenantId", directoryObjectPartnerReference.externalPartnerTenantId);
-        writer.writeStringValue("objectType", directoryObjectPartnerReference.objectType);
+    serializeDirectoryObject(writer, directoryObjectPartnerReference)
+    writer.writeStringValue("description", directoryObjectPartnerReference.description);
+    writer.writeStringValue("displayName", directoryObjectPartnerReference.displayName);
+    writer.writeGuidValue("externalPartnerTenantId", directoryObjectPartnerReference.externalPartnerTenantId);
+    writer.writeStringValue("objectType", directoryObjectPartnerReference.objectType);
 }
 // tslint:enable
 // eslint-enable

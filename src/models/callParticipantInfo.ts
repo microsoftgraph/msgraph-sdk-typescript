@@ -29,9 +29,9 @@ export function deserializeIntoCallParticipantInfo(callParticipantInfo: CallPart
     }
 }
 export function serializeCallParticipantInfo(writer: SerializationWriter, callParticipantInfo: CallParticipantInfo | undefined = {} as CallParticipantInfo) : void {
-        writer.writeStringValue("@odata.type", callParticipantInfo.odataType);
-        writer.writeObjectValue<IdentitySet>("participant", callParticipantInfo.participant, serializeIdentitySet);
-        writer.writeAdditionalData(callParticipantInfo.additionalData);
+    writer.writeStringValue("@odata.type", callParticipantInfo.odataType);
+    writer.writeObjectValue<IdentitySet>("participant", callParticipantInfo.participant, serializeIdentitySet);
+    writer.writeAdditionalData(callParticipantInfo.additionalData);
 }
 // tslint:enable
 // eslint-enable

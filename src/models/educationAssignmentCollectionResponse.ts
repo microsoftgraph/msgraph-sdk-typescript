@@ -22,8 +22,8 @@ export interface EducationAssignmentCollectionResponse extends BaseCollectionPag
     value?: EducationAssignment[];
 }
 export function serializeEducationAssignmentCollectionResponse(writer: SerializationWriter, educationAssignmentCollectionResponse: EducationAssignmentCollectionResponse | undefined = {} as EducationAssignmentCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, educationAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<EducationAssignment>("value", educationAssignmentCollectionResponse.value, serializeEducationAssignment);
+    serializeBaseCollectionPaginationCountResponse(writer, educationAssignmentCollectionResponse)
+    writer.writeCollectionOfObjectValues<EducationAssignment>("value", educationAssignmentCollectionResponse.value, serializeEducationAssignment);
 }
 // tslint:enable
 // eslint-enable

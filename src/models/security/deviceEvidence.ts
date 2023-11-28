@@ -102,23 +102,23 @@ export interface DeviceEvidence extends AlertEvidence, Parsable {
     vmMetadata?: VmMetadata;
 }
 export function serializeDeviceEvidence(writer: SerializationWriter, deviceEvidence: DeviceEvidence | undefined = {} as DeviceEvidence) : void {
-        serializeAlertEvidence(writer, deviceEvidence)
-        writer.writeStringValue("azureAdDeviceId", deviceEvidence.azureAdDeviceId);
-        writer.writeEnumValue<DefenderAvStatus>("defenderAvStatus", deviceEvidence.defenderAvStatus);
-        writer.writeStringValue("deviceDnsName", deviceEvidence.deviceDnsName);
-        writer.writeDateValue("firstSeenDateTime", deviceEvidence.firstSeenDateTime);
-        writer.writeEnumValue<DeviceHealthStatus>("healthStatus", deviceEvidence.healthStatus);
-        writer.writeCollectionOfPrimitiveValues<string>("ipInterfaces", deviceEvidence.ipInterfaces);
-        writer.writeCollectionOfObjectValues<LoggedOnUser>("loggedOnUsers", deviceEvidence.loggedOnUsers, serializeLoggedOnUser);
-        writer.writeStringValue("mdeDeviceId", deviceEvidence.mdeDeviceId);
-        writer.writeEnumValue<OnboardingStatus>("onboardingStatus", deviceEvidence.onboardingStatus);
-        writer.writeNumberValue("osBuild", deviceEvidence.osBuild);
-        writer.writeStringValue("osPlatform", deviceEvidence.osPlatform);
-        writer.writeNumberValue("rbacGroupId", deviceEvidence.rbacGroupId);
-        writer.writeStringValue("rbacGroupName", deviceEvidence.rbacGroupName);
-        writer.writeEnumValue<DeviceRiskScore>("riskScore", deviceEvidence.riskScore);
-        writer.writeStringValue("version", deviceEvidence.version);
-        writer.writeObjectValue<VmMetadata>("vmMetadata", deviceEvidence.vmMetadata, serializeVmMetadata);
+    serializeAlertEvidence(writer, deviceEvidence)
+    writer.writeStringValue("azureAdDeviceId", deviceEvidence.azureAdDeviceId);
+    writer.writeEnumValue<DefenderAvStatus>("defenderAvStatus", deviceEvidence.defenderAvStatus);
+    writer.writeStringValue("deviceDnsName", deviceEvidence.deviceDnsName);
+    writer.writeDateValue("firstSeenDateTime", deviceEvidence.firstSeenDateTime);
+    writer.writeEnumValue<DeviceHealthStatus>("healthStatus", deviceEvidence.healthStatus);
+    writer.writeCollectionOfPrimitiveValues<string>("ipInterfaces", deviceEvidence.ipInterfaces);
+    writer.writeCollectionOfObjectValues<LoggedOnUser>("loggedOnUsers", deviceEvidence.loggedOnUsers, serializeLoggedOnUser);
+    writer.writeStringValue("mdeDeviceId", deviceEvidence.mdeDeviceId);
+    writer.writeEnumValue<OnboardingStatus>("onboardingStatus", deviceEvidence.onboardingStatus);
+    writer.writeNumberValue("osBuild", deviceEvidence.osBuild);
+    writer.writeStringValue("osPlatform", deviceEvidence.osPlatform);
+    writer.writeNumberValue("rbacGroupId", deviceEvidence.rbacGroupId);
+    writer.writeStringValue("rbacGroupName", deviceEvidence.rbacGroupName);
+    writer.writeEnumValue<DeviceRiskScore>("riskScore", deviceEvidence.riskScore);
+    writer.writeStringValue("version", deviceEvidence.version);
+    writer.writeObjectValue<VmMetadata>("vmMetadata", deviceEvidence.vmMetadata, serializeVmMetadata);
 }
 // tslint:enable
 // eslint-enable

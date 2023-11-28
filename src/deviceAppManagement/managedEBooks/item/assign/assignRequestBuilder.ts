@@ -26,8 +26,8 @@ export function deserializeIntoAssignPostRequestBody(assignPostRequestBody: Assi
     }
 }
 export function serializeAssignPostRequestBody(writer: SerializationWriter, assignPostRequestBody: AssignPostRequestBody | undefined = {} as AssignPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<ManagedEBookAssignment>("managedEBookAssignments", assignPostRequestBody.managedEBookAssignments, serializeManagedEBookAssignment);
-        writer.writeAdditionalData(assignPostRequestBody.additionalData);
+    writer.writeCollectionOfObjectValues<ManagedEBookAssignment>("managedEBookAssignments", assignPostRequestBody.managedEBookAssignments, serializeManagedEBookAssignment);
+    writer.writeAdditionalData(assignPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the assign method.

@@ -24,15 +24,15 @@ export function deserializeIntoVirtualEventRegistration(virtualEventRegistration
     }
 }
 export function serializeVirtualEventRegistration(writer: SerializationWriter, virtualEventRegistration: VirtualEventRegistration | undefined = {} as VirtualEventRegistration) : void {
-        serializeEntity(writer, virtualEventRegistration)
-        writer.writeDateValue("cancelationDateTime", virtualEventRegistration.cancelationDateTime);
-        writer.writeStringValue("email", virtualEventRegistration.email);
-        writer.writeStringValue("firstName", virtualEventRegistration.firstName);
-        writer.writeStringValue("lastName", virtualEventRegistration.lastName);
-        writer.writeDateValue("registrationDateTime", virtualEventRegistration.registrationDateTime);
-        writer.writeCollectionOfObjectValues<VirtualEventRegistrationQuestionAnswer>("registrationQuestionAnswers", virtualEventRegistration.registrationQuestionAnswers, serializeVirtualEventRegistrationQuestionAnswer);
-        writer.writeEnumValue<VirtualEventAttendeeRegistrationStatus>("status", virtualEventRegistration.status);
-        writer.writeStringValue("userId", virtualEventRegistration.userId);
+    serializeEntity(writer, virtualEventRegistration)
+    writer.writeDateValue("cancelationDateTime", virtualEventRegistration.cancelationDateTime);
+    writer.writeStringValue("email", virtualEventRegistration.email);
+    writer.writeStringValue("firstName", virtualEventRegistration.firstName);
+    writer.writeStringValue("lastName", virtualEventRegistration.lastName);
+    writer.writeDateValue("registrationDateTime", virtualEventRegistration.registrationDateTime);
+    writer.writeCollectionOfObjectValues<VirtualEventRegistrationQuestionAnswer>("registrationQuestionAnswers", virtualEventRegistration.registrationQuestionAnswers, serializeVirtualEventRegistrationQuestionAnswer);
+    writer.writeEnumValue<VirtualEventAttendeeRegistrationStatus>("status", virtualEventRegistration.status);
+    writer.writeStringValue("userId", virtualEventRegistration.userId);
 }
 export interface VirtualEventRegistration extends Entity, Parsable {
     /**

@@ -27,8 +27,8 @@ export interface GammaLn_PrecisePostRequestBody extends AdditionalDataHolder, Pa
     x?: Json;
 }
 export function serializeGammaLn_PrecisePostRequestBody(writer: SerializationWriter, gammaLn_PrecisePostRequestBody: GammaLn_PrecisePostRequestBody | undefined = {} as GammaLn_PrecisePostRequestBody) : void {
-        writer.writeObjectValue<Json>("x", gammaLn_PrecisePostRequestBody.x, serializeJson);
-        writer.writeAdditionalData(gammaLn_PrecisePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("x", gammaLn_PrecisePostRequestBody.x, serializeJson);
+    writer.writeAdditionalData(gammaLn_PrecisePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the gammaLn_Precise method.

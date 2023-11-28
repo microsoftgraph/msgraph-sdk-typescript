@@ -29,9 +29,9 @@ export function deserializeIntoBin2OctPostRequestBody(bin2OctPostRequestBody: Bi
     }
 }
 export function serializeBin2OctPostRequestBody(writer: SerializationWriter, bin2OctPostRequestBody: Bin2OctPostRequestBody | undefined = {} as Bin2OctPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", bin2OctPostRequestBody.number, serializeJson);
-        writer.writeObjectValue<Json>("places", bin2OctPostRequestBody.places, serializeJson);
-        writer.writeAdditionalData(bin2OctPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", bin2OctPostRequestBody.number, serializeJson);
+    writer.writeObjectValue<Json>("places", bin2OctPostRequestBody.places, serializeJson);
+    writer.writeAdditionalData(bin2OctPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -17,11 +17,11 @@ export function deserializeIntoSeriesSumPostRequestBody(seriesSumPostRequestBody
     }
 }
 export function serializeSeriesSumPostRequestBody(writer: SerializationWriter, seriesSumPostRequestBody: SeriesSumPostRequestBody | undefined = {} as SeriesSumPostRequestBody) : void {
-        writer.writeObjectValue<Json>("coefficients", seriesSumPostRequestBody.coefficients, serializeJson);
-        writer.writeObjectValue<Json>("m", seriesSumPostRequestBody.m, serializeJson);
-        writer.writeObjectValue<Json>("n", seriesSumPostRequestBody.n, serializeJson);
-        writer.writeObjectValue<Json>("x", seriesSumPostRequestBody.x, serializeJson);
-        writer.writeAdditionalData(seriesSumPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("coefficients", seriesSumPostRequestBody.coefficients, serializeJson);
+    writer.writeObjectValue<Json>("m", seriesSumPostRequestBody.m, serializeJson);
+    writer.writeObjectValue<Json>("n", seriesSumPostRequestBody.n, serializeJson);
+    writer.writeObjectValue<Json>("x", seriesSumPostRequestBody.x, serializeJson);
+    writer.writeAdditionalData(seriesSumPostRequestBody.additionalData);
 }
 export interface SeriesSumPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

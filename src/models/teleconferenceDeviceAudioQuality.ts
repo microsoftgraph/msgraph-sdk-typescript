@@ -14,7 +14,7 @@ export function deserializeIntoTeleconferenceDeviceAudioQuality(teleconferenceDe
     }
 }
 export function serializeTeleconferenceDeviceAudioQuality(writer: SerializationWriter, teleconferenceDeviceAudioQuality: TeleconferenceDeviceAudioQuality | undefined = {} as TeleconferenceDeviceAudioQuality) : void {
-        serializeTeleconferenceDeviceMediaQuality(writer, teleconferenceDeviceAudioQuality)
+    serializeTeleconferenceDeviceMediaQuality(writer, teleconferenceDeviceAudioQuality)
 }
 export interface TeleconferenceDeviceAudioQuality extends Parsable, TeleconferenceDeviceMediaQuality {
 }

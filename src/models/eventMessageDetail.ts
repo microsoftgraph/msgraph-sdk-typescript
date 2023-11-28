@@ -122,8 +122,8 @@ export interface EventMessageDetail extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeEventMessageDetail(writer: SerializationWriter, eventMessageDetail: EventMessageDetail | undefined = {} as EventMessageDetail) : void {
-        writer.writeStringValue("@odata.type", eventMessageDetail.odataType);
-        writer.writeAdditionalData(eventMessageDetail.additionalData);
+    writer.writeStringValue("@odata.type", eventMessageDetail.odataType);
+    writer.writeAdditionalData(eventMessageDetail.additionalData);
 }
 // tslint:enable
 // eslint-enable

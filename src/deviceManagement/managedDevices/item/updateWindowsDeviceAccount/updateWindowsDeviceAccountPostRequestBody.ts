@@ -14,8 +14,8 @@ export function deserializeIntoUpdateWindowsDeviceAccountPostRequestBody(updateW
     }
 }
 export function serializeUpdateWindowsDeviceAccountPostRequestBody(writer: SerializationWriter, updateWindowsDeviceAccountPostRequestBody: UpdateWindowsDeviceAccountPostRequestBody | undefined = {} as UpdateWindowsDeviceAccountPostRequestBody) : void {
-        writer.writeObjectValue<UpdateWindowsDeviceAccountActionParameter>("updateWindowsDeviceAccountActionParameter", updateWindowsDeviceAccountPostRequestBody.updateWindowsDeviceAccountActionParameter, serializeUpdateWindowsDeviceAccountActionParameter);
-        writer.writeAdditionalData(updateWindowsDeviceAccountPostRequestBody.additionalData);
+    writer.writeObjectValue<UpdateWindowsDeviceAccountActionParameter>("updateWindowsDeviceAccountActionParameter", updateWindowsDeviceAccountPostRequestBody.updateWindowsDeviceAccountActionParameter, serializeUpdateWindowsDeviceAccountActionParameter);
+    writer.writeAdditionalData(updateWindowsDeviceAccountPostRequestBody.additionalData);
 }
 export interface UpdateWindowsDeviceAccountPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

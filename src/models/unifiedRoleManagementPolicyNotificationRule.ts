@@ -19,12 +19,12 @@ export function deserializeIntoUnifiedRoleManagementPolicyNotificationRule(unifi
     }
 }
 export function serializeUnifiedRoleManagementPolicyNotificationRule(writer: SerializationWriter, unifiedRoleManagementPolicyNotificationRule: UnifiedRoleManagementPolicyNotificationRule | undefined = {} as UnifiedRoleManagementPolicyNotificationRule) : void {
-        serializeUnifiedRoleManagementPolicyRule(writer, unifiedRoleManagementPolicyNotificationRule)
-        writer.writeBooleanValue("isDefaultRecipientsEnabled", unifiedRoleManagementPolicyNotificationRule.isDefaultRecipientsEnabled);
-        writer.writeStringValue("notificationLevel", unifiedRoleManagementPolicyNotificationRule.notificationLevel);
-        writer.writeCollectionOfPrimitiveValues<string>("notificationRecipients", unifiedRoleManagementPolicyNotificationRule.notificationRecipients);
-        writer.writeStringValue("notificationType", unifiedRoleManagementPolicyNotificationRule.notificationType);
-        writer.writeStringValue("recipientType", unifiedRoleManagementPolicyNotificationRule.recipientType);
+    serializeUnifiedRoleManagementPolicyRule(writer, unifiedRoleManagementPolicyNotificationRule)
+    writer.writeBooleanValue("isDefaultRecipientsEnabled", unifiedRoleManagementPolicyNotificationRule.isDefaultRecipientsEnabled);
+    writer.writeStringValue("notificationLevel", unifiedRoleManagementPolicyNotificationRule.notificationLevel);
+    writer.writeCollectionOfPrimitiveValues<string>("notificationRecipients", unifiedRoleManagementPolicyNotificationRule.notificationRecipients);
+    writer.writeStringValue("notificationType", unifiedRoleManagementPolicyNotificationRule.notificationType);
+    writer.writeStringValue("recipientType", unifiedRoleManagementPolicyNotificationRule.recipientType);
 }
 export interface UnifiedRoleManagementPolicyNotificationRule extends Parsable, UnifiedRoleManagementPolicyRule {
     /**

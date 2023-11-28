@@ -33,10 +33,10 @@ export interface PersonType extends AdditionalDataHolder, Parsable {
     subclass?: string;
 }
 export function serializePersonType(writer: SerializationWriter, personType: PersonType | undefined = {} as PersonType) : void {
-        writer.writeStringValue("class", personType.classEscaped);
-        writer.writeStringValue("@odata.type", personType.odataType);
-        writer.writeStringValue("subclass", personType.subclass);
-        writer.writeAdditionalData(personType.additionalData);
+    writer.writeStringValue("class", personType.classEscaped);
+    writer.writeStringValue("@odata.type", personType.odataType);
+    writer.writeStringValue("subclass", personType.subclass);
+    writer.writeAdditionalData(personType.additionalData);
 }
 // tslint:enable
 // eslint-enable

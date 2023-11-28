@@ -31,9 +31,9 @@ export interface ReplyAllPostRequestBody extends AdditionalDataHolder, Parsable 
     message?: Message;
 }
 export function serializeReplyAllPostRequestBody(writer: SerializationWriter, replyAllPostRequestBody: ReplyAllPostRequestBody | undefined = {} as ReplyAllPostRequestBody) : void {
-        writer.writeStringValue("Comment", replyAllPostRequestBody.comment);
-        writer.writeObjectValue<Message>("Message", replyAllPostRequestBody.message, serializeMessage);
-        writer.writeAdditionalData(replyAllPostRequestBody.additionalData);
+    writer.writeStringValue("Comment", replyAllPostRequestBody.comment);
+    writer.writeObjectValue<Message>("Message", replyAllPostRequestBody.message, serializeMessage);
+    writer.writeAdditionalData(replyAllPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the replyAll method.

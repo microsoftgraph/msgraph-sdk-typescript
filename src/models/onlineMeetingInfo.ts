@@ -54,14 +54,14 @@ export interface OnlineMeetingInfo extends AdditionalDataHolder, Parsable {
     tollNumber?: string;
 }
 export function serializeOnlineMeetingInfo(writer: SerializationWriter, onlineMeetingInfo: OnlineMeetingInfo | undefined = {} as OnlineMeetingInfo) : void {
-        writer.writeStringValue("conferenceId", onlineMeetingInfo.conferenceId);
-        writer.writeStringValue("joinUrl", onlineMeetingInfo.joinUrl);
-        writer.writeStringValue("@odata.type", onlineMeetingInfo.odataType);
-        writer.writeCollectionOfObjectValues<Phone>("phones", onlineMeetingInfo.phones, serializePhone);
-        writer.writeStringValue("quickDial", onlineMeetingInfo.quickDial);
-        writer.writeCollectionOfPrimitiveValues<string>("tollFreeNumbers", onlineMeetingInfo.tollFreeNumbers);
-        writer.writeStringValue("tollNumber", onlineMeetingInfo.tollNumber);
-        writer.writeAdditionalData(onlineMeetingInfo.additionalData);
+    writer.writeStringValue("conferenceId", onlineMeetingInfo.conferenceId);
+    writer.writeStringValue("joinUrl", onlineMeetingInfo.joinUrl);
+    writer.writeStringValue("@odata.type", onlineMeetingInfo.odataType);
+    writer.writeCollectionOfObjectValues<Phone>("phones", onlineMeetingInfo.phones, serializePhone);
+    writer.writeStringValue("quickDial", onlineMeetingInfo.quickDial);
+    writer.writeCollectionOfPrimitiveValues<string>("tollFreeNumbers", onlineMeetingInfo.tollFreeNumbers);
+    writer.writeStringValue("tollNumber", onlineMeetingInfo.tollNumber);
+    writer.writeAdditionalData(onlineMeetingInfo.additionalData);
 }
 // tslint:enable
 // eslint-enable

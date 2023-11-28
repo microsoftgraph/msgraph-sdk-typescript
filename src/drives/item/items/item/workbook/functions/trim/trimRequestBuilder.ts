@@ -17,8 +17,8 @@ export function deserializeIntoTrimPostRequestBody(trimPostRequestBody: TrimPost
     }
 }
 export function serializeTrimPostRequestBody(writer: SerializationWriter, trimPostRequestBody: TrimPostRequestBody | undefined = {} as TrimPostRequestBody) : void {
-        writer.writeObjectValue<Json>("text", trimPostRequestBody.text, serializeJson);
-        writer.writeAdditionalData(trimPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("text", trimPostRequestBody.text, serializeJson);
+    writer.writeAdditionalData(trimPostRequestBody.additionalData);
 }
 export interface TrimPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

@@ -37,10 +37,10 @@ export function deserializeIntoBinom_InvPostRequestBody(binom_InvPostRequestBody
     }
 }
 export function serializeBinom_InvPostRequestBody(writer: SerializationWriter, binom_InvPostRequestBody: Binom_InvPostRequestBody | undefined = {} as Binom_InvPostRequestBody) : void {
-        writer.writeObjectValue<Json>("alpha", binom_InvPostRequestBody.alpha, serializeJson);
-        writer.writeObjectValue<Json>("probabilityS", binom_InvPostRequestBody.probabilityS, serializeJson);
-        writer.writeObjectValue<Json>("trials", binom_InvPostRequestBody.trials, serializeJson);
-        writer.writeAdditionalData(binom_InvPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("alpha", binom_InvPostRequestBody.alpha, serializeJson);
+    writer.writeObjectValue<Json>("probabilityS", binom_InvPostRequestBody.probabilityS, serializeJson);
+    writer.writeObjectValue<Json>("trials", binom_InvPostRequestBody.trials, serializeJson);
+    writer.writeAdditionalData(binom_InvPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the binom_Inv method.

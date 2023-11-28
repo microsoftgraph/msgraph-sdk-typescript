@@ -13,8 +13,8 @@ export function deserializeIntoWipeManagedAppRegistrationsByDeviceTagPostRequest
     }
 }
 export function serializeWipeManagedAppRegistrationsByDeviceTagPostRequestBody(writer: SerializationWriter, wipeManagedAppRegistrationsByDeviceTagPostRequestBody: WipeManagedAppRegistrationsByDeviceTagPostRequestBody | undefined = {} as WipeManagedAppRegistrationsByDeviceTagPostRequestBody) : void {
-        writer.writeStringValue("deviceTag", wipeManagedAppRegistrationsByDeviceTagPostRequestBody.deviceTag);
-        writer.writeAdditionalData(wipeManagedAppRegistrationsByDeviceTagPostRequestBody.additionalData);
+    writer.writeStringValue("deviceTag", wipeManagedAppRegistrationsByDeviceTagPostRequestBody.deviceTag);
+    writer.writeAdditionalData(wipeManagedAppRegistrationsByDeviceTagPostRequestBody.additionalData);
 }
 export interface WipeManagedAppRegistrationsByDeviceTagPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

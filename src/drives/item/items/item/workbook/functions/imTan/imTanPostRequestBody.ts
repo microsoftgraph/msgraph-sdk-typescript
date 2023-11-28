@@ -24,8 +24,8 @@ export interface ImTanPostRequestBody extends AdditionalDataHolder, Parsable {
     inumber?: Json;
 }
 export function serializeImTanPostRequestBody(writer: SerializationWriter, imTanPostRequestBody: ImTanPostRequestBody | undefined = {} as ImTanPostRequestBody) : void {
-        writer.writeObjectValue<Json>("inumber", imTanPostRequestBody.inumber, serializeJson);
-        writer.writeAdditionalData(imTanPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("inumber", imTanPostRequestBody.inumber, serializeJson);
+    writer.writeAdditionalData(imTanPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

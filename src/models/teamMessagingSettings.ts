@@ -18,13 +18,13 @@ export function deserializeIntoTeamMessagingSettings(teamMessagingSettings: Team
     }
 }
 export function serializeTeamMessagingSettings(writer: SerializationWriter, teamMessagingSettings: TeamMessagingSettings | undefined = {} as TeamMessagingSettings) : void {
-        writer.writeBooleanValue("allowChannelMentions", teamMessagingSettings.allowChannelMentions);
-        writer.writeBooleanValue("allowOwnerDeleteMessages", teamMessagingSettings.allowOwnerDeleteMessages);
-        writer.writeBooleanValue("allowTeamMentions", teamMessagingSettings.allowTeamMentions);
-        writer.writeBooleanValue("allowUserDeleteMessages", teamMessagingSettings.allowUserDeleteMessages);
-        writer.writeBooleanValue("allowUserEditMessages", teamMessagingSettings.allowUserEditMessages);
-        writer.writeStringValue("@odata.type", teamMessagingSettings.odataType);
-        writer.writeAdditionalData(teamMessagingSettings.additionalData);
+    writer.writeBooleanValue("allowChannelMentions", teamMessagingSettings.allowChannelMentions);
+    writer.writeBooleanValue("allowOwnerDeleteMessages", teamMessagingSettings.allowOwnerDeleteMessages);
+    writer.writeBooleanValue("allowTeamMentions", teamMessagingSettings.allowTeamMentions);
+    writer.writeBooleanValue("allowUserDeleteMessages", teamMessagingSettings.allowUserDeleteMessages);
+    writer.writeBooleanValue("allowUserEditMessages", teamMessagingSettings.allowUserEditMessages);
+    writer.writeStringValue("@odata.type", teamMessagingSettings.odataType);
+    writer.writeAdditionalData(teamMessagingSettings.additionalData);
 }
 export interface TeamMessagingSettings extends AdditionalDataHolder, Parsable {
     /**

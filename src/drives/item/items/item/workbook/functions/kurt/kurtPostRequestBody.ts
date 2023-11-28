@@ -24,8 +24,8 @@ export interface KurtPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeKurtPostRequestBody(writer: SerializationWriter, kurtPostRequestBody: KurtPostRequestBody | undefined = {} as KurtPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", kurtPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(kurtPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", kurtPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(kurtPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

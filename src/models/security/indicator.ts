@@ -43,9 +43,9 @@ export interface Indicator extends Entity, Parsable {
     source?: IndicatorSource;
 }
 export function serializeIndicator(writer: SerializationWriter, indicator: Indicator | undefined = {} as Indicator) : void {
-        serializeEntity(writer, indicator)
-        writer.writeObjectValue<Artifact>("artifact", indicator.artifact, serializeArtifact);
-        writer.writeEnumValue<IndicatorSource>("source", indicator.source);
+    serializeEntity(writer, indicator)
+    writer.writeObjectValue<Artifact>("artifact", indicator.artifact, serializeArtifact);
+    writer.writeEnumValue<IndicatorSource>("source", indicator.source);
 }
 // tslint:enable
 // eslint-enable

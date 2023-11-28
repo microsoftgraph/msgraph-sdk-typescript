@@ -32,9 +32,9 @@ export function deserializeIntoAtan2PostRequestBody(atan2PostRequestBody: Atan2P
     }
 }
 export function serializeAtan2PostRequestBody(writer: SerializationWriter, atan2PostRequestBody: Atan2PostRequestBody | undefined = {} as Atan2PostRequestBody) : void {
-        writer.writeObjectValue<Json>("xNum", atan2PostRequestBody.xNum, serializeJson);
-        writer.writeObjectValue<Json>("yNum", atan2PostRequestBody.yNum, serializeJson);
-        writer.writeAdditionalData(atan2PostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("xNum", atan2PostRequestBody.xNum, serializeJson);
+    writer.writeObjectValue<Json>("yNum", atan2PostRequestBody.yNum, serializeJson);
+    writer.writeAdditionalData(atan2PostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the atan2 method.

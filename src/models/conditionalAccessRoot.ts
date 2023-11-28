@@ -46,12 +46,12 @@ export function deserializeIntoConditionalAccessRoot(conditionalAccessRoot: Cond
     }
 }
 export function serializeConditionalAccessRoot(writer: SerializationWriter, conditionalAccessRoot: ConditionalAccessRoot | undefined = {} as ConditionalAccessRoot) : void {
-        serializeEntity(writer, conditionalAccessRoot)
-        writer.writeCollectionOfObjectValues<AuthenticationContextClassReference>("authenticationContextClassReferences", conditionalAccessRoot.authenticationContextClassReferences, serializeAuthenticationContextClassReference);
-        writer.writeObjectValue<AuthenticationStrengthRoot>("authenticationStrength", conditionalAccessRoot.authenticationStrength, serializeAuthenticationStrengthRoot);
-        writer.writeCollectionOfObjectValues<NamedLocation>("namedLocations", conditionalAccessRoot.namedLocations, serializeNamedLocation);
-        writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("policies", conditionalAccessRoot.policies, serializeConditionalAccessPolicy);
-        writer.writeCollectionOfObjectValues<ConditionalAccessTemplate>("templates", conditionalAccessRoot.templates, serializeConditionalAccessTemplate);
+    serializeEntity(writer, conditionalAccessRoot)
+    writer.writeCollectionOfObjectValues<AuthenticationContextClassReference>("authenticationContextClassReferences", conditionalAccessRoot.authenticationContextClassReferences, serializeAuthenticationContextClassReference);
+    writer.writeObjectValue<AuthenticationStrengthRoot>("authenticationStrength", conditionalAccessRoot.authenticationStrength, serializeAuthenticationStrengthRoot);
+    writer.writeCollectionOfObjectValues<NamedLocation>("namedLocations", conditionalAccessRoot.namedLocations, serializeNamedLocation);
+    writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("policies", conditionalAccessRoot.policies, serializeConditionalAccessPolicy);
+    writer.writeCollectionOfObjectValues<ConditionalAccessTemplate>("templates", conditionalAccessRoot.templates, serializeConditionalAccessTemplate);
 }
 // tslint:enable
 // eslint-enable

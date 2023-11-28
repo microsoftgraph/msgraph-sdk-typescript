@@ -61,9 +61,9 @@ export function deserializeIntoAuthenticationMethodConfiguration(authenticationM
     }
 }
 export function serializeAuthenticationMethodConfiguration(writer: SerializationWriter, authenticationMethodConfiguration: AuthenticationMethodConfiguration | undefined = {} as AuthenticationMethodConfiguration) : void {
-        serializeEntity(writer, authenticationMethodConfiguration)
-        writer.writeCollectionOfObjectValues<ExcludeTarget>("excludeTargets", authenticationMethodConfiguration.excludeTargets, serializeExcludeTarget);
-        writer.writeEnumValue<AuthenticationMethodState>("state", authenticationMethodConfiguration.state);
+    serializeEntity(writer, authenticationMethodConfiguration)
+    writer.writeCollectionOfObjectValues<ExcludeTarget>("excludeTargets", authenticationMethodConfiguration.excludeTargets, serializeExcludeTarget);
+    writer.writeEnumValue<AuthenticationMethodState>("state", authenticationMethodConfiguration.state);
 }
 // tslint:enable
 // eslint-enable

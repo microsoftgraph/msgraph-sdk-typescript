@@ -17,8 +17,8 @@ export function deserializeIntoSignPostRequestBody(signPostRequestBody: SignPost
     }
 }
 export function serializeSignPostRequestBody(writer: SerializationWriter, signPostRequestBody: SignPostRequestBody | undefined = {} as SignPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", signPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(signPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", signPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(signPostRequestBody.additionalData);
 }
 export interface SignPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

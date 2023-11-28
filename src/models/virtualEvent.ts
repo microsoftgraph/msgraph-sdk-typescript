@@ -38,14 +38,14 @@ export function deserializeIntoVirtualEvent(virtualEvent: VirtualEvent | undefin
     }
 }
 export function serializeVirtualEvent(writer: SerializationWriter, virtualEvent: VirtualEvent | undefined = {} as VirtualEvent) : void {
-        serializeEntity(writer, virtualEvent)
-        writer.writeObjectValue<CommunicationsIdentitySet>("createdBy", virtualEvent.createdBy, serializeCommunicationsIdentitySet);
-        writer.writeObjectValue<ItemBody>("description", virtualEvent.description, serializeItemBody);
-        writer.writeStringValue("displayName", virtualEvent.displayName);
-        writer.writeObjectValue<DateTimeTimeZone>("endDateTime", virtualEvent.endDateTime, serializeDateTimeTimeZone);
-        writer.writeCollectionOfObjectValues<VirtualEventSession>("sessions", virtualEvent.sessions, serializeVirtualEventSession);
-        writer.writeObjectValue<DateTimeTimeZone>("startDateTime", virtualEvent.startDateTime, serializeDateTimeTimeZone);
-        writer.writeEnumValue<VirtualEventStatus>("status", virtualEvent.status);
+    serializeEntity(writer, virtualEvent)
+    writer.writeObjectValue<CommunicationsIdentitySet>("createdBy", virtualEvent.createdBy, serializeCommunicationsIdentitySet);
+    writer.writeObjectValue<ItemBody>("description", virtualEvent.description, serializeItemBody);
+    writer.writeStringValue("displayName", virtualEvent.displayName);
+    writer.writeObjectValue<DateTimeTimeZone>("endDateTime", virtualEvent.endDateTime, serializeDateTimeTimeZone);
+    writer.writeCollectionOfObjectValues<VirtualEventSession>("sessions", virtualEvent.sessions, serializeVirtualEventSession);
+    writer.writeObjectValue<DateTimeTimeZone>("startDateTime", virtualEvent.startDateTime, serializeDateTimeTimeZone);
+    writer.writeEnumValue<VirtualEventStatus>("status", virtualEvent.status);
 }
 export interface VirtualEvent extends Entity, Parsable {
     /**

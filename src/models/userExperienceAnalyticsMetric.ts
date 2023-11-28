@@ -16,9 +16,9 @@ export function deserializeIntoUserExperienceAnalyticsMetric(userExperienceAnaly
     }
 }
 export function serializeUserExperienceAnalyticsMetric(writer: SerializationWriter, userExperienceAnalyticsMetric: UserExperienceAnalyticsMetric | undefined = {} as UserExperienceAnalyticsMetric) : void {
-        serializeEntity(writer, userExperienceAnalyticsMetric)
-        writer.writeStringValue("unit", userExperienceAnalyticsMetric.unit);
-        writer.writeNumberValue("value", userExperienceAnalyticsMetric.value);
+    serializeEntity(writer, userExperienceAnalyticsMetric)
+    writer.writeStringValue("unit", userExperienceAnalyticsMetric.unit);
+    writer.writeNumberValue("value", userExperienceAnalyticsMetric.value);
 }
 export interface UserExperienceAnalyticsMetric extends Entity, Parsable {
     /**

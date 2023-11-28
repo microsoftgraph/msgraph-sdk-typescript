@@ -16,7 +16,7 @@ export function deserializeIntoMacOSOfficeSuiteApp(macOSOfficeSuiteApp: MacOSOff
 export interface MacOSOfficeSuiteApp extends MobileApp, Parsable {
 }
 export function serializeMacOSOfficeSuiteApp(writer: SerializationWriter, macOSOfficeSuiteApp: MacOSOfficeSuiteApp | undefined = {} as MacOSOfficeSuiteApp) : void {
-        serializeMobileApp(writer, macOSOfficeSuiteApp)
+    serializeMobileApp(writer, macOSOfficeSuiteApp)
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export interface HostSslCertificateCollectionResponse extends BaseCollectionPagi
     value?: HostSslCertificate[];
 }
 export function serializeHostSslCertificateCollectionResponse(writer: SerializationWriter, hostSslCertificateCollectionResponse: HostSslCertificateCollectionResponse | undefined = {} as HostSslCertificateCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, hostSslCertificateCollectionResponse)
-        writer.writeCollectionOfObjectValues<HostSslCertificate>("value", hostSslCertificateCollectionResponse.value, serializeHostSslCertificate);
+    serializeBaseCollectionPaginationCountResponse(writer, hostSslCertificateCollectionResponse)
+    writer.writeCollectionOfObjectValues<HostSslCertificate>("value", hostSslCertificateCollectionResponse.value, serializeHostSslCertificate);
 }
 // tslint:enable
 // eslint-enable

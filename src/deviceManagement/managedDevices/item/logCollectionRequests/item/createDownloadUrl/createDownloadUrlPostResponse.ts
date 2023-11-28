@@ -23,8 +23,8 @@ export function deserializeIntoCreateDownloadUrlPostResponse(createDownloadUrlPo
     }
 }
 export function serializeCreateDownloadUrlPostResponse(writer: SerializationWriter, createDownloadUrlPostResponse: CreateDownloadUrlPostResponse | undefined = {} as CreateDownloadUrlPostResponse) : void {
-        writer.writeStringValue("value", createDownloadUrlPostResponse.value);
-        writer.writeAdditionalData(createDownloadUrlPostResponse.additionalData);
+    writer.writeStringValue("value", createDownloadUrlPostResponse.value);
+    writer.writeAdditionalData(createDownloadUrlPostResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

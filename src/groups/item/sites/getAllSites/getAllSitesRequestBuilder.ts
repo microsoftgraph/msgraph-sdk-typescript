@@ -54,8 +54,8 @@ export interface GetAllSitesRequestBuilderGetQueryParameters {
     top?: number;
 }
 export function serializeGetAllSitesGetResponse(writer: SerializationWriter, getAllSitesGetResponse: GetAllSitesGetResponse | undefined = {} as GetAllSitesGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getAllSitesGetResponse)
-        writer.writeCollectionOfObjectValues<Site>("value", getAllSitesGetResponse.value, serializeSite);
+    serializeBaseCollectionPaginationCountResponse(writer, getAllSitesGetResponse)
+    writer.writeCollectionOfObjectValues<Site>("value", getAllSitesGetResponse.value, serializeSite);
 }
 /**
  * Provides operations to call the getAllSites method.

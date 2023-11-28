@@ -20,10 +20,10 @@ export function deserializeIntoSynchronization(synchronization: Synchronization 
     }
 }
 export function serializeSynchronization(writer: SerializationWriter, synchronization: Synchronization | undefined = {} as Synchronization) : void {
-        serializeEntity(writer, synchronization)
-        writer.writeCollectionOfObjectValues<SynchronizationJob>("jobs", synchronization.jobs, serializeSynchronizationJob);
-        writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("secrets", synchronization.secrets, serializeSynchronizationSecretKeyStringValuePair);
-        writer.writeCollectionOfObjectValues<SynchronizationTemplate>("templates", synchronization.templates, serializeSynchronizationTemplate);
+    serializeEntity(writer, synchronization)
+    writer.writeCollectionOfObjectValues<SynchronizationJob>("jobs", synchronization.jobs, serializeSynchronizationJob);
+    writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("secrets", synchronization.secrets, serializeSynchronizationSecretKeyStringValuePair);
+    writer.writeCollectionOfObjectValues<SynchronizationTemplate>("templates", synchronization.templates, serializeSynchronizationTemplate);
 }
 export interface Synchronization extends Entity, Parsable {
     /**

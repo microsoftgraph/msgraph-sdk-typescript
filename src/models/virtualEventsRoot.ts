@@ -18,9 +18,9 @@ export function deserializeIntoVirtualEventsRoot(virtualEventsRoot: VirtualEvent
     }
 }
 export function serializeVirtualEventsRoot(writer: SerializationWriter, virtualEventsRoot: VirtualEventsRoot | undefined = {} as VirtualEventsRoot) : void {
-        serializeEntity(writer, virtualEventsRoot)
-        writer.writeCollectionOfObjectValues<VirtualEvent>("events", virtualEventsRoot.events, serializeVirtualEvent);
-        writer.writeCollectionOfObjectValues<VirtualEventWebinar>("webinars", virtualEventsRoot.webinars, serializeVirtualEventWebinar);
+    serializeEntity(writer, virtualEventsRoot)
+    writer.writeCollectionOfObjectValues<VirtualEvent>("events", virtualEventsRoot.events, serializeVirtualEvent);
+    writer.writeCollectionOfObjectValues<VirtualEventWebinar>("webinars", virtualEventsRoot.webinars, serializeVirtualEventWebinar);
 }
 export interface VirtualEventsRoot extends Entity, Parsable {
     /**

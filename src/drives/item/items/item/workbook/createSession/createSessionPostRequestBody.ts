@@ -23,8 +23,8 @@ export function deserializeIntoCreateSessionPostRequestBody(createSessionPostReq
     }
 }
 export function serializeCreateSessionPostRequestBody(writer: SerializationWriter, createSessionPostRequestBody: CreateSessionPostRequestBody | undefined = {} as CreateSessionPostRequestBody) : void {
-        writer.writeBooleanValue("persistChanges", createSessionPostRequestBody.persistChanges);
-        writer.writeAdditionalData(createSessionPostRequestBody.additionalData);
+    writer.writeBooleanValue("persistChanges", createSessionPostRequestBody.persistChanges);
+    writer.writeAdditionalData(createSessionPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

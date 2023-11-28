@@ -16,7 +16,7 @@ export function deserializeIntoGroupPeerOutlierRecommendationInsightSettings(gro
 export interface GroupPeerOutlierRecommendationInsightSettings extends AccessReviewRecommendationInsightSetting, Parsable {
 }
 export function serializeGroupPeerOutlierRecommendationInsightSettings(writer: SerializationWriter, groupPeerOutlierRecommendationInsightSettings: GroupPeerOutlierRecommendationInsightSettings | undefined = {} as GroupPeerOutlierRecommendationInsightSettings) : void {
-        serializeAccessReviewRecommendationInsightSetting(writer, groupPeerOutlierRecommendationInsightSettings)
+    serializeAccessReviewRecommendationInsightSetting(writer, groupPeerOutlierRecommendationInsightSettings)
 }
 // tslint:enable
 // eslint-enable

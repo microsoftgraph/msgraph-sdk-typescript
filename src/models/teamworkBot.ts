@@ -14,7 +14,7 @@ export function deserializeIntoTeamworkBot(teamworkBot: TeamworkBot | undefined 
     }
 }
 export function serializeTeamworkBot(writer: SerializationWriter, teamworkBot: TeamworkBot | undefined = {} as TeamworkBot) : void {
-        serializeEntity(writer, teamworkBot)
+    serializeEntity(writer, teamworkBot)
 }
 export interface TeamworkBot extends Entity, Parsable {
 }

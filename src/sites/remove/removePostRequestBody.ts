@@ -24,8 +24,8 @@ export interface RemovePostRequestBody extends AdditionalDataHolder, Parsable {
     value?: Site[];
 }
 export function serializeRemovePostRequestBody(writer: SerializationWriter, removePostRequestBody: RemovePostRequestBody | undefined = {} as RemovePostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<Site>("value", removePostRequestBody.value, serializeSite);
-        writer.writeAdditionalData(removePostRequestBody.additionalData);
+    writer.writeCollectionOfObjectValues<Site>("value", removePostRequestBody.value, serializeSite);
+    writer.writeAdditionalData(removePostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

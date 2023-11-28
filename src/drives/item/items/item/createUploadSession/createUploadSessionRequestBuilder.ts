@@ -27,8 +27,8 @@ export function deserializeIntoCreateUploadSessionPostRequestBody(createUploadSe
     }
 }
 export function serializeCreateUploadSessionPostRequestBody(writer: SerializationWriter, createUploadSessionPostRequestBody: CreateUploadSessionPostRequestBody | undefined = {} as CreateUploadSessionPostRequestBody) : void {
-        writer.writeObjectValue<DriveItemUploadableProperties>("item", createUploadSessionPostRequestBody.item, serializeDriveItemUploadableProperties);
-        writer.writeAdditionalData(createUploadSessionPostRequestBody.additionalData);
+    writer.writeObjectValue<DriveItemUploadableProperties>("item", createUploadSessionPostRequestBody.item, serializeDriveItemUploadableProperties);
+    writer.writeAdditionalData(createUploadSessionPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the createUploadSession method.

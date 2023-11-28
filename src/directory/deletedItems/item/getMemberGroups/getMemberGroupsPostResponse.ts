@@ -21,8 +21,8 @@ export interface GetMemberGroupsPostResponse extends BaseCollectionPaginationCou
     value?: string[];
 }
 export function serializeGetMemberGroupsPostResponse(writer: SerializationWriter, getMemberGroupsPostResponse: GetMemberGroupsPostResponse | undefined = {} as GetMemberGroupsPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getMemberGroupsPostResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getMemberGroupsPostResponse.value);
+    serializeBaseCollectionPaginationCountResponse(writer, getMemberGroupsPostResponse)
+    writer.writeCollectionOfPrimitiveValues<string>("value", getMemberGroupsPostResponse.value);
 }
 // tslint:enable
 // eslint-enable

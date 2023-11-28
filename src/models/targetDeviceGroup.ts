@@ -15,8 +15,8 @@ export function deserializeIntoTargetDeviceGroup(targetDeviceGroup: TargetDevice
     }
 }
 export function serializeTargetDeviceGroup(writer: SerializationWriter, targetDeviceGroup: TargetDeviceGroup | undefined = {} as TargetDeviceGroup) : void {
-        serializeEntity(writer, targetDeviceGroup)
-        writer.writeStringValue("displayName", targetDeviceGroup.displayName);
+    serializeEntity(writer, targetDeviceGroup)
+    writer.writeStringValue("displayName", targetDeviceGroup.displayName);
 }
 export interface TargetDeviceGroup extends Entity, Parsable {
     /**

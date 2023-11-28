@@ -22,8 +22,8 @@ export interface MacOSLobAppCollectionResponse extends BaseCollectionPaginationC
     value?: MacOSLobApp[];
 }
 export function serializeMacOSLobAppCollectionResponse(writer: SerializationWriter, macOSLobAppCollectionResponse: MacOSLobAppCollectionResponse | undefined = {} as MacOSLobAppCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, macOSLobAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<MacOSLobApp>("value", macOSLobAppCollectionResponse.value, serializeMacOSLobApp);
+    serializeBaseCollectionPaginationCountResponse(writer, macOSLobAppCollectionResponse)
+    writer.writeCollectionOfObjectValues<MacOSLobApp>("value", macOSLobAppCollectionResponse.value, serializeMacOSLobApp);
 }
 // tslint:enable
 // eslint-enable

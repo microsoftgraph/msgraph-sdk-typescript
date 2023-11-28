@@ -24,8 +24,8 @@ export interface RemovePasswordPostRequestBody extends AdditionalDataHolder, Par
     keyId?: Guid;
 }
 export function serializeRemovePasswordPostRequestBody(writer: SerializationWriter, removePasswordPostRequestBody: RemovePasswordPostRequestBody | undefined = {} as RemovePasswordPostRequestBody) : void {
-        writer.writeGuidValue("keyId", removePasswordPostRequestBody.keyId);
-        writer.writeAdditionalData(removePasswordPostRequestBody.additionalData);
+    writer.writeGuidValue("keyId", removePasswordPostRequestBody.keyId);
+    writer.writeAdditionalData(removePasswordPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

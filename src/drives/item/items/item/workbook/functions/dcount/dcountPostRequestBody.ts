@@ -34,10 +34,10 @@ export function deserializeIntoDcountPostRequestBody(dcountPostRequestBody: Dcou
     }
 }
 export function serializeDcountPostRequestBody(writer: SerializationWriter, dcountPostRequestBody: DcountPostRequestBody | undefined = {} as DcountPostRequestBody) : void {
-        writer.writeObjectValue<Json>("criteria", dcountPostRequestBody.criteria, serializeJson);
-        writer.writeObjectValue<Json>("database", dcountPostRequestBody.database, serializeJson);
-        writer.writeObjectValue<Json>("field", dcountPostRequestBody.field, serializeJson);
-        writer.writeAdditionalData(dcountPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("criteria", dcountPostRequestBody.criteria, serializeJson);
+    writer.writeObjectValue<Json>("database", dcountPostRequestBody.database, serializeJson);
+    writer.writeObjectValue<Json>("field", dcountPostRequestBody.field, serializeJson);
+    writer.writeAdditionalData(dcountPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

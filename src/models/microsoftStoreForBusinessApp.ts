@@ -42,12 +42,12 @@ export interface MicrosoftStoreForBusinessApp extends MobileApp, Parsable {
     usedLicenseCount?: number;
 }
 export function serializeMicrosoftStoreForBusinessApp(writer: SerializationWriter, microsoftStoreForBusinessApp: MicrosoftStoreForBusinessApp | undefined = {} as MicrosoftStoreForBusinessApp) : void {
-        serializeMobileApp(writer, microsoftStoreForBusinessApp)
-        writer.writeEnumValue<MicrosoftStoreForBusinessLicenseType>("licenseType", microsoftStoreForBusinessApp.licenseType);
-        writer.writeStringValue("packageIdentityName", microsoftStoreForBusinessApp.packageIdentityName);
-        writer.writeStringValue("productKey", microsoftStoreForBusinessApp.productKey);
-        writer.writeNumberValue("totalLicenseCount", microsoftStoreForBusinessApp.totalLicenseCount);
-        writer.writeNumberValue("usedLicenseCount", microsoftStoreForBusinessApp.usedLicenseCount);
+    serializeMobileApp(writer, microsoftStoreForBusinessApp)
+    writer.writeEnumValue<MicrosoftStoreForBusinessLicenseType>("licenseType", microsoftStoreForBusinessApp.licenseType);
+    writer.writeStringValue("packageIdentityName", microsoftStoreForBusinessApp.packageIdentityName);
+    writer.writeStringValue("productKey", microsoftStoreForBusinessApp.productKey);
+    writer.writeNumberValue("totalLicenseCount", microsoftStoreForBusinessApp.totalLicenseCount);
+    writer.writeNumberValue("usedLicenseCount", microsoftStoreForBusinessApp.usedLicenseCount);
 }
 // tslint:enable
 // eslint-enable

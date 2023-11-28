@@ -37,10 +37,10 @@ export function deserializeIntoAddKeyPostRequestBody(addKeyPostRequestBody: AddK
     }
 }
 export function serializeAddKeyPostRequestBody(writer: SerializationWriter, addKeyPostRequestBody: AddKeyPostRequestBody | undefined = {} as AddKeyPostRequestBody) : void {
-        writer.writeObjectValue<KeyCredential>("keyCredential", addKeyPostRequestBody.keyCredential, serializeKeyCredential);
-        writer.writeObjectValue<PasswordCredential>("passwordCredential", addKeyPostRequestBody.passwordCredential, serializePasswordCredential);
-        writer.writeStringValue("proof", addKeyPostRequestBody.proof);
-        writer.writeAdditionalData(addKeyPostRequestBody.additionalData);
+    writer.writeObjectValue<KeyCredential>("keyCredential", addKeyPostRequestBody.keyCredential, serializeKeyCredential);
+    writer.writeObjectValue<PasswordCredential>("passwordCredential", addKeyPostRequestBody.passwordCredential, serializePasswordCredential);
+    writer.writeStringValue("proof", addKeyPostRequestBody.proof);
+    writer.writeAdditionalData(addKeyPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the addKey method.

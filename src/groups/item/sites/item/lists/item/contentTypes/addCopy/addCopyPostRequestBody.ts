@@ -23,8 +23,8 @@ export function deserializeIntoAddCopyPostRequestBody(addCopyPostRequestBody: Ad
     }
 }
 export function serializeAddCopyPostRequestBody(writer: SerializationWriter, addCopyPostRequestBody: AddCopyPostRequestBody | undefined = {} as AddCopyPostRequestBody) : void {
-        writer.writeStringValue("contentType", addCopyPostRequestBody.contentType);
-        writer.writeAdditionalData(addCopyPostRequestBody.additionalData);
+    writer.writeStringValue("contentType", addCopyPostRequestBody.contentType);
+    writer.writeAdditionalData(addCopyPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

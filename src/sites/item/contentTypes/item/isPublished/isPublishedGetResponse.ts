@@ -23,8 +23,8 @@ export interface IsPublishedGetResponse extends AdditionalDataHolder, Parsable {
     value?: boolean;
 }
 export function serializeIsPublishedGetResponse(writer: SerializationWriter, isPublishedGetResponse: IsPublishedGetResponse | undefined = {} as IsPublishedGetResponse) : void {
-        writer.writeBooleanValue("value", isPublishedGetResponse.value);
-        writer.writeAdditionalData(isPublishedGetResponse.additionalData);
+    writer.writeBooleanValue("value", isPublishedGetResponse.value);
+    writer.writeAdditionalData(isPublishedGetResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -24,8 +24,8 @@ export interface ProperPostRequestBody extends AdditionalDataHolder, Parsable {
     text?: Json;
 }
 export function serializeProperPostRequestBody(writer: SerializationWriter, properPostRequestBody: ProperPostRequestBody | undefined = {} as ProperPostRequestBody) : void {
-        writer.writeObjectValue<Json>("text", properPostRequestBody.text, serializeJson);
-        writer.writeAdditionalData(properPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("text", properPostRequestBody.text, serializeJson);
+    writer.writeAdditionalData(properPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

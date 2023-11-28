@@ -17,9 +17,9 @@ export function deserializeIntoSubdomain(subdomain: Subdomain | undefined = {} a
     }
 }
 export function serializeSubdomain(writer: SerializationWriter, subdomain: Subdomain | undefined = {} as Subdomain) : void {
-        serializeEntity(writer, subdomain)
-        writer.writeDateValue("firstSeenDateTime", subdomain.firstSeenDateTime);
-        writer.writeObjectValue<Host>("host", subdomain.host, serializeHost);
+    serializeEntity(writer, subdomain)
+    writer.writeDateValue("firstSeenDateTime", subdomain.firstSeenDateTime);
+    writer.writeObjectValue<Host>("host", subdomain.host, serializeHost);
 }
 export interface Subdomain extends Entity, Parsable {
     /**

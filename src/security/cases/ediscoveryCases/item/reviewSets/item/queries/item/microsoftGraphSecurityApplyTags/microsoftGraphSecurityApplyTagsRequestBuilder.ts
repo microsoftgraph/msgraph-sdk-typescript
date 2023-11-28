@@ -31,9 +31,9 @@ export function deserializeIntoApplyTagsPostRequestBody(applyTagsPostRequestBody
     }
 }
 export function serializeApplyTagsPostRequestBody(writer: SerializationWriter, applyTagsPostRequestBody: ApplyTagsPostRequestBody | undefined = {} as ApplyTagsPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("tagsToAdd", applyTagsPostRequestBody.tagsToAdd, serializeEdiscoveryReviewTag);
-        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("tagsToRemove", applyTagsPostRequestBody.tagsToRemove, serializeEdiscoveryReviewTag);
-        writer.writeAdditionalData(applyTagsPostRequestBody.additionalData);
+    writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("tagsToAdd", applyTagsPostRequestBody.tagsToAdd, serializeEdiscoveryReviewTag);
+    writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("tagsToRemove", applyTagsPostRequestBody.tagsToRemove, serializeEdiscoveryReviewTag);
+    writer.writeAdditionalData(applyTagsPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the applyTags method.

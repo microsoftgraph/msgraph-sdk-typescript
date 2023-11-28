@@ -25,8 +25,8 @@ export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Ar
     }
 }
 export function serializeArchivePostRequestBody(writer: SerializationWriter, archivePostRequestBody: ArchivePostRequestBody | undefined = {} as ArchivePostRequestBody) : void {
-        writer.writeBooleanValue("shouldSetSpoSiteReadOnlyForMembers", archivePostRequestBody.shouldSetSpoSiteReadOnlyForMembers);
-        writer.writeAdditionalData(archivePostRequestBody.additionalData);
+    writer.writeBooleanValue("shouldSetSpoSiteReadOnlyForMembers", archivePostRequestBody.shouldSetSpoSiteReadOnlyForMembers);
+    writer.writeAdditionalData(archivePostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the archive method.

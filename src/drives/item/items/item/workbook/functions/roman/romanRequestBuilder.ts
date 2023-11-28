@@ -32,9 +32,9 @@ export interface RomanPostRequestBody extends AdditionalDataHolder, Parsable {
     number?: Json;
 }
 export function serializeRomanPostRequestBody(writer: SerializationWriter, romanPostRequestBody: RomanPostRequestBody | undefined = {} as RomanPostRequestBody) : void {
-        writer.writeObjectValue<Json>("form", romanPostRequestBody.form, serializeJson);
-        writer.writeObjectValue<Json>("number", romanPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(romanPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("form", romanPostRequestBody.form, serializeJson);
+    writer.writeObjectValue<Json>("number", romanPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(romanPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the roman method.

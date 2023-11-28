@@ -33,10 +33,10 @@ export function deserializeIntoAccessPackageLocalizedText(accessPackageLocalized
     }
 }
 export function serializeAccessPackageLocalizedText(writer: SerializationWriter, accessPackageLocalizedText: AccessPackageLocalizedText | undefined = {} as AccessPackageLocalizedText) : void {
-        writer.writeStringValue("languageCode", accessPackageLocalizedText.languageCode);
-        writer.writeStringValue("@odata.type", accessPackageLocalizedText.odataType);
-        writer.writeStringValue("text", accessPackageLocalizedText.text);
-        writer.writeAdditionalData(accessPackageLocalizedText.additionalData);
+    writer.writeStringValue("languageCode", accessPackageLocalizedText.languageCode);
+    writer.writeStringValue("@odata.type", accessPackageLocalizedText.odataType);
+    writer.writeStringValue("text", accessPackageLocalizedText.text);
+    writer.writeAdditionalData(accessPackageLocalizedText.additionalData);
 }
 // tslint:enable
 // eslint-enable

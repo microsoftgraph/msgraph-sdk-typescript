@@ -23,8 +23,8 @@ export function deserializeIntoDeleteUserFromSharedAppleDevicePostRequestBody(de
     }
 }
 export function serializeDeleteUserFromSharedAppleDevicePostRequestBody(writer: SerializationWriter, deleteUserFromSharedAppleDevicePostRequestBody: DeleteUserFromSharedAppleDevicePostRequestBody | undefined = {} as DeleteUserFromSharedAppleDevicePostRequestBody) : void {
-        writer.writeStringValue("userPrincipalName", deleteUserFromSharedAppleDevicePostRequestBody.userPrincipalName);
-        writer.writeAdditionalData(deleteUserFromSharedAppleDevicePostRequestBody.additionalData);
+    writer.writeStringValue("userPrincipalName", deleteUserFromSharedAppleDevicePostRequestBody.userPrincipalName);
+    writer.writeAdditionalData(deleteUserFromSharedAppleDevicePostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

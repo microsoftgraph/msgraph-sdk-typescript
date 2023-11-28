@@ -29,9 +29,9 @@ export interface PermutPostRequestBody extends AdditionalDataHolder, Parsable {
     numberChosen?: Json;
 }
 export function serializePermutPostRequestBody(writer: SerializationWriter, permutPostRequestBody: PermutPostRequestBody | undefined = {} as PermutPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", permutPostRequestBody.number, serializeJson);
-        writer.writeObjectValue<Json>("numberChosen", permutPostRequestBody.numberChosen, serializeJson);
-        writer.writeAdditionalData(permutPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", permutPostRequestBody.number, serializeJson);
+    writer.writeObjectValue<Json>("numberChosen", permutPostRequestBody.numberChosen, serializeJson);
+    writer.writeAdditionalData(permutPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -65,16 +65,16 @@ export interface GetCompliancePolicyNonComplianceReportPostRequestBody extends A
     top?: number;
 }
 export function serializeGetCompliancePolicyNonComplianceReportPostRequestBody(writer: SerializationWriter, getCompliancePolicyNonComplianceReportPostRequestBody: GetCompliancePolicyNonComplianceReportPostRequestBody | undefined = {} as GetCompliancePolicyNonComplianceReportPostRequestBody) : void {
-        writer.writeStringValue("filter", getCompliancePolicyNonComplianceReportPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getCompliancePolicyNonComplianceReportPostRequestBody.groupBy);
-        writer.writeStringValue("name", getCompliancePolicyNonComplianceReportPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getCompliancePolicyNonComplianceReportPostRequestBody.orderBy);
-        writer.writeStringValue("search", getCompliancePolicyNonComplianceReportPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getCompliancePolicyNonComplianceReportPostRequestBody.select);
-        writer.writeStringValue("sessionId", getCompliancePolicyNonComplianceReportPostRequestBody.sessionId);
-        writer.writeNumberValue("skip", getCompliancePolicyNonComplianceReportPostRequestBody.skip);
-        writer.writeNumberValue("top", getCompliancePolicyNonComplianceReportPostRequestBody.top);
-        writer.writeAdditionalData(getCompliancePolicyNonComplianceReportPostRequestBody.additionalData);
+    writer.writeStringValue("filter", getCompliancePolicyNonComplianceReportPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getCompliancePolicyNonComplianceReportPostRequestBody.groupBy);
+    writer.writeStringValue("name", getCompliancePolicyNonComplianceReportPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getCompliancePolicyNonComplianceReportPostRequestBody.orderBy);
+    writer.writeStringValue("search", getCompliancePolicyNonComplianceReportPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getCompliancePolicyNonComplianceReportPostRequestBody.select);
+    writer.writeStringValue("sessionId", getCompliancePolicyNonComplianceReportPostRequestBody.sessionId);
+    writer.writeNumberValue("skip", getCompliancePolicyNonComplianceReportPostRequestBody.skip);
+    writer.writeNumberValue("top", getCompliancePolicyNonComplianceReportPostRequestBody.top);
+    writer.writeAdditionalData(getCompliancePolicyNonComplianceReportPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the getCompliancePolicyNonComplianceReport method.

@@ -24,8 +24,8 @@ export interface HideForUserPostRequestBody extends AdditionalDataHolder, Parsab
     user?: TeamworkUserIdentity;
 }
 export function serializeHideForUserPostRequestBody(writer: SerializationWriter, hideForUserPostRequestBody: HideForUserPostRequestBody | undefined = {} as HideForUserPostRequestBody) : void {
-        writer.writeObjectValue<TeamworkUserIdentity>("user", hideForUserPostRequestBody.user, serializeTeamworkUserIdentity);
-        writer.writeAdditionalData(hideForUserPostRequestBody.additionalData);
+    writer.writeObjectValue<TeamworkUserIdentity>("user", hideForUserPostRequestBody.user, serializeTeamworkUserIdentity);
+    writer.writeAdditionalData(hideForUserPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

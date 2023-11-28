@@ -22,8 +22,8 @@ export function deserializeIntoAsHierarchyGetResponse(asHierarchyGetResponse: As
     }
 }
 export function serializeAsHierarchyGetResponse(writer: SerializationWriter, asHierarchyGetResponse: AsHierarchyGetResponse | undefined = {} as AsHierarchyGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, asHierarchyGetResponse)
-        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("value", asHierarchyGetResponse.value, serializeEdiscoveryReviewTag);
+    serializeBaseCollectionPaginationCountResponse(writer, asHierarchyGetResponse)
+    writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("value", asHierarchyGetResponse.value, serializeEdiscoveryReviewTag);
 }
 // tslint:enable
 // eslint-enable

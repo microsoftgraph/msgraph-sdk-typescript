@@ -34,10 +34,10 @@ export interface ProfileCardAnnotation extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeProfileCardAnnotation(writer: SerializationWriter, profileCardAnnotation: ProfileCardAnnotation | undefined = {} as ProfileCardAnnotation) : void {
-        writer.writeStringValue("displayName", profileCardAnnotation.displayName);
-        writer.writeCollectionOfObjectValues<DisplayNameLocalization>("localizations", profileCardAnnotation.localizations, serializeDisplayNameLocalization);
-        writer.writeStringValue("@odata.type", profileCardAnnotation.odataType);
-        writer.writeAdditionalData(profileCardAnnotation.additionalData);
+    writer.writeStringValue("displayName", profileCardAnnotation.displayName);
+    writer.writeCollectionOfObjectValues<DisplayNameLocalization>("localizations", profileCardAnnotation.localizations, serializeDisplayNameLocalization);
+    writer.writeStringValue("@odata.type", profileCardAnnotation.odataType);
+    writer.writeAdditionalData(profileCardAnnotation.additionalData);
 }
 // tslint:enable
 // eslint-enable

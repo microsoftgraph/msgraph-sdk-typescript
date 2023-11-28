@@ -38,11 +38,11 @@ export interface RgbColor extends AdditionalDataHolder, Parsable {
     r?: number;
 }
 export function serializeRgbColor(writer: SerializationWriter, rgbColor: RgbColor | undefined = {} as RgbColor) : void {
-        writer.writeNumberValue("b", rgbColor.b);
-        writer.writeNumberValue("g", rgbColor.g);
-        writer.writeStringValue("@odata.type", rgbColor.odataType);
-        writer.writeNumberValue("r", rgbColor.r);
-        writer.writeAdditionalData(rgbColor.additionalData);
+    writer.writeNumberValue("b", rgbColor.b);
+    writer.writeNumberValue("g", rgbColor.g);
+    writer.writeStringValue("@odata.type", rgbColor.odataType);
+    writer.writeNumberValue("r", rgbColor.r);
+    writer.writeAdditionalData(rgbColor.additionalData);
 }
 // tslint:enable
 // eslint-enable

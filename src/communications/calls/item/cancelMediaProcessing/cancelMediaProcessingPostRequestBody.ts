@@ -23,8 +23,8 @@ export function deserializeIntoCancelMediaProcessingPostRequestBody(cancelMediaP
     }
 }
 export function serializeCancelMediaProcessingPostRequestBody(writer: SerializationWriter, cancelMediaProcessingPostRequestBody: CancelMediaProcessingPostRequestBody | undefined = {} as CancelMediaProcessingPostRequestBody) : void {
-        writer.writeStringValue("clientContext", cancelMediaProcessingPostRequestBody.clientContext);
-        writer.writeAdditionalData(cancelMediaProcessingPostRequestBody.additionalData);
+    writer.writeStringValue("clientContext", cancelMediaProcessingPostRequestBody.clientContext);
+    writer.writeAdditionalData(cancelMediaProcessingPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

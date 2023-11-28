@@ -22,8 +22,8 @@ export interface MobileThreatDefenseConnectorCollectionResponse extends BaseColl
     value?: MobileThreatDefenseConnector[];
 }
 export function serializeMobileThreatDefenseConnectorCollectionResponse(writer: SerializationWriter, mobileThreatDefenseConnectorCollectionResponse: MobileThreatDefenseConnectorCollectionResponse | undefined = {} as MobileThreatDefenseConnectorCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, mobileThreatDefenseConnectorCollectionResponse)
-        writer.writeCollectionOfObjectValues<MobileThreatDefenseConnector>("value", mobileThreatDefenseConnectorCollectionResponse.value, serializeMobileThreatDefenseConnector);
+    serializeBaseCollectionPaginationCountResponse(writer, mobileThreatDefenseConnectorCollectionResponse)
+    writer.writeCollectionOfObjectValues<MobileThreatDefenseConnector>("value", mobileThreatDefenseConnectorCollectionResponse.value, serializeMobileThreatDefenseConnector);
 }
 // tslint:enable
 // eslint-enable

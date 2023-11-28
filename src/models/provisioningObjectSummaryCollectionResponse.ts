@@ -22,8 +22,8 @@ export interface ProvisioningObjectSummaryCollectionResponse extends BaseCollect
     value?: ProvisioningObjectSummary[];
 }
 export function serializeProvisioningObjectSummaryCollectionResponse(writer: SerializationWriter, provisioningObjectSummaryCollectionResponse: ProvisioningObjectSummaryCollectionResponse | undefined = {} as ProvisioningObjectSummaryCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, provisioningObjectSummaryCollectionResponse)
-        writer.writeCollectionOfObjectValues<ProvisioningObjectSummary>("value", provisioningObjectSummaryCollectionResponse.value, serializeProvisioningObjectSummary);
+    serializeBaseCollectionPaginationCountResponse(writer, provisioningObjectSummaryCollectionResponse)
+    writer.writeCollectionOfObjectValues<ProvisioningObjectSummary>("value", provisioningObjectSummaryCollectionResponse.value, serializeProvisioningObjectSummary);
 }
 // tslint:enable
 // eslint-enable

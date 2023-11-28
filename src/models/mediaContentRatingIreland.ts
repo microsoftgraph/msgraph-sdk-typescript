@@ -35,10 +35,10 @@ export interface MediaContentRatingIreland extends AdditionalDataHolder, Parsabl
     tvRating?: RatingIrelandTelevisionType;
 }
 export function serializeMediaContentRatingIreland(writer: SerializationWriter, mediaContentRatingIreland: MediaContentRatingIreland | undefined = {} as MediaContentRatingIreland) : void {
-        writer.writeEnumValue<RatingIrelandMoviesType>("movieRating", mediaContentRatingIreland.movieRating);
-        writer.writeStringValue("@odata.type", mediaContentRatingIreland.odataType);
-        writer.writeEnumValue<RatingIrelandTelevisionType>("tvRating", mediaContentRatingIreland.tvRating);
-        writer.writeAdditionalData(mediaContentRatingIreland.additionalData);
+    writer.writeEnumValue<RatingIrelandMoviesType>("movieRating", mediaContentRatingIreland.movieRating);
+    writer.writeStringValue("@odata.type", mediaContentRatingIreland.odataType);
+    writer.writeEnumValue<RatingIrelandTelevisionType>("tvRating", mediaContentRatingIreland.tvRating);
+    writer.writeAdditionalData(mediaContentRatingIreland.additionalData);
 }
 // tslint:enable
 // eslint-enable

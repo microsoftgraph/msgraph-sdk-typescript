@@ -21,8 +21,8 @@ export function deserializeIntoChatMembersNotificationRecipient(chatMembersNotif
     }
 }
 export function serializeChatMembersNotificationRecipient(writer: SerializationWriter, chatMembersNotificationRecipient: ChatMembersNotificationRecipient | undefined = {} as ChatMembersNotificationRecipient) : void {
-        serializeTeamworkNotificationRecipient(writer, chatMembersNotificationRecipient)
-        writer.writeStringValue("chatId", chatMembersNotificationRecipient.chatId);
+    serializeTeamworkNotificationRecipient(writer, chatMembersNotificationRecipient)
+    writer.writeStringValue("chatId", chatMembersNotificationRecipient.chatId);
 }
 // tslint:enable
 // eslint-enable

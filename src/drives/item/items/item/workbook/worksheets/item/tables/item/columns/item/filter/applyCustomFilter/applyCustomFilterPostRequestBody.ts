@@ -33,10 +33,10 @@ export function deserializeIntoApplyCustomFilterPostRequestBody(applyCustomFilte
     }
 }
 export function serializeApplyCustomFilterPostRequestBody(writer: SerializationWriter, applyCustomFilterPostRequestBody: ApplyCustomFilterPostRequestBody | undefined = {} as ApplyCustomFilterPostRequestBody) : void {
-        writer.writeStringValue("criteria1", applyCustomFilterPostRequestBody.criteria1);
-        writer.writeStringValue("criteria2", applyCustomFilterPostRequestBody.criteria2);
-        writer.writeStringValue("oper", applyCustomFilterPostRequestBody.oper);
-        writer.writeAdditionalData(applyCustomFilterPostRequestBody.additionalData);
+    writer.writeStringValue("criteria1", applyCustomFilterPostRequestBody.criteria1);
+    writer.writeStringValue("criteria2", applyCustomFilterPostRequestBody.criteria2);
+    writer.writeStringValue("oper", applyCustomFilterPostRequestBody.oper);
+    writer.writeAdditionalData(applyCustomFilterPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

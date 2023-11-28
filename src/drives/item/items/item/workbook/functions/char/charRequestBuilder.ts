@@ -27,8 +27,8 @@ export function deserializeIntoCharPostRequestBody(charPostRequestBody: CharPost
     }
 }
 export function serializeCharPostRequestBody(writer: SerializationWriter, charPostRequestBody: CharPostRequestBody | undefined = {} as CharPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", charPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(charPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", charPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(charPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the char method.

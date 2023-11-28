@@ -22,8 +22,8 @@ export interface GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse extends B
     value?: PstnCallLogRow[];
 }
 export function serializeGetPstnCallsWithFromDateTimeWithToDateTimeGetResponse(writer: SerializationWriter, getPstnCallsWithFromDateTimeWithToDateTimeGetResponse: GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse | undefined = {} as GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getPstnCallsWithFromDateTimeWithToDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<PstnCallLogRow>("value", getPstnCallsWithFromDateTimeWithToDateTimeGetResponse.value, serializePstnCallLogRow);
+    serializeBaseCollectionPaginationCountResponse(writer, getPstnCallsWithFromDateTimeWithToDateTimeGetResponse)
+    writer.writeCollectionOfObjectValues<PstnCallLogRow>("value", getPstnCallsWithFromDateTimeWithToDateTimeGetResponse.value, serializePstnCallLogRow);
 }
 // tslint:enable
 // eslint-enable

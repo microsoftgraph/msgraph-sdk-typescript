@@ -46,13 +46,13 @@ export interface RegistryValueEvidence extends AlertEvidence, Parsable {
     registryValueType?: string;
 }
 export function serializeRegistryValueEvidence(writer: SerializationWriter, registryValueEvidence: RegistryValueEvidence | undefined = {} as RegistryValueEvidence) : void {
-        serializeAlertEvidence(writer, registryValueEvidence)
-        writer.writeStringValue("mdeDeviceId", registryValueEvidence.mdeDeviceId);
-        writer.writeStringValue("registryHive", registryValueEvidence.registryHive);
-        writer.writeStringValue("registryKey", registryValueEvidence.registryKey);
-        writer.writeStringValue("registryValue", registryValueEvidence.registryValue);
-        writer.writeStringValue("registryValueName", registryValueEvidence.registryValueName);
-        writer.writeStringValue("registryValueType", registryValueEvidence.registryValueType);
+    serializeAlertEvidence(writer, registryValueEvidence)
+    writer.writeStringValue("mdeDeviceId", registryValueEvidence.mdeDeviceId);
+    writer.writeStringValue("registryHive", registryValueEvidence.registryHive);
+    writer.writeStringValue("registryKey", registryValueEvidence.registryKey);
+    writer.writeStringValue("registryValue", registryValueEvidence.registryValue);
+    writer.writeStringValue("registryValueName", registryValueEvidence.registryValueName);
+    writer.writeStringValue("registryValueType", registryValueEvidence.registryValueType);
 }
 // tslint:enable
 // eslint-enable

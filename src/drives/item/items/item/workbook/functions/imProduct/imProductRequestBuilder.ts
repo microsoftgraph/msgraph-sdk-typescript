@@ -27,8 +27,8 @@ export interface ImProductPostRequestBody extends AdditionalDataHolder, Parsable
     values?: Json;
 }
 export function serializeImProductPostRequestBody(writer: SerializationWriter, imProductPostRequestBody: ImProductPostRequestBody | undefined = {} as ImProductPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", imProductPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(imProductPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", imProductPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(imProductPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the imProduct method.

@@ -38,8 +38,8 @@ export function deserializeIntoAccessReviewApplyAction(accessReviewApplyAction: 
     }
 }
 export function serializeAccessReviewApplyAction(writer: SerializationWriter, accessReviewApplyAction: AccessReviewApplyAction | undefined = {} as AccessReviewApplyAction) : void {
-        writer.writeStringValue("@odata.type", accessReviewApplyAction.odataType);
-        writer.writeAdditionalData(accessReviewApplyAction.additionalData);
+    writer.writeStringValue("@odata.type", accessReviewApplyAction.odataType);
+    writer.writeAdditionalData(accessReviewApplyAction.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export interface LearningProviderCollectionResponse extends BaseCollectionPagina
     value?: LearningProvider[];
 }
 export function serializeLearningProviderCollectionResponse(writer: SerializationWriter, learningProviderCollectionResponse: LearningProviderCollectionResponse | undefined = {} as LearningProviderCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, learningProviderCollectionResponse)
-        writer.writeCollectionOfObjectValues<LearningProvider>("value", learningProviderCollectionResponse.value, serializeLearningProvider);
+    serializeBaseCollectionPaginationCountResponse(writer, learningProviderCollectionResponse)
+    writer.writeCollectionOfObjectValues<LearningProvider>("value", learningProviderCollectionResponse.value, serializeLearningProvider);
 }
 // tslint:enable
 // eslint-enable

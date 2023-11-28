@@ -47,13 +47,13 @@ export interface PrintConnector extends Entity, Parsable {
     registeredDateTime?: Date;
 }
 export function serializePrintConnector(writer: SerializationWriter, printConnector: PrintConnector | undefined = {} as PrintConnector) : void {
-        serializeEntity(writer, printConnector)
-        writer.writeStringValue("appVersion", printConnector.appVersion);
-        writer.writeStringValue("displayName", printConnector.displayName);
-        writer.writeStringValue("fullyQualifiedDomainName", printConnector.fullyQualifiedDomainName);
-        writer.writeObjectValue<PrinterLocation>("location", printConnector.location, serializePrinterLocation);
-        writer.writeStringValue("operatingSystem", printConnector.operatingSystem);
-        writer.writeDateValue("registeredDateTime", printConnector.registeredDateTime);
+    serializeEntity(writer, printConnector)
+    writer.writeStringValue("appVersion", printConnector.appVersion);
+    writer.writeStringValue("displayName", printConnector.displayName);
+    writer.writeStringValue("fullyQualifiedDomainName", printConnector.fullyQualifiedDomainName);
+    writer.writeObjectValue<PrinterLocation>("location", printConnector.location, serializePrinterLocation);
+    writer.writeStringValue("operatingSystem", printConnector.operatingSystem);
+    writer.writeDateValue("registeredDateTime", printConnector.registeredDateTime);
 }
 // tslint:enable
 // eslint-enable

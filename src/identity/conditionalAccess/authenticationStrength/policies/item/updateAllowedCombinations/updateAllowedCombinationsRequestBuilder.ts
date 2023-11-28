@@ -17,9 +17,9 @@ export function deserializeIntoUpdateAllowedCombinationsPostRequestBody(updateAl
     }
 }
 export function serializeUpdateAllowedCombinationsPostRequestBody(writer: SerializationWriter, updateAllowedCombinationsPostRequestBody: UpdateAllowedCombinationsPostRequestBody | undefined = {} as UpdateAllowedCombinationsPostRequestBody) : void {
-        if(updateAllowedCombinationsPostRequestBody.allowedCombinations)
-        writer.writeEnumValue<AuthenticationMethodModes>("allowedCombinations", ...updateAllowedCombinationsPostRequestBody.allowedCombinations);
-        writer.writeAdditionalData(updateAllowedCombinationsPostRequestBody.additionalData);
+    if(updateAllowedCombinationsPostRequestBody.allowedCombinations)
+    writer.writeEnumValue<AuthenticationMethodModes>("allowedCombinations", ...updateAllowedCombinationsPostRequestBody.allowedCombinations);
+    writer.writeAdditionalData(updateAllowedCombinationsPostRequestBody.additionalData);
 }
 export interface UpdateAllowedCombinationsPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

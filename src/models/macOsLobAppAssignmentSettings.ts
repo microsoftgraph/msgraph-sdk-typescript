@@ -21,8 +21,8 @@ export interface MacOsLobAppAssignmentSettings extends MobileAppAssignmentSettin
     uninstallOnDeviceRemoval?: boolean;
 }
 export function serializeMacOsLobAppAssignmentSettings(writer: SerializationWriter, macOsLobAppAssignmentSettings: MacOsLobAppAssignmentSettings | undefined = {} as MacOsLobAppAssignmentSettings) : void {
-        serializeMobileAppAssignmentSettings(writer, macOsLobAppAssignmentSettings)
-        writer.writeBooleanValue("uninstallOnDeviceRemoval", macOsLobAppAssignmentSettings.uninstallOnDeviceRemoval);
+    serializeMobileAppAssignmentSettings(writer, macOsLobAppAssignmentSettings)
+    writer.writeBooleanValue("uninstallOnDeviceRemoval", macOsLobAppAssignmentSettings.uninstallOnDeviceRemoval);
 }
 // tslint:enable
 // eslint-enable

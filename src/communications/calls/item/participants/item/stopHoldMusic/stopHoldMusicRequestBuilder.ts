@@ -16,8 +16,8 @@ export function deserializeIntoStopHoldMusicPostRequestBody(stopHoldMusicPostReq
     }
 }
 export function serializeStopHoldMusicPostRequestBody(writer: SerializationWriter, stopHoldMusicPostRequestBody: StopHoldMusicPostRequestBody | undefined = {} as StopHoldMusicPostRequestBody) : void {
-        writer.writeStringValue("clientContext", stopHoldMusicPostRequestBody.clientContext);
-        writer.writeAdditionalData(stopHoldMusicPostRequestBody.additionalData);
+    writer.writeStringValue("clientContext", stopHoldMusicPostRequestBody.clientContext);
+    writer.writeAdditionalData(stopHoldMusicPostRequestBody.additionalData);
 }
 export interface StopHoldMusicPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

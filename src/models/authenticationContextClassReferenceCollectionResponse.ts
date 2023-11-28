@@ -22,8 +22,8 @@ export function deserializeIntoAuthenticationContextClassReferenceCollectionResp
     }
 }
 export function serializeAuthenticationContextClassReferenceCollectionResponse(writer: SerializationWriter, authenticationContextClassReferenceCollectionResponse: AuthenticationContextClassReferenceCollectionResponse | undefined = {} as AuthenticationContextClassReferenceCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, authenticationContextClassReferenceCollectionResponse)
-        writer.writeCollectionOfObjectValues<AuthenticationContextClassReference>("value", authenticationContextClassReferenceCollectionResponse.value, serializeAuthenticationContextClassReference);
+    serializeBaseCollectionPaginationCountResponse(writer, authenticationContextClassReferenceCollectionResponse)
+    writer.writeCollectionOfObjectValues<AuthenticationContextClassReference>("value", authenticationContextClassReferenceCollectionResponse.value, serializeAuthenticationContextClassReference);
 }
 // tslint:enable
 // eslint-enable

@@ -34,10 +34,10 @@ export interface MidbPostRequestBody extends AdditionalDataHolder, Parsable {
     text?: Json;
 }
 export function serializeMidbPostRequestBody(writer: SerializationWriter, midbPostRequestBody: MidbPostRequestBody | undefined = {} as MidbPostRequestBody) : void {
-        writer.writeObjectValue<Json>("numBytes", midbPostRequestBody.numBytes, serializeJson);
-        writer.writeObjectValue<Json>("startNum", midbPostRequestBody.startNum, serializeJson);
-        writer.writeObjectValue<Json>("text", midbPostRequestBody.text, serializeJson);
-        writer.writeAdditionalData(midbPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("numBytes", midbPostRequestBody.numBytes, serializeJson);
+    writer.writeObjectValue<Json>("startNum", midbPostRequestBody.startNum, serializeJson);
+    writer.writeObjectValue<Json>("text", midbPostRequestBody.text, serializeJson);
+    writer.writeAdditionalData(midbPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

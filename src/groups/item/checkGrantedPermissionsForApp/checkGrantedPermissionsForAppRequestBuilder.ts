@@ -24,8 +24,8 @@ export function deserializeIntoCheckGrantedPermissionsForAppPostResponse(checkGr
     }
 }
 export function serializeCheckGrantedPermissionsForAppPostResponse(writer: SerializationWriter, checkGrantedPermissionsForAppPostResponse: CheckGrantedPermissionsForAppPostResponse | undefined = {} as CheckGrantedPermissionsForAppPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, checkGrantedPermissionsForAppPostResponse)
-        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("value", checkGrantedPermissionsForAppPostResponse.value, serializeResourceSpecificPermissionGrant);
+    serializeBaseCollectionPaginationCountResponse(writer, checkGrantedPermissionsForAppPostResponse)
+    writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("value", checkGrantedPermissionsForAppPostResponse.value, serializeResourceSpecificPermissionGrant);
 }
 /**
  * Provides operations to call the checkGrantedPermissionsForApp method.

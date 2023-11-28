@@ -25,8 +25,8 @@ export function deserializeIntoCountGetResponse(countGetResponse: CountGetRespon
     }
 }
 export function serializeCountGetResponse(writer: SerializationWriter, countGetResponse: CountGetResponse | undefined = {} as CountGetResponse) : void {
-        writer.writeNumberValue("value", countGetResponse.value);
-        writer.writeAdditionalData(countGetResponse.additionalData);
+    writer.writeNumberValue("value", countGetResponse.value);
+    writer.writeAdditionalData(countGetResponse.additionalData);
 }
 /**
  * Provides operations to call the count method.

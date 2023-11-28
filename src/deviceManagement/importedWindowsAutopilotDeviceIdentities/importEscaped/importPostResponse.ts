@@ -22,8 +22,8 @@ export interface ImportPostResponse extends BaseCollectionPaginationCountRespons
     value?: ImportedWindowsAutopilotDeviceIdentity[];
 }
 export function serializeImportPostResponse(writer: SerializationWriter, importPostResponse: ImportPostResponse | undefined = {} as ImportPostResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, importPostResponse)
-        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("value", importPostResponse.value, serializeImportedWindowsAutopilotDeviceIdentity);
+    serializeBaseCollectionPaginationCountResponse(writer, importPostResponse)
+    writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("value", importPostResponse.value, serializeImportedWindowsAutopilotDeviceIdentity);
 }
 // tslint:enable
 // eslint-enable

@@ -21,13 +21,13 @@ export function deserializeIntoUserExperienceAnalyticsAppHealthDeviceModelPerfor
     }
 }
 export function serializeUserExperienceAnalyticsAppHealthDeviceModelPerformance(writer: SerializationWriter, userExperienceAnalyticsAppHealthDeviceModelPerformance: UserExperienceAnalyticsAppHealthDeviceModelPerformance | undefined = {} as UserExperienceAnalyticsAppHealthDeviceModelPerformance) : void {
-        serializeEntity(writer, userExperienceAnalyticsAppHealthDeviceModelPerformance)
-        writer.writeNumberValue("activeDeviceCount", userExperienceAnalyticsAppHealthDeviceModelPerformance.activeDeviceCount);
-        writer.writeStringValue("deviceManufacturer", userExperienceAnalyticsAppHealthDeviceModelPerformance.deviceManufacturer);
-        writer.writeStringValue("deviceModel", userExperienceAnalyticsAppHealthDeviceModelPerformance.deviceModel);
-        writer.writeEnumValue<UserExperienceAnalyticsHealthState>("healthStatus", userExperienceAnalyticsAppHealthDeviceModelPerformance.healthStatus);
-        writer.writeNumberValue("meanTimeToFailureInMinutes", userExperienceAnalyticsAppHealthDeviceModelPerformance.meanTimeToFailureInMinutes);
-        writer.writeNumberValue("modelAppHealthScore", userExperienceAnalyticsAppHealthDeviceModelPerformance.modelAppHealthScore);
+    serializeEntity(writer, userExperienceAnalyticsAppHealthDeviceModelPerformance)
+    writer.writeNumberValue("activeDeviceCount", userExperienceAnalyticsAppHealthDeviceModelPerformance.activeDeviceCount);
+    writer.writeStringValue("deviceManufacturer", userExperienceAnalyticsAppHealthDeviceModelPerformance.deviceManufacturer);
+    writer.writeStringValue("deviceModel", userExperienceAnalyticsAppHealthDeviceModelPerformance.deviceModel);
+    writer.writeEnumValue<UserExperienceAnalyticsHealthState>("healthStatus", userExperienceAnalyticsAppHealthDeviceModelPerformance.healthStatus);
+    writer.writeNumberValue("meanTimeToFailureInMinutes", userExperienceAnalyticsAppHealthDeviceModelPerformance.meanTimeToFailureInMinutes);
+    writer.writeNumberValue("modelAppHealthScore", userExperienceAnalyticsAppHealthDeviceModelPerformance.modelAppHealthScore);
 }
 export interface UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity, Parsable {
     /**

@@ -69,17 +69,17 @@ export interface DeviceManagementExportJob extends Entity, Parsable {
     url?: string;
 }
 export function serializeDeviceManagementExportJob(writer: SerializationWriter, deviceManagementExportJob: DeviceManagementExportJob | undefined = {} as DeviceManagementExportJob) : void {
-        serializeEntity(writer, deviceManagementExportJob)
-        writer.writeDateValue("expirationDateTime", deviceManagementExportJob.expirationDateTime);
-        writer.writeStringValue("filter", deviceManagementExportJob.filter);
-        writer.writeEnumValue<DeviceManagementReportFileFormat>("format", deviceManagementExportJob.format);
-        writer.writeEnumValue<DeviceManagementExportJobLocalizationType>("localizationType", deviceManagementExportJob.localizationType);
-        writer.writeStringValue("reportName", deviceManagementExportJob.reportName);
-        writer.writeDateValue("requestDateTime", deviceManagementExportJob.requestDateTime);
-        writer.writeCollectionOfPrimitiveValues<string>("select", deviceManagementExportJob.select);
-        writer.writeStringValue("snapshotId", deviceManagementExportJob.snapshotId);
-        writer.writeEnumValue<DeviceManagementReportStatus>("status", deviceManagementExportJob.status);
-        writer.writeStringValue("url", deviceManagementExportJob.url);
+    serializeEntity(writer, deviceManagementExportJob)
+    writer.writeDateValue("expirationDateTime", deviceManagementExportJob.expirationDateTime);
+    writer.writeStringValue("filter", deviceManagementExportJob.filter);
+    writer.writeEnumValue<DeviceManagementReportFileFormat>("format", deviceManagementExportJob.format);
+    writer.writeEnumValue<DeviceManagementExportJobLocalizationType>("localizationType", deviceManagementExportJob.localizationType);
+    writer.writeStringValue("reportName", deviceManagementExportJob.reportName);
+    writer.writeDateValue("requestDateTime", deviceManagementExportJob.requestDateTime);
+    writer.writeCollectionOfPrimitiveValues<string>("select", deviceManagementExportJob.select);
+    writer.writeStringValue("snapshotId", deviceManagementExportJob.snapshotId);
+    writer.writeEnumValue<DeviceManagementReportStatus>("status", deviceManagementExportJob.status);
+    writer.writeStringValue("url", deviceManagementExportJob.url);
 }
 // tslint:enable
 // eslint-enable

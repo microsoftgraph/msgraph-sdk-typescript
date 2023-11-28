@@ -16,11 +16,11 @@ export function deserializeIntoWipePostRequestBody(wipePostRequestBody: WipePost
     }
 }
 export function serializeWipePostRequestBody(writer: SerializationWriter, wipePostRequestBody: WipePostRequestBody | undefined = {} as WipePostRequestBody) : void {
-        writer.writeBooleanValue("keepEnrollmentData", wipePostRequestBody.keepEnrollmentData);
-        writer.writeBooleanValue("keepUserData", wipePostRequestBody.keepUserData);
-        writer.writeStringValue("macOsUnlockCode", wipePostRequestBody.macOsUnlockCode);
-        writer.writeBooleanValue("persistEsimDataPlan", wipePostRequestBody.persistEsimDataPlan);
-        writer.writeAdditionalData(wipePostRequestBody.additionalData);
+    writer.writeBooleanValue("keepEnrollmentData", wipePostRequestBody.keepEnrollmentData);
+    writer.writeBooleanValue("keepUserData", wipePostRequestBody.keepUserData);
+    writer.writeStringValue("macOsUnlockCode", wipePostRequestBody.macOsUnlockCode);
+    writer.writeBooleanValue("persistEsimDataPlan", wipePostRequestBody.persistEsimDataPlan);
+    writer.writeAdditionalData(wipePostRequestBody.additionalData);
 }
 export interface WipePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

@@ -31,9 +31,9 @@ export function deserializeIntoCopyToDefaultContentLocationPostRequestBody(copyT
     }
 }
 export function serializeCopyToDefaultContentLocationPostRequestBody(writer: SerializationWriter, copyToDefaultContentLocationPostRequestBody: CopyToDefaultContentLocationPostRequestBody | undefined = {} as CopyToDefaultContentLocationPostRequestBody) : void {
-        writer.writeStringValue("destinationFileName", copyToDefaultContentLocationPostRequestBody.destinationFileName);
-        writer.writeObjectValue<ItemReference>("sourceFile", copyToDefaultContentLocationPostRequestBody.sourceFile, serializeItemReference);
-        writer.writeAdditionalData(copyToDefaultContentLocationPostRequestBody.additionalData);
+    writer.writeStringValue("destinationFileName", copyToDefaultContentLocationPostRequestBody.destinationFileName);
+    writer.writeObjectValue<ItemReference>("sourceFile", copyToDefaultContentLocationPostRequestBody.sourceFile, serializeItemReference);
+    writer.writeAdditionalData(copyToDefaultContentLocationPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the copyToDefaultContentLocation method.

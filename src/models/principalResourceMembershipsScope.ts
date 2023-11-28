@@ -26,9 +26,9 @@ export interface PrincipalResourceMembershipsScope extends AccessReviewScope, Pa
     resourceScopes?: AccessReviewScope[];
 }
 export function serializePrincipalResourceMembershipsScope(writer: SerializationWriter, principalResourceMembershipsScope: PrincipalResourceMembershipsScope | undefined = {} as PrincipalResourceMembershipsScope) : void {
-        serializeAccessReviewScope(writer, principalResourceMembershipsScope)
-        writer.writeCollectionOfObjectValues<AccessReviewScope>("principalScopes", principalResourceMembershipsScope.principalScopes, serializeAccessReviewScope);
-        writer.writeCollectionOfObjectValues<AccessReviewScope>("resourceScopes", principalResourceMembershipsScope.resourceScopes, serializeAccessReviewScope);
+    serializeAccessReviewScope(writer, principalResourceMembershipsScope)
+    writer.writeCollectionOfObjectValues<AccessReviewScope>("principalScopes", principalResourceMembershipsScope.principalScopes, serializeAccessReviewScope);
+    writer.writeCollectionOfObjectValues<AccessReviewScope>("resourceScopes", principalResourceMembershipsScope.resourceScopes, serializeAccessReviewScope);
 }
 // tslint:enable
 // eslint-enable

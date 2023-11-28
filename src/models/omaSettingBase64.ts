@@ -26,9 +26,9 @@ export interface OmaSettingBase64 extends OmaSetting, Parsable {
     value?: string;
 }
 export function serializeOmaSettingBase64(writer: SerializationWriter, omaSettingBase64: OmaSettingBase64 | undefined = {} as OmaSettingBase64) : void {
-        serializeOmaSetting(writer, omaSettingBase64)
-        writer.writeStringValue("fileName", omaSettingBase64.fileName);
-        writer.writeStringValue("value", omaSettingBase64.value);
+    serializeOmaSetting(writer, omaSettingBase64)
+    writer.writeStringValue("fileName", omaSettingBase64.fileName);
+    writer.writeStringValue("value", omaSettingBase64.value);
 }
 // tslint:enable
 // eslint-enable

@@ -40,11 +40,11 @@ export function deserializeIntoBatchRecordDecisionsPostRequestBody(batchRecordDe
     }
 }
 export function serializeBatchRecordDecisionsPostRequestBody(writer: SerializationWriter, batchRecordDecisionsPostRequestBody: BatchRecordDecisionsPostRequestBody | undefined = {} as BatchRecordDecisionsPostRequestBody) : void {
-        writer.writeStringValue("decision", batchRecordDecisionsPostRequestBody.decision);
-        writer.writeStringValue("justification", batchRecordDecisionsPostRequestBody.justification);
-        writer.writeStringValue("principalId", batchRecordDecisionsPostRequestBody.principalId);
-        writer.writeStringValue("resourceId", batchRecordDecisionsPostRequestBody.resourceId);
-        writer.writeAdditionalData(batchRecordDecisionsPostRequestBody.additionalData);
+    writer.writeStringValue("decision", batchRecordDecisionsPostRequestBody.decision);
+    writer.writeStringValue("justification", batchRecordDecisionsPostRequestBody.justification);
+    writer.writeStringValue("principalId", batchRecordDecisionsPostRequestBody.principalId);
+    writer.writeStringValue("resourceId", batchRecordDecisionsPostRequestBody.resourceId);
+    writer.writeAdditionalData(batchRecordDecisionsPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the batchRecordDecisions method.

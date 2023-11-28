@@ -23,8 +23,8 @@ export interface Root extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeRoot(writer: SerializationWriter, root: Root | undefined = {} as Root) : void {
-        writer.writeStringValue("@odata.type", root.odataType);
-        writer.writeAdditionalData(root.additionalData);
+    writer.writeStringValue("@odata.type", root.odataType);
+    writer.writeAdditionalData(root.additionalData);
 }
 // tslint:enable
 // eslint-enable

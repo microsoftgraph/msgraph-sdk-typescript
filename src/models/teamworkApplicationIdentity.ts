@@ -16,8 +16,8 @@ export function deserializeIntoTeamworkApplicationIdentity(teamworkApplicationId
     }
 }
 export function serializeTeamworkApplicationIdentity(writer: SerializationWriter, teamworkApplicationIdentity: TeamworkApplicationIdentity | undefined = {} as TeamworkApplicationIdentity) : void {
-        serializeIdentity(writer, teamworkApplicationIdentity)
-        writer.writeEnumValue<TeamworkApplicationIdentityType>("applicationIdentityType", teamworkApplicationIdentity.applicationIdentityType);
+    serializeIdentity(writer, teamworkApplicationIdentity)
+    writer.writeEnumValue<TeamworkApplicationIdentityType>("applicationIdentityType", teamworkApplicationIdentity.applicationIdentityType);
 }
 export interface TeamworkApplicationIdentity extends Identity, Parsable {
     /**

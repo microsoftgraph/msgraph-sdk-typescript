@@ -24,8 +24,8 @@ export function deserializeIntoAtanhPostRequestBody(atanhPostRequestBody: AtanhP
     }
 }
 export function serializeAtanhPostRequestBody(writer: SerializationWriter, atanhPostRequestBody: AtanhPostRequestBody | undefined = {} as AtanhPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", atanhPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(atanhPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", atanhPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(atanhPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

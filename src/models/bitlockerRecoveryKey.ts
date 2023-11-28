@@ -37,11 +37,11 @@ export function deserializeIntoBitlockerRecoveryKey(bitlockerRecoveryKey: Bitloc
     }
 }
 export function serializeBitlockerRecoveryKey(writer: SerializationWriter, bitlockerRecoveryKey: BitlockerRecoveryKey | undefined = {} as BitlockerRecoveryKey) : void {
-        serializeEntity(writer, bitlockerRecoveryKey)
-        writer.writeDateValue("createdDateTime", bitlockerRecoveryKey.createdDateTime);
-        writer.writeStringValue("deviceId", bitlockerRecoveryKey.deviceId);
-        writer.writeStringValue("key", bitlockerRecoveryKey.key);
-        writer.writeEnumValue<VolumeType>("volumeType", bitlockerRecoveryKey.volumeType);
+    serializeEntity(writer, bitlockerRecoveryKey)
+    writer.writeDateValue("createdDateTime", bitlockerRecoveryKey.createdDateTime);
+    writer.writeStringValue("deviceId", bitlockerRecoveryKey.deviceId);
+    writer.writeStringValue("key", bitlockerRecoveryKey.key);
+    writer.writeEnumValue<VolumeType>("volumeType", bitlockerRecoveryKey.volumeType);
 }
 // tslint:enable
 // eslint-enable

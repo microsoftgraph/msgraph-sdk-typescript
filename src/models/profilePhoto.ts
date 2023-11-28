@@ -26,9 +26,9 @@ export interface ProfilePhoto extends Entity, Parsable {
     width?: number;
 }
 export function serializeProfilePhoto(writer: SerializationWriter, profilePhoto: ProfilePhoto | undefined = {} as ProfilePhoto) : void {
-        serializeEntity(writer, profilePhoto)
-        writer.writeNumberValue("height", profilePhoto.height);
-        writer.writeNumberValue("width", profilePhoto.width);
+    serializeEntity(writer, profilePhoto)
+    writer.writeNumberValue("height", profilePhoto.height);
+    writer.writeNumberValue("width", profilePhoto.width);
 }
 // tslint:enable
 // eslint-enable

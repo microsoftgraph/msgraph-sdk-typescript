@@ -22,8 +22,8 @@ export function deserializeIntoCustomSecurityAttributeDefinitionCollectionRespon
     }
 }
 export function serializeCustomSecurityAttributeDefinitionCollectionResponse(writer: SerializationWriter, customSecurityAttributeDefinitionCollectionResponse: CustomSecurityAttributeDefinitionCollectionResponse | undefined = {} as CustomSecurityAttributeDefinitionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, customSecurityAttributeDefinitionCollectionResponse)
-        writer.writeCollectionOfObjectValues<CustomSecurityAttributeDefinition>("value", customSecurityAttributeDefinitionCollectionResponse.value, serializeCustomSecurityAttributeDefinition);
+    serializeBaseCollectionPaginationCountResponse(writer, customSecurityAttributeDefinitionCollectionResponse)
+    writer.writeCollectionOfObjectValues<CustomSecurityAttributeDefinition>("value", customSecurityAttributeDefinitionCollectionResponse.value, serializeCustomSecurityAttributeDefinition);
 }
 // tslint:enable
 // eslint-enable

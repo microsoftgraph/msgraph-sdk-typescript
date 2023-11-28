@@ -17,11 +17,11 @@ export function deserializeIntoSynchronizationJobSubject(synchronizationJobSubje
     }
 }
 export function serializeSynchronizationJobSubject(writer: SerializationWriter, synchronizationJobSubject: SynchronizationJobSubject | undefined = {} as SynchronizationJobSubject) : void {
-        writer.writeObjectValue<SynchronizationLinkedObjects>("links", synchronizationJobSubject.links, serializeSynchronizationLinkedObjects);
-        writer.writeStringValue("objectId", synchronizationJobSubject.objectId);
-        writer.writeStringValue("objectTypeName", synchronizationJobSubject.objectTypeName);
-        writer.writeStringValue("@odata.type", synchronizationJobSubject.odataType);
-        writer.writeAdditionalData(synchronizationJobSubject.additionalData);
+    writer.writeObjectValue<SynchronizationLinkedObjects>("links", synchronizationJobSubject.links, serializeSynchronizationLinkedObjects);
+    writer.writeStringValue("objectId", synchronizationJobSubject.objectId);
+    writer.writeStringValue("objectTypeName", synchronizationJobSubject.objectTypeName);
+    writer.writeStringValue("@odata.type", synchronizationJobSubject.odataType);
+    writer.writeAdditionalData(synchronizationJobSubject.additionalData);
 }
 export interface SynchronizationJobSubject extends AdditionalDataHolder, Parsable {
     /**

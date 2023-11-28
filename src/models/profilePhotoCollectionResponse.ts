@@ -22,8 +22,8 @@ export interface ProfilePhotoCollectionResponse extends BaseCollectionPagination
     value?: ProfilePhoto[];
 }
 export function serializeProfilePhotoCollectionResponse(writer: SerializationWriter, profilePhotoCollectionResponse: ProfilePhotoCollectionResponse | undefined = {} as ProfilePhotoCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, profilePhotoCollectionResponse)
-        writer.writeCollectionOfObjectValues<ProfilePhoto>("value", profilePhotoCollectionResponse.value, serializeProfilePhoto);
+    serializeBaseCollectionPaginationCountResponse(writer, profilePhotoCollectionResponse)
+    writer.writeCollectionOfObjectValues<ProfilePhoto>("value", profilePhotoCollectionResponse.value, serializeProfilePhoto);
 }
 // tslint:enable
 // eslint-enable

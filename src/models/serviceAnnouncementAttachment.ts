@@ -19,12 +19,12 @@ export function deserializeIntoServiceAnnouncementAttachment(serviceAnnouncement
     }
 }
 export function serializeServiceAnnouncementAttachment(writer: SerializationWriter, serviceAnnouncementAttachment: ServiceAnnouncementAttachment | undefined = {} as ServiceAnnouncementAttachment) : void {
-        serializeEntity(writer, serviceAnnouncementAttachment)
-        writer.writeStringValue("content", serviceAnnouncementAttachment.content);
-        writer.writeStringValue("contentType", serviceAnnouncementAttachment.contentType);
-        writer.writeDateValue("lastModifiedDateTime", serviceAnnouncementAttachment.lastModifiedDateTime);
-        writer.writeStringValue("name", serviceAnnouncementAttachment.name);
-        writer.writeNumberValue("size", serviceAnnouncementAttachment.size);
+    serializeEntity(writer, serviceAnnouncementAttachment)
+    writer.writeStringValue("content", serviceAnnouncementAttachment.content);
+    writer.writeStringValue("contentType", serviceAnnouncementAttachment.contentType);
+    writer.writeDateValue("lastModifiedDateTime", serviceAnnouncementAttachment.lastModifiedDateTime);
+    writer.writeStringValue("name", serviceAnnouncementAttachment.name);
+    writer.writeNumberValue("size", serviceAnnouncementAttachment.size);
 }
 export interface ServiceAnnouncementAttachment extends Entity, Parsable {
     /**

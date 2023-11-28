@@ -30,9 +30,9 @@ export function deserializeIntoCheckinPostRequestBody(checkinPostRequestBody: Ch
     }
 }
 export function serializeCheckinPostRequestBody(writer: SerializationWriter, checkinPostRequestBody: CheckinPostRequestBody | undefined = {} as CheckinPostRequestBody) : void {
-        writer.writeStringValue("checkInAs", checkinPostRequestBody.checkInAs);
-        writer.writeStringValue("comment", checkinPostRequestBody.comment);
-        writer.writeAdditionalData(checkinPostRequestBody.additionalData);
+    writer.writeStringValue("checkInAs", checkinPostRequestBody.checkInAs);
+    writer.writeStringValue("comment", checkinPostRequestBody.comment);
+    writer.writeAdditionalData(checkinPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the checkin method.

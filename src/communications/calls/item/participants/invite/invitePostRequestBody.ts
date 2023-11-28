@@ -29,9 +29,9 @@ export interface InvitePostRequestBody extends AdditionalDataHolder, Parsable {
     participants?: InvitationParticipantInfo[];
 }
 export function serializeInvitePostRequestBody(writer: SerializationWriter, invitePostRequestBody: InvitePostRequestBody | undefined = {} as InvitePostRequestBody) : void {
-        writer.writeStringValue("clientContext", invitePostRequestBody.clientContext);
-        writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("participants", invitePostRequestBody.participants, serializeInvitationParticipantInfo);
-        writer.writeAdditionalData(invitePostRequestBody.additionalData);
+    writer.writeStringValue("clientContext", invitePostRequestBody.clientContext);
+    writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("participants", invitePostRequestBody.participants, serializeInvitationParticipantInfo);
+    writer.writeAdditionalData(invitePostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

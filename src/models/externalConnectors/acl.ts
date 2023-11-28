@@ -40,11 +40,11 @@ export function deserializeIntoAcl(acl: Acl | undefined = {} as Acl) : Record<st
     }
 }
 export function serializeAcl(writer: SerializationWriter, acl: Acl | undefined = {} as Acl) : void {
-        writer.writeEnumValue<AccessType>("accessType", acl.accessType);
-        writer.writeStringValue("@odata.type", acl.odataType);
-        writer.writeEnumValue<AclType>("type", acl.type);
-        writer.writeStringValue("value", acl.value);
-        writer.writeAdditionalData(acl.additionalData);
+    writer.writeEnumValue<AccessType>("accessType", acl.accessType);
+    writer.writeStringValue("@odata.type", acl.odataType);
+    writer.writeEnumValue<AclType>("type", acl.type);
+    writer.writeStringValue("value", acl.value);
+    writer.writeAdditionalData(acl.additionalData);
 }
 // tslint:enable
 // eslint-enable

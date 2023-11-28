@@ -36,11 +36,11 @@ export interface OauthApplicationEvidence extends AlertEvidence, Parsable {
     publisher?: string;
 }
 export function serializeOauthApplicationEvidence(writer: SerializationWriter, oauthApplicationEvidence: OauthApplicationEvidence | undefined = {} as OauthApplicationEvidence) : void {
-        serializeAlertEvidence(writer, oauthApplicationEvidence)
-        writer.writeStringValue("appId", oauthApplicationEvidence.appId);
-        writer.writeStringValue("displayName", oauthApplicationEvidence.displayName);
-        writer.writeStringValue("objectId", oauthApplicationEvidence.objectId);
-        writer.writeStringValue("publisher", oauthApplicationEvidence.publisher);
+    serializeAlertEvidence(writer, oauthApplicationEvidence)
+    writer.writeStringValue("appId", oauthApplicationEvidence.appId);
+    writer.writeStringValue("displayName", oauthApplicationEvidence.displayName);
+    writer.writeStringValue("objectId", oauthApplicationEvidence.objectId);
+    writer.writeStringValue("publisher", oauthApplicationEvidence.publisher);
 }
 // tslint:enable
 // eslint-enable

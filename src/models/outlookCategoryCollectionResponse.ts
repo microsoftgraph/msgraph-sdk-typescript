@@ -22,8 +22,8 @@ export interface OutlookCategoryCollectionResponse extends BaseCollectionPaginat
     value?: OutlookCategory[];
 }
 export function serializeOutlookCategoryCollectionResponse(writer: SerializationWriter, outlookCategoryCollectionResponse: OutlookCategoryCollectionResponse | undefined = {} as OutlookCategoryCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, outlookCategoryCollectionResponse)
-        writer.writeCollectionOfObjectValues<OutlookCategory>("value", outlookCategoryCollectionResponse.value, serializeOutlookCategory);
+    serializeBaseCollectionPaginationCountResponse(writer, outlookCategoryCollectionResponse)
+    writer.writeCollectionOfObjectValues<OutlookCategory>("value", outlookCategoryCollectionResponse.value, serializeOutlookCategory);
 }
 // tslint:enable
 // eslint-enable

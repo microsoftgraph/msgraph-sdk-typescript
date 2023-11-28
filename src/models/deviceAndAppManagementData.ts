@@ -28,9 +28,9 @@ export interface DeviceAndAppManagementData extends AdditionalDataHolder, Parsab
     odataType?: string;
 }
 export function serializeDeviceAndAppManagementData(writer: SerializationWriter, deviceAndAppManagementData: DeviceAndAppManagementData | undefined = {} as DeviceAndAppManagementData) : void {
-        writer.writeStringValue("content", deviceAndAppManagementData.content);
-        writer.writeStringValue("@odata.type", deviceAndAppManagementData.odataType);
-        writer.writeAdditionalData(deviceAndAppManagementData.additionalData);
+    writer.writeStringValue("content", deviceAndAppManagementData.content);
+    writer.writeStringValue("@odata.type", deviceAndAppManagementData.odataType);
+    writer.writeAdditionalData(deviceAndAppManagementData.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -75,18 +75,18 @@ export interface DirectoryAudit extends Entity, Parsable {
     targetResources?: TargetResource[];
 }
 export function serializeDirectoryAudit(writer: SerializationWriter, directoryAudit: DirectoryAudit | undefined = {} as DirectoryAudit) : void {
-        serializeEntity(writer, directoryAudit)
-        writer.writeDateValue("activityDateTime", directoryAudit.activityDateTime);
-        writer.writeStringValue("activityDisplayName", directoryAudit.activityDisplayName);
-        writer.writeCollectionOfObjectValues<KeyValue>("additionalDetails", directoryAudit.additionalDetails, serializeKeyValue);
-        writer.writeStringValue("category", directoryAudit.category);
-        writer.writeStringValue("correlationId", directoryAudit.correlationId);
-        writer.writeObjectValue<AuditActivityInitiator>("initiatedBy", directoryAudit.initiatedBy, serializeAuditActivityInitiator);
-        writer.writeStringValue("loggedByService", directoryAudit.loggedByService);
-        writer.writeStringValue("operationType", directoryAudit.operationType);
-        writer.writeEnumValue<OperationResult>("result", directoryAudit.result);
-        writer.writeStringValue("resultReason", directoryAudit.resultReason);
-        writer.writeCollectionOfObjectValues<TargetResource>("targetResources", directoryAudit.targetResources, serializeTargetResource);
+    serializeEntity(writer, directoryAudit)
+    writer.writeDateValue("activityDateTime", directoryAudit.activityDateTime);
+    writer.writeStringValue("activityDisplayName", directoryAudit.activityDisplayName);
+    writer.writeCollectionOfObjectValues<KeyValue>("additionalDetails", directoryAudit.additionalDetails, serializeKeyValue);
+    writer.writeStringValue("category", directoryAudit.category);
+    writer.writeStringValue("correlationId", directoryAudit.correlationId);
+    writer.writeObjectValue<AuditActivityInitiator>("initiatedBy", directoryAudit.initiatedBy, serializeAuditActivityInitiator);
+    writer.writeStringValue("loggedByService", directoryAudit.loggedByService);
+    writer.writeStringValue("operationType", directoryAudit.operationType);
+    writer.writeEnumValue<OperationResult>("result", directoryAudit.result);
+    writer.writeStringValue("resultReason", directoryAudit.resultReason);
+    writer.writeCollectionOfObjectValues<TargetResource>("targetResources", directoryAudit.targetResources, serializeTargetResource);
 }
 // tslint:enable
 // eslint-enable

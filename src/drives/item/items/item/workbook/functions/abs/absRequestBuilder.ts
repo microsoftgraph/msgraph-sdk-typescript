@@ -27,8 +27,8 @@ export function deserializeIntoAbsPostRequestBody(absPostRequestBody: AbsPostReq
     }
 }
 export function serializeAbsPostRequestBody(writer: SerializationWriter, absPostRequestBody: AbsPostRequestBody | undefined = {} as AbsPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", absPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(absPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", absPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(absPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the abs method.

@@ -18,9 +18,9 @@ export function deserializeIntoT_Dist_RTPostRequestBody(t_Dist_RTPostRequestBody
     }
 }
 export function serializeT_Dist_RTPostRequestBody(writer: SerializationWriter, t_Dist_RTPostRequestBody: T_Dist_RTPostRequestBody | undefined = {} as T_Dist_RTPostRequestBody) : void {
-        writer.writeObjectValue<Json>("degFreedom", t_Dist_RTPostRequestBody.degFreedom, serializeJson);
-        writer.writeObjectValue<Json>("x", t_Dist_RTPostRequestBody.x, serializeJson);
-        writer.writeAdditionalData(t_Dist_RTPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("degFreedom", t_Dist_RTPostRequestBody.degFreedom, serializeJson);
+    writer.writeObjectValue<Json>("x", t_Dist_RTPostRequestBody.x, serializeJson);
+    writer.writeAdditionalData(t_Dist_RTPostRequestBody.additionalData);
 }
 export interface T_Dist_RTPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

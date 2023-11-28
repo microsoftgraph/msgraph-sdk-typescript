@@ -38,11 +38,11 @@ export function deserializeIntoBroadcastMeetingCaptionSettings(broadcastMeetingC
     }
 }
 export function serializeBroadcastMeetingCaptionSettings(writer: SerializationWriter, broadcastMeetingCaptionSettings: BroadcastMeetingCaptionSettings | undefined = {} as BroadcastMeetingCaptionSettings) : void {
-        writer.writeBooleanValue("isCaptionEnabled", broadcastMeetingCaptionSettings.isCaptionEnabled);
-        writer.writeStringValue("@odata.type", broadcastMeetingCaptionSettings.odataType);
-        writer.writeStringValue("spokenLanguage", broadcastMeetingCaptionSettings.spokenLanguage);
-        writer.writeCollectionOfPrimitiveValues<string>("translationLanguages", broadcastMeetingCaptionSettings.translationLanguages);
-        writer.writeAdditionalData(broadcastMeetingCaptionSettings.additionalData);
+    writer.writeBooleanValue("isCaptionEnabled", broadcastMeetingCaptionSettings.isCaptionEnabled);
+    writer.writeStringValue("@odata.type", broadcastMeetingCaptionSettings.odataType);
+    writer.writeStringValue("spokenLanguage", broadcastMeetingCaptionSettings.spokenLanguage);
+    writer.writeCollectionOfPrimitiveValues<string>("translationLanguages", broadcastMeetingCaptionSettings.translationLanguages);
+    writer.writeAdditionalData(broadcastMeetingCaptionSettings.additionalData);
 }
 // tslint:enable
 // eslint-enable

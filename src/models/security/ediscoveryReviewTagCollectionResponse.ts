@@ -22,8 +22,8 @@ export interface EdiscoveryReviewTagCollectionResponse extends BaseCollectionPag
     value?: EdiscoveryReviewTag[];
 }
 export function serializeEdiscoveryReviewTagCollectionResponse(writer: SerializationWriter, ediscoveryReviewTagCollectionResponse: EdiscoveryReviewTagCollectionResponse | undefined = {} as EdiscoveryReviewTagCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, ediscoveryReviewTagCollectionResponse)
-        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("value", ediscoveryReviewTagCollectionResponse.value, serializeEdiscoveryReviewTag);
+    serializeBaseCollectionPaginationCountResponse(writer, ediscoveryReviewTagCollectionResponse)
+    writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("value", ediscoveryReviewTagCollectionResponse.value, serializeEdiscoveryReviewTag);
 }
 // tslint:enable
 // eslint-enable

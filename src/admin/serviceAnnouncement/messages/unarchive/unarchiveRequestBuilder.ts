@@ -24,12 +24,12 @@ export function deserializeIntoUnarchivePostResponse(unarchivePostResponse: Unar
     }
 }
 export function serializeUnarchivePostRequestBody(writer: SerializationWriter, unarchivePostRequestBody: UnarchivePostRequestBody | undefined = {} as UnarchivePostRequestBody) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", unarchivePostRequestBody.messageIds);
-        writer.writeAdditionalData(unarchivePostRequestBody.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("messageIds", unarchivePostRequestBody.messageIds);
+    writer.writeAdditionalData(unarchivePostRequestBody.additionalData);
 }
 export function serializeUnarchivePostResponse(writer: SerializationWriter, unarchivePostResponse: UnarchivePostResponse | undefined = {} as UnarchivePostResponse) : void {
-        writer.writeBooleanValue("value", unarchivePostResponse.value);
-        writer.writeAdditionalData(unarchivePostResponse.additionalData);
+    writer.writeBooleanValue("value", unarchivePostResponse.value);
+    writer.writeAdditionalData(unarchivePostResponse.additionalData);
 }
 export interface UnarchivePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

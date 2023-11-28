@@ -21,8 +21,8 @@ export interface GetUserIdsWithFlaggedAppRegistrationGetResponse extends BaseCol
     value?: string[];
 }
 export function serializeGetUserIdsWithFlaggedAppRegistrationGetResponse(writer: SerializationWriter, getUserIdsWithFlaggedAppRegistrationGetResponse: GetUserIdsWithFlaggedAppRegistrationGetResponse | undefined = {} as GetUserIdsWithFlaggedAppRegistrationGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getUserIdsWithFlaggedAppRegistrationGetResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getUserIdsWithFlaggedAppRegistrationGetResponse.value);
+    serializeBaseCollectionPaginationCountResponse(writer, getUserIdsWithFlaggedAppRegistrationGetResponse)
+    writer.writeCollectionOfPrimitiveValues<string>("value", getUserIdsWithFlaggedAppRegistrationGetResponse.value);
 }
 // tslint:enable
 // eslint-enable

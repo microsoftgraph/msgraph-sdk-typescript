@@ -17,8 +17,8 @@ export function deserializeIntoValuePostRequestBody(valuePostRequestBody: ValueP
     }
 }
 export function serializeValuePostRequestBody(writer: SerializationWriter, valuePostRequestBody: ValuePostRequestBody | undefined = {} as ValuePostRequestBody) : void {
-        writer.writeObjectValue<Json>("text", valuePostRequestBody.text, serializeJson);
-        writer.writeAdditionalData(valuePostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("text", valuePostRequestBody.text, serializeJson);
+    writer.writeAdditionalData(valuePostRequestBody.additionalData);
 }
 export interface ValuePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

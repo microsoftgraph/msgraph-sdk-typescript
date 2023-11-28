@@ -13,8 +13,8 @@ export function deserializeIntoSubscribeToTonePostRequestBody(subscribeToTonePos
     }
 }
 export function serializeSubscribeToTonePostRequestBody(writer: SerializationWriter, subscribeToTonePostRequestBody: SubscribeToTonePostRequestBody | undefined = {} as SubscribeToTonePostRequestBody) : void {
-        writer.writeStringValue("clientContext", subscribeToTonePostRequestBody.clientContext);
-        writer.writeAdditionalData(subscribeToTonePostRequestBody.additionalData);
+    writer.writeStringValue("clientContext", subscribeToTonePostRequestBody.clientContext);
+    writer.writeAdditionalData(subscribeToTonePostRequestBody.additionalData);
 }
 export interface SubscribeToTonePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

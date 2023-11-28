@@ -22,8 +22,8 @@ export interface NotificationMessageTemplateCollectionResponse extends BaseColle
     value?: NotificationMessageTemplate[];
 }
 export function serializeNotificationMessageTemplateCollectionResponse(writer: SerializationWriter, notificationMessageTemplateCollectionResponse: NotificationMessageTemplateCollectionResponse | undefined = {} as NotificationMessageTemplateCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, notificationMessageTemplateCollectionResponse)
-        writer.writeCollectionOfObjectValues<NotificationMessageTemplate>("value", notificationMessageTemplateCollectionResponse.value, serializeNotificationMessageTemplate);
+    serializeBaseCollectionPaginationCountResponse(writer, notificationMessageTemplateCollectionResponse)
+    writer.writeCollectionOfObjectValues<NotificationMessageTemplate>("value", notificationMessageTemplateCollectionResponse.value, serializeNotificationMessageTemplate);
 }
 // tslint:enable
 // eslint-enable

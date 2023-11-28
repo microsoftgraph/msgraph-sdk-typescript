@@ -44,10 +44,10 @@ export interface Operation extends Entity, Parsable {
     status?: OperationStatus;
 }
 export function serializeOperation(writer: SerializationWriter, operation: Operation | undefined = {} as Operation) : void {
-        serializeEntity(writer, operation)
-        writer.writeDateValue("createdDateTime", operation.createdDateTime);
-        writer.writeDateValue("lastActionDateTime", operation.lastActionDateTime);
-        writer.writeEnumValue<OperationStatus>("status", operation.status);
+    serializeEntity(writer, operation)
+    writer.writeDateValue("createdDateTime", operation.createdDateTime);
+    writer.writeDateValue("lastActionDateTime", operation.lastActionDateTime);
+    writer.writeEnumValue<OperationStatus>("status", operation.status);
 }
 // tslint:enable
 // eslint-enable

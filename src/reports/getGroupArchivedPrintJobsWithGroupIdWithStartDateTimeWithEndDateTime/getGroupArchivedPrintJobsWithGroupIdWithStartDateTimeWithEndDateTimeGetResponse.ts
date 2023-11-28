@@ -22,8 +22,8 @@ export interface GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDat
     value?: ArchivedPrintJob[];
 }
 export function serializeGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse: GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse | undefined = {} as GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<ArchivedPrintJob>("value", getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse.value, serializeArchivedPrintJob);
+    serializeBaseCollectionPaginationCountResponse(writer, getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse)
+    writer.writeCollectionOfObjectValues<ArchivedPrintJob>("value", getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse.value, serializeArchivedPrintJob);
 }
 // tslint:enable
 // eslint-enable

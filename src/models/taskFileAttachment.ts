@@ -15,8 +15,8 @@ export function deserializeIntoTaskFileAttachment(taskFileAttachment: TaskFileAt
     }
 }
 export function serializeTaskFileAttachment(writer: SerializationWriter, taskFileAttachment: TaskFileAttachment | undefined = {} as TaskFileAttachment) : void {
-        serializeAttachmentBase(writer, taskFileAttachment)
-        writer.writeStringValue("contentBytes", taskFileAttachment.contentBytes);
+    serializeAttachmentBase(writer, taskFileAttachment)
+    writer.writeStringValue("contentBytes", taskFileAttachment.contentBytes);
 }
 export interface TaskFileAttachment extends AttachmentBase, Parsable {
     /**

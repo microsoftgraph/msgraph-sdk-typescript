@@ -16,7 +16,7 @@ export function deserializeIntoCancelMediaProcessingOperation(cancelMediaProcess
     }
 }
 export function serializeCancelMediaProcessingOperation(writer: SerializationWriter, cancelMediaProcessingOperation: CancelMediaProcessingOperation | undefined = {} as CancelMediaProcessingOperation) : void {
-        serializeCommsOperation(writer, cancelMediaProcessingOperation)
+    serializeCommsOperation(writer, cancelMediaProcessingOperation)
 }
 // tslint:enable
 // eslint-enable

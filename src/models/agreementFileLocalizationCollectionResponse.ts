@@ -22,8 +22,8 @@ export function deserializeIntoAgreementFileLocalizationCollectionResponse(agree
     }
 }
 export function serializeAgreementFileLocalizationCollectionResponse(writer: SerializationWriter, agreementFileLocalizationCollectionResponse: AgreementFileLocalizationCollectionResponse | undefined = {} as AgreementFileLocalizationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, agreementFileLocalizationCollectionResponse)
-        writer.writeCollectionOfObjectValues<AgreementFileLocalization>("value", agreementFileLocalizationCollectionResponse.value, serializeAgreementFileLocalization);
+    serializeBaseCollectionPaginationCountResponse(writer, agreementFileLocalizationCollectionResponse)
+    writer.writeCollectionOfObjectValues<AgreementFileLocalization>("value", agreementFileLocalizationCollectionResponse.value, serializeAgreementFileLocalization);
 }
 // tslint:enable
 // eslint-enable

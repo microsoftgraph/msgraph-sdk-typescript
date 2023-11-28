@@ -45,12 +45,12 @@ export interface RubricLevel extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeRubricLevel(writer: SerializationWriter, rubricLevel: RubricLevel | undefined = {} as RubricLevel) : void {
-        writer.writeObjectValue<EducationItemBody>("description", rubricLevel.description, serializeEducationItemBody);
-        writer.writeStringValue("displayName", rubricLevel.displayName);
-        writer.writeObjectValue<EducationAssignmentGradeType>("grading", rubricLevel.grading, serializeEducationAssignmentGradeType);
-        writer.writeStringValue("levelId", rubricLevel.levelId);
-        writer.writeStringValue("@odata.type", rubricLevel.odataType);
-        writer.writeAdditionalData(rubricLevel.additionalData);
+    writer.writeObjectValue<EducationItemBody>("description", rubricLevel.description, serializeEducationItemBody);
+    writer.writeStringValue("displayName", rubricLevel.displayName);
+    writer.writeObjectValue<EducationAssignmentGradeType>("grading", rubricLevel.grading, serializeEducationAssignmentGradeType);
+    writer.writeStringValue("levelId", rubricLevel.levelId);
+    writer.writeStringValue("@odata.type", rubricLevel.odataType);
+    writer.writeAdditionalData(rubricLevel.additionalData);
 }
 // tslint:enable
 // eslint-enable

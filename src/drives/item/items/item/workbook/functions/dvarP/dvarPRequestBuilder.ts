@@ -37,10 +37,10 @@ export interface DvarPPostRequestBody extends AdditionalDataHolder, Parsable {
     field?: Json;
 }
 export function serializeDvarPPostRequestBody(writer: SerializationWriter, dvarPPostRequestBody: DvarPPostRequestBody | undefined = {} as DvarPPostRequestBody) : void {
-        writer.writeObjectValue<Json>("criteria", dvarPPostRequestBody.criteria, serializeJson);
-        writer.writeObjectValue<Json>("database", dvarPPostRequestBody.database, serializeJson);
-        writer.writeObjectValue<Json>("field", dvarPPostRequestBody.field, serializeJson);
-        writer.writeAdditionalData(dvarPPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("criteria", dvarPPostRequestBody.criteria, serializeJson);
+    writer.writeObjectValue<Json>("database", dvarPPostRequestBody.database, serializeJson);
+    writer.writeObjectValue<Json>("field", dvarPPostRequestBody.field, serializeJson);
+    writer.writeAdditionalData(dvarPPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the dvarP method.

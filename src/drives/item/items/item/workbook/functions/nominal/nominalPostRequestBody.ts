@@ -29,9 +29,9 @@ export interface NominalPostRequestBody extends AdditionalDataHolder, Parsable {
     npery?: Json;
 }
 export function serializeNominalPostRequestBody(writer: SerializationWriter, nominalPostRequestBody: NominalPostRequestBody | undefined = {} as NominalPostRequestBody) : void {
-        writer.writeObjectValue<Json>("effectRate", nominalPostRequestBody.effectRate, serializeJson);
-        writer.writeObjectValue<Json>("npery", nominalPostRequestBody.npery, serializeJson);
-        writer.writeAdditionalData(nominalPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("effectRate", nominalPostRequestBody.effectRate, serializeJson);
+    writer.writeObjectValue<Json>("npery", nominalPostRequestBody.npery, serializeJson);
+    writer.writeAdditionalData(nominalPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

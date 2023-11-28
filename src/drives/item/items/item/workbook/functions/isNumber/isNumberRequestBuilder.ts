@@ -27,8 +27,8 @@ export interface IsNumberPostRequestBody extends AdditionalDataHolder, Parsable 
     value?: Json;
 }
 export function serializeIsNumberPostRequestBody(writer: SerializationWriter, isNumberPostRequestBody: IsNumberPostRequestBody | undefined = {} as IsNumberPostRequestBody) : void {
-        writer.writeObjectValue<Json>("value", isNumberPostRequestBody.value, serializeJson);
-        writer.writeAdditionalData(isNumberPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("value", isNumberPostRequestBody.value, serializeJson);
+    writer.writeAdditionalData(isNumberPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the isNumber method.

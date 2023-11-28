@@ -16,8 +16,8 @@ export function deserializeIntoTermsAndConditionsAssignmentCollectionResponse(te
     }
 }
 export function serializeTermsAndConditionsAssignmentCollectionResponse(writer: SerializationWriter, termsAndConditionsAssignmentCollectionResponse: TermsAndConditionsAssignmentCollectionResponse | undefined = {} as TermsAndConditionsAssignmentCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, termsAndConditionsAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<TermsAndConditionsAssignment>("value", termsAndConditionsAssignmentCollectionResponse.value, serializeTermsAndConditionsAssignment);
+    serializeBaseCollectionPaginationCountResponse(writer, termsAndConditionsAssignmentCollectionResponse)
+    writer.writeCollectionOfObjectValues<TermsAndConditionsAssignment>("value", termsAndConditionsAssignmentCollectionResponse.value, serializeTermsAndConditionsAssignment);
 }
 export interface TermsAndConditionsAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

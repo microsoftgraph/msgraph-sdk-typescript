@@ -45,8 +45,8 @@ export interface GetAuditCategoriesRequestBuilderGetQueryParameters {
     top?: number;
 }
 export function serializeGetAuditCategoriesGetResponse(writer: SerializationWriter, getAuditCategoriesGetResponse: GetAuditCategoriesGetResponse | undefined = {} as GetAuditCategoriesGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, getAuditCategoriesGetResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getAuditCategoriesGetResponse.value);
+    serializeBaseCollectionPaginationCountResponse(writer, getAuditCategoriesGetResponse)
+    writer.writeCollectionOfPrimitiveValues<string>("value", getAuditCategoriesGetResponse.value);
 }
 /**
  * Provides operations to call the getAuditCategories method.

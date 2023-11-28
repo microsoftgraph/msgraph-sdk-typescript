@@ -16,8 +16,8 @@ export function deserializeIntoSnoozeReminderPostRequestBody(snoozeReminderPostR
     }
 }
 export function serializeSnoozeReminderPostRequestBody(writer: SerializationWriter, snoozeReminderPostRequestBody: SnoozeReminderPostRequestBody | undefined = {} as SnoozeReminderPostRequestBody) : void {
-        writer.writeObjectValue<DateTimeTimeZone>("NewReminderTime", snoozeReminderPostRequestBody.newReminderTime, serializeDateTimeTimeZone);
-        writer.writeAdditionalData(snoozeReminderPostRequestBody.additionalData);
+    writer.writeObjectValue<DateTimeTimeZone>("NewReminderTime", snoozeReminderPostRequestBody.newReminderTime, serializeDateTimeTimeZone);
+    writer.writeAdditionalData(snoozeReminderPostRequestBody.additionalData);
 }
 export interface SnoozeReminderPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

@@ -22,8 +22,8 @@ export interface ManagedAppRegistrationCollectionResponse extends BaseCollection
     value?: ManagedAppRegistration[];
 }
 export function serializeManagedAppRegistrationCollectionResponse(writer: SerializationWriter, managedAppRegistrationCollectionResponse: ManagedAppRegistrationCollectionResponse | undefined = {} as ManagedAppRegistrationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, managedAppRegistrationCollectionResponse)
-        writer.writeCollectionOfObjectValues<ManagedAppRegistration>("value", managedAppRegistrationCollectionResponse.value, serializeManagedAppRegistration);
+    serializeBaseCollectionPaginationCountResponse(writer, managedAppRegistrationCollectionResponse)
+    writer.writeCollectionOfObjectValues<ManagedAppRegistration>("value", managedAppRegistrationCollectionResponse.value, serializeManagedAppRegistration);
 }
 // tslint:enable
 // eslint-enable

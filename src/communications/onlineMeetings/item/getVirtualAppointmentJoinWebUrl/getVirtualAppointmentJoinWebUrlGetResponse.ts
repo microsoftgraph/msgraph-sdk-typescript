@@ -23,8 +23,8 @@ export interface GetVirtualAppointmentJoinWebUrlGetResponse extends AdditionalDa
     value?: string;
 }
 export function serializeGetVirtualAppointmentJoinWebUrlGetResponse(writer: SerializationWriter, getVirtualAppointmentJoinWebUrlGetResponse: GetVirtualAppointmentJoinWebUrlGetResponse | undefined = {} as GetVirtualAppointmentJoinWebUrlGetResponse) : void {
-        writer.writeStringValue("value", getVirtualAppointmentJoinWebUrlGetResponse.value);
-        writer.writeAdditionalData(getVirtualAppointmentJoinWebUrlGetResponse.additionalData);
+    writer.writeStringValue("value", getVirtualAppointmentJoinWebUrlGetResponse.value);
+    writer.writeAdditionalData(getVirtualAppointmentJoinWebUrlGetResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

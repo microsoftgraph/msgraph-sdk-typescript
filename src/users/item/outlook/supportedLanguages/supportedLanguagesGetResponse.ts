@@ -16,8 +16,8 @@ export function deserializeIntoSupportedLanguagesGetResponse(supportedLanguagesG
     }
 }
 export function serializeSupportedLanguagesGetResponse(writer: SerializationWriter, supportedLanguagesGetResponse: SupportedLanguagesGetResponse | undefined = {} as SupportedLanguagesGetResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, supportedLanguagesGetResponse)
-        writer.writeCollectionOfObjectValues<LocaleInfo>("value", supportedLanguagesGetResponse.value, serializeLocaleInfo);
+    serializeBaseCollectionPaginationCountResponse(writer, supportedLanguagesGetResponse)
+    writer.writeCollectionOfObjectValues<LocaleInfo>("value", supportedLanguagesGetResponse.value, serializeLocaleInfo);
 }
 export interface SupportedLanguagesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

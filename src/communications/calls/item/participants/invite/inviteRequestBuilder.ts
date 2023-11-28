@@ -20,11 +20,11 @@ export class InviteRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/participants/invite");
     };
     /**
-     * Invite participants to the active call. For more information about how to handle operations, see commsOperation.
+     * Delete a specific participant in a call. In some situations, it is appropriate for an application to remove a participant from an active call. This action can be done before or after the participant answers the call. When an active caller is removed, they are immediately dropped from the call with no pre- or post-removal notification. When an invited participant is removed, any outstanding add participant request is canceled. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of InviteParticipantsOperation
-     * @see {@link https://learn.microsoft.com/graph/api/participant-invite?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/participant-delete?view=graph-rest-1.0|Find more info here}
      */
     public post(body: InvitePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<InviteParticipantsOperation | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -37,7 +37,7 @@ export class InviteRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<InviteParticipantsOperation>(requestInfo, createInviteParticipantsOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Invite participants to the active call. For more information about how to handle operations, see commsOperation.
+     * Delete a specific participant in a call. In some situations, it is appropriate for an application to remove a participant from an active call. This action can be done before or after the participant answers the call. When an active caller is removed, they are immediately dropped from the call with no pre- or post-removal notification. When an invited participant is removed, any outstanding add participant request is canceled. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

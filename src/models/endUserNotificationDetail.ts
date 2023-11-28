@@ -47,13 +47,13 @@ export interface EndUserNotificationDetail extends Entity, Parsable {
     subject?: string;
 }
 export function serializeEndUserNotificationDetail(writer: SerializationWriter, endUserNotificationDetail: EndUserNotificationDetail | undefined = {} as EndUserNotificationDetail) : void {
-        serializeEntity(writer, endUserNotificationDetail)
-        writer.writeStringValue("emailContent", endUserNotificationDetail.emailContent);
-        writer.writeBooleanValue("isDefaultLangauge", endUserNotificationDetail.isDefaultLangauge);
-        writer.writeStringValue("language", endUserNotificationDetail.language);
-        writer.writeStringValue("locale", endUserNotificationDetail.locale);
-        writer.writeObjectValue<EmailIdentity>("sentFrom", endUserNotificationDetail.sentFrom, serializeEmailIdentity);
-        writer.writeStringValue("subject", endUserNotificationDetail.subject);
+    serializeEntity(writer, endUserNotificationDetail)
+    writer.writeStringValue("emailContent", endUserNotificationDetail.emailContent);
+    writer.writeBooleanValue("isDefaultLangauge", endUserNotificationDetail.isDefaultLangauge);
+    writer.writeStringValue("language", endUserNotificationDetail.language);
+    writer.writeStringValue("locale", endUserNotificationDetail.locale);
+    writer.writeObjectValue<EmailIdentity>("sentFrom", endUserNotificationDetail.sentFrom, serializeEmailIdentity);
+    writer.writeStringValue("subject", endUserNotificationDetail.subject);
 }
 // tslint:enable
 // eslint-enable

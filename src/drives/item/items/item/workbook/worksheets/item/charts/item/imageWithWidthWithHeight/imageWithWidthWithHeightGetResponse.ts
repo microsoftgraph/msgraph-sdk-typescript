@@ -23,8 +23,8 @@ export interface ImageWithWidthWithHeightGetResponse extends AdditionalDataHolde
     value?: string;
 }
 export function serializeImageWithWidthWithHeightGetResponse(writer: SerializationWriter, imageWithWidthWithHeightGetResponse: ImageWithWidthWithHeightGetResponse | undefined = {} as ImageWithWidthWithHeightGetResponse) : void {
-        writer.writeStringValue("value", imageWithWidthWithHeightGetResponse.value);
-        writer.writeAdditionalData(imageWithWidthWithHeightGetResponse.additionalData);
+    writer.writeStringValue("value", imageWithWidthWithHeightGetResponse.value);
+    writer.writeAdditionalData(imageWithWidthWithHeightGetResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

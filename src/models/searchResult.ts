@@ -28,9 +28,9 @@ export interface SearchResult extends AdditionalDataHolder, Parsable {
     onClickTelemetryUrl?: string;
 }
 export function serializeSearchResult(writer: SerializationWriter, searchResult: SearchResult | undefined = {} as SearchResult) : void {
-        writer.writeStringValue("@odata.type", searchResult.odataType);
-        writer.writeStringValue("onClickTelemetryUrl", searchResult.onClickTelemetryUrl);
-        writer.writeAdditionalData(searchResult.additionalData);
+    writer.writeStringValue("@odata.type", searchResult.odataType);
+    writer.writeStringValue("onClickTelemetryUrl", searchResult.onClickTelemetryUrl);
+    writer.writeAdditionalData(searchResult.additionalData);
 }
 // tslint:enable
 // eslint-enable

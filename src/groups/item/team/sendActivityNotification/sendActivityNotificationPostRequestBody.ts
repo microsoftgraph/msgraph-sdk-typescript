@@ -52,13 +52,13 @@ export interface SendActivityNotificationPostRequestBody extends AdditionalDataH
     topic?: TeamworkActivityTopic;
 }
 export function serializeSendActivityNotificationPostRequestBody(writer: SerializationWriter, sendActivityNotificationPostRequestBody: SendActivityNotificationPostRequestBody | undefined = {} as SendActivityNotificationPostRequestBody) : void {
-        writer.writeStringValue("activityType", sendActivityNotificationPostRequestBody.activityType);
-        writer.writeNumberValue("chainId", sendActivityNotificationPostRequestBody.chainId);
-        writer.writeObjectValue<ItemBody>("previewText", sendActivityNotificationPostRequestBody.previewText, serializeItemBody);
-        writer.writeObjectValue<TeamworkNotificationRecipient>("recipient", sendActivityNotificationPostRequestBody.recipient, serializeTeamworkNotificationRecipient);
-        writer.writeCollectionOfObjectValues<KeyValuePair>("templateParameters", sendActivityNotificationPostRequestBody.templateParameters, serializeKeyValuePair);
-        writer.writeObjectValue<TeamworkActivityTopic>("topic", sendActivityNotificationPostRequestBody.topic, serializeTeamworkActivityTopic);
-        writer.writeAdditionalData(sendActivityNotificationPostRequestBody.additionalData);
+    writer.writeStringValue("activityType", sendActivityNotificationPostRequestBody.activityType);
+    writer.writeNumberValue("chainId", sendActivityNotificationPostRequestBody.chainId);
+    writer.writeObjectValue<ItemBody>("previewText", sendActivityNotificationPostRequestBody.previewText, serializeItemBody);
+    writer.writeObjectValue<TeamworkNotificationRecipient>("recipient", sendActivityNotificationPostRequestBody.recipient, serializeTeamworkNotificationRecipient);
+    writer.writeCollectionOfObjectValues<KeyValuePair>("templateParameters", sendActivityNotificationPostRequestBody.templateParameters, serializeKeyValuePair);
+    writer.writeObjectValue<TeamworkActivityTopic>("topic", sendActivityNotificationPostRequestBody.topic, serializeTeamworkActivityTopic);
+    writer.writeAdditionalData(sendActivityNotificationPostRequestBody.additionalData);
 }
 // tslint:enable
 // eslint-enable

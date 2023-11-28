@@ -27,9 +27,9 @@ export interface EducationAssignmentResource extends Entity, Parsable {
     resource?: EducationResource;
 }
 export function serializeEducationAssignmentResource(writer: SerializationWriter, educationAssignmentResource: EducationAssignmentResource | undefined = {} as EducationAssignmentResource) : void {
-        serializeEntity(writer, educationAssignmentResource)
-        writer.writeBooleanValue("distributeForStudentWork", educationAssignmentResource.distributeForStudentWork);
-        writer.writeObjectValue<EducationResource>("resource", educationAssignmentResource.resource, serializeEducationResource);
+    serializeEntity(writer, educationAssignmentResource)
+    writer.writeBooleanValue("distributeForStudentWork", educationAssignmentResource.distributeForStudentWork);
+    writer.writeObjectValue<EducationResource>("resource", educationAssignmentResource.resource, serializeEducationResource);
 }
 // tslint:enable
 // eslint-enable

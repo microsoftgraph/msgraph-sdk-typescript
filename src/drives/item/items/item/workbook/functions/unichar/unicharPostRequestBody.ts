@@ -14,8 +14,8 @@ export function deserializeIntoUnicharPostRequestBody(unicharPostRequestBody: Un
     }
 }
 export function serializeUnicharPostRequestBody(writer: SerializationWriter, unicharPostRequestBody: UnicharPostRequestBody | undefined = {} as UnicharPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", unicharPostRequestBody.number, serializeJson);
-        writer.writeAdditionalData(unicharPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("number", unicharPostRequestBody.number, serializeJson);
+    writer.writeAdditionalData(unicharPostRequestBody.additionalData);
 }
 export interface UnicharPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

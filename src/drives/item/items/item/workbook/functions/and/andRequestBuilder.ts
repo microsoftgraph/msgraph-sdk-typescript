@@ -27,8 +27,8 @@ export function deserializeIntoAndPostRequestBody(andPostRequestBody: AndPostReq
     }
 }
 export function serializeAndPostRequestBody(writer: SerializationWriter, andPostRequestBody: AndPostRequestBody | undefined = {} as AndPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", andPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(andPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("values", andPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(andPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the and method.

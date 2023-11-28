@@ -40,9 +40,9 @@ export interface ManagedEBookAssignment extends Entity, Parsable {
     target?: DeviceAndAppManagementAssignmentTarget;
 }
 export function serializeManagedEBookAssignment(writer: SerializationWriter, managedEBookAssignment: ManagedEBookAssignment | undefined = {} as ManagedEBookAssignment) : void {
-        serializeEntity(writer, managedEBookAssignment)
-        writer.writeEnumValue<InstallIntent>("installIntent", managedEBookAssignment.installIntent);
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", managedEBookAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
+    serializeEntity(writer, managedEBookAssignment)
+    writer.writeEnumValue<InstallIntent>("installIntent", managedEBookAssignment.installIntent);
+    writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", managedEBookAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
 }
 // tslint:enable
 // eslint-enable

@@ -19,10 +19,10 @@ export function deserializeIntoXirrPostRequestBody(xirrPostRequestBody: XirrPost
     }
 }
 export function serializeXirrPostRequestBody(writer: SerializationWriter, xirrPostRequestBody: XirrPostRequestBody | undefined = {} as XirrPostRequestBody) : void {
-        writer.writeObjectValue<Json>("dates", xirrPostRequestBody.dates, serializeJson);
-        writer.writeObjectValue<Json>("guess", xirrPostRequestBody.guess, serializeJson);
-        writer.writeObjectValue<Json>("values", xirrPostRequestBody.values, serializeJson);
-        writer.writeAdditionalData(xirrPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("dates", xirrPostRequestBody.dates, serializeJson);
+    writer.writeObjectValue<Json>("guess", xirrPostRequestBody.guess, serializeJson);
+    writer.writeObjectValue<Json>("values", xirrPostRequestBody.values, serializeJson);
+    writer.writeAdditionalData(xirrPostRequestBody.additionalData);
 }
 export interface XirrPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

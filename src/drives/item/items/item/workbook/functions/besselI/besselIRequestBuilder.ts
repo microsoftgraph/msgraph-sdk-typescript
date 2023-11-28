@@ -32,9 +32,9 @@ export function deserializeIntoBesselIPostRequestBody(besselIPostRequestBody: Be
     }
 }
 export function serializeBesselIPostRequestBody(writer: SerializationWriter, besselIPostRequestBody: BesselIPostRequestBody | undefined = {} as BesselIPostRequestBody) : void {
-        writer.writeObjectValue<Json>("n", besselIPostRequestBody.n, serializeJson);
-        writer.writeObjectValue<Json>("x", besselIPostRequestBody.x, serializeJson);
-        writer.writeAdditionalData(besselIPostRequestBody.additionalData);
+    writer.writeObjectValue<Json>("n", besselIPostRequestBody.n, serializeJson);
+    writer.writeObjectValue<Json>("x", besselIPostRequestBody.x, serializeJson);
+    writer.writeAdditionalData(besselIPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the besselI method.

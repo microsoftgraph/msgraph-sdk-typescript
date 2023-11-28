@@ -38,11 +38,11 @@ export function deserializeIntoAlteredQueryToken(alteredQueryToken: AlteredQuery
     }
 }
 export function serializeAlteredQueryToken(writer: SerializationWriter, alteredQueryToken: AlteredQueryToken | undefined = {} as AlteredQueryToken) : void {
-        writer.writeNumberValue("length", alteredQueryToken.length);
-        writer.writeStringValue("@odata.type", alteredQueryToken.odataType);
-        writer.writeNumberValue("offset", alteredQueryToken.offset);
-        writer.writeStringValue("suggestion", alteredQueryToken.suggestion);
-        writer.writeAdditionalData(alteredQueryToken.additionalData);
+    writer.writeNumberValue("length", alteredQueryToken.length);
+    writer.writeStringValue("@odata.type", alteredQueryToken.odataType);
+    writer.writeNumberValue("offset", alteredQueryToken.offset);
+    writer.writeStringValue("suggestion", alteredQueryToken.suggestion);
+    writer.writeAdditionalData(alteredQueryToken.additionalData);
 }
 // tslint:enable
 // eslint-enable

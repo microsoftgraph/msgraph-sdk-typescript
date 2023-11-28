@@ -53,11 +53,11 @@ export interface Place extends Entity, Parsable {
     phone?: string;
 }
 export function serializePlace(writer: SerializationWriter, place: Place | undefined = {} as Place) : void {
-        serializeEntity(writer, place)
-        writer.writeObjectValue<PhysicalAddress>("address", place.address, serializePhysicalAddress);
-        writer.writeStringValue("displayName", place.displayName);
-        writer.writeObjectValue<OutlookGeoCoordinates>("geoCoordinates", place.geoCoordinates, serializeOutlookGeoCoordinates);
-        writer.writeStringValue("phone", place.phone);
+    serializeEntity(writer, place)
+    writer.writeObjectValue<PhysicalAddress>("address", place.address, serializePhysicalAddress);
+    writer.writeStringValue("displayName", place.displayName);
+    writer.writeObjectValue<OutlookGeoCoordinates>("geoCoordinates", place.geoCoordinates, serializeOutlookGeoCoordinates);
+    writer.writeStringValue("phone", place.phone);
 }
 // tslint:enable
 // eslint-enable
