@@ -5,7 +5,7 @@ import { deserializeIntoAttributeRuleMembers } from './attributeRuleMembers';
 import { deserializeIntoConnectedOrganizationMembers } from './connectedOrganizationMembers';
 import { deserializeIntoExternalSponsors } from './externalSponsors';
 import { deserializeIntoGroupMembers } from './groupMembers';
-import { type RuleBasedSubjectSet } from './identityGovernance/';
+import { type RuleBasedSubjectSet } from './identityGovernance';
 import { deserializeIntoRuleBasedSubjectSet } from './identityGovernance/ruleBasedSubjectSet';
 import { type AttributeRuleMembers, type ConnectedOrganizationMembers, type ExternalSponsors, type GroupMembers, type InternalSponsors, type RequestorManager, type SingleServicePrincipal, type SingleUser, type TargetApplicationOwners, type TargetManager } from './index';
 import { deserializeIntoInternalSponsors } from './internalSponsors';
