@@ -44,12 +44,12 @@ export interface PublicInnerError extends AdditionalDataHolder, Parsable {
     target?: string;
 }
 export function serializePublicInnerError(writer: SerializationWriter, publicInnerError: PublicInnerError | undefined = {} as PublicInnerError) : void {
-        writer.writeStringValue("code", publicInnerError.code);
-        writer.writeCollectionOfObjectValues<PublicErrorDetail>("details", publicInnerError.details, serializePublicErrorDetail);
-        writer.writeStringValue("message", publicInnerError.message);
-        writer.writeStringValue("@odata.type", publicInnerError.odataType);
-        writer.writeStringValue("target", publicInnerError.target);
-        writer.writeAdditionalData(publicInnerError.additionalData);
+    writer.writeStringValue("code", publicInnerError.code);
+    writer.writeCollectionOfObjectValues<PublicErrorDetail>("details", publicInnerError.details, serializePublicErrorDetail);
+    writer.writeStringValue("message", publicInnerError.message);
+    writer.writeStringValue("@odata.type", publicInnerError.odataType);
+    writer.writeStringValue("target", publicInnerError.target);
+    writer.writeAdditionalData(publicInnerError.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -36,11 +36,11 @@ export interface DeviceLocalCredential extends Entity, Parsable {
     passwordBase64?: string;
 }
 export function serializeDeviceLocalCredential(writer: SerializationWriter, deviceLocalCredential: DeviceLocalCredential | undefined = {} as DeviceLocalCredential) : void {
-        serializeEntity(writer, deviceLocalCredential)
-        writer.writeStringValue("accountName", deviceLocalCredential.accountName);
-        writer.writeStringValue("accountSid", deviceLocalCredential.accountSid);
-        writer.writeDateValue("backupDateTime", deviceLocalCredential.backupDateTime);
-        writer.writeStringValue("passwordBase64", deviceLocalCredential.passwordBase64);
+    serializeEntity(writer, deviceLocalCredential)
+    writer.writeStringValue("accountName", deviceLocalCredential.accountName);
+    writer.writeStringValue("accountSid", deviceLocalCredential.accountSid);
+    writer.writeDateValue("backupDateTime", deviceLocalCredential.backupDateTime);
+    writer.writeStringValue("passwordBase64", deviceLocalCredential.passwordBase64);
 }
 // tslint:enable
 // eslint-enable

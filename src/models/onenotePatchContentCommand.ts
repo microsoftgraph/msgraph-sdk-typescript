@@ -45,12 +45,12 @@ export interface OnenotePatchContentCommand extends AdditionalDataHolder, Parsab
     target?: string;
 }
 export function serializeOnenotePatchContentCommand(writer: SerializationWriter, onenotePatchContentCommand: OnenotePatchContentCommand | undefined = {} as OnenotePatchContentCommand) : void {
-        writer.writeEnumValue<OnenotePatchActionType>("action", onenotePatchContentCommand.action);
-        writer.writeStringValue("content", onenotePatchContentCommand.content);
-        writer.writeStringValue("@odata.type", onenotePatchContentCommand.odataType);
-        writer.writeEnumValue<OnenotePatchInsertPosition>("position", onenotePatchContentCommand.position);
-        writer.writeStringValue("target", onenotePatchContentCommand.target);
-        writer.writeAdditionalData(onenotePatchContentCommand.additionalData);
+    writer.writeEnumValue<OnenotePatchActionType>("action", onenotePatchContentCommand.action);
+    writer.writeStringValue("content", onenotePatchContentCommand.content);
+    writer.writeStringValue("@odata.type", onenotePatchContentCommand.odataType);
+    writer.writeEnumValue<OnenotePatchInsertPosition>("position", onenotePatchContentCommand.position);
+    writer.writeStringValue("target", onenotePatchContentCommand.target);
+    writer.writeAdditionalData(onenotePatchContentCommand.additionalData);
 }
 // tslint:enable
 // eslint-enable

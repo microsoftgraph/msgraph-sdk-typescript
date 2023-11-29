@@ -38,11 +38,11 @@ export interface PublicErrorDetail extends AdditionalDataHolder, Parsable {
     target?: string;
 }
 export function serializePublicErrorDetail(writer: SerializationWriter, publicErrorDetail: PublicErrorDetail | undefined = {} as PublicErrorDetail) : void {
-        writer.writeStringValue("code", publicErrorDetail.code);
-        writer.writeStringValue("message", publicErrorDetail.message);
-        writer.writeStringValue("@odata.type", publicErrorDetail.odataType);
-        writer.writeStringValue("target", publicErrorDetail.target);
-        writer.writeAdditionalData(publicErrorDetail.additionalData);
+    writer.writeStringValue("code", publicErrorDetail.code);
+    writer.writeStringValue("message", publicErrorDetail.message);
+    writer.writeStringValue("@odata.type", publicErrorDetail.odataType);
+    writer.writeStringValue("target", publicErrorDetail.target);
+    writer.writeAdditionalData(publicErrorDetail.additionalData);
 }
 // tslint:enable
 // eslint-enable

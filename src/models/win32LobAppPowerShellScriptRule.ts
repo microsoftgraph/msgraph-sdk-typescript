@@ -25,15 +25,15 @@ export function deserializeIntoWin32LobAppPowerShellScriptRule(win32LobAppPowerS
     }
 }
 export function serializeWin32LobAppPowerShellScriptRule(writer: SerializationWriter, win32LobAppPowerShellScriptRule: Win32LobAppPowerShellScriptRule | undefined = {} as Win32LobAppPowerShellScriptRule) : void {
-        serializeWin32LobAppRule(writer, win32LobAppPowerShellScriptRule)
-        writer.writeStringValue("comparisonValue", win32LobAppPowerShellScriptRule.comparisonValue);
-        writer.writeStringValue("displayName", win32LobAppPowerShellScriptRule.displayName);
-        writer.writeBooleanValue("enforceSignatureCheck", win32LobAppPowerShellScriptRule.enforceSignatureCheck);
-        writer.writeEnumValue<Win32LobAppPowerShellScriptRuleOperationType>("operationType", win32LobAppPowerShellScriptRule.operationType);
-        writer.writeEnumValue<Win32LobAppRuleOperator>("operator", win32LobAppPowerShellScriptRule.operator);
-        writer.writeBooleanValue("runAs32Bit", win32LobAppPowerShellScriptRule.runAs32Bit);
-        writer.writeEnumValue<RunAsAccountType>("runAsAccount", win32LobAppPowerShellScriptRule.runAsAccount);
-        writer.writeStringValue("scriptContent", win32LobAppPowerShellScriptRule.scriptContent);
+    serializeWin32LobAppRule(writer, win32LobAppPowerShellScriptRule)
+    writer.writeStringValue("comparisonValue", win32LobAppPowerShellScriptRule.comparisonValue);
+    writer.writeStringValue("displayName", win32LobAppPowerShellScriptRule.displayName);
+    writer.writeBooleanValue("enforceSignatureCheck", win32LobAppPowerShellScriptRule.enforceSignatureCheck);
+    writer.writeEnumValue<Win32LobAppPowerShellScriptRuleOperationType>("operationType", win32LobAppPowerShellScriptRule.operationType);
+    writer.writeEnumValue<Win32LobAppRuleOperator>("operator", win32LobAppPowerShellScriptRule.operator);
+    writer.writeBooleanValue("runAs32Bit", win32LobAppPowerShellScriptRule.runAs32Bit);
+    writer.writeEnumValue<RunAsAccountType>("runAsAccount", win32LobAppPowerShellScriptRule.runAsAccount);
+    writer.writeStringValue("scriptContent", win32LobAppPowerShellScriptRule.scriptContent);
 }
 export interface Win32LobAppPowerShellScriptRule extends Parsable, Win32LobAppRule {
     /**

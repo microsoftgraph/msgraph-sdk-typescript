@@ -35,8 +35,8 @@ export function deserializeIntoAccessReviewNotificationRecipientScope(accessRevi
     }
 }
 export function serializeAccessReviewNotificationRecipientScope(writer: SerializationWriter, accessReviewNotificationRecipientScope: AccessReviewNotificationRecipientScope | undefined = {} as AccessReviewNotificationRecipientScope) : void {
-        writer.writeStringValue("@odata.type", accessReviewNotificationRecipientScope.odataType);
-        writer.writeAdditionalData(accessReviewNotificationRecipientScope.additionalData);
+    writer.writeStringValue("@odata.type", accessReviewNotificationRecipientScope.odataType);
+    writer.writeAdditionalData(accessReviewNotificationRecipientScope.additionalData);
 }
 // tslint:enable
 // eslint-enable

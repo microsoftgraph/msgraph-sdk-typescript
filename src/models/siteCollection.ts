@@ -17,11 +17,11 @@ export function deserializeIntoSiteCollection(siteCollection: SiteCollection | u
     }
 }
 export function serializeSiteCollection(writer: SerializationWriter, siteCollection: SiteCollection | undefined = {} as SiteCollection) : void {
-        writer.writeStringValue("dataLocationCode", siteCollection.dataLocationCode);
-        writer.writeStringValue("hostname", siteCollection.hostname);
-        writer.writeStringValue("@odata.type", siteCollection.odataType);
-        writer.writeObjectValue<Root>("root", siteCollection.root, serializeRoot);
-        writer.writeAdditionalData(siteCollection.additionalData);
+    writer.writeStringValue("dataLocationCode", siteCollection.dataLocationCode);
+    writer.writeStringValue("hostname", siteCollection.hostname);
+    writer.writeStringValue("@odata.type", siteCollection.odataType);
+    writer.writeObjectValue<Root>("root", siteCollection.root, serializeRoot);
+    writer.writeAdditionalData(siteCollection.additionalData);
 }
 export interface SiteCollection extends AdditionalDataHolder, Parsable {
     /**

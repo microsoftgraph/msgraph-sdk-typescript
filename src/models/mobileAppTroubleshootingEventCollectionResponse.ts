@@ -22,8 +22,8 @@ export interface MobileAppTroubleshootingEventCollectionResponse extends BaseCol
     value?: MobileAppTroubleshootingEvent[];
 }
 export function serializeMobileAppTroubleshootingEventCollectionResponse(writer: SerializationWriter, mobileAppTroubleshootingEventCollectionResponse: MobileAppTroubleshootingEventCollectionResponse | undefined = {} as MobileAppTroubleshootingEventCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, mobileAppTroubleshootingEventCollectionResponse)
-        writer.writeCollectionOfObjectValues<MobileAppTroubleshootingEvent>("value", mobileAppTroubleshootingEventCollectionResponse.value, serializeMobileAppTroubleshootingEvent);
+    serializeBaseCollectionPaginationCountResponse(writer, mobileAppTroubleshootingEventCollectionResponse)
+    writer.writeCollectionOfObjectValues<MobileAppTroubleshootingEvent>("value", mobileAppTroubleshootingEventCollectionResponse.value, serializeMobileAppTroubleshootingEvent);
 }
 // tslint:enable
 // eslint-enable

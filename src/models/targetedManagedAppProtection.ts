@@ -32,9 +32,9 @@ export function deserializeIntoTargetedManagedAppProtection(targetedManagedAppPr
     }
 }
 export function serializeTargetedManagedAppProtection(writer: SerializationWriter, targetedManagedAppProtection: TargetedManagedAppProtection | undefined = {} as TargetedManagedAppProtection) : void {
-        serializeManagedAppProtection(writer, targetedManagedAppProtection)
-        writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>("assignments", targetedManagedAppProtection.assignments, serializeTargetedManagedAppPolicyAssignment);
-        writer.writeBooleanValue("isAssigned", targetedManagedAppProtection.isAssigned);
+    serializeManagedAppProtection(writer, targetedManagedAppProtection)
+    writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>("assignments", targetedManagedAppProtection.assignments, serializeTargetedManagedAppPolicyAssignment);
+    writer.writeBooleanValue("isAssigned", targetedManagedAppProtection.isAssigned);
 }
 export interface TargetedManagedAppProtection extends ManagedAppProtection, Parsable {
     /**

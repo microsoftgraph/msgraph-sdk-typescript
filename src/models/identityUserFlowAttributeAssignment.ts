@@ -49,13 +49,13 @@ export interface IdentityUserFlowAttributeAssignment extends Entity, Parsable {
     userInputType?: IdentityUserFlowAttributeInputType;
 }
 export function serializeIdentityUserFlowAttributeAssignment(writer: SerializationWriter, identityUserFlowAttributeAssignment: IdentityUserFlowAttributeAssignment | undefined = {} as IdentityUserFlowAttributeAssignment) : void {
-        serializeEntity(writer, identityUserFlowAttributeAssignment)
-        writer.writeStringValue("displayName", identityUserFlowAttributeAssignment.displayName);
-        writer.writeBooleanValue("isOptional", identityUserFlowAttributeAssignment.isOptional);
-        writer.writeBooleanValue("requiresVerification", identityUserFlowAttributeAssignment.requiresVerification);
-        writer.writeObjectValue<IdentityUserFlowAttribute>("userAttribute", identityUserFlowAttributeAssignment.userAttribute, serializeIdentityUserFlowAttribute);
-        writer.writeCollectionOfObjectValues<UserAttributeValuesItem>("userAttributeValues", identityUserFlowAttributeAssignment.userAttributeValues, serializeUserAttributeValuesItem);
-        writer.writeEnumValue<IdentityUserFlowAttributeInputType>("userInputType", identityUserFlowAttributeAssignment.userInputType);
+    serializeEntity(writer, identityUserFlowAttributeAssignment)
+    writer.writeStringValue("displayName", identityUserFlowAttributeAssignment.displayName);
+    writer.writeBooleanValue("isOptional", identityUserFlowAttributeAssignment.isOptional);
+    writer.writeBooleanValue("requiresVerification", identityUserFlowAttributeAssignment.requiresVerification);
+    writer.writeObjectValue<IdentityUserFlowAttribute>("userAttribute", identityUserFlowAttributeAssignment.userAttribute, serializeIdentityUserFlowAttribute);
+    writer.writeCollectionOfObjectValues<UserAttributeValuesItem>("userAttributeValues", identityUserFlowAttributeAssignment.userAttributeValues, serializeUserAttributeValuesItem);
+    writer.writeEnumValue<IdentityUserFlowAttributeInputType>("userInputType", identityUserFlowAttributeAssignment.userInputType);
 }
 // tslint:enable
 // eslint-enable

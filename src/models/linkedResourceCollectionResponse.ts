@@ -22,8 +22,8 @@ export interface LinkedResourceCollectionResponse extends BaseCollectionPaginati
     value?: LinkedResource[];
 }
 export function serializeLinkedResourceCollectionResponse(writer: SerializationWriter, linkedResourceCollectionResponse: LinkedResourceCollectionResponse | undefined = {} as LinkedResourceCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, linkedResourceCollectionResponse)
-        writer.writeCollectionOfObjectValues<LinkedResource>("value", linkedResourceCollectionResponse.value, serializeLinkedResource);
+    serializeBaseCollectionPaginationCountResponse(writer, linkedResourceCollectionResponse)
+    writer.writeCollectionOfObjectValues<LinkedResource>("value", linkedResourceCollectionResponse.value, serializeLinkedResource);
 }
 // tslint:enable
 // eslint-enable

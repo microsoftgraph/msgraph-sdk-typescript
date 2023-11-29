@@ -22,8 +22,8 @@ export interface RiskyServicePrincipalHistoryItemCollectionResponse extends Base
     value?: RiskyServicePrincipalHistoryItem[];
 }
 export function serializeRiskyServicePrincipalHistoryItemCollectionResponse(writer: SerializationWriter, riskyServicePrincipalHistoryItemCollectionResponse: RiskyServicePrincipalHistoryItemCollectionResponse | undefined = {} as RiskyServicePrincipalHistoryItemCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, riskyServicePrincipalHistoryItemCollectionResponse)
-        writer.writeCollectionOfObjectValues<RiskyServicePrincipalHistoryItem>("value", riskyServicePrincipalHistoryItemCollectionResponse.value, serializeRiskyServicePrincipalHistoryItem);
+    serializeBaseCollectionPaginationCountResponse(writer, riskyServicePrincipalHistoryItemCollectionResponse)
+    writer.writeCollectionOfObjectValues<RiskyServicePrincipalHistoryItem>("value", riskyServicePrincipalHistoryItemCollectionResponse.value, serializeRiskyServicePrincipalHistoryItem);
 }
 // tslint:enable
 // eslint-enable

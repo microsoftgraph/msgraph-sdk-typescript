@@ -22,8 +22,8 @@ export function deserializeIntoDelegatedAdminRelationshipCollectionResponse(dele
     }
 }
 export function serializeDelegatedAdminRelationshipCollectionResponse(writer: SerializationWriter, delegatedAdminRelationshipCollectionResponse: DelegatedAdminRelationshipCollectionResponse | undefined = {} as DelegatedAdminRelationshipCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, delegatedAdminRelationshipCollectionResponse)
-        writer.writeCollectionOfObjectValues<DelegatedAdminRelationship>("value", delegatedAdminRelationshipCollectionResponse.value, serializeDelegatedAdminRelationship);
+    serializeBaseCollectionPaginationCountResponse(writer, delegatedAdminRelationshipCollectionResponse)
+    writer.writeCollectionOfObjectValues<DelegatedAdminRelationship>("value", delegatedAdminRelationshipCollectionResponse.value, serializeDelegatedAdminRelationship);
 }
 // tslint:enable
 // eslint-enable

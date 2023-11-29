@@ -37,11 +37,11 @@ export function deserializeIntoContract(contract: Contract | undefined = {} as C
     }
 }
 export function serializeContract(writer: SerializationWriter, contract: Contract | undefined = {} as Contract) : void {
-        serializeDirectoryObject(writer, contract)
-        writer.writeStringValue("contractType", contract.contractType);
-        writer.writeGuidValue("customerId", contract.customerId);
-        writer.writeStringValue("defaultDomainName", contract.defaultDomainName);
-        writer.writeStringValue("displayName", contract.displayName);
+    serializeDirectoryObject(writer, contract)
+    writer.writeStringValue("contractType", contract.contractType);
+    writer.writeGuidValue("customerId", contract.customerId);
+    writer.writeStringValue("defaultDomainName", contract.defaultDomainName);
+    writer.writeStringValue("displayName", contract.displayName);
 }
 // tslint:enable
 // eslint-enable

@@ -31,10 +31,10 @@ export function deserializeIntoAuthenticationContextClassReference(authenticatio
     }
 }
 export function serializeAuthenticationContextClassReference(writer: SerializationWriter, authenticationContextClassReference: AuthenticationContextClassReference | undefined = {} as AuthenticationContextClassReference) : void {
-        serializeEntity(writer, authenticationContextClassReference)
-        writer.writeStringValue("description", authenticationContextClassReference.description);
-        writer.writeStringValue("displayName", authenticationContextClassReference.displayName);
-        writer.writeBooleanValue("isAvailable", authenticationContextClassReference.isAvailable);
+    serializeEntity(writer, authenticationContextClassReference)
+    writer.writeStringValue("description", authenticationContextClassReference.description);
+    writer.writeStringValue("displayName", authenticationContextClassReference.displayName);
+    writer.writeBooleanValue("isAvailable", authenticationContextClassReference.isAvailable);
 }
 // tslint:enable
 // eslint-enable

@@ -27,9 +27,9 @@ export interface OutlookCategory extends Entity, Parsable {
     displayName?: string;
 }
 export function serializeOutlookCategory(writer: SerializationWriter, outlookCategory: OutlookCategory | undefined = {} as OutlookCategory) : void {
-        serializeEntity(writer, outlookCategory)
-        writer.writeEnumValue<CategoryColor>("color", outlookCategory.color);
-        writer.writeStringValue("displayName", outlookCategory.displayName);
+    serializeEntity(writer, outlookCategory)
+    writer.writeEnumValue<CategoryColor>("color", outlookCategory.color);
+    writer.writeStringValue("displayName", outlookCategory.displayName);
 }
 // tslint:enable
 // eslint-enable

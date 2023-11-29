@@ -16,8 +16,8 @@ export function deserializeIntoUnifiedRoleManagementPolicyRuleCollectionResponse
     }
 }
 export function serializeUnifiedRoleManagementPolicyRuleCollectionResponse(writer: SerializationWriter, unifiedRoleManagementPolicyRuleCollectionResponse: UnifiedRoleManagementPolicyRuleCollectionResponse | undefined = {} as UnifiedRoleManagementPolicyRuleCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, unifiedRoleManagementPolicyRuleCollectionResponse)
-        writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyRule>("value", unifiedRoleManagementPolicyRuleCollectionResponse.value, serializeUnifiedRoleManagementPolicyRule);
+    serializeBaseCollectionPaginationCountResponse(writer, unifiedRoleManagementPolicyRuleCollectionResponse)
+    writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyRule>("value", unifiedRoleManagementPolicyRuleCollectionResponse.value, serializeUnifiedRoleManagementPolicyRule);
 }
 export interface UnifiedRoleManagementPolicyRuleCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

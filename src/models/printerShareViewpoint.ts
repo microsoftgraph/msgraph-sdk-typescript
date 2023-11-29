@@ -28,9 +28,9 @@ export interface PrinterShareViewpoint extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializePrinterShareViewpoint(writer: SerializationWriter, printerShareViewpoint: PrinterShareViewpoint | undefined = {} as PrinterShareViewpoint) : void {
-        writer.writeDateValue("lastUsedDateTime", printerShareViewpoint.lastUsedDateTime);
-        writer.writeStringValue("@odata.type", printerShareViewpoint.odataType);
-        writer.writeAdditionalData(printerShareViewpoint.additionalData);
+    writer.writeDateValue("lastUsedDateTime", printerShareViewpoint.lastUsedDateTime);
+    writer.writeStringValue("@odata.type", printerShareViewpoint.odataType);
+    writer.writeAdditionalData(printerShareViewpoint.additionalData);
 }
 // tslint:enable
 // eslint-enable

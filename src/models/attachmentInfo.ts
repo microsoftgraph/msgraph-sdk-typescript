@@ -44,12 +44,12 @@ export function deserializeIntoAttachmentInfo(attachmentInfo: AttachmentInfo | u
     }
 }
 export function serializeAttachmentInfo(writer: SerializationWriter, attachmentInfo: AttachmentInfo | undefined = {} as AttachmentInfo) : void {
-        writer.writeEnumValue<AttachmentType>("attachmentType", attachmentInfo.attachmentType);
-        writer.writeStringValue("contentType", attachmentInfo.contentType);
-        writer.writeStringValue("name", attachmentInfo.name);
-        writer.writeStringValue("@odata.type", attachmentInfo.odataType);
-        writer.writeNumberValue("size", attachmentInfo.size);
-        writer.writeAdditionalData(attachmentInfo.additionalData);
+    writer.writeEnumValue<AttachmentType>("attachmentType", attachmentInfo.attachmentType);
+    writer.writeStringValue("contentType", attachmentInfo.contentType);
+    writer.writeStringValue("name", attachmentInfo.name);
+    writer.writeStringValue("@odata.type", attachmentInfo.odataType);
+    writer.writeNumberValue("size", attachmentInfo.size);
+    writer.writeAdditionalData(attachmentInfo.additionalData);
 }
 // tslint:enable
 // eslint-enable

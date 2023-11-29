@@ -15,10 +15,10 @@ export function deserializeIntoUsageDetails(usageDetails: UsageDetails | undefin
     }
 }
 export function serializeUsageDetails(writer: SerializationWriter, usageDetails: UsageDetails | undefined = {} as UsageDetails) : void {
-        writer.writeDateValue("lastAccessedDateTime", usageDetails.lastAccessedDateTime);
-        writer.writeDateValue("lastModifiedDateTime", usageDetails.lastModifiedDateTime);
-        writer.writeStringValue("@odata.type", usageDetails.odataType);
-        writer.writeAdditionalData(usageDetails.additionalData);
+    writer.writeDateValue("lastAccessedDateTime", usageDetails.lastAccessedDateTime);
+    writer.writeDateValue("lastModifiedDateTime", usageDetails.lastModifiedDateTime);
+    writer.writeStringValue("@odata.type", usageDetails.odataType);
+    writer.writeAdditionalData(usageDetails.additionalData);
 }
 export interface UsageDetails extends AdditionalDataHolder, Parsable {
     /**

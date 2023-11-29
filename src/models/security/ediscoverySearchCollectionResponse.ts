@@ -22,8 +22,8 @@ export interface EdiscoverySearchCollectionResponse extends BaseCollectionPagina
     value?: EdiscoverySearch[];
 }
 export function serializeEdiscoverySearchCollectionResponse(writer: SerializationWriter, ediscoverySearchCollectionResponse: EdiscoverySearchCollectionResponse | undefined = {} as EdiscoverySearchCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, ediscoverySearchCollectionResponse)
-        writer.writeCollectionOfObjectValues<EdiscoverySearch>("value", ediscoverySearchCollectionResponse.value, serializeEdiscoverySearch);
+    serializeBaseCollectionPaginationCountResponse(writer, ediscoverySearchCollectionResponse)
+    writer.writeCollectionOfObjectValues<EdiscoverySearch>("value", ediscoverySearchCollectionResponse.value, serializeEdiscoverySearch);
 }
 // tslint:enable
 // eslint-enable

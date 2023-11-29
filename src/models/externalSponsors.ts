@@ -16,7 +16,7 @@ export function deserializeIntoExternalSponsors(externalSponsors: ExternalSponso
 export interface ExternalSponsors extends Parsable, SubjectSet {
 }
 export function serializeExternalSponsors(writer: SerializationWriter, externalSponsors: ExternalSponsors | undefined = {} as ExternalSponsors) : void {
-        serializeSubjectSet(writer, externalSponsors)
+    serializeSubjectSet(writer, externalSponsors)
 }
 // tslint:enable
 // eslint-enable

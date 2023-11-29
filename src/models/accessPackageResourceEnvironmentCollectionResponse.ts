@@ -22,8 +22,8 @@ export function deserializeIntoAccessPackageResourceEnvironmentCollectionRespons
     }
 }
 export function serializeAccessPackageResourceEnvironmentCollectionResponse(writer: SerializationWriter, accessPackageResourceEnvironmentCollectionResponse: AccessPackageResourceEnvironmentCollectionResponse | undefined = {} as AccessPackageResourceEnvironmentCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, accessPackageResourceEnvironmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageResourceEnvironment>("value", accessPackageResourceEnvironmentCollectionResponse.value, serializeAccessPackageResourceEnvironment);
+    serializeBaseCollectionPaginationCountResponse(writer, accessPackageResourceEnvironmentCollectionResponse)
+    writer.writeCollectionOfObjectValues<AccessPackageResourceEnvironment>("value", accessPackageResourceEnvironmentCollectionResponse.value, serializeAccessPackageResourceEnvironment);
 }
 // tslint:enable
 // eslint-enable

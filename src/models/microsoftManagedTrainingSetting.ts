@@ -27,9 +27,9 @@ export interface MicrosoftManagedTrainingSetting extends Parsable, TrainingSetti
     trainingCompletionDuration?: TrainingCompletionDuration;
 }
 export function serializeMicrosoftManagedTrainingSetting(writer: SerializationWriter, microsoftManagedTrainingSetting: MicrosoftManagedTrainingSetting | undefined = {} as MicrosoftManagedTrainingSetting) : void {
-        serializeTrainingSetting(writer, microsoftManagedTrainingSetting)
-        writer.writeDateValue("completionDateTime", microsoftManagedTrainingSetting.completionDateTime);
-        writer.writeEnumValue<TrainingCompletionDuration>("trainingCompletionDuration", microsoftManagedTrainingSetting.trainingCompletionDuration);
+    serializeTrainingSetting(writer, microsoftManagedTrainingSetting)
+    writer.writeDateValue("completionDateTime", microsoftManagedTrainingSetting.completionDateTime);
+    writer.writeEnumValue<TrainingCompletionDuration>("trainingCompletionDuration", microsoftManagedTrainingSetting.trainingCompletionDuration);
 }
 // tslint:enable
 // eslint-enable

@@ -42,12 +42,12 @@ export interface ManagedDeviceMobileAppConfigurationUserStatus extends Entity, P
     userPrincipalName?: string;
 }
 export function serializeManagedDeviceMobileAppConfigurationUserStatus(writer: SerializationWriter, managedDeviceMobileAppConfigurationUserStatus: ManagedDeviceMobileAppConfigurationUserStatus | undefined = {} as ManagedDeviceMobileAppConfigurationUserStatus) : void {
-        serializeEntity(writer, managedDeviceMobileAppConfigurationUserStatus)
-        writer.writeNumberValue("devicesCount", managedDeviceMobileAppConfigurationUserStatus.devicesCount);
-        writer.writeDateValue("lastReportedDateTime", managedDeviceMobileAppConfigurationUserStatus.lastReportedDateTime);
-        writer.writeEnumValue<ComplianceStatus>("status", managedDeviceMobileAppConfigurationUserStatus.status);
-        writer.writeStringValue("userDisplayName", managedDeviceMobileAppConfigurationUserStatus.userDisplayName);
-        writer.writeStringValue("userPrincipalName", managedDeviceMobileAppConfigurationUserStatus.userPrincipalName);
+    serializeEntity(writer, managedDeviceMobileAppConfigurationUserStatus)
+    writer.writeNumberValue("devicesCount", managedDeviceMobileAppConfigurationUserStatus.devicesCount);
+    writer.writeDateValue("lastReportedDateTime", managedDeviceMobileAppConfigurationUserStatus.lastReportedDateTime);
+    writer.writeEnumValue<ComplianceStatus>("status", managedDeviceMobileAppConfigurationUserStatus.status);
+    writer.writeStringValue("userDisplayName", managedDeviceMobileAppConfigurationUserStatus.userDisplayName);
+    writer.writeStringValue("userPrincipalName", managedDeviceMobileAppConfigurationUserStatus.userPrincipalName);
 }
 // tslint:enable
 // eslint-enable

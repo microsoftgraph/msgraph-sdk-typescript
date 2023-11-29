@@ -27,9 +27,9 @@ export function deserializeIntoChannelUnsetAsFavoriteByDefaultEventMessageDetail
     }
 }
 export function serializeChannelUnsetAsFavoriteByDefaultEventMessageDetail(writer: SerializationWriter, channelUnsetAsFavoriteByDefaultEventMessageDetail: ChannelUnsetAsFavoriteByDefaultEventMessageDetail | undefined = {} as ChannelUnsetAsFavoriteByDefaultEventMessageDetail) : void {
-        serializeEventMessageDetail(writer, channelUnsetAsFavoriteByDefaultEventMessageDetail)
-        writer.writeStringValue("channelId", channelUnsetAsFavoriteByDefaultEventMessageDetail.channelId);
-        writer.writeObjectValue<IdentitySet>("initiator", channelUnsetAsFavoriteByDefaultEventMessageDetail.initiator, serializeIdentitySet);
+    serializeEventMessageDetail(writer, channelUnsetAsFavoriteByDefaultEventMessageDetail)
+    writer.writeStringValue("channelId", channelUnsetAsFavoriteByDefaultEventMessageDetail.channelId);
+    writer.writeObjectValue<IdentitySet>("initiator", channelUnsetAsFavoriteByDefaultEventMessageDetail.initiator, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

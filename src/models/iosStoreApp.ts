@@ -38,11 +38,11 @@ export interface IosStoreApp extends MobileApp, Parsable {
     minimumSupportedOperatingSystem?: IosMinimumOperatingSystem;
 }
 export function serializeIosStoreApp(writer: SerializationWriter, iosStoreApp: IosStoreApp | undefined = {} as IosStoreApp) : void {
-        serializeMobileApp(writer, iosStoreApp)
-        writer.writeObjectValue<IosDeviceType>("applicableDeviceType", iosStoreApp.applicableDeviceType, serializeIosDeviceType);
-        writer.writeStringValue("appStoreUrl", iosStoreApp.appStoreUrl);
-        writer.writeStringValue("bundleId", iosStoreApp.bundleId);
-        writer.writeObjectValue<IosMinimumOperatingSystem>("minimumSupportedOperatingSystem", iosStoreApp.minimumSupportedOperatingSystem, serializeIosMinimumOperatingSystem);
+    serializeMobileApp(writer, iosStoreApp)
+    writer.writeObjectValue<IosDeviceType>("applicableDeviceType", iosStoreApp.applicableDeviceType, serializeIosDeviceType);
+    writer.writeStringValue("appStoreUrl", iosStoreApp.appStoreUrl);
+    writer.writeStringValue("bundleId", iosStoreApp.bundleId);
+    writer.writeObjectValue<IosMinimumOperatingSystem>("minimumSupportedOperatingSystem", iosStoreApp.minimumSupportedOperatingSystem, serializeIosMinimumOperatingSystem);
 }
 // tslint:enable
 // eslint-enable

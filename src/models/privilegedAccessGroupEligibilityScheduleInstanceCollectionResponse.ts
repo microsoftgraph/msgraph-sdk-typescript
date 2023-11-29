@@ -22,8 +22,8 @@ export interface PrivilegedAccessGroupEligibilityScheduleInstanceCollectionRespo
     value?: PrivilegedAccessGroupEligibilityScheduleInstance[];
 }
 export function serializePrivilegedAccessGroupEligibilityScheduleInstanceCollectionResponse(writer: SerializationWriter, privilegedAccessGroupEligibilityScheduleInstanceCollectionResponse: PrivilegedAccessGroupEligibilityScheduleInstanceCollectionResponse | undefined = {} as PrivilegedAccessGroupEligibilityScheduleInstanceCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, privilegedAccessGroupEligibilityScheduleInstanceCollectionResponse)
-        writer.writeCollectionOfObjectValues<PrivilegedAccessGroupEligibilityScheduleInstance>("value", privilegedAccessGroupEligibilityScheduleInstanceCollectionResponse.value, serializePrivilegedAccessGroupEligibilityScheduleInstance);
+    serializeBaseCollectionPaginationCountResponse(writer, privilegedAccessGroupEligibilityScheduleInstanceCollectionResponse)
+    writer.writeCollectionOfObjectValues<PrivilegedAccessGroupEligibilityScheduleInstance>("value", privilegedAccessGroupEligibilityScheduleInstanceCollectionResponse.value, serializePrivilegedAccessGroupEligibilityScheduleInstance);
 }
 // tslint:enable
 // eslint-enable

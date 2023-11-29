@@ -35,8 +35,8 @@ export interface EducationAssignmentGradeType extends AdditionalDataHolder, Pars
     odataType?: string;
 }
 export function serializeEducationAssignmentGradeType(writer: SerializationWriter, educationAssignmentGradeType: EducationAssignmentGradeType | undefined = {} as EducationAssignmentGradeType) : void {
-        writer.writeStringValue("@odata.type", educationAssignmentGradeType.odataType);
-        writer.writeAdditionalData(educationAssignmentGradeType.additionalData);
+    writer.writeStringValue("@odata.type", educationAssignmentGradeType.odataType);
+    writer.writeAdditionalData(educationAssignmentGradeType.additionalData);
 }
 // tslint:enable
 // eslint-enable

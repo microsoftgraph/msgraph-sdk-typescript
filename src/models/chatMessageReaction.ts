@@ -39,11 +39,11 @@ export function deserializeIntoChatMessageReaction(chatMessageReaction: ChatMess
     }
 }
 export function serializeChatMessageReaction(writer: SerializationWriter, chatMessageReaction: ChatMessageReaction | undefined = {} as ChatMessageReaction) : void {
-        writer.writeDateValue("createdDateTime", chatMessageReaction.createdDateTime);
-        writer.writeStringValue("@odata.type", chatMessageReaction.odataType);
-        writer.writeStringValue("reactionType", chatMessageReaction.reactionType);
-        writer.writeObjectValue<ChatMessageReactionIdentitySet>("user", chatMessageReaction.user, serializeChatMessageReactionIdentitySet);
-        writer.writeAdditionalData(chatMessageReaction.additionalData);
+    writer.writeDateValue("createdDateTime", chatMessageReaction.createdDateTime);
+    writer.writeStringValue("@odata.type", chatMessageReaction.odataType);
+    writer.writeStringValue("reactionType", chatMessageReaction.reactionType);
+    writer.writeObjectValue<ChatMessageReactionIdentitySet>("user", chatMessageReaction.user, serializeChatMessageReactionIdentitySet);
+    writer.writeAdditionalData(chatMessageReaction.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -37,11 +37,11 @@ export interface MeetingAttendanceReport extends Entity, Parsable {
     totalParticipantCount?: number;
 }
 export function serializeMeetingAttendanceReport(writer: SerializationWriter, meetingAttendanceReport: MeetingAttendanceReport | undefined = {} as MeetingAttendanceReport) : void {
-        serializeEntity(writer, meetingAttendanceReport)
-        writer.writeCollectionOfObjectValues<AttendanceRecord>("attendanceRecords", meetingAttendanceReport.attendanceRecords, serializeAttendanceRecord);
-        writer.writeDateValue("meetingEndDateTime", meetingAttendanceReport.meetingEndDateTime);
-        writer.writeDateValue("meetingStartDateTime", meetingAttendanceReport.meetingStartDateTime);
-        writer.writeNumberValue("totalParticipantCount", meetingAttendanceReport.totalParticipantCount);
+    serializeEntity(writer, meetingAttendanceReport)
+    writer.writeCollectionOfObjectValues<AttendanceRecord>("attendanceRecords", meetingAttendanceReport.attendanceRecords, serializeAttendanceRecord);
+    writer.writeDateValue("meetingEndDateTime", meetingAttendanceReport.meetingEndDateTime);
+    writer.writeDateValue("meetingStartDateTime", meetingAttendanceReport.meetingStartDateTime);
+    writer.writeNumberValue("totalParticipantCount", meetingAttendanceReport.totalParticipantCount);
 }
 // tslint:enable
 // eslint-enable

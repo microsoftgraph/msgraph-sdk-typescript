@@ -43,12 +43,12 @@ export function deserializeIntoChannelSummary(channelSummary: ChannelSummary | u
     }
 }
 export function serializeChannelSummary(writer: SerializationWriter, channelSummary: ChannelSummary | undefined = {} as ChannelSummary) : void {
-        writer.writeNumberValue("guestsCount", channelSummary.guestsCount);
-        writer.writeBooleanValue("hasMembersFromOtherTenants", channelSummary.hasMembersFromOtherTenants);
-        writer.writeNumberValue("membersCount", channelSummary.membersCount);
-        writer.writeStringValue("@odata.type", channelSummary.odataType);
-        writer.writeNumberValue("ownersCount", channelSummary.ownersCount);
-        writer.writeAdditionalData(channelSummary.additionalData);
+    writer.writeNumberValue("guestsCount", channelSummary.guestsCount);
+    writer.writeBooleanValue("hasMembersFromOtherTenants", channelSummary.hasMembersFromOtherTenants);
+    writer.writeNumberValue("membersCount", channelSummary.membersCount);
+    writer.writeStringValue("@odata.type", channelSummary.odataType);
+    writer.writeNumberValue("ownersCount", channelSummary.ownersCount);
+    writer.writeAdditionalData(channelSummary.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -16,8 +16,8 @@ export function deserializeIntoUserEvidence(userEvidence: UserEvidence | undefin
     }
 }
 export function serializeUserEvidence(writer: SerializationWriter, userEvidence: UserEvidence | undefined = {} as UserEvidence) : void {
-        serializeAlertEvidence(writer, userEvidence)
-        writer.writeObjectValue<UserAccount>("userAccount", userEvidence.userAccount, serializeUserAccount);
+    serializeAlertEvidence(writer, userEvidence)
+    writer.writeObjectValue<UserAccount>("userAccount", userEvidence.userAccount, serializeUserAccount);
 }
 export interface UserEvidence extends AlertEvidence, Parsable {
     /**

@@ -33,10 +33,10 @@ export interface Hyperlink extends AdditionalDataHolder, Parsable {
     url?: string;
 }
 export function serializeHyperlink(writer: SerializationWriter, hyperlink: Hyperlink | undefined = {} as Hyperlink) : void {
-        writer.writeStringValue("name", hyperlink.name);
-        writer.writeStringValue("@odata.type", hyperlink.odataType);
-        writer.writeStringValue("url", hyperlink.url);
-        writer.writeAdditionalData(hyperlink.additionalData);
+    writer.writeStringValue("name", hyperlink.name);
+    writer.writeStringValue("@odata.type", hyperlink.odataType);
+    writer.writeStringValue("url", hyperlink.url);
+    writer.writeAdditionalData(hyperlink.additionalData);
 }
 // tslint:enable
 // eslint-enable

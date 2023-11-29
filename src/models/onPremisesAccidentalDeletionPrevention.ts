@@ -34,10 +34,10 @@ export interface OnPremisesAccidentalDeletionPrevention extends AdditionalDataHo
     synchronizationPreventionType?: OnPremisesDirectorySynchronizationDeletionPreventionType;
 }
 export function serializeOnPremisesAccidentalDeletionPrevention(writer: SerializationWriter, onPremisesAccidentalDeletionPrevention: OnPremisesAccidentalDeletionPrevention | undefined = {} as OnPremisesAccidentalDeletionPrevention) : void {
-        writer.writeNumberValue("alertThreshold", onPremisesAccidentalDeletionPrevention.alertThreshold);
-        writer.writeStringValue("@odata.type", onPremisesAccidentalDeletionPrevention.odataType);
-        writer.writeEnumValue<OnPremisesDirectorySynchronizationDeletionPreventionType>("synchronizationPreventionType", onPremisesAccidentalDeletionPrevention.synchronizationPreventionType);
-        writer.writeAdditionalData(onPremisesAccidentalDeletionPrevention.additionalData);
+    writer.writeNumberValue("alertThreshold", onPremisesAccidentalDeletionPrevention.alertThreshold);
+    writer.writeStringValue("@odata.type", onPremisesAccidentalDeletionPrevention.odataType);
+    writer.writeEnumValue<OnPremisesDirectorySynchronizationDeletionPreventionType>("synchronizationPreventionType", onPremisesAccidentalDeletionPrevention.synchronizationPreventionType);
+    writer.writeAdditionalData(onPremisesAccidentalDeletionPrevention.additionalData);
 }
 // tslint:enable
 // eslint-enable

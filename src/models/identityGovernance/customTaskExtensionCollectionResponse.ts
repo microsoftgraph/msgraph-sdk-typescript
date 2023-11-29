@@ -22,8 +22,8 @@ export function deserializeIntoCustomTaskExtensionCollectionResponse(customTaskE
     }
 }
 export function serializeCustomTaskExtensionCollectionResponse(writer: SerializationWriter, customTaskExtensionCollectionResponse: CustomTaskExtensionCollectionResponse | undefined = {} as CustomTaskExtensionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, customTaskExtensionCollectionResponse)
-        writer.writeCollectionOfObjectValues<CustomTaskExtension>("value", customTaskExtensionCollectionResponse.value, serializeCustomTaskExtension);
+    serializeBaseCollectionPaginationCountResponse(writer, customTaskExtensionCollectionResponse)
+    writer.writeCollectionOfObjectValues<CustomTaskExtension>("value", customTaskExtensionCollectionResponse.value, serializeCustomTaskExtension);
 }
 // tslint:enable
 // eslint-enable

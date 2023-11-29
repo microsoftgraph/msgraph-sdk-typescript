@@ -26,9 +26,9 @@ export interface MobileAppCategory extends Entity, Parsable {
     lastModifiedDateTime?: Date;
 }
 export function serializeMobileAppCategory(writer: SerializationWriter, mobileAppCategory: MobileAppCategory | undefined = {} as MobileAppCategory) : void {
-        serializeEntity(writer, mobileAppCategory)
-        writer.writeStringValue("displayName", mobileAppCategory.displayName);
-        writer.writeDateValue("lastModifiedDateTime", mobileAppCategory.lastModifiedDateTime);
+    serializeEntity(writer, mobileAppCategory)
+    writer.writeStringValue("displayName", mobileAppCategory.displayName);
+    writer.writeDateValue("lastModifiedDateTime", mobileAppCategory.lastModifiedDateTime);
 }
 // tslint:enable
 // eslint-enable

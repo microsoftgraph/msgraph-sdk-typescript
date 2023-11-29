@@ -52,14 +52,14 @@ export function deserializeIntoAccessReviewHistoryInstance(accessReviewHistoryIn
     }
 }
 export function serializeAccessReviewHistoryInstance(writer: SerializationWriter, accessReviewHistoryInstance: AccessReviewHistoryInstance | undefined = {} as AccessReviewHistoryInstance) : void {
-        serializeEntity(writer, accessReviewHistoryInstance)
-        writer.writeStringValue("downloadUri", accessReviewHistoryInstance.downloadUri);
-        writer.writeDateValue("expirationDateTime", accessReviewHistoryInstance.expirationDateTime);
-        writer.writeDateValue("fulfilledDateTime", accessReviewHistoryInstance.fulfilledDateTime);
-        writer.writeDateValue("reviewHistoryPeriodEndDateTime", accessReviewHistoryInstance.reviewHistoryPeriodEndDateTime);
-        writer.writeDateValue("reviewHistoryPeriodStartDateTime", accessReviewHistoryInstance.reviewHistoryPeriodStartDateTime);
-        writer.writeDateValue("runDateTime", accessReviewHistoryInstance.runDateTime);
-        writer.writeEnumValue<AccessReviewHistoryStatus>("status", accessReviewHistoryInstance.status);
+    serializeEntity(writer, accessReviewHistoryInstance)
+    writer.writeStringValue("downloadUri", accessReviewHistoryInstance.downloadUri);
+    writer.writeDateValue("expirationDateTime", accessReviewHistoryInstance.expirationDateTime);
+    writer.writeDateValue("fulfilledDateTime", accessReviewHistoryInstance.fulfilledDateTime);
+    writer.writeDateValue("reviewHistoryPeriodEndDateTime", accessReviewHistoryInstance.reviewHistoryPeriodEndDateTime);
+    writer.writeDateValue("reviewHistoryPeriodStartDateTime", accessReviewHistoryInstance.reviewHistoryPeriodStartDateTime);
+    writer.writeDateValue("runDateTime", accessReviewHistoryInstance.runDateTime);
+    writer.writeEnumValue<AccessReviewHistoryStatus>("status", accessReviewHistoryInstance.status);
 }
 // tslint:enable
 // eslint-enable

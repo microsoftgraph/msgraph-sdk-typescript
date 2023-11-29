@@ -48,13 +48,13 @@ export interface ParticipantEndpoint extends Endpoint, Parsable {
     name?: string;
 }
 export function serializeParticipantEndpoint(writer: SerializationWriter, participantEndpoint: ParticipantEndpoint | undefined = {} as ParticipantEndpoint) : void {
-        serializeEndpoint(writer, participantEndpoint)
-        writer.writeNumberValue("cpuCoresCount", participantEndpoint.cpuCoresCount);
-        writer.writeStringValue("cpuName", participantEndpoint.cpuName);
-        writer.writeNumberValue("cpuProcessorSpeedInMhz", participantEndpoint.cpuProcessorSpeedInMhz);
-        writer.writeObjectValue<UserFeedback>("feedback", participantEndpoint.feedback, serializeUserFeedback);
-        writer.writeObjectValue<IdentitySet>("identity", participantEndpoint.identity, serializeIdentitySet);
-        writer.writeStringValue("name", participantEndpoint.name);
+    serializeEndpoint(writer, participantEndpoint)
+    writer.writeNumberValue("cpuCoresCount", participantEndpoint.cpuCoresCount);
+    writer.writeStringValue("cpuName", participantEndpoint.cpuName);
+    writer.writeNumberValue("cpuProcessorSpeedInMhz", participantEndpoint.cpuProcessorSpeedInMhz);
+    writer.writeObjectValue<UserFeedback>("feedback", participantEndpoint.feedback, serializeUserFeedback);
+    writer.writeObjectValue<IdentitySet>("identity", participantEndpoint.identity, serializeIdentitySet);
+    writer.writeStringValue("name", participantEndpoint.name);
 }
 // tslint:enable
 // eslint-enable

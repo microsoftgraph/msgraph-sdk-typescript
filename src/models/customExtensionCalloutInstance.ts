@@ -49,13 +49,13 @@ export function deserializeIntoCustomExtensionCalloutInstance(customExtensionCal
     }
 }
 export function serializeCustomExtensionCalloutInstance(writer: SerializationWriter, customExtensionCalloutInstance: CustomExtensionCalloutInstance | undefined = {} as CustomExtensionCalloutInstance) : void {
-        writer.writeStringValue("customExtensionId", customExtensionCalloutInstance.customExtensionId);
-        writer.writeStringValue("detail", customExtensionCalloutInstance.detail);
-        writer.writeStringValue("externalCorrelationId", customExtensionCalloutInstance.externalCorrelationId);
-        writer.writeStringValue("id", customExtensionCalloutInstance.id);
-        writer.writeStringValue("@odata.type", customExtensionCalloutInstance.odataType);
-        writer.writeEnumValue<CustomExtensionCalloutInstanceStatus>("status", customExtensionCalloutInstance.status);
-        writer.writeAdditionalData(customExtensionCalloutInstance.additionalData);
+    writer.writeStringValue("customExtensionId", customExtensionCalloutInstance.customExtensionId);
+    writer.writeStringValue("detail", customExtensionCalloutInstance.detail);
+    writer.writeStringValue("externalCorrelationId", customExtensionCalloutInstance.externalCorrelationId);
+    writer.writeStringValue("id", customExtensionCalloutInstance.id);
+    writer.writeStringValue("@odata.type", customExtensionCalloutInstance.odataType);
+    writer.writeEnumValue<CustomExtensionCalloutInstanceStatus>("status", customExtensionCalloutInstance.status);
+    writer.writeAdditionalData(customExtensionCalloutInstance.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -28,9 +28,9 @@ export interface PasswordResetResponse extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializePasswordResetResponse(writer: SerializationWriter, passwordResetResponse: PasswordResetResponse | undefined = {} as PasswordResetResponse) : void {
-        writer.writeStringValue("newPassword", passwordResetResponse.newPassword);
-        writer.writeStringValue("@odata.type", passwordResetResponse.odataType);
-        writer.writeAdditionalData(passwordResetResponse.additionalData);
+    writer.writeStringValue("newPassword", passwordResetResponse.newPassword);
+    writer.writeStringValue("@odata.type", passwordResetResponse.odataType);
+    writer.writeAdditionalData(passwordResetResponse.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export interface OpenShiftChangeRequestCollectionResponse extends BaseCollection
     value?: OpenShiftChangeRequest[];
 }
 export function serializeOpenShiftChangeRequestCollectionResponse(writer: SerializationWriter, openShiftChangeRequestCollectionResponse: OpenShiftChangeRequestCollectionResponse | undefined = {} as OpenShiftChangeRequestCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, openShiftChangeRequestCollectionResponse)
-        writer.writeCollectionOfObjectValues<OpenShiftChangeRequest>("value", openShiftChangeRequestCollectionResponse.value, serializeOpenShiftChangeRequest);
+    serializeBaseCollectionPaginationCountResponse(writer, openShiftChangeRequestCollectionResponse)
+    writer.writeCollectionOfObjectValues<OpenShiftChangeRequest>("value", openShiftChangeRequestCollectionResponse.value, serializeOpenShiftChangeRequest);
 }
 // tslint:enable
 // eslint-enable

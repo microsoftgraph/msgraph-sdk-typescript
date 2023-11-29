@@ -28,9 +28,9 @@ export interface FilterOperand extends AdditionalDataHolder, Parsable {
     values?: string[];
 }
 export function serializeFilterOperand(writer: SerializationWriter, filterOperand: FilterOperand | undefined = {} as FilterOperand) : void {
-        writer.writeStringValue("@odata.type", filterOperand.odataType);
-        writer.writeCollectionOfPrimitiveValues<string>("values", filterOperand.values);
-        writer.writeAdditionalData(filterOperand.additionalData);
+    writer.writeStringValue("@odata.type", filterOperand.odataType);
+    writer.writeCollectionOfPrimitiveValues<string>("values", filterOperand.values);
+    writer.writeAdditionalData(filterOperand.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -16,7 +16,7 @@ export function deserializeIntoCommunicationsPhoneIdentity(communicationsPhoneId
     }
 }
 export function serializeCommunicationsPhoneIdentity(writer: SerializationWriter, communicationsPhoneIdentity: CommunicationsPhoneIdentity | undefined = {} as CommunicationsPhoneIdentity) : void {
-        serializeIdentity(writer, communicationsPhoneIdentity)
+    serializeIdentity(writer, communicationsPhoneIdentity)
 }
 // tslint:enable
 // eslint-enable

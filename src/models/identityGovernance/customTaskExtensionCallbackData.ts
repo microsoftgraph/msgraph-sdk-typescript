@@ -22,8 +22,8 @@ export function deserializeIntoCustomTaskExtensionCallbackData(customTaskExtensi
     }
 }
 export function serializeCustomTaskExtensionCallbackData(writer: SerializationWriter, customTaskExtensionCallbackData: CustomTaskExtensionCallbackData | undefined = {} as CustomTaskExtensionCallbackData) : void {
-        serializeCustomExtensionData(writer, customTaskExtensionCallbackData)
-        writer.writeEnumValue<CustomTaskExtensionOperationStatus>("operationStatus", customTaskExtensionCallbackData.operationStatus);
+    serializeCustomExtensionData(writer, customTaskExtensionCallbackData)
+    writer.writeEnumValue<CustomTaskExtensionOperationStatus>("operationStatus", customTaskExtensionCallbackData.operationStatus);
 }
 // tslint:enable
 // eslint-enable

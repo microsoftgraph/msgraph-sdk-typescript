@@ -34,10 +34,10 @@ export interface OfficeGraphInsights extends Entity, Parsable {
     used?: UsedInsight[];
 }
 export function serializeOfficeGraphInsights(writer: SerializationWriter, officeGraphInsights: OfficeGraphInsights | undefined = {} as OfficeGraphInsights) : void {
-        serializeEntity(writer, officeGraphInsights)
-        writer.writeCollectionOfObjectValues<SharedInsight>("shared", officeGraphInsights.shared, serializeSharedInsight);
-        writer.writeCollectionOfObjectValues<Trending>("trending", officeGraphInsights.trending, serializeTrending);
-        writer.writeCollectionOfObjectValues<UsedInsight>("used", officeGraphInsights.used, serializeUsedInsight);
+    serializeEntity(writer, officeGraphInsights)
+    writer.writeCollectionOfObjectValues<SharedInsight>("shared", officeGraphInsights.shared, serializeSharedInsight);
+    writer.writeCollectionOfObjectValues<Trending>("trending", officeGraphInsights.trending, serializeTrending);
+    writer.writeCollectionOfObjectValues<UsedInsight>("used", officeGraphInsights.used, serializeUsedInsight);
 }
 // tslint:enable
 // eslint-enable

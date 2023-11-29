@@ -15,8 +15,8 @@ export function deserializeIntoWorkbookApplication(workbookApplication: Workbook
     }
 }
 export function serializeWorkbookApplication(writer: SerializationWriter, workbookApplication: WorkbookApplication | undefined = {} as WorkbookApplication) : void {
-        serializeEntity(writer, workbookApplication)
-        writer.writeStringValue("calculationMode", workbookApplication.calculationMode);
+    serializeEntity(writer, workbookApplication)
+    writer.writeStringValue("calculationMode", workbookApplication.calculationMode);
 }
 export interface WorkbookApplication extends Entity, Parsable {
     /**

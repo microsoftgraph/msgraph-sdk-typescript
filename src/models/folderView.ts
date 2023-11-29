@@ -38,11 +38,11 @@ export interface FolderView extends AdditionalDataHolder, Parsable {
     viewType?: string;
 }
 export function serializeFolderView(writer: SerializationWriter, folderView: FolderView | undefined = {} as FolderView) : void {
-        writer.writeStringValue("@odata.type", folderView.odataType);
-        writer.writeStringValue("sortBy", folderView.sortBy);
-        writer.writeStringValue("sortOrder", folderView.sortOrder);
-        writer.writeStringValue("viewType", folderView.viewType);
-        writer.writeAdditionalData(folderView.additionalData);
+    writer.writeStringValue("@odata.type", folderView.odataType);
+    writer.writeStringValue("sortBy", folderView.sortBy);
+    writer.writeStringValue("sortOrder", folderView.sortOrder);
+    writer.writeStringValue("viewType", folderView.viewType);
+    writer.writeAdditionalData(folderView.additionalData);
 }
 // tslint:enable
 // eslint-enable

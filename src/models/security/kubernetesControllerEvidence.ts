@@ -38,11 +38,11 @@ export interface KubernetesControllerEvidence extends AlertEvidence, Parsable {
     type?: string;
 }
 export function serializeKubernetesControllerEvidence(writer: SerializationWriter, kubernetesControllerEvidence: KubernetesControllerEvidence | undefined = {} as KubernetesControllerEvidence) : void {
-        serializeAlertEvidence(writer, kubernetesControllerEvidence)
-        writer.writeObjectValue<Dictionary>("labels", kubernetesControllerEvidence.labels, serializeDictionary);
-        writer.writeStringValue("name", kubernetesControllerEvidence.name);
-        writer.writeObjectValue<KubernetesNamespaceEvidence>("namespace", kubernetesControllerEvidence.namespace, serializeKubernetesNamespaceEvidence);
-        writer.writeStringValue("type", kubernetesControllerEvidence.type);
+    serializeAlertEvidence(writer, kubernetesControllerEvidence)
+    writer.writeObjectValue<Dictionary>("labels", kubernetesControllerEvidence.labels, serializeDictionary);
+    writer.writeStringValue("name", kubernetesControllerEvidence.name);
+    writer.writeObjectValue<KubernetesNamespaceEvidence>("namespace", kubernetesControllerEvidence.namespace, serializeKubernetesNamespaceEvidence);
+    writer.writeStringValue("type", kubernetesControllerEvidence.type);
 }
 // tslint:enable
 // eslint-enable

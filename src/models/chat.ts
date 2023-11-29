@@ -101,22 +101,22 @@ export function deserializeIntoChat(chat: Chat | undefined = {} as Chat) : Recor
     }
 }
 export function serializeChat(writer: SerializationWriter, chat: Chat | undefined = {} as Chat) : void {
-        serializeEntity(writer, chat)
-        writer.writeEnumValue<ChatType>("chatType", chat.chatType);
-        writer.writeDateValue("createdDateTime", chat.createdDateTime);
-        writer.writeCollectionOfObjectValues<TeamsAppInstallation>("installedApps", chat.installedApps, serializeTeamsAppInstallation);
-        writer.writeObjectValue<ChatMessageInfo>("lastMessagePreview", chat.lastMessagePreview, serializeChatMessageInfo);
-        writer.writeDateValue("lastUpdatedDateTime", chat.lastUpdatedDateTime);
-        writer.writeCollectionOfObjectValues<ConversationMember>("members", chat.members, serializeConversationMember);
-        writer.writeCollectionOfObjectValues<ChatMessage>("messages", chat.messages, serializeChatMessage);
-        writer.writeObjectValue<TeamworkOnlineMeetingInfo>("onlineMeetingInfo", chat.onlineMeetingInfo, serializeTeamworkOnlineMeetingInfo);
-        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("permissionGrants", chat.permissionGrants, serializeResourceSpecificPermissionGrant);
-        writer.writeCollectionOfObjectValues<PinnedChatMessageInfo>("pinnedMessages", chat.pinnedMessages, serializePinnedChatMessageInfo);
-        writer.writeCollectionOfObjectValues<TeamsTab>("tabs", chat.tabs, serializeTeamsTab);
-        writer.writeStringValue("tenantId", chat.tenantId);
-        writer.writeStringValue("topic", chat.topic);
-        writer.writeObjectValue<ChatViewpoint>("viewpoint", chat.viewpoint, serializeChatViewpoint);
-        writer.writeStringValue("webUrl", chat.webUrl);
+    serializeEntity(writer, chat)
+    writer.writeEnumValue<ChatType>("chatType", chat.chatType);
+    writer.writeDateValue("createdDateTime", chat.createdDateTime);
+    writer.writeCollectionOfObjectValues<TeamsAppInstallation>("installedApps", chat.installedApps, serializeTeamsAppInstallation);
+    writer.writeObjectValue<ChatMessageInfo>("lastMessagePreview", chat.lastMessagePreview, serializeChatMessageInfo);
+    writer.writeDateValue("lastUpdatedDateTime", chat.lastUpdatedDateTime);
+    writer.writeCollectionOfObjectValues<ConversationMember>("members", chat.members, serializeConversationMember);
+    writer.writeCollectionOfObjectValues<ChatMessage>("messages", chat.messages, serializeChatMessage);
+    writer.writeObjectValue<TeamworkOnlineMeetingInfo>("onlineMeetingInfo", chat.onlineMeetingInfo, serializeTeamworkOnlineMeetingInfo);
+    writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("permissionGrants", chat.permissionGrants, serializeResourceSpecificPermissionGrant);
+    writer.writeCollectionOfObjectValues<PinnedChatMessageInfo>("pinnedMessages", chat.pinnedMessages, serializePinnedChatMessageInfo);
+    writer.writeCollectionOfObjectValues<TeamsTab>("tabs", chat.tabs, serializeTeamsTab);
+    writer.writeStringValue("tenantId", chat.tenantId);
+    writer.writeStringValue("topic", chat.topic);
+    writer.writeObjectValue<ChatViewpoint>("viewpoint", chat.viewpoint, serializeChatViewpoint);
+    writer.writeStringValue("webUrl", chat.webUrl);
 }
 // tslint:enable
 // eslint-enable

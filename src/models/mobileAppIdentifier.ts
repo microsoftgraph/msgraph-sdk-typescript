@@ -38,8 +38,8 @@ export interface MobileAppIdentifier extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeMobileAppIdentifier(writer: SerializationWriter, mobileAppIdentifier: MobileAppIdentifier | undefined = {} as MobileAppIdentifier) : void {
-        writer.writeStringValue("@odata.type", mobileAppIdentifier.odataType);
-        writer.writeAdditionalData(mobileAppIdentifier.additionalData);
+    writer.writeStringValue("@odata.type", mobileAppIdentifier.odataType);
+    writer.writeAdditionalData(mobileAppIdentifier.additionalData);
 }
 // tslint:enable
 // eslint-enable

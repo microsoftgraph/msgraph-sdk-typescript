@@ -15,8 +15,8 @@ export function deserializeIntoWindowsUniversalAppXAppAssignmentSettings(windows
     }
 }
 export function serializeWindowsUniversalAppXAppAssignmentSettings(writer: SerializationWriter, windowsUniversalAppXAppAssignmentSettings: WindowsUniversalAppXAppAssignmentSettings | undefined = {} as WindowsUniversalAppXAppAssignmentSettings) : void {
-        serializeMobileAppAssignmentSettings(writer, windowsUniversalAppXAppAssignmentSettings)
-        writer.writeBooleanValue("useDeviceContext", windowsUniversalAppXAppAssignmentSettings.useDeviceContext);
+    serializeMobileAppAssignmentSettings(writer, windowsUniversalAppXAppAssignmentSettings)
+    writer.writeBooleanValue("useDeviceContext", windowsUniversalAppXAppAssignmentSettings.useDeviceContext);
 }
 export interface WindowsUniversalAppXAppAssignmentSettings extends MobileAppAssignmentSettings, Parsable {
     /**

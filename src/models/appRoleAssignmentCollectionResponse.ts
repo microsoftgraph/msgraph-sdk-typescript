@@ -22,8 +22,8 @@ export function deserializeIntoAppRoleAssignmentCollectionResponse(appRoleAssign
     }
 }
 export function serializeAppRoleAssignmentCollectionResponse(writer: SerializationWriter, appRoleAssignmentCollectionResponse: AppRoleAssignmentCollectionResponse | undefined = {} as AppRoleAssignmentCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, appRoleAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<AppRoleAssignment>("value", appRoleAssignmentCollectionResponse.value, serializeAppRoleAssignment);
+    serializeBaseCollectionPaginationCountResponse(writer, appRoleAssignmentCollectionResponse)
+    writer.writeCollectionOfObjectValues<AppRoleAssignment>("value", appRoleAssignmentCollectionResponse.value, serializeAppRoleAssignment);
 }
 // tslint:enable
 // eslint-enable

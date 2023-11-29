@@ -26,9 +26,9 @@ export function deserializeIntoTimeZoneBase(timeZoneBase: TimeZoneBase | undefin
     }
 }
 export function serializeTimeZoneBase(writer: SerializationWriter, timeZoneBase: TimeZoneBase | undefined = {} as TimeZoneBase) : void {
-        writer.writeStringValue("name", timeZoneBase.name);
-        writer.writeStringValue("@odata.type", timeZoneBase.odataType);
-        writer.writeAdditionalData(timeZoneBase.additionalData);
+    writer.writeStringValue("name", timeZoneBase.name);
+    writer.writeStringValue("@odata.type", timeZoneBase.odataType);
+    writer.writeAdditionalData(timeZoneBase.additionalData);
 }
 export interface TimeZoneBase extends AdditionalDataHolder, Parsable {
     /**

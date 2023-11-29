@@ -22,8 +22,8 @@ export interface EducationSchoolCollectionResponse extends BaseCollectionPaginat
     value?: EducationSchool[];
 }
 export function serializeEducationSchoolCollectionResponse(writer: SerializationWriter, educationSchoolCollectionResponse: EducationSchoolCollectionResponse | undefined = {} as EducationSchoolCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, educationSchoolCollectionResponse)
-        writer.writeCollectionOfObjectValues<EducationSchool>("value", educationSchoolCollectionResponse.value, serializeEducationSchool);
+    serializeBaseCollectionPaginationCountResponse(writer, educationSchoolCollectionResponse)
+    writer.writeCollectionOfObjectValues<EducationSchool>("value", educationSchoolCollectionResponse.value, serializeEducationSchool);
 }
 // tslint:enable
 // eslint-enable

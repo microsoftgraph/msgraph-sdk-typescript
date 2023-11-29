@@ -194,39 +194,39 @@ export function deserializeIntoColumnDefinition(columnDefinition: ColumnDefiniti
     }
 }
 export function serializeColumnDefinition(writer: SerializationWriter, columnDefinition: ColumnDefinition | undefined = {} as ColumnDefinition) : void {
-        serializeEntity(writer, columnDefinition)
-        writer.writeObjectValue<BooleanColumn>("boolean", columnDefinition.boolean, serializeBooleanColumn);
-        writer.writeObjectValue<CalculatedColumn>("calculated", columnDefinition.calculated, serializeCalculatedColumn);
-        writer.writeObjectValue<ChoiceColumn>("choice", columnDefinition.choice, serializeChoiceColumn);
-        writer.writeStringValue("columnGroup", columnDefinition.columnGroup);
-        writer.writeObjectValue<ContentApprovalStatusColumn>("contentApprovalStatus", columnDefinition.contentApprovalStatus, serializeContentApprovalStatusColumn);
-        writer.writeObjectValue<CurrencyColumn>("currency", columnDefinition.currency, serializeCurrencyColumn);
-        writer.writeObjectValue<DateTimeColumn>("dateTime", columnDefinition.dateTime, serializeDateTimeColumn);
-        writer.writeObjectValue<DefaultColumnValue>("defaultValue", columnDefinition.defaultValue, serializeDefaultColumnValue);
-        writer.writeStringValue("description", columnDefinition.description);
-        writer.writeStringValue("displayName", columnDefinition.displayName);
-        writer.writeBooleanValue("enforceUniqueValues", columnDefinition.enforceUniqueValues);
-        writer.writeObjectValue<GeolocationColumn>("geolocation", columnDefinition.geolocation, serializeGeolocationColumn);
-        writer.writeBooleanValue("hidden", columnDefinition.hidden);
-        writer.writeObjectValue<HyperlinkOrPictureColumn>("hyperlinkOrPicture", columnDefinition.hyperlinkOrPicture, serializeHyperlinkOrPictureColumn);
-        writer.writeBooleanValue("indexed", columnDefinition.indexed);
-        writer.writeBooleanValue("isDeletable", columnDefinition.isDeletable);
-        writer.writeBooleanValue("isReorderable", columnDefinition.isReorderable);
-        writer.writeBooleanValue("isSealed", columnDefinition.isSealed);
-        writer.writeObjectValue<LookupColumn>("lookup", columnDefinition.lookup, serializeLookupColumn);
-        writer.writeStringValue("name", columnDefinition.name);
-        writer.writeObjectValue<NumberColumn>("number", columnDefinition.number, serializeNumberColumn);
-        writer.writeObjectValue<PersonOrGroupColumn>("personOrGroup", columnDefinition.personOrGroup, serializePersonOrGroupColumn);
-        writer.writeBooleanValue("propagateChanges", columnDefinition.propagateChanges);
-        writer.writeBooleanValue("readOnly", columnDefinition.readOnly);
-        writer.writeBooleanValue("required", columnDefinition.required);
-        writer.writeObjectValue<ColumnDefinition>("sourceColumn", columnDefinition.sourceColumn, serializeColumnDefinition);
-        writer.writeObjectValue<ContentTypeInfo>("sourceContentType", columnDefinition.sourceContentType, serializeContentTypeInfo);
-        writer.writeObjectValue<TermColumn>("term", columnDefinition.term, serializeTermColumn);
-        writer.writeObjectValue<TextColumn>("text", columnDefinition.text, serializeTextColumn);
-        writer.writeObjectValue<ThumbnailColumn>("thumbnail", columnDefinition.thumbnail, serializeThumbnailColumn);
-        writer.writeEnumValue<ColumnTypes>("type", columnDefinition.type);
-        writer.writeObjectValue<ColumnValidation>("validation", columnDefinition.validation, serializeColumnValidation);
+    serializeEntity(writer, columnDefinition)
+    writer.writeObjectValue<BooleanColumn>("boolean", columnDefinition.boolean, serializeBooleanColumn);
+    writer.writeObjectValue<CalculatedColumn>("calculated", columnDefinition.calculated, serializeCalculatedColumn);
+    writer.writeObjectValue<ChoiceColumn>("choice", columnDefinition.choice, serializeChoiceColumn);
+    writer.writeStringValue("columnGroup", columnDefinition.columnGroup);
+    writer.writeObjectValue<ContentApprovalStatusColumn>("contentApprovalStatus", columnDefinition.contentApprovalStatus, serializeContentApprovalStatusColumn);
+    writer.writeObjectValue<CurrencyColumn>("currency", columnDefinition.currency, serializeCurrencyColumn);
+    writer.writeObjectValue<DateTimeColumn>("dateTime", columnDefinition.dateTime, serializeDateTimeColumn);
+    writer.writeObjectValue<DefaultColumnValue>("defaultValue", columnDefinition.defaultValue, serializeDefaultColumnValue);
+    writer.writeStringValue("description", columnDefinition.description);
+    writer.writeStringValue("displayName", columnDefinition.displayName);
+    writer.writeBooleanValue("enforceUniqueValues", columnDefinition.enforceUniqueValues);
+    writer.writeObjectValue<GeolocationColumn>("geolocation", columnDefinition.geolocation, serializeGeolocationColumn);
+    writer.writeBooleanValue("hidden", columnDefinition.hidden);
+    writer.writeObjectValue<HyperlinkOrPictureColumn>("hyperlinkOrPicture", columnDefinition.hyperlinkOrPicture, serializeHyperlinkOrPictureColumn);
+    writer.writeBooleanValue("indexed", columnDefinition.indexed);
+    writer.writeBooleanValue("isDeletable", columnDefinition.isDeletable);
+    writer.writeBooleanValue("isReorderable", columnDefinition.isReorderable);
+    writer.writeBooleanValue("isSealed", columnDefinition.isSealed);
+    writer.writeObjectValue<LookupColumn>("lookup", columnDefinition.lookup, serializeLookupColumn);
+    writer.writeStringValue("name", columnDefinition.name);
+    writer.writeObjectValue<NumberColumn>("number", columnDefinition.number, serializeNumberColumn);
+    writer.writeObjectValue<PersonOrGroupColumn>("personOrGroup", columnDefinition.personOrGroup, serializePersonOrGroupColumn);
+    writer.writeBooleanValue("propagateChanges", columnDefinition.propagateChanges);
+    writer.writeBooleanValue("readOnly", columnDefinition.readOnly);
+    writer.writeBooleanValue("required", columnDefinition.required);
+    writer.writeObjectValue<ColumnDefinition>("sourceColumn", columnDefinition.sourceColumn, serializeColumnDefinition);
+    writer.writeObjectValue<ContentTypeInfo>("sourceContentType", columnDefinition.sourceContentType, serializeContentTypeInfo);
+    writer.writeObjectValue<TermColumn>("term", columnDefinition.term, serializeTermColumn);
+    writer.writeObjectValue<TextColumn>("text", columnDefinition.text, serializeTextColumn);
+    writer.writeObjectValue<ThumbnailColumn>("thumbnail", columnDefinition.thumbnail, serializeThumbnailColumn);
+    writer.writeEnumValue<ColumnTypes>("type", columnDefinition.type);
+    writer.writeObjectValue<ColumnValidation>("validation", columnDefinition.validation, serializeColumnValidation);
 }
 // tslint:enable
 // eslint-enable

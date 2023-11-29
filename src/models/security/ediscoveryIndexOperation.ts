@@ -16,7 +16,7 @@ export function deserializeIntoEdiscoveryIndexOperation(ediscoveryIndexOperation
 export interface EdiscoveryIndexOperation extends CaseOperation, Parsable {
 }
 export function serializeEdiscoveryIndexOperation(writer: SerializationWriter, ediscoveryIndexOperation: EdiscoveryIndexOperation | undefined = {} as EdiscoveryIndexOperation) : void {
-        serializeCaseOperation(writer, ediscoveryIndexOperation)
+    serializeCaseOperation(writer, ediscoveryIndexOperation)
 }
 // tslint:enable
 // eslint-enable

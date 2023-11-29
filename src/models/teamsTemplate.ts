@@ -14,7 +14,7 @@ export function deserializeIntoTeamsTemplate(teamsTemplate: TeamsTemplate | unde
     }
 }
 export function serializeTeamsTemplate(writer: SerializationWriter, teamsTemplate: TeamsTemplate | undefined = {} as TeamsTemplate) : void {
-        serializeEntity(writer, teamsTemplate)
+    serializeEntity(writer, teamsTemplate)
 }
 export interface TeamsTemplate extends Entity, Parsable {
 }

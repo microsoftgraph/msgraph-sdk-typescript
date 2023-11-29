@@ -85,14 +85,14 @@ export function deserializeIntoCaseOperation(caseOperation: CaseOperation | unde
     }
 }
 export function serializeCaseOperation(writer: SerializationWriter, caseOperation: CaseOperation | undefined = {} as CaseOperation) : void {
-        serializeEntity(writer, caseOperation)
-        writer.writeEnumValue<CaseAction>("action", caseOperation.action);
-        writer.writeDateValue("completedDateTime", caseOperation.completedDateTime);
-        writer.writeObjectValue<IdentitySet>("createdBy", caseOperation.createdBy, serializeIdentitySet);
-        writer.writeDateValue("createdDateTime", caseOperation.createdDateTime);
-        writer.writeNumberValue("percentProgress", caseOperation.percentProgress);
-        writer.writeObjectValue<ResultInfo>("resultInfo", caseOperation.resultInfo, serializeResultInfo);
-        writer.writeEnumValue<CaseOperationStatus>("status", caseOperation.status);
+    serializeEntity(writer, caseOperation)
+    writer.writeEnumValue<CaseAction>("action", caseOperation.action);
+    writer.writeDateValue("completedDateTime", caseOperation.completedDateTime);
+    writer.writeObjectValue<IdentitySet>("createdBy", caseOperation.createdBy, serializeIdentitySet);
+    writer.writeDateValue("createdDateTime", caseOperation.createdDateTime);
+    writer.writeNumberValue("percentProgress", caseOperation.percentProgress);
+    writer.writeObjectValue<ResultInfo>("resultInfo", caseOperation.resultInfo, serializeResultInfo);
+    writer.writeEnumValue<CaseOperationStatus>("status", caseOperation.status);
 }
 // tslint:enable
 // eslint-enable

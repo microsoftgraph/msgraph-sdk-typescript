@@ -54,14 +54,14 @@ export interface LicenseAssignmentState extends AdditionalDataHolder, Parsable {
     state?: string;
 }
 export function serializeLicenseAssignmentState(writer: SerializationWriter, licenseAssignmentState: LicenseAssignmentState | undefined = {} as LicenseAssignmentState) : void {
-        writer.writeStringValue("assignedByGroup", licenseAssignmentState.assignedByGroup);
-        writer.writeCollectionOfPrimitiveValues<Guid>("disabledPlans", licenseAssignmentState.disabledPlans);
-        writer.writeStringValue("error", licenseAssignmentState.errorEscaped);
-        writer.writeDateValue("lastUpdatedDateTime", licenseAssignmentState.lastUpdatedDateTime);
-        writer.writeStringValue("@odata.type", licenseAssignmentState.odataType);
-        writer.writeGuidValue("skuId", licenseAssignmentState.skuId);
-        writer.writeStringValue("state", licenseAssignmentState.state);
-        writer.writeAdditionalData(licenseAssignmentState.additionalData);
+    writer.writeStringValue("assignedByGroup", licenseAssignmentState.assignedByGroup);
+    writer.writeCollectionOfPrimitiveValues<Guid>("disabledPlans", licenseAssignmentState.disabledPlans);
+    writer.writeStringValue("error", licenseAssignmentState.errorEscaped);
+    writer.writeDateValue("lastUpdatedDateTime", licenseAssignmentState.lastUpdatedDateTime);
+    writer.writeStringValue("@odata.type", licenseAssignmentState.odataType);
+    writer.writeGuidValue("skuId", licenseAssignmentState.skuId);
+    writer.writeStringValue("state", licenseAssignmentState.state);
+    writer.writeAdditionalData(licenseAssignmentState.additionalData);
 }
 // tslint:enable
 // eslint-enable

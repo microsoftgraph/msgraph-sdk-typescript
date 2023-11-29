@@ -21,15 +21,15 @@ export function deserializeIntoUnifiedRoleManagementPolicyRuleTarget(unifiedRole
     }
 }
 export function serializeUnifiedRoleManagementPolicyRuleTarget(writer: SerializationWriter, unifiedRoleManagementPolicyRuleTarget: UnifiedRoleManagementPolicyRuleTarget | undefined = {} as UnifiedRoleManagementPolicyRuleTarget) : void {
-        writer.writeStringValue("caller", unifiedRoleManagementPolicyRuleTarget.caller);
-        writer.writeCollectionOfPrimitiveValues<string>("enforcedSettings", unifiedRoleManagementPolicyRuleTarget.enforcedSettings);
-        writer.writeCollectionOfPrimitiveValues<string>("inheritableSettings", unifiedRoleManagementPolicyRuleTarget.inheritableSettings);
-        writer.writeStringValue("level", unifiedRoleManagementPolicyRuleTarget.level);
-        writer.writeStringValue("@odata.type", unifiedRoleManagementPolicyRuleTarget.odataType);
-        if(unifiedRoleManagementPolicyRuleTarget.operations)
-        writer.writeEnumValue<UnifiedRoleManagementPolicyRuleTargetOperations>("operations", ...unifiedRoleManagementPolicyRuleTarget.operations);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("targetObjects", unifiedRoleManagementPolicyRuleTarget.targetObjects, serializeDirectoryObject);
-        writer.writeAdditionalData(unifiedRoleManagementPolicyRuleTarget.additionalData);
+    writer.writeStringValue("caller", unifiedRoleManagementPolicyRuleTarget.caller);
+    writer.writeCollectionOfPrimitiveValues<string>("enforcedSettings", unifiedRoleManagementPolicyRuleTarget.enforcedSettings);
+    writer.writeCollectionOfPrimitiveValues<string>("inheritableSettings", unifiedRoleManagementPolicyRuleTarget.inheritableSettings);
+    writer.writeStringValue("level", unifiedRoleManagementPolicyRuleTarget.level);
+    writer.writeStringValue("@odata.type", unifiedRoleManagementPolicyRuleTarget.odataType);
+    if(unifiedRoleManagementPolicyRuleTarget.operations)
+    writer.writeEnumValue<UnifiedRoleManagementPolicyRuleTargetOperations>("operations", ...unifiedRoleManagementPolicyRuleTarget.operations);
+    writer.writeCollectionOfObjectValues<DirectoryObject>("targetObjects", unifiedRoleManagementPolicyRuleTarget.targetObjects, serializeDirectoryObject);
+    writer.writeAdditionalData(unifiedRoleManagementPolicyRuleTarget.additionalData);
 }
 export interface UnifiedRoleManagementPolicyRuleTarget extends AdditionalDataHolder, Parsable {
     /**

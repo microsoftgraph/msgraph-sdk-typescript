@@ -22,8 +22,8 @@ export interface IosVppAppCollectionResponse extends BaseCollectionPaginationCou
     value?: IosVppApp[];
 }
 export function serializeIosVppAppCollectionResponse(writer: SerializationWriter, iosVppAppCollectionResponse: IosVppAppCollectionResponse | undefined = {} as IosVppAppCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, iosVppAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<IosVppApp>("value", iosVppAppCollectionResponse.value, serializeIosVppApp);
+    serializeBaseCollectionPaginationCountResponse(writer, iosVppAppCollectionResponse)
+    writer.writeCollectionOfObjectValues<IosVppApp>("value", iosVppAppCollectionResponse.value, serializeIosVppApp);
 }
 // tslint:enable
 // eslint-enable

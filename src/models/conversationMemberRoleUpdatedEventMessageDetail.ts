@@ -33,10 +33,10 @@ export function deserializeIntoConversationMemberRoleUpdatedEventMessageDetail(c
     }
 }
 export function serializeConversationMemberRoleUpdatedEventMessageDetail(writer: SerializationWriter, conversationMemberRoleUpdatedEventMessageDetail: ConversationMemberRoleUpdatedEventMessageDetail | undefined = {} as ConversationMemberRoleUpdatedEventMessageDetail) : void {
-        serializeEventMessageDetail(writer, conversationMemberRoleUpdatedEventMessageDetail)
-        writer.writeCollectionOfPrimitiveValues<string>("conversationMemberRoles", conversationMemberRoleUpdatedEventMessageDetail.conversationMemberRoles);
-        writer.writeObjectValue<TeamworkUserIdentity>("conversationMemberUser", conversationMemberRoleUpdatedEventMessageDetail.conversationMemberUser, serializeTeamworkUserIdentity);
-        writer.writeObjectValue<IdentitySet>("initiator", conversationMemberRoleUpdatedEventMessageDetail.initiator, serializeIdentitySet);
+    serializeEventMessageDetail(writer, conversationMemberRoleUpdatedEventMessageDetail)
+    writer.writeCollectionOfPrimitiveValues<string>("conversationMemberRoles", conversationMemberRoleUpdatedEventMessageDetail.conversationMemberRoles);
+    writer.writeObjectValue<TeamworkUserIdentity>("conversationMemberUser", conversationMemberRoleUpdatedEventMessageDetail.conversationMemberUser, serializeTeamworkUserIdentity);
+    writer.writeObjectValue<IdentitySet>("initiator", conversationMemberRoleUpdatedEventMessageDetail.initiator, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

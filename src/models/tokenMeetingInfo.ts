@@ -15,8 +15,8 @@ export function deserializeIntoTokenMeetingInfo(tokenMeetingInfo: TokenMeetingIn
     }
 }
 export function serializeTokenMeetingInfo(writer: SerializationWriter, tokenMeetingInfo: TokenMeetingInfo | undefined = {} as TokenMeetingInfo) : void {
-        serializeMeetingInfo(writer, tokenMeetingInfo)
-        writer.writeStringValue("token", tokenMeetingInfo.token);
+    serializeMeetingInfo(writer, tokenMeetingInfo)
+    writer.writeStringValue("token", tokenMeetingInfo.token);
 }
 export interface TokenMeetingInfo extends MeetingInfo, Parsable {
     /**

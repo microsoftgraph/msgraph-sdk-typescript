@@ -38,11 +38,11 @@ export interface ResourceReference extends AdditionalDataHolder, Parsable {
     webUrl?: string;
 }
 export function serializeResourceReference(writer: SerializationWriter, resourceReference: ResourceReference | undefined = {} as ResourceReference) : void {
-        writer.writeStringValue("id", resourceReference.id);
-        writer.writeStringValue("@odata.type", resourceReference.odataType);
-        writer.writeStringValue("type", resourceReference.type);
-        writer.writeStringValue("webUrl", resourceReference.webUrl);
-        writer.writeAdditionalData(resourceReference.additionalData);
+    writer.writeStringValue("id", resourceReference.id);
+    writer.writeStringValue("@odata.type", resourceReference.odataType);
+    writer.writeStringValue("type", resourceReference.type);
+    writer.writeStringValue("webUrl", resourceReference.webUrl);
+    writer.writeAdditionalData(resourceReference.additionalData);
 }
 // tslint:enable
 // eslint-enable

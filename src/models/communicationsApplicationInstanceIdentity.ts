@@ -26,9 +26,9 @@ export function deserializeIntoCommunicationsApplicationInstanceIdentity(communi
     }
 }
 export function serializeCommunicationsApplicationInstanceIdentity(writer: SerializationWriter, communicationsApplicationInstanceIdentity: CommunicationsApplicationInstanceIdentity | undefined = {} as CommunicationsApplicationInstanceIdentity) : void {
-        serializeIdentity(writer, communicationsApplicationInstanceIdentity)
-        writer.writeBooleanValue("hidden", communicationsApplicationInstanceIdentity.hidden);
-        writer.writeStringValue("tenantId", communicationsApplicationInstanceIdentity.tenantId);
+    serializeIdentity(writer, communicationsApplicationInstanceIdentity)
+    writer.writeBooleanValue("hidden", communicationsApplicationInstanceIdentity.hidden);
+    writer.writeStringValue("tenantId", communicationsApplicationInstanceIdentity.tenantId);
 }
 // tslint:enable
 // eslint-enable

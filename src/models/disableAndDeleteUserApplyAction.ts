@@ -16,7 +16,7 @@ export function deserializeIntoDisableAndDeleteUserApplyAction(disableAndDeleteU
 export interface DisableAndDeleteUserApplyAction extends AccessReviewApplyAction, Parsable {
 }
 export function serializeDisableAndDeleteUserApplyAction(writer: SerializationWriter, disableAndDeleteUserApplyAction: DisableAndDeleteUserApplyAction | undefined = {} as DisableAndDeleteUserApplyAction) : void {
-        serializeAccessReviewApplyAction(writer, disableAndDeleteUserApplyAction)
+    serializeAccessReviewApplyAction(writer, disableAndDeleteUserApplyAction)
 }
 // tslint:enable
 // eslint-enable

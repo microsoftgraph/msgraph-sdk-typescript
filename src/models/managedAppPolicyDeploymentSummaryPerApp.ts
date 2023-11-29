@@ -34,10 +34,10 @@ export interface ManagedAppPolicyDeploymentSummaryPerApp extends AdditionalDataH
     odataType?: string;
 }
 export function serializeManagedAppPolicyDeploymentSummaryPerApp(writer: SerializationWriter, managedAppPolicyDeploymentSummaryPerApp: ManagedAppPolicyDeploymentSummaryPerApp | undefined = {} as ManagedAppPolicyDeploymentSummaryPerApp) : void {
-        writer.writeNumberValue("configurationAppliedUserCount", managedAppPolicyDeploymentSummaryPerApp.configurationAppliedUserCount);
-        writer.writeObjectValue<MobileAppIdentifier>("mobileAppIdentifier", managedAppPolicyDeploymentSummaryPerApp.mobileAppIdentifier, serializeMobileAppIdentifier);
-        writer.writeStringValue("@odata.type", managedAppPolicyDeploymentSummaryPerApp.odataType);
-        writer.writeAdditionalData(managedAppPolicyDeploymentSummaryPerApp.additionalData);
+    writer.writeNumberValue("configurationAppliedUserCount", managedAppPolicyDeploymentSummaryPerApp.configurationAppliedUserCount);
+    writer.writeObjectValue<MobileAppIdentifier>("mobileAppIdentifier", managedAppPolicyDeploymentSummaryPerApp.mobileAppIdentifier, serializeMobileAppIdentifier);
+    writer.writeStringValue("@odata.type", managedAppPolicyDeploymentSummaryPerApp.odataType);
+    writer.writeAdditionalData(managedAppPolicyDeploymentSummaryPerApp.additionalData);
 }
 // tslint:enable
 // eslint-enable

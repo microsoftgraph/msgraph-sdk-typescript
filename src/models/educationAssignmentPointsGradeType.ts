@@ -21,8 +21,8 @@ export interface EducationAssignmentPointsGradeType extends EducationAssignmentG
     maxPoints?: number;
 }
 export function serializeEducationAssignmentPointsGradeType(writer: SerializationWriter, educationAssignmentPointsGradeType: EducationAssignmentPointsGradeType | undefined = {} as EducationAssignmentPointsGradeType) : void {
-        serializeEducationAssignmentGradeType(writer, educationAssignmentPointsGradeType)
-        writer.writeNumberValue("maxPoints", educationAssignmentPointsGradeType.maxPoints);
+    serializeEducationAssignmentGradeType(writer, educationAssignmentPointsGradeType)
+    writer.writeNumberValue("maxPoints", educationAssignmentPointsGradeType.maxPoints);
 }
 // tslint:enable
 // eslint-enable

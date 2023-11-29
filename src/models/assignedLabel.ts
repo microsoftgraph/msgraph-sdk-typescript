@@ -33,10 +33,10 @@ export function deserializeIntoAssignedLabel(assignedLabel: AssignedLabel | unde
     }
 }
 export function serializeAssignedLabel(writer: SerializationWriter, assignedLabel: AssignedLabel | undefined = {} as AssignedLabel) : void {
-        writer.writeStringValue("displayName", assignedLabel.displayName);
-        writer.writeStringValue("labelId", assignedLabel.labelId);
-        writer.writeStringValue("@odata.type", assignedLabel.odataType);
-        writer.writeAdditionalData(assignedLabel.additionalData);
+    writer.writeStringValue("displayName", assignedLabel.displayName);
+    writer.writeStringValue("labelId", assignedLabel.labelId);
+    writer.writeStringValue("@odata.type", assignedLabel.odataType);
+    writer.writeAdditionalData(assignedLabel.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -32,10 +32,10 @@ export function deserializeIntoBlobContainerEvidence(blobContainerEvidence: Blob
     }
 }
 export function serializeBlobContainerEvidence(writer: SerializationWriter, blobContainerEvidence: BlobContainerEvidence | undefined = {} as BlobContainerEvidence) : void {
-        serializeAlertEvidence(writer, blobContainerEvidence)
-        writer.writeStringValue("name", blobContainerEvidence.name);
-        writer.writeObjectValue<AzureResourceEvidence>("storageResource", blobContainerEvidence.storageResource, serializeAzureResourceEvidence);
-        writer.writeStringValue("url", blobContainerEvidence.url);
+    serializeAlertEvidence(writer, blobContainerEvidence)
+    writer.writeStringValue("name", blobContainerEvidence.name);
+    writer.writeObjectValue<AzureResourceEvidence>("storageResource", blobContainerEvidence.storageResource, serializeAzureResourceEvidence);
+    writer.writeStringValue("url", blobContainerEvidence.url);
 }
 // tslint:enable
 // eslint-enable

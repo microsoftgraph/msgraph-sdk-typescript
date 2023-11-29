@@ -26,9 +26,9 @@ export interface IpEvidence extends AlertEvidence, Parsable {
     ipAddress?: string;
 }
 export function serializeIpEvidence(writer: SerializationWriter, ipEvidence: IpEvidence | undefined = {} as IpEvidence) : void {
-        serializeAlertEvidence(writer, ipEvidence)
-        writer.writeStringValue("countryLetterCode", ipEvidence.countryLetterCode);
-        writer.writeStringValue("ipAddress", ipEvidence.ipAddress);
+    serializeAlertEvidence(writer, ipEvidence)
+    writer.writeStringValue("countryLetterCode", ipEvidence.countryLetterCode);
+    writer.writeStringValue("ipAddress", ipEvidence.ipAddress);
 }
 // tslint:enable
 // eslint-enable

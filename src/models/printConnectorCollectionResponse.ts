@@ -22,8 +22,8 @@ export interface PrintConnectorCollectionResponse extends BaseCollectionPaginati
     value?: PrintConnector[];
 }
 export function serializePrintConnectorCollectionResponse(writer: SerializationWriter, printConnectorCollectionResponse: PrintConnectorCollectionResponse | undefined = {} as PrintConnectorCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, printConnectorCollectionResponse)
-        writer.writeCollectionOfObjectValues<PrintConnector>("value", printConnectorCollectionResponse.value, serializePrintConnector);
+    serializeBaseCollectionPaginationCountResponse(writer, printConnectorCollectionResponse)
+    writer.writeCollectionOfObjectValues<PrintConnector>("value", printConnectorCollectionResponse.value, serializePrintConnector);
 }
 // tslint:enable
 // eslint-enable

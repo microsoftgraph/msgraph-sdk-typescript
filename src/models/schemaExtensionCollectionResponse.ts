@@ -22,8 +22,8 @@ export interface SchemaExtensionCollectionResponse extends BaseCollectionPaginat
     value?: SchemaExtension[];
 }
 export function serializeSchemaExtensionCollectionResponse(writer: SerializationWriter, schemaExtensionCollectionResponse: SchemaExtensionCollectionResponse | undefined = {} as SchemaExtensionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, schemaExtensionCollectionResponse)
-        writer.writeCollectionOfObjectValues<SchemaExtension>("value", schemaExtensionCollectionResponse.value, serializeSchemaExtension);
+    serializeBaseCollectionPaginationCountResponse(writer, schemaExtensionCollectionResponse)
+    writer.writeCollectionOfObjectValues<SchemaExtension>("value", schemaExtensionCollectionResponse.value, serializeSchemaExtension);
 }
 // tslint:enable
 // eslint-enable

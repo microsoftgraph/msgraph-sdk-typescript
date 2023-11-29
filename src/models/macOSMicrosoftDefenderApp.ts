@@ -16,7 +16,7 @@ export function deserializeIntoMacOSMicrosoftDefenderApp(macOSMicrosoftDefenderA
 export interface MacOSMicrosoftDefenderApp extends MobileApp, Parsable {
 }
 export function serializeMacOSMicrosoftDefenderApp(writer: SerializationWriter, macOSMicrosoftDefenderApp: MacOSMicrosoftDefenderApp | undefined = {} as MacOSMicrosoftDefenderApp) : void {
-        serializeMobileApp(writer, macOSMicrosoftDefenderApp)
+    serializeMobileApp(writer, macOSMicrosoftDefenderApp)
 }
 // tslint:enable
 // eslint-enable

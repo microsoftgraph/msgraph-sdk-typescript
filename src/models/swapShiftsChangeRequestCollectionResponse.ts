@@ -16,8 +16,8 @@ export function deserializeIntoSwapShiftsChangeRequestCollectionResponse(swapShi
     }
 }
 export function serializeSwapShiftsChangeRequestCollectionResponse(writer: SerializationWriter, swapShiftsChangeRequestCollectionResponse: SwapShiftsChangeRequestCollectionResponse | undefined = {} as SwapShiftsChangeRequestCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, swapShiftsChangeRequestCollectionResponse)
-        writer.writeCollectionOfObjectValues<SwapShiftsChangeRequest>("value", swapShiftsChangeRequestCollectionResponse.value, serializeSwapShiftsChangeRequest);
+    serializeBaseCollectionPaginationCountResponse(writer, swapShiftsChangeRequestCollectionResponse)
+    writer.writeCollectionOfObjectValues<SwapShiftsChangeRequest>("value", swapShiftsChangeRequestCollectionResponse.value, serializeSwapShiftsChangeRequest);
 }
 export interface SwapShiftsChangeRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -16,8 +16,8 @@ export function deserializeIntoSiteSourceCollectionResponse(siteSourceCollection
     }
 }
 export function serializeSiteSourceCollectionResponse(writer: SerializationWriter, siteSourceCollectionResponse: SiteSourceCollectionResponse | undefined = {} as SiteSourceCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, siteSourceCollectionResponse)
-        writer.writeCollectionOfObjectValues<SiteSource>("value", siteSourceCollectionResponse.value, serializeSiteSource);
+    serializeBaseCollectionPaginationCountResponse(writer, siteSourceCollectionResponse)
+    writer.writeCollectionOfObjectValues<SiteSource>("value", siteSourceCollectionResponse.value, serializeSiteSource);
 }
 export interface SiteSourceCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

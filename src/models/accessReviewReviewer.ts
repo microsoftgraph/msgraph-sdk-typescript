@@ -31,10 +31,10 @@ export function deserializeIntoAccessReviewReviewer(accessReviewReviewer: Access
     }
 }
 export function serializeAccessReviewReviewer(writer: SerializationWriter, accessReviewReviewer: AccessReviewReviewer | undefined = {} as AccessReviewReviewer) : void {
-        serializeEntity(writer, accessReviewReviewer)
-        writer.writeDateValue("createdDateTime", accessReviewReviewer.createdDateTime);
-        writer.writeStringValue("displayName", accessReviewReviewer.displayName);
-        writer.writeStringValue("userPrincipalName", accessReviewReviewer.userPrincipalName);
+    serializeEntity(writer, accessReviewReviewer)
+    writer.writeDateValue("createdDateTime", accessReviewReviewer.createdDateTime);
+    writer.writeStringValue("displayName", accessReviewReviewer.displayName);
+    writer.writeStringValue("userPrincipalName", accessReviewReviewer.userPrincipalName);
 }
 // tslint:enable
 // eslint-enable

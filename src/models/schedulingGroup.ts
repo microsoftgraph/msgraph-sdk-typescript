@@ -31,9 +31,9 @@ export interface SchedulingGroup extends ChangeTrackedEntity, Parsable {
     userIds?: string[];
 }
 export function serializeSchedulingGroup(writer: SerializationWriter, schedulingGroup: SchedulingGroup | undefined = {} as SchedulingGroup) : void {
-        serializeChangeTrackedEntity(writer, schedulingGroup)
-        writer.writeStringValue("displayName", schedulingGroup.displayName);
-        writer.writeCollectionOfPrimitiveValues<string>("userIds", schedulingGroup.userIds);
+    serializeChangeTrackedEntity(writer, schedulingGroup)
+    writer.writeStringValue("displayName", schedulingGroup.displayName);
+    writer.writeCollectionOfPrimitiveValues<string>("userIds", schedulingGroup.userIds);
 }
 // tslint:enable
 // eslint-enable

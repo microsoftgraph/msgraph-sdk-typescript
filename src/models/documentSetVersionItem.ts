@@ -38,11 +38,11 @@ export interface DocumentSetVersionItem extends AdditionalDataHolder, Parsable {
     versionId?: string;
 }
 export function serializeDocumentSetVersionItem(writer: SerializationWriter, documentSetVersionItem: DocumentSetVersionItem | undefined = {} as DocumentSetVersionItem) : void {
-        writer.writeStringValue("itemId", documentSetVersionItem.itemId);
-        writer.writeStringValue("@odata.type", documentSetVersionItem.odataType);
-        writer.writeStringValue("title", documentSetVersionItem.title);
-        writer.writeStringValue("versionId", documentSetVersionItem.versionId);
-        writer.writeAdditionalData(documentSetVersionItem.additionalData);
+    writer.writeStringValue("itemId", documentSetVersionItem.itemId);
+    writer.writeStringValue("@odata.type", documentSetVersionItem.odataType);
+    writer.writeStringValue("title", documentSetVersionItem.title);
+    writer.writeStringValue("versionId", documentSetVersionItem.versionId);
+    writer.writeAdditionalData(documentSetVersionItem.additionalData);
 }
 // tslint:enable
 // eslint-enable

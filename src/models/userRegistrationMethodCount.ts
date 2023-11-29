@@ -15,10 +15,10 @@ export function deserializeIntoUserRegistrationMethodCount(userRegistrationMetho
     }
 }
 export function serializeUserRegistrationMethodCount(writer: SerializationWriter, userRegistrationMethodCount: UserRegistrationMethodCount | undefined = {} as UserRegistrationMethodCount) : void {
-        writer.writeStringValue("authenticationMethod", userRegistrationMethodCount.authenticationMethod);
-        writer.writeStringValue("@odata.type", userRegistrationMethodCount.odataType);
-        writer.writeNumberValue("userCount", userRegistrationMethodCount.userCount);
-        writer.writeAdditionalData(userRegistrationMethodCount.additionalData);
+    writer.writeStringValue("authenticationMethod", userRegistrationMethodCount.authenticationMethod);
+    writer.writeStringValue("@odata.type", userRegistrationMethodCount.odataType);
+    writer.writeNumberValue("userCount", userRegistrationMethodCount.userCount);
+    writer.writeAdditionalData(userRegistrationMethodCount.additionalData);
 }
 export interface UserRegistrationMethodCount extends AdditionalDataHolder, Parsable {
     /**

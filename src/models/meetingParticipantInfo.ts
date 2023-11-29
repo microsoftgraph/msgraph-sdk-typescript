@@ -40,11 +40,11 @@ export interface MeetingParticipantInfo extends AdditionalDataHolder, Parsable {
     upn?: string;
 }
 export function serializeMeetingParticipantInfo(writer: SerializationWriter, meetingParticipantInfo: MeetingParticipantInfo | undefined = {} as MeetingParticipantInfo) : void {
-        writer.writeObjectValue<IdentitySet>("identity", meetingParticipantInfo.identity, serializeIdentitySet);
-        writer.writeStringValue("@odata.type", meetingParticipantInfo.odataType);
-        writer.writeEnumValue<OnlineMeetingRole>("role", meetingParticipantInfo.role);
-        writer.writeStringValue("upn", meetingParticipantInfo.upn);
-        writer.writeAdditionalData(meetingParticipantInfo.additionalData);
+    writer.writeObjectValue<IdentitySet>("identity", meetingParticipantInfo.identity, serializeIdentitySet);
+    writer.writeStringValue("@odata.type", meetingParticipantInfo.odataType);
+    writer.writeEnumValue<OnlineMeetingRole>("role", meetingParticipantInfo.role);
+    writer.writeStringValue("upn", meetingParticipantInfo.upn);
+    writer.writeAdditionalData(meetingParticipantInfo.additionalData);
 }
 // tslint:enable
 // eslint-enable

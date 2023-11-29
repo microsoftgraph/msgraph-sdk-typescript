@@ -17,10 +17,10 @@ export function deserializeIntoWindowsInformationProtectionDesktopApp(windowsInf
     }
 }
 export function serializeWindowsInformationProtectionDesktopApp(writer: SerializationWriter, windowsInformationProtectionDesktopApp: WindowsInformationProtectionDesktopApp | undefined = {} as WindowsInformationProtectionDesktopApp) : void {
-        serializeWindowsInformationProtectionApp(writer, windowsInformationProtectionDesktopApp)
-        writer.writeStringValue("binaryName", windowsInformationProtectionDesktopApp.binaryName);
-        writer.writeStringValue("binaryVersionHigh", windowsInformationProtectionDesktopApp.binaryVersionHigh);
-        writer.writeStringValue("binaryVersionLow", windowsInformationProtectionDesktopApp.binaryVersionLow);
+    serializeWindowsInformationProtectionApp(writer, windowsInformationProtectionDesktopApp)
+    writer.writeStringValue("binaryName", windowsInformationProtectionDesktopApp.binaryName);
+    writer.writeStringValue("binaryVersionHigh", windowsInformationProtectionDesktopApp.binaryVersionHigh);
+    writer.writeStringValue("binaryVersionLow", windowsInformationProtectionDesktopApp.binaryVersionLow);
 }
 export interface WindowsInformationProtectionDesktopApp extends Parsable, WindowsInformationProtectionApp {
     /**

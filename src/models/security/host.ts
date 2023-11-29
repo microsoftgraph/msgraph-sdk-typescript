@@ -116,22 +116,22 @@ export interface Host extends Artifact, Parsable {
     whois?: WhoisRecord;
 }
 export function serializeHost(writer: SerializationWriter, host: Host | undefined = {} as Host) : void {
-        serializeArtifact(writer, host)
-        writer.writeCollectionOfObjectValues<HostPair>("childHostPairs", host.childHostPairs, serializeHostPair);
-        writer.writeCollectionOfObjectValues<HostComponent>("components", host.components, serializeHostComponent);
-        writer.writeCollectionOfObjectValues<HostCookie>("cookies", host.cookies, serializeHostCookie);
-        writer.writeDateValue("firstSeenDateTime", host.firstSeenDateTime);
-        writer.writeCollectionOfObjectValues<HostPair>("hostPairs", host.hostPairs, serializeHostPair);
-        writer.writeDateValue("lastSeenDateTime", host.lastSeenDateTime);
-        writer.writeCollectionOfObjectValues<HostPair>("parentHostPairs", host.parentHostPairs, serializeHostPair);
-        writer.writeCollectionOfObjectValues<PassiveDnsRecord>("passiveDns", host.passiveDns, serializePassiveDnsRecord);
-        writer.writeCollectionOfObjectValues<PassiveDnsRecord>("passiveDnsReverse", host.passiveDnsReverse, serializePassiveDnsRecord);
-        writer.writeCollectionOfObjectValues<HostPort>("ports", host.ports, serializeHostPort);
-        writer.writeObjectValue<HostReputation>("reputation", host.reputation, serializeHostReputation);
-        writer.writeCollectionOfObjectValues<HostSslCertificate>("sslCertificates", host.sslCertificates, serializeHostSslCertificate);
-        writer.writeCollectionOfObjectValues<Subdomain>("subdomains", host.subdomains, serializeSubdomain);
-        writer.writeCollectionOfObjectValues<HostTracker>("trackers", host.trackers, serializeHostTracker);
-        writer.writeObjectValue<WhoisRecord>("whois", host.whois, serializeWhoisRecord);
+    serializeArtifact(writer, host)
+    writer.writeCollectionOfObjectValues<HostPair>("childHostPairs", host.childHostPairs, serializeHostPair);
+    writer.writeCollectionOfObjectValues<HostComponent>("components", host.components, serializeHostComponent);
+    writer.writeCollectionOfObjectValues<HostCookie>("cookies", host.cookies, serializeHostCookie);
+    writer.writeDateValue("firstSeenDateTime", host.firstSeenDateTime);
+    writer.writeCollectionOfObjectValues<HostPair>("hostPairs", host.hostPairs, serializeHostPair);
+    writer.writeDateValue("lastSeenDateTime", host.lastSeenDateTime);
+    writer.writeCollectionOfObjectValues<HostPair>("parentHostPairs", host.parentHostPairs, serializeHostPair);
+    writer.writeCollectionOfObjectValues<PassiveDnsRecord>("passiveDns", host.passiveDns, serializePassiveDnsRecord);
+    writer.writeCollectionOfObjectValues<PassiveDnsRecord>("passiveDnsReverse", host.passiveDnsReverse, serializePassiveDnsRecord);
+    writer.writeCollectionOfObjectValues<HostPort>("ports", host.ports, serializeHostPort);
+    writer.writeObjectValue<HostReputation>("reputation", host.reputation, serializeHostReputation);
+    writer.writeCollectionOfObjectValues<HostSslCertificate>("sslCertificates", host.sslCertificates, serializeHostSslCertificate);
+    writer.writeCollectionOfObjectValues<Subdomain>("subdomains", host.subdomains, serializeSubdomain);
+    writer.writeCollectionOfObjectValues<HostTracker>("trackers", host.trackers, serializeHostTracker);
+    writer.writeObjectValue<WhoisRecord>("whois", host.whois, serializeWhoisRecord);
 }
 // tslint:enable
 // eslint-enable

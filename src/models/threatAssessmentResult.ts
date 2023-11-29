@@ -18,10 +18,10 @@ export function deserializeIntoThreatAssessmentResult(threatAssessmentResult: Th
     }
 }
 export function serializeThreatAssessmentResult(writer: SerializationWriter, threatAssessmentResult: ThreatAssessmentResult | undefined = {} as ThreatAssessmentResult) : void {
-        serializeEntity(writer, threatAssessmentResult)
-        writer.writeDateValue("createdDateTime", threatAssessmentResult.createdDateTime);
-        writer.writeStringValue("message", threatAssessmentResult.message);
-        writer.writeEnumValue<ThreatAssessmentResultType>("resultType", threatAssessmentResult.resultType);
+    serializeEntity(writer, threatAssessmentResult)
+    writer.writeDateValue("createdDateTime", threatAssessmentResult.createdDateTime);
+    writer.writeStringValue("message", threatAssessmentResult.message);
+    writer.writeEnumValue<ThreatAssessmentResultType>("resultType", threatAssessmentResult.resultType);
 }
 export interface ThreatAssessmentResult extends Entity, Parsable {
     /**

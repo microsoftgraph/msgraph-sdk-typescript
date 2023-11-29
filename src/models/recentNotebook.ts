@@ -45,12 +45,12 @@ export interface RecentNotebook extends AdditionalDataHolder, Parsable {
     sourceService?: OnenoteSourceService;
 }
 export function serializeRecentNotebook(writer: SerializationWriter, recentNotebook: RecentNotebook | undefined = {} as RecentNotebook) : void {
-        writer.writeStringValue("displayName", recentNotebook.displayName);
-        writer.writeDateValue("lastAccessedTime", recentNotebook.lastAccessedTime);
-        writer.writeObjectValue<RecentNotebookLinks>("links", recentNotebook.links, serializeRecentNotebookLinks);
-        writer.writeStringValue("@odata.type", recentNotebook.odataType);
-        writer.writeEnumValue<OnenoteSourceService>("sourceService", recentNotebook.sourceService);
-        writer.writeAdditionalData(recentNotebook.additionalData);
+    writer.writeStringValue("displayName", recentNotebook.displayName);
+    writer.writeDateValue("lastAccessedTime", recentNotebook.lastAccessedTime);
+    writer.writeObjectValue<RecentNotebookLinks>("links", recentNotebook.links, serializeRecentNotebookLinks);
+    writer.writeStringValue("@odata.type", recentNotebook.odataType);
+    writer.writeEnumValue<OnenoteSourceService>("sourceService", recentNotebook.sourceService);
+    writer.writeAdditionalData(recentNotebook.additionalData);
 }
 // tslint:enable
 // eslint-enable

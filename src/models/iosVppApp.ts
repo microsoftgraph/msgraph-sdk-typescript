@@ -69,17 +69,17 @@ export interface IosVppApp extends MobileApp, Parsable {
     vppTokenOrganizationName?: string;
 }
 export function serializeIosVppApp(writer: SerializationWriter, iosVppApp: IosVppApp | undefined = {} as IosVppApp) : void {
-        serializeMobileApp(writer, iosVppApp)
-        writer.writeObjectValue<IosDeviceType>("applicableDeviceType", iosVppApp.applicableDeviceType, serializeIosDeviceType);
-        writer.writeStringValue("appStoreUrl", iosVppApp.appStoreUrl);
-        writer.writeStringValue("bundleId", iosVppApp.bundleId);
-        writer.writeObjectValue<VppLicensingType>("licensingType", iosVppApp.licensingType, serializeVppLicensingType);
-        writer.writeDateValue("releaseDateTime", iosVppApp.releaseDateTime);
-        writer.writeNumberValue("totalLicenseCount", iosVppApp.totalLicenseCount);
-        writer.writeNumberValue("usedLicenseCount", iosVppApp.usedLicenseCount);
-        writer.writeEnumValue<VppTokenAccountType>("vppTokenAccountType", iosVppApp.vppTokenAccountType);
-        writer.writeStringValue("vppTokenAppleId", iosVppApp.vppTokenAppleId);
-        writer.writeStringValue("vppTokenOrganizationName", iosVppApp.vppTokenOrganizationName);
+    serializeMobileApp(writer, iosVppApp)
+    writer.writeObjectValue<IosDeviceType>("applicableDeviceType", iosVppApp.applicableDeviceType, serializeIosDeviceType);
+    writer.writeStringValue("appStoreUrl", iosVppApp.appStoreUrl);
+    writer.writeStringValue("bundleId", iosVppApp.bundleId);
+    writer.writeObjectValue<VppLicensingType>("licensingType", iosVppApp.licensingType, serializeVppLicensingType);
+    writer.writeDateValue("releaseDateTime", iosVppApp.releaseDateTime);
+    writer.writeNumberValue("totalLicenseCount", iosVppApp.totalLicenseCount);
+    writer.writeNumberValue("usedLicenseCount", iosVppApp.usedLicenseCount);
+    writer.writeEnumValue<VppTokenAccountType>("vppTokenAccountType", iosVppApp.vppTokenAccountType);
+    writer.writeStringValue("vppTokenAppleId", iosVppApp.vppTokenAppleId);
+    writer.writeStringValue("vppTokenOrganizationName", iosVppApp.vppTokenOrganizationName);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export interface MediaPrompt extends Parsable, Prompt {
     mediaInfo?: MediaInfo;
 }
 export function serializeMediaPrompt(writer: SerializationWriter, mediaPrompt: MediaPrompt | undefined = {} as MediaPrompt) : void {
-        serializePrompt(writer, mediaPrompt)
-        writer.writeObjectValue<MediaInfo>("mediaInfo", mediaPrompt.mediaInfo, serializeMediaInfo);
+    serializePrompt(writer, mediaPrompt)
+    writer.writeObjectValue<MediaInfo>("mediaInfo", mediaPrompt.mediaInfo, serializeMediaInfo);
 }
 // tslint:enable
 // eslint-enable

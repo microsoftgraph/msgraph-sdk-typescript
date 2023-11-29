@@ -27,9 +27,9 @@ export interface RemoteDesktopSecurityConfiguration extends Entity, Parsable {
     targetDeviceGroups?: TargetDeviceGroup[];
 }
 export function serializeRemoteDesktopSecurityConfiguration(writer: SerializationWriter, remoteDesktopSecurityConfiguration: RemoteDesktopSecurityConfiguration | undefined = {} as RemoteDesktopSecurityConfiguration) : void {
-        serializeEntity(writer, remoteDesktopSecurityConfiguration)
-        writer.writeBooleanValue("isRemoteDesktopProtocolEnabled", remoteDesktopSecurityConfiguration.isRemoteDesktopProtocolEnabled);
-        writer.writeCollectionOfObjectValues<TargetDeviceGroup>("targetDeviceGroups", remoteDesktopSecurityConfiguration.targetDeviceGroups, serializeTargetDeviceGroup);
+    serializeEntity(writer, remoteDesktopSecurityConfiguration)
+    writer.writeBooleanValue("isRemoteDesktopProtocolEnabled", remoteDesktopSecurityConfiguration.isRemoteDesktopProtocolEnabled);
+    writer.writeCollectionOfObjectValues<TargetDeviceGroup>("targetDeviceGroups", remoteDesktopSecurityConfiguration.targetDeviceGroups, serializeTargetDeviceGroup);
 }
 // tslint:enable
 // eslint-enable

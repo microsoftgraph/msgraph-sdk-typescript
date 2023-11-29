@@ -44,8 +44,8 @@ export interface IdentitySource extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeIdentitySource(writer: SerializationWriter, identitySource: IdentitySource | undefined = {} as IdentitySource) : void {
-        writer.writeStringValue("@odata.type", identitySource.odataType);
-        writer.writeAdditionalData(identitySource.additionalData);
+    writer.writeStringValue("@odata.type", identitySource.odataType);
+    writer.writeAdditionalData(identitySource.additionalData);
 }
 // tslint:enable
 // eslint-enable

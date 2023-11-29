@@ -31,10 +31,10 @@ export function deserializeIntoAzureResourceEvidence(azureResourceEvidence: Azur
     }
 }
 export function serializeAzureResourceEvidence(writer: SerializationWriter, azureResourceEvidence: AzureResourceEvidence | undefined = {} as AzureResourceEvidence) : void {
-        serializeAlertEvidence(writer, azureResourceEvidence)
-        writer.writeStringValue("resourceId", azureResourceEvidence.resourceId);
-        writer.writeStringValue("resourceName", azureResourceEvidence.resourceName);
-        writer.writeStringValue("resourceType", azureResourceEvidence.resourceType);
+    serializeAlertEvidence(writer, azureResourceEvidence)
+    writer.writeStringValue("resourceId", azureResourceEvidence.resourceId);
+    writer.writeStringValue("resourceName", azureResourceEvidence.resourceName);
+    writer.writeStringValue("resourceType", azureResourceEvidence.resourceType);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export interface GovernanceInsightCollectionResponse extends BaseCollectionPagin
     value?: GovernanceInsight[];
 }
 export function serializeGovernanceInsightCollectionResponse(writer: SerializationWriter, governanceInsightCollectionResponse: GovernanceInsightCollectionResponse | undefined = {} as GovernanceInsightCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, governanceInsightCollectionResponse)
-        writer.writeCollectionOfObjectValues<GovernanceInsight>("value", governanceInsightCollectionResponse.value, serializeGovernanceInsight);
+    serializeBaseCollectionPaginationCountResponse(writer, governanceInsightCollectionResponse)
+    writer.writeCollectionOfObjectValues<GovernanceInsight>("value", governanceInsightCollectionResponse.value, serializeGovernanceInsight);
 }
 // tslint:enable
 // eslint-enable

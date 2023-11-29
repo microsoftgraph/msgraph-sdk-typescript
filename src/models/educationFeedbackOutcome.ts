@@ -27,9 +27,9 @@ export interface EducationFeedbackOutcome extends EducationOutcome, Parsable {
     publishedFeedback?: EducationFeedback;
 }
 export function serializeEducationFeedbackOutcome(writer: SerializationWriter, educationFeedbackOutcome: EducationFeedbackOutcome | undefined = {} as EducationFeedbackOutcome) : void {
-        serializeEducationOutcome(writer, educationFeedbackOutcome)
-        writer.writeObjectValue<EducationFeedback>("feedback", educationFeedbackOutcome.feedback, serializeEducationFeedback);
-        writer.writeObjectValue<EducationFeedback>("publishedFeedback", educationFeedbackOutcome.publishedFeedback, serializeEducationFeedback);
+    serializeEducationOutcome(writer, educationFeedbackOutcome)
+    writer.writeObjectValue<EducationFeedback>("feedback", educationFeedbackOutcome.feedback, serializeEducationFeedback);
+    writer.writeObjectValue<EducationFeedback>("publishedFeedback", educationFeedbackOutcome.publishedFeedback, serializeEducationFeedback);
 }
 // tslint:enable
 // eslint-enable

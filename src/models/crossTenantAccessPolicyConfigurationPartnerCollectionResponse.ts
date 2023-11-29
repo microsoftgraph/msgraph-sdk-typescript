@@ -22,8 +22,8 @@ export function deserializeIntoCrossTenantAccessPolicyConfigurationPartnerCollec
     }
 }
 export function serializeCrossTenantAccessPolicyConfigurationPartnerCollectionResponse(writer: SerializationWriter, crossTenantAccessPolicyConfigurationPartnerCollectionResponse: CrossTenantAccessPolicyConfigurationPartnerCollectionResponse | undefined = {} as CrossTenantAccessPolicyConfigurationPartnerCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, crossTenantAccessPolicyConfigurationPartnerCollectionResponse)
-        writer.writeCollectionOfObjectValues<CrossTenantAccessPolicyConfigurationPartner>("value", crossTenantAccessPolicyConfigurationPartnerCollectionResponse.value, serializeCrossTenantAccessPolicyConfigurationPartner);
+    serializeBaseCollectionPaginationCountResponse(writer, crossTenantAccessPolicyConfigurationPartnerCollectionResponse)
+    writer.writeCollectionOfObjectValues<CrossTenantAccessPolicyConfigurationPartner>("value", crossTenantAccessPolicyConfigurationPartnerCollectionResponse.value, serializeCrossTenantAccessPolicyConfigurationPartner);
 }
 // tslint:enable
 // eslint-enable

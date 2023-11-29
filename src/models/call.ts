@@ -155,32 +155,32 @@ export function deserializeIntoCall(call: Call | undefined = {} as Call) : Recor
     }
 }
 export function serializeCall(writer: SerializationWriter, call: Call | undefined = {} as Call) : void {
-        serializeEntity(writer, call)
-        writer.writeCollectionOfObjectValues<AudioRoutingGroup>("audioRoutingGroups", call.audioRoutingGroups, serializeAudioRoutingGroup);
-        writer.writeStringValue("callbackUri", call.callbackUri);
-        writer.writeStringValue("callChainId", call.callChainId);
-        writer.writeObjectValue<CallOptions>("callOptions", call.callOptions, serializeCallOptions);
-        writer.writeCollectionOfObjectValues<CallRoute>("callRoutes", call.callRoutes, serializeCallRoute);
-        writer.writeObjectValue<ChatInfo>("chatInfo", call.chatInfo, serializeChatInfo);
-        writer.writeCollectionOfObjectValues<ContentSharingSession>("contentSharingSessions", call.contentSharingSessions, serializeContentSharingSession);
-        writer.writeEnumValue<CallDirection>("direction", call.direction);
-        writer.writeObjectValue<IncomingContext>("incomingContext", call.incomingContext, serializeIncomingContext);
-        writer.writeObjectValue<MediaConfig>("mediaConfig", call.mediaConfig, serializeMediaConfig);
-        writer.writeObjectValue<CallMediaState>("mediaState", call.mediaState, serializeCallMediaState);
-        writer.writeObjectValue<MeetingInfo>("meetingInfo", call.meetingInfo, serializeMeetingInfo);
-        writer.writeStringValue("myParticipantId", call.myParticipantId);
-        writer.writeCollectionOfObjectValues<CommsOperation>("operations", call.operations, serializeCommsOperation);
-        writer.writeCollectionOfObjectValues<Participant>("participants", call.participants, serializeParticipant);
-        if(call.requestedModalities)
-        writer.writeEnumValue<Modality>("requestedModalities", ...call.requestedModalities);
-        writer.writeObjectValue<ResultInfo>("resultInfo", call.resultInfo, serializeResultInfo);
-        writer.writeObjectValue<ParticipantInfo>("source", call.source, serializeParticipantInfo);
-        writer.writeEnumValue<CallState>("state", call.state);
-        writer.writeStringValue("subject", call.subject);
-        writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("targets", call.targets, serializeInvitationParticipantInfo);
-        writer.writeStringValue("tenantId", call.tenantId);
-        writer.writeObjectValue<ToneInfo>("toneInfo", call.toneInfo, serializeToneInfo);
-        writer.writeObjectValue<CallTranscriptionInfo>("transcription", call.transcription, serializeCallTranscriptionInfo);
+    serializeEntity(writer, call)
+    writer.writeCollectionOfObjectValues<AudioRoutingGroup>("audioRoutingGroups", call.audioRoutingGroups, serializeAudioRoutingGroup);
+    writer.writeStringValue("callbackUri", call.callbackUri);
+    writer.writeStringValue("callChainId", call.callChainId);
+    writer.writeObjectValue<CallOptions>("callOptions", call.callOptions, serializeCallOptions);
+    writer.writeCollectionOfObjectValues<CallRoute>("callRoutes", call.callRoutes, serializeCallRoute);
+    writer.writeObjectValue<ChatInfo>("chatInfo", call.chatInfo, serializeChatInfo);
+    writer.writeCollectionOfObjectValues<ContentSharingSession>("contentSharingSessions", call.contentSharingSessions, serializeContentSharingSession);
+    writer.writeEnumValue<CallDirection>("direction", call.direction);
+    writer.writeObjectValue<IncomingContext>("incomingContext", call.incomingContext, serializeIncomingContext);
+    writer.writeObjectValue<MediaConfig>("mediaConfig", call.mediaConfig, serializeMediaConfig);
+    writer.writeObjectValue<CallMediaState>("mediaState", call.mediaState, serializeCallMediaState);
+    writer.writeObjectValue<MeetingInfo>("meetingInfo", call.meetingInfo, serializeMeetingInfo);
+    writer.writeStringValue("myParticipantId", call.myParticipantId);
+    writer.writeCollectionOfObjectValues<CommsOperation>("operations", call.operations, serializeCommsOperation);
+    writer.writeCollectionOfObjectValues<Participant>("participants", call.participants, serializeParticipant);
+    if(call.requestedModalities)
+    writer.writeEnumValue<Modality>("requestedModalities", ...call.requestedModalities);
+    writer.writeObjectValue<ResultInfo>("resultInfo", call.resultInfo, serializeResultInfo);
+    writer.writeObjectValue<ParticipantInfo>("source", call.source, serializeParticipantInfo);
+    writer.writeEnumValue<CallState>("state", call.state);
+    writer.writeStringValue("subject", call.subject);
+    writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("targets", call.targets, serializeInvitationParticipantInfo);
+    writer.writeStringValue("tenantId", call.tenantId);
+    writer.writeObjectValue<ToneInfo>("toneInfo", call.toneInfo, serializeToneInfo);
+    writer.writeObjectValue<CallTranscriptionInfo>("transcription", call.transcription, serializeCallTranscriptionInfo);
 }
 // tslint:enable
 // eslint-enable

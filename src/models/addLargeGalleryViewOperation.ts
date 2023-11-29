@@ -16,7 +16,7 @@ export function deserializeIntoAddLargeGalleryViewOperation(addLargeGalleryViewO
     }
 }
 export function serializeAddLargeGalleryViewOperation(writer: SerializationWriter, addLargeGalleryViewOperation: AddLargeGalleryViewOperation | undefined = {} as AddLargeGalleryViewOperation) : void {
-        serializeCommsOperation(writer, addLargeGalleryViewOperation)
+    serializeCommsOperation(writer, addLargeGalleryViewOperation)
 }
 // tslint:enable
 // eslint-enable

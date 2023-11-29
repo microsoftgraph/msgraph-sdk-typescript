@@ -15,8 +15,8 @@ export function deserializeIntoServiceProvisioningXmlError(serviceProvisioningXm
     }
 }
 export function serializeServiceProvisioningXmlError(writer: SerializationWriter, serviceProvisioningXmlError: ServiceProvisioningXmlError | undefined = {} as ServiceProvisioningXmlError) : void {
-        serializeServiceProvisioningError(writer, serviceProvisioningXmlError)
-        writer.writeStringValue("errorDetail", serviceProvisioningXmlError.errorDetail);
+    serializeServiceProvisioningError(writer, serviceProvisioningXmlError)
+    writer.writeStringValue("errorDetail", serviceProvisioningXmlError.errorDetail);
 }
 export interface ServiceProvisioningXmlError extends Parsable, ServiceProvisioningError {
     /**

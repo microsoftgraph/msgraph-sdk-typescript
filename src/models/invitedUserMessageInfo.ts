@@ -39,11 +39,11 @@ export interface InvitedUserMessageInfo extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeInvitedUserMessageInfo(writer: SerializationWriter, invitedUserMessageInfo: InvitedUserMessageInfo | undefined = {} as InvitedUserMessageInfo) : void {
-        writer.writeCollectionOfObjectValues<Recipient>("ccRecipients", invitedUserMessageInfo.ccRecipients, serializeRecipient);
-        writer.writeStringValue("customizedMessageBody", invitedUserMessageInfo.customizedMessageBody);
-        writer.writeStringValue("messageLanguage", invitedUserMessageInfo.messageLanguage);
-        writer.writeStringValue("@odata.type", invitedUserMessageInfo.odataType);
-        writer.writeAdditionalData(invitedUserMessageInfo.additionalData);
+    writer.writeCollectionOfObjectValues<Recipient>("ccRecipients", invitedUserMessageInfo.ccRecipients, serializeRecipient);
+    writer.writeStringValue("customizedMessageBody", invitedUserMessageInfo.customizedMessageBody);
+    writer.writeStringValue("messageLanguage", invitedUserMessageInfo.messageLanguage);
+    writer.writeStringValue("@odata.type", invitedUserMessageInfo.odataType);
+    writer.writeAdditionalData(invitedUserMessageInfo.additionalData);
 }
 // tslint:enable
 // eslint-enable

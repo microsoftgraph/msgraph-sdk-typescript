@@ -22,8 +22,8 @@ export function deserializeIntoDelegatedAdminRelationshipRequestCollectionRespon
     }
 }
 export function serializeDelegatedAdminRelationshipRequestCollectionResponse(writer: SerializationWriter, delegatedAdminRelationshipRequestCollectionResponse: DelegatedAdminRelationshipRequestCollectionResponse | undefined = {} as DelegatedAdminRelationshipRequestCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, delegatedAdminRelationshipRequestCollectionResponse)
-        writer.writeCollectionOfObjectValues<DelegatedAdminRelationshipRequest>("value", delegatedAdminRelationshipRequestCollectionResponse.value, serializeDelegatedAdminRelationshipRequest);
+    serializeBaseCollectionPaginationCountResponse(writer, delegatedAdminRelationshipRequestCollectionResponse)
+    writer.writeCollectionOfObjectValues<DelegatedAdminRelationshipRequest>("value", delegatedAdminRelationshipRequestCollectionResponse.value, serializeDelegatedAdminRelationshipRequest);
 }
 // tslint:enable
 // eslint-enable

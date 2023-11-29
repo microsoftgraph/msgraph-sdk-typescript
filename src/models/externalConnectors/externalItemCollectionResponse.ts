@@ -22,8 +22,8 @@ export interface ExternalItemCollectionResponse extends BaseCollectionPagination
     value?: ExternalItem[];
 }
 export function serializeExternalItemCollectionResponse(writer: SerializationWriter, externalItemCollectionResponse: ExternalItemCollectionResponse | undefined = {} as ExternalItemCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, externalItemCollectionResponse)
-        writer.writeCollectionOfObjectValues<ExternalItem>("value", externalItemCollectionResponse.value, serializeExternalItem);
+    serializeBaseCollectionPaginationCountResponse(writer, externalItemCollectionResponse)
+    writer.writeCollectionOfObjectValues<ExternalItem>("value", externalItemCollectionResponse.value, serializeExternalItem);
 }
 // tslint:enable
 // eslint-enable

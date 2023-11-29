@@ -35,8 +35,8 @@ export function deserializeIntoCustomExtensionAuthenticationConfiguration(custom
     }
 }
 export function serializeCustomExtensionAuthenticationConfiguration(writer: SerializationWriter, customExtensionAuthenticationConfiguration: CustomExtensionAuthenticationConfiguration | undefined = {} as CustomExtensionAuthenticationConfiguration) : void {
-        writer.writeStringValue("@odata.type", customExtensionAuthenticationConfiguration.odataType);
-        writer.writeAdditionalData(customExtensionAuthenticationConfiguration.additionalData);
+    writer.writeStringValue("@odata.type", customExtensionAuthenticationConfiguration.odataType);
+    writer.writeAdditionalData(customExtensionAuthenticationConfiguration.additionalData);
 }
 // tslint:enable
 // eslint-enable

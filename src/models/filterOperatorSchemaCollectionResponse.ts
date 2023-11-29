@@ -22,8 +22,8 @@ export interface FilterOperatorSchemaCollectionResponse extends BaseCollectionPa
     value?: FilterOperatorSchema[];
 }
 export function serializeFilterOperatorSchemaCollectionResponse(writer: SerializationWriter, filterOperatorSchemaCollectionResponse: FilterOperatorSchemaCollectionResponse | undefined = {} as FilterOperatorSchemaCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, filterOperatorSchemaCollectionResponse)
-        writer.writeCollectionOfObjectValues<FilterOperatorSchema>("value", filterOperatorSchemaCollectionResponse.value, serializeFilterOperatorSchema);
+    serializeBaseCollectionPaginationCountResponse(writer, filterOperatorSchemaCollectionResponse)
+    writer.writeCollectionOfObjectValues<FilterOperatorSchema>("value", filterOperatorSchemaCollectionResponse.value, serializeFilterOperatorSchema);
 }
 // tslint:enable
 // eslint-enable

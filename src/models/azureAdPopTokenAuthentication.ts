@@ -16,7 +16,7 @@ export function deserializeIntoAzureAdPopTokenAuthentication(azureAdPopTokenAuth
     }
 }
 export function serializeAzureAdPopTokenAuthentication(writer: SerializationWriter, azureAdPopTokenAuthentication: AzureAdPopTokenAuthentication | undefined = {} as AzureAdPopTokenAuthentication) : void {
-        serializeCustomExtensionAuthenticationConfiguration(writer, azureAdPopTokenAuthentication)
+    serializeCustomExtensionAuthenticationConfiguration(writer, azureAdPopTokenAuthentication)
 }
 // tslint:enable
 // eslint-enable

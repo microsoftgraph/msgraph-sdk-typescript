@@ -34,10 +34,10 @@ export function deserializeIntoCrossTenantAccessPolicyB2BSetting(crossTenantAcce
     }
 }
 export function serializeCrossTenantAccessPolicyB2BSetting(writer: SerializationWriter, crossTenantAccessPolicyB2BSetting: CrossTenantAccessPolicyB2BSetting | undefined = {} as CrossTenantAccessPolicyB2BSetting) : void {
-        writer.writeObjectValue<CrossTenantAccessPolicyTargetConfiguration>("applications", crossTenantAccessPolicyB2BSetting.applications, serializeCrossTenantAccessPolicyTargetConfiguration);
-        writer.writeStringValue("@odata.type", crossTenantAccessPolicyB2BSetting.odataType);
-        writer.writeObjectValue<CrossTenantAccessPolicyTargetConfiguration>("usersAndGroups", crossTenantAccessPolicyB2BSetting.usersAndGroups, serializeCrossTenantAccessPolicyTargetConfiguration);
-        writer.writeAdditionalData(crossTenantAccessPolicyB2BSetting.additionalData);
+    writer.writeObjectValue<CrossTenantAccessPolicyTargetConfiguration>("applications", crossTenantAccessPolicyB2BSetting.applications, serializeCrossTenantAccessPolicyTargetConfiguration);
+    writer.writeStringValue("@odata.type", crossTenantAccessPolicyB2BSetting.odataType);
+    writer.writeObjectValue<CrossTenantAccessPolicyTargetConfiguration>("usersAndGroups", crossTenantAccessPolicyB2BSetting.usersAndGroups, serializeCrossTenantAccessPolicyTargetConfiguration);
+    writer.writeAdditionalData(crossTenantAccessPolicyB2BSetting.additionalData);
 }
 // tslint:enable
 // eslint-enable

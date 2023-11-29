@@ -40,11 +40,11 @@ export function deserializeIntoCallRoute(callRoute: CallRoute | undefined = {} a
     }
 }
 export function serializeCallRoute(writer: SerializationWriter, callRoute: CallRoute | undefined = {} as CallRoute) : void {
-        writer.writeObjectValue<IdentitySet>("final", callRoute.final, serializeIdentitySet);
-        writer.writeStringValue("@odata.type", callRoute.odataType);
-        writer.writeObjectValue<IdentitySet>("original", callRoute.original, serializeIdentitySet);
-        writer.writeEnumValue<RoutingType>("routingType", callRoute.routingType);
-        writer.writeAdditionalData(callRoute.additionalData);
+    writer.writeObjectValue<IdentitySet>("final", callRoute.final, serializeIdentitySet);
+    writer.writeStringValue("@odata.type", callRoute.odataType);
+    writer.writeObjectValue<IdentitySet>("original", callRoute.original, serializeIdentitySet);
+    writer.writeEnumValue<RoutingType>("routingType", callRoute.routingType);
+    writer.writeAdditionalData(callRoute.additionalData);
 }
 // tslint:enable
 // eslint-enable

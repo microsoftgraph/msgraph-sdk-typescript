@@ -22,8 +22,8 @@ export interface ParticipantJoiningNotification extends Entity, Parsable {
     call?: Call;
 }
 export function serializeParticipantJoiningNotification(writer: SerializationWriter, participantJoiningNotification: ParticipantJoiningNotification | undefined = {} as ParticipantJoiningNotification) : void {
-        serializeEntity(writer, participantJoiningNotification)
-        writer.writeObjectValue<Call>("call", participantJoiningNotification.call, serializeCall);
+    serializeEntity(writer, participantJoiningNotification)
+    writer.writeObjectValue<Call>("call", participantJoiningNotification.call, serializeCall);
 }
 // tslint:enable
 // eslint-enable

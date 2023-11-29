@@ -17,10 +17,10 @@ export function deserializeIntoTimeOffRequest(timeOffRequest: TimeOffRequest | u
     }
 }
 export function serializeTimeOffRequest(writer: SerializationWriter, timeOffRequest: TimeOffRequest | undefined = {} as TimeOffRequest) : void {
-        serializeScheduleChangeRequest(writer, timeOffRequest)
-        writer.writeDateValue("endDateTime", timeOffRequest.endDateTime);
-        writer.writeDateValue("startDateTime", timeOffRequest.startDateTime);
-        writer.writeStringValue("timeOffReasonId", timeOffRequest.timeOffReasonId);
+    serializeScheduleChangeRequest(writer, timeOffRequest)
+    writer.writeDateValue("endDateTime", timeOffRequest.endDateTime);
+    writer.writeDateValue("startDateTime", timeOffRequest.startDateTime);
+    writer.writeStringValue("timeOffReasonId", timeOffRequest.timeOffReasonId);
 }
 export interface TimeOffRequest extends Parsable, ScheduleChangeRequest {
     /**

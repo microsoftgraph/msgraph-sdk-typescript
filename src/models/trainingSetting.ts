@@ -39,9 +39,9 @@ export function deserializeIntoTrainingSetting(trainingSetting: TrainingSetting 
     }
 }
 export function serializeTrainingSetting(writer: SerializationWriter, trainingSetting: TrainingSetting | undefined = {} as TrainingSetting) : void {
-        writer.writeStringValue("@odata.type", trainingSetting.odataType);
-        writer.writeEnumValue<TrainingSettingType>("settingType", trainingSetting.settingType);
-        writer.writeAdditionalData(trainingSetting.additionalData);
+    writer.writeStringValue("@odata.type", trainingSetting.odataType);
+    writer.writeEnumValue<TrainingSettingType>("settingType", trainingSetting.settingType);
+    writer.writeAdditionalData(trainingSetting.additionalData);
 }
 export interface TrainingSetting extends AdditionalDataHolder, Parsable {
     /**

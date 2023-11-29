@@ -16,8 +16,8 @@ export function deserializeIntoTeamsAsyncOperationCollectionResponse(teamsAsyncO
     }
 }
 export function serializeTeamsAsyncOperationCollectionResponse(writer: SerializationWriter, teamsAsyncOperationCollectionResponse: TeamsAsyncOperationCollectionResponse | undefined = {} as TeamsAsyncOperationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, teamsAsyncOperationCollectionResponse)
-        writer.writeCollectionOfObjectValues<TeamsAsyncOperation>("value", teamsAsyncOperationCollectionResponse.value, serializeTeamsAsyncOperation);
+    serializeBaseCollectionPaginationCountResponse(writer, teamsAsyncOperationCollectionResponse)
+    writer.writeCollectionOfObjectValues<TeamsAsyncOperation>("value", teamsAsyncOperationCollectionResponse.value, serializeTeamsAsyncOperation);
 }
 export interface TeamsAsyncOperationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

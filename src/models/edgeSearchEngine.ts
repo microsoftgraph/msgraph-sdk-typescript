@@ -22,8 +22,8 @@ export interface EdgeSearchEngine extends EdgeSearchEngineBase, Parsable {
     edgeSearchEngineType?: EdgeSearchEngineType;
 }
 export function serializeEdgeSearchEngine(writer: SerializationWriter, edgeSearchEngine: EdgeSearchEngine | undefined = {} as EdgeSearchEngine) : void {
-        serializeEdgeSearchEngineBase(writer, edgeSearchEngine)
-        writer.writeEnumValue<EdgeSearchEngineType>("edgeSearchEngineType", edgeSearchEngine.edgeSearchEngineType);
+    serializeEdgeSearchEngineBase(writer, edgeSearchEngine)
+    writer.writeEnumValue<EdgeSearchEngineType>("edgeSearchEngineType", edgeSearchEngine.edgeSearchEngineType);
 }
 // tslint:enable
 // eslint-enable

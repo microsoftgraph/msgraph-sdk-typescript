@@ -17,9 +17,9 @@ export function deserializeIntoTeamArchivedEventMessageDetail(teamArchivedEventM
     }
 }
 export function serializeTeamArchivedEventMessageDetail(writer: SerializationWriter, teamArchivedEventMessageDetail: TeamArchivedEventMessageDetail | undefined = {} as TeamArchivedEventMessageDetail) : void {
-        serializeEventMessageDetail(writer, teamArchivedEventMessageDetail)
-        writer.writeObjectValue<IdentitySet>("initiator", teamArchivedEventMessageDetail.initiator, serializeIdentitySet);
-        writer.writeStringValue("teamId", teamArchivedEventMessageDetail.teamId);
+    serializeEventMessageDetail(writer, teamArchivedEventMessageDetail)
+    writer.writeObjectValue<IdentitySet>("initiator", teamArchivedEventMessageDetail.initiator, serializeIdentitySet);
+    writer.writeStringValue("teamId", teamArchivedEventMessageDetail.teamId);
 }
 export interface TeamArchivedEventMessageDetail extends EventMessageDetail, Parsable {
     /**

@@ -21,8 +21,8 @@ export function deserializeIntoAadUserNotificationRecipient(aadUserNotificationR
     }
 }
 export function serializeAadUserNotificationRecipient(writer: SerializationWriter, aadUserNotificationRecipient: AadUserNotificationRecipient | undefined = {} as AadUserNotificationRecipient) : void {
-        serializeTeamworkNotificationRecipient(writer, aadUserNotificationRecipient)
-        writer.writeStringValue("userId", aadUserNotificationRecipient.userId);
+    serializeTeamworkNotificationRecipient(writer, aadUserNotificationRecipient)
+    writer.writeStringValue("userId", aadUserNotificationRecipient.userId);
 }
 // tslint:enable
 // eslint-enable

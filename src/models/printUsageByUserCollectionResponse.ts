@@ -22,8 +22,8 @@ export interface PrintUsageByUserCollectionResponse extends BaseCollectionPagina
     value?: PrintUsageByUser[];
 }
 export function serializePrintUsageByUserCollectionResponse(writer: SerializationWriter, printUsageByUserCollectionResponse: PrintUsageByUserCollectionResponse | undefined = {} as PrintUsageByUserCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, printUsageByUserCollectionResponse)
-        writer.writeCollectionOfObjectValues<PrintUsageByUser>("value", printUsageByUserCollectionResponse.value, serializePrintUsageByUser);
+    serializeBaseCollectionPaginationCountResponse(writer, printUsageByUserCollectionResponse)
+    writer.writeCollectionOfObjectValues<PrintUsageByUser>("value", printUsageByUserCollectionResponse.value, serializePrintUsageByUser);
 }
 // tslint:enable
 // eslint-enable

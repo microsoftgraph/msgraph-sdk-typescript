@@ -16,10 +16,10 @@ export function deserializeIntoSynchronizationMetadataEntry(synchronizationMetad
     }
 }
 export function serializeSynchronizationMetadataEntry(writer: SerializationWriter, synchronizationMetadataEntry: SynchronizationMetadataEntry | undefined = {} as SynchronizationMetadataEntry) : void {
-        writer.writeEnumValue<SynchronizationMetadata>("key", synchronizationMetadataEntry.key);
-        writer.writeStringValue("@odata.type", synchronizationMetadataEntry.odataType);
-        writer.writeStringValue("value", synchronizationMetadataEntry.value);
-        writer.writeAdditionalData(synchronizationMetadataEntry.additionalData);
+    writer.writeEnumValue<SynchronizationMetadata>("key", synchronizationMetadataEntry.key);
+    writer.writeStringValue("@odata.type", synchronizationMetadataEntry.odataType);
+    writer.writeStringValue("value", synchronizationMetadataEntry.value);
+    writer.writeAdditionalData(synchronizationMetadataEntry.additionalData);
 }
 export interface SynchronizationMetadataEntry extends AdditionalDataHolder, Parsable {
     /**

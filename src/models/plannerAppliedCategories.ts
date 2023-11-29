@@ -23,8 +23,8 @@ export interface PlannerAppliedCategories extends AdditionalDataHolder, Parsable
     odataType?: string;
 }
 export function serializePlannerAppliedCategories(writer: SerializationWriter, plannerAppliedCategories: PlannerAppliedCategories | undefined = {} as PlannerAppliedCategories) : void {
-        writer.writeStringValue("@odata.type", plannerAppliedCategories.odataType);
-        writer.writeAdditionalData(plannerAppliedCategories.additionalData);
+    writer.writeStringValue("@odata.type", plannerAppliedCategories.odataType);
+    writer.writeAdditionalData(plannerAppliedCategories.additionalData);
 }
 // tslint:enable
 // eslint-enable

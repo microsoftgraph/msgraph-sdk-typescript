@@ -37,11 +37,11 @@ export function deserializeIntoAndroidLobApp(androidLobApp: AndroidLobApp | unde
     }
 }
 export function serializeAndroidLobApp(writer: SerializationWriter, androidLobApp: AndroidLobApp | undefined = {} as AndroidLobApp) : void {
-        serializeMobileLobApp(writer, androidLobApp)
-        writer.writeObjectValue<AndroidMinimumOperatingSystem>("minimumSupportedOperatingSystem", androidLobApp.minimumSupportedOperatingSystem, serializeAndroidMinimumOperatingSystem);
-        writer.writeStringValue("packageId", androidLobApp.packageId);
-        writer.writeStringValue("versionCode", androidLobApp.versionCode);
-        writer.writeStringValue("versionName", androidLobApp.versionName);
+    serializeMobileLobApp(writer, androidLobApp)
+    writer.writeObjectValue<AndroidMinimumOperatingSystem>("minimumSupportedOperatingSystem", androidLobApp.minimumSupportedOperatingSystem, serializeAndroidMinimumOperatingSystem);
+    writer.writeStringValue("packageId", androidLobApp.packageId);
+    writer.writeStringValue("versionCode", androidLobApp.versionCode);
+    writer.writeStringValue("versionName", androidLobApp.versionName);
 }
 // tslint:enable
 // eslint-enable

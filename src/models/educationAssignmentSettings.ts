@@ -21,8 +21,8 @@ export interface EducationAssignmentSettings extends Entity, Parsable {
     submissionAnimationDisabled?: boolean;
 }
 export function serializeEducationAssignmentSettings(writer: SerializationWriter, educationAssignmentSettings: EducationAssignmentSettings | undefined = {} as EducationAssignmentSettings) : void {
-        serializeEntity(writer, educationAssignmentSettings)
-        writer.writeBooleanValue("submissionAnimationDisabled", educationAssignmentSettings.submissionAnimationDisabled);
+    serializeEntity(writer, educationAssignmentSettings)
+    writer.writeBooleanValue("submissionAnimationDisabled", educationAssignmentSettings.submissionAnimationDisabled);
 }
 // tslint:enable
 // eslint-enable

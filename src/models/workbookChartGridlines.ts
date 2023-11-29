@@ -17,9 +17,9 @@ export function deserializeIntoWorkbookChartGridlines(workbookChartGridlines: Wo
     }
 }
 export function serializeWorkbookChartGridlines(writer: SerializationWriter, workbookChartGridlines: WorkbookChartGridlines | undefined = {} as WorkbookChartGridlines) : void {
-        serializeEntity(writer, workbookChartGridlines)
-        writer.writeObjectValue<WorkbookChartGridlinesFormat>("format", workbookChartGridlines.format, serializeWorkbookChartGridlinesFormat);
-        writer.writeBooleanValue("visible", workbookChartGridlines.visible);
+    serializeEntity(writer, workbookChartGridlines)
+    writer.writeObjectValue<WorkbookChartGridlinesFormat>("format", workbookChartGridlines.format, serializeWorkbookChartGridlinesFormat);
+    writer.writeBooleanValue("visible", workbookChartGridlines.visible);
 }
 export interface WorkbookChartGridlines extends Entity, Parsable {
     /**

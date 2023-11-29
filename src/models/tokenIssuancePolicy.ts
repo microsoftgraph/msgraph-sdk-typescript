@@ -14,7 +14,7 @@ export function deserializeIntoTokenIssuancePolicy(tokenIssuancePolicy: TokenIss
     }
 }
 export function serializeTokenIssuancePolicy(writer: SerializationWriter, tokenIssuancePolicy: TokenIssuancePolicy | undefined = {} as TokenIssuancePolicy) : void {
-        serializeStsPolicy(writer, tokenIssuancePolicy)
+    serializeStsPolicy(writer, tokenIssuancePolicy)
 }
 export interface TokenIssuancePolicy extends Parsable, StsPolicy {
 }

@@ -22,8 +22,8 @@ export interface DirectoryRoleCollectionResponse extends BaseCollectionPaginatio
     value?: DirectoryRole[];
 }
 export function serializeDirectoryRoleCollectionResponse(writer: SerializationWriter, directoryRoleCollectionResponse: DirectoryRoleCollectionResponse | undefined = {} as DirectoryRoleCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, directoryRoleCollectionResponse)
-        writer.writeCollectionOfObjectValues<DirectoryRole>("value", directoryRoleCollectionResponse.value, serializeDirectoryRole);
+    serializeBaseCollectionPaginationCountResponse(writer, directoryRoleCollectionResponse)
+    writer.writeCollectionOfObjectValues<DirectoryRole>("value", directoryRoleCollectionResponse.value, serializeDirectoryRole);
 }
 // tslint:enable
 // eslint-enable

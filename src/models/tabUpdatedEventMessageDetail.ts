@@ -17,9 +17,9 @@ export function deserializeIntoTabUpdatedEventMessageDetail(tabUpdatedEventMessa
     }
 }
 export function serializeTabUpdatedEventMessageDetail(writer: SerializationWriter, tabUpdatedEventMessageDetail: TabUpdatedEventMessageDetail | undefined = {} as TabUpdatedEventMessageDetail) : void {
-        serializeEventMessageDetail(writer, tabUpdatedEventMessageDetail)
-        writer.writeObjectValue<IdentitySet>("initiator", tabUpdatedEventMessageDetail.initiator, serializeIdentitySet);
-        writer.writeStringValue("tabId", tabUpdatedEventMessageDetail.tabId);
+    serializeEventMessageDetail(writer, tabUpdatedEventMessageDetail)
+    writer.writeObjectValue<IdentitySet>("initiator", tabUpdatedEventMessageDetail.initiator, serializeIdentitySet);
+    writer.writeStringValue("tabId", tabUpdatedEventMessageDetail.tabId);
 }
 export interface TabUpdatedEventMessageDetail extends EventMessageDetail, Parsable {
     /**

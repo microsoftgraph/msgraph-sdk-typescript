@@ -70,17 +70,17 @@ export interface OnlineMeeting extends OnlineMeetingBase, Parsable {
     transcripts?: CallTranscript[];
 }
 export function serializeOnlineMeeting(writer: SerializationWriter, onlineMeeting: OnlineMeeting | undefined = {} as OnlineMeeting) : void {
-        serializeOnlineMeetingBase(writer, onlineMeeting)
-        writer.writeStringValue("attendeeReport", onlineMeeting.attendeeReport);
-        writer.writeObjectValue<BroadcastMeetingSettings>("broadcastSettings", onlineMeeting.broadcastSettings, serializeBroadcastMeetingSettings);
-        writer.writeDateValue("creationDateTime", onlineMeeting.creationDateTime);
-        writer.writeDateValue("endDateTime", onlineMeeting.endDateTime);
-        writer.writeStringValue("externalId", onlineMeeting.externalId);
-        writer.writeBooleanValue("isBroadcast", onlineMeeting.isBroadcast);
-        writer.writeObjectValue<MeetingParticipants>("participants", onlineMeeting.participants, serializeMeetingParticipants);
-        writer.writeCollectionOfObjectValues<CallRecording>("recordings", onlineMeeting.recordings, serializeCallRecording);
-        writer.writeDateValue("startDateTime", onlineMeeting.startDateTime);
-        writer.writeCollectionOfObjectValues<CallTranscript>("transcripts", onlineMeeting.transcripts, serializeCallTranscript);
+    serializeOnlineMeetingBase(writer, onlineMeeting)
+    writer.writeStringValue("attendeeReport", onlineMeeting.attendeeReport);
+    writer.writeObjectValue<BroadcastMeetingSettings>("broadcastSettings", onlineMeeting.broadcastSettings, serializeBroadcastMeetingSettings);
+    writer.writeDateValue("creationDateTime", onlineMeeting.creationDateTime);
+    writer.writeDateValue("endDateTime", onlineMeeting.endDateTime);
+    writer.writeStringValue("externalId", onlineMeeting.externalId);
+    writer.writeBooleanValue("isBroadcast", onlineMeeting.isBroadcast);
+    writer.writeObjectValue<MeetingParticipants>("participants", onlineMeeting.participants, serializeMeetingParticipants);
+    writer.writeCollectionOfObjectValues<CallRecording>("recordings", onlineMeeting.recordings, serializeCallRecording);
+    writer.writeDateValue("startDateTime", onlineMeeting.startDateTime);
+    writer.writeCollectionOfObjectValues<CallTranscript>("transcripts", onlineMeeting.transcripts, serializeCallTranscript);
 }
 // tslint:enable
 // eslint-enable

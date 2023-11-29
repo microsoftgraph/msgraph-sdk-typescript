@@ -55,11 +55,11 @@ export interface OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectMo
     lastModifiedDateTime?: Date;
 }
 export function serializeOnenoteEntityHierarchyModel(writer: SerializationWriter, onenoteEntityHierarchyModel: OnenoteEntityHierarchyModel | undefined = {} as OnenoteEntityHierarchyModel) : void {
-        serializeOnenoteEntitySchemaObjectModel(writer, onenoteEntityHierarchyModel)
-        writer.writeObjectValue<IdentitySet>("createdBy", onenoteEntityHierarchyModel.createdBy, serializeIdentitySet);
-        writer.writeStringValue("displayName", onenoteEntityHierarchyModel.displayName);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", onenoteEntityHierarchyModel.lastModifiedBy, serializeIdentitySet);
-        writer.writeDateValue("lastModifiedDateTime", onenoteEntityHierarchyModel.lastModifiedDateTime);
+    serializeOnenoteEntitySchemaObjectModel(writer, onenoteEntityHierarchyModel)
+    writer.writeObjectValue<IdentitySet>("createdBy", onenoteEntityHierarchyModel.createdBy, serializeIdentitySet);
+    writer.writeStringValue("displayName", onenoteEntityHierarchyModel.displayName);
+    writer.writeObjectValue<IdentitySet>("lastModifiedBy", onenoteEntityHierarchyModel.lastModifiedBy, serializeIdentitySet);
+    writer.writeDateValue("lastModifiedDateTime", onenoteEntityHierarchyModel.lastModifiedDateTime);
 }
 // tslint:enable
 // eslint-enable

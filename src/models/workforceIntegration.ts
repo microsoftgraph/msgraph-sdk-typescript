@@ -22,13 +22,13 @@ export function deserializeIntoWorkforceIntegration(workforceIntegration: Workfo
     }
 }
 export function serializeWorkforceIntegration(writer: SerializationWriter, workforceIntegration: WorkforceIntegration | undefined = {} as WorkforceIntegration) : void {
-        serializeChangeTrackedEntity(writer, workforceIntegration)
-        writer.writeNumberValue("apiVersion", workforceIntegration.apiVersion);
-        writer.writeStringValue("displayName", workforceIntegration.displayName);
-        writer.writeObjectValue<WorkforceIntegrationEncryption>("encryption", workforceIntegration.encryption, serializeWorkforceIntegrationEncryption);
-        writer.writeBooleanValue("isActive", workforceIntegration.isActive);
-        writer.writeEnumValue<WorkforceIntegrationSupportedEntities[]>("supportedEntities", workforceIntegration.supportedEntities);
-        writer.writeStringValue("url", workforceIntegration.url);
+    serializeChangeTrackedEntity(writer, workforceIntegration)
+    writer.writeNumberValue("apiVersion", workforceIntegration.apiVersion);
+    writer.writeStringValue("displayName", workforceIntegration.displayName);
+    writer.writeObjectValue<WorkforceIntegrationEncryption>("encryption", workforceIntegration.encryption, serializeWorkforceIntegrationEncryption);
+    writer.writeBooleanValue("isActive", workforceIntegration.isActive);
+    writer.writeEnumValue<WorkforceIntegrationSupportedEntities[]>("supportedEntities", workforceIntegration.supportedEntities);
+    writer.writeStringValue("url", workforceIntegration.url);
 }
 export interface WorkforceIntegration extends ChangeTrackedEntity, Parsable {
     /**

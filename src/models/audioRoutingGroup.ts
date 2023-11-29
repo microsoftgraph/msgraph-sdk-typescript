@@ -32,10 +32,10 @@ export function deserializeIntoAudioRoutingGroup(audioRoutingGroup: AudioRouting
     }
 }
 export function serializeAudioRoutingGroup(writer: SerializationWriter, audioRoutingGroup: AudioRoutingGroup | undefined = {} as AudioRoutingGroup) : void {
-        serializeEntity(writer, audioRoutingGroup)
-        writer.writeCollectionOfPrimitiveValues<string>("receivers", audioRoutingGroup.receivers);
-        writer.writeEnumValue<RoutingMode>("routingMode", audioRoutingGroup.routingMode);
-        writer.writeCollectionOfPrimitiveValues<string>("sources", audioRoutingGroup.sources);
+    serializeEntity(writer, audioRoutingGroup)
+    writer.writeCollectionOfPrimitiveValues<string>("receivers", audioRoutingGroup.receivers);
+    writer.writeEnumValue<RoutingMode>("routingMode", audioRoutingGroup.routingMode);
+    writer.writeCollectionOfPrimitiveValues<string>("sources", audioRoutingGroup.sources);
 }
 // tslint:enable
 // eslint-enable

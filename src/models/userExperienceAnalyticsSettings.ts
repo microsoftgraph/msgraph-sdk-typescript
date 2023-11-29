@@ -14,9 +14,9 @@ export function deserializeIntoUserExperienceAnalyticsSettings(userExperienceAna
     }
 }
 export function serializeUserExperienceAnalyticsSettings(writer: SerializationWriter, userExperienceAnalyticsSettings: UserExperienceAnalyticsSettings | undefined = {} as UserExperienceAnalyticsSettings) : void {
-        writer.writeBooleanValue("configurationManagerDataConnectorConfigured", userExperienceAnalyticsSettings.configurationManagerDataConnectorConfigured);
-        writer.writeStringValue("@odata.type", userExperienceAnalyticsSettings.odataType);
-        writer.writeAdditionalData(userExperienceAnalyticsSettings.additionalData);
+    writer.writeBooleanValue("configurationManagerDataConnectorConfigured", userExperienceAnalyticsSettings.configurationManagerDataConnectorConfigured);
+    writer.writeStringValue("@odata.type", userExperienceAnalyticsSettings.odataType);
+    writer.writeAdditionalData(userExperienceAnalyticsSettings.additionalData);
 }
 export interface UserExperienceAnalyticsSettings extends AdditionalDataHolder, Parsable {
     /**

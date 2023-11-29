@@ -21,8 +21,8 @@ export interface EmailAuthenticationMethod extends AuthenticationMethod, Parsabl
     emailAddress?: string;
 }
 export function serializeEmailAuthenticationMethod(writer: SerializationWriter, emailAuthenticationMethod: EmailAuthenticationMethod | undefined = {} as EmailAuthenticationMethod) : void {
-        serializeAuthenticationMethod(writer, emailAuthenticationMethod)
-        writer.writeStringValue("emailAddress", emailAuthenticationMethod.emailAddress);
+    serializeAuthenticationMethod(writer, emailAuthenticationMethod)
+    writer.writeStringValue("emailAddress", emailAuthenticationMethod.emailAddress);
 }
 // tslint:enable
 // eslint-enable

@@ -62,15 +62,15 @@ export interface PrivilegedAccessGroupAssignmentSchedule extends Parsable, Privi
     principalId?: string;
 }
 export function serializePrivilegedAccessGroupAssignmentSchedule(writer: SerializationWriter, privilegedAccessGroupAssignmentSchedule: PrivilegedAccessGroupAssignmentSchedule | undefined = {} as PrivilegedAccessGroupAssignmentSchedule) : void {
-        serializePrivilegedAccessSchedule(writer, privilegedAccessGroupAssignmentSchedule)
-        writer.writeEnumValue<PrivilegedAccessGroupRelationships>("accessId", privilegedAccessGroupAssignmentSchedule.accessId);
-        writer.writeObjectValue<PrivilegedAccessGroupEligibilitySchedule>("activatedUsing", privilegedAccessGroupAssignmentSchedule.activatedUsing, serializePrivilegedAccessGroupEligibilitySchedule);
-        writer.writeEnumValue<PrivilegedAccessGroupAssignmentType>("assignmentType", privilegedAccessGroupAssignmentSchedule.assignmentType);
-        writer.writeObjectValue<Group>("group", privilegedAccessGroupAssignmentSchedule.group, serializeGroup);
-        writer.writeStringValue("groupId", privilegedAccessGroupAssignmentSchedule.groupId);
-        writer.writeEnumValue<PrivilegedAccessGroupMemberType>("memberType", privilegedAccessGroupAssignmentSchedule.memberType);
-        writer.writeObjectValue<DirectoryObject>("principal", privilegedAccessGroupAssignmentSchedule.principal, serializeDirectoryObject);
-        writer.writeStringValue("principalId", privilegedAccessGroupAssignmentSchedule.principalId);
+    serializePrivilegedAccessSchedule(writer, privilegedAccessGroupAssignmentSchedule)
+    writer.writeEnumValue<PrivilegedAccessGroupRelationships>("accessId", privilegedAccessGroupAssignmentSchedule.accessId);
+    writer.writeObjectValue<PrivilegedAccessGroupEligibilitySchedule>("activatedUsing", privilegedAccessGroupAssignmentSchedule.activatedUsing, serializePrivilegedAccessGroupEligibilitySchedule);
+    writer.writeEnumValue<PrivilegedAccessGroupAssignmentType>("assignmentType", privilegedAccessGroupAssignmentSchedule.assignmentType);
+    writer.writeObjectValue<Group>("group", privilegedAccessGroupAssignmentSchedule.group, serializeGroup);
+    writer.writeStringValue("groupId", privilegedAccessGroupAssignmentSchedule.groupId);
+    writer.writeEnumValue<PrivilegedAccessGroupMemberType>("memberType", privilegedAccessGroupAssignmentSchedule.memberType);
+    writer.writeObjectValue<DirectoryObject>("principal", privilegedAccessGroupAssignmentSchedule.principal, serializeDirectoryObject);
+    writer.writeStringValue("principalId", privilegedAccessGroupAssignmentSchedule.principalId);
 }
 // tslint:enable
 // eslint-enable

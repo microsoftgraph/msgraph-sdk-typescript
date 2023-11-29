@@ -16,7 +16,7 @@ export function deserializeIntoHomeRealmDiscoveryPolicy(homeRealmDiscoveryPolicy
 export interface HomeRealmDiscoveryPolicy extends Parsable, StsPolicy {
 }
 export function serializeHomeRealmDiscoveryPolicy(writer: SerializationWriter, homeRealmDiscoveryPolicy: HomeRealmDiscoveryPolicy | undefined = {} as HomeRealmDiscoveryPolicy) : void {
-        serializeStsPolicy(writer, homeRealmDiscoveryPolicy)
+    serializeStsPolicy(writer, homeRealmDiscoveryPolicy)
 }
 // tslint:enable
 // eslint-enable

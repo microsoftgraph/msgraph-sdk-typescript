@@ -50,13 +50,13 @@ export interface PrinterShare extends Parsable, PrinterBase {
     viewPoint?: PrinterShareViewpoint;
 }
 export function serializePrinterShare(writer: SerializationWriter, printerShare: PrinterShare | undefined = {} as PrinterShare) : void {
-        serializePrinterBase(writer, printerShare)
-        writer.writeBooleanValue("allowAllUsers", printerShare.allowAllUsers);
-        writer.writeCollectionOfObjectValues<Group>("allowedGroups", printerShare.allowedGroups, serializeGroup);
-        writer.writeCollectionOfObjectValues<User>("allowedUsers", printerShare.allowedUsers, serializeUser);
-        writer.writeDateValue("createdDateTime", printerShare.createdDateTime);
-        writer.writeObjectValue<Printer>("printer", printerShare.printer, serializePrinter);
-        writer.writeObjectValue<PrinterShareViewpoint>("viewPoint", printerShare.viewPoint, serializePrinterShareViewpoint);
+    serializePrinterBase(writer, printerShare)
+    writer.writeBooleanValue("allowAllUsers", printerShare.allowAllUsers);
+    writer.writeCollectionOfObjectValues<Group>("allowedGroups", printerShare.allowedGroups, serializeGroup);
+    writer.writeCollectionOfObjectValues<User>("allowedUsers", printerShare.allowedUsers, serializeUser);
+    writer.writeDateValue("createdDateTime", printerShare.createdDateTime);
+    writer.writeObjectValue<Printer>("printer", printerShare.printer, serializePrinter);
+    writer.writeObjectValue<PrinterShareViewpoint>("viewPoint", printerShare.viewPoint, serializePrinterShareViewpoint);
 }
 // tslint:enable
 // eslint-enable

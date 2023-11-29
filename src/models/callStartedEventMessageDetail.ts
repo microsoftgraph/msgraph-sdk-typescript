@@ -33,10 +33,10 @@ export function deserializeIntoCallStartedEventMessageDetail(callStartedEventMes
     }
 }
 export function serializeCallStartedEventMessageDetail(writer: SerializationWriter, callStartedEventMessageDetail: CallStartedEventMessageDetail | undefined = {} as CallStartedEventMessageDetail) : void {
-        serializeEventMessageDetail(writer, callStartedEventMessageDetail)
-        writer.writeEnumValue<TeamworkCallEventType>("callEventType", callStartedEventMessageDetail.callEventType);
-        writer.writeStringValue("callId", callStartedEventMessageDetail.callId);
-        writer.writeObjectValue<IdentitySet>("initiator", callStartedEventMessageDetail.initiator, serializeIdentitySet);
+    serializeEventMessageDetail(writer, callStartedEventMessageDetail)
+    writer.writeEnumValue<TeamworkCallEventType>("callEventType", callStartedEventMessageDetail.callEventType);
+    writer.writeStringValue("callId", callStartedEventMessageDetail.callId);
+    writer.writeObjectValue<IdentitySet>("initiator", callStartedEventMessageDetail.initiator, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

@@ -28,9 +28,9 @@ export interface PrintSettings extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializePrintSettings(writer: SerializationWriter, printSettings: PrintSettings | undefined = {} as PrintSettings) : void {
-        writer.writeBooleanValue("documentConversionEnabled", printSettings.documentConversionEnabled);
-        writer.writeStringValue("@odata.type", printSettings.odataType);
-        writer.writeAdditionalData(printSettings.additionalData);
+    writer.writeBooleanValue("documentConversionEnabled", printSettings.documentConversionEnabled);
+    writer.writeStringValue("@odata.type", printSettings.odataType);
+    writer.writeAdditionalData(printSettings.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -130,26 +130,26 @@ export interface PolicyRoot extends Entity, Parsable {
     tokenLifetimePolicies?: TokenLifetimePolicy[];
 }
 export function serializePolicyRoot(writer: SerializationWriter, policyRoot: PolicyRoot | undefined = {} as PolicyRoot) : void {
-        serializeEntity(writer, policyRoot)
-        writer.writeCollectionOfObjectValues<ActivityBasedTimeoutPolicy>("activityBasedTimeoutPolicies", policyRoot.activityBasedTimeoutPolicies, serializeActivityBasedTimeoutPolicy);
-        writer.writeObjectValue<AdminConsentRequestPolicy>("adminConsentRequestPolicy", policyRoot.adminConsentRequestPolicy, serializeAdminConsentRequestPolicy);
-        writer.writeCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", policyRoot.appManagementPolicies, serializeAppManagementPolicy);
-        writer.writeObjectValue<AuthenticationFlowsPolicy>("authenticationFlowsPolicy", policyRoot.authenticationFlowsPolicy, serializeAuthenticationFlowsPolicy);
-        writer.writeObjectValue<AuthenticationMethodsPolicy>("authenticationMethodsPolicy", policyRoot.authenticationMethodsPolicy, serializeAuthenticationMethodsPolicy);
-        writer.writeCollectionOfObjectValues<AuthenticationStrengthPolicy>("authenticationStrengthPolicies", policyRoot.authenticationStrengthPolicies, serializeAuthenticationStrengthPolicy);
-        writer.writeObjectValue<AuthorizationPolicy>("authorizationPolicy", policyRoot.authorizationPolicy, serializeAuthorizationPolicy);
-        writer.writeCollectionOfObjectValues<ClaimsMappingPolicy>("claimsMappingPolicies", policyRoot.claimsMappingPolicies, serializeClaimsMappingPolicy);
-        writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("conditionalAccessPolicies", policyRoot.conditionalAccessPolicies, serializeConditionalAccessPolicy);
-        writer.writeObjectValue<CrossTenantAccessPolicy>("crossTenantAccessPolicy", policyRoot.crossTenantAccessPolicy, serializeCrossTenantAccessPolicy);
-        writer.writeObjectValue<TenantAppManagementPolicy>("defaultAppManagementPolicy", policyRoot.defaultAppManagementPolicy, serializeTenantAppManagementPolicy);
-        writer.writeCollectionOfObjectValues<FeatureRolloutPolicy>("featureRolloutPolicies", policyRoot.featureRolloutPolicies, serializeFeatureRolloutPolicy);
-        writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", policyRoot.homeRealmDiscoveryPolicies, serializeHomeRealmDiscoveryPolicy);
-        writer.writeObjectValue<IdentitySecurityDefaultsEnforcementPolicy>("identitySecurityDefaultsEnforcementPolicy", policyRoot.identitySecurityDefaultsEnforcementPolicy, serializeIdentitySecurityDefaultsEnforcementPolicy);
-        writer.writeCollectionOfObjectValues<PermissionGrantPolicy>("permissionGrantPolicies", policyRoot.permissionGrantPolicies, serializePermissionGrantPolicy);
-        writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicy>("roleManagementPolicies", policyRoot.roleManagementPolicies, serializeUnifiedRoleManagementPolicy);
-        writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyAssignment>("roleManagementPolicyAssignments", policyRoot.roleManagementPolicyAssignments, serializeUnifiedRoleManagementPolicyAssignment);
-        writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", policyRoot.tokenIssuancePolicies, serializeTokenIssuancePolicy);
-        writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", policyRoot.tokenLifetimePolicies, serializeTokenLifetimePolicy);
+    serializeEntity(writer, policyRoot)
+    writer.writeCollectionOfObjectValues<ActivityBasedTimeoutPolicy>("activityBasedTimeoutPolicies", policyRoot.activityBasedTimeoutPolicies, serializeActivityBasedTimeoutPolicy);
+    writer.writeObjectValue<AdminConsentRequestPolicy>("adminConsentRequestPolicy", policyRoot.adminConsentRequestPolicy, serializeAdminConsentRequestPolicy);
+    writer.writeCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", policyRoot.appManagementPolicies, serializeAppManagementPolicy);
+    writer.writeObjectValue<AuthenticationFlowsPolicy>("authenticationFlowsPolicy", policyRoot.authenticationFlowsPolicy, serializeAuthenticationFlowsPolicy);
+    writer.writeObjectValue<AuthenticationMethodsPolicy>("authenticationMethodsPolicy", policyRoot.authenticationMethodsPolicy, serializeAuthenticationMethodsPolicy);
+    writer.writeCollectionOfObjectValues<AuthenticationStrengthPolicy>("authenticationStrengthPolicies", policyRoot.authenticationStrengthPolicies, serializeAuthenticationStrengthPolicy);
+    writer.writeObjectValue<AuthorizationPolicy>("authorizationPolicy", policyRoot.authorizationPolicy, serializeAuthorizationPolicy);
+    writer.writeCollectionOfObjectValues<ClaimsMappingPolicy>("claimsMappingPolicies", policyRoot.claimsMappingPolicies, serializeClaimsMappingPolicy);
+    writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("conditionalAccessPolicies", policyRoot.conditionalAccessPolicies, serializeConditionalAccessPolicy);
+    writer.writeObjectValue<CrossTenantAccessPolicy>("crossTenantAccessPolicy", policyRoot.crossTenantAccessPolicy, serializeCrossTenantAccessPolicy);
+    writer.writeObjectValue<TenantAppManagementPolicy>("defaultAppManagementPolicy", policyRoot.defaultAppManagementPolicy, serializeTenantAppManagementPolicy);
+    writer.writeCollectionOfObjectValues<FeatureRolloutPolicy>("featureRolloutPolicies", policyRoot.featureRolloutPolicies, serializeFeatureRolloutPolicy);
+    writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", policyRoot.homeRealmDiscoveryPolicies, serializeHomeRealmDiscoveryPolicy);
+    writer.writeObjectValue<IdentitySecurityDefaultsEnforcementPolicy>("identitySecurityDefaultsEnforcementPolicy", policyRoot.identitySecurityDefaultsEnforcementPolicy, serializeIdentitySecurityDefaultsEnforcementPolicy);
+    writer.writeCollectionOfObjectValues<PermissionGrantPolicy>("permissionGrantPolicies", policyRoot.permissionGrantPolicies, serializePermissionGrantPolicy);
+    writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicy>("roleManagementPolicies", policyRoot.roleManagementPolicies, serializeUnifiedRoleManagementPolicy);
+    writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyAssignment>("roleManagementPolicyAssignments", policyRoot.roleManagementPolicyAssignments, serializeUnifiedRoleManagementPolicyAssignment);
+    writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", policyRoot.tokenIssuancePolicies, serializeTokenIssuancePolicy);
+    writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", policyRoot.tokenLifetimePolicies, serializeTokenLifetimePolicy);
 }
 // tslint:enable
 // eslint-enable

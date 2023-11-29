@@ -26,9 +26,9 @@ export function deserializeIntoAzureActiveDirectoryTenant(azureActiveDirectoryTe
     }
 }
 export function serializeAzureActiveDirectoryTenant(writer: SerializationWriter, azureActiveDirectoryTenant: AzureActiveDirectoryTenant | undefined = {} as AzureActiveDirectoryTenant) : void {
-        serializeIdentitySource(writer, azureActiveDirectoryTenant)
-        writer.writeStringValue("displayName", azureActiveDirectoryTenant.displayName);
-        writer.writeStringValue("tenantId", azureActiveDirectoryTenant.tenantId);
+    serializeIdentitySource(writer, azureActiveDirectoryTenant)
+    writer.writeStringValue("displayName", azureActiveDirectoryTenant.displayName);
+    writer.writeStringValue("tenantId", azureActiveDirectoryTenant.tenantId);
 }
 // tslint:enable
 // eslint-enable

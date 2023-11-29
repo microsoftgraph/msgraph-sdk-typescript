@@ -33,10 +33,10 @@ export interface PrintCertificateSigningRequest extends AdditionalDataHolder, Pa
     transportKey?: string;
 }
 export function serializePrintCertificateSigningRequest(writer: SerializationWriter, printCertificateSigningRequest: PrintCertificateSigningRequest | undefined = {} as PrintCertificateSigningRequest) : void {
-        writer.writeStringValue("content", printCertificateSigningRequest.content);
-        writer.writeStringValue("@odata.type", printCertificateSigningRequest.odataType);
-        writer.writeStringValue("transportKey", printCertificateSigningRequest.transportKey);
-        writer.writeAdditionalData(printCertificateSigningRequest.additionalData);
+    writer.writeStringValue("content", printCertificateSigningRequest.content);
+    writer.writeStringValue("@odata.type", printCertificateSigningRequest.odataType);
+    writer.writeStringValue("transportKey", printCertificateSigningRequest.transportKey);
+    writer.writeAdditionalData(printCertificateSigningRequest.additionalData);
 }
 // tslint:enable
 // eslint-enable

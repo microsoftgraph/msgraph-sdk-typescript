@@ -43,12 +43,12 @@ export function deserializeIntoDataSubject(dataSubject: DataSubject | undefined 
     }
 }
 export function serializeDataSubject(writer: SerializationWriter, dataSubject: DataSubject | undefined = {} as DataSubject) : void {
-        writer.writeStringValue("email", dataSubject.email);
-        writer.writeStringValue("firstName", dataSubject.firstName);
-        writer.writeStringValue("lastName", dataSubject.lastName);
-        writer.writeStringValue("@odata.type", dataSubject.odataType);
-        writer.writeStringValue("residency", dataSubject.residency);
-        writer.writeAdditionalData(dataSubject.additionalData);
+    writer.writeStringValue("email", dataSubject.email);
+    writer.writeStringValue("firstName", dataSubject.firstName);
+    writer.writeStringValue("lastName", dataSubject.lastName);
+    writer.writeStringValue("@odata.type", dataSubject.odataType);
+    writer.writeStringValue("residency", dataSubject.residency);
+    writer.writeAdditionalData(dataSubject.additionalData);
 }
 // tslint:enable
 // eslint-enable

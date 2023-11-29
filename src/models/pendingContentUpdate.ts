@@ -28,9 +28,9 @@ export interface PendingContentUpdate extends AdditionalDataHolder, Parsable {
     queuedDateTime?: Date;
 }
 export function serializePendingContentUpdate(writer: SerializationWriter, pendingContentUpdate: PendingContentUpdate | undefined = {} as PendingContentUpdate) : void {
-        writer.writeStringValue("@odata.type", pendingContentUpdate.odataType);
-        writer.writeDateValue("queuedDateTime", pendingContentUpdate.queuedDateTime);
-        writer.writeAdditionalData(pendingContentUpdate.additionalData);
+    writer.writeStringValue("@odata.type", pendingContentUpdate.odataType);
+    writer.writeDateValue("queuedDateTime", pendingContentUpdate.queuedDateTime);
+    writer.writeAdditionalData(pendingContentUpdate.additionalData);
 }
 // tslint:enable
 // eslint-enable

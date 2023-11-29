@@ -21,8 +21,8 @@ export interface RequestorManager extends Parsable, SubjectSet {
     managerLevel?: number;
 }
 export function serializeRequestorManager(writer: SerializationWriter, requestorManager: RequestorManager | undefined = {} as RequestorManager) : void {
-        serializeSubjectSet(writer, requestorManager)
-        writer.writeNumberValue("managerLevel", requestorManager.managerLevel);
+    serializeSubjectSet(writer, requestorManager)
+    writer.writeNumberValue("managerLevel", requestorManager.managerLevel);
 }
 // tslint:enable
 // eslint-enable

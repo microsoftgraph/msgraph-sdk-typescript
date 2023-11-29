@@ -22,8 +22,8 @@ export interface PrinterShareCollectionResponse extends BaseCollectionPagination
     value?: PrinterShare[];
 }
 export function serializePrinterShareCollectionResponse(writer: SerializationWriter, printerShareCollectionResponse: PrinterShareCollectionResponse | undefined = {} as PrinterShareCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, printerShareCollectionResponse)
-        writer.writeCollectionOfObjectValues<PrinterShare>("value", printerShareCollectionResponse.value, serializePrinterShare);
+    serializeBaseCollectionPaginationCountResponse(writer, printerShareCollectionResponse)
+    writer.writeCollectionOfObjectValues<PrinterShare>("value", printerShareCollectionResponse.value, serializePrinterShare);
 }
 // tslint:enable
 // eslint-enable

@@ -34,10 +34,10 @@ export interface ExcludeTarget extends AdditionalDataHolder, Parsable {
     targetType?: AuthenticationMethodTargetType;
 }
 export function serializeExcludeTarget(writer: SerializationWriter, excludeTarget: ExcludeTarget | undefined = {} as ExcludeTarget) : void {
-        writer.writeStringValue("id", excludeTarget.id);
-        writer.writeStringValue("@odata.type", excludeTarget.odataType);
-        writer.writeEnumValue<AuthenticationMethodTargetType>("targetType", excludeTarget.targetType);
-        writer.writeAdditionalData(excludeTarget.additionalData);
+    writer.writeStringValue("id", excludeTarget.id);
+    writer.writeStringValue("@odata.type", excludeTarget.odataType);
+    writer.writeEnumValue<AuthenticationMethodTargetType>("targetType", excludeTarget.targetType);
+    writer.writeAdditionalData(excludeTarget.additionalData);
 }
 // tslint:enable
 // eslint-enable

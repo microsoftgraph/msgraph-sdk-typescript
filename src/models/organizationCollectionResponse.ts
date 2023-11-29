@@ -22,8 +22,8 @@ export interface OrganizationCollectionResponse extends BaseCollectionPagination
     value?: Organization[];
 }
 export function serializeOrganizationCollectionResponse(writer: SerializationWriter, organizationCollectionResponse: OrganizationCollectionResponse | undefined = {} as OrganizationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, organizationCollectionResponse)
-        writer.writeCollectionOfObjectValues<Organization>("value", organizationCollectionResponse.value, serializeOrganization);
+    serializeBaseCollectionPaginationCountResponse(writer, organizationCollectionResponse)
+    writer.writeCollectionOfObjectValues<Organization>("value", organizationCollectionResponse.value, serializeOrganization);
 }
 // tslint:enable
 // eslint-enable

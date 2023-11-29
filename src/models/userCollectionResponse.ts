@@ -16,8 +16,8 @@ export function deserializeIntoUserCollectionResponse(userCollectionResponse: Us
     }
 }
 export function serializeUserCollectionResponse(writer: SerializationWriter, userCollectionResponse: UserCollectionResponse | undefined = {} as UserCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, userCollectionResponse)
-        writer.writeCollectionOfObjectValues<User>("value", userCollectionResponse.value, serializeUser);
+    serializeBaseCollectionPaginationCountResponse(writer, userCollectionResponse)
+    writer.writeCollectionOfObjectValues<User>("value", userCollectionResponse.value, serializeUser);
 }
 export interface UserCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

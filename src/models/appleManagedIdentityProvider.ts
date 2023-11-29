@@ -36,11 +36,11 @@ export function deserializeIntoAppleManagedIdentityProvider(appleManagedIdentity
     }
 }
 export function serializeAppleManagedIdentityProvider(writer: SerializationWriter, appleManagedIdentityProvider: AppleManagedIdentityProvider | undefined = {} as AppleManagedIdentityProvider) : void {
-        serializeIdentityProviderBase(writer, appleManagedIdentityProvider)
-        writer.writeStringValue("certificateData", appleManagedIdentityProvider.certificateData);
-        writer.writeStringValue("developerId", appleManagedIdentityProvider.developerId);
-        writer.writeStringValue("keyId", appleManagedIdentityProvider.keyId);
-        writer.writeStringValue("serviceId", appleManagedIdentityProvider.serviceId);
+    serializeIdentityProviderBase(writer, appleManagedIdentityProvider)
+    writer.writeStringValue("certificateData", appleManagedIdentityProvider.certificateData);
+    writer.writeStringValue("developerId", appleManagedIdentityProvider.developerId);
+    writer.writeStringValue("keyId", appleManagedIdentityProvider.keyId);
+    writer.writeStringValue("serviceId", appleManagedIdentityProvider.serviceId);
 }
 // tslint:enable
 // eslint-enable

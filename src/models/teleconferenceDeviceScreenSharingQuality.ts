@@ -14,7 +14,7 @@ export function deserializeIntoTeleconferenceDeviceScreenSharingQuality(teleconf
     }
 }
 export function serializeTeleconferenceDeviceScreenSharingQuality(writer: SerializationWriter, teleconferenceDeviceScreenSharingQuality: TeleconferenceDeviceScreenSharingQuality | undefined = {} as TeleconferenceDeviceScreenSharingQuality) : void {
-        serializeTeleconferenceDeviceVideoQuality(writer, teleconferenceDeviceScreenSharingQuality)
+    serializeTeleconferenceDeviceVideoQuality(writer, teleconferenceDeviceScreenSharingQuality)
 }
 export interface TeleconferenceDeviceScreenSharingQuality extends Parsable, TeleconferenceDeviceVideoQuality {
 }

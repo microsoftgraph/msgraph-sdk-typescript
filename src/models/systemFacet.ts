@@ -13,8 +13,8 @@ export function deserializeIntoSystemFacet(systemFacet: SystemFacet | undefined 
     }
 }
 export function serializeSystemFacet(writer: SerializationWriter, systemFacet: SystemFacet | undefined = {} as SystemFacet) : void {
-        writer.writeStringValue("@odata.type", systemFacet.odataType);
-        writer.writeAdditionalData(systemFacet.additionalData);
+    writer.writeStringValue("@odata.type", systemFacet.odataType);
+    writer.writeAdditionalData(systemFacet.additionalData);
 }
 export interface SystemFacet extends AdditionalDataHolder, Parsable {
     /**

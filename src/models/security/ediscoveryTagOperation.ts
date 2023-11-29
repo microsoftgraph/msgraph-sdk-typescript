@@ -16,7 +16,7 @@ export function deserializeIntoEdiscoveryTagOperation(ediscoveryTagOperation: Ed
 export interface EdiscoveryTagOperation extends CaseOperation, Parsable {
 }
 export function serializeEdiscoveryTagOperation(writer: SerializationWriter, ediscoveryTagOperation: EdiscoveryTagOperation | undefined = {} as EdiscoveryTagOperation) : void {
-        serializeCaseOperation(writer, ediscoveryTagOperation)
+    serializeCaseOperation(writer, ediscoveryTagOperation)
 }
 // tslint:enable
 // eslint-enable

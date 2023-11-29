@@ -14,7 +14,7 @@ export function deserializeIntoUnmuteParticipantOperation(unmuteParticipantOpera
     }
 }
 export function serializeUnmuteParticipantOperation(writer: SerializationWriter, unmuteParticipantOperation: UnmuteParticipantOperation | undefined = {} as UnmuteParticipantOperation) : void {
-        serializeCommsOperation(writer, unmuteParticipantOperation)
+    serializeCommsOperation(writer, unmuteParticipantOperation)
 }
 export interface UnmuteParticipantOperation extends CommsOperation, Parsable {
 }

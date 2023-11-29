@@ -17,10 +17,10 @@ export function deserializeIntoTeamworkTagMember(teamworkTagMember: TeamworkTagM
     }
 }
 export function serializeTeamworkTagMember(writer: SerializationWriter, teamworkTagMember: TeamworkTagMember | undefined = {} as TeamworkTagMember) : void {
-        serializeEntity(writer, teamworkTagMember)
-        writer.writeStringValue("displayName", teamworkTagMember.displayName);
-        writer.writeStringValue("tenantId", teamworkTagMember.tenantId);
-        writer.writeStringValue("userId", teamworkTagMember.userId);
+    serializeEntity(writer, teamworkTagMember)
+    writer.writeStringValue("displayName", teamworkTagMember.displayName);
+    writer.writeStringValue("tenantId", teamworkTagMember.tenantId);
+    writer.writeStringValue("userId", teamworkTagMember.userId);
 }
 export interface TeamworkTagMember extends Entity, Parsable {
     /**

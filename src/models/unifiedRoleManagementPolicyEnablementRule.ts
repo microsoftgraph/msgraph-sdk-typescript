@@ -15,8 +15,8 @@ export function deserializeIntoUnifiedRoleManagementPolicyEnablementRule(unified
     }
 }
 export function serializeUnifiedRoleManagementPolicyEnablementRule(writer: SerializationWriter, unifiedRoleManagementPolicyEnablementRule: UnifiedRoleManagementPolicyEnablementRule | undefined = {} as UnifiedRoleManagementPolicyEnablementRule) : void {
-        serializeUnifiedRoleManagementPolicyRule(writer, unifiedRoleManagementPolicyEnablementRule)
-        writer.writeCollectionOfPrimitiveValues<string>("enabledRules", unifiedRoleManagementPolicyEnablementRule.enabledRules);
+    serializeUnifiedRoleManagementPolicyRule(writer, unifiedRoleManagementPolicyEnablementRule)
+    writer.writeCollectionOfPrimitiveValues<string>("enabledRules", unifiedRoleManagementPolicyEnablementRule.enabledRules);
 }
 export interface UnifiedRoleManagementPolicyEnablementRule extends Parsable, UnifiedRoleManagementPolicyRule {
     /**

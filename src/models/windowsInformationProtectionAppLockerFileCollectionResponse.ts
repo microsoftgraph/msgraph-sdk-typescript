@@ -16,8 +16,8 @@ export function deserializeIntoWindowsInformationProtectionAppLockerFileCollecti
     }
 }
 export function serializeWindowsInformationProtectionAppLockerFileCollectionResponse(writer: SerializationWriter, windowsInformationProtectionAppLockerFileCollectionResponse: WindowsInformationProtectionAppLockerFileCollectionResponse | undefined = {} as WindowsInformationProtectionAppLockerFileCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, windowsInformationProtectionAppLockerFileCollectionResponse)
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLockerFile>("value", windowsInformationProtectionAppLockerFileCollectionResponse.value, serializeWindowsInformationProtectionAppLockerFile);
+    serializeBaseCollectionPaginationCountResponse(writer, windowsInformationProtectionAppLockerFileCollectionResponse)
+    writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLockerFile>("value", windowsInformationProtectionAppLockerFileCollectionResponse.value, serializeWindowsInformationProtectionAppLockerFile);
 }
 export interface WindowsInformationProtectionAppLockerFileCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

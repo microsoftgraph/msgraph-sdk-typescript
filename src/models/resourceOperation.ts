@@ -31,10 +31,10 @@ export interface ResourceOperation extends Entity, Parsable {
     resourceName?: string;
 }
 export function serializeResourceOperation(writer: SerializationWriter, resourceOperation: ResourceOperation | undefined = {} as ResourceOperation) : void {
-        serializeEntity(writer, resourceOperation)
-        writer.writeStringValue("actionName", resourceOperation.actionName);
-        writer.writeStringValue("description", resourceOperation.description);
-        writer.writeStringValue("resourceName", resourceOperation.resourceName);
+    serializeEntity(writer, resourceOperation)
+    writer.writeStringValue("actionName", resourceOperation.actionName);
+    writer.writeStringValue("description", resourceOperation.description);
+    writer.writeStringValue("resourceName", resourceOperation.resourceName);
 }
 // tslint:enable
 // eslint-enable

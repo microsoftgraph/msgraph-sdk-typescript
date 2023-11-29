@@ -16,11 +16,11 @@ export function deserializeIntoVerifiedPublisher(verifiedPublisher: VerifiedPubl
     }
 }
 export function serializeVerifiedPublisher(writer: SerializationWriter, verifiedPublisher: VerifiedPublisher | undefined = {} as VerifiedPublisher) : void {
-        writer.writeDateValue("addedDateTime", verifiedPublisher.addedDateTime);
-        writer.writeStringValue("displayName", verifiedPublisher.displayName);
-        writer.writeStringValue("@odata.type", verifiedPublisher.odataType);
-        writer.writeStringValue("verifiedPublisherId", verifiedPublisher.verifiedPublisherId);
-        writer.writeAdditionalData(verifiedPublisher.additionalData);
+    writer.writeDateValue("addedDateTime", verifiedPublisher.addedDateTime);
+    writer.writeStringValue("displayName", verifiedPublisher.displayName);
+    writer.writeStringValue("@odata.type", verifiedPublisher.odataType);
+    writer.writeStringValue("verifiedPublisherId", verifiedPublisher.verifiedPublisherId);
+    writer.writeAdditionalData(verifiedPublisher.additionalData);
 }
 export interface VerifiedPublisher extends AdditionalDataHolder, Parsable {
     /**

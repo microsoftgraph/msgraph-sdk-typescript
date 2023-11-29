@@ -28,9 +28,9 @@ export interface RemovedState extends AdditionalDataHolder, Parsable {
     reason?: string;
 }
 export function serializeRemovedState(writer: SerializationWriter, removedState: RemovedState | undefined = {} as RemovedState) : void {
-        writer.writeStringValue("@odata.type", removedState.odataType);
-        writer.writeStringValue("reason", removedState.reason);
-        writer.writeAdditionalData(removedState.additionalData);
+    writer.writeStringValue("@odata.type", removedState.odataType);
+    writer.writeStringValue("reason", removedState.reason);
+    writer.writeAdditionalData(removedState.additionalData);
 }
 // tslint:enable
 // eslint-enable

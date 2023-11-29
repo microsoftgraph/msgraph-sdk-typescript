@@ -18,10 +18,10 @@ export function deserializeIntoWindowsInformationProtectionAppLearningSummary(wi
     }
 }
 export function serializeWindowsInformationProtectionAppLearningSummary(writer: SerializationWriter, windowsInformationProtectionAppLearningSummary: WindowsInformationProtectionAppLearningSummary | undefined = {} as WindowsInformationProtectionAppLearningSummary) : void {
-        serializeEntity(writer, windowsInformationProtectionAppLearningSummary)
-        writer.writeStringValue("applicationName", windowsInformationProtectionAppLearningSummary.applicationName);
-        writer.writeEnumValue<ApplicationType>("applicationType", windowsInformationProtectionAppLearningSummary.applicationType);
-        writer.writeNumberValue("deviceCount", windowsInformationProtectionAppLearningSummary.deviceCount);
+    serializeEntity(writer, windowsInformationProtectionAppLearningSummary)
+    writer.writeStringValue("applicationName", windowsInformationProtectionAppLearningSummary.applicationName);
+    writer.writeEnumValue<ApplicationType>("applicationType", windowsInformationProtectionAppLearningSummary.applicationType);
+    writer.writeNumberValue("deviceCount", windowsInformationProtectionAppLearningSummary.deviceCount);
 }
 export interface WindowsInformationProtectionAppLearningSummary extends Entity, Parsable {
     /**

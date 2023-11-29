@@ -22,8 +22,8 @@ export interface HomeRealmDiscoveryPolicyCollectionResponse extends BaseCollecti
     value?: HomeRealmDiscoveryPolicy[];
 }
 export function serializeHomeRealmDiscoveryPolicyCollectionResponse(writer: SerializationWriter, homeRealmDiscoveryPolicyCollectionResponse: HomeRealmDiscoveryPolicyCollectionResponse | undefined = {} as HomeRealmDiscoveryPolicyCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, homeRealmDiscoveryPolicyCollectionResponse)
-        writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("value", homeRealmDiscoveryPolicyCollectionResponse.value, serializeHomeRealmDiscoveryPolicy);
+    serializeBaseCollectionPaginationCountResponse(writer, homeRealmDiscoveryPolicyCollectionResponse)
+    writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("value", homeRealmDiscoveryPolicyCollectionResponse.value, serializeHomeRealmDiscoveryPolicy);
 }
 // tslint:enable
 // eslint-enable

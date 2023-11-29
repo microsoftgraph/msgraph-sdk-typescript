@@ -23,12 +23,12 @@ export function deserializeIntoSynchronizationJob(synchronizationJob: Synchroniz
     }
 }
 export function serializeSynchronizationJob(writer: SerializationWriter, synchronizationJob: SynchronizationJob | undefined = {} as SynchronizationJob) : void {
-        serializeEntity(writer, synchronizationJob)
-        writer.writeObjectValue<SynchronizationSchedule>("schedule", synchronizationJob.schedule, serializeSynchronizationSchedule);
-        writer.writeObjectValue<SynchronizationSchema>("schema", synchronizationJob.schema, serializeSynchronizationSchema);
-        writer.writeObjectValue<SynchronizationStatus>("status", synchronizationJob.status, serializeSynchronizationStatus);
-        writer.writeCollectionOfObjectValues<KeyValuePair>("synchronizationJobSettings", synchronizationJob.synchronizationJobSettings, serializeKeyValuePair);
-        writer.writeStringValue("templateId", synchronizationJob.templateId);
+    serializeEntity(writer, synchronizationJob)
+    writer.writeObjectValue<SynchronizationSchedule>("schedule", synchronizationJob.schedule, serializeSynchronizationSchedule);
+    writer.writeObjectValue<SynchronizationSchema>("schema", synchronizationJob.schema, serializeSynchronizationSchema);
+    writer.writeObjectValue<SynchronizationStatus>("status", synchronizationJob.status, serializeSynchronizationStatus);
+    writer.writeCollectionOfObjectValues<KeyValuePair>("synchronizationJobSettings", synchronizationJob.synchronizationJobSettings, serializeKeyValuePair);
+    writer.writeStringValue("templateId", synchronizationJob.templateId);
 }
 export interface SynchronizationJob extends Entity, Parsable {
     /**

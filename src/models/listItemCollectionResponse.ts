@@ -22,8 +22,8 @@ export interface ListItemCollectionResponse extends BaseCollectionPaginationCoun
     value?: ListItem[];
 }
 export function serializeListItemCollectionResponse(writer: SerializationWriter, listItemCollectionResponse: ListItemCollectionResponse | undefined = {} as ListItemCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, listItemCollectionResponse)
-        writer.writeCollectionOfObjectValues<ListItem>("value", listItemCollectionResponse.value, serializeListItem);
+    serializeBaseCollectionPaginationCountResponse(writer, listItemCollectionResponse)
+    writer.writeCollectionOfObjectValues<ListItem>("value", listItemCollectionResponse.value, serializeListItem);
 }
 // tslint:enable
 // eslint-enable

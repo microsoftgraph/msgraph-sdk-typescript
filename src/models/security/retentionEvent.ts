@@ -81,19 +81,19 @@ export interface RetentionEvent extends Entity, Parsable {
     retentionEventType?: RetentionEventType;
 }
 export function serializeRetentionEvent(writer: SerializationWriter, retentionEvent: RetentionEvent | undefined = {} as RetentionEvent) : void {
-        serializeEntity(writer, retentionEvent)
-        writer.writeObjectValue<IdentitySet>("createdBy", retentionEvent.createdBy, serializeIdentitySet);
-        writer.writeDateValue("createdDateTime", retentionEvent.createdDateTime);
-        writer.writeStringValue("description", retentionEvent.description);
-        writer.writeStringValue("displayName", retentionEvent.displayName);
-        writer.writeCollectionOfObjectValues<EventPropagationResult>("eventPropagationResults", retentionEvent.eventPropagationResults, serializeEventPropagationResult);
-        writer.writeCollectionOfObjectValues<EventQuery>("eventQueries", retentionEvent.eventQueries, serializeEventQuery);
-        writer.writeObjectValue<RetentionEventStatus>("eventStatus", retentionEvent.eventStatus, serializeRetentionEventStatus);
-        writer.writeDateValue("eventTriggerDateTime", retentionEvent.eventTriggerDateTime);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", retentionEvent.lastModifiedBy, serializeIdentitySet);
-        writer.writeDateValue("lastModifiedDateTime", retentionEvent.lastModifiedDateTime);
-        writer.writeDateValue("lastStatusUpdateDateTime", retentionEvent.lastStatusUpdateDateTime);
-        writer.writeObjectValue<RetentionEventType>("retentionEventType", retentionEvent.retentionEventType, serializeRetentionEventType);
+    serializeEntity(writer, retentionEvent)
+    writer.writeObjectValue<IdentitySet>("createdBy", retentionEvent.createdBy, serializeIdentitySet);
+    writer.writeDateValue("createdDateTime", retentionEvent.createdDateTime);
+    writer.writeStringValue("description", retentionEvent.description);
+    writer.writeStringValue("displayName", retentionEvent.displayName);
+    writer.writeCollectionOfObjectValues<EventPropagationResult>("eventPropagationResults", retentionEvent.eventPropagationResults, serializeEventPropagationResult);
+    writer.writeCollectionOfObjectValues<EventQuery>("eventQueries", retentionEvent.eventQueries, serializeEventQuery);
+    writer.writeObjectValue<RetentionEventStatus>("eventStatus", retentionEvent.eventStatus, serializeRetentionEventStatus);
+    writer.writeDateValue("eventTriggerDateTime", retentionEvent.eventTriggerDateTime);
+    writer.writeObjectValue<IdentitySet>("lastModifiedBy", retentionEvent.lastModifiedBy, serializeIdentitySet);
+    writer.writeDateValue("lastModifiedDateTime", retentionEvent.lastModifiedDateTime);
+    writer.writeDateValue("lastStatusUpdateDateTime", retentionEvent.lastStatusUpdateDateTime);
+    writer.writeObjectValue<RetentionEventType>("retentionEventType", retentionEvent.retentionEventType, serializeRetentionEventType);
 }
 // tslint:enable
 // eslint-enable

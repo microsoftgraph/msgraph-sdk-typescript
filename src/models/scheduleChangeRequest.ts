@@ -79,11 +79,11 @@ export interface ScheduleChangeRequest extends ChangeTrackedEntity, Parsable {
     state?: ScheduleChangeState;
 }
 export function serializeScheduleChangeRequest(writer: SerializationWriter, scheduleChangeRequest: ScheduleChangeRequest | undefined = {} as ScheduleChangeRequest) : void {
-        serializeChangeTrackedEntity(writer, scheduleChangeRequest)
-        writer.writeEnumValue<ScheduleChangeRequestActor>("assignedTo", scheduleChangeRequest.assignedTo);
-        writer.writeStringValue("managerActionMessage", scheduleChangeRequest.managerActionMessage);
-        writer.writeStringValue("senderMessage", scheduleChangeRequest.senderMessage);
-        writer.writeEnumValue<ScheduleChangeState>("state", scheduleChangeRequest.state);
+    serializeChangeTrackedEntity(writer, scheduleChangeRequest)
+    writer.writeEnumValue<ScheduleChangeRequestActor>("assignedTo", scheduleChangeRequest.assignedTo);
+    writer.writeStringValue("managerActionMessage", scheduleChangeRequest.managerActionMessage);
+    writer.writeStringValue("senderMessage", scheduleChangeRequest.senderMessage);
+    writer.writeEnumValue<ScheduleChangeState>("state", scheduleChangeRequest.state);
 }
 // tslint:enable
 // eslint-enable

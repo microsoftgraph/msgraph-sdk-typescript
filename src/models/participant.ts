@@ -66,16 +66,16 @@ export interface Participant extends Entity, Parsable {
     rosterSequenceNumber?: number;
 }
 export function serializeParticipant(writer: SerializationWriter, participant: Participant | undefined = {} as Participant) : void {
-        serializeEntity(writer, participant)
-        writer.writeObjectValue<ParticipantInfo>("info", participant.info, serializeParticipantInfo);
-        writer.writeBooleanValue("isInLobby", participant.isInLobby);
-        writer.writeBooleanValue("isMuted", participant.isMuted);
-        writer.writeCollectionOfObjectValues<MediaStream>("mediaStreams", participant.mediaStreams, serializeMediaStream);
-        writer.writeStringValue("metadata", participant.metadata);
-        writer.writeObjectValue<RecordingInfo>("recordingInfo", participant.recordingInfo, serializeRecordingInfo);
-        writer.writeObjectValue<RemovedState>("removedState", participant.removedState, serializeRemovedState);
-        writer.writeObjectValue<OnlineMeetingRestricted>("restrictedExperience", participant.restrictedExperience, serializeOnlineMeetingRestricted);
-        writer.writeNumberValue("rosterSequenceNumber", participant.rosterSequenceNumber);
+    serializeEntity(writer, participant)
+    writer.writeObjectValue<ParticipantInfo>("info", participant.info, serializeParticipantInfo);
+    writer.writeBooleanValue("isInLobby", participant.isInLobby);
+    writer.writeBooleanValue("isMuted", participant.isMuted);
+    writer.writeCollectionOfObjectValues<MediaStream>("mediaStreams", participant.mediaStreams, serializeMediaStream);
+    writer.writeStringValue("metadata", participant.metadata);
+    writer.writeObjectValue<RecordingInfo>("recordingInfo", participant.recordingInfo, serializeRecordingInfo);
+    writer.writeObjectValue<RemovedState>("removedState", participant.removedState, serializeRemovedState);
+    writer.writeObjectValue<OnlineMeetingRestricted>("restrictedExperience", participant.restrictedExperience, serializeOnlineMeetingRestricted);
+    writer.writeNumberValue("rosterSequenceNumber", participant.rosterSequenceNumber);
 }
 // tslint:enable
 // eslint-enable

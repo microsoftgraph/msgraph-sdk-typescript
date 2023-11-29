@@ -26,9 +26,9 @@ export interface Pkcs12Certificate extends ApiAuthenticationConfigurationBase, P
     pkcs12Value?: string;
 }
 export function serializePkcs12Certificate(writer: SerializationWriter, pkcs12Certificate: Pkcs12Certificate | undefined = {} as Pkcs12Certificate) : void {
-        serializeApiAuthenticationConfigurationBase(writer, pkcs12Certificate)
-        writer.writeStringValue("password", pkcs12Certificate.password);
-        writer.writeStringValue("pkcs12Value", pkcs12Certificate.pkcs12Value);
+    serializeApiAuthenticationConfigurationBase(writer, pkcs12Certificate)
+    writer.writeStringValue("password", pkcs12Certificate.password);
+    writer.writeStringValue("pkcs12Value", pkcs12Certificate.pkcs12Value);
 }
 // tslint:enable
 // eslint-enable

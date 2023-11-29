@@ -16,8 +16,8 @@ export function deserializeIntoSimulationAutomationCollectionResponse(simulation
     }
 }
 export function serializeSimulationAutomationCollectionResponse(writer: SerializationWriter, simulationAutomationCollectionResponse: SimulationAutomationCollectionResponse | undefined = {} as SimulationAutomationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, simulationAutomationCollectionResponse)
-        writer.writeCollectionOfObjectValues<SimulationAutomation>("value", simulationAutomationCollectionResponse.value, serializeSimulationAutomation);
+    serializeBaseCollectionPaginationCountResponse(writer, simulationAutomationCollectionResponse)
+    writer.writeCollectionOfObjectValues<SimulationAutomation>("value", simulationAutomationCollectionResponse.value, serializeSimulationAutomation);
 }
 export interface SimulationAutomationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

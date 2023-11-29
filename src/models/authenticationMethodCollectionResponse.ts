@@ -22,8 +22,8 @@ export function deserializeIntoAuthenticationMethodCollectionResponse(authentica
     }
 }
 export function serializeAuthenticationMethodCollectionResponse(writer: SerializationWriter, authenticationMethodCollectionResponse: AuthenticationMethodCollectionResponse | undefined = {} as AuthenticationMethodCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, authenticationMethodCollectionResponse)
-        writer.writeCollectionOfObjectValues<AuthenticationMethod>("value", authenticationMethodCollectionResponse.value, serializeAuthenticationMethod);
+    serializeBaseCollectionPaginationCountResponse(writer, authenticationMethodCollectionResponse)
+    writer.writeCollectionOfObjectValues<AuthenticationMethod>("value", authenticationMethodCollectionResponse.value, serializeAuthenticationMethod);
 }
 // tslint:enable
 // eslint-enable

@@ -41,12 +41,12 @@ export interface LocalizedNotificationMessage extends Entity, Parsable {
     subject?: string;
 }
 export function serializeLocalizedNotificationMessage(writer: SerializationWriter, localizedNotificationMessage: LocalizedNotificationMessage | undefined = {} as LocalizedNotificationMessage) : void {
-        serializeEntity(writer, localizedNotificationMessage)
-        writer.writeBooleanValue("isDefault", localizedNotificationMessage.isDefault);
-        writer.writeDateValue("lastModifiedDateTime", localizedNotificationMessage.lastModifiedDateTime);
-        writer.writeStringValue("locale", localizedNotificationMessage.locale);
-        writer.writeStringValue("messageTemplate", localizedNotificationMessage.messageTemplate);
-        writer.writeStringValue("subject", localizedNotificationMessage.subject);
+    serializeEntity(writer, localizedNotificationMessage)
+    writer.writeBooleanValue("isDefault", localizedNotificationMessage.isDefault);
+    writer.writeDateValue("lastModifiedDateTime", localizedNotificationMessage.lastModifiedDateTime);
+    writer.writeStringValue("locale", localizedNotificationMessage.locale);
+    writer.writeStringValue("messageTemplate", localizedNotificationMessage.messageTemplate);
+    writer.writeStringValue("subject", localizedNotificationMessage.subject);
 }
 // tslint:enable
 // eslint-enable

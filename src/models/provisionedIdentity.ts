@@ -27,9 +27,9 @@ export interface ProvisionedIdentity extends Identity, Parsable {
     identityType?: string;
 }
 export function serializeProvisionedIdentity(writer: SerializationWriter, provisionedIdentity: ProvisionedIdentity | undefined = {} as ProvisionedIdentity) : void {
-        serializeIdentity(writer, provisionedIdentity)
-        writer.writeObjectValue<DetailsInfo>("details", provisionedIdentity.details, serializeDetailsInfo);
-        writer.writeStringValue("identityType", provisionedIdentity.identityType);
+    serializeIdentity(writer, provisionedIdentity)
+    writer.writeObjectValue<DetailsInfo>("details", provisionedIdentity.details, serializeDetailsInfo);
+    writer.writeStringValue("identityType", provisionedIdentity.identityType);
 }
 // tslint:enable
 // eslint-enable

@@ -34,10 +34,10 @@ export interface MeetingTimeSuggestionsResult extends AdditionalDataHolder, Pars
     odataType?: string;
 }
 export function serializeMeetingTimeSuggestionsResult(writer: SerializationWriter, meetingTimeSuggestionsResult: MeetingTimeSuggestionsResult | undefined = {} as MeetingTimeSuggestionsResult) : void {
-        writer.writeStringValue("emptySuggestionsReason", meetingTimeSuggestionsResult.emptySuggestionsReason);
-        writer.writeCollectionOfObjectValues<MeetingTimeSuggestion>("meetingTimeSuggestions", meetingTimeSuggestionsResult.meetingTimeSuggestions, serializeMeetingTimeSuggestion);
-        writer.writeStringValue("@odata.type", meetingTimeSuggestionsResult.odataType);
-        writer.writeAdditionalData(meetingTimeSuggestionsResult.additionalData);
+    writer.writeStringValue("emptySuggestionsReason", meetingTimeSuggestionsResult.emptySuggestionsReason);
+    writer.writeCollectionOfObjectValues<MeetingTimeSuggestion>("meetingTimeSuggestions", meetingTimeSuggestionsResult.meetingTimeSuggestions, serializeMeetingTimeSuggestion);
+    writer.writeStringValue("@odata.type", meetingTimeSuggestionsResult.odataType);
+    writer.writeAdditionalData(meetingTimeSuggestionsResult.additionalData);
 }
 // tslint:enable
 // eslint-enable

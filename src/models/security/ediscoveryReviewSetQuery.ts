@@ -16,7 +16,7 @@ export function deserializeIntoEdiscoveryReviewSetQuery(ediscoveryReviewSetQuery
 export interface EdiscoveryReviewSetQuery extends Parsable, Search {
 }
 export function serializeEdiscoveryReviewSetQuery(writer: SerializationWriter, ediscoveryReviewSetQuery: EdiscoveryReviewSetQuery | undefined = {} as EdiscoveryReviewSetQuery) : void {
-        serializeSearch(writer, ediscoveryReviewSetQuery)
+    serializeSearch(writer, ediscoveryReviewSetQuery)
 }
 // tslint:enable
 // eslint-enable

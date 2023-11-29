@@ -36,9 +36,9 @@ export function deserializeIntoWin32LobAppRule(win32LobAppRule: Win32LobAppRule 
     }
 }
 export function serializeWin32LobAppRule(writer: SerializationWriter, win32LobAppRule: Win32LobAppRule | undefined = {} as Win32LobAppRule) : void {
-        writer.writeStringValue("@odata.type", win32LobAppRule.odataType);
-        writer.writeEnumValue<Win32LobAppRuleType>("ruleType", win32LobAppRule.ruleType);
-        writer.writeAdditionalData(win32LobAppRule.additionalData);
+    writer.writeStringValue("@odata.type", win32LobAppRule.odataType);
+    writer.writeEnumValue<Win32LobAppRuleType>("ruleType", win32LobAppRule.ruleType);
+    writer.writeAdditionalData(win32LobAppRule.additionalData);
 }
 export interface Win32LobAppRule extends AdditionalDataHolder, Parsable {
     /**

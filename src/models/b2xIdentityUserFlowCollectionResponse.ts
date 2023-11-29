@@ -22,8 +22,8 @@ export function deserializeIntoB2xIdentityUserFlowCollectionResponse(b2xIdentity
     }
 }
 export function serializeB2xIdentityUserFlowCollectionResponse(writer: SerializationWriter, b2xIdentityUserFlowCollectionResponse: B2xIdentityUserFlowCollectionResponse | undefined = {} as B2xIdentityUserFlowCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, b2xIdentityUserFlowCollectionResponse)
-        writer.writeCollectionOfObjectValues<B2xIdentityUserFlow>("value", b2xIdentityUserFlowCollectionResponse.value, serializeB2xIdentityUserFlow);
+    serializeBaseCollectionPaginationCountResponse(writer, b2xIdentityUserFlowCollectionResponse)
+    writer.writeCollectionOfObjectValues<B2xIdentityUserFlow>("value", b2xIdentityUserFlowCollectionResponse.value, serializeB2xIdentityUserFlow);
 }
 // tslint:enable
 // eslint-enable

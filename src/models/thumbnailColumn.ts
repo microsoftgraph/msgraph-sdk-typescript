@@ -13,8 +13,8 @@ export function deserializeIntoThumbnailColumn(thumbnailColumn: ThumbnailColumn 
     }
 }
 export function serializeThumbnailColumn(writer: SerializationWriter, thumbnailColumn: ThumbnailColumn | undefined = {} as ThumbnailColumn) : void {
-        writer.writeStringValue("@odata.type", thumbnailColumn.odataType);
-        writer.writeAdditionalData(thumbnailColumn.additionalData);
+    writer.writeStringValue("@odata.type", thumbnailColumn.odataType);
+    writer.writeAdditionalData(thumbnailColumn.additionalData);
 }
 export interface ThumbnailColumn extends AdditionalDataHolder, Parsable {
     /**

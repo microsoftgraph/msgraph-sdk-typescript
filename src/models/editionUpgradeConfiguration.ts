@@ -38,11 +38,11 @@ export interface EditionUpgradeConfiguration extends DeviceConfiguration, Parsab
     targetEdition?: Windows10EditionType;
 }
 export function serializeEditionUpgradeConfiguration(writer: SerializationWriter, editionUpgradeConfiguration: EditionUpgradeConfiguration | undefined = {} as EditionUpgradeConfiguration) : void {
-        serializeDeviceConfiguration(writer, editionUpgradeConfiguration)
-        writer.writeStringValue("license", editionUpgradeConfiguration.license);
-        writer.writeEnumValue<EditionUpgradeLicenseType>("licenseType", editionUpgradeConfiguration.licenseType);
-        writer.writeStringValue("productKey", editionUpgradeConfiguration.productKey);
-        writer.writeEnumValue<Windows10EditionType>("targetEdition", editionUpgradeConfiguration.targetEdition);
+    serializeDeviceConfiguration(writer, editionUpgradeConfiguration)
+    writer.writeStringValue("license", editionUpgradeConfiguration.license);
+    writer.writeEnumValue<EditionUpgradeLicenseType>("licenseType", editionUpgradeConfiguration.licenseType);
+    writer.writeStringValue("productKey", editionUpgradeConfiguration.productKey);
+    writer.writeEnumValue<Windows10EditionType>("targetEdition", editionUpgradeConfiguration.targetEdition);
 }
 // tslint:enable
 // eslint-enable

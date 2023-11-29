@@ -22,8 +22,8 @@ export interface LearningContentCollectionResponse extends BaseCollectionPaginat
     value?: LearningContent[];
 }
 export function serializeLearningContentCollectionResponse(writer: SerializationWriter, learningContentCollectionResponse: LearningContentCollectionResponse | undefined = {} as LearningContentCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, learningContentCollectionResponse)
-        writer.writeCollectionOfObjectValues<LearningContent>("value", learningContentCollectionResponse.value, serializeLearningContent);
+    serializeBaseCollectionPaginationCountResponse(writer, learningContentCollectionResponse)
+    writer.writeCollectionOfObjectValues<LearningContent>("value", learningContentCollectionResponse.value, serializeLearningContent);
 }
 // tslint:enable
 // eslint-enable

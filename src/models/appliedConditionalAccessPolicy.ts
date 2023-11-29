@@ -49,13 +49,13 @@ export function deserializeIntoAppliedConditionalAccessPolicy(appliedConditional
     }
 }
 export function serializeAppliedConditionalAccessPolicy(writer: SerializationWriter, appliedConditionalAccessPolicy: AppliedConditionalAccessPolicy | undefined = {} as AppliedConditionalAccessPolicy) : void {
-        writer.writeStringValue("displayName", appliedConditionalAccessPolicy.displayName);
-        writer.writeCollectionOfPrimitiveValues<string>("enforcedGrantControls", appliedConditionalAccessPolicy.enforcedGrantControls);
-        writer.writeCollectionOfPrimitiveValues<string>("enforcedSessionControls", appliedConditionalAccessPolicy.enforcedSessionControls);
-        writer.writeStringValue("id", appliedConditionalAccessPolicy.id);
-        writer.writeStringValue("@odata.type", appliedConditionalAccessPolicy.odataType);
-        writer.writeEnumValue<AppliedConditionalAccessPolicyResult>("result", appliedConditionalAccessPolicy.result);
-        writer.writeAdditionalData(appliedConditionalAccessPolicy.additionalData);
+    writer.writeStringValue("displayName", appliedConditionalAccessPolicy.displayName);
+    writer.writeCollectionOfPrimitiveValues<string>("enforcedGrantControls", appliedConditionalAccessPolicy.enforcedGrantControls);
+    writer.writeCollectionOfPrimitiveValues<string>("enforcedSessionControls", appliedConditionalAccessPolicy.enforcedSessionControls);
+    writer.writeStringValue("id", appliedConditionalAccessPolicy.id);
+    writer.writeStringValue("@odata.type", appliedConditionalAccessPolicy.odataType);
+    writer.writeEnumValue<AppliedConditionalAccessPolicyResult>("result", appliedConditionalAccessPolicy.result);
+    writer.writeAdditionalData(appliedConditionalAccessPolicy.additionalData);
 }
 // tslint:enable
 // eslint-enable

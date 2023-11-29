@@ -26,9 +26,9 @@ export interface DomainIdentitySource extends IdentitySource, Parsable {
     domainName?: string;
 }
 export function serializeDomainIdentitySource(writer: SerializationWriter, domainIdentitySource: DomainIdentitySource | undefined = {} as DomainIdentitySource) : void {
-        serializeIdentitySource(writer, domainIdentitySource)
-        writer.writeStringValue("displayName", domainIdentitySource.displayName);
-        writer.writeStringValue("domainName", domainIdentitySource.domainName);
+    serializeIdentitySource(writer, domainIdentitySource)
+    writer.writeStringValue("displayName", domainIdentitySource.displayName);
+    writer.writeStringValue("domainName", domainIdentitySource.domainName);
 }
 // tslint:enable
 // eslint-enable

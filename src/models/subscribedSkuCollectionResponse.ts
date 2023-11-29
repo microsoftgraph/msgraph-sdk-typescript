@@ -16,8 +16,8 @@ export function deserializeIntoSubscribedSkuCollectionResponse(subscribedSkuColl
     }
 }
 export function serializeSubscribedSkuCollectionResponse(writer: SerializationWriter, subscribedSkuCollectionResponse: SubscribedSkuCollectionResponse | undefined = {} as SubscribedSkuCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, subscribedSkuCollectionResponse)
-        writer.writeCollectionOfObjectValues<SubscribedSku>("value", subscribedSkuCollectionResponse.value, serializeSubscribedSku);
+    serializeBaseCollectionPaginationCountResponse(writer, subscribedSkuCollectionResponse)
+    writer.writeCollectionOfObjectValues<SubscribedSku>("value", subscribedSkuCollectionResponse.value, serializeSubscribedSku);
 }
 export interface SubscribedSkuCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

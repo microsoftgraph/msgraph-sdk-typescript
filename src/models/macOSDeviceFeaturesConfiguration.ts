@@ -16,7 +16,7 @@ export function deserializeIntoMacOSDeviceFeaturesConfiguration(macOSDeviceFeatu
 export interface MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBase, Parsable {
 }
 export function serializeMacOSDeviceFeaturesConfiguration(writer: SerializationWriter, macOSDeviceFeaturesConfiguration: MacOSDeviceFeaturesConfiguration | undefined = {} as MacOSDeviceFeaturesConfiguration) : void {
-        serializeAppleDeviceFeaturesConfigurationBase(writer, macOSDeviceFeaturesConfiguration)
+    serializeAppleDeviceFeaturesConfigurationBase(writer, macOSDeviceFeaturesConfiguration)
 }
 // tslint:enable
 // eslint-enable

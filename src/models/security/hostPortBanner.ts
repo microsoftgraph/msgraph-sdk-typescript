@@ -48,13 +48,13 @@ export interface HostPortBanner extends AdditionalDataHolder, Parsable {
     timesObserved?: number;
 }
 export function serializeHostPortBanner(writer: SerializationWriter, hostPortBanner: HostPortBanner | undefined = {} as HostPortBanner) : void {
-        writer.writeStringValue("banner", hostPortBanner.banner);
-        writer.writeDateValue("firstSeenDateTime", hostPortBanner.firstSeenDateTime);
-        writer.writeDateValue("lastSeenDateTime", hostPortBanner.lastSeenDateTime);
-        writer.writeStringValue("@odata.type", hostPortBanner.odataType);
-        writer.writeStringValue("scanProtocol", hostPortBanner.scanProtocol);
-        writer.writeNumberValue("timesObserved", hostPortBanner.timesObserved);
-        writer.writeAdditionalData(hostPortBanner.additionalData);
+    writer.writeStringValue("banner", hostPortBanner.banner);
+    writer.writeDateValue("firstSeenDateTime", hostPortBanner.firstSeenDateTime);
+    writer.writeDateValue("lastSeenDateTime", hostPortBanner.lastSeenDateTime);
+    writer.writeStringValue("@odata.type", hostPortBanner.odataType);
+    writer.writeStringValue("scanProtocol", hostPortBanner.scanProtocol);
+    writer.writeNumberValue("timesObserved", hostPortBanner.timesObserved);
+    writer.writeAdditionalData(hostPortBanner.additionalData);
 }
 // tslint:enable
 // eslint-enable

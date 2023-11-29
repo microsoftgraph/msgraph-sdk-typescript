@@ -21,8 +21,8 @@ export interface EducationAssignmentPointsGrade extends EducationAssignmentGrade
     points?: number;
 }
 export function serializeEducationAssignmentPointsGrade(writer: SerializationWriter, educationAssignmentPointsGrade: EducationAssignmentPointsGrade | undefined = {} as EducationAssignmentPointsGrade) : void {
-        serializeEducationAssignmentGrade(writer, educationAssignmentPointsGrade)
-        writer.writeNumberValue("points", educationAssignmentPointsGrade.points);
+    serializeEducationAssignmentGrade(writer, educationAssignmentPointsGrade)
+    writer.writeNumberValue("points", educationAssignmentPointsGrade.points);
 }
 // tslint:enable
 // eslint-enable

@@ -55,7 +55,7 @@ export function deserializeIntoArtifact(artifact: Artifact | undefined = {} as A
     }
 }
 export function serializeArtifact(writer: SerializationWriter, artifact: Artifact | undefined = {} as Artifact) : void {
-        serializeEntity(writer, artifact)
+    serializeEntity(writer, artifact)
 }
 // tslint:enable
 // eslint-enable

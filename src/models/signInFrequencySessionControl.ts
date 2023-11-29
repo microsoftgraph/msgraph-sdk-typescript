@@ -21,11 +21,11 @@ export function deserializeIntoSignInFrequencySessionControl(signInFrequencySess
     }
 }
 export function serializeSignInFrequencySessionControl(writer: SerializationWriter, signInFrequencySessionControl: SignInFrequencySessionControl | undefined = {} as SignInFrequencySessionControl) : void {
-        serializeConditionalAccessSessionControl(writer, signInFrequencySessionControl)
-        writer.writeEnumValue<SignInFrequencyAuthenticationType>("authenticationType", signInFrequencySessionControl.authenticationType);
-        writer.writeEnumValue<SignInFrequencyInterval>("frequencyInterval", signInFrequencySessionControl.frequencyInterval);
-        writer.writeEnumValue<SigninFrequencyType>("type", signInFrequencySessionControl.type);
-        writer.writeNumberValue("value", signInFrequencySessionControl.value);
+    serializeConditionalAccessSessionControl(writer, signInFrequencySessionControl)
+    writer.writeEnumValue<SignInFrequencyAuthenticationType>("authenticationType", signInFrequencySessionControl.authenticationType);
+    writer.writeEnumValue<SignInFrequencyInterval>("frequencyInterval", signInFrequencySessionControl.frequencyInterval);
+    writer.writeEnumValue<SigninFrequencyType>("type", signInFrequencySessionControl.type);
+    writer.writeNumberValue("value", signInFrequencySessionControl.value);
 }
 export interface SignInFrequencySessionControl extends ConditionalAccessSessionControl, Parsable {
     /**

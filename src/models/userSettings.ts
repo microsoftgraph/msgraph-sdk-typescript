@@ -18,10 +18,10 @@ export function deserializeIntoUserSettings(userSettings: UserSettings | undefin
     }
 }
 export function serializeUserSettings(writer: SerializationWriter, userSettings: UserSettings | undefined = {} as UserSettings) : void {
-        serializeEntity(writer, userSettings)
-        writer.writeBooleanValue("contributionToContentDiscoveryAsOrganizationDisabled", userSettings.contributionToContentDiscoveryAsOrganizationDisabled);
-        writer.writeBooleanValue("contributionToContentDiscoveryDisabled", userSettings.contributionToContentDiscoveryDisabled);
-        writer.writeObjectValue<ShiftPreferences>("shiftPreferences", userSettings.shiftPreferences, serializeShiftPreferences);
+    serializeEntity(writer, userSettings)
+    writer.writeBooleanValue("contributionToContentDiscoveryAsOrganizationDisabled", userSettings.contributionToContentDiscoveryAsOrganizationDisabled);
+    writer.writeBooleanValue("contributionToContentDiscoveryDisabled", userSettings.contributionToContentDiscoveryDisabled);
+    writer.writeObjectValue<ShiftPreferences>("shiftPreferences", userSettings.shiftPreferences, serializeShiftPreferences);
 }
 export interface UserSettings extends Entity, Parsable {
     /**

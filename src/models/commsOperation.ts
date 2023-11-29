@@ -75,10 +75,10 @@ export function deserializeIntoCommsOperation(commsOperation: CommsOperation | u
     }
 }
 export function serializeCommsOperation(writer: SerializationWriter, commsOperation: CommsOperation | undefined = {} as CommsOperation) : void {
-        serializeEntity(writer, commsOperation)
-        writer.writeStringValue("clientContext", commsOperation.clientContext);
-        writer.writeObjectValue<ResultInfo>("resultInfo", commsOperation.resultInfo, serializeResultInfo);
-        writer.writeEnumValue<OperationStatus>("status", commsOperation.status);
+    serializeEntity(writer, commsOperation)
+    writer.writeStringValue("clientContext", commsOperation.clientContext);
+    writer.writeObjectValue<ResultInfo>("resultInfo", commsOperation.resultInfo, serializeResultInfo);
+    writer.writeEnumValue<OperationStatus>("status", commsOperation.status);
 }
 // tslint:enable
 // eslint-enable

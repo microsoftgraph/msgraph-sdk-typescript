@@ -34,10 +34,10 @@ export interface RequestSignatureVerification extends AdditionalDataHolder, Pars
     odataType?: string;
 }
 export function serializeRequestSignatureVerification(writer: SerializationWriter, requestSignatureVerification: RequestSignatureVerification | undefined = {} as RequestSignatureVerification) : void {
-        writer.writeEnumValue<WeakAlgorithms[]>("allowedWeakAlgorithms", requestSignatureVerification.allowedWeakAlgorithms);
-        writer.writeBooleanValue("isSignedRequestRequired", requestSignatureVerification.isSignedRequestRequired);
-        writer.writeStringValue("@odata.type", requestSignatureVerification.odataType);
-        writer.writeAdditionalData(requestSignatureVerification.additionalData);
+    writer.writeEnumValue<WeakAlgorithms[]>("allowedWeakAlgorithms", requestSignatureVerification.allowedWeakAlgorithms);
+    writer.writeBooleanValue("isSignedRequestRequired", requestSignatureVerification.isSignedRequestRequired);
+    writer.writeStringValue("@odata.type", requestSignatureVerification.odataType);
+    writer.writeAdditionalData(requestSignatureVerification.additionalData);
 }
 // tslint:enable
 // eslint-enable

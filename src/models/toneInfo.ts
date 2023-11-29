@@ -16,10 +16,10 @@ export function deserializeIntoToneInfo(toneInfo: ToneInfo | undefined = {} as T
     }
 }
 export function serializeToneInfo(writer: SerializationWriter, toneInfo: ToneInfo | undefined = {} as ToneInfo) : void {
-        writer.writeStringValue("@odata.type", toneInfo.odataType);
-        writer.writeNumberValue("sequenceId", toneInfo.sequenceId);
-        writer.writeEnumValue<Tone>("tone", toneInfo.tone);
-        writer.writeAdditionalData(toneInfo.additionalData);
+    writer.writeStringValue("@odata.type", toneInfo.odataType);
+    writer.writeNumberValue("sequenceId", toneInfo.sequenceId);
+    writer.writeEnumValue<Tone>("tone", toneInfo.tone);
+    writer.writeAdditionalData(toneInfo.additionalData);
 }
 export interface ToneInfo extends AdditionalDataHolder, Parsable {
     /**

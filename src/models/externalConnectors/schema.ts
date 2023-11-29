@@ -27,9 +27,9 @@ export interface Schema extends Entity, Parsable {
     properties?: Property[];
 }
 export function serializeSchema(writer: SerializationWriter, schema: Schema | undefined = {} as Schema) : void {
-        serializeEntity(writer, schema)
-        writer.writeStringValue("baseType", schema.baseType);
-        writer.writeCollectionOfObjectValues<Property>("properties", schema.properties, serializeProperty);
+    serializeEntity(writer, schema)
+    writer.writeStringValue("baseType", schema.baseType);
+    writer.writeCollectionOfObjectValues<Property>("properties", schema.properties, serializeProperty);
 }
 // tslint:enable
 // eslint-enable

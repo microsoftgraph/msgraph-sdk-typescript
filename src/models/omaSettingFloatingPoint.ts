@@ -21,8 +21,8 @@ export interface OmaSettingFloatingPoint extends OmaSetting, Parsable {
     value?: number;
 }
 export function serializeOmaSettingFloatingPoint(writer: SerializationWriter, omaSettingFloatingPoint: OmaSettingFloatingPoint | undefined = {} as OmaSettingFloatingPoint) : void {
-        serializeOmaSetting(writer, omaSettingFloatingPoint)
-        writer.writeNumberValue("value", omaSettingFloatingPoint.value);
+    serializeOmaSetting(writer, omaSettingFloatingPoint)
+    writer.writeNumberValue("value", omaSettingFloatingPoint.value);
 }
 // tslint:enable
 // eslint-enable

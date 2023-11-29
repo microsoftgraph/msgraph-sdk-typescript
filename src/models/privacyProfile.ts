@@ -33,10 +33,10 @@ export interface PrivacyProfile extends AdditionalDataHolder, Parsable {
     statementUrl?: string;
 }
 export function serializePrivacyProfile(writer: SerializationWriter, privacyProfile: PrivacyProfile | undefined = {} as PrivacyProfile) : void {
-        writer.writeStringValue("contactEmail", privacyProfile.contactEmail);
-        writer.writeStringValue("@odata.type", privacyProfile.odataType);
-        writer.writeStringValue("statementUrl", privacyProfile.statementUrl);
-        writer.writeAdditionalData(privacyProfile.additionalData);
+    writer.writeStringValue("contactEmail", privacyProfile.contactEmail);
+    writer.writeStringValue("@odata.type", privacyProfile.odataType);
+    writer.writeStringValue("statementUrl", privacyProfile.statementUrl);
+    writer.writeAdditionalData(privacyProfile.additionalData);
 }
 // tslint:enable
 // eslint-enable

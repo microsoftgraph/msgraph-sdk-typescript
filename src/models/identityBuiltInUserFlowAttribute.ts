@@ -16,7 +16,7 @@ export function deserializeIntoIdentityBuiltInUserFlowAttribute(identityBuiltInU
 export interface IdentityBuiltInUserFlowAttribute extends IdentityUserFlowAttribute, Parsable {
 }
 export function serializeIdentityBuiltInUserFlowAttribute(writer: SerializationWriter, identityBuiltInUserFlowAttribute: IdentityBuiltInUserFlowAttribute | undefined = {} as IdentityBuiltInUserFlowAttribute) : void {
-        serializeIdentityUserFlowAttribute(writer, identityBuiltInUserFlowAttribute)
+    serializeIdentityUserFlowAttribute(writer, identityBuiltInUserFlowAttribute)
 }
 // tslint:enable
 // eslint-enable

@@ -16,8 +16,8 @@ export function deserializeIntoUserRegistrationDetailsCollectionResponse(userReg
     }
 }
 export function serializeUserRegistrationDetailsCollectionResponse(writer: SerializationWriter, userRegistrationDetailsCollectionResponse: UserRegistrationDetailsCollectionResponse | undefined = {} as UserRegistrationDetailsCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, userRegistrationDetailsCollectionResponse)
-        writer.writeCollectionOfObjectValues<UserRegistrationDetails>("value", userRegistrationDetailsCollectionResponse.value, serializeUserRegistrationDetails);
+    serializeBaseCollectionPaginationCountResponse(writer, userRegistrationDetailsCollectionResponse)
+    writer.writeCollectionOfObjectValues<UserRegistrationDetails>("value", userRegistrationDetailsCollectionResponse.value, serializeUserRegistrationDetails);
 }
 export interface UserRegistrationDetailsCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

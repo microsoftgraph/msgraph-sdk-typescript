@@ -16,8 +16,8 @@ export function deserializeIntoUsedInsightCollectionResponse(usedInsightCollecti
     }
 }
 export function serializeUsedInsightCollectionResponse(writer: SerializationWriter, usedInsightCollectionResponse: UsedInsightCollectionResponse | undefined = {} as UsedInsightCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, usedInsightCollectionResponse)
-        writer.writeCollectionOfObjectValues<UsedInsight>("value", usedInsightCollectionResponse.value, serializeUsedInsight);
+    serializeBaseCollectionPaginationCountResponse(writer, usedInsightCollectionResponse)
+    writer.writeCollectionOfObjectValues<UsedInsight>("value", usedInsightCollectionResponse.value, serializeUsedInsight);
 }
 export interface UsedInsightCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

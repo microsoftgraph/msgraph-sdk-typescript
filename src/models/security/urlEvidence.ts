@@ -15,8 +15,8 @@ export function deserializeIntoUrlEvidence(urlEvidence: UrlEvidence | undefined 
     }
 }
 export function serializeUrlEvidence(writer: SerializationWriter, urlEvidence: UrlEvidence | undefined = {} as UrlEvidence) : void {
-        serializeAlertEvidence(writer, urlEvidence)
-        writer.writeStringValue("url", urlEvidence.url);
+    serializeAlertEvidence(writer, urlEvidence)
+    writer.writeStringValue("url", urlEvidence.url);
 }
 export interface UrlEvidence extends AlertEvidence, Parsable {
     /**

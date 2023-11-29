@@ -120,8 +120,8 @@ export interface DirectoryObject extends Entity, Parsable {
     deletedDateTime?: Date;
 }
 export function serializeDirectoryObject(writer: SerializationWriter, directoryObject: DirectoryObject | undefined = {} as DirectoryObject) : void {
-        serializeEntity(writer, directoryObject)
-        writer.writeDateValue("deletedDateTime", directoryObject.deletedDateTime);
+    serializeEntity(writer, directoryObject)
+    writer.writeDateValue("deletedDateTime", directoryObject.deletedDateTime);
 }
 // tslint:enable
 // eslint-enable

@@ -33,10 +33,10 @@ export interface ItemActionStat extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeItemActionStat(writer: SerializationWriter, itemActionStat: ItemActionStat | undefined = {} as ItemActionStat) : void {
-        writer.writeNumberValue("actionCount", itemActionStat.actionCount);
-        writer.writeNumberValue("actorCount", itemActionStat.actorCount);
-        writer.writeStringValue("@odata.type", itemActionStat.odataType);
-        writer.writeAdditionalData(itemActionStat.additionalData);
+    writer.writeNumberValue("actionCount", itemActionStat.actionCount);
+    writer.writeNumberValue("actorCount", itemActionStat.actorCount);
+    writer.writeStringValue("@odata.type", itemActionStat.odataType);
+    writer.writeAdditionalData(itemActionStat.additionalData);
 }
 // tslint:enable
 // eslint-enable

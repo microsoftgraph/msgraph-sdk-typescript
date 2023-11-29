@@ -22,8 +22,8 @@ export function deserializeIntoCalendarPermissionCollectionResponse(calendarPerm
     }
 }
 export function serializeCalendarPermissionCollectionResponse(writer: SerializationWriter, calendarPermissionCollectionResponse: CalendarPermissionCollectionResponse | undefined = {} as CalendarPermissionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, calendarPermissionCollectionResponse)
-        writer.writeCollectionOfObjectValues<CalendarPermission>("value", calendarPermissionCollectionResponse.value, serializeCalendarPermission);
+    serializeBaseCollectionPaginationCountResponse(writer, calendarPermissionCollectionResponse)
+    writer.writeCollectionOfObjectValues<CalendarPermission>("value", calendarPermissionCollectionResponse.value, serializeCalendarPermission);
 }
 // tslint:enable
 // eslint-enable

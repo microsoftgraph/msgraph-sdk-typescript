@@ -45,13 +45,13 @@ export interface PrintJobStatus extends AdditionalDataHolder, Parsable {
     state?: PrintJobProcessingState;
 }
 export function serializePrintJobStatus(writer: SerializationWriter, printJobStatus: PrintJobStatus | undefined = {} as PrintJobStatus) : void {
-        writer.writeStringValue("description", printJobStatus.description);
-        if(printJobStatus.details)
-        writer.writeEnumValue<PrintJobStateDetail>("details", ...printJobStatus.details);
-        writer.writeBooleanValue("isAcquiredByPrinter", printJobStatus.isAcquiredByPrinter);
-        writer.writeStringValue("@odata.type", printJobStatus.odataType);
-        writer.writeEnumValue<PrintJobProcessingState>("state", printJobStatus.state);
-        writer.writeAdditionalData(printJobStatus.additionalData);
+    writer.writeStringValue("description", printJobStatus.description);
+    if(printJobStatus.details)
+    writer.writeEnumValue<PrintJobStateDetail>("details", ...printJobStatus.details);
+    writer.writeBooleanValue("isAcquiredByPrinter", printJobStatus.isAcquiredByPrinter);
+    writer.writeStringValue("@odata.type", printJobStatus.odataType);
+    writer.writeEnumValue<PrintJobProcessingState>("state", printJobStatus.state);
+    writer.writeAdditionalData(printJobStatus.additionalData);
 }
 // tslint:enable
 // eslint-enable

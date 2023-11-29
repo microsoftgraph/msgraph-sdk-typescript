@@ -35,8 +35,8 @@ export function deserializeIntoBookingCustomerInformationBase(bookingCustomerInf
     }
 }
 export function serializeBookingCustomerInformationBase(writer: SerializationWriter, bookingCustomerInformationBase: BookingCustomerInformationBase | undefined = {} as BookingCustomerInformationBase) : void {
-        writer.writeStringValue("@odata.type", bookingCustomerInformationBase.odataType);
-        writer.writeAdditionalData(bookingCustomerInformationBase.additionalData);
+    writer.writeStringValue("@odata.type", bookingCustomerInformationBase.odataType);
+    writer.writeAdditionalData(bookingCustomerInformationBase.additionalData);
 }
 // tslint:enable
 // eslint-enable

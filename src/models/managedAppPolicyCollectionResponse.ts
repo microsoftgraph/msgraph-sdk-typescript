@@ -22,8 +22,8 @@ export interface ManagedAppPolicyCollectionResponse extends BaseCollectionPagina
     value?: ManagedAppPolicy[];
 }
 export function serializeManagedAppPolicyCollectionResponse(writer: SerializationWriter, managedAppPolicyCollectionResponse: ManagedAppPolicyCollectionResponse | undefined = {} as ManagedAppPolicyCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, managedAppPolicyCollectionResponse)
-        writer.writeCollectionOfObjectValues<ManagedAppPolicy>("value", managedAppPolicyCollectionResponse.value, serializeManagedAppPolicy);
+    serializeBaseCollectionPaginationCountResponse(writer, managedAppPolicyCollectionResponse)
+    writer.writeCollectionOfObjectValues<ManagedAppPolicy>("value", managedAppPolicyCollectionResponse.value, serializeManagedAppPolicy);
 }
 // tslint:enable
 // eslint-enable

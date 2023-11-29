@@ -48,13 +48,13 @@ export interface DeviceExchangeAccessStateSummary extends AdditionalDataHolder, 
     unknownDeviceCount?: number;
 }
 export function serializeDeviceExchangeAccessStateSummary(writer: SerializationWriter, deviceExchangeAccessStateSummary: DeviceExchangeAccessStateSummary | undefined = {} as DeviceExchangeAccessStateSummary) : void {
-        writer.writeNumberValue("allowedDeviceCount", deviceExchangeAccessStateSummary.allowedDeviceCount);
-        writer.writeNumberValue("blockedDeviceCount", deviceExchangeAccessStateSummary.blockedDeviceCount);
-        writer.writeStringValue("@odata.type", deviceExchangeAccessStateSummary.odataType);
-        writer.writeNumberValue("quarantinedDeviceCount", deviceExchangeAccessStateSummary.quarantinedDeviceCount);
-        writer.writeNumberValue("unavailableDeviceCount", deviceExchangeAccessStateSummary.unavailableDeviceCount);
-        writer.writeNumberValue("unknownDeviceCount", deviceExchangeAccessStateSummary.unknownDeviceCount);
-        writer.writeAdditionalData(deviceExchangeAccessStateSummary.additionalData);
+    writer.writeNumberValue("allowedDeviceCount", deviceExchangeAccessStateSummary.allowedDeviceCount);
+    writer.writeNumberValue("blockedDeviceCount", deviceExchangeAccessStateSummary.blockedDeviceCount);
+    writer.writeStringValue("@odata.type", deviceExchangeAccessStateSummary.odataType);
+    writer.writeNumberValue("quarantinedDeviceCount", deviceExchangeAccessStateSummary.quarantinedDeviceCount);
+    writer.writeNumberValue("unavailableDeviceCount", deviceExchangeAccessStateSummary.unavailableDeviceCount);
+    writer.writeNumberValue("unknownDeviceCount", deviceExchangeAccessStateSummary.unknownDeviceCount);
+    writer.writeAdditionalData(deviceExchangeAccessStateSummary.additionalData);
 }
 // tslint:enable
 // eslint-enable

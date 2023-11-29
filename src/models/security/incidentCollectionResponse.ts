@@ -22,8 +22,8 @@ export interface IncidentCollectionResponse extends BaseCollectionPaginationCoun
     value?: Incident[];
 }
 export function serializeIncidentCollectionResponse(writer: SerializationWriter, incidentCollectionResponse: IncidentCollectionResponse | undefined = {} as IncidentCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, incidentCollectionResponse)
-        writer.writeCollectionOfObjectValues<Incident>("value", incidentCollectionResponse.value, serializeIncident);
+    serializeBaseCollectionPaginationCountResponse(writer, incidentCollectionResponse)
+    writer.writeCollectionOfObjectValues<Incident>("value", incidentCollectionResponse.value, serializeIncident);
 }
 // tslint:enable
 // eslint-enable

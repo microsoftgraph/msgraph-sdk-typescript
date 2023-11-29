@@ -21,8 +21,8 @@ export interface RuleBasedSubjectSet extends Parsable, SubjectSet {
     rule?: string;
 }
 export function serializeRuleBasedSubjectSet(writer: SerializationWriter, ruleBasedSubjectSet: RuleBasedSubjectSet | undefined = {} as RuleBasedSubjectSet) : void {
-        serializeSubjectSet(writer, ruleBasedSubjectSet)
-        writer.writeStringValue("rule", ruleBasedSubjectSet.rule);
+    serializeSubjectSet(writer, ruleBasedSubjectSet)
+    writer.writeStringValue("rule", ruleBasedSubjectSet.rule);
 }
 // tslint:enable
 // eslint-enable

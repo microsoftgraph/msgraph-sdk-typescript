@@ -22,8 +22,8 @@ export interface DeviceConfigurationAssignmentCollectionResponse extends BaseCol
     value?: DeviceConfigurationAssignment[];
 }
 export function serializeDeviceConfigurationAssignmentCollectionResponse(writer: SerializationWriter, deviceConfigurationAssignmentCollectionResponse: DeviceConfigurationAssignmentCollectionResponse | undefined = {} as DeviceConfigurationAssignmentCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, deviceConfigurationAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceConfigurationAssignment>("value", deviceConfigurationAssignmentCollectionResponse.value, serializeDeviceConfigurationAssignment);
+    serializeBaseCollectionPaginationCountResponse(writer, deviceConfigurationAssignmentCollectionResponse)
+    writer.writeCollectionOfObjectValues<DeviceConfigurationAssignment>("value", deviceConfigurationAssignmentCollectionResponse.value, serializeDeviceConfigurationAssignment);
 }
 // tslint:enable
 // eslint-enable

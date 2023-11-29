@@ -16,11 +16,11 @@ export function deserializeIntoWindows10NetworkProxyServer(windows10NetworkProxy
     }
 }
 export function serializeWindows10NetworkProxyServer(writer: SerializationWriter, windows10NetworkProxyServer: Windows10NetworkProxyServer | undefined = {} as Windows10NetworkProxyServer) : void {
-        writer.writeStringValue("address", windows10NetworkProxyServer.address);
-        writer.writeCollectionOfPrimitiveValues<string>("exceptions", windows10NetworkProxyServer.exceptions);
-        writer.writeStringValue("@odata.type", windows10NetworkProxyServer.odataType);
-        writer.writeBooleanValue("useForLocalAddresses", windows10NetworkProxyServer.useForLocalAddresses);
-        writer.writeAdditionalData(windows10NetworkProxyServer.additionalData);
+    writer.writeStringValue("address", windows10NetworkProxyServer.address);
+    writer.writeCollectionOfPrimitiveValues<string>("exceptions", windows10NetworkProxyServer.exceptions);
+    writer.writeStringValue("@odata.type", windows10NetworkProxyServer.odataType);
+    writer.writeBooleanValue("useForLocalAddresses", windows10NetworkProxyServer.useForLocalAddresses);
+    writer.writeAdditionalData(windows10NetworkProxyServer.additionalData);
 }
 export interface Windows10NetworkProxyServer extends AdditionalDataHolder, Parsable {
     /**

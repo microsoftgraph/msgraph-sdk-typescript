@@ -22,8 +22,8 @@ export interface SecureScoreCollectionResponse extends BaseCollectionPaginationC
     value?: SecureScore[];
 }
 export function serializeSecureScoreCollectionResponse(writer: SerializationWriter, secureScoreCollectionResponse: SecureScoreCollectionResponse | undefined = {} as SecureScoreCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, secureScoreCollectionResponse)
-        writer.writeCollectionOfObjectValues<SecureScore>("value", secureScoreCollectionResponse.value, serializeSecureScore);
+    serializeBaseCollectionPaginationCountResponse(writer, secureScoreCollectionResponse)
+    writer.writeCollectionOfObjectValues<SecureScore>("value", secureScoreCollectionResponse.value, serializeSecureScore);
 }
 // tslint:enable
 // eslint-enable

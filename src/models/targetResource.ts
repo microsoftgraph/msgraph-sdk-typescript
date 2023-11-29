@@ -21,14 +21,14 @@ export function deserializeIntoTargetResource(targetResource: TargetResource | u
     }
 }
 export function serializeTargetResource(writer: SerializationWriter, targetResource: TargetResource | undefined = {} as TargetResource) : void {
-        writer.writeStringValue("displayName", targetResource.displayName);
-        writer.writeEnumValue<GroupType>("groupType", targetResource.groupType);
-        writer.writeStringValue("id", targetResource.id);
-        writer.writeCollectionOfObjectValues<ModifiedProperty>("modifiedProperties", targetResource.modifiedProperties, serializeModifiedProperty);
-        writer.writeStringValue("@odata.type", targetResource.odataType);
-        writer.writeStringValue("type", targetResource.type);
-        writer.writeStringValue("userPrincipalName", targetResource.userPrincipalName);
-        writer.writeAdditionalData(targetResource.additionalData);
+    writer.writeStringValue("displayName", targetResource.displayName);
+    writer.writeEnumValue<GroupType>("groupType", targetResource.groupType);
+    writer.writeStringValue("id", targetResource.id);
+    writer.writeCollectionOfObjectValues<ModifiedProperty>("modifiedProperties", targetResource.modifiedProperties, serializeModifiedProperty);
+    writer.writeStringValue("@odata.type", targetResource.odataType);
+    writer.writeStringValue("type", targetResource.type);
+    writer.writeStringValue("userPrincipalName", targetResource.userPrincipalName);
+    writer.writeAdditionalData(targetResource.additionalData);
 }
 export interface TargetResource extends AdditionalDataHolder, Parsable {
     /**

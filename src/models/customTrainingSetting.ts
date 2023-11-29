@@ -42,13 +42,13 @@ export function deserializeIntoCustomTrainingSetting(customTrainingSetting: Cust
     }
 }
 export function serializeCustomTrainingSetting(writer: SerializationWriter, customTrainingSetting: CustomTrainingSetting | undefined = {} as CustomTrainingSetting) : void {
-        serializeTrainingSetting(writer, customTrainingSetting)
-        if(customTrainingSetting.assignedTo)
-        writer.writeEnumValue<TrainingAssignedTo>("assignedTo", ...customTrainingSetting.assignedTo);
-        writer.writeStringValue("description", customTrainingSetting.description);
-        writer.writeStringValue("displayName", customTrainingSetting.displayName);
-        writer.writeNumberValue("durationInMinutes", customTrainingSetting.durationInMinutes);
-        writer.writeStringValue("url", customTrainingSetting.url);
+    serializeTrainingSetting(writer, customTrainingSetting)
+    if(customTrainingSetting.assignedTo)
+    writer.writeEnumValue<TrainingAssignedTo>("assignedTo", ...customTrainingSetting.assignedTo);
+    writer.writeStringValue("description", customTrainingSetting.description);
+    writer.writeStringValue("displayName", customTrainingSetting.displayName);
+    writer.writeNumberValue("durationInMinutes", customTrainingSetting.durationInMinutes);
+    writer.writeStringValue("url", customTrainingSetting.url);
 }
 // tslint:enable
 // eslint-enable

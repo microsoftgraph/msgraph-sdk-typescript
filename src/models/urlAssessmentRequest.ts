@@ -15,8 +15,8 @@ export function deserializeIntoUrlAssessmentRequest(urlAssessmentRequest: UrlAss
     }
 }
 export function serializeUrlAssessmentRequest(writer: SerializationWriter, urlAssessmentRequest: UrlAssessmentRequest | undefined = {} as UrlAssessmentRequest) : void {
-        serializeThreatAssessmentRequest(writer, urlAssessmentRequest)
-        writer.writeStringValue("url", urlAssessmentRequest.url);
+    serializeThreatAssessmentRequest(writer, urlAssessmentRequest)
+    writer.writeStringValue("url", urlAssessmentRequest.url);
 }
 export interface UrlAssessmentRequest extends Parsable, ThreatAssessmentRequest {
     /**

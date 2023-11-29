@@ -16,7 +16,7 @@ export function deserializeIntoOnDemandExecutionOnly(onDemandExecutionOnly: OnDe
 export interface OnDemandExecutionOnly extends Parsable, WorkflowExecutionConditions {
 }
 export function serializeOnDemandExecutionOnly(writer: SerializationWriter, onDemandExecutionOnly: OnDemandExecutionOnly | undefined = {} as OnDemandExecutionOnly) : void {
-        serializeWorkflowExecutionConditions(writer, onDemandExecutionOnly)
+    serializeWorkflowExecutionConditions(writer, onDemandExecutionOnly)
 }
 // tslint:enable
 // eslint-enable

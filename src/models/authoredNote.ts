@@ -33,10 +33,10 @@ export function deserializeIntoAuthoredNote(authoredNote: AuthoredNote | undefin
     }
 }
 export function serializeAuthoredNote(writer: SerializationWriter, authoredNote: AuthoredNote | undefined = {} as AuthoredNote) : void {
-        serializeEntity(writer, authoredNote)
-        writer.writeObjectValue<Identity>("author", authoredNote.author, serializeIdentity);
-        writer.writeObjectValue<ItemBody>("content", authoredNote.content, serializeItemBody);
-        writer.writeDateValue("createdDateTime", authoredNote.createdDateTime);
+    serializeEntity(writer, authoredNote)
+    writer.writeObjectValue<Identity>("author", authoredNote.author, serializeIdentity);
+    writer.writeObjectValue<ItemBody>("content", authoredNote.content, serializeItemBody);
+    writer.writeDateValue("createdDateTime", authoredNote.createdDateTime);
 }
 // tslint:enable
 // eslint-enable

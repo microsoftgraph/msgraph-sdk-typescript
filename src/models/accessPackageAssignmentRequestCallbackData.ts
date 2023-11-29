@@ -37,11 +37,11 @@ export function deserializeIntoAccessPackageAssignmentRequestCallbackData(access
     }
 }
 export function serializeAccessPackageAssignmentRequestCallbackData(writer: SerializationWriter, accessPackageAssignmentRequestCallbackData: AccessPackageAssignmentRequestCallbackData | undefined = {} as AccessPackageAssignmentRequestCallbackData) : void {
-        serializeCustomExtensionData(writer, accessPackageAssignmentRequestCallbackData)
-        writer.writeStringValue("customExtensionStageInstanceDetail", accessPackageAssignmentRequestCallbackData.customExtensionStageInstanceDetail);
-        writer.writeStringValue("customExtensionStageInstanceId", accessPackageAssignmentRequestCallbackData.customExtensionStageInstanceId);
-        writer.writeEnumValue<AccessPackageCustomExtensionStage>("stage", accessPackageAssignmentRequestCallbackData.stage);
-        writer.writeStringValue("state", accessPackageAssignmentRequestCallbackData.state);
+    serializeCustomExtensionData(writer, accessPackageAssignmentRequestCallbackData)
+    writer.writeStringValue("customExtensionStageInstanceDetail", accessPackageAssignmentRequestCallbackData.customExtensionStageInstanceDetail);
+    writer.writeStringValue("customExtensionStageInstanceId", accessPackageAssignmentRequestCallbackData.customExtensionStageInstanceId);
+    writer.writeEnumValue<AccessPackageCustomExtensionStage>("stage", accessPackageAssignmentRequestCallbackData.stage);
+    writer.writeStringValue("state", accessPackageAssignmentRequestCallbackData.state);
 }
 // tslint:enable
 // eslint-enable

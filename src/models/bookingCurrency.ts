@@ -21,8 +21,8 @@ export function deserializeIntoBookingCurrency(bookingCurrency: BookingCurrency 
     }
 }
 export function serializeBookingCurrency(writer: SerializationWriter, bookingCurrency: BookingCurrency | undefined = {} as BookingCurrency) : void {
-        serializeEntity(writer, bookingCurrency)
-        writer.writeStringValue("symbol", bookingCurrency.symbol);
+    serializeEntity(writer, bookingCurrency)
+    writer.writeStringValue("symbol", bookingCurrency.symbol);
 }
 // tslint:enable
 // eslint-enable

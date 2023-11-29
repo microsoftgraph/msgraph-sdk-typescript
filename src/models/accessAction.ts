@@ -23,8 +23,8 @@ export function deserializeIntoAccessAction(accessAction: AccessAction | undefin
     }
 }
 export function serializeAccessAction(writer: SerializationWriter, accessAction: AccessAction | undefined = {} as AccessAction) : void {
-        writer.writeStringValue("@odata.type", accessAction.odataType);
-        writer.writeAdditionalData(accessAction.additionalData);
+    writer.writeStringValue("@odata.type", accessAction.odataType);
+    writer.writeAdditionalData(accessAction.additionalData);
 }
 // tslint:enable
 // eslint-enable

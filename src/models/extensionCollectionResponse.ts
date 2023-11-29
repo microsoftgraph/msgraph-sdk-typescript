@@ -22,8 +22,8 @@ export interface ExtensionCollectionResponse extends BaseCollectionPaginationCou
     value?: Extension[];
 }
 export function serializeExtensionCollectionResponse(writer: SerializationWriter, extensionCollectionResponse: ExtensionCollectionResponse | undefined = {} as ExtensionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, extensionCollectionResponse)
-        writer.writeCollectionOfObjectValues<Extension>("value", extensionCollectionResponse.value, serializeExtension);
+    serializeBaseCollectionPaginationCountResponse(writer, extensionCollectionResponse)
+    writer.writeCollectionOfObjectValues<Extension>("value", extensionCollectionResponse.value, serializeExtension);
 }
 // tslint:enable
 // eslint-enable

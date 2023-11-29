@@ -42,12 +42,12 @@ export interface HostPair extends Entity, Parsable {
     parentHost?: Host;
 }
 export function serializeHostPair(writer: SerializationWriter, hostPair: HostPair | undefined = {} as HostPair) : void {
-        serializeEntity(writer, hostPair)
-        writer.writeObjectValue<Host>("childHost", hostPair.childHost, serializeHost);
-        writer.writeDateValue("firstSeenDateTime", hostPair.firstSeenDateTime);
-        writer.writeDateValue("lastSeenDateTime", hostPair.lastSeenDateTime);
-        writer.writeStringValue("linkKind", hostPair.linkKind);
-        writer.writeObjectValue<Host>("parentHost", hostPair.parentHost, serializeHost);
+    serializeEntity(writer, hostPair)
+    writer.writeObjectValue<Host>("childHost", hostPair.childHost, serializeHost);
+    writer.writeDateValue("firstSeenDateTime", hostPair.firstSeenDateTime);
+    writer.writeDateValue("lastSeenDateTime", hostPair.lastSeenDateTime);
+    writer.writeStringValue("linkKind", hostPair.linkKind);
+    writer.writeObjectValue<Host>("parentHost", hostPair.parentHost, serializeHost);
 }
 // tslint:enable
 // eslint-enable

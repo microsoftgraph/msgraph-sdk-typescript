@@ -90,21 +90,21 @@ export interface Run extends Entity, Parsable {
     workflowExecutionType?: WorkflowExecutionType;
 }
 export function serializeRun(writer: SerializationWriter, run: Run | undefined = {} as Run) : void {
-        serializeEntity(writer, run)
-        writer.writeDateValue("completedDateTime", run.completedDateTime);
-        writer.writeNumberValue("failedTasksCount", run.failedTasksCount);
-        writer.writeNumberValue("failedUsersCount", run.failedUsersCount);
-        writer.writeDateValue("lastUpdatedDateTime", run.lastUpdatedDateTime);
-        writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", run.processingStatus);
-        writer.writeDateValue("scheduledDateTime", run.scheduledDateTime);
-        writer.writeDateValue("startedDateTime", run.startedDateTime);
-        writer.writeNumberValue("successfulUsersCount", run.successfulUsersCount);
-        writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", run.taskProcessingResults, serializeTaskProcessingResult);
-        writer.writeNumberValue("totalTasksCount", run.totalTasksCount);
-        writer.writeNumberValue("totalUnprocessedTasksCount", run.totalUnprocessedTasksCount);
-        writer.writeNumberValue("totalUsersCount", run.totalUsersCount);
-        writer.writeCollectionOfObjectValues<UserProcessingResult>("userProcessingResults", run.userProcessingResults, serializeUserProcessingResult);
-        writer.writeEnumValue<WorkflowExecutionType>("workflowExecutionType", run.workflowExecutionType);
+    serializeEntity(writer, run)
+    writer.writeDateValue("completedDateTime", run.completedDateTime);
+    writer.writeNumberValue("failedTasksCount", run.failedTasksCount);
+    writer.writeNumberValue("failedUsersCount", run.failedUsersCount);
+    writer.writeDateValue("lastUpdatedDateTime", run.lastUpdatedDateTime);
+    writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", run.processingStatus);
+    writer.writeDateValue("scheduledDateTime", run.scheduledDateTime);
+    writer.writeDateValue("startedDateTime", run.startedDateTime);
+    writer.writeNumberValue("successfulUsersCount", run.successfulUsersCount);
+    writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", run.taskProcessingResults, serializeTaskProcessingResult);
+    writer.writeNumberValue("totalTasksCount", run.totalTasksCount);
+    writer.writeNumberValue("totalUnprocessedTasksCount", run.totalUnprocessedTasksCount);
+    writer.writeNumberValue("totalUsersCount", run.totalUsersCount);
+    writer.writeCollectionOfObjectValues<UserProcessingResult>("userProcessingResults", run.userProcessingResults, serializeUserProcessingResult);
+    writer.writeEnumValue<WorkflowExecutionType>("workflowExecutionType", run.workflowExecutionType);
 }
 // tslint:enable
 // eslint-enable

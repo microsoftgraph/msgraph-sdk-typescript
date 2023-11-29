@@ -33,10 +33,10 @@ export interface OnenoteOperationError extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeOnenoteOperationError(writer: SerializationWriter, onenoteOperationError: OnenoteOperationError | undefined = {} as OnenoteOperationError) : void {
-        writer.writeStringValue("code", onenoteOperationError.code);
-        writer.writeStringValue("message", onenoteOperationError.message);
-        writer.writeStringValue("@odata.type", onenoteOperationError.odataType);
-        writer.writeAdditionalData(onenoteOperationError.additionalData);
+    writer.writeStringValue("code", onenoteOperationError.code);
+    writer.writeStringValue("message", onenoteOperationError.message);
+    writer.writeStringValue("@odata.type", onenoteOperationError.odataType);
+    writer.writeAdditionalData(onenoteOperationError.additionalData);
 }
 // tslint:enable
 // eslint-enable

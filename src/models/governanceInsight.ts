@@ -36,8 +36,8 @@ export interface GovernanceInsight extends Entity, Parsable {
     insightCreatedDateTime?: Date;
 }
 export function serializeGovernanceInsight(writer: SerializationWriter, governanceInsight: GovernanceInsight | undefined = {} as GovernanceInsight) : void {
-        serializeEntity(writer, governanceInsight)
-        writer.writeDateValue("insightCreatedDateTime", governanceInsight.insightCreatedDateTime);
+    serializeEntity(writer, governanceInsight)
+    writer.writeDateValue("insightCreatedDateTime", governanceInsight.insightCreatedDateTime);
 }
 // tslint:enable
 // eslint-enable

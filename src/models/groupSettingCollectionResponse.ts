@@ -22,8 +22,8 @@ export interface GroupSettingCollectionResponse extends BaseCollectionPagination
     value?: GroupSetting[];
 }
 export function serializeGroupSettingCollectionResponse(writer: SerializationWriter, groupSettingCollectionResponse: GroupSettingCollectionResponse | undefined = {} as GroupSettingCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, groupSettingCollectionResponse)
-        writer.writeCollectionOfObjectValues<GroupSetting>("value", groupSettingCollectionResponse.value, serializeGroupSetting);
+    serializeBaseCollectionPaginationCountResponse(writer, groupSettingCollectionResponse)
+    writer.writeCollectionOfObjectValues<GroupSetting>("value", groupSettingCollectionResponse.value, serializeGroupSetting);
 }
 // tslint:enable
 // eslint-enable

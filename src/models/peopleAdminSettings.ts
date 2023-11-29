@@ -22,8 +22,8 @@ export interface PeopleAdminSettings extends Entity, Parsable {
     profileCardProperties?: ProfileCardProperty[];
 }
 export function serializePeopleAdminSettings(writer: SerializationWriter, peopleAdminSettings: PeopleAdminSettings | undefined = {} as PeopleAdminSettings) : void {
-        serializeEntity(writer, peopleAdminSettings)
-        writer.writeCollectionOfObjectValues<ProfileCardProperty>("profileCardProperties", peopleAdminSettings.profileCardProperties, serializeProfileCardProperty);
+    serializeEntity(writer, peopleAdminSettings)
+    writer.writeCollectionOfObjectValues<ProfileCardProperty>("profileCardProperties", peopleAdminSettings.profileCardProperties, serializeProfileCardProperty);
 }
 // tslint:enable
 // eslint-enable

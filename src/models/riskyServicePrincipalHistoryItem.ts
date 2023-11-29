@@ -27,9 +27,9 @@ export interface RiskyServicePrincipalHistoryItem extends Parsable, RiskyService
     initiatedBy?: string;
 }
 export function serializeRiskyServicePrincipalHistoryItem(writer: SerializationWriter, riskyServicePrincipalHistoryItem: RiskyServicePrincipalHistoryItem | undefined = {} as RiskyServicePrincipalHistoryItem) : void {
-        serializeRiskyServicePrincipal(writer, riskyServicePrincipalHistoryItem)
-        writer.writeObjectValue<RiskServicePrincipalActivity>("activity", riskyServicePrincipalHistoryItem.activity, serializeRiskServicePrincipalActivity);
-        writer.writeStringValue("initiatedBy", riskyServicePrincipalHistoryItem.initiatedBy);
+    serializeRiskyServicePrincipal(writer, riskyServicePrincipalHistoryItem)
+    writer.writeObjectValue<RiskServicePrincipalActivity>("activity", riskyServicePrincipalHistoryItem.activity, serializeRiskServicePrincipalActivity);
+    writer.writeStringValue("initiatedBy", riskyServicePrincipalHistoryItem.initiatedBy);
 }
 // tslint:enable
 // eslint-enable

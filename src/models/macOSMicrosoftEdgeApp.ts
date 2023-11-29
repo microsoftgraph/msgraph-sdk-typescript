@@ -22,8 +22,8 @@ export interface MacOSMicrosoftEdgeApp extends MobileApp, Parsable {
     channel?: MicrosoftEdgeChannel;
 }
 export function serializeMacOSMicrosoftEdgeApp(writer: SerializationWriter, macOSMicrosoftEdgeApp: MacOSMicrosoftEdgeApp | undefined = {} as MacOSMicrosoftEdgeApp) : void {
-        serializeMobileApp(writer, macOSMicrosoftEdgeApp)
-        writer.writeEnumValue<MicrosoftEdgeChannel>("channel", macOSMicrosoftEdgeApp.channel);
+    serializeMobileApp(writer, macOSMicrosoftEdgeApp)
+    writer.writeEnumValue<MicrosoftEdgeChannel>("channel", macOSMicrosoftEdgeApp.channel);
 }
 // tslint:enable
 // eslint-enable

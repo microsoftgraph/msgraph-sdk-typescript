@@ -33,10 +33,10 @@ export interface SearchQuery extends AdditionalDataHolder, Parsable {
     queryTemplate?: string;
 }
 export function serializeSearchQuery(writer: SerializationWriter, searchQuery: SearchQuery | undefined = {} as SearchQuery) : void {
-        writer.writeStringValue("@odata.type", searchQuery.odataType);
-        writer.writeStringValue("queryString", searchQuery.queryString);
-        writer.writeStringValue("queryTemplate", searchQuery.queryTemplate);
-        writer.writeAdditionalData(searchQuery.additionalData);
+    writer.writeStringValue("@odata.type", searchQuery.odataType);
+    writer.writeStringValue("queryString", searchQuery.queryString);
+    writer.writeStringValue("queryTemplate", searchQuery.queryTemplate);
+    writer.writeAdditionalData(searchQuery.additionalData);
 }
 // tslint:enable
 // eslint-enable

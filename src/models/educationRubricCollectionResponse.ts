@@ -22,8 +22,8 @@ export interface EducationRubricCollectionResponse extends BaseCollectionPaginat
     value?: EducationRubric[];
 }
 export function serializeEducationRubricCollectionResponse(writer: SerializationWriter, educationRubricCollectionResponse: EducationRubricCollectionResponse | undefined = {} as EducationRubricCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, educationRubricCollectionResponse)
-        writer.writeCollectionOfObjectValues<EducationRubric>("value", educationRubricCollectionResponse.value, serializeEducationRubric);
+    serializeBaseCollectionPaginationCountResponse(writer, educationRubricCollectionResponse)
+    writer.writeCollectionOfObjectValues<EducationRubric>("value", educationRubricCollectionResponse.value, serializeEducationRubric);
 }
 // tslint:enable
 // eslint-enable

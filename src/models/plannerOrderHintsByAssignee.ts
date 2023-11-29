@@ -23,8 +23,8 @@ export interface PlannerOrderHintsByAssignee extends AdditionalDataHolder, Parsa
     odataType?: string;
 }
 export function serializePlannerOrderHintsByAssignee(writer: SerializationWriter, plannerOrderHintsByAssignee: PlannerOrderHintsByAssignee | undefined = {} as PlannerOrderHintsByAssignee) : void {
-        writer.writeStringValue("@odata.type", plannerOrderHintsByAssignee.odataType);
-        writer.writeAdditionalData(plannerOrderHintsByAssignee.additionalData);
+    writer.writeStringValue("@odata.type", plannerOrderHintsByAssignee.odataType);
+    writer.writeAdditionalData(plannerOrderHintsByAssignee.additionalData);
 }
 // tslint:enable
 // eslint-enable

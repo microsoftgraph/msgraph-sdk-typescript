@@ -21,8 +21,8 @@ export function deserializeIntoAnonymousGuestConversationMember(anonymousGuestCo
     }
 }
 export function serializeAnonymousGuestConversationMember(writer: SerializationWriter, anonymousGuestConversationMember: AnonymousGuestConversationMember | undefined = {} as AnonymousGuestConversationMember) : void {
-        serializeConversationMember(writer, anonymousGuestConversationMember)
-        writer.writeStringValue("anonymousGuestId", anonymousGuestConversationMember.anonymousGuestId);
+    serializeConversationMember(writer, anonymousGuestConversationMember)
+    writer.writeStringValue("anonymousGuestId", anonymousGuestConversationMember.anonymousGuestId);
 }
 // tslint:enable
 // eslint-enable

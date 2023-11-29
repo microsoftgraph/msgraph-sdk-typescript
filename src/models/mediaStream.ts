@@ -50,13 +50,13 @@ export interface MediaStream extends AdditionalDataHolder, Parsable {
     sourceId?: string;
 }
 export function serializeMediaStream(writer: SerializationWriter, mediaStream: MediaStream | undefined = {} as MediaStream) : void {
-        writer.writeEnumValue<MediaDirection>("direction", mediaStream.direction);
-        writer.writeStringValue("label", mediaStream.label);
-        writer.writeEnumValue<Modality>("mediaType", mediaStream.mediaType);
-        writer.writeStringValue("@odata.type", mediaStream.odataType);
-        writer.writeBooleanValue("serverMuted", mediaStream.serverMuted);
-        writer.writeStringValue("sourceId", mediaStream.sourceId);
-        writer.writeAdditionalData(mediaStream.additionalData);
+    writer.writeEnumValue<MediaDirection>("direction", mediaStream.direction);
+    writer.writeStringValue("label", mediaStream.label);
+    writer.writeEnumValue<Modality>("mediaType", mediaStream.mediaType);
+    writer.writeStringValue("@odata.type", mediaStream.odataType);
+    writer.writeBooleanValue("serverMuted", mediaStream.serverMuted);
+    writer.writeStringValue("sourceId", mediaStream.sourceId);
+    writer.writeAdditionalData(mediaStream.additionalData);
 }
 // tslint:enable
 // eslint-enable

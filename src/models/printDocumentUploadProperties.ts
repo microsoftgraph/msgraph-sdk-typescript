@@ -38,11 +38,11 @@ export interface PrintDocumentUploadProperties extends AdditionalDataHolder, Par
     size?: number;
 }
 export function serializePrintDocumentUploadProperties(writer: SerializationWriter, printDocumentUploadProperties: PrintDocumentUploadProperties | undefined = {} as PrintDocumentUploadProperties) : void {
-        writer.writeStringValue("contentType", printDocumentUploadProperties.contentType);
-        writer.writeStringValue("documentName", printDocumentUploadProperties.documentName);
-        writer.writeStringValue("@odata.type", printDocumentUploadProperties.odataType);
-        writer.writeNumberValue("size", printDocumentUploadProperties.size);
-        writer.writeAdditionalData(printDocumentUploadProperties.additionalData);
+    writer.writeStringValue("contentType", printDocumentUploadProperties.contentType);
+    writer.writeStringValue("documentName", printDocumentUploadProperties.documentName);
+    writer.writeStringValue("@odata.type", printDocumentUploadProperties.odataType);
+    writer.writeNumberValue("size", printDocumentUploadProperties.size);
+    writer.writeAdditionalData(printDocumentUploadProperties.additionalData);
 }
 // tslint:enable
 // eslint-enable

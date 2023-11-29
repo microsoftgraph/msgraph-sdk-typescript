@@ -22,8 +22,8 @@ export interface DeviceComplianceActionItemCollectionResponse extends BaseCollec
     value?: DeviceComplianceActionItem[];
 }
 export function serializeDeviceComplianceActionItemCollectionResponse(writer: SerializationWriter, deviceComplianceActionItemCollectionResponse: DeviceComplianceActionItemCollectionResponse | undefined = {} as DeviceComplianceActionItemCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, deviceComplianceActionItemCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceComplianceActionItem>("value", deviceComplianceActionItemCollectionResponse.value, serializeDeviceComplianceActionItem);
+    serializeBaseCollectionPaginationCountResponse(writer, deviceComplianceActionItemCollectionResponse)
+    writer.writeCollectionOfObjectValues<DeviceComplianceActionItem>("value", deviceComplianceActionItemCollectionResponse.value, serializeDeviceComplianceActionItem);
 }
 // tslint:enable
 // eslint-enable

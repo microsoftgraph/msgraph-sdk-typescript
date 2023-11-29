@@ -22,8 +22,8 @@ export function deserializeIntoChecklistItemCollectionResponse(checklistItemColl
     }
 }
 export function serializeChecklistItemCollectionResponse(writer: SerializationWriter, checklistItemCollectionResponse: ChecklistItemCollectionResponse | undefined = {} as ChecklistItemCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, checklistItemCollectionResponse)
-        writer.writeCollectionOfObjectValues<ChecklistItem>("value", checklistItemCollectionResponse.value, serializeChecklistItem);
+    serializeBaseCollectionPaginationCountResponse(writer, checklistItemCollectionResponse)
+    writer.writeCollectionOfObjectValues<ChecklistItem>("value", checklistItemCollectionResponse.value, serializeChecklistItem);
 }
 // tslint:enable
 // eslint-enable

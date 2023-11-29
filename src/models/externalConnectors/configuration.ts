@@ -28,9 +28,9 @@ export function deserializeIntoConfiguration(configuration: Configuration | unde
     }
 }
 export function serializeConfiguration(writer: SerializationWriter, configuration: Configuration | undefined = {} as Configuration) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("authorizedAppIds", configuration.authorizedAppIds);
-        writer.writeStringValue("@odata.type", configuration.odataType);
-        writer.writeAdditionalData(configuration.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("authorizedAppIds", configuration.authorizedAppIds);
+    writer.writeStringValue("@odata.type", configuration.odataType);
+    writer.writeAdditionalData(configuration.additionalData);
 }
 // tslint:enable
 // eslint-enable

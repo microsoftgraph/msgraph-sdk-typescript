@@ -22,8 +22,8 @@ export function deserializeIntoAndroidLobAppCollectionResponse(androidLobAppColl
     }
 }
 export function serializeAndroidLobAppCollectionResponse(writer: SerializationWriter, androidLobAppCollectionResponse: AndroidLobAppCollectionResponse | undefined = {} as AndroidLobAppCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, androidLobAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<AndroidLobApp>("value", androidLobAppCollectionResponse.value, serializeAndroidLobApp);
+    serializeBaseCollectionPaginationCountResponse(writer, androidLobAppCollectionResponse)
+    writer.writeCollectionOfObjectValues<AndroidLobApp>("value", androidLobAppCollectionResponse.value, serializeAndroidLobApp);
 }
 // tslint:enable
 // eslint-enable

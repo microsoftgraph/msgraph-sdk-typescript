@@ -26,9 +26,9 @@ export interface PasswordAuthenticationMethod extends AuthenticationMethod, Pars
     password?: string;
 }
 export function serializePasswordAuthenticationMethod(writer: SerializationWriter, passwordAuthenticationMethod: PasswordAuthenticationMethod | undefined = {} as PasswordAuthenticationMethod) : void {
-        serializeAuthenticationMethod(writer, passwordAuthenticationMethod)
-        writer.writeDateValue("createdDateTime", passwordAuthenticationMethod.createdDateTime);
-        writer.writeStringValue("password", passwordAuthenticationMethod.password);
+    serializeAuthenticationMethod(writer, passwordAuthenticationMethod)
+    writer.writeDateValue("createdDateTime", passwordAuthenticationMethod.createdDateTime);
+    writer.writeStringValue("password", passwordAuthenticationMethod.password);
 }
 // tslint:enable
 // eslint-enable

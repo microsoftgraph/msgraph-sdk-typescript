@@ -63,13 +63,13 @@ export function deserializeIntoDataSourceContainer(dataSourceContainer: DataSour
     }
 }
 export function serializeDataSourceContainer(writer: SerializationWriter, dataSourceContainer: DataSourceContainer | undefined = {} as DataSourceContainer) : void {
-        serializeEntity(writer, dataSourceContainer)
-        writer.writeDateValue("createdDateTime", dataSourceContainer.createdDateTime);
-        writer.writeStringValue("displayName", dataSourceContainer.displayName);
-        writer.writeEnumValue<DataSourceHoldStatus>("holdStatus", dataSourceContainer.holdStatus);
-        writer.writeDateValue("lastModifiedDateTime", dataSourceContainer.lastModifiedDateTime);
-        writer.writeDateValue("releasedDateTime", dataSourceContainer.releasedDateTime);
-        writer.writeEnumValue<DataSourceContainerStatus>("status", dataSourceContainer.status);
+    serializeEntity(writer, dataSourceContainer)
+    writer.writeDateValue("createdDateTime", dataSourceContainer.createdDateTime);
+    writer.writeStringValue("displayName", dataSourceContainer.displayName);
+    writer.writeEnumValue<DataSourceHoldStatus>("holdStatus", dataSourceContainer.holdStatus);
+    writer.writeDateValue("lastModifiedDateTime", dataSourceContainer.lastModifiedDateTime);
+    writer.writeDateValue("releasedDateTime", dataSourceContainer.releasedDateTime);
+    writer.writeEnumValue<DataSourceContainerStatus>("status", dataSourceContainer.status);
 }
 // tslint:enable
 // eslint-enable

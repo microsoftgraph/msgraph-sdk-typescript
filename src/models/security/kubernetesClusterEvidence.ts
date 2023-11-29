@@ -42,12 +42,12 @@ export interface KubernetesClusterEvidence extends AlertEvidence, Parsable {
     version?: string;
 }
 export function serializeKubernetesClusterEvidence(writer: SerializationWriter, kubernetesClusterEvidence: KubernetesClusterEvidence | undefined = {} as KubernetesClusterEvidence) : void {
-        serializeAlertEvidence(writer, kubernetesClusterEvidence)
-        writer.writeObjectValue<AlertEvidence>("cloudResource", kubernetesClusterEvidence.cloudResource, serializeAlertEvidence);
-        writer.writeStringValue("distribution", kubernetesClusterEvidence.distribution);
-        writer.writeStringValue("name", kubernetesClusterEvidence.name);
-        writer.writeEnumValue<KubernetesPlatform>("platform", kubernetesClusterEvidence.platform);
-        writer.writeStringValue("version", kubernetesClusterEvidence.version);
+    serializeAlertEvidence(writer, kubernetesClusterEvidence)
+    writer.writeObjectValue<AlertEvidence>("cloudResource", kubernetesClusterEvidence.cloudResource, serializeAlertEvidence);
+    writer.writeStringValue("distribution", kubernetesClusterEvidence.distribution);
+    writer.writeStringValue("name", kubernetesClusterEvidence.name);
+    writer.writeEnumValue<KubernetesPlatform>("platform", kubernetesClusterEvidence.platform);
+    writer.writeStringValue("version", kubernetesClusterEvidence.version);
 }
 // tslint:enable
 // eslint-enable

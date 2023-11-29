@@ -22,8 +22,8 @@ export function deserializeIntoColumnLinkCollectionResponse(columnLinkCollection
     }
 }
 export function serializeColumnLinkCollectionResponse(writer: SerializationWriter, columnLinkCollectionResponse: ColumnLinkCollectionResponse | undefined = {} as ColumnLinkCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, columnLinkCollectionResponse)
-        writer.writeCollectionOfObjectValues<ColumnLink>("value", columnLinkCollectionResponse.value, serializeColumnLink);
+    serializeBaseCollectionPaginationCountResponse(writer, columnLinkCollectionResponse)
+    writer.writeCollectionOfObjectValues<ColumnLink>("value", columnLinkCollectionResponse.value, serializeColumnLink);
 }
 // tslint:enable
 // eslint-enable

@@ -22,8 +22,8 @@ export function deserializeIntoContractCollectionResponse(contractCollectionResp
     }
 }
 export function serializeContractCollectionResponse(writer: SerializationWriter, contractCollectionResponse: ContractCollectionResponse | undefined = {} as ContractCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, contractCollectionResponse)
-        writer.writeCollectionOfObjectValues<Contract>("value", contractCollectionResponse.value, serializeContract);
+    serializeBaseCollectionPaginationCountResponse(writer, contractCollectionResponse)
+    writer.writeCollectionOfObjectValues<Contract>("value", contractCollectionResponse.value, serializeContract);
 }
 // tslint:enable
 // eslint-enable

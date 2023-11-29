@@ -16,8 +16,8 @@ export function deserializeIntoTeamsAppInstallationCollectionResponse(teamsAppIn
     }
 }
 export function serializeTeamsAppInstallationCollectionResponse(writer: SerializationWriter, teamsAppInstallationCollectionResponse: TeamsAppInstallationCollectionResponse | undefined = {} as TeamsAppInstallationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, teamsAppInstallationCollectionResponse)
-        writer.writeCollectionOfObjectValues<TeamsAppInstallation>("value", teamsAppInstallationCollectionResponse.value, serializeTeamsAppInstallation);
+    serializeBaseCollectionPaginationCountResponse(writer, teamsAppInstallationCollectionResponse)
+    writer.writeCollectionOfObjectValues<TeamsAppInstallation>("value", teamsAppInstallationCollectionResponse.value, serializeTeamsAppInstallation);
 }
 export interface TeamsAppInstallationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

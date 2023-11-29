@@ -33,10 +33,10 @@ export function deserializeIntoBookingQuestionAssignment(bookingQuestionAssignme
     }
 }
 export function serializeBookingQuestionAssignment(writer: SerializationWriter, bookingQuestionAssignment: BookingQuestionAssignment | undefined = {} as BookingQuestionAssignment) : void {
-        writer.writeBooleanValue("isRequired", bookingQuestionAssignment.isRequired);
-        writer.writeStringValue("@odata.type", bookingQuestionAssignment.odataType);
-        writer.writeStringValue("questionId", bookingQuestionAssignment.questionId);
-        writer.writeAdditionalData(bookingQuestionAssignment.additionalData);
+    writer.writeBooleanValue("isRequired", bookingQuestionAssignment.isRequired);
+    writer.writeStringValue("@odata.type", bookingQuestionAssignment.odataType);
+    writer.writeStringValue("questionId", bookingQuestionAssignment.questionId);
+    writer.writeAdditionalData(bookingQuestionAssignment.additionalData);
 }
 // tslint:enable
 // eslint-enable

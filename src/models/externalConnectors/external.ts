@@ -29,9 +29,9 @@ export interface External extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeExternal(writer: SerializationWriter, external: External | undefined = {} as External) : void {
-        writer.writeCollectionOfObjectValues<ExternalConnection>("connections", external.connections, serializeExternalConnection);
-        writer.writeStringValue("@odata.type", external.odataType);
-        writer.writeAdditionalData(external.additionalData);
+    writer.writeCollectionOfObjectValues<ExternalConnection>("connections", external.connections, serializeExternalConnection);
+    writer.writeStringValue("@odata.type", external.odataType);
+    writer.writeAdditionalData(external.additionalData);
 }
 // tslint:enable
 // eslint-enable

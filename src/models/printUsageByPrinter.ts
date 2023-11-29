@@ -26,9 +26,9 @@ export interface PrintUsageByPrinter extends Parsable, PrintUsage {
     printerName?: string;
 }
 export function serializePrintUsageByPrinter(writer: SerializationWriter, printUsageByPrinter: PrintUsageByPrinter | undefined = {} as PrintUsageByPrinter) : void {
-        serializePrintUsage(writer, printUsageByPrinter)
-        writer.writeStringValue("printerId", printUsageByPrinter.printerId);
-        writer.writeStringValue("printerName", printUsageByPrinter.printerName);
+    serializePrintUsage(writer, printUsageByPrinter)
+    writer.writeStringValue("printerId", printUsageByPrinter.printerId);
+    writer.writeStringValue("printerName", printUsageByPrinter.printerName);
 }
 // tslint:enable
 // eslint-enable

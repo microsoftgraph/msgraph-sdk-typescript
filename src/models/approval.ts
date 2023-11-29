@@ -22,8 +22,8 @@ export function deserializeIntoApproval(approval: Approval | undefined = {} as A
     }
 }
 export function serializeApproval(writer: SerializationWriter, approval: Approval | undefined = {} as Approval) : void {
-        serializeEntity(writer, approval)
-        writer.writeCollectionOfObjectValues<ApprovalStage>("stages", approval.stages, serializeApprovalStage);
+    serializeEntity(writer, approval)
+    writer.writeCollectionOfObjectValues<ApprovalStage>("stages", approval.stages, serializeApprovalStage);
 }
 // tslint:enable
 // eslint-enable

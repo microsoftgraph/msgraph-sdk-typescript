@@ -32,10 +32,10 @@ export interface Presence extends Entity, Parsable {
     statusMessage?: PresenceStatusMessage;
 }
 export function serializePresence(writer: SerializationWriter, presence: Presence | undefined = {} as Presence) : void {
-        serializeEntity(writer, presence)
-        writer.writeStringValue("activity", presence.activity);
-        writer.writeStringValue("availability", presence.availability);
-        writer.writeObjectValue<PresenceStatusMessage>("statusMessage", presence.statusMessage, serializePresenceStatusMessage);
+    serializeEntity(writer, presence)
+    writer.writeStringValue("activity", presence.activity);
+    writer.writeStringValue("availability", presence.availability);
+    writer.writeObjectValue<PresenceStatusMessage>("statusMessage", presence.statusMessage, serializePresenceStatusMessage);
 }
 // tslint:enable
 // eslint-enable

@@ -58,15 +58,15 @@ export interface FileEncryptionInfo extends AdditionalDataHolder, Parsable {
     profileIdentifier?: string;
 }
 export function serializeFileEncryptionInfo(writer: SerializationWriter, fileEncryptionInfo: FileEncryptionInfo | undefined = {} as FileEncryptionInfo) : void {
-        writer.writeStringValue("encryptionKey", fileEncryptionInfo.encryptionKey);
-        writer.writeStringValue("fileDigest", fileEncryptionInfo.fileDigest);
-        writer.writeStringValue("fileDigestAlgorithm", fileEncryptionInfo.fileDigestAlgorithm);
-        writer.writeStringValue("initializationVector", fileEncryptionInfo.initializationVector);
-        writer.writeStringValue("mac", fileEncryptionInfo.mac);
-        writer.writeStringValue("macKey", fileEncryptionInfo.macKey);
-        writer.writeStringValue("@odata.type", fileEncryptionInfo.odataType);
-        writer.writeStringValue("profileIdentifier", fileEncryptionInfo.profileIdentifier);
-        writer.writeAdditionalData(fileEncryptionInfo.additionalData);
+    writer.writeStringValue("encryptionKey", fileEncryptionInfo.encryptionKey);
+    writer.writeStringValue("fileDigest", fileEncryptionInfo.fileDigest);
+    writer.writeStringValue("fileDigestAlgorithm", fileEncryptionInfo.fileDigestAlgorithm);
+    writer.writeStringValue("initializationVector", fileEncryptionInfo.initializationVector);
+    writer.writeStringValue("mac", fileEncryptionInfo.mac);
+    writer.writeStringValue("macKey", fileEncryptionInfo.macKey);
+    writer.writeStringValue("@odata.type", fileEncryptionInfo.odataType);
+    writer.writeStringValue("profileIdentifier", fileEncryptionInfo.profileIdentifier);
+    writer.writeAdditionalData(fileEncryptionInfo.additionalData);
 }
 // tslint:enable
 // eslint-enable

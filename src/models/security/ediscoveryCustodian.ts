@@ -50,13 +50,13 @@ export interface EdiscoveryCustodian extends DataSourceContainer, Parsable {
     userSources?: UserSource[];
 }
 export function serializeEdiscoveryCustodian(writer: SerializationWriter, ediscoveryCustodian: EdiscoveryCustodian | undefined = {} as EdiscoveryCustodian) : void {
-        serializeDataSourceContainer(writer, ediscoveryCustodian)
-        writer.writeDateValue("acknowledgedDateTime", ediscoveryCustodian.acknowledgedDateTime);
-        writer.writeStringValue("email", ediscoveryCustodian.email);
-        writer.writeObjectValue<EdiscoveryIndexOperation>("lastIndexOperation", ediscoveryCustodian.lastIndexOperation, serializeEdiscoveryIndexOperation);
-        writer.writeCollectionOfObjectValues<SiteSource>("siteSources", ediscoveryCustodian.siteSources, serializeSiteSource);
-        writer.writeCollectionOfObjectValues<UnifiedGroupSource>("unifiedGroupSources", ediscoveryCustodian.unifiedGroupSources, serializeUnifiedGroupSource);
-        writer.writeCollectionOfObjectValues<UserSource>("userSources", ediscoveryCustodian.userSources, serializeUserSource);
+    serializeDataSourceContainer(writer, ediscoveryCustodian)
+    writer.writeDateValue("acknowledgedDateTime", ediscoveryCustodian.acknowledgedDateTime);
+    writer.writeStringValue("email", ediscoveryCustodian.email);
+    writer.writeObjectValue<EdiscoveryIndexOperation>("lastIndexOperation", ediscoveryCustodian.lastIndexOperation, serializeEdiscoveryIndexOperation);
+    writer.writeCollectionOfObjectValues<SiteSource>("siteSources", ediscoveryCustodian.siteSources, serializeSiteSource);
+    writer.writeCollectionOfObjectValues<UnifiedGroupSource>("unifiedGroupSources", ediscoveryCustodian.unifiedGroupSources, serializeUnifiedGroupSource);
+    writer.writeCollectionOfObjectValues<UserSource>("userSources", ediscoveryCustodian.userSources, serializeUserSource);
 }
 // tslint:enable
 // eslint-enable

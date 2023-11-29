@@ -22,8 +22,8 @@ export interface MessageRuleCollectionResponse extends BaseCollectionPaginationC
     value?: MessageRule[];
 }
 export function serializeMessageRuleCollectionResponse(writer: SerializationWriter, messageRuleCollectionResponse: MessageRuleCollectionResponse | undefined = {} as MessageRuleCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, messageRuleCollectionResponse)
-        writer.writeCollectionOfObjectValues<MessageRule>("value", messageRuleCollectionResponse.value, serializeMessageRule);
+    serializeBaseCollectionPaginationCountResponse(writer, messageRuleCollectionResponse)
+    writer.writeCollectionOfObjectValues<MessageRule>("value", messageRuleCollectionResponse.value, serializeMessageRule);
 }
 // tslint:enable
 // eslint-enable

@@ -16,7 +16,7 @@ export function deserializeIntoActivityBasedTimeoutPolicy(activityBasedTimeoutPo
     }
 }
 export function serializeActivityBasedTimeoutPolicy(writer: SerializationWriter, activityBasedTimeoutPolicy: ActivityBasedTimeoutPolicy | undefined = {} as ActivityBasedTimeoutPolicy) : void {
-        serializeStsPolicy(writer, activityBasedTimeoutPolicy)
+    serializeStsPolicy(writer, activityBasedTimeoutPolicy)
 }
 // tslint:enable
 // eslint-enable

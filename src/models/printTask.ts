@@ -39,11 +39,11 @@ export interface PrintTask extends Entity, Parsable {
     trigger?: PrintTaskTrigger;
 }
 export function serializePrintTask(writer: SerializationWriter, printTask: PrintTask | undefined = {} as PrintTask) : void {
-        serializeEntity(writer, printTask)
-        writer.writeObjectValue<PrintTaskDefinition>("definition", printTask.definition, serializePrintTaskDefinition);
-        writer.writeStringValue("parentUrl", printTask.parentUrl);
-        writer.writeObjectValue<PrintTaskStatus>("status", printTask.status, serializePrintTaskStatus);
-        writer.writeObjectValue<PrintTaskTrigger>("trigger", printTask.trigger, serializePrintTaskTrigger);
+    serializeEntity(writer, printTask)
+    writer.writeObjectValue<PrintTaskDefinition>("definition", printTask.definition, serializePrintTaskDefinition);
+    writer.writeStringValue("parentUrl", printTask.parentUrl);
+    writer.writeObjectValue<PrintTaskStatus>("status", printTask.status, serializePrintTaskStatus);
+    writer.writeObjectValue<PrintTaskTrigger>("trigger", printTask.trigger, serializePrintTaskTrigger);
 }
 // tslint:enable
 // eslint-enable

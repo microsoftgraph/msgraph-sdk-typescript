@@ -33,10 +33,10 @@ export interface IntelligenceProfileCountryOrRegionOfOrigin extends AdditionalDa
     odataType?: string;
 }
 export function serializeIntelligenceProfileCountryOrRegionOfOrigin(writer: SerializationWriter, intelligenceProfileCountryOrRegionOfOrigin: IntelligenceProfileCountryOrRegionOfOrigin | undefined = {} as IntelligenceProfileCountryOrRegionOfOrigin) : void {
-        writer.writeStringValue("code", intelligenceProfileCountryOrRegionOfOrigin.code);
-        writer.writeStringValue("label", intelligenceProfileCountryOrRegionOfOrigin.label);
-        writer.writeStringValue("@odata.type", intelligenceProfileCountryOrRegionOfOrigin.odataType);
-        writer.writeAdditionalData(intelligenceProfileCountryOrRegionOfOrigin.additionalData);
+    writer.writeStringValue("code", intelligenceProfileCountryOrRegionOfOrigin.code);
+    writer.writeStringValue("label", intelligenceProfileCountryOrRegionOfOrigin.label);
+    writer.writeStringValue("@odata.type", intelligenceProfileCountryOrRegionOfOrigin.odataType);
+    writer.writeAdditionalData(intelligenceProfileCountryOrRegionOfOrigin.additionalData);
 }
 // tslint:enable
 // eslint-enable

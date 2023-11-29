@@ -22,8 +22,8 @@ export interface Identity extends Entity, Parsable {
     type?: IdentityType;
 }
 export function serializeIdentity(writer: SerializationWriter, identity: Identity | undefined = {} as Identity) : void {
-        serializeEntity(writer, identity)
-        writer.writeEnumValue<IdentityType>("type", identity.type);
+    serializeEntity(writer, identity)
+    writer.writeEnumValue<IdentityType>("type", identity.type);
 }
 // tslint:enable
 // eslint-enable

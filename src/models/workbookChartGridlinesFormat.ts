@@ -16,8 +16,8 @@ export function deserializeIntoWorkbookChartGridlinesFormat(workbookChartGridlin
     }
 }
 export function serializeWorkbookChartGridlinesFormat(writer: SerializationWriter, workbookChartGridlinesFormat: WorkbookChartGridlinesFormat | undefined = {} as WorkbookChartGridlinesFormat) : void {
-        serializeEntity(writer, workbookChartGridlinesFormat)
-        writer.writeObjectValue<WorkbookChartLineFormat>("line", workbookChartGridlinesFormat.line, serializeWorkbookChartLineFormat);
+    serializeEntity(writer, workbookChartGridlinesFormat)
+    writer.writeObjectValue<WorkbookChartLineFormat>("line", workbookChartGridlinesFormat.line, serializeWorkbookChartLineFormat);
 }
 export interface WorkbookChartGridlinesFormat extends Entity, Parsable {
     /**

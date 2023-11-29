@@ -16,7 +16,7 @@ export function deserializeIntoEdiscoveryPurgeDataOperation(ediscoveryPurgeDataO
 export interface EdiscoveryPurgeDataOperation extends CaseOperation, Parsable {
 }
 export function serializeEdiscoveryPurgeDataOperation(writer: SerializationWriter, ediscoveryPurgeDataOperation: EdiscoveryPurgeDataOperation | undefined = {} as EdiscoveryPurgeDataOperation) : void {
-        serializeCaseOperation(writer, ediscoveryPurgeDataOperation)
+    serializeCaseOperation(writer, ediscoveryPurgeDataOperation)
 }
 // tslint:enable
 // eslint-enable

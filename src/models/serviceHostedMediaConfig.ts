@@ -16,8 +16,8 @@ export function deserializeIntoServiceHostedMediaConfig(serviceHostedMediaConfig
     }
 }
 export function serializeServiceHostedMediaConfig(writer: SerializationWriter, serviceHostedMediaConfig: ServiceHostedMediaConfig | undefined = {} as ServiceHostedMediaConfig) : void {
-        serializeMediaConfig(writer, serviceHostedMediaConfig)
-        writer.writeCollectionOfObjectValues<MediaInfo>("preFetchMedia", serviceHostedMediaConfig.preFetchMedia, serializeMediaInfo);
+    serializeMediaConfig(writer, serviceHostedMediaConfig)
+    writer.writeCollectionOfObjectValues<MediaInfo>("preFetchMedia", serviceHostedMediaConfig.preFetchMedia, serializeMediaInfo);
 }
 export interface ServiceHostedMediaConfig extends MediaConfig, Parsable {
     /**

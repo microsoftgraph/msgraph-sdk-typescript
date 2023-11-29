@@ -16,8 +16,8 @@ export function deserializeIntoUserExperienceAnalyticsWorkFromAnywhereMetricColl
     }
 }
 export function serializeUserExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse(writer: SerializationWriter, userExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse: UserExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, userExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse)
-        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsWorkFromAnywhereMetric>("value", userExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse.value, serializeUserExperienceAnalyticsWorkFromAnywhereMetric);
+    serializeBaseCollectionPaginationCountResponse(writer, userExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse)
+    writer.writeCollectionOfObjectValues<UserExperienceAnalyticsWorkFromAnywhereMetric>("value", userExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse.value, serializeUserExperienceAnalyticsWorkFromAnywhereMetric);
 }
 export interface UserExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

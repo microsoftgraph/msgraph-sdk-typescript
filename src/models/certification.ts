@@ -48,11 +48,11 @@ export function deserializeIntoCertification(certification: Certification | unde
     }
 }
 export function serializeCertification(writer: SerializationWriter, certification: Certification | undefined = {} as Certification) : void {
-        writer.writeDateValue("certificationExpirationDateTime", certification.certificationExpirationDateTime);
-        writer.writeBooleanValue("isPublisherAttested", certification.isPublisherAttested);
-        writer.writeDateValue("lastCertificationDateTime", certification.lastCertificationDateTime);
-        writer.writeStringValue("@odata.type", certification.odataType);
-        writer.writeAdditionalData(certification.additionalData);
+    writer.writeDateValue("certificationExpirationDateTime", certification.certificationExpirationDateTime);
+    writer.writeBooleanValue("isPublisherAttested", certification.isPublisherAttested);
+    writer.writeDateValue("lastCertificationDateTime", certification.lastCertificationDateTime);
+    writer.writeStringValue("@odata.type", certification.odataType);
+    writer.writeAdditionalData(certification.additionalData);
 }
 // tslint:enable
 // eslint-enable

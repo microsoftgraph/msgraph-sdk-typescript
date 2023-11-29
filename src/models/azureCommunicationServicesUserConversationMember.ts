@@ -21,8 +21,8 @@ export function deserializeIntoAzureCommunicationServicesUserConversationMember(
     }
 }
 export function serializeAzureCommunicationServicesUserConversationMember(writer: SerializationWriter, azureCommunicationServicesUserConversationMember: AzureCommunicationServicesUserConversationMember | undefined = {} as AzureCommunicationServicesUserConversationMember) : void {
-        serializeConversationMember(writer, azureCommunicationServicesUserConversationMember)
-        writer.writeStringValue("azureCommunicationServicesId", azureCommunicationServicesUserConversationMember.azureCommunicationServicesId);
+    serializeConversationMember(writer, azureCommunicationServicesUserConversationMember)
+    writer.writeStringValue("azureCommunicationServicesId", azureCommunicationServicesUserConversationMember.azureCommunicationServicesId);
 }
 // tslint:enable
 // eslint-enable

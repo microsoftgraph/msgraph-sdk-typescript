@@ -16,7 +16,7 @@ export function deserializeIntoMuteParticipantOperation(muteParticipantOperation
 export interface MuteParticipantOperation extends CommsOperation, Parsable {
 }
 export function serializeMuteParticipantOperation(writer: SerializationWriter, muteParticipantOperation: MuteParticipantOperation | undefined = {} as MuteParticipantOperation) : void {
-        serializeCommsOperation(writer, muteParticipantOperation)
+    serializeCommsOperation(writer, muteParticipantOperation)
 }
 // tslint:enable
 // eslint-enable

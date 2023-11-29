@@ -58,14 +58,14 @@ export interface PrivilegedAccessGroup extends Entity, Parsable {
     eligibilitySchedules?: PrivilegedAccessGroupEligibilitySchedule[];
 }
 export function serializePrivilegedAccessGroup(writer: SerializationWriter, privilegedAccessGroup: PrivilegedAccessGroup | undefined = {} as PrivilegedAccessGroup) : void {
-        serializeEntity(writer, privilegedAccessGroup)
-        writer.writeCollectionOfObjectValues<Approval>("assignmentApprovals", privilegedAccessGroup.assignmentApprovals, serializeApproval);
-        writer.writeCollectionOfObjectValues<PrivilegedAccessGroupAssignmentScheduleInstance>("assignmentScheduleInstances", privilegedAccessGroup.assignmentScheduleInstances, serializePrivilegedAccessGroupAssignmentScheduleInstance);
-        writer.writeCollectionOfObjectValues<PrivilegedAccessGroupAssignmentScheduleRequest>("assignmentScheduleRequests", privilegedAccessGroup.assignmentScheduleRequests, serializePrivilegedAccessGroupAssignmentScheduleRequest);
-        writer.writeCollectionOfObjectValues<PrivilegedAccessGroupAssignmentSchedule>("assignmentSchedules", privilegedAccessGroup.assignmentSchedules, serializePrivilegedAccessGroupAssignmentSchedule);
-        writer.writeCollectionOfObjectValues<PrivilegedAccessGroupEligibilityScheduleInstance>("eligibilityScheduleInstances", privilegedAccessGroup.eligibilityScheduleInstances, serializePrivilegedAccessGroupEligibilityScheduleInstance);
-        writer.writeCollectionOfObjectValues<PrivilegedAccessGroupEligibilityScheduleRequest>("eligibilityScheduleRequests", privilegedAccessGroup.eligibilityScheduleRequests, serializePrivilegedAccessGroupEligibilityScheduleRequest);
-        writer.writeCollectionOfObjectValues<PrivilegedAccessGroupEligibilitySchedule>("eligibilitySchedules", privilegedAccessGroup.eligibilitySchedules, serializePrivilegedAccessGroupEligibilitySchedule);
+    serializeEntity(writer, privilegedAccessGroup)
+    writer.writeCollectionOfObjectValues<Approval>("assignmentApprovals", privilegedAccessGroup.assignmentApprovals, serializeApproval);
+    writer.writeCollectionOfObjectValues<PrivilegedAccessGroupAssignmentScheduleInstance>("assignmentScheduleInstances", privilegedAccessGroup.assignmentScheduleInstances, serializePrivilegedAccessGroupAssignmentScheduleInstance);
+    writer.writeCollectionOfObjectValues<PrivilegedAccessGroupAssignmentScheduleRequest>("assignmentScheduleRequests", privilegedAccessGroup.assignmentScheduleRequests, serializePrivilegedAccessGroupAssignmentScheduleRequest);
+    writer.writeCollectionOfObjectValues<PrivilegedAccessGroupAssignmentSchedule>("assignmentSchedules", privilegedAccessGroup.assignmentSchedules, serializePrivilegedAccessGroupAssignmentSchedule);
+    writer.writeCollectionOfObjectValues<PrivilegedAccessGroupEligibilityScheduleInstance>("eligibilityScheduleInstances", privilegedAccessGroup.eligibilityScheduleInstances, serializePrivilegedAccessGroupEligibilityScheduleInstance);
+    writer.writeCollectionOfObjectValues<PrivilegedAccessGroupEligibilityScheduleRequest>("eligibilityScheduleRequests", privilegedAccessGroup.eligibilityScheduleRequests, serializePrivilegedAccessGroupEligibilityScheduleRequest);
+    writer.writeCollectionOfObjectValues<PrivilegedAccessGroupEligibilitySchedule>("eligibilitySchedules", privilegedAccessGroup.eligibilitySchedules, serializePrivilegedAccessGroupEligibilitySchedule);
 }
 // tslint:enable
 // eslint-enable

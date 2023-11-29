@@ -33,10 +33,10 @@ export interface FileEvidence extends AlertEvidence, Parsable {
     mdeDeviceId?: string;
 }
 export function serializeFileEvidence(writer: SerializationWriter, fileEvidence: FileEvidence | undefined = {} as FileEvidence) : void {
-        serializeAlertEvidence(writer, fileEvidence)
-        writer.writeEnumValue<DetectionStatus>("detectionStatus", fileEvidence.detectionStatus);
-        writer.writeObjectValue<FileDetails>("fileDetails", fileEvidence.fileDetails, serializeFileDetails);
-        writer.writeStringValue("mdeDeviceId", fileEvidence.mdeDeviceId);
+    serializeAlertEvidence(writer, fileEvidence)
+    writer.writeEnumValue<DetectionStatus>("detectionStatus", fileEvidence.detectionStatus);
+    writer.writeObjectValue<FileDetails>("fileDetails", fileEvidence.fileDetails, serializeFileDetails);
+    writer.writeStringValue("mdeDeviceId", fileEvidence.mdeDeviceId);
 }
 // tslint:enable
 // eslint-enable

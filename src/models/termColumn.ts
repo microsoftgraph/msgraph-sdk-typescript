@@ -19,12 +19,12 @@ export function deserializeIntoTermColumn(termColumn: TermColumn | undefined = {
     }
 }
 export function serializeTermColumn(writer: SerializationWriter, termColumn: TermColumn | undefined = {} as TermColumn) : void {
-        writer.writeBooleanValue("allowMultipleValues", termColumn.allowMultipleValues);
-        writer.writeStringValue("@odata.type", termColumn.odataType);
-        writer.writeObjectValue<Term>("parentTerm", termColumn.parentTerm, serializeTerm);
-        writer.writeBooleanValue("showFullyQualifiedName", termColumn.showFullyQualifiedName);
-        writer.writeObjectValue<Set>("termSet", termColumn.termSet, serializeSet);
-        writer.writeAdditionalData(termColumn.additionalData);
+    writer.writeBooleanValue("allowMultipleValues", termColumn.allowMultipleValues);
+    writer.writeStringValue("@odata.type", termColumn.odataType);
+    writer.writeObjectValue<Term>("parentTerm", termColumn.parentTerm, serializeTerm);
+    writer.writeBooleanValue("showFullyQualifiedName", termColumn.showFullyQualifiedName);
+    writer.writeObjectValue<Set>("termSet", termColumn.termSet, serializeSet);
+    writer.writeAdditionalData(termColumn.additionalData);
 }
 export interface TermColumn extends AdditionalDataHolder, Parsable {
     /**

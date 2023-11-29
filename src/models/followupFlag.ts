@@ -45,12 +45,12 @@ export interface FollowupFlag extends AdditionalDataHolder, Parsable {
     startDateTime?: DateTimeTimeZone;
 }
 export function serializeFollowupFlag(writer: SerializationWriter, followupFlag: FollowupFlag | undefined = {} as FollowupFlag) : void {
-        writer.writeObjectValue<DateTimeTimeZone>("completedDateTime", followupFlag.completedDateTime, serializeDateTimeTimeZone);
-        writer.writeObjectValue<DateTimeTimeZone>("dueDateTime", followupFlag.dueDateTime, serializeDateTimeTimeZone);
-        writer.writeEnumValue<FollowupFlagStatus>("flagStatus", followupFlag.flagStatus);
-        writer.writeStringValue("@odata.type", followupFlag.odataType);
-        writer.writeObjectValue<DateTimeTimeZone>("startDateTime", followupFlag.startDateTime, serializeDateTimeTimeZone);
-        writer.writeAdditionalData(followupFlag.additionalData);
+    writer.writeObjectValue<DateTimeTimeZone>("completedDateTime", followupFlag.completedDateTime, serializeDateTimeTimeZone);
+    writer.writeObjectValue<DateTimeTimeZone>("dueDateTime", followupFlag.dueDateTime, serializeDateTimeTimeZone);
+    writer.writeEnumValue<FollowupFlagStatus>("flagStatus", followupFlag.flagStatus);
+    writer.writeStringValue("@odata.type", followupFlag.odataType);
+    writer.writeObjectValue<DateTimeTimeZone>("startDateTime", followupFlag.startDateTime, serializeDateTimeTimeZone);
+    writer.writeAdditionalData(followupFlag.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -18,13 +18,13 @@ export function deserializeIntoUserTrainingContentEventInfo(userTrainingContentE
     }
 }
 export function serializeUserTrainingContentEventInfo(writer: SerializationWriter, userTrainingContentEventInfo: UserTrainingContentEventInfo | undefined = {} as UserTrainingContentEventInfo) : void {
-        writer.writeStringValue("browser", userTrainingContentEventInfo.browser);
-        writer.writeDateValue("contentDateTime", userTrainingContentEventInfo.contentDateTime);
-        writer.writeStringValue("ipAddress", userTrainingContentEventInfo.ipAddress);
-        writer.writeStringValue("@odata.type", userTrainingContentEventInfo.odataType);
-        writer.writeStringValue("osPlatformDeviceDetails", userTrainingContentEventInfo.osPlatformDeviceDetails);
-        writer.writeNumberValue("potentialScoreImpact", userTrainingContentEventInfo.potentialScoreImpact);
-        writer.writeAdditionalData(userTrainingContentEventInfo.additionalData);
+    writer.writeStringValue("browser", userTrainingContentEventInfo.browser);
+    writer.writeDateValue("contentDateTime", userTrainingContentEventInfo.contentDateTime);
+    writer.writeStringValue("ipAddress", userTrainingContentEventInfo.ipAddress);
+    writer.writeStringValue("@odata.type", userTrainingContentEventInfo.odataType);
+    writer.writeStringValue("osPlatformDeviceDetails", userTrainingContentEventInfo.osPlatformDeviceDetails);
+    writer.writeNumberValue("potentialScoreImpact", userTrainingContentEventInfo.potentialScoreImpact);
+    writer.writeAdditionalData(userTrainingContentEventInfo.additionalData);
 }
 export interface UserTrainingContentEventInfo extends AdditionalDataHolder, Parsable {
     /**

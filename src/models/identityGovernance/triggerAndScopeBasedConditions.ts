@@ -18,9 +18,9 @@ export function deserializeIntoTriggerAndScopeBasedConditions(triggerAndScopeBas
     }
 }
 export function serializeTriggerAndScopeBasedConditions(writer: SerializationWriter, triggerAndScopeBasedConditions: TriggerAndScopeBasedConditions | undefined = {} as TriggerAndScopeBasedConditions) : void {
-        serializeWorkflowExecutionConditions(writer, triggerAndScopeBasedConditions)
-        writer.writeObjectValue<SubjectSet>("scope", triggerAndScopeBasedConditions.scope, serializeSubjectSet);
-        writer.writeObjectValue<WorkflowExecutionTrigger>("trigger", triggerAndScopeBasedConditions.trigger, serializeWorkflowExecutionTrigger);
+    serializeWorkflowExecutionConditions(writer, triggerAndScopeBasedConditions)
+    writer.writeObjectValue<SubjectSet>("scope", triggerAndScopeBasedConditions.scope, serializeSubjectSet);
+    writer.writeObjectValue<WorkflowExecutionTrigger>("trigger", triggerAndScopeBasedConditions.trigger, serializeWorkflowExecutionTrigger);
 }
 export interface TriggerAndScopeBasedConditions extends Parsable, WorkflowExecutionConditions {
     /**

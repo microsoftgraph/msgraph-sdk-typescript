@@ -54,14 +54,14 @@ export function deserializeIntoAttachmentItem(attachmentItem: AttachmentItem | u
     }
 }
 export function serializeAttachmentItem(writer: SerializationWriter, attachmentItem: AttachmentItem | undefined = {} as AttachmentItem) : void {
-        writer.writeEnumValue<AttachmentType>("attachmentType", attachmentItem.attachmentType);
-        writer.writeStringValue("contentId", attachmentItem.contentId);
-        writer.writeStringValue("contentType", attachmentItem.contentType);
-        writer.writeBooleanValue("isInline", attachmentItem.isInline);
-        writer.writeStringValue("name", attachmentItem.name);
-        writer.writeStringValue("@odata.type", attachmentItem.odataType);
-        writer.writeNumberValue("size", attachmentItem.size);
-        writer.writeAdditionalData(attachmentItem.additionalData);
+    writer.writeEnumValue<AttachmentType>("attachmentType", attachmentItem.attachmentType);
+    writer.writeStringValue("contentId", attachmentItem.contentId);
+    writer.writeStringValue("contentType", attachmentItem.contentType);
+    writer.writeBooleanValue("isInline", attachmentItem.isInline);
+    writer.writeStringValue("name", attachmentItem.name);
+    writer.writeStringValue("@odata.type", attachmentItem.odataType);
+    writer.writeNumberValue("size", attachmentItem.size);
+    writer.writeAdditionalData(attachmentItem.additionalData);
 }
 // tslint:enable
 // eslint-enable

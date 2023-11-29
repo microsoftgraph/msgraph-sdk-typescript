@@ -22,8 +22,8 @@ export interface IdentityProviderBaseCollectionResponse extends BaseCollectionPa
     value?: IdentityProviderBase[];
 }
 export function serializeIdentityProviderBaseCollectionResponse(writer: SerializationWriter, identityProviderBaseCollectionResponse: IdentityProviderBaseCollectionResponse | undefined = {} as IdentityProviderBaseCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, identityProviderBaseCollectionResponse)
-        writer.writeCollectionOfObjectValues<IdentityProviderBase>("value", identityProviderBaseCollectionResponse.value, serializeIdentityProviderBase);
+    serializeBaseCollectionPaginationCountResponse(writer, identityProviderBaseCollectionResponse)
+    writer.writeCollectionOfObjectValues<IdentityProviderBase>("value", identityProviderBaseCollectionResponse.value, serializeIdentityProviderBase);
 }
 // tslint:enable
 // eslint-enable

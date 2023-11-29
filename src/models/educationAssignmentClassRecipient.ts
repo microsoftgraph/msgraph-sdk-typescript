@@ -16,7 +16,7 @@ export function deserializeIntoEducationAssignmentClassRecipient(educationAssign
 export interface EducationAssignmentClassRecipient extends EducationAssignmentRecipient, Parsable {
 }
 export function serializeEducationAssignmentClassRecipient(writer: SerializationWriter, educationAssignmentClassRecipient: EducationAssignmentClassRecipient | undefined = {} as EducationAssignmentClassRecipient) : void {
-        serializeEducationAssignmentRecipient(writer, educationAssignmentClassRecipient)
+    serializeEducationAssignmentRecipient(writer, educationAssignmentClassRecipient)
 }
 // tslint:enable
 // eslint-enable

@@ -27,17 +27,17 @@ export function deserializeIntoSubscribedSku(subscribedSku: SubscribedSku | unde
     }
 }
 export function serializeSubscribedSku(writer: SerializationWriter, subscribedSku: SubscribedSku | undefined = {} as SubscribedSku) : void {
-        serializeEntity(writer, subscribedSku)
-        writer.writeStringValue("accountId", subscribedSku.accountId);
-        writer.writeStringValue("accountName", subscribedSku.accountName);
-        writer.writeStringValue("appliesTo", subscribedSku.appliesTo);
-        writer.writeStringValue("capabilityStatus", subscribedSku.capabilityStatus);
-        writer.writeNumberValue("consumedUnits", subscribedSku.consumedUnits);
-        writer.writeObjectValue<LicenseUnitsDetail>("prepaidUnits", subscribedSku.prepaidUnits, serializeLicenseUnitsDetail);
-        writer.writeCollectionOfObjectValues<ServicePlanInfo>("servicePlans", subscribedSku.servicePlans, serializeServicePlanInfo);
-        writer.writeGuidValue("skuId", subscribedSku.skuId);
-        writer.writeStringValue("skuPartNumber", subscribedSku.skuPartNumber);
-        writer.writeCollectionOfPrimitiveValues<string>("subscriptionIds", subscribedSku.subscriptionIds);
+    serializeEntity(writer, subscribedSku)
+    writer.writeStringValue("accountId", subscribedSku.accountId);
+    writer.writeStringValue("accountName", subscribedSku.accountName);
+    writer.writeStringValue("appliesTo", subscribedSku.appliesTo);
+    writer.writeStringValue("capabilityStatus", subscribedSku.capabilityStatus);
+    writer.writeNumberValue("consumedUnits", subscribedSku.consumedUnits);
+    writer.writeObjectValue<LicenseUnitsDetail>("prepaidUnits", subscribedSku.prepaidUnits, serializeLicenseUnitsDetail);
+    writer.writeCollectionOfObjectValues<ServicePlanInfo>("servicePlans", subscribedSku.servicePlans, serializeServicePlanInfo);
+    writer.writeGuidValue("skuId", subscribedSku.skuId);
+    writer.writeStringValue("skuPartNumber", subscribedSku.skuPartNumber);
+    writer.writeCollectionOfPrimitiveValues<string>("subscriptionIds", subscribedSku.subscriptionIds);
 }
 export interface SubscribedSku extends Entity, Parsable {
     /**

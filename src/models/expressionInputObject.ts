@@ -35,10 +35,10 @@ export interface ExpressionInputObject extends AdditionalDataHolder, Parsable {
     properties?: StringKeyObjectValuePair[];
 }
 export function serializeExpressionInputObject(writer: SerializationWriter, expressionInputObject: ExpressionInputObject | undefined = {} as ExpressionInputObject) : void {
-        writer.writeObjectValue<ObjectDefinition>("definition", expressionInputObject.definition, serializeObjectDefinition);
-        writer.writeStringValue("@odata.type", expressionInputObject.odataType);
-        writer.writeCollectionOfObjectValues<StringKeyObjectValuePair>("properties", expressionInputObject.properties, serializeStringKeyObjectValuePair);
-        writer.writeAdditionalData(expressionInputObject.additionalData);
+    writer.writeObjectValue<ObjectDefinition>("definition", expressionInputObject.definition, serializeObjectDefinition);
+    writer.writeStringValue("@odata.type", expressionInputObject.odataType);
+    writer.writeCollectionOfObjectValues<StringKeyObjectValuePair>("properties", expressionInputObject.properties, serializeStringKeyObjectValuePair);
+    writer.writeAdditionalData(expressionInputObject.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -40,9 +40,9 @@ export function deserializeIntoCustomExtensionCallbackConfiguration(customExtens
     }
 }
 export function serializeCustomExtensionCallbackConfiguration(writer: SerializationWriter, customExtensionCallbackConfiguration: CustomExtensionCallbackConfiguration | undefined = {} as CustomExtensionCallbackConfiguration) : void {
-        writer.writeStringValue("@odata.type", customExtensionCallbackConfiguration.odataType);
-        writer.writeDurationValue("timeoutDuration", customExtensionCallbackConfiguration.timeoutDuration);
-        writer.writeAdditionalData(customExtensionCallbackConfiguration.additionalData);
+    writer.writeStringValue("@odata.type", customExtensionCallbackConfiguration.odataType);
+    writer.writeDurationValue("timeoutDuration", customExtensionCallbackConfiguration.timeoutDuration);
+    writer.writeAdditionalData(customExtensionCallbackConfiguration.additionalData);
 }
 // tslint:enable
 // eslint-enable

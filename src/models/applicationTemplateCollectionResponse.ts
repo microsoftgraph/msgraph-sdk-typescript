@@ -22,8 +22,8 @@ export function deserializeIntoApplicationTemplateCollectionResponse(application
     }
 }
 export function serializeApplicationTemplateCollectionResponse(writer: SerializationWriter, applicationTemplateCollectionResponse: ApplicationTemplateCollectionResponse | undefined = {} as ApplicationTemplateCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, applicationTemplateCollectionResponse)
-        writer.writeCollectionOfObjectValues<ApplicationTemplate>("value", applicationTemplateCollectionResponse.value, serializeApplicationTemplate);
+    serializeBaseCollectionPaginationCountResponse(writer, applicationTemplateCollectionResponse)
+    writer.writeCollectionOfObjectValues<ApplicationTemplate>("value", applicationTemplateCollectionResponse.value, serializeApplicationTemplate);
 }
 // tslint:enable
 // eslint-enable

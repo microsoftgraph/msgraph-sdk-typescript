@@ -15,8 +15,8 @@ export function deserializeIntoWorkflowVersion(workflowVersion: WorkflowVersion 
     }
 }
 export function serializeWorkflowVersion(writer: SerializationWriter, workflowVersion: WorkflowVersion | undefined = {} as WorkflowVersion) : void {
-        serializeWorkflowBase(writer, workflowVersion)
-        writer.writeNumberValue("versionNumber", workflowVersion.versionNumber);
+    serializeWorkflowBase(writer, workflowVersion)
+    writer.writeNumberValue("versionNumber", workflowVersion.versionNumber);
 }
 export interface WorkflowVersion extends Parsable, WorkflowBase {
     /**

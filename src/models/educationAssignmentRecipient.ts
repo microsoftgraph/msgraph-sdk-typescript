@@ -41,8 +41,8 @@ export interface EducationAssignmentRecipient extends AdditionalDataHolder, Pars
     odataType?: string;
 }
 export function serializeEducationAssignmentRecipient(writer: SerializationWriter, educationAssignmentRecipient: EducationAssignmentRecipient | undefined = {} as EducationAssignmentRecipient) : void {
-        writer.writeStringValue("@odata.type", educationAssignmentRecipient.odataType);
-        writer.writeAdditionalData(educationAssignmentRecipient.additionalData);
+    writer.writeStringValue("@odata.type", educationAssignmentRecipient.odataType);
+    writer.writeAdditionalData(educationAssignmentRecipient.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -34,10 +34,10 @@ export interface IosHomeScreenPage extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeIosHomeScreenPage(writer: SerializationWriter, iosHomeScreenPage: IosHomeScreenPage | undefined = {} as IosHomeScreenPage) : void {
-        writer.writeStringValue("displayName", iosHomeScreenPage.displayName);
-        writer.writeCollectionOfObjectValues<IosHomeScreenItem>("icons", iosHomeScreenPage.icons, serializeIosHomeScreenItem);
-        writer.writeStringValue("@odata.type", iosHomeScreenPage.odataType);
-        writer.writeAdditionalData(iosHomeScreenPage.additionalData);
+    writer.writeStringValue("displayName", iosHomeScreenPage.displayName);
+    writer.writeCollectionOfObjectValues<IosHomeScreenItem>("icons", iosHomeScreenPage.icons, serializeIosHomeScreenItem);
+    writer.writeStringValue("@odata.type", iosHomeScreenPage.odataType);
+    writer.writeAdditionalData(iosHomeScreenPage.additionalData);
 }
 // tslint:enable
 // eslint-enable

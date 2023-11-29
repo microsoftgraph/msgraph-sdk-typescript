@@ -21,8 +21,8 @@ export function deserializeIntoAccessPackageAnswerString(accessPackageAnswerStri
     }
 }
 export function serializeAccessPackageAnswerString(writer: SerializationWriter, accessPackageAnswerString: AccessPackageAnswerString | undefined = {} as AccessPackageAnswerString) : void {
-        serializeAccessPackageAnswer(writer, accessPackageAnswerString)
-        writer.writeStringValue("value", accessPackageAnswerString.value);
+    serializeAccessPackageAnswer(writer, accessPackageAnswerString)
+    writer.writeStringValue("value", accessPackageAnswerString.value);
 }
 // tslint:enable
 // eslint-enable

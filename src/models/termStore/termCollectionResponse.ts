@@ -16,8 +16,8 @@ export function deserializeIntoTermCollectionResponse(termCollectionResponse: Te
     }
 }
 export function serializeTermCollectionResponse(writer: SerializationWriter, termCollectionResponse: TermCollectionResponse | undefined = {} as TermCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, termCollectionResponse)
-        writer.writeCollectionOfObjectValues<Term>("value", termCollectionResponse.value, serializeTerm);
+    serializeBaseCollectionPaginationCountResponse(writer, termCollectionResponse)
+    writer.writeCollectionOfObjectValues<Term>("value", termCollectionResponse.value, serializeTerm);
 }
 export interface TermCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

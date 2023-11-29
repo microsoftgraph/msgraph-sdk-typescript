@@ -49,11 +49,11 @@ export interface RoleAssignment extends Entity, Parsable {
     roleDefinition?: RoleDefinition;
 }
 export function serializeRoleAssignment(writer: SerializationWriter, roleAssignment: RoleAssignment | undefined = {} as RoleAssignment) : void {
-        serializeEntity(writer, roleAssignment)
-        writer.writeStringValue("description", roleAssignment.description);
-        writer.writeStringValue("displayName", roleAssignment.displayName);
-        writer.writeCollectionOfPrimitiveValues<string>("resourceScopes", roleAssignment.resourceScopes);
-        writer.writeObjectValue<RoleDefinition>("roleDefinition", roleAssignment.roleDefinition, serializeRoleDefinition);
+    serializeEntity(writer, roleAssignment)
+    writer.writeStringValue("description", roleAssignment.description);
+    writer.writeStringValue("displayName", roleAssignment.displayName);
+    writer.writeCollectionOfPrimitiveValues<string>("resourceScopes", roleAssignment.resourceScopes);
+    writer.writeObjectValue<RoleDefinition>("roleDefinition", roleAssignment.roleDefinition, serializeRoleDefinition);
 }
 // tslint:enable
 // eslint-enable

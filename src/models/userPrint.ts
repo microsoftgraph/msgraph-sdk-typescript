@@ -15,9 +15,9 @@ export function deserializeIntoUserPrint(userPrint: UserPrint | undefined = {} a
     }
 }
 export function serializeUserPrint(writer: SerializationWriter, userPrint: UserPrint | undefined = {} as UserPrint) : void {
-        writer.writeStringValue("@odata.type", userPrint.odataType);
-        writer.writeCollectionOfObjectValues<PrinterShare>("recentPrinterShares", userPrint.recentPrinterShares, serializePrinterShare);
-        writer.writeAdditionalData(userPrint.additionalData);
+    writer.writeStringValue("@odata.type", userPrint.odataType);
+    writer.writeCollectionOfObjectValues<PrinterShare>("recentPrinterShares", userPrint.recentPrinterShares, serializePrinterShare);
+    writer.writeAdditionalData(userPrint.additionalData);
 }
 export interface UserPrint extends AdditionalDataHolder, Parsable {
     /**

@@ -16,8 +16,8 @@ export function deserializeIntoServicePrincipalRiskDetectionCollectionResponse(s
     }
 }
 export function serializeServicePrincipalRiskDetectionCollectionResponse(writer: SerializationWriter, servicePrincipalRiskDetectionCollectionResponse: ServicePrincipalRiskDetectionCollectionResponse | undefined = {} as ServicePrincipalRiskDetectionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, servicePrincipalRiskDetectionCollectionResponse)
-        writer.writeCollectionOfObjectValues<ServicePrincipalRiskDetection>("value", servicePrincipalRiskDetectionCollectionResponse.value, serializeServicePrincipalRiskDetection);
+    serializeBaseCollectionPaginationCountResponse(writer, servicePrincipalRiskDetectionCollectionResponse)
+    writer.writeCollectionOfObjectValues<ServicePrincipalRiskDetection>("value", servicePrincipalRiskDetectionCollectionResponse.value, serializeServicePrincipalRiskDetection);
 }
 export interface ServicePrincipalRiskDetectionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

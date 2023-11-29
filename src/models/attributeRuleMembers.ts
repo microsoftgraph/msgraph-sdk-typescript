@@ -26,9 +26,9 @@ export function deserializeIntoAttributeRuleMembers(attributeRuleMembers: Attrib
     }
 }
 export function serializeAttributeRuleMembers(writer: SerializationWriter, attributeRuleMembers: AttributeRuleMembers | undefined = {} as AttributeRuleMembers) : void {
-        serializeSubjectSet(writer, attributeRuleMembers)
-        writer.writeStringValue("description", attributeRuleMembers.description);
-        writer.writeStringValue("membershipRule", attributeRuleMembers.membershipRule);
+    serializeSubjectSet(writer, attributeRuleMembers)
+    writer.writeStringValue("description", attributeRuleMembers.description);
+    writer.writeStringValue("membershipRule", attributeRuleMembers.membershipRule);
 }
 // tslint:enable
 // eslint-enable

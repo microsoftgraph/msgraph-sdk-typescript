@@ -29,9 +29,9 @@ export function deserializeIntoDelegatedAdminAccessDetails(delegatedAdminAccessD
     }
 }
 export function serializeDelegatedAdminAccessDetails(writer: SerializationWriter, delegatedAdminAccessDetails: DelegatedAdminAccessDetails | undefined = {} as DelegatedAdminAccessDetails) : void {
-        writer.writeStringValue("@odata.type", delegatedAdminAccessDetails.odataType);
-        writer.writeCollectionOfObjectValues<UnifiedRole>("unifiedRoles", delegatedAdminAccessDetails.unifiedRoles, serializeUnifiedRole);
-        writer.writeAdditionalData(delegatedAdminAccessDetails.additionalData);
+    writer.writeStringValue("@odata.type", delegatedAdminAccessDetails.odataType);
+    writer.writeCollectionOfObjectValues<UnifiedRole>("unifiedRoles", delegatedAdminAccessDetails.unifiedRoles, serializeUnifiedRole);
+    writer.writeAdditionalData(delegatedAdminAccessDetails.additionalData);
 }
 // tslint:enable
 // eslint-enable

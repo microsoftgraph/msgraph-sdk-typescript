@@ -41,8 +41,8 @@ export interface MeetingInfo extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeMeetingInfo(writer: SerializationWriter, meetingInfo: MeetingInfo | undefined = {} as MeetingInfo) : void {
-        writer.writeStringValue("@odata.type", meetingInfo.odataType);
-        writer.writeAdditionalData(meetingInfo.additionalData);
+    writer.writeStringValue("@odata.type", meetingInfo.odataType);
+    writer.writeAdditionalData(meetingInfo.additionalData);
 }
 // tslint:enable
 // eslint-enable

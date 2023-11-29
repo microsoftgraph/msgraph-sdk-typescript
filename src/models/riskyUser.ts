@@ -75,16 +75,16 @@ export interface RiskyUser extends Entity, Parsable {
     userPrincipalName?: string;
 }
 export function serializeRiskyUser(writer: SerializationWriter, riskyUser: RiskyUser | undefined = {} as RiskyUser) : void {
-        serializeEntity(writer, riskyUser)
-        writer.writeCollectionOfObjectValues<RiskyUserHistoryItem>("history", riskyUser.history, serializeRiskyUserHistoryItem);
-        writer.writeBooleanValue("isDeleted", riskyUser.isDeleted);
-        writer.writeBooleanValue("isProcessing", riskyUser.isProcessing);
-        writer.writeEnumValue<RiskDetail>("riskDetail", riskyUser.riskDetail);
-        writer.writeDateValue("riskLastUpdatedDateTime", riskyUser.riskLastUpdatedDateTime);
-        writer.writeEnumValue<RiskLevel>("riskLevel", riskyUser.riskLevel);
-        writer.writeEnumValue<RiskState>("riskState", riskyUser.riskState);
-        writer.writeStringValue("userDisplayName", riskyUser.userDisplayName);
-        writer.writeStringValue("userPrincipalName", riskyUser.userPrincipalName);
+    serializeEntity(writer, riskyUser)
+    writer.writeCollectionOfObjectValues<RiskyUserHistoryItem>("history", riskyUser.history, serializeRiskyUserHistoryItem);
+    writer.writeBooleanValue("isDeleted", riskyUser.isDeleted);
+    writer.writeBooleanValue("isProcessing", riskyUser.isProcessing);
+    writer.writeEnumValue<RiskDetail>("riskDetail", riskyUser.riskDetail);
+    writer.writeDateValue("riskLastUpdatedDateTime", riskyUser.riskLastUpdatedDateTime);
+    writer.writeEnumValue<RiskLevel>("riskLevel", riskyUser.riskLevel);
+    writer.writeEnumValue<RiskState>("riskState", riskyUser.riskState);
+    writer.writeStringValue("userDisplayName", riskyUser.userDisplayName);
+    writer.writeStringValue("userPrincipalName", riskyUser.userPrincipalName);
 }
 // tslint:enable
 // eslint-enable

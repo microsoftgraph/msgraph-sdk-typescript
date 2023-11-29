@@ -21,8 +21,8 @@ export interface OpenShiftChangeRequest extends Parsable, ScheduleChangeRequest 
     openShiftId?: string;
 }
 export function serializeOpenShiftChangeRequest(writer: SerializationWriter, openShiftChangeRequest: OpenShiftChangeRequest | undefined = {} as OpenShiftChangeRequest) : void {
-        serializeScheduleChangeRequest(writer, openShiftChangeRequest)
-        writer.writeStringValue("openShiftId", openShiftChangeRequest.openShiftId);
+    serializeScheduleChangeRequest(writer, openShiftChangeRequest)
+    writer.writeStringValue("openShiftId", openShiftChangeRequest.openShiftId);
 }
 // tslint:enable
 // eslint-enable

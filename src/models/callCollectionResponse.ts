@@ -22,8 +22,8 @@ export function deserializeIntoCallCollectionResponse(callCollectionResponse: Ca
     }
 }
 export function serializeCallCollectionResponse(writer: SerializationWriter, callCollectionResponse: CallCollectionResponse | undefined = {} as CallCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, callCollectionResponse)
-        writer.writeCollectionOfObjectValues<Call>("value", callCollectionResponse.value, serializeCall);
+    serializeBaseCollectionPaginationCountResponse(writer, callCollectionResponse)
+    writer.writeCollectionOfObjectValues<Call>("value", callCollectionResponse.value, serializeCall);
 }
 // tslint:enable
 // eslint-enable

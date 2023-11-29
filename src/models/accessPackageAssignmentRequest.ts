@@ -79,18 +79,18 @@ export function deserializeIntoAccessPackageAssignmentRequest(accessPackageAssig
     }
 }
 export function serializeAccessPackageAssignmentRequest(writer: SerializationWriter, accessPackageAssignmentRequest: AccessPackageAssignmentRequest | undefined = {} as AccessPackageAssignmentRequest) : void {
-        serializeEntity(writer, accessPackageAssignmentRequest)
-        writer.writeObjectValue<AccessPackage>("accessPackage", accessPackageAssignmentRequest.accessPackage, serializeAccessPackage);
-        writer.writeCollectionOfObjectValues<AccessPackageAnswer>("answers", accessPackageAssignmentRequest.answers, serializeAccessPackageAnswer);
-        writer.writeObjectValue<AccessPackageAssignment>("assignment", accessPackageAssignmentRequest.assignment, serializeAccessPackageAssignment);
-        writer.writeDateValue("completedDateTime", accessPackageAssignmentRequest.completedDateTime);
-        writer.writeDateValue("createdDateTime", accessPackageAssignmentRequest.createdDateTime);
-        writer.writeCollectionOfObjectValues<CustomExtensionCalloutInstance>("customExtensionCalloutInstances", accessPackageAssignmentRequest.customExtensionCalloutInstances, serializeCustomExtensionCalloutInstance);
-        writer.writeObjectValue<AccessPackageSubject>("requestor", accessPackageAssignmentRequest.requestor, serializeAccessPackageSubject);
-        writer.writeEnumValue<AccessPackageRequestType>("requestType", accessPackageAssignmentRequest.requestType);
-        writer.writeObjectValue<EntitlementManagementSchedule>("schedule", accessPackageAssignmentRequest.schedule, serializeEntitlementManagementSchedule);
-        writer.writeEnumValue<AccessPackageRequestState>("state", accessPackageAssignmentRequest.state);
-        writer.writeStringValue("status", accessPackageAssignmentRequest.status);
+    serializeEntity(writer, accessPackageAssignmentRequest)
+    writer.writeObjectValue<AccessPackage>("accessPackage", accessPackageAssignmentRequest.accessPackage, serializeAccessPackage);
+    writer.writeCollectionOfObjectValues<AccessPackageAnswer>("answers", accessPackageAssignmentRequest.answers, serializeAccessPackageAnswer);
+    writer.writeObjectValue<AccessPackageAssignment>("assignment", accessPackageAssignmentRequest.assignment, serializeAccessPackageAssignment);
+    writer.writeDateValue("completedDateTime", accessPackageAssignmentRequest.completedDateTime);
+    writer.writeDateValue("createdDateTime", accessPackageAssignmentRequest.createdDateTime);
+    writer.writeCollectionOfObjectValues<CustomExtensionCalloutInstance>("customExtensionCalloutInstances", accessPackageAssignmentRequest.customExtensionCalloutInstances, serializeCustomExtensionCalloutInstance);
+    writer.writeObjectValue<AccessPackageSubject>("requestor", accessPackageAssignmentRequest.requestor, serializeAccessPackageSubject);
+    writer.writeEnumValue<AccessPackageRequestType>("requestType", accessPackageAssignmentRequest.requestType);
+    writer.writeObjectValue<EntitlementManagementSchedule>("schedule", accessPackageAssignmentRequest.schedule, serializeEntitlementManagementSchedule);
+    writer.writeEnumValue<AccessPackageRequestState>("state", accessPackageAssignmentRequest.state);
+    writer.writeStringValue("status", accessPackageAssignmentRequest.status);
 }
 // tslint:enable
 // eslint-enable

@@ -27,9 +27,9 @@ export function deserializeIntoDeltaParticipants(deltaParticipants: DeltaPartici
     }
 }
 export function serializeDeltaParticipants(writer: SerializationWriter, deltaParticipants: DeltaParticipants | undefined = {} as DeltaParticipants) : void {
-        serializeEntity(writer, deltaParticipants)
-        writer.writeCollectionOfObjectValues<Participant>("participants", deltaParticipants.participants, serializeParticipant);
-        writer.writeNumberValue("sequenceNumber", deltaParticipants.sequenceNumber);
+    serializeEntity(writer, deltaParticipants)
+    writer.writeCollectionOfObjectValues<Participant>("participants", deltaParticipants.participants, serializeParticipant);
+    writer.writeNumberValue("sequenceNumber", deltaParticipants.sequenceNumber);
 }
 // tslint:enable
 // eslint-enable

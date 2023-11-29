@@ -28,9 +28,9 @@ export interface EdiscoveryNoncustodialDataSource extends DataSourceContainer, P
     lastIndexOperation?: EdiscoveryIndexOperation;
 }
 export function serializeEdiscoveryNoncustodialDataSource(writer: SerializationWriter, ediscoveryNoncustodialDataSource: EdiscoveryNoncustodialDataSource | undefined = {} as EdiscoveryNoncustodialDataSource) : void {
-        serializeDataSourceContainer(writer, ediscoveryNoncustodialDataSource)
-        writer.writeObjectValue<DataSource>("dataSource", ediscoveryNoncustodialDataSource.dataSource, serializeDataSource);
-        writer.writeObjectValue<EdiscoveryIndexOperation>("lastIndexOperation", ediscoveryNoncustodialDataSource.lastIndexOperation, serializeEdiscoveryIndexOperation);
+    serializeDataSourceContainer(writer, ediscoveryNoncustodialDataSource)
+    writer.writeObjectValue<DataSource>("dataSource", ediscoveryNoncustodialDataSource.dataSource, serializeDataSource);
+    writer.writeObjectValue<EdiscoveryIndexOperation>("lastIndexOperation", ediscoveryNoncustodialDataSource.lastIndexOperation, serializeEdiscoveryIndexOperation);
 }
 // tslint:enable
 // eslint-enable

@@ -17,12 +17,12 @@ export function deserializeIntoTopicModelingSettings(topicModelingSettings: Topi
     }
 }
 export function serializeTopicModelingSettings(writer: SerializationWriter, topicModelingSettings: TopicModelingSettings | undefined = {} as TopicModelingSettings) : void {
-        writer.writeBooleanValue("dynamicallyAdjustTopicCount", topicModelingSettings.dynamicallyAdjustTopicCount);
-        writer.writeBooleanValue("ignoreNumbers", topicModelingSettings.ignoreNumbers);
-        writer.writeBooleanValue("isEnabled", topicModelingSettings.isEnabled);
-        writer.writeStringValue("@odata.type", topicModelingSettings.odataType);
-        writer.writeNumberValue("topicCount", topicModelingSettings.topicCount);
-        writer.writeAdditionalData(topicModelingSettings.additionalData);
+    writer.writeBooleanValue("dynamicallyAdjustTopicCount", topicModelingSettings.dynamicallyAdjustTopicCount);
+    writer.writeBooleanValue("ignoreNumbers", topicModelingSettings.ignoreNumbers);
+    writer.writeBooleanValue("isEnabled", topicModelingSettings.isEnabled);
+    writer.writeStringValue("@odata.type", topicModelingSettings.odataType);
+    writer.writeNumberValue("topicCount", topicModelingSettings.topicCount);
+    writer.writeAdditionalData(topicModelingSettings.additionalData);
 }
 export interface TopicModelingSettings extends AdditionalDataHolder, Parsable {
     /**

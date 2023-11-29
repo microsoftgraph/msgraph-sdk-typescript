@@ -45,12 +45,12 @@ export function deserializeIntoAccessPackageResourceRequest(accessPackageResourc
     }
 }
 export function serializeAccessPackageResourceRequest(writer: SerializationWriter, accessPackageResourceRequest: AccessPackageResourceRequest | undefined = {} as AccessPackageResourceRequest) : void {
-        serializeEntity(writer, accessPackageResourceRequest)
-        writer.writeObjectValue<AccessPackageCatalog>("catalog", accessPackageResourceRequest.catalog, serializeAccessPackageCatalog);
-        writer.writeDateValue("createdDateTime", accessPackageResourceRequest.createdDateTime);
-        writer.writeEnumValue<AccessPackageRequestType>("requestType", accessPackageResourceRequest.requestType);
-        writer.writeObjectValue<AccessPackageResource>("resource", accessPackageResourceRequest.resource, serializeAccessPackageResource);
-        writer.writeEnumValue<AccessPackageRequestState>("state", accessPackageResourceRequest.state);
+    serializeEntity(writer, accessPackageResourceRequest)
+    writer.writeObjectValue<AccessPackageCatalog>("catalog", accessPackageResourceRequest.catalog, serializeAccessPackageCatalog);
+    writer.writeDateValue("createdDateTime", accessPackageResourceRequest.createdDateTime);
+    writer.writeEnumValue<AccessPackageRequestType>("requestType", accessPackageResourceRequest.requestType);
+    writer.writeObjectValue<AccessPackageResource>("resource", accessPackageResourceRequest.resource, serializeAccessPackageResource);
+    writer.writeEnumValue<AccessPackageRequestState>("state", accessPackageResourceRequest.state);
 }
 // tslint:enable
 // eslint-enable

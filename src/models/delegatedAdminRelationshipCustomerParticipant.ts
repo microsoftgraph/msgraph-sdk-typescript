@@ -33,10 +33,10 @@ export function deserializeIntoDelegatedAdminRelationshipCustomerParticipant(del
     }
 }
 export function serializeDelegatedAdminRelationshipCustomerParticipant(writer: SerializationWriter, delegatedAdminRelationshipCustomerParticipant: DelegatedAdminRelationshipCustomerParticipant | undefined = {} as DelegatedAdminRelationshipCustomerParticipant) : void {
-        writer.writeStringValue("displayName", delegatedAdminRelationshipCustomerParticipant.displayName);
-        writer.writeStringValue("@odata.type", delegatedAdminRelationshipCustomerParticipant.odataType);
-        writer.writeStringValue("tenantId", delegatedAdminRelationshipCustomerParticipant.tenantId);
-        writer.writeAdditionalData(delegatedAdminRelationshipCustomerParticipant.additionalData);
+    writer.writeStringValue("displayName", delegatedAdminRelationshipCustomerParticipant.displayName);
+    writer.writeStringValue("@odata.type", delegatedAdminRelationshipCustomerParticipant.odataType);
+    writer.writeStringValue("tenantId", delegatedAdminRelationshipCustomerParticipant.tenantId);
+    writer.writeAdditionalData(delegatedAdminRelationshipCustomerParticipant.additionalData);
 }
 // tslint:enable
 // eslint-enable

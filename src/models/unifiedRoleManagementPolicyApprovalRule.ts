@@ -16,8 +16,8 @@ export function deserializeIntoUnifiedRoleManagementPolicyApprovalRule(unifiedRo
     }
 }
 export function serializeUnifiedRoleManagementPolicyApprovalRule(writer: SerializationWriter, unifiedRoleManagementPolicyApprovalRule: UnifiedRoleManagementPolicyApprovalRule | undefined = {} as UnifiedRoleManagementPolicyApprovalRule) : void {
-        serializeUnifiedRoleManagementPolicyRule(writer, unifiedRoleManagementPolicyApprovalRule)
-        writer.writeObjectValue<ApprovalSettings>("setting", unifiedRoleManagementPolicyApprovalRule.setting, serializeApprovalSettings);
+    serializeUnifiedRoleManagementPolicyRule(writer, unifiedRoleManagementPolicyApprovalRule)
+    writer.writeObjectValue<ApprovalSettings>("setting", unifiedRoleManagementPolicyApprovalRule.setting, serializeApprovalSettings);
 }
 export interface UnifiedRoleManagementPolicyApprovalRule extends Parsable, UnifiedRoleManagementPolicyRule {
     /**

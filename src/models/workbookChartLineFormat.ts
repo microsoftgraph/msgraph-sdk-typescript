@@ -15,8 +15,8 @@ export function deserializeIntoWorkbookChartLineFormat(workbookChartLineFormat: 
     }
 }
 export function serializeWorkbookChartLineFormat(writer: SerializationWriter, workbookChartLineFormat: WorkbookChartLineFormat | undefined = {} as WorkbookChartLineFormat) : void {
-        serializeEntity(writer, workbookChartLineFormat)
-        writer.writeStringValue("color", workbookChartLineFormat.color);
+    serializeEntity(writer, workbookChartLineFormat)
+    writer.writeStringValue("color", workbookChartLineFormat.color);
 }
 export interface WorkbookChartLineFormat extends Entity, Parsable {
     /**

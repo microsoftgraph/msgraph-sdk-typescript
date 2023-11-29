@@ -23,8 +23,8 @@ export interface FeedbackTokenSet extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeFeedbackTokenSet(writer: SerializationWriter, feedbackTokenSet: FeedbackTokenSet | undefined = {} as FeedbackTokenSet) : void {
-        writer.writeStringValue("@odata.type", feedbackTokenSet.odataType);
-        writer.writeAdditionalData(feedbackTokenSet.additionalData);
+    writer.writeStringValue("@odata.type", feedbackTokenSet.odataType);
+    writer.writeAdditionalData(feedbackTokenSet.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -65,16 +65,16 @@ export function deserializeIntoConditionalAccessPolicy(conditionalAccessPolicy: 
     }
 }
 export function serializeConditionalAccessPolicy(writer: SerializationWriter, conditionalAccessPolicy: ConditionalAccessPolicy | undefined = {} as ConditionalAccessPolicy) : void {
-        serializeEntity(writer, conditionalAccessPolicy)
-        writer.writeObjectValue<ConditionalAccessConditionSet>("conditions", conditionalAccessPolicy.conditions, serializeConditionalAccessConditionSet);
-        writer.writeDateValue("createdDateTime", conditionalAccessPolicy.createdDateTime);
-        writer.writeStringValue("description", conditionalAccessPolicy.description);
-        writer.writeStringValue("displayName", conditionalAccessPolicy.displayName);
-        writer.writeObjectValue<ConditionalAccessGrantControls>("grantControls", conditionalAccessPolicy.grantControls, serializeConditionalAccessGrantControls);
-        writer.writeDateValue("modifiedDateTime", conditionalAccessPolicy.modifiedDateTime);
-        writer.writeObjectValue<ConditionalAccessSessionControls>("sessionControls", conditionalAccessPolicy.sessionControls, serializeConditionalAccessSessionControls);
-        writer.writeEnumValue<ConditionalAccessPolicyState>("state", conditionalAccessPolicy.state);
-        writer.writeStringValue("templateId", conditionalAccessPolicy.templateId);
+    serializeEntity(writer, conditionalAccessPolicy)
+    writer.writeObjectValue<ConditionalAccessConditionSet>("conditions", conditionalAccessPolicy.conditions, serializeConditionalAccessConditionSet);
+    writer.writeDateValue("createdDateTime", conditionalAccessPolicy.createdDateTime);
+    writer.writeStringValue("description", conditionalAccessPolicy.description);
+    writer.writeStringValue("displayName", conditionalAccessPolicy.displayName);
+    writer.writeObjectValue<ConditionalAccessGrantControls>("grantControls", conditionalAccessPolicy.grantControls, serializeConditionalAccessGrantControls);
+    writer.writeDateValue("modifiedDateTime", conditionalAccessPolicy.modifiedDateTime);
+    writer.writeObjectValue<ConditionalAccessSessionControls>("sessionControls", conditionalAccessPolicy.sessionControls, serializeConditionalAccessSessionControls);
+    writer.writeEnumValue<ConditionalAccessPolicyState>("state", conditionalAccessPolicy.state);
+    writer.writeStringValue("templateId", conditionalAccessPolicy.templateId);
 }
 // tslint:enable
 // eslint-enable

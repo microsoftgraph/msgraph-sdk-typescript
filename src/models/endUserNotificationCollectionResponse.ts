@@ -22,8 +22,8 @@ export interface EndUserNotificationCollectionResponse extends BaseCollectionPag
     value?: EndUserNotification[];
 }
 export function serializeEndUserNotificationCollectionResponse(writer: SerializationWriter, endUserNotificationCollectionResponse: EndUserNotificationCollectionResponse | undefined = {} as EndUserNotificationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, endUserNotificationCollectionResponse)
-        writer.writeCollectionOfObjectValues<EndUserNotification>("value", endUserNotificationCollectionResponse.value, serializeEndUserNotification);
+    serializeBaseCollectionPaginationCountResponse(writer, endUserNotificationCollectionResponse)
+    writer.writeCollectionOfObjectValues<EndUserNotification>("value", endUserNotificationCollectionResponse.value, serializeEndUserNotification);
 }
 // tslint:enable
 // eslint-enable

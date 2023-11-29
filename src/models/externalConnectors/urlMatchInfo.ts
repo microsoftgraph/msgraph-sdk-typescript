@@ -15,10 +15,10 @@ export function deserializeIntoUrlMatchInfo(urlMatchInfo: UrlMatchInfo | undefin
     }
 }
 export function serializeUrlMatchInfo(writer: SerializationWriter, urlMatchInfo: UrlMatchInfo | undefined = {} as UrlMatchInfo) : void {
-        writer.writeCollectionOfPrimitiveValues<string>("baseUrls", urlMatchInfo.baseUrls);
-        writer.writeStringValue("@odata.type", urlMatchInfo.odataType);
-        writer.writeStringValue("urlPattern", urlMatchInfo.urlPattern);
-        writer.writeAdditionalData(urlMatchInfo.additionalData);
+    writer.writeCollectionOfPrimitiveValues<string>("baseUrls", urlMatchInfo.baseUrls);
+    writer.writeStringValue("@odata.type", urlMatchInfo.odataType);
+    writer.writeStringValue("urlPattern", urlMatchInfo.urlPattern);
+    writer.writeAdditionalData(urlMatchInfo.additionalData);
 }
 export interface UrlMatchInfo extends AdditionalDataHolder, Parsable {
     /**

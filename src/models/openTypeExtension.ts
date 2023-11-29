@@ -21,8 +21,8 @@ export interface OpenTypeExtension extends Extension, Parsable {
     extensionName?: string;
 }
 export function serializeOpenTypeExtension(writer: SerializationWriter, openTypeExtension: OpenTypeExtension | undefined = {} as OpenTypeExtension) : void {
-        serializeExtension(writer, openTypeExtension)
-        writer.writeStringValue("extensionName", openTypeExtension.extensionName);
+    serializeExtension(writer, openTypeExtension)
+    writer.writeStringValue("extensionName", openTypeExtension.extensionName);
 }
 // tslint:enable
 // eslint-enable

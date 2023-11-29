@@ -16,9 +16,9 @@ export function deserializeIntoSkypeForBusinessUserConversationMember(skypeForBu
     }
 }
 export function serializeSkypeForBusinessUserConversationMember(writer: SerializationWriter, skypeForBusinessUserConversationMember: SkypeForBusinessUserConversationMember | undefined = {} as SkypeForBusinessUserConversationMember) : void {
-        serializeConversationMember(writer, skypeForBusinessUserConversationMember)
-        writer.writeStringValue("tenantId", skypeForBusinessUserConversationMember.tenantId);
-        writer.writeStringValue("userId", skypeForBusinessUserConversationMember.userId);
+    serializeConversationMember(writer, skypeForBusinessUserConversationMember)
+    writer.writeStringValue("tenantId", skypeForBusinessUserConversationMember.tenantId);
+    writer.writeStringValue("userId", skypeForBusinessUserConversationMember.userId);
 }
 export interface SkypeForBusinessUserConversationMember extends ConversationMember, Parsable {
     /**

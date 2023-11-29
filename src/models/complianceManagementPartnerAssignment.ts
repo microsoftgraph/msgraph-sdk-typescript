@@ -29,9 +29,9 @@ export function deserializeIntoComplianceManagementPartnerAssignment(complianceM
     }
 }
 export function serializeComplianceManagementPartnerAssignment(writer: SerializationWriter, complianceManagementPartnerAssignment: ComplianceManagementPartnerAssignment | undefined = {} as ComplianceManagementPartnerAssignment) : void {
-        writer.writeStringValue("@odata.type", complianceManagementPartnerAssignment.odataType);
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", complianceManagementPartnerAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
-        writer.writeAdditionalData(complianceManagementPartnerAssignment.additionalData);
+    writer.writeStringValue("@odata.type", complianceManagementPartnerAssignment.odataType);
+    writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", complianceManagementPartnerAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
+    writer.writeAdditionalData(complianceManagementPartnerAssignment.additionalData);
 }
 // tslint:enable
 // eslint-enable

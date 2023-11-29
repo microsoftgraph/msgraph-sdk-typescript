@@ -22,8 +22,8 @@ export interface IosManagedAppProtectionCollectionResponse extends BaseCollectio
     value?: IosManagedAppProtection[];
 }
 export function serializeIosManagedAppProtectionCollectionResponse(writer: SerializationWriter, iosManagedAppProtectionCollectionResponse: IosManagedAppProtectionCollectionResponse | undefined = {} as IosManagedAppProtectionCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, iosManagedAppProtectionCollectionResponse)
-        writer.writeCollectionOfObjectValues<IosManagedAppProtection>("value", iosManagedAppProtectionCollectionResponse.value, serializeIosManagedAppProtection);
+    serializeBaseCollectionPaginationCountResponse(writer, iosManagedAppProtectionCollectionResponse)
+    writer.writeCollectionOfObjectValues<IosManagedAppProtection>("value", iosManagedAppProtectionCollectionResponse.value, serializeIosManagedAppProtection);
 }
 // tslint:enable
 // eslint-enable

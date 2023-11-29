@@ -16,9 +16,9 @@ export function deserializeIntoWindowsInformationProtectionNetworkLearningSummar
     }
 }
 export function serializeWindowsInformationProtectionNetworkLearningSummary(writer: SerializationWriter, windowsInformationProtectionNetworkLearningSummary: WindowsInformationProtectionNetworkLearningSummary | undefined = {} as WindowsInformationProtectionNetworkLearningSummary) : void {
-        serializeEntity(writer, windowsInformationProtectionNetworkLearningSummary)
-        writer.writeNumberValue("deviceCount", windowsInformationProtectionNetworkLearningSummary.deviceCount);
-        writer.writeStringValue("url", windowsInformationProtectionNetworkLearningSummary.url);
+    serializeEntity(writer, windowsInformationProtectionNetworkLearningSummary)
+    writer.writeNumberValue("deviceCount", windowsInformationProtectionNetworkLearningSummary.deviceCount);
+    writer.writeStringValue("url", windowsInformationProtectionNetworkLearningSummary.url);
 }
 export interface WindowsInformationProtectionNetworkLearningSummary extends Entity, Parsable {
     /**

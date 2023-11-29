@@ -14,9 +14,9 @@ export function deserializeIntoStoragePlanInformation(storagePlanInformation: St
     }
 }
 export function serializeStoragePlanInformation(writer: SerializationWriter, storagePlanInformation: StoragePlanInformation | undefined = {} as StoragePlanInformation) : void {
-        writer.writeStringValue("@odata.type", storagePlanInformation.odataType);
-        writer.writeBooleanValue("upgradeAvailable", storagePlanInformation.upgradeAvailable);
-        writer.writeAdditionalData(storagePlanInformation.additionalData);
+    writer.writeStringValue("@odata.type", storagePlanInformation.odataType);
+    writer.writeBooleanValue("upgradeAvailable", storagePlanInformation.upgradeAvailable);
+    writer.writeAdditionalData(storagePlanInformation.additionalData);
 }
 export interface StoragePlanInformation extends AdditionalDataHolder, Parsable {
     /**

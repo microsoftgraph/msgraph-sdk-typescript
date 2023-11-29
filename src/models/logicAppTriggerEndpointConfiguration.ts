@@ -36,11 +36,11 @@ export interface LogicAppTriggerEndpointConfiguration extends CustomExtensionEnd
     url?: string;
 }
 export function serializeLogicAppTriggerEndpointConfiguration(writer: SerializationWriter, logicAppTriggerEndpointConfiguration: LogicAppTriggerEndpointConfiguration | undefined = {} as LogicAppTriggerEndpointConfiguration) : void {
-        serializeCustomExtensionEndpointConfiguration(writer, logicAppTriggerEndpointConfiguration)
-        writer.writeStringValue("logicAppWorkflowName", logicAppTriggerEndpointConfiguration.logicAppWorkflowName);
-        writer.writeStringValue("resourceGroupName", logicAppTriggerEndpointConfiguration.resourceGroupName);
-        writer.writeStringValue("subscriptionId", logicAppTriggerEndpointConfiguration.subscriptionId);
-        writer.writeStringValue("url", logicAppTriggerEndpointConfiguration.url);
+    serializeCustomExtensionEndpointConfiguration(writer, logicAppTriggerEndpointConfiguration)
+    writer.writeStringValue("logicAppWorkflowName", logicAppTriggerEndpointConfiguration.logicAppWorkflowName);
+    writer.writeStringValue("resourceGroupName", logicAppTriggerEndpointConfiguration.resourceGroupName);
+    writer.writeStringValue("subscriptionId", logicAppTriggerEndpointConfiguration.subscriptionId);
+    writer.writeStringValue("url", logicAppTriggerEndpointConfiguration.url);
 }
 // tslint:enable
 // eslint-enable

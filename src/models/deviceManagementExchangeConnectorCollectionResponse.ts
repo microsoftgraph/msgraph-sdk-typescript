@@ -22,8 +22,8 @@ export interface DeviceManagementExchangeConnectorCollectionResponse extends Bas
     value?: DeviceManagementExchangeConnector[];
 }
 export function serializeDeviceManagementExchangeConnectorCollectionResponse(writer: SerializationWriter, deviceManagementExchangeConnectorCollectionResponse: DeviceManagementExchangeConnectorCollectionResponse | undefined = {} as DeviceManagementExchangeConnectorCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, deviceManagementExchangeConnectorCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceManagementExchangeConnector>("value", deviceManagementExchangeConnectorCollectionResponse.value, serializeDeviceManagementExchangeConnector);
+    serializeBaseCollectionPaginationCountResponse(writer, deviceManagementExchangeConnectorCollectionResponse)
+    writer.writeCollectionOfObjectValues<DeviceManagementExchangeConnector>("value", deviceManagementExchangeConnectorCollectionResponse.value, serializeDeviceManagementExchangeConnector);
 }
 // tslint:enable
 // eslint-enable

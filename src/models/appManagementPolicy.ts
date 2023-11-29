@@ -33,10 +33,10 @@ export function deserializeIntoAppManagementPolicy(appManagementPolicy: AppManag
     }
 }
 export function serializeAppManagementPolicy(writer: SerializationWriter, appManagementPolicy: AppManagementPolicy | undefined = {} as AppManagementPolicy) : void {
-        serializePolicyBase(writer, appManagementPolicy)
-        writer.writeCollectionOfObjectValues<DirectoryObject>("appliesTo", appManagementPolicy.appliesTo, serializeDirectoryObject);
-        writer.writeBooleanValue("isEnabled", appManagementPolicy.isEnabled);
-        writer.writeObjectValue<AppManagementConfiguration>("restrictions", appManagementPolicy.restrictions, serializeAppManagementConfiguration);
+    serializePolicyBase(writer, appManagementPolicy)
+    writer.writeCollectionOfObjectValues<DirectoryObject>("appliesTo", appManagementPolicy.appliesTo, serializeDirectoryObject);
+    writer.writeBooleanValue("isEnabled", appManagementPolicy.isEnabled);
+    writer.writeObjectValue<AppManagementConfiguration>("restrictions", appManagementPolicy.restrictions, serializeAppManagementConfiguration);
 }
 // tslint:enable
 // eslint-enable

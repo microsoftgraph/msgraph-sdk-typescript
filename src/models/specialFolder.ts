@@ -14,9 +14,9 @@ export function deserializeIntoSpecialFolder(specialFolder: SpecialFolder | unde
     }
 }
 export function serializeSpecialFolder(writer: SerializationWriter, specialFolder: SpecialFolder | undefined = {} as SpecialFolder) : void {
-        writer.writeStringValue("name", specialFolder.name);
-        writer.writeStringValue("@odata.type", specialFolder.odataType);
-        writer.writeAdditionalData(specialFolder.additionalData);
+    writer.writeStringValue("name", specialFolder.name);
+    writer.writeStringValue("@odata.type", specialFolder.odataType);
+    writer.writeAdditionalData(specialFolder.additionalData);
 }
 export interface SpecialFolder extends AdditionalDataHolder, Parsable {
     /**

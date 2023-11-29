@@ -42,12 +42,12 @@ export function deserializeIntoCallRecording(callRecording: CallRecording | unde
     }
 }
 export function serializeCallRecording(writer: SerializationWriter, callRecording: CallRecording | undefined = {} as CallRecording) : void {
-        serializeEntity(writer, callRecording)
-        writer.writeStringValue("content", callRecording.content);
-        writer.writeDateValue("createdDateTime", callRecording.createdDateTime);
-        writer.writeStringValue("meetingId", callRecording.meetingId);
-        writer.writeObjectValue<IdentitySet>("meetingOrganizer", callRecording.meetingOrganizer, serializeIdentitySet);
-        writer.writeStringValue("recordingContentUrl", callRecording.recordingContentUrl);
+    serializeEntity(writer, callRecording)
+    writer.writeStringValue("content", callRecording.content);
+    writer.writeDateValue("createdDateTime", callRecording.createdDateTime);
+    writer.writeStringValue("meetingId", callRecording.meetingId);
+    writer.writeObjectValue<IdentitySet>("meetingOrganizer", callRecording.meetingOrganizer, serializeIdentitySet);
+    writer.writeStringValue("recordingContentUrl", callRecording.recordingContentUrl);
 }
 // tslint:enable
 // eslint-enable

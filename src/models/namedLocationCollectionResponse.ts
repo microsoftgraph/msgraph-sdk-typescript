@@ -22,8 +22,8 @@ export interface NamedLocationCollectionResponse extends BaseCollectionPaginatio
     value?: NamedLocation[];
 }
 export function serializeNamedLocationCollectionResponse(writer: SerializationWriter, namedLocationCollectionResponse: NamedLocationCollectionResponse | undefined = {} as NamedLocationCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, namedLocationCollectionResponse)
-        writer.writeCollectionOfObjectValues<NamedLocation>("value", namedLocationCollectionResponse.value, serializeNamedLocation);
+    serializeBaseCollectionPaginationCountResponse(writer, namedLocationCollectionResponse)
+    writer.writeCollectionOfObjectValues<NamedLocation>("value", namedLocationCollectionResponse.value, serializeNamedLocation);
 }
 // tslint:enable
 // eslint-enable

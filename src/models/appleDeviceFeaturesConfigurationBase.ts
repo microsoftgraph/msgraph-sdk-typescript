@@ -31,7 +31,7 @@ export function deserializeIntoAppleDeviceFeaturesConfigurationBase(appleDeviceF
     }
 }
 export function serializeAppleDeviceFeaturesConfigurationBase(writer: SerializationWriter, appleDeviceFeaturesConfigurationBase: AppleDeviceFeaturesConfigurationBase | undefined = {} as AppleDeviceFeaturesConfigurationBase) : void {
-        serializeDeviceConfiguration(writer, appleDeviceFeaturesConfigurationBase)
+    serializeDeviceConfiguration(writer, appleDeviceFeaturesConfigurationBase)
 }
 // tslint:enable
 // eslint-enable

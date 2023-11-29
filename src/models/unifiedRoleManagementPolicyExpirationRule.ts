@@ -16,9 +16,9 @@ export function deserializeIntoUnifiedRoleManagementPolicyExpirationRule(unified
     }
 }
 export function serializeUnifiedRoleManagementPolicyExpirationRule(writer: SerializationWriter, unifiedRoleManagementPolicyExpirationRule: UnifiedRoleManagementPolicyExpirationRule | undefined = {} as UnifiedRoleManagementPolicyExpirationRule) : void {
-        serializeUnifiedRoleManagementPolicyRule(writer, unifiedRoleManagementPolicyExpirationRule)
-        writer.writeBooleanValue("isExpirationRequired", unifiedRoleManagementPolicyExpirationRule.isExpirationRequired);
-        writer.writeDurationValue("maximumDuration", unifiedRoleManagementPolicyExpirationRule.maximumDuration);
+    serializeUnifiedRoleManagementPolicyRule(writer, unifiedRoleManagementPolicyExpirationRule)
+    writer.writeBooleanValue("isExpirationRequired", unifiedRoleManagementPolicyExpirationRule.isExpirationRequired);
+    writer.writeDurationValue("maximumDuration", unifiedRoleManagementPolicyExpirationRule.maximumDuration);
 }
 export interface UnifiedRoleManagementPolicyExpirationRule extends Parsable, UnifiedRoleManagementPolicyRule {
     /**

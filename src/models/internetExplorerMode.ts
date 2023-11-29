@@ -22,8 +22,8 @@ export interface InternetExplorerMode extends Entity, Parsable {
     siteLists?: BrowserSiteList[];
 }
 export function serializeInternetExplorerMode(writer: SerializationWriter, internetExplorerMode: InternetExplorerMode | undefined = {} as InternetExplorerMode) : void {
-        serializeEntity(writer, internetExplorerMode)
-        writer.writeCollectionOfObjectValues<BrowserSiteList>("siteLists", internetExplorerMode.siteLists, serializeBrowserSiteList);
+    serializeEntity(writer, internetExplorerMode)
+    writer.writeCollectionOfObjectValues<BrowserSiteList>("siteLists", internetExplorerMode.siteLists, serializeBrowserSiteList);
 }
 // tslint:enable
 // eslint-enable

@@ -42,12 +42,12 @@ export interface HostCookie extends Artifact, Parsable {
     name?: string;
 }
 export function serializeHostCookie(writer: SerializationWriter, hostCookie: HostCookie | undefined = {} as HostCookie) : void {
-        serializeArtifact(writer, hostCookie)
-        writer.writeStringValue("domain", hostCookie.domain);
-        writer.writeDateValue("firstSeenDateTime", hostCookie.firstSeenDateTime);
-        writer.writeObjectValue<Host>("host", hostCookie.host, serializeHost);
-        writer.writeDateValue("lastSeenDateTime", hostCookie.lastSeenDateTime);
-        writer.writeStringValue("name", hostCookie.name);
+    serializeArtifact(writer, hostCookie)
+    writer.writeStringValue("domain", hostCookie.domain);
+    writer.writeDateValue("firstSeenDateTime", hostCookie.firstSeenDateTime);
+    writer.writeObjectValue<Host>("host", hostCookie.host, serializeHost);
+    writer.writeDateValue("lastSeenDateTime", hostCookie.lastSeenDateTime);
+    writer.writeStringValue("name", hostCookie.name);
 }
 // tslint:enable
 // eslint-enable

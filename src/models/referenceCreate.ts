@@ -23,8 +23,8 @@ export interface ReferenceCreate extends AdditionalDataHolder, Parsable {
     odataId?: string;
 }
 export function serializeReferenceCreate(writer: SerializationWriter, referenceCreate: ReferenceCreate | undefined = {} as ReferenceCreate) : void {
-        writer.writeStringValue("@odata.id", referenceCreate.odataId);
-        writer.writeAdditionalData(referenceCreate.additionalData);
+    writer.writeStringValue("@odata.id", referenceCreate.odataId);
+    writer.writeAdditionalData(referenceCreate.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -15,8 +15,8 @@ export function deserializeIntoTimeOffItem(timeOffItem: TimeOffItem | undefined 
     }
 }
 export function serializeTimeOffItem(writer: SerializationWriter, timeOffItem: TimeOffItem | undefined = {} as TimeOffItem) : void {
-        serializeScheduleEntity(writer, timeOffItem)
-        writer.writeStringValue("timeOffReasonId", timeOffItem.timeOffReasonId);
+    serializeScheduleEntity(writer, timeOffItem)
+    writer.writeStringValue("timeOffReasonId", timeOffItem.timeOffReasonId);
 }
 export interface TimeOffItem extends Parsable, ScheduleEntity {
     /**

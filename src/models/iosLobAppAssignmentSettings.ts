@@ -31,10 +31,10 @@ export interface IosLobAppAssignmentSettings extends MobileAppAssignmentSettings
     vpnConfigurationId?: string;
 }
 export function serializeIosLobAppAssignmentSettings(writer: SerializationWriter, iosLobAppAssignmentSettings: IosLobAppAssignmentSettings | undefined = {} as IosLobAppAssignmentSettings) : void {
-        serializeMobileAppAssignmentSettings(writer, iosLobAppAssignmentSettings)
-        writer.writeBooleanValue("isRemovable", iosLobAppAssignmentSettings.isRemovable);
-        writer.writeBooleanValue("uninstallOnDeviceRemoval", iosLobAppAssignmentSettings.uninstallOnDeviceRemoval);
-        writer.writeStringValue("vpnConfigurationId", iosLobAppAssignmentSettings.vpnConfigurationId);
+    serializeMobileAppAssignmentSettings(writer, iosLobAppAssignmentSettings)
+    writer.writeBooleanValue("isRemovable", iosLobAppAssignmentSettings.isRemovable);
+    writer.writeBooleanValue("uninstallOnDeviceRemoval", iosLobAppAssignmentSettings.uninstallOnDeviceRemoval);
+    writer.writeStringValue("vpnConfigurationId", iosLobAppAssignmentSettings.vpnConfigurationId);
 }
 // tslint:enable
 // eslint-enable

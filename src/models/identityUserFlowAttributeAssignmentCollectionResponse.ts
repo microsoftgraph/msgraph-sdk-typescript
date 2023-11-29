@@ -22,8 +22,8 @@ export interface IdentityUserFlowAttributeAssignmentCollectionResponse extends B
     value?: IdentityUserFlowAttributeAssignment[];
 }
 export function serializeIdentityUserFlowAttributeAssignmentCollectionResponse(writer: SerializationWriter, identityUserFlowAttributeAssignmentCollectionResponse: IdentityUserFlowAttributeAssignmentCollectionResponse | undefined = {} as IdentityUserFlowAttributeAssignmentCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, identityUserFlowAttributeAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignment>("value", identityUserFlowAttributeAssignmentCollectionResponse.value, serializeIdentityUserFlowAttributeAssignment);
+    serializeBaseCollectionPaginationCountResponse(writer, identityUserFlowAttributeAssignmentCollectionResponse)
+    writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignment>("value", identityUserFlowAttributeAssignmentCollectionResponse.value, serializeIdentityUserFlowAttributeAssignment);
 }
 // tslint:enable
 // eslint-enable

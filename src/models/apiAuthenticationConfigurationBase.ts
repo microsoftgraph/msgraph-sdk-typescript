@@ -41,8 +41,8 @@ export function deserializeIntoApiAuthenticationConfigurationBase(apiAuthenticat
     }
 }
 export function serializeApiAuthenticationConfigurationBase(writer: SerializationWriter, apiAuthenticationConfigurationBase: ApiAuthenticationConfigurationBase | undefined = {} as ApiAuthenticationConfigurationBase) : void {
-        writer.writeStringValue("@odata.type", apiAuthenticationConfigurationBase.odataType);
-        writer.writeAdditionalData(apiAuthenticationConfigurationBase.additionalData);
+    writer.writeStringValue("@odata.type", apiAuthenticationConfigurationBase.odataType);
+    writer.writeAdditionalData(apiAuthenticationConfigurationBase.additionalData);
 }
 // tslint:enable
 // eslint-enable

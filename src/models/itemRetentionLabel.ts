@@ -43,12 +43,12 @@ export interface ItemRetentionLabel extends Entity, Parsable {
     retentionSettings?: RetentionLabelSettings;
 }
 export function serializeItemRetentionLabel(writer: SerializationWriter, itemRetentionLabel: ItemRetentionLabel | undefined = {} as ItemRetentionLabel) : void {
-        serializeEntity(writer, itemRetentionLabel)
-        writer.writeBooleanValue("isLabelAppliedExplicitly", itemRetentionLabel.isLabelAppliedExplicitly);
-        writer.writeObjectValue<IdentitySet>("labelAppliedBy", itemRetentionLabel.labelAppliedBy, serializeIdentitySet);
-        writer.writeDateValue("labelAppliedDateTime", itemRetentionLabel.labelAppliedDateTime);
-        writer.writeStringValue("name", itemRetentionLabel.name);
-        writer.writeObjectValue<RetentionLabelSettings>("retentionSettings", itemRetentionLabel.retentionSettings, serializeRetentionLabelSettings);
+    serializeEntity(writer, itemRetentionLabel)
+    writer.writeBooleanValue("isLabelAppliedExplicitly", itemRetentionLabel.isLabelAppliedExplicitly);
+    writer.writeObjectValue<IdentitySet>("labelAppliedBy", itemRetentionLabel.labelAppliedBy, serializeIdentitySet);
+    writer.writeDateValue("labelAppliedDateTime", itemRetentionLabel.labelAppliedDateTime);
+    writer.writeStringValue("name", itemRetentionLabel.name);
+    writer.writeObjectValue<RetentionLabelSettings>("retentionSettings", itemRetentionLabel.retentionSettings, serializeRetentionLabelSettings);
 }
 // tslint:enable
 // eslint-enable

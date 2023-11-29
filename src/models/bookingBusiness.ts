@@ -114,23 +114,23 @@ export function deserializeIntoBookingBusiness(bookingBusiness: BookingBusiness 
     }
 }
 export function serializeBookingBusiness(writer: SerializationWriter, bookingBusiness: BookingBusiness | undefined = {} as BookingBusiness) : void {
-        serializeEntity(writer, bookingBusiness)
-        writer.writeObjectValue<PhysicalAddress>("address", bookingBusiness.address, serializePhysicalAddress);
-        writer.writeCollectionOfObjectValues<BookingAppointment>("appointments", bookingBusiness.appointments, serializeBookingAppointment);
-        writer.writeCollectionOfObjectValues<BookingWorkHours>("businessHours", bookingBusiness.businessHours, serializeBookingWorkHours);
-        writer.writeStringValue("businessType", bookingBusiness.businessType);
-        writer.writeCollectionOfObjectValues<BookingAppointment>("calendarView", bookingBusiness.calendarView, serializeBookingAppointment);
-        writer.writeCollectionOfObjectValues<BookingCustomerBase>("customers", bookingBusiness.customers, serializeBookingCustomerBase);
-        writer.writeCollectionOfObjectValues<BookingCustomQuestion>("customQuestions", bookingBusiness.customQuestions, serializeBookingCustomQuestion);
-        writer.writeStringValue("defaultCurrencyIso", bookingBusiness.defaultCurrencyIso);
-        writer.writeStringValue("displayName", bookingBusiness.displayName);
-        writer.writeStringValue("email", bookingBusiness.email);
-        writer.writeStringValue("languageTag", bookingBusiness.languageTag);
-        writer.writeStringValue("phone", bookingBusiness.phone);
-        writer.writeObjectValue<BookingSchedulingPolicy>("schedulingPolicy", bookingBusiness.schedulingPolicy, serializeBookingSchedulingPolicy);
-        writer.writeCollectionOfObjectValues<BookingService>("services", bookingBusiness.services, serializeBookingService);
-        writer.writeCollectionOfObjectValues<BookingStaffMemberBase>("staffMembers", bookingBusiness.staffMembers, serializeBookingStaffMemberBase);
-        writer.writeStringValue("webSiteUrl", bookingBusiness.webSiteUrl);
+    serializeEntity(writer, bookingBusiness)
+    writer.writeObjectValue<PhysicalAddress>("address", bookingBusiness.address, serializePhysicalAddress);
+    writer.writeCollectionOfObjectValues<BookingAppointment>("appointments", bookingBusiness.appointments, serializeBookingAppointment);
+    writer.writeCollectionOfObjectValues<BookingWorkHours>("businessHours", bookingBusiness.businessHours, serializeBookingWorkHours);
+    writer.writeStringValue("businessType", bookingBusiness.businessType);
+    writer.writeCollectionOfObjectValues<BookingAppointment>("calendarView", bookingBusiness.calendarView, serializeBookingAppointment);
+    writer.writeCollectionOfObjectValues<BookingCustomerBase>("customers", bookingBusiness.customers, serializeBookingCustomerBase);
+    writer.writeCollectionOfObjectValues<BookingCustomQuestion>("customQuestions", bookingBusiness.customQuestions, serializeBookingCustomQuestion);
+    writer.writeStringValue("defaultCurrencyIso", bookingBusiness.defaultCurrencyIso);
+    writer.writeStringValue("displayName", bookingBusiness.displayName);
+    writer.writeStringValue("email", bookingBusiness.email);
+    writer.writeStringValue("languageTag", bookingBusiness.languageTag);
+    writer.writeStringValue("phone", bookingBusiness.phone);
+    writer.writeObjectValue<BookingSchedulingPolicy>("schedulingPolicy", bookingBusiness.schedulingPolicy, serializeBookingSchedulingPolicy);
+    writer.writeCollectionOfObjectValues<BookingService>("services", bookingBusiness.services, serializeBookingService);
+    writer.writeCollectionOfObjectValues<BookingStaffMemberBase>("staffMembers", bookingBusiness.staffMembers, serializeBookingStaffMemberBase);
+    writer.writeStringValue("webSiteUrl", bookingBusiness.webSiteUrl);
 }
 // tslint:enable
 // eslint-enable

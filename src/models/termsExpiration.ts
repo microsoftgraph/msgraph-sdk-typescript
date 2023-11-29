@@ -15,10 +15,10 @@ export function deserializeIntoTermsExpiration(termsExpiration: TermsExpiration 
     }
 }
 export function serializeTermsExpiration(writer: SerializationWriter, termsExpiration: TermsExpiration | undefined = {} as TermsExpiration) : void {
-        writer.writeDurationValue("frequency", termsExpiration.frequency);
-        writer.writeStringValue("@odata.type", termsExpiration.odataType);
-        writer.writeDateValue("startDateTime", termsExpiration.startDateTime);
-        writer.writeAdditionalData(termsExpiration.additionalData);
+    writer.writeDurationValue("frequency", termsExpiration.frequency);
+    writer.writeStringValue("@odata.type", termsExpiration.odataType);
+    writer.writeDateValue("startDateTime", termsExpiration.startDateTime);
+    writer.writeAdditionalData(termsExpiration.additionalData);
 }
 export interface TermsExpiration extends AdditionalDataHolder, Parsable {
     /**

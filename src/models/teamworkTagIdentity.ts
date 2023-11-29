@@ -14,7 +14,7 @@ export function deserializeIntoTeamworkTagIdentity(teamworkTagIdentity: Teamwork
     }
 }
 export function serializeTeamworkTagIdentity(writer: SerializationWriter, teamworkTagIdentity: TeamworkTagIdentity | undefined = {} as TeamworkTagIdentity) : void {
-        serializeIdentity(writer, teamworkTagIdentity)
+    serializeIdentity(writer, teamworkTagIdentity)
 }
 export interface TeamworkTagIdentity extends Identity, Parsable {
 }

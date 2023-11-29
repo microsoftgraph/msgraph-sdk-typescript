@@ -31,10 +31,10 @@ export interface IosCustomConfiguration extends DeviceConfiguration, Parsable {
     payloadName?: string;
 }
 export function serializeIosCustomConfiguration(writer: SerializationWriter, iosCustomConfiguration: IosCustomConfiguration | undefined = {} as IosCustomConfiguration) : void {
-        serializeDeviceConfiguration(writer, iosCustomConfiguration)
-        writer.writeStringValue("payload", iosCustomConfiguration.payload);
-        writer.writeStringValue("payloadFileName", iosCustomConfiguration.payloadFileName);
-        writer.writeStringValue("payloadName", iosCustomConfiguration.payloadName);
+    serializeDeviceConfiguration(writer, iosCustomConfiguration)
+    writer.writeStringValue("payload", iosCustomConfiguration.payload);
+    writer.writeStringValue("payloadFileName", iosCustomConfiguration.payloadFileName);
+    writer.writeStringValue("payloadName", iosCustomConfiguration.payloadName);
 }
 // tslint:enable
 // eslint-enable

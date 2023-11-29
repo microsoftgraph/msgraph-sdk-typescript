@@ -20,14 +20,14 @@ export function deserializeIntoSharingLink(sharingLink: SharingLink | undefined 
     }
 }
 export function serializeSharingLink(writer: SerializationWriter, sharingLink: SharingLink | undefined = {} as SharingLink) : void {
-        writer.writeObjectValue<Identity>("application", sharingLink.application, serializeIdentity);
-        writer.writeStringValue("@odata.type", sharingLink.odataType);
-        writer.writeBooleanValue("preventsDownload", sharingLink.preventsDownload);
-        writer.writeStringValue("scope", sharingLink.scope);
-        writer.writeStringValue("type", sharingLink.type);
-        writer.writeStringValue("webHtml", sharingLink.webHtml);
-        writer.writeStringValue("webUrl", sharingLink.webUrl);
-        writer.writeAdditionalData(sharingLink.additionalData);
+    writer.writeObjectValue<Identity>("application", sharingLink.application, serializeIdentity);
+    writer.writeStringValue("@odata.type", sharingLink.odataType);
+    writer.writeBooleanValue("preventsDownload", sharingLink.preventsDownload);
+    writer.writeStringValue("scope", sharingLink.scope);
+    writer.writeStringValue("type", sharingLink.type);
+    writer.writeStringValue("webHtml", sharingLink.webHtml);
+    writer.writeStringValue("webUrl", sharingLink.webUrl);
+    writer.writeAdditionalData(sharingLink.additionalData);
 }
 export interface SharingLink extends AdditionalDataHolder, Parsable {
     /**

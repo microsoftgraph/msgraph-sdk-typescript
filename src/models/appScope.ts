@@ -26,9 +26,9 @@ export function deserializeIntoAppScope(appScope: AppScope | undefined = {} as A
     }
 }
 export function serializeAppScope(writer: SerializationWriter, appScope: AppScope | undefined = {} as AppScope) : void {
-        serializeEntity(writer, appScope)
-        writer.writeStringValue("displayName", appScope.displayName);
-        writer.writeStringValue("type", appScope.type);
+    serializeEntity(writer, appScope)
+    writer.writeStringValue("displayName", appScope.displayName);
+    writer.writeStringValue("type", appScope.type);
 }
 // tslint:enable
 // eslint-enable

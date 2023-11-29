@@ -18,12 +18,12 @@ export function deserializeIntoVmMetadata(vmMetadata: VmMetadata | undefined = {
     }
 }
 export function serializeVmMetadata(writer: SerializationWriter, vmMetadata: VmMetadata | undefined = {} as VmMetadata) : void {
-        writer.writeEnumValue<VmCloudProvider>("cloudProvider", vmMetadata.cloudProvider);
-        writer.writeStringValue("@odata.type", vmMetadata.odataType);
-        writer.writeStringValue("resourceId", vmMetadata.resourceId);
-        writer.writeStringValue("subscriptionId", vmMetadata.subscriptionId);
-        writer.writeStringValue("vmId", vmMetadata.vmId);
-        writer.writeAdditionalData(vmMetadata.additionalData);
+    writer.writeEnumValue<VmCloudProvider>("cloudProvider", vmMetadata.cloudProvider);
+    writer.writeStringValue("@odata.type", vmMetadata.odataType);
+    writer.writeStringValue("resourceId", vmMetadata.resourceId);
+    writer.writeStringValue("subscriptionId", vmMetadata.subscriptionId);
+    writer.writeStringValue("vmId", vmMetadata.vmId);
+    writer.writeAdditionalData(vmMetadata.additionalData);
 }
 export interface VmMetadata extends AdditionalDataHolder, Parsable {
     /**

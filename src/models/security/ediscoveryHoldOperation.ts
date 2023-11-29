@@ -16,7 +16,7 @@ export function deserializeIntoEdiscoveryHoldOperation(ediscoveryHoldOperation: 
 export interface EdiscoveryHoldOperation extends CaseOperation, Parsable {
 }
 export function serializeEdiscoveryHoldOperation(writer: SerializationWriter, ediscoveryHoldOperation: EdiscoveryHoldOperation | undefined = {} as EdiscoveryHoldOperation) : void {
-        serializeCaseOperation(writer, ediscoveryHoldOperation)
+    serializeCaseOperation(writer, ediscoveryHoldOperation)
 }
 // tslint:enable
 // eslint-enable

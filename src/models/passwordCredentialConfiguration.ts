@@ -39,11 +39,11 @@ export interface PasswordCredentialConfiguration extends AdditionalDataHolder, P
     restrictionType?: AppCredentialRestrictionType;
 }
 export function serializePasswordCredentialConfiguration(writer: SerializationWriter, passwordCredentialConfiguration: PasswordCredentialConfiguration | undefined = {} as PasswordCredentialConfiguration) : void {
-        writer.writeDurationValue("maxLifetime", passwordCredentialConfiguration.maxLifetime);
-        writer.writeStringValue("@odata.type", passwordCredentialConfiguration.odataType);
-        writer.writeDateValue("restrictForAppsCreatedAfterDateTime", passwordCredentialConfiguration.restrictForAppsCreatedAfterDateTime);
-        writer.writeEnumValue<AppCredentialRestrictionType>("restrictionType", passwordCredentialConfiguration.restrictionType);
-        writer.writeAdditionalData(passwordCredentialConfiguration.additionalData);
+    writer.writeDurationValue("maxLifetime", passwordCredentialConfiguration.maxLifetime);
+    writer.writeStringValue("@odata.type", passwordCredentialConfiguration.odataType);
+    writer.writeDateValue("restrictForAppsCreatedAfterDateTime", passwordCredentialConfiguration.restrictForAppsCreatedAfterDateTime);
+    writer.writeEnumValue<AppCredentialRestrictionType>("restrictionType", passwordCredentialConfiguration.restrictionType);
+    writer.writeAdditionalData(passwordCredentialConfiguration.additionalData);
 }
 // tslint:enable
 // eslint-enable

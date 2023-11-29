@@ -26,9 +26,9 @@ export interface OnenoteResource extends OnenoteEntityBaseModel, Parsable {
     contentUrl?: string;
 }
 export function serializeOnenoteResource(writer: SerializationWriter, onenoteResource: OnenoteResource | undefined = {} as OnenoteResource) : void {
-        serializeOnenoteEntityBaseModel(writer, onenoteResource)
-        writer.writeStringValue("content", onenoteResource.content);
-        writer.writeStringValue("contentUrl", onenoteResource.contentUrl);
+    serializeOnenoteEntityBaseModel(writer, onenoteResource)
+    writer.writeStringValue("content", onenoteResource.content);
+    writer.writeStringValue("contentUrl", onenoteResource.contentUrl);
 }
 // tslint:enable
 // eslint-enable

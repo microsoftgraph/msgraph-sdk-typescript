@@ -16,7 +16,7 @@ export function deserializeIntoChatMessageHostedContent(chatMessageHostedContent
     }
 }
 export function serializeChatMessageHostedContent(writer: SerializationWriter, chatMessageHostedContent: ChatMessageHostedContent | undefined = {} as ChatMessageHostedContent) : void {
-        serializeTeamworkHostedContent(writer, chatMessageHostedContent)
+    serializeTeamworkHostedContent(writer, chatMessageHostedContent)
 }
 // tslint:enable
 // eslint-enable

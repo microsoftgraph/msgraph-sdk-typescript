@@ -14,7 +14,7 @@ export function deserializeIntoWorkbookRangeSort(workbookRangeSort: WorkbookRang
     }
 }
 export function serializeWorkbookRangeSort(writer: SerializationWriter, workbookRangeSort: WorkbookRangeSort | undefined = {} as WorkbookRangeSort) : void {
-        serializeEntity(writer, workbookRangeSort)
+    serializeEntity(writer, workbookRangeSort)
 }
 export interface WorkbookRangeSort extends Entity, Parsable {
 }

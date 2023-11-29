@@ -32,10 +32,10 @@ export interface MailAssessmentRequest extends Parsable, ThreatAssessmentRequest
     recipientEmail?: string;
 }
 export function serializeMailAssessmentRequest(writer: SerializationWriter, mailAssessmentRequest: MailAssessmentRequest | undefined = {} as MailAssessmentRequest) : void {
-        serializeThreatAssessmentRequest(writer, mailAssessmentRequest)
-        writer.writeEnumValue<MailDestinationRoutingReason>("destinationRoutingReason", mailAssessmentRequest.destinationRoutingReason);
-        writer.writeStringValue("messageUri", mailAssessmentRequest.messageUri);
-        writer.writeStringValue("recipientEmail", mailAssessmentRequest.recipientEmail);
+    serializeThreatAssessmentRequest(writer, mailAssessmentRequest)
+    writer.writeEnumValue<MailDestinationRoutingReason>("destinationRoutingReason", mailAssessmentRequest.destinationRoutingReason);
+    writer.writeStringValue("messageUri", mailAssessmentRequest.messageUri);
+    writer.writeStringValue("recipientEmail", mailAssessmentRequest.recipientEmail);
 }
 // tslint:enable
 // eslint-enable

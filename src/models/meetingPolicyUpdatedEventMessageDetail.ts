@@ -32,10 +32,10 @@ export interface MeetingPolicyUpdatedEventMessageDetail extends EventMessageDeta
     meetingChatId?: string;
 }
 export function serializeMeetingPolicyUpdatedEventMessageDetail(writer: SerializationWriter, meetingPolicyUpdatedEventMessageDetail: MeetingPolicyUpdatedEventMessageDetail | undefined = {} as MeetingPolicyUpdatedEventMessageDetail) : void {
-        serializeEventMessageDetail(writer, meetingPolicyUpdatedEventMessageDetail)
-        writer.writeObjectValue<IdentitySet>("initiator", meetingPolicyUpdatedEventMessageDetail.initiator, serializeIdentitySet);
-        writer.writeBooleanValue("meetingChatEnabled", meetingPolicyUpdatedEventMessageDetail.meetingChatEnabled);
-        writer.writeStringValue("meetingChatId", meetingPolicyUpdatedEventMessageDetail.meetingChatId);
+    serializeEventMessageDetail(writer, meetingPolicyUpdatedEventMessageDetail)
+    writer.writeObjectValue<IdentitySet>("initiator", meetingPolicyUpdatedEventMessageDetail.initiator, serializeIdentitySet);
+    writer.writeBooleanValue("meetingChatEnabled", meetingPolicyUpdatedEventMessageDetail.meetingChatEnabled);
+    writer.writeStringValue("meetingChatId", meetingPolicyUpdatedEventMessageDetail.meetingChatId);
 }
 // tslint:enable
 // eslint-enable

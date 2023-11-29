@@ -23,8 +23,8 @@ export function deserializeIntoBooleanColumn(booleanColumn: BooleanColumn | unde
     }
 }
 export function serializeBooleanColumn(writer: SerializationWriter, booleanColumn: BooleanColumn | undefined = {} as BooleanColumn) : void {
-        writer.writeStringValue("@odata.type", booleanColumn.odataType);
-        writer.writeAdditionalData(booleanColumn.additionalData);
+    writer.writeStringValue("@odata.type", booleanColumn.odataType);
+    writer.writeAdditionalData(booleanColumn.additionalData);
 }
 // tslint:enable
 // eslint-enable

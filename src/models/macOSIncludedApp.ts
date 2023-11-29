@@ -33,10 +33,10 @@ export interface MacOSIncludedApp extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeMacOSIncludedApp(writer: SerializationWriter, macOSIncludedApp: MacOSIncludedApp | undefined = {} as MacOSIncludedApp) : void {
-        writer.writeStringValue("bundleId", macOSIncludedApp.bundleId);
-        writer.writeStringValue("bundleVersion", macOSIncludedApp.bundleVersion);
-        writer.writeStringValue("@odata.type", macOSIncludedApp.odataType);
-        writer.writeAdditionalData(macOSIncludedApp.additionalData);
+    writer.writeStringValue("bundleId", macOSIncludedApp.bundleId);
+    writer.writeStringValue("bundleVersion", macOSIncludedApp.bundleVersion);
+    writer.writeStringValue("@odata.type", macOSIncludedApp.odataType);
+    writer.writeAdditionalData(macOSIncludedApp.additionalData);
 }
 // tslint:enable
 // eslint-enable

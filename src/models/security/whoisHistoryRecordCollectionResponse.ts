@@ -16,8 +16,8 @@ export function deserializeIntoWhoisHistoryRecordCollectionResponse(whoisHistory
     }
 }
 export function serializeWhoisHistoryRecordCollectionResponse(writer: SerializationWriter, whoisHistoryRecordCollectionResponse: WhoisHistoryRecordCollectionResponse | undefined = {} as WhoisHistoryRecordCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, whoisHistoryRecordCollectionResponse)
-        writer.writeCollectionOfObjectValues<WhoisHistoryRecord>("value", whoisHistoryRecordCollectionResponse.value, serializeWhoisHistoryRecord);
+    serializeBaseCollectionPaginationCountResponse(writer, whoisHistoryRecordCollectionResponse)
+    writer.writeCollectionOfObjectValues<WhoisHistoryRecord>("value", whoisHistoryRecordCollectionResponse.value, serializeWhoisHistoryRecord);
 }
 export interface WhoisHistoryRecordCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

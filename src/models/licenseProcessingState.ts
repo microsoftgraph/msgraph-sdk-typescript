@@ -28,9 +28,9 @@ export interface LicenseProcessingState extends AdditionalDataHolder, Parsable {
     state?: string;
 }
 export function serializeLicenseProcessingState(writer: SerializationWriter, licenseProcessingState: LicenseProcessingState | undefined = {} as LicenseProcessingState) : void {
-        writer.writeStringValue("@odata.type", licenseProcessingState.odataType);
-        writer.writeStringValue("state", licenseProcessingState.state);
-        writer.writeAdditionalData(licenseProcessingState.additionalData);
+    writer.writeStringValue("@odata.type", licenseProcessingState.odataType);
+    writer.writeStringValue("state", licenseProcessingState.state);
+    writer.writeAdditionalData(licenseProcessingState.additionalData);
 }
 // tslint:enable
 // eslint-enable

@@ -21,8 +21,8 @@ export interface MicrosoftAccountUserConversationMember extends ConversationMemb
     userId?: string;
 }
 export function serializeMicrosoftAccountUserConversationMember(writer: SerializationWriter, microsoftAccountUserConversationMember: MicrosoftAccountUserConversationMember | undefined = {} as MicrosoftAccountUserConversationMember) : void {
-        serializeConversationMember(writer, microsoftAccountUserConversationMember)
-        writer.writeStringValue("userId", microsoftAccountUserConversationMember.userId);
+    serializeConversationMember(writer, microsoftAccountUserConversationMember)
+    writer.writeStringValue("userId", microsoftAccountUserConversationMember.userId);
 }
 // tslint:enable
 // eslint-enable

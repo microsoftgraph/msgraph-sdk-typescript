@@ -23,8 +23,8 @@ export interface PlannerExternalReferences extends AdditionalDataHolder, Parsabl
     odataType?: string;
 }
 export function serializePlannerExternalReferences(writer: SerializationWriter, plannerExternalReferences: PlannerExternalReferences | undefined = {} as PlannerExternalReferences) : void {
-        writer.writeStringValue("@odata.type", plannerExternalReferences.odataType);
-        writer.writeAdditionalData(plannerExternalReferences.additionalData);
+    writer.writeStringValue("@odata.type", plannerExternalReferences.odataType);
+    writer.writeAdditionalData(plannerExternalReferences.additionalData);
 }
 // tslint:enable
 // eslint-enable

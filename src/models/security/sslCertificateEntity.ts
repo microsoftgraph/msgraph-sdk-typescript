@@ -23,17 +23,17 @@ export function deserializeIntoSslCertificateEntity(sslCertificateEntity: SslCer
     }
 }
 export function serializeSslCertificateEntity(writer: SerializationWriter, sslCertificateEntity: SslCertificateEntity | undefined = {} as SslCertificateEntity) : void {
-        writer.writeObjectValue<PhysicalAddress>("address", sslCertificateEntity.address, serializePhysicalAddress);
-        writer.writeCollectionOfPrimitiveValues<string>("alternateNames", sslCertificateEntity.alternateNames);
-        writer.writeStringValue("commonName", sslCertificateEntity.commonName);
-        writer.writeStringValue("email", sslCertificateEntity.email);
-        writer.writeStringValue("givenName", sslCertificateEntity.givenName);
-        writer.writeStringValue("@odata.type", sslCertificateEntity.odataType);
-        writer.writeStringValue("organizationName", sslCertificateEntity.organizationName);
-        writer.writeStringValue("organizationUnitName", sslCertificateEntity.organizationUnitName);
-        writer.writeStringValue("serialNumber", sslCertificateEntity.serialNumber);
-        writer.writeStringValue("surname", sslCertificateEntity.surname);
-        writer.writeAdditionalData(sslCertificateEntity.additionalData);
+    writer.writeObjectValue<PhysicalAddress>("address", sslCertificateEntity.address, serializePhysicalAddress);
+    writer.writeCollectionOfPrimitiveValues<string>("alternateNames", sslCertificateEntity.alternateNames);
+    writer.writeStringValue("commonName", sslCertificateEntity.commonName);
+    writer.writeStringValue("email", sslCertificateEntity.email);
+    writer.writeStringValue("givenName", sslCertificateEntity.givenName);
+    writer.writeStringValue("@odata.type", sslCertificateEntity.odataType);
+    writer.writeStringValue("organizationName", sslCertificateEntity.organizationName);
+    writer.writeStringValue("organizationUnitName", sslCertificateEntity.organizationUnitName);
+    writer.writeStringValue("serialNumber", sslCertificateEntity.serialNumber);
+    writer.writeStringValue("surname", sslCertificateEntity.surname);
+    writer.writeAdditionalData(sslCertificateEntity.additionalData);
 }
 export interface SslCertificateEntity extends AdditionalDataHolder, Parsable {
     /**

@@ -175,37 +175,37 @@ export function deserializeIntoAlert(alert: Alert | undefined = {} as Alert) : R
     }
 }
 export function serializeAlert(writer: SerializationWriter, alert: Alert | undefined = {} as Alert) : void {
-        serializeEntity(writer, alert)
-        writer.writeStringValue("actorDisplayName", alert.actorDisplayName);
-        writer.writeStringValue("alertPolicyId", alert.alertPolicyId);
-        writer.writeStringValue("alertWebUrl", alert.alertWebUrl);
-        writer.writeStringValue("assignedTo", alert.assignedTo);
-        writer.writeStringValue("category", alert.category);
-        writer.writeEnumValue<AlertClassification>("classification", alert.classification);
-        writer.writeCollectionOfObjectValues<AlertComment>("comments", alert.comments, serializeAlertComment);
-        writer.writeDateValue("createdDateTime", alert.createdDateTime);
-        writer.writeStringValue("description", alert.description);
-        writer.writeEnumValue<DetectionSource>("detectionSource", alert.detectionSource);
-        writer.writeStringValue("detectorId", alert.detectorId);
-        writer.writeEnumValue<AlertDetermination>("determination", alert.determination);
-        writer.writeCollectionOfObjectValues<AlertEvidence>("evidence", alert.evidence, serializeAlertEvidence);
-        writer.writeDateValue("firstActivityDateTime", alert.firstActivityDateTime);
-        writer.writeStringValue("incidentId", alert.incidentId);
-        writer.writeStringValue("incidentWebUrl", alert.incidentWebUrl);
-        writer.writeDateValue("lastActivityDateTime", alert.lastActivityDateTime);
-        writer.writeDateValue("lastUpdateDateTime", alert.lastUpdateDateTime);
-        writer.writeCollectionOfPrimitiveValues<string>("mitreTechniques", alert.mitreTechniques);
-        writer.writeStringValue("productName", alert.productName);
-        writer.writeStringValue("providerAlertId", alert.providerAlertId);
-        writer.writeStringValue("recommendedActions", alert.recommendedActions);
-        writer.writeDateValue("resolvedDateTime", alert.resolvedDateTime);
-        writer.writeEnumValue<ServiceSource>("serviceSource", alert.serviceSource);
-        writer.writeEnumValue<AlertSeverity>("severity", alert.severity);
-        writer.writeEnumValue<AlertStatus>("status", alert.status);
-        writer.writeStringValue("tenantId", alert.tenantId);
-        writer.writeStringValue("threatDisplayName", alert.threatDisplayName);
-        writer.writeStringValue("threatFamilyName", alert.threatFamilyName);
-        writer.writeStringValue("title", alert.title);
+    serializeEntity(writer, alert)
+    writer.writeStringValue("actorDisplayName", alert.actorDisplayName);
+    writer.writeStringValue("alertPolicyId", alert.alertPolicyId);
+    writer.writeStringValue("alertWebUrl", alert.alertWebUrl);
+    writer.writeStringValue("assignedTo", alert.assignedTo);
+    writer.writeStringValue("category", alert.category);
+    writer.writeEnumValue<AlertClassification>("classification", alert.classification);
+    writer.writeCollectionOfObjectValues<AlertComment>("comments", alert.comments, serializeAlertComment);
+    writer.writeDateValue("createdDateTime", alert.createdDateTime);
+    writer.writeStringValue("description", alert.description);
+    writer.writeEnumValue<DetectionSource>("detectionSource", alert.detectionSource);
+    writer.writeStringValue("detectorId", alert.detectorId);
+    writer.writeEnumValue<AlertDetermination>("determination", alert.determination);
+    writer.writeCollectionOfObjectValues<AlertEvidence>("evidence", alert.evidence, serializeAlertEvidence);
+    writer.writeDateValue("firstActivityDateTime", alert.firstActivityDateTime);
+    writer.writeStringValue("incidentId", alert.incidentId);
+    writer.writeStringValue("incidentWebUrl", alert.incidentWebUrl);
+    writer.writeDateValue("lastActivityDateTime", alert.lastActivityDateTime);
+    writer.writeDateValue("lastUpdateDateTime", alert.lastUpdateDateTime);
+    writer.writeCollectionOfPrimitiveValues<string>("mitreTechniques", alert.mitreTechniques);
+    writer.writeStringValue("productName", alert.productName);
+    writer.writeStringValue("providerAlertId", alert.providerAlertId);
+    writer.writeStringValue("recommendedActions", alert.recommendedActions);
+    writer.writeDateValue("resolvedDateTime", alert.resolvedDateTime);
+    writer.writeEnumValue<ServiceSource>("serviceSource", alert.serviceSource);
+    writer.writeEnumValue<AlertSeverity>("severity", alert.severity);
+    writer.writeEnumValue<AlertStatus>("status", alert.status);
+    writer.writeStringValue("tenantId", alert.tenantId);
+    writer.writeStringValue("threatDisplayName", alert.threatDisplayName);
+    writer.writeStringValue("threatFamilyName", alert.threatFamilyName);
+    writer.writeStringValue("title", alert.title);
 }
 // tslint:enable
 // eslint-enable

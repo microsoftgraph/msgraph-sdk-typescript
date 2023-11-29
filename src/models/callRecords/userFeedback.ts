@@ -18,11 +18,11 @@ export function deserializeIntoUserFeedback(userFeedback: UserFeedback | undefin
     }
 }
 export function serializeUserFeedback(writer: SerializationWriter, userFeedback: UserFeedback | undefined = {} as UserFeedback) : void {
-        writer.writeStringValue("@odata.type", userFeedback.odataType);
-        writer.writeEnumValue<UserFeedbackRating>("rating", userFeedback.rating);
-        writer.writeStringValue("text", userFeedback.text);
-        writer.writeObjectValue<FeedbackTokenSet>("tokens", userFeedback.tokens, serializeFeedbackTokenSet);
-        writer.writeAdditionalData(userFeedback.additionalData);
+    writer.writeStringValue("@odata.type", userFeedback.odataType);
+    writer.writeEnumValue<UserFeedbackRating>("rating", userFeedback.rating);
+    writer.writeStringValue("text", userFeedback.text);
+    writer.writeObjectValue<FeedbackTokenSet>("tokens", userFeedback.tokens, serializeFeedbackTokenSet);
+    writer.writeAdditionalData(userFeedback.additionalData);
 }
 export interface UserFeedback extends AdditionalDataHolder, Parsable {
     /**

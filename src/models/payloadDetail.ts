@@ -51,11 +51,11 @@ export interface PayloadDetail extends AdditionalDataHolder, Parsable {
     phishingUrl?: string;
 }
 export function serializePayloadDetail(writer: SerializationWriter, payloadDetail: PayloadDetail | undefined = {} as PayloadDetail) : void {
-        writer.writeCollectionOfObjectValues<PayloadCoachmark>("coachmarks", payloadDetail.coachmarks, serializePayloadCoachmark);
-        writer.writeStringValue("content", payloadDetail.content);
-        writer.writeStringValue("@odata.type", payloadDetail.odataType);
-        writer.writeStringValue("phishingUrl", payloadDetail.phishingUrl);
-        writer.writeAdditionalData(payloadDetail.additionalData);
+    writer.writeCollectionOfObjectValues<PayloadCoachmark>("coachmarks", payloadDetail.coachmarks, serializePayloadCoachmark);
+    writer.writeStringValue("content", payloadDetail.content);
+    writer.writeStringValue("@odata.type", payloadDetail.odataType);
+    writer.writeStringValue("phishingUrl", payloadDetail.phishingUrl);
+    writer.writeAdditionalData(payloadDetail.additionalData);
 }
 // tslint:enable
 // eslint-enable

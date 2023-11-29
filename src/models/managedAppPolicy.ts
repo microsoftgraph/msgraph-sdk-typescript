@@ -80,12 +80,12 @@ export interface ManagedAppPolicy extends Entity, Parsable {
     version?: string;
 }
 export function serializeManagedAppPolicy(writer: SerializationWriter, managedAppPolicy: ManagedAppPolicy | undefined = {} as ManagedAppPolicy) : void {
-        serializeEntity(writer, managedAppPolicy)
-        writer.writeDateValue("createdDateTime", managedAppPolicy.createdDateTime);
-        writer.writeStringValue("description", managedAppPolicy.description);
-        writer.writeStringValue("displayName", managedAppPolicy.displayName);
-        writer.writeDateValue("lastModifiedDateTime", managedAppPolicy.lastModifiedDateTime);
-        writer.writeStringValue("version", managedAppPolicy.version);
+    serializeEntity(writer, managedAppPolicy)
+    writer.writeDateValue("createdDateTime", managedAppPolicy.createdDateTime);
+    writer.writeStringValue("description", managedAppPolicy.description);
+    writer.writeStringValue("displayName", managedAppPolicy.displayName);
+    writer.writeDateValue("lastModifiedDateTime", managedAppPolicy.lastModifiedDateTime);
+    writer.writeStringValue("version", managedAppPolicy.version);
 }
 // tslint:enable
 // eslint-enable

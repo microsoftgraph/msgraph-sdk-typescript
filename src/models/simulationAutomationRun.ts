@@ -19,11 +19,11 @@ export function deserializeIntoSimulationAutomationRun(simulationAutomationRun: 
     }
 }
 export function serializeSimulationAutomationRun(writer: SerializationWriter, simulationAutomationRun: SimulationAutomationRun | undefined = {} as SimulationAutomationRun) : void {
-        serializeEntity(writer, simulationAutomationRun)
-        writer.writeDateValue("endDateTime", simulationAutomationRun.endDateTime);
-        writer.writeStringValue("simulationId", simulationAutomationRun.simulationId);
-        writer.writeDateValue("startDateTime", simulationAutomationRun.startDateTime);
-        writer.writeEnumValue<SimulationAutomationRunStatus>("status", simulationAutomationRun.status);
+    serializeEntity(writer, simulationAutomationRun)
+    writer.writeDateValue("endDateTime", simulationAutomationRun.endDateTime);
+    writer.writeStringValue("simulationId", simulationAutomationRun.simulationId);
+    writer.writeDateValue("startDateTime", simulationAutomationRun.startDateTime);
+    writer.writeEnumValue<SimulationAutomationRunStatus>("status", simulationAutomationRun.status);
 }
 export interface SimulationAutomationRun extends Entity, Parsable {
     /**

@@ -39,11 +39,11 @@ export interface Parameter extends AdditionalDataHolder, Parsable {
     valueType?: ValueType;
 }
 export function serializeParameter(writer: SerializationWriter, parameter: Parameter | undefined = {} as Parameter) : void {
-        writer.writeStringValue("name", parameter.name);
-        writer.writeStringValue("@odata.type", parameter.odataType);
-        writer.writeCollectionOfPrimitiveValues<string>("values", parameter.values);
-        writer.writeEnumValue<ValueType>("valueType", parameter.valueType);
-        writer.writeAdditionalData(parameter.additionalData);
+    writer.writeStringValue("name", parameter.name);
+    writer.writeStringValue("@odata.type", parameter.odataType);
+    writer.writeCollectionOfPrimitiveValues<string>("values", parameter.values);
+    writer.writeEnumValue<ValueType>("valueType", parameter.valueType);
+    writer.writeAdditionalData(parameter.additionalData);
 }
 // tslint:enable
 // eslint-enable

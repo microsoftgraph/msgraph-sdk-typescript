@@ -18,10 +18,10 @@ export function deserializeIntoUserSource(userSource: UserSource | undefined = {
     }
 }
 export function serializeUserSource(writer: SerializationWriter, userSource: UserSource | undefined = {} as UserSource) : void {
-        serializeDataSource(writer, userSource)
-        writer.writeStringValue("email", userSource.email);
-        writer.writeEnumValue<SourceType[]>("includedSources", userSource.includedSources);
-        writer.writeStringValue("siteWebUrl", userSource.siteWebUrl);
+    serializeDataSource(writer, userSource)
+    writer.writeStringValue("email", userSource.email);
+    writer.writeEnumValue<SourceType[]>("includedSources", userSource.includedSources);
+    writer.writeStringValue("siteWebUrl", userSource.siteWebUrl);
 }
 export interface UserSource extends DataSource, Parsable {
     /**

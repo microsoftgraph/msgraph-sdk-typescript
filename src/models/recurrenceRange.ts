@@ -49,13 +49,13 @@ export interface RecurrenceRange extends AdditionalDataHolder, Parsable {
     type?: RecurrenceRangeType;
 }
 export function serializeRecurrenceRange(writer: SerializationWriter, recurrenceRange: RecurrenceRange | undefined = {} as RecurrenceRange) : void {
-        writer.writeDateOnlyValue("endDate", recurrenceRange.endDate);
-        writer.writeNumberValue("numberOfOccurrences", recurrenceRange.numberOfOccurrences);
-        writer.writeStringValue("@odata.type", recurrenceRange.odataType);
-        writer.writeStringValue("recurrenceTimeZone", recurrenceRange.recurrenceTimeZone);
-        writer.writeDateOnlyValue("startDate", recurrenceRange.startDate);
-        writer.writeEnumValue<RecurrenceRangeType>("type", recurrenceRange.type);
-        writer.writeAdditionalData(recurrenceRange.additionalData);
+    writer.writeDateOnlyValue("endDate", recurrenceRange.endDate);
+    writer.writeNumberValue("numberOfOccurrences", recurrenceRange.numberOfOccurrences);
+    writer.writeStringValue("@odata.type", recurrenceRange.odataType);
+    writer.writeStringValue("recurrenceTimeZone", recurrenceRange.recurrenceTimeZone);
+    writer.writeDateOnlyValue("startDate", recurrenceRange.startDate);
+    writer.writeEnumValue<RecurrenceRangeType>("type", recurrenceRange.type);
+    writer.writeAdditionalData(recurrenceRange.additionalData);
 }
 // tslint:enable
 // eslint-enable

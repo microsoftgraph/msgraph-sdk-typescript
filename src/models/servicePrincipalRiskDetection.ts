@@ -41,27 +41,27 @@ export function deserializeIntoServicePrincipalRiskDetection(servicePrincipalRis
     }
 }
 export function serializeServicePrincipalRiskDetection(writer: SerializationWriter, servicePrincipalRiskDetection: ServicePrincipalRiskDetection | undefined = {} as ServicePrincipalRiskDetection) : void {
-        serializeEntity(writer, servicePrincipalRiskDetection)
-        writer.writeEnumValue<ActivityType>("activity", servicePrincipalRiskDetection.activity);
-        writer.writeDateValue("activityDateTime", servicePrincipalRiskDetection.activityDateTime);
-        writer.writeStringValue("additionalInfo", servicePrincipalRiskDetection.additionalInfo);
-        writer.writeStringValue("appId", servicePrincipalRiskDetection.appId);
-        writer.writeStringValue("correlationId", servicePrincipalRiskDetection.correlationId);
-        writer.writeDateValue("detectedDateTime", servicePrincipalRiskDetection.detectedDateTime);
-        writer.writeEnumValue<RiskDetectionTimingType>("detectionTimingType", servicePrincipalRiskDetection.detectionTimingType);
-        writer.writeStringValue("ipAddress", servicePrincipalRiskDetection.ipAddress);
-        writer.writeCollectionOfPrimitiveValues<string>("keyIds", servicePrincipalRiskDetection.keyIds);
-        writer.writeDateValue("lastUpdatedDateTime", servicePrincipalRiskDetection.lastUpdatedDateTime);
-        writer.writeObjectValue<SignInLocation>("location", servicePrincipalRiskDetection.location, serializeSignInLocation);
-        writer.writeStringValue("requestId", servicePrincipalRiskDetection.requestId);
-        writer.writeEnumValue<RiskDetail>("riskDetail", servicePrincipalRiskDetection.riskDetail);
-        writer.writeStringValue("riskEventType", servicePrincipalRiskDetection.riskEventType);
-        writer.writeEnumValue<RiskLevel>("riskLevel", servicePrincipalRiskDetection.riskLevel);
-        writer.writeEnumValue<RiskState>("riskState", servicePrincipalRiskDetection.riskState);
-        writer.writeStringValue("servicePrincipalDisplayName", servicePrincipalRiskDetection.servicePrincipalDisplayName);
-        writer.writeStringValue("servicePrincipalId", servicePrincipalRiskDetection.servicePrincipalId);
-        writer.writeStringValue("source", servicePrincipalRiskDetection.source);
-        writer.writeEnumValue<TokenIssuerType>("tokenIssuerType", servicePrincipalRiskDetection.tokenIssuerType);
+    serializeEntity(writer, servicePrincipalRiskDetection)
+    writer.writeEnumValue<ActivityType>("activity", servicePrincipalRiskDetection.activity);
+    writer.writeDateValue("activityDateTime", servicePrincipalRiskDetection.activityDateTime);
+    writer.writeStringValue("additionalInfo", servicePrincipalRiskDetection.additionalInfo);
+    writer.writeStringValue("appId", servicePrincipalRiskDetection.appId);
+    writer.writeStringValue("correlationId", servicePrincipalRiskDetection.correlationId);
+    writer.writeDateValue("detectedDateTime", servicePrincipalRiskDetection.detectedDateTime);
+    writer.writeEnumValue<RiskDetectionTimingType>("detectionTimingType", servicePrincipalRiskDetection.detectionTimingType);
+    writer.writeStringValue("ipAddress", servicePrincipalRiskDetection.ipAddress);
+    writer.writeCollectionOfPrimitiveValues<string>("keyIds", servicePrincipalRiskDetection.keyIds);
+    writer.writeDateValue("lastUpdatedDateTime", servicePrincipalRiskDetection.lastUpdatedDateTime);
+    writer.writeObjectValue<SignInLocation>("location", servicePrincipalRiskDetection.location, serializeSignInLocation);
+    writer.writeStringValue("requestId", servicePrincipalRiskDetection.requestId);
+    writer.writeEnumValue<RiskDetail>("riskDetail", servicePrincipalRiskDetection.riskDetail);
+    writer.writeStringValue("riskEventType", servicePrincipalRiskDetection.riskEventType);
+    writer.writeEnumValue<RiskLevel>("riskLevel", servicePrincipalRiskDetection.riskLevel);
+    writer.writeEnumValue<RiskState>("riskState", servicePrincipalRiskDetection.riskState);
+    writer.writeStringValue("servicePrincipalDisplayName", servicePrincipalRiskDetection.servicePrincipalDisplayName);
+    writer.writeStringValue("servicePrincipalId", servicePrincipalRiskDetection.servicePrincipalId);
+    writer.writeStringValue("source", servicePrincipalRiskDetection.source);
+    writer.writeEnumValue<TokenIssuerType>("tokenIssuerType", servicePrincipalRiskDetection.tokenIssuerType);
 }
 export interface ServicePrincipalRiskDetection extends Entity, Parsable {
     /**

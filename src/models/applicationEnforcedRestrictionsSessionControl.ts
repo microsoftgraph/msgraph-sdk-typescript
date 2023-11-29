@@ -16,7 +16,7 @@ export function deserializeIntoApplicationEnforcedRestrictionsSessionControl(app
     }
 }
 export function serializeApplicationEnforcedRestrictionsSessionControl(writer: SerializationWriter, applicationEnforcedRestrictionsSessionControl: ApplicationEnforcedRestrictionsSessionControl | undefined = {} as ApplicationEnforcedRestrictionsSessionControl) : void {
-        serializeConditionalAccessSessionControl(writer, applicationEnforcedRestrictionsSessionControl)
+    serializeConditionalAccessSessionControl(writer, applicationEnforcedRestrictionsSessionControl)
 }
 // tslint:enable
 // eslint-enable

@@ -16,8 +16,8 @@ export function deserializeIntoVirtualEventWebinarCollectionResponse(virtualEven
     }
 }
 export function serializeVirtualEventWebinarCollectionResponse(writer: SerializationWriter, virtualEventWebinarCollectionResponse: VirtualEventWebinarCollectionResponse | undefined = {} as VirtualEventWebinarCollectionResponse) : void {
-        serializeBaseCollectionPaginationCountResponse(writer, virtualEventWebinarCollectionResponse)
-        writer.writeCollectionOfObjectValues<VirtualEventWebinar>("value", virtualEventWebinarCollectionResponse.value, serializeVirtualEventWebinar);
+    serializeBaseCollectionPaginationCountResponse(writer, virtualEventWebinarCollectionResponse)
+    writer.writeCollectionOfObjectValues<VirtualEventWebinar>("value", virtualEventWebinarCollectionResponse.value, serializeVirtualEventWebinar);
 }
 export interface VirtualEventWebinarCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

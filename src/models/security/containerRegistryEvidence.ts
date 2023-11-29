@@ -21,8 +21,8 @@ export function deserializeIntoContainerRegistryEvidence(containerRegistryEviden
     }
 }
 export function serializeContainerRegistryEvidence(writer: SerializationWriter, containerRegistryEvidence: ContainerRegistryEvidence | undefined = {} as ContainerRegistryEvidence) : void {
-        serializeAlertEvidence(writer, containerRegistryEvidence)
-        writer.writeStringValue("registry", containerRegistryEvidence.registry);
+    serializeAlertEvidence(writer, containerRegistryEvidence)
+    writer.writeStringValue("registry", containerRegistryEvidence.registry);
 }
 // tslint:enable
 // eslint-enable

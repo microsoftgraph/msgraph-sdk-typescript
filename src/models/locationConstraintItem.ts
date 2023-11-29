@@ -21,8 +21,8 @@ export interface LocationConstraintItem extends Location, Parsable {
     resolveAvailability?: boolean;
 }
 export function serializeLocationConstraintItem(writer: SerializationWriter, locationConstraintItem: LocationConstraintItem | undefined = {} as LocationConstraintItem) : void {
-        serializeLocation(writer, locationConstraintItem)
-        writer.writeBooleanValue("resolveAvailability", locationConstraintItem.resolveAvailability);
+    serializeLocation(writer, locationConstraintItem)
+    writer.writeBooleanValue("resolveAvailability", locationConstraintItem.resolveAvailability);
 }
 // tslint:enable
 // eslint-enable

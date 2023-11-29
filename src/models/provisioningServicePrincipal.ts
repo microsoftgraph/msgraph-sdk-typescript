@@ -16,7 +16,7 @@ export function deserializeIntoProvisioningServicePrincipal(provisioningServiceP
 export interface ProvisioningServicePrincipal extends Identity, Parsable {
 }
 export function serializeProvisioningServicePrincipal(writer: SerializationWriter, provisioningServicePrincipal: ProvisioningServicePrincipal | undefined = {} as ProvisioningServicePrincipal) : void {
-        serializeIdentity(writer, provisioningServicePrincipal)
+    serializeIdentity(writer, provisioningServicePrincipal)
 }
 // tslint:enable
 // eslint-enable

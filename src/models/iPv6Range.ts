@@ -26,9 +26,9 @@ export interface IPv6Range extends IpRange, Parsable {
     upperAddress?: string;
 }
 export function serializeIPv6Range(writer: SerializationWriter, iPv6Range: IPv6Range | undefined = {} as IPv6Range) : void {
-        serializeIpRange(writer, iPv6Range)
-        writer.writeStringValue("lowerAddress", iPv6Range.lowerAddress);
-        writer.writeStringValue("upperAddress", iPv6Range.upperAddress);
+    serializeIpRange(writer, iPv6Range)
+    writer.writeStringValue("lowerAddress", iPv6Range.lowerAddress);
+    writer.writeStringValue("upperAddress", iPv6Range.upperAddress);
 }
 // tslint:enable
 // eslint-enable

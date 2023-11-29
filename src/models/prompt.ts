@@ -35,8 +35,8 @@ export interface Prompt extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializePrompt(writer: SerializationWriter, prompt: Prompt | undefined = {} as Prompt) : void {
-        writer.writeStringValue("@odata.type", prompt.odataType);
-        writer.writeAdditionalData(prompt.additionalData);
+    writer.writeStringValue("@odata.type", prompt.odataType);
+    writer.writeAdditionalData(prompt.additionalData);
 }
 // tslint:enable
 // eslint-enable

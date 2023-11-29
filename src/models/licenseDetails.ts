@@ -33,10 +33,10 @@ export interface LicenseDetails extends Entity, Parsable {
     skuPartNumber?: string;
 }
 export function serializeLicenseDetails(writer: SerializationWriter, licenseDetails: LicenseDetails | undefined = {} as LicenseDetails) : void {
-        serializeEntity(writer, licenseDetails)
-        writer.writeCollectionOfObjectValues<ServicePlanInfo>("servicePlans", licenseDetails.servicePlans, serializeServicePlanInfo);
-        writer.writeGuidValue("skuId", licenseDetails.skuId);
-        writer.writeStringValue("skuPartNumber", licenseDetails.skuPartNumber);
+    serializeEntity(writer, licenseDetails)
+    writer.writeCollectionOfObjectValues<ServicePlanInfo>("servicePlans", licenseDetails.servicePlans, serializeServicePlanInfo);
+    writer.writeGuidValue("skuId", licenseDetails.skuId);
+    writer.writeStringValue("skuPartNumber", licenseDetails.skuPartNumber);
 }
 // tslint:enable
 // eslint-enable
