@@ -7,7 +7,7 @@ import { createCustomExtensionAuthenticationConfigurationFromDiscriminatorValue,
 import { createCustomExtensionClientConfigurationFromDiscriminatorValue, serializeCustomExtensionClientConfiguration, type CustomExtensionClientConfiguration } from './customExtensionClientConfiguration';
 import { createCustomExtensionEndpointConfigurationFromDiscriminatorValue, serializeCustomExtensionEndpointConfiguration, type CustomExtensionEndpointConfiguration } from './customExtensionEndpointConfiguration';
 import { deserializeIntoEntity, serializeEntity, type Entity } from './entity';
-import { type CustomTaskExtension } from './identityGovernance';
+import { type CustomTaskExtension } from './identityGovernance/';
 import { deserializeIntoCustomTaskExtension } from './identityGovernance/customTaskExtension';
 import { type AccessPackageAssignmentRequestWorkflowExtension, type AccessPackageAssignmentWorkflowExtension } from './index';
 import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';

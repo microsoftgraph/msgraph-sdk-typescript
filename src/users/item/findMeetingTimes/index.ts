@@ -4,7 +4,7 @@
 import { createAttendeeBaseFromDiscriminatorValue, serializeAttendeeBase, type AttendeeBase } from '../../../models/attendeeBase';
 import { createLocationConstraintFromDiscriminatorValue, serializeLocationConstraint, type LocationConstraint } from '../../../models/locationConstraint';
 import { createMeetingTimeSuggestionsResultFromDiscriminatorValue, deserializeIntoMeetingTimeSuggestionsResult, serializeMeetingTimeSuggestionsResult, type MeetingTimeSuggestionsResult } from '../../../models/meetingTimeSuggestionsResult';
-import { type ODataError } from '../../../models/oDataErrors';
+import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { createTimeConstraintFromDiscriminatorValue, serializeTimeConstraint, type TimeConstraint } from '../../../models/timeConstraint';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type AdditionalDataHolder, type Duration, type Parsable, type ParsableFactory, type ParseNode, type RequestAdapter, type RequestConfiguration, type RequestOption, type SerializationWriter } from '@microsoft/kiota-abstractions';

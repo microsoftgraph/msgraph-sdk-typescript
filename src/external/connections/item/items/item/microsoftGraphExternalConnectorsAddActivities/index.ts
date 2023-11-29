@@ -4,7 +4,7 @@
 import { deserializeIntoBaseCollectionPaginationCountResponse, serializeBaseCollectionPaginationCountResponse, type BaseCollectionPaginationCountResponse } from '../../../../../../models/baseCollectionPaginationCountResponse';
 import { createExternalActivityFromDiscriminatorValue, serializeExternalActivity, type ExternalActivity } from '../../../../../../models/externalConnectors/externalActivity';
 import { createExternalActivityResultFromDiscriminatorValue, serializeExternalActivityResult, type ExternalActivityResult } from '../../../../../../models/externalConnectors/externalActivityResult';
-import { type ODataError } from '../../../../../../models/oDataErrors';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type AdditionalDataHolder, type Parsable, type ParsableFactory, type ParseNode, type RequestAdapter, type RequestConfiguration, type RequestOption, type SerializationWriter } from '@microsoft/kiota-abstractions';
 

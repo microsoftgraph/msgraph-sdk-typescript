@@ -4,7 +4,7 @@
 import { createBrowserSharedCookieFromDiscriminatorValue, serializeBrowserSharedCookie, type BrowserSharedCookie } from '../../../../../../models/browserSharedCookie';
 import { createBrowserSiteFromDiscriminatorValue, serializeBrowserSite, type BrowserSite } from '../../../../../../models/browserSite';
 import { createBrowserSiteListFromDiscriminatorValue, deserializeIntoBrowserSiteList, serializeBrowserSiteList, type BrowserSiteList } from '../../../../../../models/browserSiteList';
-import { type ODataError } from '../../../../../../models/oDataErrors';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type AdditionalDataHolder, type Parsable, type ParsableFactory, type ParseNode, type RequestAdapter, type RequestConfiguration, type RequestOption, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
