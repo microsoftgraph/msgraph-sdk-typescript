@@ -7,7 +7,7 @@ import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstra
 /**
  * Builds and executes requests for operations under /education/schools/{educationSchool-id}/classes/{educationClass-id}
  */
-export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
+export class EducationClassItemRequestBuilder extends BaseRequestBuilder<EducationClassItemRequestBuilder> {
     /**
      * Provides operations to manage the collection of educationRoot entities.
      */
@@ -20,8 +20,8 @@ export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/education/schools/{educationSchool%2Did}/classes/{educationClass%2Did}");
-    };
+        super(pathParameters, requestAdapter, "{+baseurl}/education/schools/{educationSchool%2Did}/classes/{educationClass%2Did}", (x, y) => new EducationClassItemRequestBuilder(x, y));
+    }
 }
 // tslint:enable
 // eslint-enable

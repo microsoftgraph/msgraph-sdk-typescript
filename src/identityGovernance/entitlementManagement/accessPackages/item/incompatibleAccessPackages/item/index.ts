@@ -7,7 +7,7 @@ import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstra
 /**
  * Builds and executes requests for operations under /identityGovernance/entitlementManagement/accessPackages/{accessPackage-id}/incompatibleAccessPackages/{accessPackage-id1}
  */
-export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
+export class AccessPackageItemRequestBuilder extends BaseRequestBuilder<AccessPackageItemRequestBuilder> {
     /**
      * Provides operations to manage the collection of identityGovernance entities.
      */
@@ -20,8 +20,8 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/incompatibleAccessPackages/{accessPackage%2Did1}");
-    };
+        super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/incompatibleAccessPackages/{accessPackage%2Did1}", (x, y) => new AccessPackageItemRequestBuilder(x, y));
+    }
 }
 // tslint:enable
 // eslint-enable

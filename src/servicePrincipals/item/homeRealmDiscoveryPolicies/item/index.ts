@@ -7,7 +7,7 @@ import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstra
 /**
  * Builds and executes requests for operations under /servicePrincipals/{servicePrincipal-id}/homeRealmDiscoveryPolicies/{homeRealmDiscoveryPolicy-id}
  */
-export class HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestBuilder {
+export class HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestBuilder<HomeRealmDiscoveryPolicyItemRequestBuilder> {
     /**
      * Provides operations to manage the collection of servicePrincipal entities.
      */
@@ -20,8 +20,8 @@ export class HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestBuild
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/homeRealmDiscoveryPolicies/{homeRealmDiscoveryPolicy%2Did}");
-    };
+        super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/homeRealmDiscoveryPolicies/{homeRealmDiscoveryPolicy%2Did}", (x, y) => new HomeRealmDiscoveryPolicyItemRequestBuilder(x, y));
+    }
 }
 // tslint:enable
 // eslint-enable

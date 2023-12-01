@@ -10,7 +10,7 @@ import { BaseRequestBuilder, getPathParameters, type RequestAdapter } from '@mic
 /**
  * Builds and executes requests for operations under /places
  */
-export class PlacesRequestBuilder extends BaseRequestBuilder {
+export class PlacesRequestBuilder extends BaseRequestBuilder<PlacesRequestBuilder> {
     /**
      * Provides operations to count the resources in the collection.
      */
@@ -39,15 +39,15 @@ export class PlacesRequestBuilder extends BaseRequestBuilder {
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["place%2Did"] = placeId
         return new PlaceItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
+    }
     /**
      * Instantiates a new PlacesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/places");
-    };
+        super(pathParameters, requestAdapter, "{+baseurl}/places", (x, y) => new PlacesRequestBuilder(x, y));
+    }
 }
 // tslint:enable
 // eslint-enable

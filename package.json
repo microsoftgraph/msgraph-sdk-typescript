@@ -5,12 +5,12 @@
     "main": "lib/src/graphclient/index.js",
     "types": "lib/src/graphclient/index.d.ts",
     "dependencies": {
-        "@microsoft/kiota-abstractions": "^1.0.0-preview.9",
-        "@microsoft/kiota-http-fetchlibrary": "^1.0.0-preview.10",
-        "@microsoft/kiota-serialization-form": "^1.0.0-preview.5",
-        "@microsoft/kiota-serialization-json": "^1.0.0-preview.10",
-        "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.3",
-        "@microsoft/kiota-serialization-text": "^1.0.0-preview.9",
+        "@microsoft/kiota-abstractions": "file:../kiota-typescript/packages/abstractions",
+        "@microsoft/kiota-http-fetchlibrary": "file:../kiota-typescript/packages/http/fetch",
+        "@microsoft/kiota-serialization-form": "file:../kiota-typescript/packages/serialization/form",
+        "@microsoft/kiota-serialization-json": "file:../kiota-typescript/packages/serialization/json",
+        "@microsoft/kiota-serialization-multipart": "file:../kiota-typescript/packages/serialization/multipart",
+        "@microsoft/kiota-serialization-text": "file:../kiota-typescript/packages/serialization/text",
         "@microsoft/microsoft-graph-client": "4.0.0-Preview.1",
         "guid-typescript": "^1.0.9",
         "tslib": "^2.3.1"
@@ -36,7 +36,7 @@
     "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
     "devDependencies": {
         "@azure/identity": "4.0.0",
-        "@microsoft/kiota-authentication-azure": "^1.0.0-preview.4",
+        "@microsoft/kiota-authentication-azure": "file:../kiota-typescript/packages/authentication/azure",
         "@types/chai": "^4.3.0",
         "@types/mocha": "^10.0.0",
         "@types/node": "^20.1.0",

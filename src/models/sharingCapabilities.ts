@@ -1,9 +1,0 @@
-export enum SharingCapabilities {
-    Disabled = "disabled",
-    ExternalUserSharingOnly = "externalUserSharingOnly",
-    ExternalUserAndGuestSharing = "externalUserAndGuestSharing",
-    ExistingExternalUserSharingOnly = "existingExternalUserSharingOnly",
-    UnknownFutureValue = "unknownFutureValue",
-}
-// tslint:enable
-// eslint-enable
