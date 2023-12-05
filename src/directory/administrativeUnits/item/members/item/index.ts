@@ -13,7 +13,7 @@ import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstra
 /**
  * Builds and executes requests for operations under /directory/administrativeUnits/{administrativeUnit-id}/members/{directoryObject-id}
  */
-export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
+export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder<DirectoryObjectItemRequestBuilder> {
     /**
      * Casts the previous resource to application.
      */
@@ -62,8 +62,8 @@ export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/members/{directoryObject%2Did}");
-    };
+        super(pathParameters, requestAdapter, "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/members/{directoryObject%2Did}", (x, y) => new DirectoryObjectItemRequestBuilder(x, y));
+    }
 }
 // tslint:enable
 // eslint-enable

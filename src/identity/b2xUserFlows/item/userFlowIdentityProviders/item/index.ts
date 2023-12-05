@@ -7,7 +7,7 @@ import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstra
 /**
  * Builds and executes requests for operations under /identity/b2xUserFlows/{b2xIdentityUserFlow-id}/userFlowIdentityProviders/{identityProviderBase-id}
  */
-export class IdentityProviderBaseItemRequestBuilder extends BaseRequestBuilder {
+export class IdentityProviderBaseItemRequestBuilder extends BaseRequestBuilder<IdentityProviderBaseItemRequestBuilder> {
     /**
      * Provides operations to manage the collection of identityContainer entities.
      */
@@ -20,8 +20,8 @@ export class IdentityProviderBaseItemRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userFlowIdentityProviders/{identityProviderBase%2Did}");
-    };
+        super(pathParameters, requestAdapter, "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userFlowIdentityProviders/{identityProviderBase%2Did}", (x, y) => new IdentityProviderBaseItemRequestBuilder(x, y));
+    }
 }
 // tslint:enable
 // eslint-enable

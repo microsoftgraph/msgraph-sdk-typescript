@@ -9,7 +9,7 @@ import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstra
 /**
  * Builds and executes requests for operations under /print/shares/{printerShare-id}/allowedUsers/{user-id}
  */
-export class UserItemRequestBuilder extends BaseRequestBuilder {
+export class UserItemRequestBuilder extends BaseRequestBuilder<UserItemRequestBuilder> {
     /**
      * The mailboxSettings property
      */
@@ -34,8 +34,8 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/print/shares/{printerShare%2Did}/allowedUsers/{user%2Did}");
-    };
+        super(pathParameters, requestAdapter, "{+baseurl}/print/shares/{printerShare%2Did}/allowedUsers/{user%2Did}", (x, y) => new UserItemRequestBuilder(x, y));
+    }
 }
 // tslint:enable
 // eslint-enable

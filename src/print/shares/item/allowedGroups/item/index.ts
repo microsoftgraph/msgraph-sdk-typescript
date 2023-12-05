@@ -8,7 +8,7 @@ import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstra
 /**
  * Builds and executes requests for operations under /print/shares/{printerShare-id}/allowedGroups/{group-id}
  */
-export class GroupItemRequestBuilder extends BaseRequestBuilder {
+export class GroupItemRequestBuilder extends BaseRequestBuilder<GroupItemRequestBuilder> {
     /**
      * Provides operations to manage the collection of print entities.
      */
@@ -27,8 +27,8 @@ export class GroupItemRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/print/shares/{printerShare%2Did}/allowedGroups/{group%2Did}");
-    };
+        super(pathParameters, requestAdapter, "{+baseurl}/print/shares/{printerShare%2Did}/allowedGroups/{group%2Did}", (x, y) => new GroupItemRequestBuilder(x, y));
+    }
 }
 // tslint:enable
 // eslint-enable

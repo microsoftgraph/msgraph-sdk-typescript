@@ -7,7 +7,7 @@ import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstra
 /**
  * Builds and executes requests for operations under /applications/{application-id}/appManagementPolicies/{appManagementPolicy-id}
  */
-export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
+export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder<AppManagementPolicyItemRequestBuilder> {
     /**
      * Provides operations to manage the collection of application entities.
      */
@@ -20,8 +20,8 @@ export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/appManagementPolicies/{appManagementPolicy%2Did}");
-    };
+        super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/appManagementPolicies/{appManagementPolicy%2Did}", (x, y) => new AppManagementPolicyItemRequestBuilder(x, y));
+    }
 }
 // tslint:enable
 // eslint-enable

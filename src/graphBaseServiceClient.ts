@@ -81,7 +81,7 @@ import { TextParseNodeFactory, TextSerializationWriterFactory } from '@microsoft
 /**
  * The main entry point of the SDK, exposes the configuration and the fluent API.
  */
-export class GraphBaseServiceClient extends BaseRequestBuilder {
+export class GraphBaseServiceClient extends BaseRequestBuilder<GraphBaseServiceClient> {
     /**
      * Provides operations to manage the admin singleton.
      */
@@ -492,13 +492,13 @@ export class GraphBaseServiceClient extends BaseRequestBuilder {
     public applicationsWithAppId(appId: string | undefined) : ApplicationsWithAppIdRequestBuilder {
         if(!appId) throw new Error("appId cannot be undefined");
         return new ApplicationsWithAppIdRequestBuilder(this.pathParameters, this.requestAdapter, appId);
-    };
+    }
     /**
      * Instantiates a new GraphBaseServiceClient and sets the default values.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(requestAdapter: RequestAdapter) {
-        super({}, requestAdapter, "{+baseurl}");
+        super({}, requestAdapter, "{+baseurl}", (x, y) => new GraphBaseServiceClient(y));
         registerDefaultSerializer(JsonSerializationWriterFactory);
         registerDefaultSerializer(TextSerializationWriterFactory);
         registerDefaultSerializer(FormSerializationWriterFactory);
@@ -510,7 +510,7 @@ export class GraphBaseServiceClient extends BaseRequestBuilder {
             requestAdapter.baseUrl = "https://graph.microsoft.com/v1.0";
         }
         this.pathParameters["baseurl"] = requestAdapter.baseUrl;
-    };
+    }
     /**
      * Provides operations to manage the collection of device entities.
      * @param deviceId Alternate key of device
@@ -519,7 +519,7 @@ export class GraphBaseServiceClient extends BaseRequestBuilder {
     public devicesWithDeviceId(deviceId: string | undefined) : DevicesWithDeviceIdRequestBuilder {
         if(!deviceId) throw new Error("deviceId cannot be undefined");
         return new DevicesWithDeviceIdRequestBuilder(this.pathParameters, this.requestAdapter, deviceId);
-    };
+    }
     /**
      * Provides operations to manage the collection of directoryRole entities.
      * @param roleTemplateId Alternate key of directoryRole
@@ -528,7 +528,7 @@ export class GraphBaseServiceClient extends BaseRequestBuilder {
     public directoryRolesWithRoleTemplateId(roleTemplateId: string | undefined) : DirectoryRolesWithRoleTemplateIdRequestBuilder {
         if(!roleTemplateId) throw new Error("roleTemplateId cannot be undefined");
         return new DirectoryRolesWithRoleTemplateIdRequestBuilder(this.pathParameters, this.requestAdapter, roleTemplateId);
-    };
+    }
     /**
      * Provides operations to manage the collection of servicePrincipal entities.
      * @param appId Alternate key of servicePrincipal
@@ -537,7 +537,7 @@ export class GraphBaseServiceClient extends BaseRequestBuilder {
     public servicePrincipalsWithAppId(appId: string | undefined) : ServicePrincipalsWithAppIdRequestBuilder {
         if(!appId) throw new Error("appId cannot be undefined");
         return new ServicePrincipalsWithAppIdRequestBuilder(this.pathParameters, this.requestAdapter, appId);
-    };
+    }
 }
 // tslint:enable
 // eslint-enable

@@ -7,7 +7,7 @@ import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstra
 /**
  * Builds and executes requests for operations under /applications/{application-id}/tokenIssuancePolicies/{tokenIssuancePolicy-id}
  */
-export class TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilder {
+export class TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilder<TokenIssuancePolicyItemRequestBuilder> {
     /**
      * Provides operations to manage the collection of application entities.
      */
@@ -20,8 +20,8 @@ export class TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}");
-    };
+        super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}", (x, y) => new TokenIssuancePolicyItemRequestBuilder(x, y));
+    }
 }
 // tslint:enable
 // eslint-enable

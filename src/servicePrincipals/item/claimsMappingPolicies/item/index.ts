@@ -7,7 +7,7 @@ import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstra
 /**
  * Builds and executes requests for operations under /servicePrincipals/{servicePrincipal-id}/claimsMappingPolicies/{claimsMappingPolicy-id}
  */
-export class ClaimsMappingPolicyItemRequestBuilder extends BaseRequestBuilder {
+export class ClaimsMappingPolicyItemRequestBuilder extends BaseRequestBuilder<ClaimsMappingPolicyItemRequestBuilder> {
     /**
      * Provides operations to manage the collection of servicePrincipal entities.
      */
@@ -20,8 +20,8 @@ export class ClaimsMappingPolicyItemRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/claimsMappingPolicies/{claimsMappingPolicy%2Did}");
-    };
+        super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/claimsMappingPolicies/{claimsMappingPolicy%2Did}", (x, y) => new ClaimsMappingPolicyItemRequestBuilder(x, y));
+    }
 }
 // tslint:enable
 // eslint-enable
