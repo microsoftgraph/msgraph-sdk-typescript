@@ -25,7 +25,7 @@ export interface ConnectedOrganization extends Entity, Parsable {
      */
     externalSponsors?: DirectoryObject[];
     /**
-     * The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource, externalDomainFederation or crossCloudAzureActiveDirectoryTenant. Nullable.
+     * The identity sources in this connected organization, one of azureActiveDirectoryTenant, crossCloudAzureActiveDirectoryTenant, domainIdentitySource, externalDomainFederation, or socialIdentitySource. Nullable.
      */
     identitySources?: IdentitySource[];
     /**

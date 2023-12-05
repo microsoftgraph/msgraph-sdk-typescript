@@ -76,7 +76,7 @@ export class DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUser
      */
     public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
         const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
-        requestInfo.configure(requestConfiguration, doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderGetQueryParametersMapper);
+        requestInfo.configure(requestConfiguration);
         requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
@@ -90,7 +90,5 @@ export class DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUser
         return new DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
-const doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderGetQueryParametersMapper: Record<string, string> = {
-};
 // tslint:enable
 // eslint-enable

@@ -30,7 +30,7 @@ export class RoleDefinitionRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/roleManagement/directory/roleAssignments/{unifiedRoleAssignment%2Did}/roleDefinition{?%24select,%24expand}");
     };
     /**
-     * The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
+     * The roleDefinition the assignment is for.  Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleDefinition
      */
@@ -45,7 +45,7 @@ export class RoleDefinitionRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UnifiedRoleDefinition>(requestInfo, createUnifiedRoleDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
+     * The roleDefinition the assignment is for.  Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
