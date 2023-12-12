@@ -94,11 +94,11 @@ export class RepliesRequestBuilder extends BaseRequestBuilder<RepliesRequestBuil
         return this.requestAdapter.sendAsync<ChatMessageCollectionResponse>(requestInfo, createChatMessageCollectionResponseFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Send a new reply to a chatMessage in a specified channel.
+     * Create a new reply to a chatMessage in a specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatMessage
-     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ChatMessage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ChatMessage | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -122,7 +122,7 @@ export class RepliesRequestBuilder extends BaseRequestBuilder<RepliesRequestBuil
         return requestInfo;
     }
     /**
-     * Send a new reply to a chatMessage in a specified channel.
+     * Create a new reply to a chatMessage in a specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

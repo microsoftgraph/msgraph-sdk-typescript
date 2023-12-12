@@ -60,7 +60,7 @@ export class AppliesToRequestBuilder extends BaseRequestBuilder<AppliesToRequest
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.featureRolloutPolicies.item.appliesTo.item collection
-     * @param directoryObjectId Unique identifier of the item
+     * @param directoryObjectId The unique identifier of directoryObject
      * @returns a DirectoryObjectItemRequestBuilder
      */
     public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {

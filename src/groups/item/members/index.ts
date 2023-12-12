@@ -102,7 +102,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder<MembersRequestBuil
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.members.item collection
-     * @param directoryObjectId Unique identifier of the item
+     * @param directoryObjectId The unique identifier of directoryObject
      * @returns a DirectoryObjectItemRequestBuilder
      */
     public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {

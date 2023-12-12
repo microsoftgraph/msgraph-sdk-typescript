@@ -60,7 +60,7 @@ export class UserFlowIdentityProvidersRequestBuilder extends BaseRequestBuilder<
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.userFlowIdentityProviders.item collection
-     * @param identityProviderBaseId Unique identifier of the item
+     * @param identityProviderBaseId The unique identifier of identityProviderBase
      * @returns a IdentityProviderBaseItemRequestBuilder
      */
     public byIdentityProviderBaseId(identityProviderBaseId: string) : IdentityProviderBaseItemRequestBuilder {

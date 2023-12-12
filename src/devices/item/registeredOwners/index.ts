@@ -88,7 +88,7 @@ export class RegisteredOwnersRequestBuilder extends BaseRequestBuilder<Registere
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.registeredOwners.item collection
-     * @param directoryObjectId Unique identifier of the item
+     * @param directoryObjectId The unique identifier of directoryObject
      * @returns a DirectoryObjectItemRequestBuilder
      */
     public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {

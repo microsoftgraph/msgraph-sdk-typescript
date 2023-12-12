@@ -60,7 +60,7 @@ export class IncompatibleGroupsRequestBuilder extends BaseRequestBuilder<Incompa
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.accessPackages.item.incompatibleGroups.item collection
-     * @param groupId Unique identifier of the item
+     * @param groupId The unique identifier of group
      * @returns a GroupItemRequestBuilder
      */
     public byGroupId(groupId: string) : GroupItemRequestBuilder {

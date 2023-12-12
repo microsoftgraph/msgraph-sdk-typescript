@@ -4,31 +4,7 @@
 import { createIdentitySetFromDiscriminatorValue, deserializeIntoBaseCollectionPaginationCountResponse, deserializeIntoEntity, serializeBaseCollectionPaginationCountResponse, serializeEntity, serializeIdentitySet, type BaseCollectionPaginationCountResponse, type Entity, type IdentitySet } from '../';
 import { type AdditionalDataHolder, type Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export enum AudioCodec {
-    Unknown = "unknown",
-    Invalid = "invalid",
-    Cn = "cn",
-    Pcma = "pcma",
-    Pcmu = "pcmu",
-    AmrWide = "amrWide",
-    G722 = "g722",
-    G7221 = "g7221",
-    G7221c = "g7221c",
-    G729 = "g729",
-    MultiChannelAudio = "multiChannelAudio",
-    Muchv2 = "muchv2",
-    Opus = "opus",
-    Satin = "satin",
-    SatinFullband = "satinFullband",
-    RtAudio8 = "rtAudio8",
-    RtAudio16 = "rtAudio16",
-    Silk = "silk",
-    SilkNarrow = "silkNarrow",
-    SilkWide = "silkWide",
-    Siren = "siren",
-    XmsRta = "xmsRta",
-    UnknownFutureValue = "unknownFutureValue",
-}
+export type AudioCodec = (typeof AudioCodecObject)[keyof typeof AudioCodecObject];
 export interface CallRecord extends Entity, Parsable {
     /**
      * UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -77,25 +53,8 @@ export interface CallRecordCollectionResponse extends BaseCollectionPaginationCo
      */
     value?: CallRecord[];
 }
-export enum CallType {
-    Unknown = "unknown",
-    GroupCall = "groupCall",
-    PeerToPeer = "peerToPeer",
-    UnknownFutureValue = "unknownFutureValue",
-}
-export enum ClientPlatform {
-    Unknown = "unknown",
-    Windows = "windows",
-    MacOS = "macOS",
-    IOS = "iOS",
-    Android = "android",
-    Web = "web",
-    IpPhone = "ipPhone",
-    RoomSystem = "roomSystem",
-    SurfaceHub = "surfaceHub",
-    HoloLens = "holoLens",
-    UnknownFutureValue = "unknownFutureValue",
-}
+export type CallType = (typeof CallTypeObject)[keyof typeof CallTypeObject];
+export type ClientPlatform = (typeof ClientPlatformObject)[keyof typeof ClientPlatformObject];
 export interface ClientUserAgent extends Parsable, UserAgent {
     /**
      * The unique identifier of the Microsoft Entra application used by this endpoint.
@@ -212,12 +171,12 @@ export function deserializeIntoCallRecord(callRecord: CallRecord | undefined = {
         "endDateTime": n => { callRecord.endDateTime = n.getDateValue(); },
         "joinWebUrl": n => { callRecord.joinWebUrl = n.getStringValue(); },
         "lastModifiedDateTime": n => { callRecord.lastModifiedDateTime = n.getDateValue(); },
-        "modalities": n => { callRecord.modalities = n.getCollectionOfEnumValues<Modality>(Modality); },
+        "modalities": n => { callRecord.modalities = n.getCollectionOfEnumValues<Modality>(ModalityObject); },
         "organizer": n => { callRecord.organizer = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
         "participants": n => { callRecord.participants = n.getCollectionOfObjectValues<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
         "sessions": n => { callRecord.sessions = n.getCollectionOfObjectValues<Session>(createSessionFromDiscriminatorValue); },
         "startDateTime": n => { callRecord.startDateTime = n.getDateValue(); },
-        "type": n => { callRecord.type = n.getEnumValue<CallType>(CallType); },
+        "type": n => { callRecord.type = n.getEnumValue<CallType>(CallTypeObject); },
         "version": n => { callRecord.version = n.getNumberValue(); },
     }
 }
@@ -232,8 +191,8 @@ export function deserializeIntoClientUserAgent(clientUserAgent: ClientUserAgent 
         ...deserializeIntoUserAgent(clientUserAgent),
         "azureADAppId": n => { clientUserAgent.azureADAppId = n.getStringValue(); },
         "communicationServiceId": n => { clientUserAgent.communicationServiceId = n.getStringValue(); },
-        "platform": n => { clientUserAgent.platform = n.getEnumValue<ClientPlatform>(ClientPlatform); },
-        "productFamily": n => { clientUserAgent.productFamily = n.getEnumValue<ProductFamily>(ProductFamily); },
+        "platform": n => { clientUserAgent.platform = n.getEnumValue<ClientPlatform>(ClientPlatformObject); },
+        "productFamily": n => { clientUserAgent.productFamily = n.getEnumValue<ProductFamily>(ProductFamilyObject); },
     }
 }
 export function deserializeIntoDeviceInfo(deviceInfo: DeviceInfo | undefined = {} as DeviceInfo) : Record<string, (node: ParseNode) => void> {
@@ -298,7 +257,7 @@ export function deserializeIntoFailureInfo(failureInfo: FailureInfo | undefined 
     return {
         "@odata.type": n => { failureInfo.odataType = n.getStringValue(); },
         "reason": n => { failureInfo.reason = n.getStringValue(); },
-        "stage": n => { failureInfo.stage = n.getEnumValue<FailureStage>(FailureStage); },
+        "stage": n => { failureInfo.stage = n.getEnumValue<FailureStage>(FailureStageObject); },
     }
 }
 export function deserializeIntoFeedbackTokenSet(feedbackTokenSet: FeedbackTokenSet | undefined = {} as FeedbackTokenSet) : Record<string, (node: ParseNode) => void> {
@@ -319,7 +278,7 @@ export function deserializeIntoMedia(media: Media | undefined = {} as Media) : R
 }
 export function deserializeIntoMediaStream(mediaStream: MediaStream | undefined = {} as MediaStream) : Record<string, (node: ParseNode) => void> {
     return {
-        "audioCodec": n => { mediaStream.audioCodec = n.getEnumValue<AudioCodec>(AudioCodec); },
+        "audioCodec": n => { mediaStream.audioCodec = n.getEnumValue<AudioCodec>(AudioCodecObject); },
         "averageAudioDegradation": n => { mediaStream.averageAudioDegradation = n.getNumberValue(); },
         "averageAudioNetworkJitter": n => { mediaStream.averageAudioNetworkJitter = n.getDurationValue(); },
         "averageBandwidthEstimate": n => { mediaStream.averageBandwidthEstimate = n.getNumberValue(); },
@@ -346,9 +305,9 @@ export function deserializeIntoMediaStream(mediaStream: MediaStream | undefined 
         "postForwardErrorCorrectionPacketLossRate": n => { mediaStream.postForwardErrorCorrectionPacketLossRate = n.getNumberValue(); },
         "rmsFreezeDuration": n => { mediaStream.rmsFreezeDuration = n.getDurationValue(); },
         "startDateTime": n => { mediaStream.startDateTime = n.getDateValue(); },
-        "streamDirection": n => { mediaStream.streamDirection = n.getEnumValue<MediaStreamDirection>(MediaStreamDirection); },
+        "streamDirection": n => { mediaStream.streamDirection = n.getEnumValue<MediaStreamDirection>(MediaStreamDirectionObject); },
         "streamId": n => { mediaStream.streamId = n.getStringValue(); },
-        "videoCodec": n => { mediaStream.videoCodec = n.getEnumValue<VideoCodec>(VideoCodec); },
+        "videoCodec": n => { mediaStream.videoCodec = n.getEnumValue<VideoCodec>(VideoCodecObject); },
         "wasMediaBypassed": n => { mediaStream.wasMediaBypassed = n.getBooleanValue(); },
     }
 }
@@ -356,13 +315,13 @@ export function deserializeIntoNetworkInfo(networkInfo: NetworkInfo | undefined 
     return {
         "bandwidthLowEventRatio": n => { networkInfo.bandwidthLowEventRatio = n.getNumberValue(); },
         "basicServiceSetIdentifier": n => { networkInfo.basicServiceSetIdentifier = n.getStringValue(); },
-        "connectionType": n => { networkInfo.connectionType = n.getEnumValue<NetworkConnectionType>(NetworkConnectionType); },
+        "connectionType": n => { networkInfo.connectionType = n.getEnumValue<NetworkConnectionType>(NetworkConnectionTypeObject); },
         "delayEventRatio": n => { networkInfo.delayEventRatio = n.getNumberValue(); },
         "dnsSuffix": n => { networkInfo.dnsSuffix = n.getStringValue(); },
         "ipAddress": n => { networkInfo.ipAddress = n.getStringValue(); },
         "linkSpeed": n => { networkInfo.linkSpeed = n.getNumberValue(); },
         "macAddress": n => { networkInfo.macAddress = n.getStringValue(); },
-        "networkTransportProtocol": n => { networkInfo.networkTransportProtocol = n.getEnumValue<NetworkTransportProtocol>(NetworkTransportProtocol); },
+        "networkTransportProtocol": n => { networkInfo.networkTransportProtocol = n.getEnumValue<NetworkTransportProtocol>(NetworkTransportProtocolObject); },
         "@odata.type": n => { networkInfo.odataType = n.getStringValue(); },
         "port": n => { networkInfo.port = n.getNumberValue(); },
         "receivedQualityEventRatio": n => { networkInfo.receivedQualityEventRatio = n.getNumberValue(); },
@@ -372,12 +331,12 @@ export function deserializeIntoNetworkInfo(networkInfo: NetworkInfo | undefined 
         "sentQualityEventRatio": n => { networkInfo.sentQualityEventRatio = n.getNumberValue(); },
         "subnet": n => { networkInfo.subnet = n.getStringValue(); },
         "traceRouteHops": n => { networkInfo.traceRouteHops = n.getCollectionOfObjectValues<TraceRouteHop>(createTraceRouteHopFromDiscriminatorValue); },
-        "wifiBand": n => { networkInfo.wifiBand = n.getEnumValue<WifiBand>(WifiBand); },
+        "wifiBand": n => { networkInfo.wifiBand = n.getEnumValue<WifiBand>(WifiBandObject); },
         "wifiBatteryCharge": n => { networkInfo.wifiBatteryCharge = n.getNumberValue(); },
         "wifiChannel": n => { networkInfo.wifiChannel = n.getNumberValue(); },
         "wifiMicrosoftDriver": n => { networkInfo.wifiMicrosoftDriver = n.getStringValue(); },
         "wifiMicrosoftDriverVersion": n => { networkInfo.wifiMicrosoftDriverVersion = n.getStringValue(); },
-        "wifiRadioType": n => { networkInfo.wifiRadioType = n.getEnumValue<WifiRadioType>(WifiRadioType); },
+        "wifiRadioType": n => { networkInfo.wifiRadioType = n.getEnumValue<WifiRadioType>(WifiRadioTypeObject); },
         "wifiSignalStrength": n => { networkInfo.wifiSignalStrength = n.getNumberValue(); },
         "wifiVendorDriver": n => { networkInfo.wifiVendorDriver = n.getStringValue(); },
         "wifiVendorDriverVersion": n => { networkInfo.wifiVendorDriverVersion = n.getStringValue(); },
@@ -396,7 +355,7 @@ export function deserializeIntoParticipantEndpoint(participantEndpoint: Particip
 }
 export function deserializeIntoPstnCallLogRow(pstnCallLogRow: PstnCallLogRow | undefined = {} as PstnCallLogRow) : Record<string, (node: ParseNode) => void> {
     return {
-        "callDurationSource": n => { pstnCallLogRow.callDurationSource = n.getEnumValue<PstnCallDurationSource>(PstnCallDurationSource); },
+        "callDurationSource": n => { pstnCallLogRow.callDurationSource = n.getEnumValue<PstnCallDurationSource>(PstnCallDurationSourceObject); },
         "calleeNumber": n => { pstnCallLogRow.calleeNumber = n.getStringValue(); },
         "callerNumber": n => { pstnCallLogRow.callerNumber = n.getStringValue(); },
         "callId": n => { pstnCallLogRow.callId = n.getStringValue(); },
@@ -447,7 +406,7 @@ export function deserializeIntoServiceEndpoint(serviceEndpoint: ServiceEndpoint 
 export function deserializeIntoServiceUserAgent(serviceUserAgent: ServiceUserAgent | undefined = {} as ServiceUserAgent) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoUserAgent(serviceUserAgent),
-        "role": n => { serviceUserAgent.role = n.getEnumValue<ServiceRole>(ServiceRole); },
+        "role": n => { serviceUserAgent.role = n.getEnumValue<ServiceRole>(ServiceRoleObject); },
     }
 }
 export function deserializeIntoSession(session: Session | undefined = {} as Session) : Record<string, (node: ParseNode) => void> {
@@ -458,7 +417,7 @@ export function deserializeIntoSession(session: Session | undefined = {} as Sess
         "endDateTime": n => { session.endDateTime = n.getDateValue(); },
         "failureInfo": n => { session.failureInfo = n.getObjectValue<FailureInfo>(createFailureInfoFromDiscriminatorValue); },
         "isTest": n => { session.isTest = n.getBooleanValue(); },
-        "modalities": n => { session.modalities = n.getCollectionOfEnumValues<Modality>(Modality); },
+        "modalities": n => { session.modalities = n.getCollectionOfEnumValues<Modality>(ModalityObject); },
         "segments": n => { session.segments = n.getCollectionOfObjectValues<Segment>(createSegmentFromDiscriminatorValue); },
         "startDateTime": n => { session.startDateTime = n.getDateValue(); },
     }
@@ -487,7 +446,7 @@ export function deserializeIntoUserAgent(userAgent: UserAgent | undefined = {} a
 export function deserializeIntoUserFeedback(userFeedback: UserFeedback | undefined = {} as UserFeedback) : Record<string, (node: ParseNode) => void> {
     return {
         "@odata.type": n => { userFeedback.odataType = n.getStringValue(); },
-        "rating": n => { userFeedback.rating = n.getEnumValue<UserFeedbackRating>(UserFeedbackRating); },
+        "rating": n => { userFeedback.rating = n.getEnumValue<UserFeedbackRating>(UserFeedbackRatingObject); },
         "text": n => { userFeedback.text = n.getStringValue(); },
         "tokens": n => { userFeedback.tokens = n.getObjectValue<FeedbackTokenSet>(createFeedbackTokenSetFromDiscriminatorValue); },
     }
@@ -712,12 +671,7 @@ export interface FailureInfo extends AdditionalDataHolder, Parsable {
      */
     stage?: FailureStage;
 }
-export enum FailureStage {
-    Unknown = "unknown",
-    CallSetup = "callSetup",
-    Midcall = "midcall",
-    UnknownFutureValue = "unknownFutureValue",
-}
+export type FailureStage = (typeof FailureStageObject)[keyof typeof FailureStageObject];
 export interface FeedbackTokenSet extends AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -892,26 +846,9 @@ export interface MediaStream extends AdditionalDataHolder, Parsable {
      */
     wasMediaBypassed?: boolean;
 }
-export enum MediaStreamDirection {
-    CallerToCallee = "callerToCallee",
-    CalleeToCaller = "calleeToCaller",
-}
-export enum Modality {
-    Audio = "audio",
-    Video = "video",
-    VideoBasedScreenSharing = "videoBasedScreenSharing",
-    Data = "data",
-    ScreenSharing = "screenSharing",
-    UnknownFutureValue = "unknownFutureValue",
-}
-export enum NetworkConnectionType {
-    Unknown = "unknown",
-    Wired = "wired",
-    Wifi = "wifi",
-    Mobile = "mobile",
-    Tunnel = "tunnel",
-    UnknownFutureValue = "unknownFutureValue",
-}
+export type MediaStreamDirection = (typeof MediaStreamDirectionObject)[keyof typeof MediaStreamDirectionObject];
+export type Modality = (typeof ModalityObject)[keyof typeof ModalityObject];
+export type NetworkConnectionType = (typeof NetworkConnectionTypeObject)[keyof typeof NetworkConnectionTypeObject];
 export interface NetworkInfo extends AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -1026,12 +963,7 @@ export interface NetworkInfo extends AdditionalDataHolder, Parsable {
      */
     wifiVendorDriverVersion?: string;
 }
-export enum NetworkTransportProtocol {
-    Unknown = "unknown",
-    Udp = "udp",
-    Tcp = "tcp",
-    UnknownFutureValue = "unknownFutureValue",
-}
+export type NetworkTransportProtocol = (typeof NetworkTransportProtocolObject)[keyof typeof NetworkTransportProtocolObject];
 export interface ParticipantEndpoint extends Endpoint, Parsable {
     /**
      * CPU number of cores used by the media endpoint.
@@ -1058,18 +990,8 @@ export interface ParticipantEndpoint extends Endpoint, Parsable {
      */
     name?: string;
 }
-export enum ProductFamily {
-    Unknown = "unknown",
-    Teams = "teams",
-    SkypeForBusiness = "skypeForBusiness",
-    Lync = "lync",
-    UnknownFutureValue = "unknownFutureValue",
-    AzureCommunicationServices = "azureCommunicationServices",
-}
-export enum PstnCallDurationSource {
-    Microsoft = "microsoft",
-    Operator = "operator",
-}
+export type ProductFamily = (typeof ProductFamilyObject)[keyof typeof ProductFamilyObject];
+export type PstnCallDurationSource = (typeof PstnCallDurationSourceObject)[keyof typeof PstnCallDurationSourceObject];
 export interface PstnCallLogRow extends AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -1462,30 +1384,7 @@ export function serializeUserFeedback(writer: SerializationWriter, userFeedback:
 }
 export interface ServiceEndpoint extends Endpoint, Parsable {
 }
-export enum ServiceRole {
-    Unknown = "unknown",
-    CustomBot = "customBot",
-    SkypeForBusinessMicrosoftTeamsGateway = "skypeForBusinessMicrosoftTeamsGateway",
-    SkypeForBusinessAudioVideoMcu = "skypeForBusinessAudioVideoMcu",
-    SkypeForBusinessApplicationSharingMcu = "skypeForBusinessApplicationSharingMcu",
-    SkypeForBusinessCallQueues = "skypeForBusinessCallQueues",
-    SkypeForBusinessAutoAttendant = "skypeForBusinessAutoAttendant",
-    MediationServer = "mediationServer",
-    MediationServerCloudConnectorEdition = "mediationServerCloudConnectorEdition",
-    ExchangeUnifiedMessagingService = "exchangeUnifiedMessagingService",
-    MediaController = "mediaController",
-    ConferencingAnnouncementService = "conferencingAnnouncementService",
-    ConferencingAttendant = "conferencingAttendant",
-    AudioTeleconferencerController = "audioTeleconferencerController",
-    SkypeForBusinessUnifiedCommunicationApplicationPlatform = "skypeForBusinessUnifiedCommunicationApplicationPlatform",
-    ResponseGroupServiceAnnouncementService = "responseGroupServiceAnnouncementService",
-    Gateway = "gateway",
-    SkypeTranslator = "skypeTranslator",
-    SkypeForBusinessAttendant = "skypeForBusinessAttendant",
-    ResponseGroupService = "responseGroupService",
-    Voicemail = "voicemail",
-    UnknownFutureValue = "unknownFutureValue",
-}
+export type ServiceRole = (typeof ServiceRoleObject)[keyof typeof ServiceRoleObject];
 export interface ServiceUserAgent extends Parsable, UserAgent {
     /**
      * The role property
@@ -1594,45 +1493,161 @@ export interface UserFeedback extends AdditionalDataHolder, Parsable {
      */
     tokens?: FeedbackTokenSet;
 }
-export enum UserFeedbackRating {
-    NotRated = "notRated",
-    Bad = "bad",
-    Poor = "poor",
-    Fair = "fair",
-    Good = "good",
-    Excellent = "excellent",
-    UnknownFutureValue = "unknownFutureValue",
-}
-export enum VideoCodec {
-    Unknown = "unknown",
-    Invalid = "invalid",
-    Av1 = "av1",
-    H263 = "h263",
-    H264 = "h264",
-    H264s = "h264s",
-    H264uc = "h264uc",
-    H265 = "h265",
-    Rtvc1 = "rtvc1",
-    RtVideo = "rtVideo",
-    Xrtvc1 = "xrtvc1",
-    UnknownFutureValue = "unknownFutureValue",
-}
-export enum WifiBand {
-    Unknown = "unknown",
-    Frequency24GHz = "frequency24GHz",
-    Frequency50GHz = "frequency50GHz",
-    Frequency60GHz = "frequency60GHz",
-    UnknownFutureValue = "unknownFutureValue",
-}
-export enum WifiRadioType {
-    Unknown = "unknown",
-    Wifi80211a = "wifi80211a",
-    Wifi80211b = "wifi80211b",
-    Wifi80211g = "wifi80211g",
-    Wifi80211n = "wifi80211n",
-    Wifi80211ac = "wifi80211ac",
-    Wifi80211ax = "wifi80211ax",
-    UnknownFutureValue = "unknownFutureValue",
-}
+export type UserFeedbackRating = (typeof UserFeedbackRatingObject)[keyof typeof UserFeedbackRatingObject];
+export type VideoCodec = (typeof VideoCodecObject)[keyof typeof VideoCodecObject];
+export type WifiBand = (typeof WifiBandObject)[keyof typeof WifiBandObject];
+export type WifiRadioType = (typeof WifiRadioTypeObject)[keyof typeof WifiRadioTypeObject];
+export const AudioCodecObject = {
+    Unknown: "unknown",
+    Invalid: "invalid",
+    Cn: "cn",
+    Pcma: "pcma",
+    Pcmu: "pcmu",
+    AmrWide: "amrWide",
+    G722: "g722",
+    G7221: "g7221",
+    G7221c: "g7221c",
+    G729: "g729",
+    MultiChannelAudio: "multiChannelAudio",
+    Muchv2: "muchv2",
+    Opus: "opus",
+    Satin: "satin",
+    SatinFullband: "satinFullband",
+    RtAudio8: "rtAudio8",
+    RtAudio16: "rtAudio16",
+    Silk: "silk",
+    SilkNarrow: "silkNarrow",
+    SilkWide: "silkWide",
+    Siren: "siren",
+    XmsRta: "xmsRta",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const CallTypeObject = {
+    Unknown: "unknown",
+    GroupCall: "groupCall",
+    PeerToPeer: "peerToPeer",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const ClientPlatformObject = {
+    Unknown: "unknown",
+    Windows: "windows",
+    MacOS: "macOS",
+    IOS: "iOS",
+    Android: "android",
+    Web: "web",
+    IpPhone: "ipPhone",
+    RoomSystem: "roomSystem",
+    SurfaceHub: "surfaceHub",
+    HoloLens: "holoLens",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const FailureStageObject = {
+    Unknown: "unknown",
+    CallSetup: "callSetup",
+    Midcall: "midcall",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const MediaStreamDirectionObject = {
+    CallerToCallee: "callerToCallee",
+    CalleeToCaller: "calleeToCaller",
+}  as const;
+export const ModalityObject = {
+    Audio: "audio",
+    Video: "video",
+    VideoBasedScreenSharing: "videoBasedScreenSharing",
+    Data: "data",
+    ScreenSharing: "screenSharing",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const NetworkConnectionTypeObject = {
+    Unknown: "unknown",
+    Wired: "wired",
+    Wifi: "wifi",
+    Mobile: "mobile",
+    Tunnel: "tunnel",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const NetworkTransportProtocolObject = {
+    Unknown: "unknown",
+    Udp: "udp",
+    Tcp: "tcp",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const ProductFamilyObject = {
+    Unknown: "unknown",
+    Teams: "teams",
+    SkypeForBusiness: "skypeForBusiness",
+    Lync: "lync",
+    UnknownFutureValue: "unknownFutureValue",
+    AzureCommunicationServices: "azureCommunicationServices",
+}  as const;
+export const PstnCallDurationSourceObject = {
+    Microsoft: "microsoft",
+    Operator: "operator",
+}  as const;
+export const ServiceRoleObject = {
+    Unknown: "unknown",
+    CustomBot: "customBot",
+    SkypeForBusinessMicrosoftTeamsGateway: "skypeForBusinessMicrosoftTeamsGateway",
+    SkypeForBusinessAudioVideoMcu: "skypeForBusinessAudioVideoMcu",
+    SkypeForBusinessApplicationSharingMcu: "skypeForBusinessApplicationSharingMcu",
+    SkypeForBusinessCallQueues: "skypeForBusinessCallQueues",
+    SkypeForBusinessAutoAttendant: "skypeForBusinessAutoAttendant",
+    MediationServer: "mediationServer",
+    MediationServerCloudConnectorEdition: "mediationServerCloudConnectorEdition",
+    ExchangeUnifiedMessagingService: "exchangeUnifiedMessagingService",
+    MediaController: "mediaController",
+    ConferencingAnnouncementService: "conferencingAnnouncementService",
+    ConferencingAttendant: "conferencingAttendant",
+    AudioTeleconferencerController: "audioTeleconferencerController",
+    SkypeForBusinessUnifiedCommunicationApplicationPlatform: "skypeForBusinessUnifiedCommunicationApplicationPlatform",
+    ResponseGroupServiceAnnouncementService: "responseGroupServiceAnnouncementService",
+    Gateway: "gateway",
+    SkypeTranslator: "skypeTranslator",
+    SkypeForBusinessAttendant: "skypeForBusinessAttendant",
+    ResponseGroupService: "responseGroupService",
+    Voicemail: "voicemail",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const UserFeedbackRatingObject = {
+    NotRated: "notRated",
+    Bad: "bad",
+    Poor: "poor",
+    Fair: "fair",
+    Good: "good",
+    Excellent: "excellent",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const VideoCodecObject = {
+    Unknown: "unknown",
+    Invalid: "invalid",
+    Av1: "av1",
+    H263: "h263",
+    H264: "h264",
+    H264s: "h264s",
+    H264uc: "h264uc",
+    H265: "h265",
+    Rtvc1: "rtvc1",
+    RtVideo: "rtVideo",
+    Xrtvc1: "xrtvc1",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const WifiBandObject = {
+    Unknown: "unknown",
+    Frequency24GHz: "frequency24GHz",
+    Frequency50GHz: "frequency50GHz",
+    Frequency60GHz: "frequency60GHz",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const WifiRadioTypeObject = {
+    Unknown: "unknown",
+    Wifi80211a: "wifi80211a",
+    Wifi80211b: "wifi80211b",
+    Wifi80211g: "wifi80211g",
+    Wifi80211n: "wifi80211n",
+    Wifi80211ac: "wifi80211ac",
+    Wifi80211ax: "wifi80211ax",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
 // tslint:enable
 // eslint-enable

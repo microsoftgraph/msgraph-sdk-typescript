@@ -161,9 +161,9 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAppIte
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}{?%24select,%24expand}", (x, y) => new MobileAppItemRequestBuilder(x, y));
     }
     /**
-     * Deletes a iosVppApp.
+     * Deletes a macOSOfficeSuiteApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosvppapp-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-macosofficesuiteapp-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -176,10 +176,10 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAppIte
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     }
     /**
-     * Read properties and relationships of the mobileLobApp object.
+     * Read properties and relationships of the managedAndroidStoreApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobilelobapp-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-managedandroidstoreapp-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<MobileAppItemRequestBuilderGetQueryParameters> | undefined) : Promise<MobileApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -192,11 +192,11 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAppIte
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Update the properties of a managedAndroidLobApp object.
+     * Update the properties of a macOSLobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-managedandroidlobapp-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-macoslobapp-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileApp | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -209,7 +209,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAppIte
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Deletes a iosVppApp.
+     * Deletes a macOSOfficeSuiteApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -220,7 +220,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAppIte
         return requestInfo;
     }
     /**
-     * Read properties and relationships of the mobileLobApp object.
+     * Read properties and relationships of the managedAndroidStoreApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -231,7 +231,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAppIte
         return requestInfo;
     }
     /**
-     * Update the properties of a managedAndroidLobApp object.
+     * Update the properties of a macOSLobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

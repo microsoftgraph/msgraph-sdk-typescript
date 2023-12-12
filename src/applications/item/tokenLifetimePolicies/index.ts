@@ -60,7 +60,7 @@ export class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder<Toke
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.tokenLifetimePolicies.item collection
-     * @param tokenLifetimePolicyId Unique identifier of the item
+     * @param tokenLifetimePolicyId The unique identifier of tokenLifetimePolicy
      * @returns a TokenLifetimePolicyItemRequestBuilder
      */
     public byTokenLifetimePolicyId(tokenLifetimePolicyId: string) : TokenLifetimePolicyItemRequestBuilder {

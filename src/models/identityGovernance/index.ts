@@ -207,11 +207,7 @@ export interface CustomTaskExtensionCollectionResponse extends BaseCollectionPag
      */
     value?: CustomTaskExtension[];
 }
-export enum CustomTaskExtensionOperationStatus {
-    Completed = "completed",
-    Failed = "failed",
-    UnknownFutureValue = "unknownFutureValue",
-}
+export type CustomTaskExtensionOperationStatus = (typeof CustomTaskExtensionOperationStatusObject)[keyof typeof CustomTaskExtensionOperationStatusObject];
 export function deserializeIntoCustomTaskExtension(customTaskExtension: CustomTaskExtension | undefined = {} as CustomTaskExtension) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoCustomCalloutExtension(customTaskExtension),
@@ -231,7 +227,7 @@ export function deserializeIntoCustomTaskExtensionCallbackConfiguration(customTa
 export function deserializeIntoCustomTaskExtensionCallbackData(customTaskExtensionCallbackData: CustomTaskExtensionCallbackData | undefined = {} as CustomTaskExtensionCallbackData) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoCustomExtensionData(customTaskExtensionCallbackData),
-        "operationStatus": n => { customTaskExtensionCallbackData.operationStatus = n.getEnumValue<CustomTaskExtensionOperationStatus>(CustomTaskExtensionOperationStatus); },
+        "operationStatus": n => { customTaskExtensionCallbackData.operationStatus = n.getEnumValue<CustomTaskExtensionOperationStatus>(CustomTaskExtensionOperationStatusObject); },
     }
 }
 export function deserializeIntoCustomTaskExtensionCalloutData(customTaskExtensionCalloutData: CustomTaskExtensionCalloutData | undefined = {} as CustomTaskExtensionCalloutData) : Record<string, (node: ParseNode) => void> {
@@ -277,7 +273,7 @@ export function deserializeIntoParameter(parameter: Parameter | undefined = {} a
         "name": n => { parameter.name = n.getStringValue(); },
         "@odata.type": n => { parameter.odataType = n.getStringValue(); },
         "values": n => { parameter.values = n.getCollectionOfPrimitiveValues<string>(); },
-        "valueType": n => { parameter.valueType = n.getEnumValue<ValueType>(ValueType); },
+        "valueType": n => { parameter.valueType = n.getEnumValue<ValueType>(ValueTypeObject); },
     }
 }
 export function deserializeIntoRuleBasedSubjectSet(ruleBasedSubjectSet: RuleBasedSubjectSet | undefined = {} as RuleBasedSubjectSet) : Record<string, (node: ParseNode) => void> {
@@ -293,7 +289,7 @@ export function deserializeIntoRun(run: Run | undefined = {} as Run) : Record<st
         "failedTasksCount": n => { run.failedTasksCount = n.getNumberValue(); },
         "failedUsersCount": n => { run.failedUsersCount = n.getNumberValue(); },
         "lastUpdatedDateTime": n => { run.lastUpdatedDateTime = n.getDateValue(); },
-        "processingStatus": n => { run.processingStatus = n.getEnumValue<LifecycleWorkflowProcessingStatus>(LifecycleWorkflowProcessingStatus); },
+        "processingStatus": n => { run.processingStatus = n.getEnumValue<LifecycleWorkflowProcessingStatus>(LifecycleWorkflowProcessingStatusObject); },
         "scheduledDateTime": n => { run.scheduledDateTime = n.getDateValue(); },
         "startedDateTime": n => { run.startedDateTime = n.getDateValue(); },
         "successfulUsersCount": n => { run.successfulUsersCount = n.getNumberValue(); },
@@ -302,7 +298,7 @@ export function deserializeIntoRun(run: Run | undefined = {} as Run) : Record<st
         "totalUnprocessedTasksCount": n => { run.totalUnprocessedTasksCount = n.getNumberValue(); },
         "totalUsersCount": n => { run.totalUsersCount = n.getNumberValue(); },
         "userProcessingResults": n => { run.userProcessingResults = n.getCollectionOfObjectValues<UserProcessingResult>(createUserProcessingResultFromDiscriminatorValue); },
-        "workflowExecutionType": n => { run.workflowExecutionType = n.getEnumValue<WorkflowExecutionType>(WorkflowExecutionType); },
+        "workflowExecutionType": n => { run.workflowExecutionType = n.getEnumValue<WorkflowExecutionType>(WorkflowExecutionTypeObject); },
     }
 }
 export function deserializeIntoRunCollectionResponse(runCollectionResponse: RunCollectionResponse | undefined = {} as RunCollectionResponse) : Record<string, (node: ParseNode) => void> {
@@ -326,7 +322,7 @@ export function deserializeIntoTask(task: Task | undefined = {} as Task) : Recor
     return {
         ...deserializeIntoEntity(task),
         "arguments": n => { task.arguments = n.getCollectionOfObjectValues<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
-        "category": n => { task.category = n.getCollectionOfEnumValues<LifecycleTaskCategory>(LifecycleTaskCategory); },
+        "category": n => { task.category = n.getCollectionOfEnumValues<LifecycleTaskCategory>(LifecycleTaskCategoryObject); },
         "continueOnError": n => { task.continueOnError = n.getBooleanValue(); },
         "description": n => { task.description = n.getStringValue(); },
         "displayName": n => { task.displayName = n.getStringValue(); },
@@ -345,7 +341,7 @@ export function deserializeIntoTaskCollectionResponse(taskCollectionResponse: Ta
 export function deserializeIntoTaskDefinition(taskDefinition: TaskDefinition | undefined = {} as TaskDefinition) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(taskDefinition),
-        "category": n => { taskDefinition.category = n.getCollectionOfEnumValues<LifecycleTaskCategory>(LifecycleTaskCategory); },
+        "category": n => { taskDefinition.category = n.getCollectionOfEnumValues<LifecycleTaskCategory>(LifecycleTaskCategoryObject); },
         "continueOnError": n => { taskDefinition.continueOnError = n.getBooleanValue(); },
         "description": n => { taskDefinition.description = n.getStringValue(); },
         "displayName": n => { taskDefinition.displayName = n.getStringValue(); },
@@ -365,7 +361,7 @@ export function deserializeIntoTaskProcessingResult(taskProcessingResult: TaskPr
         "completedDateTime": n => { taskProcessingResult.completedDateTime = n.getDateValue(); },
         "createdDateTime": n => { taskProcessingResult.createdDateTime = n.getDateValue(); },
         "failureReason": n => { taskProcessingResult.failureReason = n.getStringValue(); },
-        "processingStatus": n => { taskProcessingResult.processingStatus = n.getEnumValue<LifecycleWorkflowProcessingStatus>(LifecycleWorkflowProcessingStatus); },
+        "processingStatus": n => { taskProcessingResult.processingStatus = n.getEnumValue<LifecycleWorkflowProcessingStatus>(LifecycleWorkflowProcessingStatusObject); },
         "startedDateTime": n => { taskProcessingResult.startedDateTime = n.getDateValue(); },
         "subject": n => { taskProcessingResult.subject = n.getObjectValue<User>(createUserFromDiscriminatorValue); },
         "task": n => { taskProcessingResult.task = n.getObjectValue<Task>(createTaskFromDiscriminatorValue); },
@@ -383,7 +379,7 @@ export function deserializeIntoTaskReport(taskReport: TaskReport | undefined = {
         "completedDateTime": n => { taskReport.completedDateTime = n.getDateValue(); },
         "failedUsersCount": n => { taskReport.failedUsersCount = n.getNumberValue(); },
         "lastUpdatedDateTime": n => { taskReport.lastUpdatedDateTime = n.getDateValue(); },
-        "processingStatus": n => { taskReport.processingStatus = n.getEnumValue<LifecycleWorkflowProcessingStatus>(LifecycleWorkflowProcessingStatus); },
+        "processingStatus": n => { taskReport.processingStatus = n.getEnumValue<LifecycleWorkflowProcessingStatus>(LifecycleWorkflowProcessingStatusObject); },
         "runId": n => { taskReport.runId = n.getStringValue(); },
         "startedDateTime": n => { taskReport.startedDateTime = n.getDateValue(); },
         "successfulUsersCount": n => { taskReport.successfulUsersCount = n.getNumberValue(); },
@@ -413,7 +409,7 @@ export function deserializeIntoTimeBasedAttributeTrigger(timeBasedAttributeTrigg
     return {
         ...deserializeIntoWorkflowExecutionTrigger(timeBasedAttributeTrigger),
         "offsetInDays": n => { timeBasedAttributeTrigger.offsetInDays = n.getNumberValue(); },
-        "timeBasedAttribute": n => { timeBasedAttributeTrigger.timeBasedAttribute = n.getEnumValue<WorkflowTriggerTimeBasedAttribute>(WorkflowTriggerTimeBasedAttribute); },
+        "timeBasedAttribute": n => { timeBasedAttributeTrigger.timeBasedAttribute = n.getEnumValue<WorkflowTriggerTimeBasedAttribute>(WorkflowTriggerTimeBasedAttributeObject); },
     }
 }
 export function deserializeIntoTriggerAndScopeBasedConditions(triggerAndScopeBasedConditions: TriggerAndScopeBasedConditions | undefined = {} as TriggerAndScopeBasedConditions) : Record<string, (node: ParseNode) => void> {
@@ -428,14 +424,14 @@ export function deserializeIntoUserProcessingResult(userProcessingResult: UserPr
         ...deserializeIntoEntity(userProcessingResult),
         "completedDateTime": n => { userProcessingResult.completedDateTime = n.getDateValue(); },
         "failedTasksCount": n => { userProcessingResult.failedTasksCount = n.getNumberValue(); },
-        "processingStatus": n => { userProcessingResult.processingStatus = n.getEnumValue<LifecycleWorkflowProcessingStatus>(LifecycleWorkflowProcessingStatus); },
+        "processingStatus": n => { userProcessingResult.processingStatus = n.getEnumValue<LifecycleWorkflowProcessingStatus>(LifecycleWorkflowProcessingStatusObject); },
         "scheduledDateTime": n => { userProcessingResult.scheduledDateTime = n.getDateValue(); },
         "startedDateTime": n => { userProcessingResult.startedDateTime = n.getDateValue(); },
         "subject": n => { userProcessingResult.subject = n.getObjectValue<User>(createUserFromDiscriminatorValue); },
         "taskProcessingResults": n => { userProcessingResult.taskProcessingResults = n.getCollectionOfObjectValues<TaskProcessingResult>(createTaskProcessingResultFromDiscriminatorValue); },
         "totalTasksCount": n => { userProcessingResult.totalTasksCount = n.getNumberValue(); },
         "totalUnprocessedTasksCount": n => { userProcessingResult.totalUnprocessedTasksCount = n.getNumberValue(); },
-        "workflowExecutionType": n => { userProcessingResult.workflowExecutionType = n.getEnumValue<WorkflowExecutionType>(WorkflowExecutionType); },
+        "workflowExecutionType": n => { userProcessingResult.workflowExecutionType = n.getEnumValue<WorkflowExecutionType>(WorkflowExecutionTypeObject); },
         "workflowVersion": n => { userProcessingResult.workflowVersion = n.getNumberValue(); },
     }
 }
@@ -471,7 +467,7 @@ export function deserializeIntoWorkflow(workflow: Workflow | undefined = {} as W
 }
 export function deserializeIntoWorkflowBase(workflowBase: WorkflowBase | undefined = {} as WorkflowBase) : Record<string, (node: ParseNode) => void> {
     return {
-        "category": n => { workflowBase.category = n.getEnumValue<LifecycleWorkflowCategory>(LifecycleWorkflowCategory); },
+        "category": n => { workflowBase.category = n.getEnumValue<LifecycleWorkflowCategory>(LifecycleWorkflowCategoryObject); },
         "createdBy": n => { workflowBase.createdBy = n.getObjectValue<User>(createUserFromDiscriminatorValue); },
         "createdDateTime": n => { workflowBase.createdDateTime = n.getDateValue(); },
         "description": n => { workflowBase.description = n.getStringValue(); },
@@ -504,7 +500,7 @@ export function deserializeIntoWorkflowExecutionTrigger(workflowExecutionTrigger
 export function deserializeIntoWorkflowTemplate(workflowTemplate: WorkflowTemplate | undefined = {} as WorkflowTemplate) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(workflowTemplate),
-        "category": n => { workflowTemplate.category = n.getEnumValue<LifecycleWorkflowCategory>(LifecycleWorkflowCategory); },
+        "category": n => { workflowTemplate.category = n.getEnumValue<LifecycleWorkflowCategory>(LifecycleWorkflowCategoryObject); },
         "description": n => { workflowTemplate.description = n.getStringValue(); },
         "displayName": n => { workflowTemplate.displayName = n.getStringValue(); },
         "executionConditions": n => { workflowTemplate.executionConditions = n.getObjectValue<WorkflowExecutionConditions>(createWorkflowExecutionConditionsFromDiscriminatorValue); },
@@ -539,27 +535,9 @@ export interface LifecycleManagementSettings extends Entity, Parsable {
      */
     workflowScheduleIntervalInHours?: number;
 }
-export enum LifecycleTaskCategory {
-    Joiner = "joiner",
-    Leaver = "leaver",
-    UnknownFutureValue = "unknownFutureValue",
-    Mover = "mover",
-}
-export enum LifecycleWorkflowCategory {
-    Joiner = "joiner",
-    Leaver = "leaver",
-    UnknownFutureValue = "unknownFutureValue",
-    Mover = "mover",
-}
-export enum LifecycleWorkflowProcessingStatus {
-    Queued = "queued",
-    InProgress = "inProgress",
-    Completed = "completed",
-    CompletedWithErrors = "completedWithErrors",
-    Canceled = "canceled",
-    Failed = "failed",
-    UnknownFutureValue = "unknownFutureValue",
-}
+export type LifecycleTaskCategory = (typeof LifecycleTaskCategoryObject)[keyof typeof LifecycleTaskCategoryObject];
+export type LifecycleWorkflowCategory = (typeof LifecycleWorkflowCategoryObject)[keyof typeof LifecycleWorkflowCategoryObject];
+export type LifecycleWorkflowProcessingStatus = (typeof LifecycleWorkflowProcessingStatusObject)[keyof typeof LifecycleWorkflowProcessingStatusObject];
 export interface LifecycleWorkflowsContainer extends Entity, Parsable {
     /**
      * The customTaskExtension instance.
@@ -1262,13 +1240,7 @@ export interface UserSummary extends AdditionalDataHolder, Parsable {
      */
     totalUsers?: number;
 }
-export enum ValueType {
-    EnumEscaped = "enum",
-    String = "string",
-    Int = "int",
-    Bool = "bool",
-    UnknownFutureValue = "unknownFutureValue",
-}
+export type ValueType = (typeof ValueTypeObject)[keyof typeof ValueTypeObject];
 export interface Workflow extends Parsable, WorkflowBase {
     /**
      * When the workflow was deleted.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
@@ -1387,11 +1359,7 @@ export interface WorkflowExecutionTrigger extends AdditionalDataHolder, Parsable
      */
     odataType?: string;
 }
-export enum WorkflowExecutionType {
-    Scheduled = "scheduled",
-    OnDemand = "onDemand",
-    UnknownFutureValue = "unknownFutureValue",
-}
+export type WorkflowExecutionType = (typeof WorkflowExecutionTypeObject)[keyof typeof WorkflowExecutionTypeObject];
 export interface WorkflowTemplate extends Entity, Parsable {
     /**
      * The category property
@@ -1420,12 +1388,7 @@ export interface WorkflowTemplateCollectionResponse extends BaseCollectionPagina
      */
     value?: WorkflowTemplate[];
 }
-export enum WorkflowTriggerTimeBasedAttribute {
-    EmployeeHireDate = "employeeHireDate",
-    EmployeeLeaveDateTime = "employeeLeaveDateTime",
-    UnknownFutureValue = "unknownFutureValue",
-    CreatedDateTime = "createdDateTime",
-}
+export type WorkflowTriggerTimeBasedAttribute = (typeof WorkflowTriggerTimeBasedAttributeObject)[keyof typeof WorkflowTriggerTimeBasedAttributeObject];
 export interface WorkflowVersion extends Parsable, WorkflowBase {
     /**
      * The version of the workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
@@ -1438,5 +1401,49 @@ export interface WorkflowVersionCollectionResponse extends BaseCollectionPaginat
      */
     value?: WorkflowVersion[];
 }
+export const CustomTaskExtensionOperationStatusObject = {
+    Completed: "completed",
+    Failed: "failed",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const LifecycleTaskCategoryObject = {
+    Joiner: "joiner",
+    Leaver: "leaver",
+    UnknownFutureValue: "unknownFutureValue",
+    Mover: "mover",
+}  as const;
+export const LifecycleWorkflowCategoryObject = {
+    Joiner: "joiner",
+    Leaver: "leaver",
+    UnknownFutureValue: "unknownFutureValue",
+    Mover: "mover",
+}  as const;
+export const LifecycleWorkflowProcessingStatusObject = {
+    Queued: "queued",
+    InProgress: "inProgress",
+    Completed: "completed",
+    CompletedWithErrors: "completedWithErrors",
+    Canceled: "canceled",
+    Failed: "failed",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const ValueTypeObject = {
+    EnumEscaped: "enum",
+    String: "string",
+    Int: "int",
+    Bool: "bool",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const WorkflowExecutionTypeObject = {
+    Scheduled: "scheduled",
+    OnDemand: "onDemand",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const WorkflowTriggerTimeBasedAttributeObject = {
+    EmployeeHireDate: "employeeHireDate",
+    EmployeeLeaveDateTime: "employeeLeaveDateTime",
+    UnknownFutureValue: "unknownFutureValue",
+    CreatedDateTime: "createdDateTime",
+}  as const;
 // tslint:enable
 // eslint-enable
