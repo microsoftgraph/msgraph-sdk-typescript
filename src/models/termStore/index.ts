@@ -50,7 +50,7 @@ export function deserializeIntoGroup(group: Group | undefined = {} as Group) : R
         "description": n => { group.description = n.getStringValue(); },
         "displayName": n => { group.displayName = n.getStringValue(); },
         "parentSiteId": n => { group.parentSiteId = n.getStringValue(); },
-        "scope": n => { group.scope = n.getEnumValue<TermGroupScope>(TermGroupScope); },
+        "scope": n => { group.scope = n.getEnumValue<TermGroupScope>(TermGroupScopeObject); },
         "sets": n => { group.sets = n.getCollectionOfObjectValues<Set>(createSetFromDiscriminatorValue); },
     }
 }
@@ -86,7 +86,7 @@ export function deserializeIntoRelation(relation: Relation | undefined = {} as R
     return {
         ...deserializeIntoEntity(relation),
         "fromTerm": n => { relation.fromTerm = n.getObjectValue<Term>(createTermFromDiscriminatorValue); },
-        "relationship": n => { relation.relationship = n.getEnumValue<RelationType>(RelationType); },
+        "relationship": n => { relation.relationship = n.getEnumValue<RelationType>(RelationTypeObject); },
         "set": n => { relation.set = n.getObjectValue<Set>(createSetFromDiscriminatorValue); },
         "toTerm": n => { relation.toTerm = n.getObjectValue<Term>(createTermFromDiscriminatorValue); },
     }
@@ -264,11 +264,7 @@ export interface RelationCollectionResponse extends BaseCollectionPaginationCoun
      */
     value?: Relation[];
 }
-export enum RelationType {
-    Pin = "pin",
-    Reuse = "reuse",
-    UnknownFutureValue = "unknownFutureValue",
-}
+export type RelationType = (typeof RelationTypeObject)[keyof typeof RelationTypeObject];
 export function serializeGroup(writer: SerializationWriter, group: Group | undefined = {} as Group) : void {
     serializeEntity(writer, group)
     writer.writeDateValue("createdDateTime", group.createdDateTime);
@@ -457,11 +453,17 @@ export interface TermCollectionResponse extends BaseCollectionPaginationCountRes
      */
     value?: Term[];
 }
-export enum TermGroupScope {
-    Global = "global",
-    System = "system",
-    SiteCollection = "siteCollection",
-    UnknownFutureValue = "unknownFutureValue",
-}
+export type TermGroupScope = (typeof TermGroupScopeObject)[keyof typeof TermGroupScopeObject];
+export const RelationTypeObject = {
+    Pin: "pin",
+    Reuse: "reuse",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const TermGroupScopeObject = {
+    Global: "global",
+    System: "system",
+    SiteCollection: "siteCollection",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
 // tslint:enable
 // eslint-enable

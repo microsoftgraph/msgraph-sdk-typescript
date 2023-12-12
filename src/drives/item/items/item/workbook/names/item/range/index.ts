@@ -18,10 +18,10 @@ export class RangeRequestBuilder extends BaseRequestBuilder<RangeRequestBuilder>
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/names/{workbookNamedItem%2Did}/range()", (x, y) => new RangeRequestBuilder(x, y));
     }
     /**
-     * Retrieve the properties and relationships of range object.
+     * Returns the range object that is associated with the name. Throws an exception if the named item's type is not a range.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookRange
-     * @see {@link https://learn.microsoft.com/graph/api/range-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/nameditem-range?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookRange | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -34,7 +34,7 @@ export class RangeRequestBuilder extends BaseRequestBuilder<RangeRequestBuilder>
         return this.requestAdapter.sendAsync<WorkbookRange>(requestInfo, createWorkbookRangeFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Retrieve the properties and relationships of range object.
+     * Returns the range object that is associated with the name. Throws an exception if the named item's type is not a range.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

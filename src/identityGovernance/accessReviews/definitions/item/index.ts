@@ -73,14 +73,13 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
         return this.requestAdapter.sendAsync<AccessReviewScheduleDefinition>(requestInfo, createAccessReviewScheduleDefinitionFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Update an existing accessReviewScheduleDefinition object to change one or more of its properties.
+     * Update the navigation property definitions in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewScheduleDefinition
-     * @see {@link https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AccessReviewScheduleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessReviewScheduleDefinition | undefined> {
-        const requestInfo = this.toPatchRequestInformation(
+    public put(body: AccessReviewScheduleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessReviewScheduleDefinition | undefined> {
+        const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
         );
         const errorMapping = {
@@ -112,14 +111,14 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
         return requestInfo;
     }
     /**
-     * Update an existing accessReviewScheduleDefinition object to change one or more of its properties.
+     * Update the navigation property definitions in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AccessReviewScheduleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+    public toPutRequestInformation(body: AccessReviewScheduleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        const requestInfo = new RequestInformation(HttpMethod.PUT, this.urlTemplate, this.pathParameters);
         requestInfo.configure(requestConfiguration);
         requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessReviewScheduleDefinition);

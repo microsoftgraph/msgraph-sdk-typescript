@@ -60,7 +60,7 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder<AppM
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.appManagementPolicies.item collection
-     * @param appManagementPolicyId Unique identifier of the item
+     * @param appManagementPolicyId The unique identifier of appManagementPolicy
      * @returns a AppManagementPolicyItemRequestBuilder
      */
     public byAppManagementPolicyId(appManagementPolicyId: string) : AppManagementPolicyItemRequestBuilder {

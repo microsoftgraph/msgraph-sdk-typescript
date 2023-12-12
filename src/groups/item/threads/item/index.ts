@@ -53,10 +53,10 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder<Con
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     }
     /**
-     * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. 
+     * Get a thread object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationThread
-     * @see {@link https://learn.microsoft.com/graph/api/conversationthread-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-get-thread?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<ConversationThreadItemRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationThread | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -97,7 +97,7 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder<Con
         return requestInfo;
     }
     /**
-     * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. 
+     * Get a thread object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

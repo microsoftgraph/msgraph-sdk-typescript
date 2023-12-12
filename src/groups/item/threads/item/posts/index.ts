@@ -67,10 +67,10 @@ export class PostsRequestBuilder extends BaseRequestBuilder<PostsRequestBuilder>
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts{?%24top,%24skip,%24filter,%24count,%24orderby,%24select,%24expand}", (x, y) => new PostsRequestBuilder(x, y));
     }
     /**
-     * Get the posts of the specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation.
+     * Get the properties and relationships of a post in a specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. Since the post resource supports extensions, you can also use the GET operation to get custom properties and extension data in a post instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PostCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/conversationthread-list-posts?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/post-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<PostsRequestBuilderGetQueryParameters> | undefined) : Promise<PostCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -83,7 +83,7 @@ export class PostsRequestBuilder extends BaseRequestBuilder<PostsRequestBuilder>
         return this.requestAdapter.sendAsync<PostCollectionResponse>(requestInfo, createPostCollectionResponseFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Get the posts of the specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation.
+     * Get the properties and relationships of a post in a specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. Since the post resource supports extensions, you can also use the GET operation to get custom properties and extension data in a post instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -60,7 +60,7 @@ export class IncompatibleAccessPackagesRequestBuilder extends BaseRequestBuilder
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.accessPackages.item.incompatibleAccessPackages.item collection
-     * @param accessPackageId1 Unique identifier of the item
+     * @param accessPackageId1 The unique identifier of accessPackage
      * @returns a AccessPackageItemRequestBuilder
      */
     public byAccessPackageId1(accessPackageId1: string) : AccessPackageItemRequestBuilder {

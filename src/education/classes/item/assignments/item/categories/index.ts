@@ -67,7 +67,7 @@ export class CategoriesRequestBuilder extends BaseRequestBuilder<CategoriesReque
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.classes.item.assignments.item.categories.item collection
-     * @param educationCategoryId Unique identifier of the item
+     * @param educationCategoryId The unique identifier of educationCategory
      * @returns a EducationCategoryItemRequestBuilder
      */
     public byEducationCategoryId(educationCategoryId: string) : EducationCategoryItemRequestBuilder {

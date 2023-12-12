@@ -28,9 +28,9 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder<NamedLoc
         super(pathParameters, requestAdapter, "{+baseurl}/identity/conditionalAccess/namedLocations/{namedLocation%2Did}{?%24select,%24expand}", (x, y) => new NamedLocationItemRequestBuilder(x, y));
     }
     /**
-     * Delete an ipNamedLocation object.
+     * Delete a namedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/ipnamedlocation-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/namedlocation-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -43,10 +43,10 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder<NamedLoc
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     }
     /**
-     * Retrieve the properties and relationships of a countryNamedLocation object.
+     * Retrieve the properties and relationships of a namedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NamedLocation
-     * @see {@link https://learn.microsoft.com/graph/api/countrynamedlocation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/namedlocation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<NamedLocationItemRequestBuilderGetQueryParameters> | undefined) : Promise<NamedLocation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +76,7 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder<NamedLoc
         return this.requestAdapter.sendAsync<NamedLocation>(requestInfo, createNamedLocationFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Delete an ipNamedLocation object.
+     * Delete a namedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -87,7 +87,7 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder<NamedLoc
         return requestInfo;
     }
     /**
-     * Retrieve the properties and relationships of a countryNamedLocation object.
+     * Retrieve the properties and relationships of a namedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

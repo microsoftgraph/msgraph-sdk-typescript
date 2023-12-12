@@ -60,7 +60,7 @@ export class AllowedUsersRequestBuilder extends BaseRequestBuilder<AllowedUsersR
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.shares.item.allowedUsers.item collection
-     * @param userId Unique identifier of the item
+     * @param userId The unique identifier of user
      * @returns a UserItemRequestBuilder
      */
     public byUserId(userId: string) : UserItemRequestBuilder {

@@ -60,7 +60,7 @@ export class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder<Clai
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.claimsMappingPolicies.item collection
-     * @param claimsMappingPolicyId Unique identifier of the item
+     * @param claimsMappingPolicyId The unique identifier of claimsMappingPolicy
      * @returns a ClaimsMappingPolicyItemRequestBuilder
      */
     public byClaimsMappingPolicyId(claimsMappingPolicyId: string) : ClaimsMappingPolicyItemRequestBuilder {

@@ -60,7 +60,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder<UsersRequestBuilder>
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.schools.item.users.item collection
-     * @param educationUserId Unique identifier of the item
+     * @param educationUserId The unique identifier of educationUser
      * @returns a EducationUserItemRequestBuilder
      */
     public byEducationUserId(educationUserId: string) : EducationUserItemRequestBuilder {

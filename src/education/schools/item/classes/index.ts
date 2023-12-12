@@ -60,7 +60,7 @@ export class ClassesRequestBuilder extends BaseRequestBuilder<ClassesRequestBuil
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.schools.item.classes.item collection
-     * @param educationClassId Unique identifier of the item
+     * @param educationClassId The unique identifier of educationClass
      * @returns a EducationClassItemRequestBuilder
      */
     public byEducationClassId(educationClassId: string) : EducationClassItemRequestBuilder {

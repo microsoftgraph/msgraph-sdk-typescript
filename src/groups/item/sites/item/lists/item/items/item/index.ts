@@ -5,6 +5,7 @@ import { createListItemFromDiscriminatorValue, deserializeIntoListItem, serializ
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError, type ODataError } from '../../../../../../../../models/oDataErrors/';
 import { AnalyticsRequestBuilder } from './analytics/';
 import { CreatedByUserRequestBuilder } from './createdByUser/';
+import { CreateLinkRequestBuilder } from './createLink/';
 import { DocumentSetVersionsRequestBuilder } from './documentSetVersions/';
 import { DriveItemRequestBuilder } from './driveItem/';
 import { FieldsRequestBuilder } from './fields/';
@@ -39,6 +40,12 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder<ListItemItemR
      */
     public get createdByUser(): CreatedByUserRequestBuilder {
         return new CreatedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to call the createLink method.
+     */
+    public get createLink(): CreateLinkRequestBuilder {
+        return new CreateLinkRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.

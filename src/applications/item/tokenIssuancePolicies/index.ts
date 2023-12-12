@@ -60,7 +60,7 @@ export class TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder<Toke
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.tokenIssuancePolicies.item collection
-     * @param tokenIssuancePolicyId Unique identifier of the item
+     * @param tokenIssuancePolicyId The unique identifier of tokenIssuancePolicy
      * @returns a TokenIssuancePolicyItemRequestBuilder
      */
     public byTokenIssuancePolicyId(tokenIssuancePolicyId: string) : TokenIssuancePolicyItemRequestBuilder {

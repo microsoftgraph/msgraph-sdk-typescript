@@ -59,6 +59,7 @@ import { UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBu
 import { UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder } from './userExperienceAnalyticsWorkFromAnywhereMetrics/';
 import { UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder } from './userExperienceAnalyticsWorkFromAnywhereModelPerformance/';
 import { VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder } from './verifyWindowsEnrollmentAutoDiscoveryWithDomainName/';
+import { VirtualEndpointRequestBuilder } from './virtualEndpoint/';
 import { WindowsAutopilotDeviceIdentitiesRequestBuilder } from './windowsAutopilotDeviceIdentities/';
 import { WindowsInformationProtectionAppLearningSummariesRequestBuilder } from './windowsInformationProtectionAppLearningSummaries/';
 import { WindowsInformationProtectionNetworkLearningSummariesRequestBuilder } from './windowsInformationProtectionNetworkLearningSummaries/';
@@ -404,6 +405,12 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder<DeviceMan
         return new UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the virtualEndpoint property of the microsoft.graph.deviceManagement entity.
+     */
+    public get virtualEndpoint(): VirtualEndpointRequestBuilder {
+        return new VirtualEndpointRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
      * Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
      */
     public get windowsAutopilotDeviceIdentities(): WindowsAutopilotDeviceIdentitiesRequestBuilder {
@@ -439,7 +446,7 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder<DeviceMan
      * Read properties and relationships of the deviceManagement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-policyset-devicemanagement-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-auditing-devicemanagement-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<DeviceManagementRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceManagement | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -465,7 +472,7 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder<DeviceMan
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-gpanalyticsservice-devicemanagement-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-devicemanagement-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceManagement | undefined> {
         const requestInfo = this.toPatchRequestInformation(

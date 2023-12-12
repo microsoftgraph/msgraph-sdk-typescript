@@ -60,7 +60,7 @@ export class AllowedGroupsRequestBuilder extends BaseRequestBuilder<AllowedGroup
     }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.shares.item.allowedGroups.item collection
-     * @param groupId Unique identifier of the item
+     * @param groupId The unique identifier of group
      * @returns a GroupItemRequestBuilder
      */
     public byGroupId(groupId: string) : GroupItemRequestBuilder {
