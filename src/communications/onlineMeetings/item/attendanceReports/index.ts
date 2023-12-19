@@ -71,7 +71,7 @@ export class AttendanceReportsRequestBuilder extends BaseRequestBuilder<Attendan
         super(pathParameters, requestAdapter, "{+baseurl}/communications/onlineMeetings/{onlineMeeting%2Did}/attendanceReports{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", (x, y) => new AttendanceReportsRequestBuilder(x, y));
     }
     /**
-     * Get attendanceReports from communications
+     * The attendance reports of an online meeting. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MeetingAttendanceReportCollectionResponse
      */
@@ -102,7 +102,7 @@ export class AttendanceReportsRequestBuilder extends BaseRequestBuilder<Attendan
         return this.requestAdapter.sendAsync<MeetingAttendanceReport>(requestInfo, createMeetingAttendanceReportFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Get attendanceReports from communications
+     * The attendance reports of an online meeting. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

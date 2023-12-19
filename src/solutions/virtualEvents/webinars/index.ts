@@ -73,9 +73,10 @@ export class WebinarsRequestBuilder extends BaseRequestBuilder<WebinarsRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/virtualEvents/webinars{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", (x, y) => new WebinarsRequestBuilder(x, y));
     }
     /**
-     * Get webinars from solutions
+     * Get the list of all virtualEventWebinar objects created in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of VirtualEventWebinarCollectionResponse
+     * @see {@link https://learn.microsoft.com/graph/api/virtualeventsroot-list-webinars?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<WebinarsRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventWebinarCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -124,7 +125,7 @@ export class WebinarsRequestBuilder extends BaseRequestBuilder<WebinarsRequestBu
         return this.requestAdapter.sendAsync<VirtualEventWebinar>(requestInfo, createVirtualEventWebinarFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Get webinars from solutions
+     * Get the list of all virtualEventWebinar objects created in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

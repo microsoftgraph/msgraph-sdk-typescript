@@ -83,7 +83,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder<ChartsRequestBuilde
      * Retrieve a list of chart objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/chart-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/worksheet-list-charts?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<ChartsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
