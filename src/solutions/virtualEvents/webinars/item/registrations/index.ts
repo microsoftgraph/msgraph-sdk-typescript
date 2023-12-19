@@ -71,9 +71,10 @@ export class RegistrationsRequestBuilder extends BaseRequestBuilder<Registration
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", (x, y) => new RegistrationsRequestBuilder(x, y));
     }
     /**
-     * Get registrations from solutions
+     * Get a list of all registration records of a webinar.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of VirtualEventRegistrationCollectionResponse
+     * @see {@link https://learn.microsoft.com/graph/api/virtualeventwebinar-list-registrations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<RegistrationsRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventRegistrationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -102,7 +103,7 @@ export class RegistrationsRequestBuilder extends BaseRequestBuilder<Registration
         return this.requestAdapter.sendAsync<VirtualEventRegistration>(requestInfo, createVirtualEventRegistrationFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Get registrations from solutions
+     * Get a list of all registration records of a webinar.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -49,7 +49,7 @@ export class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder<Vi
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     }
     /**
-     * Get sessions from solutions
+     * Sessions for the virtual event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of VirtualEventSession
      */
@@ -91,7 +91,7 @@ export class VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder<Vi
         return requestInfo;
     }
     /**
-     * Get sessions from solutions
+     * Sessions for the virtual event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

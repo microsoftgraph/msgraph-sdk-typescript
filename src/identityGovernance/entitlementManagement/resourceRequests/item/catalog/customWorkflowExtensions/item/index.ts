@@ -28,9 +28,9 @@ export class CustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/resourceRequests/{accessPackageResourceRequest%2Did}/catalog/customWorkflowExtensions/{customCalloutExtension%2Did}{?%24select,%24expand}", (x, y) => new CustomCalloutExtensionItemRequestBuilder(x, y));
     }
     /**
-     * Delete an accessPackageAssignmentRequestWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:
+     * Delete an accessPackageAssignmentWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentrequestworkflowextension-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentworkflowextension-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -43,10 +43,10 @@ export class CustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     }
     /**
-     * Read the properties and relationships of an accessPackageAssignmentRequestWorkflowExtension object.
+     * Read the properties and relationships of an accessPackageAssignmentWorkflowExtension object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomCalloutExtension
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentrequestworkflowextension-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentworkflowextension-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<CustomCalloutExtensionItemRequestBuilderGetQueryParameters> | undefined) : Promise<CustomCalloutExtension | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,11 +59,11 @@ export class CustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<CustomCalloutExtension>(requestInfo, createCustomCalloutExtensionFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Update the properties of an accessPackageAssignmentRequestWorkflowExtension object.
+     * Update the properties of an accessPackageAssignmentWorkflowExtension object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomCalloutExtension
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentrequestworkflowextension-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentworkflowextension-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: CustomCalloutExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CustomCalloutExtension | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -76,7 +76,7 @@ export class CustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<CustomCalloutExtension>(requestInfo, createCustomCalloutExtensionFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Delete an accessPackageAssignmentRequestWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:
+     * Delete an accessPackageAssignmentWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -87,7 +87,7 @@ export class CustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     }
     /**
-     * Read the properties and relationships of an accessPackageAssignmentRequestWorkflowExtension object.
+     * Read the properties and relationships of an accessPackageAssignmentWorkflowExtension object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -98,7 +98,7 @@ export class CustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     }
     /**
-     * Update the properties of an accessPackageAssignmentRequestWorkflowExtension object.
+     * Update the properties of an accessPackageAssignmentWorkflowExtension object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

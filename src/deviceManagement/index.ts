@@ -472,7 +472,7 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder<DeviceMan
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-devicemanagement-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-devicemanagement-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceManagement | undefined> {
         const requestInfo = this.toPatchRequestInformation(

@@ -4,7 +4,6 @@
 import { createIdentitySetFromDiscriminatorValue, deserializeIntoBaseCollectionPaginationCountResponse, deserializeIntoEntity, serializeBaseCollectionPaginationCountResponse, serializeEntity, serializeIdentitySet, type BaseCollectionPaginationCountResponse, type Entity, type IdentitySet } from '../';
 import { type AdditionalDataHolder, type Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export type AudioCodec = (typeof AudioCodecObject)[keyof typeof AudioCodecObject];
 export interface CallRecord extends Entity, Parsable {
     /**
      * UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -278,7 +277,7 @@ export function deserializeIntoMedia(media: Media | undefined = {} as Media) : R
 }
 export function deserializeIntoMediaStream(mediaStream: MediaStream | undefined = {} as MediaStream) : Record<string, (node: ParseNode) => void> {
     return {
-        "audioCodec": n => { mediaStream.audioCodec = n.getEnumValue<AudioCodec>(AudioCodecObject); },
+        "audioCodec": n => { mediaStream.audioCodec = n.getEnumValue<MediaStream_audioCodec>(MediaStream_audioCodecObject); },
         "averageAudioDegradation": n => { mediaStream.averageAudioDegradation = n.getNumberValue(); },
         "averageAudioNetworkJitter": n => { mediaStream.averageAudioNetworkJitter = n.getDurationValue(); },
         "averageBandwidthEstimate": n => { mediaStream.averageBandwidthEstimate = n.getNumberValue(); },
@@ -307,7 +306,7 @@ export function deserializeIntoMediaStream(mediaStream: MediaStream | undefined 
         "startDateTime": n => { mediaStream.startDateTime = n.getDateValue(); },
         "streamDirection": n => { mediaStream.streamDirection = n.getEnumValue<MediaStreamDirection>(MediaStreamDirectionObject); },
         "streamId": n => { mediaStream.streamId = n.getStringValue(); },
-        "videoCodec": n => { mediaStream.videoCodec = n.getEnumValue<VideoCodec>(VideoCodecObject); },
+        "videoCodec": n => { mediaStream.videoCodec = n.getEnumValue<MediaStream_videoCodec>(MediaStream_videoCodecObject); },
         "wasMediaBypassed": n => { mediaStream.wasMediaBypassed = n.getBooleanValue(); },
     }
 }
@@ -355,7 +354,7 @@ export function deserializeIntoParticipantEndpoint(participantEndpoint: Particip
 }
 export function deserializeIntoPstnCallLogRow(pstnCallLogRow: PstnCallLogRow | undefined = {} as PstnCallLogRow) : Record<string, (node: ParseNode) => void> {
     return {
-        "callDurationSource": n => { pstnCallLogRow.callDurationSource = n.getEnumValue<PstnCallDurationSource>(PstnCallDurationSourceObject); },
+        "callDurationSource": n => { pstnCallLogRow.callDurationSource = n.getEnumValue<PstnCallLogRow_callDurationSource>(PstnCallLogRow_callDurationSourceObject); },
         "calleeNumber": n => { pstnCallLogRow.calleeNumber = n.getStringValue(); },
         "callerNumber": n => { pstnCallLogRow.callerNumber = n.getStringValue(); },
         "callId": n => { pstnCallLogRow.callId = n.getStringValue(); },
@@ -724,7 +723,7 @@ export interface MediaStream extends AdditionalDataHolder, Parsable {
     /**
      * Codec name used to encode audio for transmission on the network. Possible values are: unknown, invalid, cn, pcma, pcmu, amrWide, g722, g7221, g7221c, g729, multiChannelAudio, muchv2, opus, satin, satinFullband, rtAudio8, rtAudio16, silk, silkNarrow, silkWide, siren, xmsRta, unknownFutureValue.
      */
-    audioCodec?: AudioCodec;
+    audioCodec?: MediaStream_audioCodec;
     /**
      * Average Network Mean Opinion Score degradation for stream. Represents how much the network loss and jitter has impacted the quality of received audio.
      */
@@ -840,7 +839,7 @@ export interface MediaStream extends AdditionalDataHolder, Parsable {
     /**
      * Codec name used to encode video for transmission on the network. Possible values are: unknown, invalid, av1, h263, h264, h264s, h264uc, h265, rtvc1, rtVideo, xrtvc1, unknownFutureValue.
      */
-    videoCodec?: VideoCodec;
+    videoCodec?: MediaStream_videoCodec;
     /**
      * True if the media stream bypassed the Mediation Server and went straight between client and PSTN Gateway/PBX, false otherwise.
      */
@@ -991,7 +990,6 @@ export interface ParticipantEndpoint extends Endpoint, Parsable {
     name?: string;
 }
 export type ProductFamily = (typeof ProductFamilyObject)[keyof typeof ProductFamilyObject];
-export type PstnCallDurationSource = (typeof PstnCallDurationSourceObject)[keyof typeof PstnCallDurationSourceObject];
 export interface PstnCallLogRow extends AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -1000,7 +998,7 @@ export interface PstnCallLogRow extends AdditionalDataHolder, Parsable {
     /**
      * The source of the call duration data. If the call uses a third-party telecommunications operator via the Operator Connect Program, the operator can provide their own call duration data. In this case, the property value is operator. Otherwise, the value is microsoft.
      */
-    callDurationSource?: PstnCallDurationSource;
+    callDurationSource?: PstnCallLogRow_callDurationSource;
     /**
      * Number dialed in E.164 format.
      */
@@ -1227,7 +1225,7 @@ export function serializeMedia(writer: SerializationWriter, media: Media | undef
     writer.writeAdditionalData(media.additionalData);
 }
 export function serializeMediaStream(writer: SerializationWriter, mediaStream: MediaStream | undefined = {} as MediaStream) : void {
-    writer.writeEnumValue<AudioCodec>("audioCodec", mediaStream.audioCodec);
+    writer.writeEnumValue<MediaStream_audioCodec>("audioCodec", mediaStream.audioCodec);
     writer.writeNumberValue("averageAudioDegradation", mediaStream.averageAudioDegradation);
     writer.writeDurationValue("averageAudioNetworkJitter", mediaStream.averageAudioNetworkJitter);
     writer.writeNumberValue("averageBandwidthEstimate", mediaStream.averageBandwidthEstimate);
@@ -1256,7 +1254,7 @@ export function serializeMediaStream(writer: SerializationWriter, mediaStream: M
     writer.writeDateValue("startDateTime", mediaStream.startDateTime);
     writer.writeEnumValue<MediaStreamDirection>("streamDirection", mediaStream.streamDirection);
     writer.writeStringValue("streamId", mediaStream.streamId);
-    writer.writeEnumValue<VideoCodec>("videoCodec", mediaStream.videoCodec);
+    writer.writeEnumValue<MediaStream_videoCodec>("videoCodec", mediaStream.videoCodec);
     writer.writeBooleanValue("wasMediaBypassed", mediaStream.wasMediaBypassed);
     writer.writeAdditionalData(mediaStream.additionalData);
 }
@@ -1300,7 +1298,7 @@ export function serializeParticipantEndpoint(writer: SerializationWriter, partic
     writer.writeStringValue("name", participantEndpoint.name);
 }
 export function serializePstnCallLogRow(writer: SerializationWriter, pstnCallLogRow: PstnCallLogRow | undefined = {} as PstnCallLogRow) : void {
-    writer.writeEnumValue<PstnCallDurationSource>("callDurationSource", pstnCallLogRow.callDurationSource);
+    writer.writeEnumValue<PstnCallLogRow_callDurationSource>("callDurationSource", pstnCallLogRow.callDurationSource);
     writer.writeStringValue("calleeNumber", pstnCallLogRow.calleeNumber);
     writer.writeStringValue("callerNumber", pstnCallLogRow.callerNumber);
     writer.writeStringValue("callId", pstnCallLogRow.callId);
@@ -1494,34 +1492,8 @@ export interface UserFeedback extends AdditionalDataHolder, Parsable {
     tokens?: FeedbackTokenSet;
 }
 export type UserFeedbackRating = (typeof UserFeedbackRatingObject)[keyof typeof UserFeedbackRatingObject];
-export type VideoCodec = (typeof VideoCodecObject)[keyof typeof VideoCodecObject];
 export type WifiBand = (typeof WifiBandObject)[keyof typeof WifiBandObject];
 export type WifiRadioType = (typeof WifiRadioTypeObject)[keyof typeof WifiRadioTypeObject];
-export const AudioCodecObject = {
-    Unknown: "unknown",
-    Invalid: "invalid",
-    Cn: "cn",
-    Pcma: "pcma",
-    Pcmu: "pcmu",
-    AmrWide: "amrWide",
-    G722: "g722",
-    G7221: "g7221",
-    G7221c: "g7221c",
-    G729: "g729",
-    MultiChannelAudio: "multiChannelAudio",
-    Muchv2: "muchv2",
-    Opus: "opus",
-    Satin: "satin",
-    SatinFullband: "satinFullband",
-    RtAudio8: "rtAudio8",
-    RtAudio16: "rtAudio16",
-    Silk: "silk",
-    SilkNarrow: "silkNarrow",
-    SilkWide: "silkWide",
-    Siren: "siren",
-    XmsRta: "xmsRta",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
 export const CallTypeObject = {
     Unknown: "unknown",
     GroupCall: "groupCall",
@@ -1581,10 +1553,6 @@ export const ProductFamilyObject = {
     UnknownFutureValue: "unknownFutureValue",
     AzureCommunicationServices: "azureCommunicationServices",
 }  as const;
-export const PstnCallDurationSourceObject = {
-    Microsoft: "microsoft",
-    Operator: "operator",
-}  as const;
 export const ServiceRoleObject = {
     Unknown: "unknown",
     CustomBot: "customBot",
@@ -1616,20 +1584,6 @@ export const UserFeedbackRatingObject = {
     Fair: "fair",
     Good: "good",
     Excellent: "excellent",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const VideoCodecObject = {
-    Unknown: "unknown",
-    Invalid: "invalid",
-    Av1: "av1",
-    H263: "h263",
-    H264: "h264",
-    H264s: "h264s",
-    H264uc: "h264uc",
-    H265: "h265",
-    Rtvc1: "rtvc1",
-    RtVideo: "rtVideo",
-    Xrtvc1: "xrtvc1",
     UnknownFutureValue: "unknownFutureValue",
 }  as const;
 export const WifiBandObject = {

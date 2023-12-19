@@ -181,7 +181,7 @@ export interface CustomTaskExtensionCallbackData extends CustomExtensionData, Pa
     /**
      * Operation status that's provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue.
      */
-    operationStatus?: CustomTaskExtensionOperationStatus;
+    operationStatus?: CustomTaskExtensionCallbackData_operationStatus;
 }
 export interface CustomTaskExtensionCalloutData extends CustomExtensionData, Parsable {
     /**
@@ -207,7 +207,6 @@ export interface CustomTaskExtensionCollectionResponse extends BaseCollectionPag
      */
     value?: CustomTaskExtension[];
 }
-export type CustomTaskExtensionOperationStatus = (typeof CustomTaskExtensionOperationStatusObject)[keyof typeof CustomTaskExtensionOperationStatusObject];
 export function deserializeIntoCustomTaskExtension(customTaskExtension: CustomTaskExtension | undefined = {} as CustomTaskExtension) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoCustomCalloutExtension(customTaskExtension),
@@ -227,7 +226,7 @@ export function deserializeIntoCustomTaskExtensionCallbackConfiguration(customTa
 export function deserializeIntoCustomTaskExtensionCallbackData(customTaskExtensionCallbackData: CustomTaskExtensionCallbackData | undefined = {} as CustomTaskExtensionCallbackData) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoCustomExtensionData(customTaskExtensionCallbackData),
-        "operationStatus": n => { customTaskExtensionCallbackData.operationStatus = n.getEnumValue<CustomTaskExtensionOperationStatus>(CustomTaskExtensionOperationStatusObject); },
+        "operationStatus": n => { customTaskExtensionCallbackData.operationStatus = n.getEnumValue<CustomTaskExtensionCallbackData_operationStatus>(CustomTaskExtensionCallbackData_operationStatusObject); },
     }
 }
 export function deserializeIntoCustomTaskExtensionCalloutData(customTaskExtensionCalloutData: CustomTaskExtensionCalloutData | undefined = {} as CustomTaskExtensionCalloutData) : Record<string, (node: ParseNode) => void> {
@@ -706,7 +705,7 @@ export function serializeCustomTaskExtensionCallbackConfiguration(writer: Serial
 }
 export function serializeCustomTaskExtensionCallbackData(writer: SerializationWriter, customTaskExtensionCallbackData: CustomTaskExtensionCallbackData | undefined = {} as CustomTaskExtensionCallbackData) : void {
     serializeCustomExtensionData(writer, customTaskExtensionCallbackData)
-    writer.writeEnumValue<CustomTaskExtensionOperationStatus>("operationStatus", customTaskExtensionCallbackData.operationStatus);
+    writer.writeEnumValue<CustomTaskExtensionCallbackData_operationStatus>("operationStatus", customTaskExtensionCallbackData.operationStatus);
 }
 export function serializeCustomTaskExtensionCalloutData(writer: SerializationWriter, customTaskExtensionCalloutData: CustomTaskExtensionCalloutData | undefined = {} as CustomTaskExtensionCalloutData) : void {
     serializeCustomExtensionData(writer, customTaskExtensionCalloutData)
@@ -1401,11 +1400,6 @@ export interface WorkflowVersionCollectionResponse extends BaseCollectionPaginat
      */
     value?: WorkflowVersion[];
 }
-export const CustomTaskExtensionOperationStatusObject = {
-    Completed: "completed",
-    Failed: "failed",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
 export const LifecycleTaskCategoryObject = {
     Joiner: "joiner",
     Leaver: "leaver",

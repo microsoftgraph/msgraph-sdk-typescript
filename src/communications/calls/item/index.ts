@@ -17,6 +17,7 @@ import { PlayPromptRequestBuilder } from './playPrompt/';
 import { RecordResponseRequestBuilder } from './recordResponse/';
 import { RedirectRequestBuilder } from './redirect/';
 import { RejectRequestBuilder } from './reject/';
+import { SendDtmfTonesRequestBuilder } from './sendDtmfTones/';
 import { SubscribeToToneRequestBuilder } from './subscribeToTone/';
 import { TransferRequestBuilder } from './transfer/';
 import { UnmuteRequestBuilder } from './unmute/';
@@ -120,6 +121,12 @@ export class CallItemRequestBuilder extends BaseRequestBuilder<CallItemRequestBu
      */
     public get reject(): RejectRequestBuilder {
         return new RejectRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to call the sendDtmfTones method.
+     */
+    public get sendDtmfTones(): SendDtmfTonesRequestBuilder {
+        return new SendDtmfTonesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to call the subscribeToTone method.

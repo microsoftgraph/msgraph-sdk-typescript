@@ -71,7 +71,7 @@ export class SessionsRequestBuilder extends BaseRequestBuilder<SessionsRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/virtualEvents/events/{virtualEvent%2Did}/sessions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", (x, y) => new SessionsRequestBuilder(x, y));
     }
     /**
-     * Get sessions from solutions
+     * Sessions for the virtual event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of VirtualEventSessionCollectionResponse
      */
@@ -102,7 +102,7 @@ export class SessionsRequestBuilder extends BaseRequestBuilder<SessionsRequestBu
         return this.requestAdapter.sendAsync<VirtualEventSession>(requestInfo, createVirtualEventSessionFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Get sessions from solutions
+     * Sessions for the virtual event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

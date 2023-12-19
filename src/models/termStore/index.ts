@@ -50,7 +50,7 @@ export function deserializeIntoGroup(group: Group | undefined = {} as Group) : R
         "description": n => { group.description = n.getStringValue(); },
         "displayName": n => { group.displayName = n.getStringValue(); },
         "parentSiteId": n => { group.parentSiteId = n.getStringValue(); },
-        "scope": n => { group.scope = n.getEnumValue<TermGroupScope>(TermGroupScopeObject); },
+        "scope": n => { group.scope = n.getEnumValue<Group_scope>(Group_scopeObject); },
         "sets": n => { group.sets = n.getCollectionOfObjectValues<Set>(createSetFromDiscriminatorValue); },
     }
 }
@@ -86,7 +86,7 @@ export function deserializeIntoRelation(relation: Relation | undefined = {} as R
     return {
         ...deserializeIntoEntity(relation),
         "fromTerm": n => { relation.fromTerm = n.getObjectValue<Term>(createTermFromDiscriminatorValue); },
-        "relationship": n => { relation.relationship = n.getEnumValue<RelationType>(RelationTypeObject); },
+        "relationship": n => { relation.relationship = n.getEnumValue<Relation_relationship>(Relation_relationshipObject); },
         "set": n => { relation.set = n.getObjectValue<Set>(createSetFromDiscriminatorValue); },
         "toTerm": n => { relation.toTerm = n.getObjectValue<Term>(createTermFromDiscriminatorValue); },
     }
@@ -170,7 +170,7 @@ export interface Group extends Entity, Parsable {
     /**
      * Returns the type of the group. Possible values are: global, system, and siteCollection.
      */
-    scope?: TermGroupScope;
+    scope?: Group_scope;
     /**
      * All sets under the group in a term [store].
      */
@@ -248,7 +248,7 @@ export interface Relation extends Entity, Parsable {
     /**
      * The type of relation. Possible values are: pin, reuse.
      */
-    relationship?: RelationType;
+    relationship?: Relation_relationship;
     /**
      * The [set] in which the relation is relevant.
      */
@@ -264,14 +264,13 @@ export interface RelationCollectionResponse extends BaseCollectionPaginationCoun
      */
     value?: Relation[];
 }
-export type RelationType = (typeof RelationTypeObject)[keyof typeof RelationTypeObject];
 export function serializeGroup(writer: SerializationWriter, group: Group | undefined = {} as Group) : void {
     serializeEntity(writer, group)
     writer.writeDateValue("createdDateTime", group.createdDateTime);
     writer.writeStringValue("description", group.description);
     writer.writeStringValue("displayName", group.displayName);
     writer.writeStringValue("parentSiteId", group.parentSiteId);
-    writer.writeEnumValue<TermGroupScope>("scope", group.scope);
+    writer.writeEnumValue<Group_scope>("scope", group.scope);
     writer.writeCollectionOfObjectValues<Set>("sets", group.sets, serializeSet);
 }
 export function serializeGroupCollectionResponse(writer: SerializationWriter, groupCollectionResponse: GroupCollectionResponse | undefined = {} as GroupCollectionResponse) : void {
@@ -300,7 +299,7 @@ export function serializeLocalizedName(writer: SerializationWriter, localizedNam
 export function serializeRelation(writer: SerializationWriter, relation: Relation | undefined = {} as Relation) : void {
     serializeEntity(writer, relation)
     writer.writeObjectValue<Term>("fromTerm", relation.fromTerm, serializeTerm);
-    writer.writeEnumValue<RelationType>("relationship", relation.relationship);
+    writer.writeEnumValue<Relation_relationship>("relationship", relation.relationship);
     writer.writeObjectValue<Set>("set", relation.set, serializeSet);
     writer.writeObjectValue<Term>("toTerm", relation.toTerm, serializeTerm);
 }
@@ -453,17 +452,5 @@ export interface TermCollectionResponse extends BaseCollectionPaginationCountRes
      */
     value?: Term[];
 }
-export type TermGroupScope = (typeof TermGroupScopeObject)[keyof typeof TermGroupScopeObject];
-export const RelationTypeObject = {
-    Pin: "pin",
-    Reuse: "reuse",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const TermGroupScopeObject = {
-    Global: "global",
-    System: "system",
-    SiteCollection: "siteCollection",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
 // tslint:enable
 // eslint-enable

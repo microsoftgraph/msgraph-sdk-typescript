@@ -49,7 +49,7 @@ export class MeetingAttendanceReportItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     }
     /**
-     * Get attendanceReports from users
+     * The attendance reports of an online meeting. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MeetingAttendanceReport
      */
@@ -91,7 +91,7 @@ export class MeetingAttendanceReportItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     }
     /**
-     * Get attendanceReports from users
+     * The attendance reports of an online meeting. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

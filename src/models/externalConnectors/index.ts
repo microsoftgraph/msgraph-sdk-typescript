@@ -64,7 +64,7 @@ export interface ConnectionOperation extends Entity, Parsable {
     /**
      * Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed, unknownFutureValue.
      */
-    status?: ConnectionOperationStatus;
+    status?: ConnectionOperation_status;
 }
 export interface ConnectionOperationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -72,8 +72,6 @@ export interface ConnectionOperationCollectionResponse extends BaseCollectionPag
      */
     value?: ConnectionOperation[];
 }
-export type ConnectionOperationStatus = (typeof ConnectionOperationStatusObject)[keyof typeof ConnectionOperationStatusObject];
-export type ConnectionState = (typeof ConnectionStateObject)[keyof typeof ConnectionStateObject];
 export function createAclFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     return deserializeIntoAcl;
 }
@@ -201,7 +199,7 @@ export function deserializeIntoConnectionOperation(connectionOperation: Connecti
     return {
         ...deserializeIntoEntity(connectionOperation),
         "error": n => { connectionOperation.errorEscaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
-        "status": n => { connectionOperation.status = n.getEnumValue<ConnectionOperationStatus>(ConnectionOperationStatusObject); },
+        "status": n => { connectionOperation.status = n.getEnumValue<ConnectionOperation_status>(ConnectionOperation_statusObject); },
     }
 }
 export function deserializeIntoConnectionOperationCollectionResponse(connectionOperationCollectionResponse: ConnectionOperationCollectionResponse | undefined = {} as ConnectionOperationCollectionResponse) : Record<string, (node: ParseNode) => void> {
@@ -258,7 +256,7 @@ export function deserializeIntoExternalConnection(externalConnection: ExternalCo
         "operations": n => { externalConnection.operations = n.getCollectionOfObjectValues<ConnectionOperation>(createConnectionOperationFromDiscriminatorValue); },
         "schema": n => { externalConnection.schema = n.getObjectValue<Schema>(createSchemaFromDiscriminatorValue); },
         "searchSettings": n => { externalConnection.searchSettings = n.getObjectValue<SearchSettings>(createSearchSettingsFromDiscriminatorValue); },
-        "state": n => { externalConnection.state = n.getEnumValue<ConnectionState>(ConnectionStateObject); },
+        "state": n => { externalConnection.state = n.getEnumValue<ExternalConnection_state>(ExternalConnection_stateObject); },
     }
 }
 export function deserializeIntoExternalConnectionCollectionResponse(externalConnectionCollectionResponse: ExternalConnectionCollectionResponse | undefined = {} as ExternalConnectionCollectionResponse) : Record<string, (node: ParseNode) => void> {
@@ -306,7 +304,7 @@ export function deserializeIntoExternalItemContent(externalItemContent: External
 export function deserializeIntoIdentity(identity: Identity | undefined = {} as Identity) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(identity),
-        "type": n => { identity.type = n.getEnumValue<IdentityType>(IdentityTypeObject); },
+        "type": n => { identity.type = n.getEnumValue<Identity_type>(Identity_typeObject); },
     }
 }
 export function deserializeIntoIdentityCollectionResponse(identityCollectionResponse: IdentityCollectionResponse | undefined = {} as IdentityCollectionResponse) : Record<string, (node: ParseNode) => void> {
@@ -334,7 +332,7 @@ export function deserializeIntoProperty(property: Property | undefined = {} as P
         "isRefinable": n => { property.isRefinable = n.getBooleanValue(); },
         "isRetrievable": n => { property.isRetrievable = n.getBooleanValue(); },
         "isSearchable": n => { property.isSearchable = n.getBooleanValue(); },
-        "labels": n => { property.labels = n.getCollectionOfEnumValues<Label>(LabelObject); },
+        "labels": n => { property.labels = n.getCollectionOfEnumValues<Property_labels>(Property_labelsObject); },
         "name": n => { property.name = n.getStringValue(); },
         "@odata.type": n => { property.odataType = n.getStringValue(); },
         "type": n => { property.type = n.getEnumValue<PropertyType>(PropertyTypeObject); },
@@ -486,7 +484,7 @@ export interface ExternalConnection extends Entity, Parsable {
     /**
      * Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue.
      */
-    state?: ConnectionState;
+    state?: ExternalConnection_state;
 }
 export interface ExternalConnectionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -561,7 +559,7 @@ export interface Identity extends Entity, Parsable {
     /**
      * The type of identity. Possible values are: user or group for Microsoft Entra identities and externalgroup for groups in an external system.
      */
-    type?: IdentityType;
+    type?: Identity_type;
 }
 export interface IdentityCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -569,7 +567,6 @@ export interface IdentityCollectionResponse extends BaseCollectionPaginationCoun
      */
     value?: Identity[];
 }
-export type IdentityType = (typeof IdentityTypeObject)[keyof typeof IdentityTypeObject];
 export interface ItemIdResolver extends Parsable, UrlToItemResolverBase {
     /**
      * Pattern that specifies how to form the ID of the external item that the URL represents. The named groups from the regular expression in urlPattern within the urlMatchInfo can be referenced by inserting the group name inside curly brackets.
@@ -580,7 +577,6 @@ export interface ItemIdResolver extends Parsable, UrlToItemResolverBase {
      */
     urlMatchInfo?: UrlMatchInfo;
 }
-export type Label = (typeof LabelObject)[keyof typeof LabelObject];
 export interface Properties extends AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -619,7 +615,7 @@ export interface Property extends AdditionalDataHolder, Parsable {
     /**
      * Specifies one or more well-known tags added against a property. Labels help Microsoft Search understand the semantics of the data in the connection. Adding appropriate labels would result in an enhanced search experience (for example, better relevance). Optional.The possible values are: title, url, createdBy, lastModifiedBy, authors, createdDateTime, lastModifiedDateTime, fileName, fileExtension, unknownFutureValue, iconUrl. You must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: iconUrl.
      */
-    labels?: Label[];
+    labels?: Property_labels[];
     /**
      * The name of the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &, ?, @, #, /, ~, ', ', <, >, `, ^.  Required.
      */
@@ -705,7 +701,7 @@ export function serializeConfiguration(writer: SerializationWriter, configuratio
 export function serializeConnectionOperation(writer: SerializationWriter, connectionOperation: ConnectionOperation | undefined = {} as ConnectionOperation) : void {
     serializeEntity(writer, connectionOperation)
     writer.writeObjectValue<PublicError>("error", connectionOperation.errorEscaped, serializePublicError);
-    writer.writeEnumValue<ConnectionOperationStatus>("status", connectionOperation.status);
+    writer.writeEnumValue<ConnectionOperation_status>("status", connectionOperation.status);
 }
 export function serializeConnectionOperationCollectionResponse(writer: SerializationWriter, connectionOperationCollectionResponse: ConnectionOperationCollectionResponse | undefined = {} as ConnectionOperationCollectionResponse) : void {
     serializeBaseCollectionPaginationCountResponse(writer, connectionOperationCollectionResponse)
@@ -784,7 +780,7 @@ export function serializeExternalItemContent(writer: SerializationWriter, extern
 }
 export function serializeIdentity(writer: SerializationWriter, identity: Identity | undefined = {} as Identity) : void {
     serializeEntity(writer, identity)
-    writer.writeEnumValue<IdentityType>("type", identity.type);
+    writer.writeEnumValue<Identity_type>("type", identity.type);
 }
 export function serializeIdentityCollectionResponse(writer: SerializationWriter, identityCollectionResponse: IdentityCollectionResponse | undefined = {} as IdentityCollectionResponse) : void {
     serializeBaseCollectionPaginationCountResponse(writer, identityCollectionResponse)
@@ -806,7 +802,7 @@ export function serializeProperty(writer: SerializationWriter, property: Propert
     writer.writeBooleanValue("isRetrievable", property.isRetrievable);
     writer.writeBooleanValue("isSearchable", property.isSearchable);
     if(property.labels)
-    writer.writeEnumValue<Label>("labels", ...property.labels);
+    writer.writeEnumValue<Property_labels>("labels", ...property.labels);
     writer.writeStringValue("name", property.name);
     writer.writeStringValue("@odata.type", property.odataType);
     writer.writeEnumValue<PropertyType>("type", property.type);
@@ -886,20 +882,6 @@ export const AclTypeObject = {
     ExternalGroup: "externalGroup",
     UnknownFutureValue: "unknownFutureValue",
 }  as const;
-export const ConnectionOperationStatusObject = {
-    Unspecified: "unspecified",
-    Inprogress: "inprogress",
-    Completed: "completed",
-    Failed: "failed",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const ConnectionStateObject = {
-    Draft: "draft",
-    Ready: "ready",
-    Obsolete: "obsolete",
-    LimitExceeded: "limitExceeded",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
 export const ExternalActivityTypeObject = {
     Viewed: "viewed",
     Modified: "modified",
@@ -911,25 +893,6 @@ export const ExternalItemContentTypeObject = {
     Text: "text",
     Html: "html",
     UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const IdentityTypeObject = {
-    User: "user",
-    Group: "group",
-    ExternalGroup: "externalGroup",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const LabelObject = {
-    Title: "title",
-    Url: "url",
-    CreatedBy: "createdBy",
-    LastModifiedBy: "lastModifiedBy",
-    Authors: "authors",
-    CreatedDateTime: "createdDateTime",
-    LastModifiedDateTime: "lastModifiedDateTime",
-    FileName: "fileName",
-    FileExtension: "fileExtension",
-    UnknownFutureValue: "unknownFutureValue",
-    IconUrl: "iconUrl",
 }  as const;
 export const PropertyTypeObject = {
     String: "string",

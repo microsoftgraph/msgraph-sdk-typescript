@@ -4,7 +4,6 @@
 import { createGroupFromDiscriminatorValue, createIdentitySetFromDiscriminatorValue, createPhysicalAddressFromDiscriminatorValue, createPublicErrorFromDiscriminatorValue, createResultInfoFromDiscriminatorValue, createSiteFromDiscriminatorValue, deserializeIntoBaseCollectionPaginationCountResponse, deserializeIntoEntity, serializeBaseCollectionPaginationCountResponse, serializeEntity, serializeGroup, serializeIdentitySet, serializePhysicalAddress, serializePublicError, serializeResultInfo, serializeSite, type BaseCollectionPaginationCountResponse, type Entity, type Group, type IdentitySet, type PhysicalAddress, type PublicError, type ResultInfo, type Site } from '../';
 import { type AdditionalDataHolder, type Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export type AdditionalDataOptions = (typeof AdditionalDataOptionsObject)[keyof typeof AdditionalDataOptionsObject];
 export interface Alert extends Entity, Parsable {
     /**
      * The adversary or activity group that is associated with this alert.
@@ -29,7 +28,7 @@ export interface Alert extends Entity, Parsable {
     /**
      * Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      */
-    classification?: AlertClassification;
+    classification?: Alert_classification;
     /**
      * Array of comments created by the Security Operations (SecOps) team during the alert management process.
      */
@@ -45,7 +44,7 @@ export interface Alert extends Entity, Parsable {
     /**
      * Detection technology or sensor that identified the notable component or activity. Possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement.
      */
-    detectionSource?: DetectionSource;
+    detectionSource?: Alert_detectionSource;
     /**
      * The ID of the detector that triggered the alert.
      */
@@ -53,7 +52,7 @@ export interface Alert extends Entity, Parsable {
     /**
      * Specifies the result of the investigation, whether the alert represents a true attack and if so, the nature of the attack. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      */
-    determination?: AlertDetermination;
+    determination?: Alert_determination;
     /**
      * Collection of evidence related to the alert.
      */
@@ -127,7 +126,6 @@ export interface Alert extends Entity, Parsable {
      */
     title?: string;
 }
-export type AlertClassification = (typeof AlertClassificationObject)[keyof typeof AlertClassificationObject];
 export interface AlertCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
@@ -156,7 +154,6 @@ export interface AlertComment extends AdditionalDataHolder, Parsable {
      */
     odataType?: string;
 }
-export type AlertDetermination = (typeof AlertDeterminationObject)[keyof typeof AlertDeterminationObject];
 export interface AlertEvidence extends AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -383,7 +380,6 @@ export interface AzureResourceEvidence extends AlertEvidence, Parsable {
      */
     resourceType?: string;
 }
-export type BehaviorDuringRetentionPeriod = (typeof BehaviorDuringRetentionPeriodObject)[keyof typeof BehaviorDuringRetentionPeriodObject];
 export interface BlobContainerEvidence extends AlertEvidence, Parsable {
     /**
      * The name of the blob container.
@@ -420,7 +416,6 @@ export interface BlobEvidence extends AlertEvidence, Parsable {
      */
     url?: string;
 }
-export type CaseAction = (typeof CaseActionObject)[keyof typeof CaseActionObject];
 export interface CaseEscaped extends Entity, Parsable {
     /**
      * The createdDateTime property
@@ -445,13 +440,13 @@ export interface CaseEscaped extends Entity, Parsable {
     /**
      * The status property
      */
-    status?: CaseStatus;
+    status?: Case_status;
 }
 export interface CaseOperation extends Entity, Parsable {
     /**
      * The type of action the operation represents. Possible values are: addToReviewSet,applyTags,contentExport,convertToPdf,estimateStatistics, purgeData
      */
-    action?: CaseAction;
+    action?: CaseOperation_action;
     /**
      * The date and time the operation was completed.
      */
@@ -475,7 +470,7 @@ export interface CaseOperation extends Entity, Parsable {
     /**
      * The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
      */
-    status?: CaseOperationStatus;
+    status?: CaseOperation_status;
 }
 export interface CaseOperationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -483,15 +478,12 @@ export interface CaseOperationCollectionResponse extends BaseCollectionPaginatio
      */
     value?: CaseOperation[];
 }
-export type CaseOperationStatus = (typeof CaseOperationStatusObject)[keyof typeof CaseOperationStatusObject];
 export interface CasesRoot extends Entity, Parsable {
     /**
      * The ediscoveryCases property
      */
     ediscoveryCases?: EdiscoveryCase[];
 }
-export type CaseStatus = (typeof CaseStatusObject)[keyof typeof CaseStatusObject];
-export type ChildSelectability = (typeof ChildSelectabilityObject)[keyof typeof ChildSelectabilityObject];
 export interface CloudApplicationEvidence extends AlertEvidence, Parsable {
     /**
      * Unique identifier of the application.
@@ -558,14 +550,12 @@ export interface ContainerImageEvidence extends AlertEvidence, Parsable {
      */
     registry?: ContainerRegistryEvidence;
 }
-export type ContainerPortProtocol = (typeof ContainerPortProtocolObject)[keyof typeof ContainerPortProtocolObject];
 export interface ContainerRegistryEvidence extends AlertEvidence, Parsable {
     /**
      * The registry URI.
      */
     registry?: string;
 }
-export type ContentFormat = (typeof ContentFormatObject)[keyof typeof ContentFormatObject];
 export function createAlertCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     return deserializeIntoAlertCollectionResponse;
 }
@@ -1273,7 +1263,7 @@ export interface CvssSummary extends AdditionalDataHolder, Parsable {
     /**
      * The CVSS severity rating for this vulnerability. The possible values are: none, low, medium, high, critical, unknownFutureValue.
      */
-    severity?: VulnerabilitySeverity;
+    severity?: CvssSummary_severity;
     /**
      * The CVSS vector string for this vulnerability.
      */
@@ -1309,7 +1299,7 @@ export interface DataSource extends Entity, Parsable {
     /**
      * The hold status of the dataSource.The possible values are: notApplied, applied, applying, removing, partial
      */
-    holdStatus?: DataSourceHoldStatus;
+    holdStatus?: DataSource_holdStatus;
 }
 export interface DataSourceCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -1329,7 +1319,7 @@ export interface DataSourceContainer extends Entity, Parsable {
     /**
      * The hold status of the dataSourceContainer. The possible values are: notApplied, applied, applying, removing, partial
      */
-    holdStatus?: DataSourceHoldStatus;
+    holdStatus?: DataSourceContainer_holdStatus;
     /**
      * Last modified date and time of the dataSourceContainer.
      */
@@ -1341,12 +1331,8 @@ export interface DataSourceContainer extends Entity, Parsable {
     /**
      * Latest status of the dataSourceContainer. Possible values are: Active, Released.
      */
-    status?: DataSourceContainerStatus;
+    status?: DataSourceContainer_status;
 }
-export type DataSourceContainerStatus = (typeof DataSourceContainerStatusObject)[keyof typeof DataSourceContainerStatusObject];
-export type DataSourceHoldStatus = (typeof DataSourceHoldStatusObject)[keyof typeof DataSourceHoldStatusObject];
-export type DataSourceScopes = (typeof DataSourceScopesObject)[keyof typeof DataSourceScopesObject];
-export type DefenderAvStatus = (typeof DefenderAvStatusObject)[keyof typeof DefenderAvStatusObject];
 export function deserializeIntoAlert(alert: Alert | undefined = {} as Alert) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(alert),
@@ -1355,13 +1341,13 @@ export function deserializeIntoAlert(alert: Alert | undefined = {} as Alert) : R
         "alertWebUrl": n => { alert.alertWebUrl = n.getStringValue(); },
         "assignedTo": n => { alert.assignedTo = n.getStringValue(); },
         "category": n => { alert.category = n.getStringValue(); },
-        "classification": n => { alert.classification = n.getEnumValue<AlertClassification>(AlertClassificationObject); },
+        "classification": n => { alert.classification = n.getEnumValue<Alert_classification>(Alert_classificationObject); },
         "comments": n => { alert.comments = n.getCollectionOfObjectValues<AlertComment>(createAlertCommentFromDiscriminatorValue); },
         "createdDateTime": n => { alert.createdDateTime = n.getDateValue(); },
         "description": n => { alert.description = n.getStringValue(); },
-        "detectionSource": n => { alert.detectionSource = n.getEnumValue<DetectionSource>(DetectionSourceObject); },
+        "detectionSource": n => { alert.detectionSource = n.getEnumValue<Alert_detectionSource>(Alert_detectionSourceObject); },
         "detectorId": n => { alert.detectorId = n.getStringValue(); },
-        "determination": n => { alert.determination = n.getEnumValue<AlertDetermination>(AlertDeterminationObject); },
+        "determination": n => { alert.determination = n.getEnumValue<Alert_determination>(Alert_determinationObject); },
         "evidence": n => { alert.evidence = n.getCollectionOfObjectValues<AlertEvidence>(createAlertEvidenceFromDiscriminatorValue); },
         "firstActivityDateTime": n => { alert.firstActivityDateTime = n.getDateValue(); },
         "incidentId": n => { alert.incidentId = n.getStringValue(); },
@@ -1519,19 +1505,19 @@ export function deserializeIntoCaseEscaped(caseEscaped: CaseEscaped | undefined 
         "displayName": n => { caseEscaped.displayName = n.getStringValue(); },
         "lastModifiedBy": n => { caseEscaped.lastModifiedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
         "lastModifiedDateTime": n => { caseEscaped.lastModifiedDateTime = n.getDateValue(); },
-        "status": n => { caseEscaped.status = n.getEnumValue<CaseStatus>(CaseStatusObject); },
+        "status": n => { caseEscaped.status = n.getEnumValue<Case_status>(Case_statusObject); },
     }
 }
 export function deserializeIntoCaseOperation(caseOperation: CaseOperation | undefined = {} as CaseOperation) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(caseOperation),
-        "action": n => { caseOperation.action = n.getEnumValue<CaseAction>(CaseActionObject); },
+        "action": n => { caseOperation.action = n.getEnumValue<CaseOperation_action>(CaseOperation_actionObject); },
         "completedDateTime": n => { caseOperation.completedDateTime = n.getDateValue(); },
         "createdBy": n => { caseOperation.createdBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
         "createdDateTime": n => { caseOperation.createdDateTime = n.getDateValue(); },
         "percentProgress": n => { caseOperation.percentProgress = n.getNumberValue(); },
         "resultInfo": n => { caseOperation.resultInfo = n.getObjectValue<ResultInfo>(createResultInfoFromDiscriminatorValue); },
-        "status": n => { caseOperation.status = n.getEnumValue<CaseOperationStatus>(CaseOperationStatusObject); },
+        "status": n => { caseOperation.status = n.getEnumValue<CaseOperation_status>(CaseOperation_statusObject); },
     }
 }
 export function deserializeIntoCaseOperationCollectionResponse(caseOperationCollectionResponse: CaseOperationCollectionResponse | undefined = {} as CaseOperationCollectionResponse) : Record<string, (node: ParseNode) => void> {
@@ -1586,7 +1572,7 @@ export function deserializeIntoCvssSummary(cvssSummary: CvssSummary | undefined 
     return {
         "@odata.type": n => { cvssSummary.odataType = n.getStringValue(); },
         "score": n => { cvssSummary.score = n.getNumberValue(); },
-        "severity": n => { cvssSummary.severity = n.getEnumValue<VulnerabilitySeverity>(VulnerabilitySeverityObject); },
+        "severity": n => { cvssSummary.severity = n.getEnumValue<CvssSummary_severity>(CvssSummary_severityObject); },
         "vectorString": n => { cvssSummary.vectorString = n.getStringValue(); },
     }
 }
@@ -1604,7 +1590,7 @@ export function deserializeIntoDataSource(dataSource: DataSource | undefined = {
         "createdBy": n => { dataSource.createdBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
         "createdDateTime": n => { dataSource.createdDateTime = n.getDateValue(); },
         "displayName": n => { dataSource.displayName = n.getStringValue(); },
-        "holdStatus": n => { dataSource.holdStatus = n.getEnumValue<DataSourceHoldStatus>(DataSourceHoldStatusObject); },
+        "holdStatus": n => { dataSource.holdStatus = n.getEnumValue<DataSource_holdStatus>(DataSource_holdStatusObject); },
     }
 }
 export function deserializeIntoDataSourceCollectionResponse(dataSourceCollectionResponse: DataSourceCollectionResponse | undefined = {} as DataSourceCollectionResponse) : Record<string, (node: ParseNode) => void> {
@@ -1618,29 +1604,29 @@ export function deserializeIntoDataSourceContainer(dataSourceContainer: DataSour
         ...deserializeIntoEntity(dataSourceContainer),
         "createdDateTime": n => { dataSourceContainer.createdDateTime = n.getDateValue(); },
         "displayName": n => { dataSourceContainer.displayName = n.getStringValue(); },
-        "holdStatus": n => { dataSourceContainer.holdStatus = n.getEnumValue<DataSourceHoldStatus>(DataSourceHoldStatusObject); },
+        "holdStatus": n => { dataSourceContainer.holdStatus = n.getEnumValue<DataSourceContainer_holdStatus>(DataSourceContainer_holdStatusObject); },
         "lastModifiedDateTime": n => { dataSourceContainer.lastModifiedDateTime = n.getDateValue(); },
         "releasedDateTime": n => { dataSourceContainer.releasedDateTime = n.getDateValue(); },
-        "status": n => { dataSourceContainer.status = n.getEnumValue<DataSourceContainerStatus>(DataSourceContainerStatusObject); },
+        "status": n => { dataSourceContainer.status = n.getEnumValue<DataSourceContainer_status>(DataSourceContainer_statusObject); },
     }
 }
 export function deserializeIntoDeviceEvidence(deviceEvidence: DeviceEvidence | undefined = {} as DeviceEvidence) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoAlertEvidence(deviceEvidence),
         "azureAdDeviceId": n => { deviceEvidence.azureAdDeviceId = n.getStringValue(); },
-        "defenderAvStatus": n => { deviceEvidence.defenderAvStatus = n.getEnumValue<DefenderAvStatus>(DefenderAvStatusObject); },
+        "defenderAvStatus": n => { deviceEvidence.defenderAvStatus = n.getEnumValue<DeviceEvidence_defenderAvStatus>(DeviceEvidence_defenderAvStatusObject); },
         "deviceDnsName": n => { deviceEvidence.deviceDnsName = n.getStringValue(); },
         "firstSeenDateTime": n => { deviceEvidence.firstSeenDateTime = n.getDateValue(); },
-        "healthStatus": n => { deviceEvidence.healthStatus = n.getEnumValue<DeviceHealthStatus>(DeviceHealthStatusObject); },
+        "healthStatus": n => { deviceEvidence.healthStatus = n.getEnumValue<DeviceEvidence_healthStatus>(DeviceEvidence_healthStatusObject); },
         "ipInterfaces": n => { deviceEvidence.ipInterfaces = n.getCollectionOfPrimitiveValues<string>(); },
         "loggedOnUsers": n => { deviceEvidence.loggedOnUsers = n.getCollectionOfObjectValues<LoggedOnUser>(createLoggedOnUserFromDiscriminatorValue); },
         "mdeDeviceId": n => { deviceEvidence.mdeDeviceId = n.getStringValue(); },
-        "onboardingStatus": n => { deviceEvidence.onboardingStatus = n.getEnumValue<OnboardingStatus>(OnboardingStatusObject); },
+        "onboardingStatus": n => { deviceEvidence.onboardingStatus = n.getEnumValue<DeviceEvidence_onboardingStatus>(DeviceEvidence_onboardingStatusObject); },
         "osBuild": n => { deviceEvidence.osBuild = n.getNumberValue(); },
         "osPlatform": n => { deviceEvidence.osPlatform = n.getStringValue(); },
         "rbacGroupId": n => { deviceEvidence.rbacGroupId = n.getNumberValue(); },
         "rbacGroupName": n => { deviceEvidence.rbacGroupName = n.getStringValue(); },
-        "riskScore": n => { deviceEvidence.riskScore = n.getEnumValue<DeviceRiskScore>(DeviceRiskScoreObject); },
+        "riskScore": n => { deviceEvidence.riskScore = n.getEnumValue<DeviceEvidence_riskScore>(DeviceEvidence_riskScoreObject); },
         "version": n => { deviceEvidence.version = n.getStringValue(); },
         "vmMetadata": n => { deviceEvidence.vmMetadata = n.getObjectValue<VmMetadata>(createVmMetadataFromDiscriminatorValue); },
     }
@@ -1720,8 +1706,8 @@ export function deserializeIntoEdiscoveryExportOperation(ediscoveryExportOperati
         ...deserializeIntoCaseOperation(ediscoveryExportOperation),
         "description": n => { ediscoveryExportOperation.description = n.getStringValue(); },
         "exportFileMetadata": n => { ediscoveryExportOperation.exportFileMetadata = n.getCollectionOfObjectValues<ExportFileMetadata>(createExportFileMetadataFromDiscriminatorValue); },
-        "exportOptions": n => { ediscoveryExportOperation.exportOptions = n.getCollectionOfEnumValues<ExportOptions>(ExportOptionsObject); },
-        "exportStructure": n => { ediscoveryExportOperation.exportStructure = n.getEnumValue<ExportFileStructure>(ExportFileStructureObject); },
+        "exportOptions": n => { ediscoveryExportOperation.exportOptions = n.getEnumValue<EdiscoveryExportOperation_exportOptions>(EdiscoveryExportOperation_exportOptionsObject); },
+        "exportStructure": n => { ediscoveryExportOperation.exportStructure = n.getEnumValue<EdiscoveryExportOperation_exportStructure>(EdiscoveryExportOperation_exportStructureObject); },
         "outputName": n => { ediscoveryExportOperation.outputName = n.getStringValue(); },
         "reviewSet": n => { ediscoveryExportOperation.reviewSet = n.getObjectValue<EdiscoveryReviewSet>(createEdiscoveryReviewSetFromDiscriminatorValue); },
         "reviewSetQuery": n => { ediscoveryExportOperation.reviewSetQuery = n.getObjectValue<EdiscoveryReviewSetQuery>(createEdiscoveryReviewSetQueryFromDiscriminatorValue); },
@@ -1781,7 +1767,7 @@ export function deserializeIntoEdiscoveryReviewSetQueryCollectionResponse(edisco
 export function deserializeIntoEdiscoveryReviewTag(ediscoveryReviewTag: EdiscoveryReviewTag | undefined = {} as EdiscoveryReviewTag) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoTag(ediscoveryReviewTag),
-        "childSelectability": n => { ediscoveryReviewTag.childSelectability = n.getEnumValue<ChildSelectability>(ChildSelectabilityObject); },
+        "childSelectability": n => { ediscoveryReviewTag.childSelectability = n.getEnumValue<EdiscoveryReviewTag_childSelectability>(EdiscoveryReviewTag_childSelectabilityObject); },
         "childTags": n => { ediscoveryReviewTag.childTags = n.getCollectionOfObjectValues<EdiscoveryReviewTag>(createEdiscoveryReviewTagFromDiscriminatorValue); },
         "parent": n => { ediscoveryReviewTag.parent = n.getObjectValue<EdiscoveryReviewTag>(createEdiscoveryReviewTagFromDiscriminatorValue); },
     }
@@ -1798,7 +1784,7 @@ export function deserializeIntoEdiscoverySearch(ediscoverySearch: EdiscoverySear
         "additionalSources": n => { ediscoverySearch.additionalSources = n.getCollectionOfObjectValues<DataSource>(createDataSourceFromDiscriminatorValue); },
         "addToReviewSetOperation": n => { ediscoverySearch.addToReviewSetOperation = n.getObjectValue<EdiscoveryAddToReviewSetOperation>(createEdiscoveryAddToReviewSetOperationFromDiscriminatorValue); },
         "custodianSources": n => { ediscoverySearch.custodianSources = n.getCollectionOfObjectValues<DataSource>(createDataSourceFromDiscriminatorValue); },
-        "dataSourceScopes": n => { ediscoverySearch.dataSourceScopes = n.getCollectionOfEnumValues<DataSourceScopes>(DataSourceScopesObject); },
+        "dataSourceScopes": n => { ediscoverySearch.dataSourceScopes = n.getEnumValue<EdiscoverySearch_dataSourceScopes>(EdiscoverySearch_dataSourceScopesObject); },
         "lastEstimateStatisticsOperation": n => { ediscoverySearch.lastEstimateStatisticsOperation = n.getObjectValue<EdiscoveryEstimateOperation>(createEdiscoveryEstimateOperationFromDiscriminatorValue); },
         "noncustodialSources": n => { ediscoverySearch.noncustodialSources = n.getCollectionOfObjectValues<EdiscoveryNoncustodialDataSource>(createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue); },
     }
@@ -1827,7 +1813,7 @@ export function deserializeIntoEventPropagationResult(eventPropagationResult: Ev
         "location": n => { eventPropagationResult.location = n.getStringValue(); },
         "@odata.type": n => { eventPropagationResult.odataType = n.getStringValue(); },
         "serviceName": n => { eventPropagationResult.serviceName = n.getStringValue(); },
-        "status": n => { eventPropagationResult.status = n.getEnumValue<EventPropagationStatus>(EventPropagationStatusObject); },
+        "status": n => { eventPropagationResult.status = n.getEnumValue<EventPropagationResult_status>(EventPropagationResult_statusObject); },
         "statusInformation": n => { eventPropagationResult.statusInformation = n.getStringValue(); },
     }
 }
@@ -1835,7 +1821,7 @@ export function deserializeIntoEventQuery(eventQuery: EventQuery | undefined = {
     return {
         "@odata.type": n => { eventQuery.odataType = n.getStringValue(); },
         "query": n => { eventQuery.query = n.getStringValue(); },
-        "queryType": n => { eventQuery.queryType = n.getEnumValue<QueryType>(QueryTypeObject); },
+        "queryType": n => { eventQuery.queryType = n.getEnumValue<EventQuery_queryType>(EventQuery_queryTypeObject); },
     }
 }
 export function deserializeIntoExportFileMetadata(exportFileMetadata: ExportFileMetadata | undefined = {} as ExportFileMetadata) : Record<string, (node: ParseNode) => void> {
@@ -1862,7 +1848,7 @@ export function deserializeIntoFileDetails(fileDetails: FileDetails | undefined 
 export function deserializeIntoFileEvidence(fileEvidence: FileEvidence | undefined = {} as FileEvidence) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoAlertEvidence(fileEvidence),
-        "detectionStatus": n => { fileEvidence.detectionStatus = n.getEnumValue<DetectionStatus>(DetectionStatusObject); },
+        "detectionStatus": n => { fileEvidence.detectionStatus = n.getEnumValue<FileEvidence_detectionStatus>(FileEvidence_detectionStatusObject); },
         "fileDetails": n => { fileEvidence.fileDetails = n.getObjectValue<FileDetails>(createFileDetailsFromDiscriminatorValue); },
         "mdeDeviceId": n => { fileEvidence.mdeDeviceId = n.getStringValue(); },
     }
@@ -1877,7 +1863,7 @@ export function deserializeIntoFileHash(fileHash: FileHash | undefined = {} as F
 export function deserializeIntoFormattedContent(formattedContent: FormattedContent | undefined = {} as FormattedContent) : Record<string, (node: ParseNode) => void> {
     return {
         "content": n => { formattedContent.content = n.getStringValue(); },
-        "format": n => { formattedContent.format = n.getEnumValue<ContentFormat>(ContentFormatObject); },
+        "format": n => { formattedContent.format = n.getEnumValue<FormattedContent_format>(FormattedContent_formatObject); },
         "@odata.type": n => { formattedContent.odataType = n.getStringValue(); },
     }
 }
@@ -1885,7 +1871,7 @@ export function deserializeIntoGoogleCloudResourceEvidence(googleCloudResourceEv
     return {
         ...deserializeIntoAlertEvidence(googleCloudResourceEvidence),
         "location": n => { googleCloudResourceEvidence.location = n.getStringValue(); },
-        "locationType": n => { googleCloudResourceEvidence.locationType = n.getEnumValue<GoogleCloudLocationType>(GoogleCloudLocationTypeObject); },
+        "locationType": n => { googleCloudResourceEvidence.locationType = n.getEnumValue<GoogleCloudResourceEvidence_locationType>(GoogleCloudResourceEvidence_locationTypeObject); },
         "projectId": n => { googleCloudResourceEvidence.projectId = n.getStringValue(); },
         "projectNumber": n => { googleCloudResourceEvidence.projectNumber = n.getNumberValue(); },
         "resourceName": n => { googleCloudResourceEvidence.resourceName = n.getStringValue(); },
@@ -1984,9 +1970,9 @@ export function deserializeIntoHostPort(hostPort: HostPort | undefined = {} as H
         "lastSeenDateTime": n => { hostPort.lastSeenDateTime = n.getDateValue(); },
         "mostRecentSslCertificate": n => { hostPort.mostRecentSslCertificate = n.getObjectValue<SslCertificate>(createSslCertificateFromDiscriminatorValue); },
         "port": n => { hostPort.port = n.getNumberValue(); },
-        "protocol": n => { hostPort.protocol = n.getEnumValue<HostPortProtocol>(HostPortProtocolObject); },
+        "protocol": n => { hostPort.protocol = n.getEnumValue<HostPort_protocol>(HostPort_protocolObject); },
         "services": n => { hostPort.services = n.getCollectionOfObjectValues<HostPortComponent>(createHostPortComponentFromDiscriminatorValue); },
-        "status": n => { hostPort.status = n.getEnumValue<HostPortStatus>(HostPortStatusObject); },
+        "status": n => { hostPort.status = n.getEnumValue<HostPort_status>(HostPort_statusObject); },
         "timesObserved": n => { hostPort.timesObserved = n.getNumberValue(); },
     }
 }
@@ -2096,12 +2082,12 @@ export function deserializeIntoIncident(incident: Incident | undefined = {} as I
         ...deserializeIntoEntity(incident),
         "alerts": n => { incident.alerts = n.getCollectionOfObjectValues<Alert>(createAlertFromDiscriminatorValue); },
         "assignedTo": n => { incident.assignedTo = n.getStringValue(); },
-        "classification": n => { incident.classification = n.getEnumValue<AlertClassification>(AlertClassificationObject); },
+        "classification": n => { incident.classification = n.getEnumValue<Incident_classification>(Incident_classificationObject); },
         "comments": n => { incident.comments = n.getCollectionOfObjectValues<AlertComment>(createAlertCommentFromDiscriminatorValue); },
         "createdDateTime": n => { incident.createdDateTime = n.getDateValue(); },
         "customTags": n => { incident.customTags = n.getCollectionOfPrimitiveValues<string>(); },
         "description": n => { incident.description = n.getStringValue(); },
-        "determination": n => { incident.determination = n.getEnumValue<AlertDetermination>(AlertDeterminationObject); },
+        "determination": n => { incident.determination = n.getEnumValue<Incident_determination>(Incident_determinationObject); },
         "displayName": n => { incident.displayName = n.getStringValue(); },
         "incidentWebUrl": n => { incident.incidentWebUrl = n.getStringValue(); },
         "lastModifiedBy": n => { incident.lastModifiedBy = n.getStringValue(); },
@@ -2189,7 +2175,7 @@ export function deserializeIntoKubernetesClusterEvidence(kubernetesClusterEviden
         "cloudResource": n => { kubernetesClusterEvidence.cloudResource = n.getObjectValue<AlertEvidence>(createAlertEvidenceFromDiscriminatorValue); },
         "distribution": n => { kubernetesClusterEvidence.distribution = n.getStringValue(); },
         "name": n => { kubernetesClusterEvidence.name = n.getStringValue(); },
-        "platform": n => { kubernetesClusterEvidence.platform = n.getEnumValue<KubernetesPlatform>(KubernetesPlatformObject); },
+        "platform": n => { kubernetesClusterEvidence.platform = n.getEnumValue<KubernetesClusterEvidence_platform>(KubernetesClusterEvidence_platformObject); },
         "version": n => { kubernetesClusterEvidence.version = n.getStringValue(); },
     }
 }
@@ -2259,7 +2245,7 @@ export function deserializeIntoKubernetesServicePort(kubernetesServicePort: Kube
         "nodePort": n => { kubernetesServicePort.nodePort = n.getNumberValue(); },
         "@odata.type": n => { kubernetesServicePort.odataType = n.getStringValue(); },
         "port": n => { kubernetesServicePort.port = n.getNumberValue(); },
-        "protocol": n => { kubernetesServicePort.protocol = n.getEnumValue<ContainerPortProtocol>(ContainerPortProtocolObject); },
+        "protocol": n => { kubernetesServicePort.protocol = n.getEnumValue<KubernetesServicePort_protocol>(KubernetesServicePort_protocolObject); },
         "targetPort": n => { kubernetesServicePort.targetPort = n.getStringValue(); },
     }
 }
@@ -2326,7 +2312,7 @@ export function deserializeIntoPassiveDnsRecordCollectionResponse(passiveDnsReco
 export function deserializeIntoProcessEvidence(processEvidence: ProcessEvidence | undefined = {} as ProcessEvidence) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoAlertEvidence(processEvidence),
-        "detectionStatus": n => { processEvidence.detectionStatus = n.getEnumValue<DetectionStatus>(DetectionStatusObject); },
+        "detectionStatus": n => { processEvidence.detectionStatus = n.getEnumValue<ProcessEvidence_detectionStatus>(ProcessEvidence_detectionStatusObject); },
         "imageFile": n => { processEvidence.imageFile = n.getObjectValue<FileDetails>(createFileDetailsFromDiscriminatorValue); },
         "mdeDeviceId": n => { processEvidence.mdeDeviceId = n.getStringValue(); },
         "parentProcessCreationDateTime": n => { processEvidence.parentProcessCreationDateTime = n.getDateValue(); },
@@ -2392,7 +2378,7 @@ export function deserializeIntoRetentionEventStatus(retentionEventStatus: Retent
     return {
         "error": n => { retentionEventStatus.errorEscaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
         "@odata.type": n => { retentionEventStatus.odataType = n.getStringValue(); },
-        "status": n => { retentionEventStatus.status = n.getEnumValue<EventStatusType>(EventStatusTypeObject); },
+        "status": n => { retentionEventStatus.status = n.getEnumValue<RetentionEventStatus_status>(RetentionEventStatus_statusObject); },
     }
 }
 export function deserializeIntoRetentionEventType(retentionEventType: RetentionEventType | undefined = {} as RetentionEventType) : Record<string, (node: ParseNode) => void> {
@@ -2561,7 +2547,7 @@ export function deserializeIntoUnifiedGroupSource(unifiedGroupSource: UnifiedGro
     return {
         ...deserializeIntoDataSource(unifiedGroupSource),
         "group": n => { unifiedGroupSource.group = n.getObjectValue<Group>(createGroupFromDiscriminatorValue); },
-        "includedSources": n => { unifiedGroupSource.includedSources = n.getCollectionOfEnumValues<SourceType>(SourceTypeObject); },
+        "includedSources": n => { unifiedGroupSource.includedSources = n.getEnumValue<UnifiedGroupSource_includedSources>(UnifiedGroupSource_includedSourcesObject); },
     }
 }
 export function deserializeIntoUnifiedGroupSourceCollectionResponse(unifiedGroupSourceCollectionResponse: UnifiedGroupSourceCollectionResponse | undefined = {} as UnifiedGroupSourceCollectionResponse) : Record<string, (node: ParseNode) => void> {
@@ -2597,7 +2583,7 @@ export function deserializeIntoUserSource(userSource: UserSource | undefined = {
     return {
         ...deserializeIntoDataSource(userSource),
         "email": n => { userSource.email = n.getStringValue(); },
-        "includedSources": n => { userSource.includedSources = n.getCollectionOfEnumValues<SourceType>(SourceTypeObject); },
+        "includedSources": n => { userSource.includedSources = n.getEnumValue<UserSource_includedSources>(UserSource_includedSourcesObject); },
         "siteWebUrl": n => { userSource.siteWebUrl = n.getStringValue(); },
     }
 }
@@ -2721,8 +2707,6 @@ export function deserializeIntoWhoisRecordCollectionResponse(whoisRecordCollecti
         "value": n => { whoisRecordCollectionResponse.value = n.getCollectionOfObjectValues<WhoisRecord>(createWhoisRecordFromDiscriminatorValue); },
     }
 }
-export type DetectionSource = (typeof DetectionSourceObject)[keyof typeof DetectionSourceObject];
-export type DetectionStatus = (typeof DetectionStatusObject)[keyof typeof DetectionStatusObject];
 export interface DeviceEvidence extends AlertEvidence, Parsable {
     /**
      * A unique identifier assigned to a device by Microsoft Entra ID when device is Microsoft Entra joined.
@@ -2731,7 +2715,7 @@ export interface DeviceEvidence extends AlertEvidence, Parsable {
     /**
      * State of the Defender AntiMalware engine. The possible values are: notReporting, disabled, notUpdated, updated, unknown, notSupported, unknownFutureValue.
      */
-    defenderAvStatus?: DefenderAvStatus;
+    defenderAvStatus?: DeviceEvidence_defenderAvStatus;
     /**
      * The fully qualified domain name (FQDN) for the device.
      */
@@ -2743,7 +2727,7 @@ export interface DeviceEvidence extends AlertEvidence, Parsable {
     /**
      * The health state of the device. The possible values are: active, inactive, impairedCommunication, noSensorData, noSensorDataImpairedCommunication, unknown, unknownFutureValue.
      */
-    healthStatus?: DeviceHealthStatus;
+    healthStatus?: DeviceEvidence_healthStatus;
     /**
      * Ip interfaces of the device during the time of the alert.
      */
@@ -2759,7 +2743,7 @@ export interface DeviceEvidence extends AlertEvidence, Parsable {
     /**
      * The status of the machine onboarding to Microsoft Defender for Endpoint. The possible values are: insufficientInfo, onboarded, canBeOnboarded, unsupported, unknownFutureValue.
      */
-    onboardingStatus?: OnboardingStatus;
+    onboardingStatus?: DeviceEvidence_onboardingStatus;
     /**
      * The build version for the operating system the device is running.
      */
@@ -2779,7 +2763,7 @@ export interface DeviceEvidence extends AlertEvidence, Parsable {
     /**
      * Risk score as evaluated by Microsoft Defender for Endpoint. The possible values are: none, informational, low, medium, high, unknownFutureValue.
      */
-    riskScore?: DeviceRiskScore;
+    riskScore?: DeviceEvidence_riskScore;
     /**
      * The version of the operating system platform.
      */
@@ -2789,8 +2773,6 @@ export interface DeviceEvidence extends AlertEvidence, Parsable {
      */
     vmMetadata?: VmMetadata;
 }
-export type DeviceHealthStatus = (typeof DeviceHealthStatusObject)[keyof typeof DeviceHealthStatusObject];
-export type DeviceRiskScore = (typeof DeviceRiskScoreObject)[keyof typeof DeviceRiskScoreObject];
 export interface Dictionary extends AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -2947,11 +2929,11 @@ export interface EdiscoveryExportOperation extends CaseOperation, Parsable {
     /**
      * The options provided for the export. For more information, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement,  tags.
      */
-    exportOptions?: ExportOptions[];
+    exportOptions?: EdiscoveryExportOperation_exportOptions;
     /**
      * The options that specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst.
      */
-    exportStructure?: ExportFileStructure;
+    exportStructure?: EdiscoveryExportOperation_exportStructure;
     /**
      * The name provided for the export.
      */
@@ -3011,7 +2993,7 @@ export interface EdiscoveryReviewTag extends Parsable, Tag {
     /**
      * Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
      */
-    childSelectability?: ChildSelectability;
+    childSelectability?: EdiscoveryReviewTag_childSelectability;
     /**
      * Returns the tags that are a child of a tag.
      */
@@ -3043,7 +3025,7 @@ export interface EdiscoverySearch extends Parsable, Search {
     /**
      * When specified, the collection will span across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
      */
-    dataSourceScopes?: DataSourceScopes[];
+    dataSourceScopes?: EdiscoverySearch_dataSourceScopes;
     /**
      * The last estimate operation associated with the eDiscovery search.
      */
@@ -3103,13 +3085,12 @@ export interface EventPropagationResult extends AdditionalDataHolder, Parsable {
     /**
      * Indicates the status of the event creation request. The possible values are: none, inProcessing, failed, success, unknownFutureValue.
      */
-    status?: EventPropagationStatus;
+    status?: EventPropagationResult_status;
     /**
      * Additional information about the status of the event creation request.
      */
     statusInformation?: string;
 }
-export type EventPropagationStatus = (typeof EventPropagationStatusObject)[keyof typeof EventPropagationStatusObject];
 export interface EventQuery extends AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -3126,9 +3107,8 @@ export interface EventQuery extends AdditionalDataHolder, Parsable {
     /**
      * Represents the type of query associated with an event. 'files' for SPO and ODB and 'messages' for EXO.The possible values are: files, messages, unknownFutureValue.
      */
-    queryType?: QueryType;
+    queryType?: EventQuery_queryType;
 }
-export type EventStatusType = (typeof EventStatusTypeObject)[keyof typeof EventStatusTypeObject];
 export type EvidenceRemediationStatus = (typeof EvidenceRemediationStatusObject)[keyof typeof EvidenceRemediationStatusObject];
 export type EvidenceRole = (typeof EvidenceRoleObject)[keyof typeof EvidenceRoleObject];
 export type EvidenceVerdict = (typeof EvidenceVerdictObject)[keyof typeof EvidenceVerdictObject];
@@ -3154,8 +3134,6 @@ export interface ExportFileMetadata extends AdditionalDataHolder, Parsable {
      */
     size?: number;
 }
-export type ExportFileStructure = (typeof ExportFileStructureObject)[keyof typeof ExportFileStructureObject];
-export type ExportOptions = (typeof ExportOptionsObject)[keyof typeof ExportOptionsObject];
 export interface FileDetails extends AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -3202,7 +3180,7 @@ export interface FileEvidence extends AlertEvidence, Parsable {
     /**
      * The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
      */
-    detectionStatus?: DetectionStatus;
+    detectionStatus?: FileEvidence_detectionStatus;
     /**
      * The file details.
      */
@@ -3243,13 +3221,12 @@ export interface FormattedContent extends AdditionalDataHolder, Parsable {
     /**
      * The format of the content. The possible values are: text, html, markdown, unknownFutureValue.
      */
-    format?: ContentFormat;
+    format?: FormattedContent_format;
     /**
      * The OdataType property
      */
     odataType?: string;
 }
-export type GoogleCloudLocationType = (typeof GoogleCloudLocationTypeObject)[keyof typeof GoogleCloudLocationTypeObject];
 export interface GoogleCloudResourceEvidence extends AlertEvidence, Parsable {
     /**
      * The zone or region where the resource is located.
@@ -3258,7 +3235,7 @@ export interface GoogleCloudResourceEvidence extends AlertEvidence, Parsable {
     /**
      * The type of location. Possible values are: unknown, regional, zonal, global, unknownFutureValue.
      */
-    locationType?: GoogleCloudLocationType;
+    locationType?: GoogleCloudResourceEvidence_locationType;
     /**
      * The Google project ID as defined by the user.
      */
@@ -3474,7 +3451,7 @@ export interface HostPort extends Entity, Parsable {
     /**
      * The general protocol used to scan the port. The possible values are: tcp, udp, unknownFutureValue.
      */
-    protocol?: HostPortProtocol;
+    protocol?: HostPort_protocol;
     /**
      * The hostPortComponents retrieved from scanning the port.
      */
@@ -3482,7 +3459,7 @@ export interface HostPort extends Entity, Parsable {
     /**
      * The status of the port. The possible values are: open, filtered, closed, unknownFutureValue.
      */
-    status?: HostPortStatus;
+    status?: HostPort_status;
     /**
      * The total amount of times that Microsoft Defender Threat Intelligence has observed the hostPort in all its scans.
      */
@@ -3550,8 +3527,6 @@ export interface HostPortComponent extends AdditionalDataHolder, Parsable {
      */
     odataType?: string;
 }
-export type HostPortProtocol = (typeof HostPortProtocolObject)[keyof typeof HostPortProtocolObject];
-export type HostPortStatus = (typeof HostPortStatusObject)[keyof typeof HostPortStatusObject];
 export interface HostReputation extends Entity, Parsable {
     /**
      * The classification property
@@ -3730,7 +3705,7 @@ export interface Incident extends Entity, Parsable {
     /**
      * The specification for the incident. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      */
-    classification?: AlertClassification;
+    classification?: Incident_classification;
     /**
      * Array of comments created by the Security Operations (SecOps) team when the incident is managed.
      */
@@ -3750,7 +3725,7 @@ export interface Incident extends Entity, Parsable {
     /**
      * Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      */
-    determination?: AlertDetermination;
+    determination?: Incident_determination;
     /**
      * The incident name.
      */
@@ -3933,7 +3908,7 @@ export interface KubernetesClusterEvidence extends AlertEvidence, Parsable {
     /**
      * The platform the cluster runs on. Possible values are: unknown, aks, eks, gke, arc, unknownFutureValue.
      */
-    platform?: KubernetesPlatform;
+    platform?: KubernetesClusterEvidence_platform;
     /**
      * The kubernetes version of the cluster.
      */
@@ -3971,7 +3946,6 @@ export interface KubernetesNamespaceEvidence extends AlertEvidence, Parsable {
      */
     name?: string;
 }
-export type KubernetesPlatform = (typeof KubernetesPlatformObject)[keyof typeof KubernetesPlatformObject];
 export interface KubernetesPodEvidence extends AlertEvidence, Parsable {
     /**
      * The list of pod containers which are not init or ephemeral containers.
@@ -4096,7 +4070,7 @@ export interface KubernetesServicePort extends AdditionalDataHolder, Parsable {
     /**
      * The protocol name. Possible values are: udp, tcp, sctp, unknownFutureValue.
      */
-    protocol?: ContainerPortProtocol;
+    protocol?: KubernetesServicePort_protocol;
     /**
      * The name or number of the port to access on the pods targeted by the service. The port number must be in the range 1 to 65535. The name must be an IANASVCNAME.
      */
@@ -4201,7 +4175,6 @@ export interface OcrSettings extends AdditionalDataHolder, Parsable {
      */
     timeout?: Duration;
 }
-export type OnboardingStatus = (typeof OnboardingStatusObject)[keyof typeof OnboardingStatusObject];
 export interface PassiveDnsRecord extends Artifact, Parsable {
     /**
      * The artifact property
@@ -4238,7 +4211,7 @@ export interface ProcessEvidence extends AlertEvidence, Parsable {
     /**
      * The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
      */
-    detectionStatus?: DetectionStatus;
+    detectionStatus?: ProcessEvidence_detectionStatus;
     /**
      * Image file details.
      */
@@ -4276,9 +4249,6 @@ export interface ProcessEvidence extends AlertEvidence, Parsable {
      */
     userAccount?: UserAccount;
 }
-export type PurgeAreas = (typeof PurgeAreasObject)[keyof typeof PurgeAreasObject];
-export type PurgeType = (typeof PurgeTypeObject)[keyof typeof PurgeTypeObject];
-export type QueryType = (typeof QueryTypeObject)[keyof typeof QueryTypeObject];
 export interface RedundancyDetectionSettings extends AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -4413,7 +4383,7 @@ export interface RetentionEventStatus extends AdditionalDataHolder, Parsable {
     /**
      * The status of the distribution. The possible values are: pending, error, success, notAvaliable.
      */
-    status?: EventStatusType;
+    status?: RetentionEventStatus_status;
 }
 export interface RetentionEventType extends Entity, Parsable {
     /**
@@ -4494,13 +4464,13 @@ export function serializeAlert(writer: SerializationWriter, alert: Alert | undef
     writer.writeStringValue("alertWebUrl", alert.alertWebUrl);
     writer.writeStringValue("assignedTo", alert.assignedTo);
     writer.writeStringValue("category", alert.category);
-    writer.writeEnumValue<AlertClassification>("classification", alert.classification);
+    writer.writeEnumValue<Alert_classification>("classification", alert.classification);
     writer.writeCollectionOfObjectValues<AlertComment>("comments", alert.comments, serializeAlertComment);
     writer.writeDateValue("createdDateTime", alert.createdDateTime);
     writer.writeStringValue("description", alert.description);
-    writer.writeEnumValue<DetectionSource>("detectionSource", alert.detectionSource);
+    writer.writeEnumValue<Alert_detectionSource>("detectionSource", alert.detectionSource);
     writer.writeStringValue("detectorId", alert.detectorId);
-    writer.writeEnumValue<AlertDetermination>("determination", alert.determination);
+    writer.writeEnumValue<Alert_determination>("determination", alert.determination);
     writer.writeCollectionOfObjectValues<AlertEvidence>("evidence", alert.evidence, serializeAlertEvidence);
     writer.writeDateValue("firstActivityDateTime", alert.firstActivityDateTime);
     writer.writeStringValue("incidentId", alert.incidentId);
@@ -4632,17 +4602,17 @@ export function serializeCaseEscaped(writer: SerializationWriter, caseEscaped: C
     writer.writeStringValue("displayName", caseEscaped.displayName);
     writer.writeObjectValue<IdentitySet>("lastModifiedBy", caseEscaped.lastModifiedBy, serializeIdentitySet);
     writer.writeDateValue("lastModifiedDateTime", caseEscaped.lastModifiedDateTime);
-    writer.writeEnumValue<CaseStatus>("status", caseEscaped.status);
+    writer.writeEnumValue<Case_status>("status", caseEscaped.status);
 }
 export function serializeCaseOperation(writer: SerializationWriter, caseOperation: CaseOperation | undefined = {} as CaseOperation) : void {
     serializeEntity(writer, caseOperation)
-    writer.writeEnumValue<CaseAction>("action", caseOperation.action);
+    writer.writeEnumValue<CaseOperation_action>("action", caseOperation.action);
     writer.writeDateValue("completedDateTime", caseOperation.completedDateTime);
     writer.writeObjectValue<IdentitySet>("createdBy", caseOperation.createdBy, serializeIdentitySet);
     writer.writeDateValue("createdDateTime", caseOperation.createdDateTime);
     writer.writeNumberValue("percentProgress", caseOperation.percentProgress);
     writer.writeObjectValue<ResultInfo>("resultInfo", caseOperation.resultInfo, serializeResultInfo);
-    writer.writeEnumValue<CaseOperationStatus>("status", caseOperation.status);
+    writer.writeEnumValue<CaseOperation_status>("status", caseOperation.status);
 }
 export function serializeCaseOperationCollectionResponse(writer: SerializationWriter, caseOperationCollectionResponse: CaseOperationCollectionResponse | undefined = {} as CaseOperationCollectionResponse) : void {
     serializeBaseCollectionPaginationCountResponse(writer, caseOperationCollectionResponse)
@@ -4683,7 +4653,7 @@ export function serializeContainerRegistryEvidence(writer: SerializationWriter, 
 export function serializeCvssSummary(writer: SerializationWriter, cvssSummary: CvssSummary | undefined = {} as CvssSummary) : void {
     writer.writeStringValue("@odata.type", cvssSummary.odataType);
     writer.writeNumberValue("score", cvssSummary.score);
-    writer.writeEnumValue<VulnerabilitySeverity>("severity", cvssSummary.severity);
+    writer.writeEnumValue<CvssSummary_severity>("severity", cvssSummary.severity);
     writer.writeStringValue("vectorString", cvssSummary.vectorString);
     writer.writeAdditionalData(cvssSummary.additionalData);
 }
@@ -4698,7 +4668,7 @@ export function serializeDataSource(writer: SerializationWriter, dataSource: Dat
     writer.writeObjectValue<IdentitySet>("createdBy", dataSource.createdBy, serializeIdentitySet);
     writer.writeDateValue("createdDateTime", dataSource.createdDateTime);
     writer.writeStringValue("displayName", dataSource.displayName);
-    writer.writeEnumValue<DataSourceHoldStatus>("holdStatus", dataSource.holdStatus);
+    writer.writeEnumValue<DataSource_holdStatus>("holdStatus", dataSource.holdStatus);
 }
 export function serializeDataSourceCollectionResponse(writer: SerializationWriter, dataSourceCollectionResponse: DataSourceCollectionResponse | undefined = {} as DataSourceCollectionResponse) : void {
     serializeBaseCollectionPaginationCountResponse(writer, dataSourceCollectionResponse)
@@ -4708,27 +4678,27 @@ export function serializeDataSourceContainer(writer: SerializationWriter, dataSo
     serializeEntity(writer, dataSourceContainer)
     writer.writeDateValue("createdDateTime", dataSourceContainer.createdDateTime);
     writer.writeStringValue("displayName", dataSourceContainer.displayName);
-    writer.writeEnumValue<DataSourceHoldStatus>("holdStatus", dataSourceContainer.holdStatus);
+    writer.writeEnumValue<DataSourceContainer_holdStatus>("holdStatus", dataSourceContainer.holdStatus);
     writer.writeDateValue("lastModifiedDateTime", dataSourceContainer.lastModifiedDateTime);
     writer.writeDateValue("releasedDateTime", dataSourceContainer.releasedDateTime);
-    writer.writeEnumValue<DataSourceContainerStatus>("status", dataSourceContainer.status);
+    writer.writeEnumValue<DataSourceContainer_status>("status", dataSourceContainer.status);
 }
 export function serializeDeviceEvidence(writer: SerializationWriter, deviceEvidence: DeviceEvidence | undefined = {} as DeviceEvidence) : void {
     serializeAlertEvidence(writer, deviceEvidence)
     writer.writeStringValue("azureAdDeviceId", deviceEvidence.azureAdDeviceId);
-    writer.writeEnumValue<DefenderAvStatus>("defenderAvStatus", deviceEvidence.defenderAvStatus);
+    writer.writeEnumValue<DeviceEvidence_defenderAvStatus>("defenderAvStatus", deviceEvidence.defenderAvStatus);
     writer.writeStringValue("deviceDnsName", deviceEvidence.deviceDnsName);
     writer.writeDateValue("firstSeenDateTime", deviceEvidence.firstSeenDateTime);
-    writer.writeEnumValue<DeviceHealthStatus>("healthStatus", deviceEvidence.healthStatus);
+    writer.writeEnumValue<DeviceEvidence_healthStatus>("healthStatus", deviceEvidence.healthStatus);
     writer.writeCollectionOfPrimitiveValues<string>("ipInterfaces", deviceEvidence.ipInterfaces);
     writer.writeCollectionOfObjectValues<LoggedOnUser>("loggedOnUsers", deviceEvidence.loggedOnUsers, serializeLoggedOnUser);
     writer.writeStringValue("mdeDeviceId", deviceEvidence.mdeDeviceId);
-    writer.writeEnumValue<OnboardingStatus>("onboardingStatus", deviceEvidence.onboardingStatus);
+    writer.writeEnumValue<DeviceEvidence_onboardingStatus>("onboardingStatus", deviceEvidence.onboardingStatus);
     writer.writeNumberValue("osBuild", deviceEvidence.osBuild);
     writer.writeStringValue("osPlatform", deviceEvidence.osPlatform);
     writer.writeNumberValue("rbacGroupId", deviceEvidence.rbacGroupId);
     writer.writeStringValue("rbacGroupName", deviceEvidence.rbacGroupName);
-    writer.writeEnumValue<DeviceRiskScore>("riskScore", deviceEvidence.riskScore);
+    writer.writeEnumValue<DeviceEvidence_riskScore>("riskScore", deviceEvidence.riskScore);
     writer.writeStringValue("version", deviceEvidence.version);
     writer.writeObjectValue<VmMetadata>("vmMetadata", deviceEvidence.vmMetadata, serializeVmMetadata);
 }
@@ -4791,8 +4761,8 @@ export function serializeEdiscoveryExportOperation(writer: SerializationWriter, 
     serializeCaseOperation(writer, ediscoveryExportOperation)
     writer.writeStringValue("description", ediscoveryExportOperation.description);
     writer.writeCollectionOfObjectValues<ExportFileMetadata>("exportFileMetadata", ediscoveryExportOperation.exportFileMetadata, serializeExportFileMetadata);
-    writer.writeEnumValue<ExportOptions[]>("exportOptions", ediscoveryExportOperation.exportOptions);
-    writer.writeEnumValue<ExportFileStructure>("exportStructure", ediscoveryExportOperation.exportStructure);
+    writer.writeEnumValue<EdiscoveryExportOperation_exportOptions>("exportOptions", ediscoveryExportOperation.exportOptions);
+    writer.writeEnumValue<EdiscoveryExportOperation_exportStructure>("exportStructure", ediscoveryExportOperation.exportStructure);
     writer.writeStringValue("outputName", ediscoveryExportOperation.outputName);
     writer.writeObjectValue<EdiscoveryReviewSet>("reviewSet", ediscoveryExportOperation.reviewSet, serializeEdiscoveryReviewSet);
     writer.writeObjectValue<EdiscoveryReviewSetQuery>("reviewSetQuery", ediscoveryExportOperation.reviewSetQuery, serializeEdiscoveryReviewSetQuery);
@@ -4832,7 +4802,7 @@ export function serializeEdiscoveryReviewSetQueryCollectionResponse(writer: Seri
 }
 export function serializeEdiscoveryReviewTag(writer: SerializationWriter, ediscoveryReviewTag: EdiscoveryReviewTag | undefined = {} as EdiscoveryReviewTag) : void {
     serializeTag(writer, ediscoveryReviewTag)
-    writer.writeEnumValue<ChildSelectability>("childSelectability", ediscoveryReviewTag.childSelectability);
+    writer.writeEnumValue<EdiscoveryReviewTag_childSelectability>("childSelectability", ediscoveryReviewTag.childSelectability);
     writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("childTags", ediscoveryReviewTag.childTags, serializeEdiscoveryReviewTag);
     writer.writeObjectValue<EdiscoveryReviewTag>("parent", ediscoveryReviewTag.parent, serializeEdiscoveryReviewTag);
 }
@@ -4845,7 +4815,7 @@ export function serializeEdiscoverySearch(writer: SerializationWriter, ediscover
     writer.writeCollectionOfObjectValues<DataSource>("additionalSources", ediscoverySearch.additionalSources, serializeDataSource);
     writer.writeObjectValue<EdiscoveryAddToReviewSetOperation>("addToReviewSetOperation", ediscoverySearch.addToReviewSetOperation, serializeEdiscoveryAddToReviewSetOperation);
     writer.writeCollectionOfObjectValues<DataSource>("custodianSources", ediscoverySearch.custodianSources, serializeDataSource);
-    writer.writeEnumValue<DataSourceScopes[]>("dataSourceScopes", ediscoverySearch.dataSourceScopes);
+    writer.writeEnumValue<EdiscoverySearch_dataSourceScopes>("dataSourceScopes", ediscoverySearch.dataSourceScopes);
     writer.writeObjectValue<EdiscoveryEstimateOperation>("lastEstimateStatisticsOperation", ediscoverySearch.lastEstimateStatisticsOperation, serializeEdiscoveryEstimateOperation);
     writer.writeCollectionOfObjectValues<EdiscoveryNoncustodialDataSource>("noncustodialSources", ediscoverySearch.noncustodialSources, serializeEdiscoveryNoncustodialDataSource);
 }
@@ -4867,14 +4837,14 @@ export function serializeEventPropagationResult(writer: SerializationWriter, eve
     writer.writeStringValue("location", eventPropagationResult.location);
     writer.writeStringValue("@odata.type", eventPropagationResult.odataType);
     writer.writeStringValue("serviceName", eventPropagationResult.serviceName);
-    writer.writeEnumValue<EventPropagationStatus>("status", eventPropagationResult.status);
+    writer.writeEnumValue<EventPropagationResult_status>("status", eventPropagationResult.status);
     writer.writeStringValue("statusInformation", eventPropagationResult.statusInformation);
     writer.writeAdditionalData(eventPropagationResult.additionalData);
 }
 export function serializeEventQuery(writer: SerializationWriter, eventQuery: EventQuery | undefined = {} as EventQuery) : void {
     writer.writeStringValue("@odata.type", eventQuery.odataType);
     writer.writeStringValue("query", eventQuery.query);
-    writer.writeEnumValue<QueryType>("queryType", eventQuery.queryType);
+    writer.writeEnumValue<EventQuery_queryType>("queryType", eventQuery.queryType);
     writer.writeAdditionalData(eventQuery.additionalData);
 }
 export function serializeExportFileMetadata(writer: SerializationWriter, exportFileMetadata: ExportFileMetadata | undefined = {} as ExportFileMetadata) : void {
@@ -4898,7 +4868,7 @@ export function serializeFileDetails(writer: SerializationWriter, fileDetails: F
 }
 export function serializeFileEvidence(writer: SerializationWriter, fileEvidence: FileEvidence | undefined = {} as FileEvidence) : void {
     serializeAlertEvidence(writer, fileEvidence)
-    writer.writeEnumValue<DetectionStatus>("detectionStatus", fileEvidence.detectionStatus);
+    writer.writeEnumValue<FileEvidence_detectionStatus>("detectionStatus", fileEvidence.detectionStatus);
     writer.writeObjectValue<FileDetails>("fileDetails", fileEvidence.fileDetails, serializeFileDetails);
     writer.writeStringValue("mdeDeviceId", fileEvidence.mdeDeviceId);
 }
@@ -4910,14 +4880,14 @@ export function serializeFileHash(writer: SerializationWriter, fileHash: FileHas
 }
 export function serializeFormattedContent(writer: SerializationWriter, formattedContent: FormattedContent | undefined = {} as FormattedContent) : void {
     writer.writeStringValue("content", formattedContent.content);
-    writer.writeEnumValue<ContentFormat>("format", formattedContent.format);
+    writer.writeEnumValue<FormattedContent_format>("format", formattedContent.format);
     writer.writeStringValue("@odata.type", formattedContent.odataType);
     writer.writeAdditionalData(formattedContent.additionalData);
 }
 export function serializeGoogleCloudResourceEvidence(writer: SerializationWriter, googleCloudResourceEvidence: GoogleCloudResourceEvidence | undefined = {} as GoogleCloudResourceEvidence) : void {
     serializeAlertEvidence(writer, googleCloudResourceEvidence)
     writer.writeStringValue("location", googleCloudResourceEvidence.location);
-    writer.writeEnumValue<GoogleCloudLocationType>("locationType", googleCloudResourceEvidence.locationType);
+    writer.writeEnumValue<GoogleCloudResourceEvidence_locationType>("locationType", googleCloudResourceEvidence.locationType);
     writer.writeStringValue("projectId", googleCloudResourceEvidence.projectId);
     writer.writeNumberValue("projectNumber", googleCloudResourceEvidence.projectNumber);
     writer.writeStringValue("resourceName", googleCloudResourceEvidence.resourceName);
@@ -4996,9 +4966,9 @@ export function serializeHostPort(writer: SerializationWriter, hostPort: HostPor
     writer.writeDateValue("lastSeenDateTime", hostPort.lastSeenDateTime);
     writer.writeObjectValue<SslCertificate>("mostRecentSslCertificate", hostPort.mostRecentSslCertificate, serializeSslCertificate);
     writer.writeNumberValue("port", hostPort.port);
-    writer.writeEnumValue<HostPortProtocol>("protocol", hostPort.protocol);
+    writer.writeEnumValue<HostPort_protocol>("protocol", hostPort.protocol);
     writer.writeCollectionOfObjectValues<HostPortComponent>("services", hostPort.services, serializeHostPortComponent);
-    writer.writeEnumValue<HostPortStatus>("status", hostPort.status);
+    writer.writeEnumValue<HostPort_status>("status", hostPort.status);
     writer.writeNumberValue("timesObserved", hostPort.timesObserved);
 }
 export function serializeHostPortBanner(writer: SerializationWriter, hostPortBanner: HostPortBanner | undefined = {} as HostPortBanner) : void {
@@ -5087,12 +5057,12 @@ export function serializeIncident(writer: SerializationWriter, incident: Inciden
     serializeEntity(writer, incident)
     writer.writeCollectionOfObjectValues<Alert>("alerts", incident.alerts, serializeAlert);
     writer.writeStringValue("assignedTo", incident.assignedTo);
-    writer.writeEnumValue<AlertClassification>("classification", incident.classification);
+    writer.writeEnumValue<Incident_classification>("classification", incident.classification);
     writer.writeCollectionOfObjectValues<AlertComment>("comments", incident.comments, serializeAlertComment);
     writer.writeDateValue("createdDateTime", incident.createdDateTime);
     writer.writeCollectionOfPrimitiveValues<string>("customTags", incident.customTags);
     writer.writeStringValue("description", incident.description);
-    writer.writeEnumValue<AlertDetermination>("determination", incident.determination);
+    writer.writeEnumValue<Incident_determination>("determination", incident.determination);
     writer.writeStringValue("displayName", incident.displayName);
     writer.writeStringValue("incidentWebUrl", incident.incidentWebUrl);
     writer.writeStringValue("lastModifiedBy", incident.lastModifiedBy);
@@ -5161,7 +5131,7 @@ export function serializeKubernetesClusterEvidence(writer: SerializationWriter, 
     writer.writeObjectValue<AlertEvidence>("cloudResource", kubernetesClusterEvidence.cloudResource, serializeAlertEvidence);
     writer.writeStringValue("distribution", kubernetesClusterEvidence.distribution);
     writer.writeStringValue("name", kubernetesClusterEvidence.name);
-    writer.writeEnumValue<KubernetesPlatform>("platform", kubernetesClusterEvidence.platform);
+    writer.writeEnumValue<KubernetesClusterEvidence_platform>("platform", kubernetesClusterEvidence.platform);
     writer.writeStringValue("version", kubernetesClusterEvidence.version);
 }
 export function serializeKubernetesControllerEvidence(writer: SerializationWriter, kubernetesControllerEvidence: KubernetesControllerEvidence | undefined = {} as KubernetesControllerEvidence) : void {
@@ -5217,7 +5187,7 @@ export function serializeKubernetesServicePort(writer: SerializationWriter, kube
     writer.writeNumberValue("nodePort", kubernetesServicePort.nodePort);
     writer.writeStringValue("@odata.type", kubernetesServicePort.odataType);
     writer.writeNumberValue("port", kubernetesServicePort.port);
-    writer.writeEnumValue<ContainerPortProtocol>("protocol", kubernetesServicePort.protocol);
+    writer.writeEnumValue<KubernetesServicePort_protocol>("protocol", kubernetesServicePort.protocol);
     writer.writeStringValue("targetPort", kubernetesServicePort.targetPort);
     writer.writeAdditionalData(kubernetesServicePort.additionalData);
 }
@@ -5271,7 +5241,7 @@ export function serializePassiveDnsRecordCollectionResponse(writer: Serializatio
 }
 export function serializeProcessEvidence(writer: SerializationWriter, processEvidence: ProcessEvidence | undefined = {} as ProcessEvidence) : void {
     serializeAlertEvidence(writer, processEvidence)
-    writer.writeEnumValue<DetectionStatus>("detectionStatus", processEvidence.detectionStatus);
+    writer.writeEnumValue<ProcessEvidence_detectionStatus>("detectionStatus", processEvidence.detectionStatus);
     writer.writeObjectValue<FileDetails>("imageFile", processEvidence.imageFile, serializeFileDetails);
     writer.writeStringValue("mdeDeviceId", processEvidence.mdeDeviceId);
     writer.writeDateValue("parentProcessCreationDateTime", processEvidence.parentProcessCreationDateTime);
@@ -5326,7 +5296,7 @@ export function serializeRetentionEventCollectionResponse(writer: SerializationW
 export function serializeRetentionEventStatus(writer: SerializationWriter, retentionEventStatus: RetentionEventStatus | undefined = {} as RetentionEventStatus) : void {
     writer.writeObjectValue<PublicError>("error", retentionEventStatus.errorEscaped, serializePublicError);
     writer.writeStringValue("@odata.type", retentionEventStatus.odataType);
-    writer.writeEnumValue<EventStatusType>("status", retentionEventStatus.status);
+    writer.writeEnumValue<RetentionEventStatus_status>("status", retentionEventStatus.status);
     writer.writeAdditionalData(retentionEventStatus.additionalData);
 }
 export function serializeRetentionEventType(writer: SerializationWriter, retentionEventType: RetentionEventType | undefined = {} as RetentionEventType) : void {
@@ -5461,7 +5431,7 @@ export function serializeUnclassifiedArtifact(writer: SerializationWriter, uncla
 export function serializeUnifiedGroupSource(writer: SerializationWriter, unifiedGroupSource: UnifiedGroupSource | undefined = {} as UnifiedGroupSource) : void {
     serializeDataSource(writer, unifiedGroupSource)
     writer.writeObjectValue<Group>("group", unifiedGroupSource.group, serializeGroup);
-    writer.writeEnumValue<SourceType[]>("includedSources", unifiedGroupSource.includedSources);
+    writer.writeEnumValue<UnifiedGroupSource_includedSources>("includedSources", unifiedGroupSource.includedSources);
 }
 export function serializeUnifiedGroupSourceCollectionResponse(writer: SerializationWriter, unifiedGroupSourceCollectionResponse: UnifiedGroupSourceCollectionResponse | undefined = {} as UnifiedGroupSourceCollectionResponse) : void {
     serializeBaseCollectionPaginationCountResponse(writer, unifiedGroupSourceCollectionResponse)
@@ -5488,7 +5458,7 @@ export function serializeUserEvidence(writer: SerializationWriter, userEvidence:
 export function serializeUserSource(writer: SerializationWriter, userSource: UserSource | undefined = {} as UserSource) : void {
     serializeDataSource(writer, userSource)
     writer.writeStringValue("email", userSource.email);
-    writer.writeEnumValue<SourceType[]>("includedSources", userSource.includedSources);
+    writer.writeEnumValue<UserSource_includedSources>("includedSources", userSource.includedSources);
     writer.writeStringValue("siteWebUrl", userSource.siteWebUrl);
 }
 export function serializeUserSourceCollectionResponse(writer: SerializationWriter, userSourceCollectionResponse: UserSourceCollectionResponse | undefined = {} as UserSourceCollectionResponse) : void {
@@ -5619,7 +5589,6 @@ export interface SiteSourceCollectionResponse extends BaseCollectionPaginationCo
      */
     value?: SiteSource[];
 }
-export type SourceType = (typeof SourceTypeObject)[keyof typeof SourceTypeObject];
 export interface SslCertificate extends Artifact, Parsable {
     /**
      * The date and time when a certificate expires. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
@@ -5874,7 +5843,7 @@ export interface UnifiedGroupSource extends DataSource, Parsable {
     /**
      * Specifies which sources are included in this group. Possible values are: mailbox, site.
      */
-    includedSources?: SourceType[];
+    includedSources?: UnifiedGroupSource_includedSources;
 }
 export interface UnifiedGroupSourceCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -5936,7 +5905,7 @@ export interface UserSource extends DataSource, Parsable {
     /**
      * Specifies which sources are included in this group. Possible values are: mailbox, site.
      */
-    includedSources?: SourceType[];
+    includedSources?: UserSource_includedSources;
     /**
      * The URL of the user's OneDrive for Business site. Read-only.
      */
@@ -6214,36 +6183,6 @@ export interface WhoisRecordCollectionResponse extends BaseCollectionPaginationC
      */
     value?: WhoisRecord[];
 }
-export const AdditionalDataOptionsObject = {
-    AllVersions: "allVersions",
-    LinkedFiles: "linkedFiles",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const AlertClassificationObject = {
-    Unknown: "unknown",
-    FalsePositive: "falsePositive",
-    TruePositive: "truePositive",
-    InformationalExpectedActivity: "informationalExpectedActivity",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const AlertDeterminationObject = {
-    Unknown: "unknown",
-    Apt: "apt",
-    Malware: "malware",
-    SecurityPersonnel: "securityPersonnel",
-    SecurityTesting: "securityTesting",
-    UnwantedSoftware: "unwantedSoftware",
-    Other: "other",
-    MultiStagedAttack: "multiStagedAttack",
-    CompromisedAccount: "compromisedAccount",
-    Phishing: "phishing",
-    MaliciousUserActivity: "maliciousUserActivity",
-    NotMalicious: "notMalicious",
-    NotEnoughDataToValidate: "notEnoughDataToValidate",
-    ConfirmedActivity: "confirmedActivity",
-    LineOfBusinessApplication: "lineOfBusinessApplication",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
 export const AlertSeverityObject = {
     Unknown: "unknown",
     Informational: "informational",
@@ -6257,163 +6196,6 @@ export const AlertStatusObject = {
     NewEscaped: "new",
     InProgress: "inProgress",
     Resolved: "resolved",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const BehaviorDuringRetentionPeriodObject = {
-    DoNotRetain: "doNotRetain",
-    Retain: "retain",
-    RetainAsRecord: "retainAsRecord",
-    RetainAsRegulatoryRecord: "retainAsRegulatoryRecord",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const CaseActionObject = {
-    ContentExport: "contentExport",
-    ApplyTags: "applyTags",
-    ConvertToPdf: "convertToPdf",
-    Index: "index",
-    EstimateStatistics: "estimateStatistics",
-    AddToReviewSet: "addToReviewSet",
-    HoldUpdate: "holdUpdate",
-    UnknownFutureValue: "unknownFutureValue",
-    PurgeData: "purgeData",
-}  as const;
-export const CaseOperationStatusObject = {
-    NotStarted: "notStarted",
-    SubmissionFailed: "submissionFailed",
-    Running: "running",
-    Succeeded: "succeeded",
-    PartiallySucceeded: "partiallySucceeded",
-    Failed: "failed",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const CaseStatusObject = {
-    Unknown: "unknown",
-    Active: "active",
-    PendingDelete: "pendingDelete",
-    Closing: "closing",
-    Closed: "closed",
-    ClosedWithError: "closedWithError",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const ChildSelectabilityObject = {
-    One: "One",
-    Many: "Many",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const ContainerPortProtocolObject = {
-    Udp: "udp",
-    Tcp: "tcp",
-    Sctp: "sctp",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const ContentFormatObject = {
-    Text: "text",
-    Html: "html",
-    Markdown: "markdown",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const DataSourceContainerStatusObject = {
-    Active: "active",
-    Released: "released",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const DataSourceHoldStatusObject = {
-    NotApplied: "notApplied",
-    Applied: "applied",
-    Applying: "applying",
-    Removing: "removing",
-    Partial: "partial",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const DataSourceScopesObject = {
-    None: "none",
-    AllTenantMailboxes: "allTenantMailboxes",
-    AllTenantSites: "allTenantSites",
-    AllCaseCustodians: "allCaseCustodians",
-    AllCaseNoncustodialDataSources: "allCaseNoncustodialDataSources",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const DefenderAvStatusObject = {
-    NotReporting: "notReporting",
-    Disabled: "disabled",
-    NotUpdated: "notUpdated",
-    Updated: "updated",
-    Unknown: "unknown",
-    NotSupported: "notSupported",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const DetectionSourceObject = {
-    Unknown: "unknown",
-    MicrosoftDefenderForEndpoint: "microsoftDefenderForEndpoint",
-    Antivirus: "antivirus",
-    SmartScreen: "smartScreen",
-    CustomTi: "customTi",
-    MicrosoftDefenderForOffice365: "microsoftDefenderForOffice365",
-    AutomatedInvestigation: "automatedInvestigation",
-    MicrosoftThreatExperts: "microsoftThreatExperts",
-    CustomDetection: "customDetection",
-    MicrosoftDefenderForIdentity: "microsoftDefenderForIdentity",
-    CloudAppSecurity: "cloudAppSecurity",
-    Microsoft365Defender: "microsoft365Defender",
-    AzureAdIdentityProtection: "azureAdIdentityProtection",
-    Manual: "manual",
-    MicrosoftDataLossPrevention: "microsoftDataLossPrevention",
-    AppGovernancePolicy: "appGovernancePolicy",
-    AppGovernanceDetection: "appGovernanceDetection",
-    UnknownFutureValue: "unknownFutureValue",
-    MicrosoftDefenderForCloud: "microsoftDefenderForCloud",
-    MicrosoftDefenderForIoT: "microsoftDefenderForIoT",
-    MicrosoftDefenderForServers: "microsoftDefenderForServers",
-    MicrosoftDefenderForStorage: "microsoftDefenderForStorage",
-    MicrosoftDefenderForDNS: "microsoftDefenderForDNS",
-    MicrosoftDefenderForDatabases: "microsoftDefenderForDatabases",
-    MicrosoftDefenderForContainers: "microsoftDefenderForContainers",
-    MicrosoftDefenderForNetwork: "microsoftDefenderForNetwork",
-    MicrosoftDefenderForAppService: "microsoftDefenderForAppService",
-    MicrosoftDefenderForKeyVault: "microsoftDefenderForKeyVault",
-    MicrosoftDefenderForResourceManager: "microsoftDefenderForResourceManager",
-    MicrosoftDefenderForApiManagement: "microsoftDefenderForApiManagement",
-    NrtAlerts: "nrtAlerts",
-    ScheduledAlerts: "scheduledAlerts",
-    MicrosoftDefenderThreatIntelligenceAnalytics: "microsoftDefenderThreatIntelligenceAnalytics",
-    BuiltInMl: "builtInMl",
-    MicrosoftSentinel: "microsoftSentinel",
-}  as const;
-export const DetectionStatusObject = {
-    Detected: "detected",
-    Blocked: "blocked",
-    Prevented: "prevented",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const DeviceHealthStatusObject = {
-    Active: "active",
-    Inactive: "inactive",
-    ImpairedCommunication: "impairedCommunication",
-    NoSensorData: "noSensorData",
-    NoSensorDataImpairedCommunication: "noSensorDataImpairedCommunication",
-    Unknown: "unknown",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const DeviceRiskScoreObject = {
-    None: "none",
-    Informational: "informational",
-    Low: "low",
-    Medium: "medium",
-    High: "high",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const EventPropagationStatusObject = {
-    None: "none",
-    InProcessing: "inProcessing",
-    Failed: "failed",
-    Success: "success",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const EventStatusTypeObject = {
-    Pending: "pending",
-    ErrorEscaped: "error",
-    Success: "success",
-    NotAvaliable: "notAvaliable",
     UnknownFutureValue: "unknownFutureValue",
 }  as const;
 export const EvidenceRemediationStatusObject = {
@@ -6449,43 +6231,12 @@ export const EvidenceVerdictObject = {
     NoThreatsFound: "noThreatsFound",
     UnknownFutureValue: "unknownFutureValue",
 }  as const;
-export const ExportFileStructureObject = {
-    None: "none",
-    Directory: "directory",
-    Pst: "pst",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const ExportOptionsObject = {
-    OriginalFiles: "originalFiles",
-    Text: "text",
-    PdfReplacement: "pdfReplacement",
-    Tags: "tags",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
 export const FileHashAlgorithmObject = {
     Unknown: "unknown",
     Md5: "md5",
     Sha1: "sha1",
     Sha256: "sha256",
     Sha256ac: "sha256ac",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const GoogleCloudLocationTypeObject = {
-    Unknown: "unknown",
-    Regional: "regional",
-    Zonal: "zonal",
-    Global: "global",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const HostPortProtocolObject = {
-    Tcp: "tcp",
-    Udp: "udp",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const HostPortStatusObject = {
-    Open: "open",
-    Filtered: "filtered",
-    Closed: "closed",
     UnknownFutureValue: "unknownFutureValue",
 }  as const;
 export const HostReputationClassificationObject = {
@@ -6521,42 +6272,12 @@ export const IntelligenceProfileKindObject = {
     Tool: "tool",
     UnknownFutureValue: "unknownFutureValue",
 }  as const;
-export const KubernetesPlatformObject = {
-    Unknown: "unknown",
-    Aks: "aks",
-    Eks: "eks",
-    Gke: "gke",
-    Arc: "arc",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
 export const KubernetesServiceTypeObject = {
     Unknown: "unknown",
     ClusterIP: "clusterIP",
     ExternalName: "externalName",
     NodePort: "nodePort",
     LoadBalancer: "loadBalancer",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const OnboardingStatusObject = {
-    InsufficientInfo: "insufficientInfo",
-    Onboarded: "onboarded",
-    CanBeOnboarded: "canBeOnboarded",
-    Unsupported: "unsupported",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const PurgeAreasObject = {
-    Mailboxes: "mailboxes",
-    TeamsMessages: "teamsMessages",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const PurgeTypeObject = {
-    Recoverable: "recoverable",
-    PermanentlyDeleted: "permanentlyDeleted",
-    UnknownFutureValue: "unknownFutureValue",
-}  as const;
-export const QueryTypeObject = {
-    Files: "files",
-    Messages: "messages",
     UnknownFutureValue: "unknownFutureValue",
 }  as const;
 export const ServiceSourceObject = {
@@ -6572,11 +6293,6 @@ export const ServiceSourceObject = {
     UnknownFutureValue: "unknownFutureValue",
     MicrosoftDefenderForCloud: "microsoftDefenderForCloud",
     MicrosoftSentinel: "microsoftSentinel",
-}  as const;
-export const SourceTypeObject = {
-    Mailbox: "mailbox",
-    Site: "site",
-    UnknownFutureValue: "unknownFutureValue",
 }  as const;
 export const VmCloudProviderObject = {
     Unknown: "unknown",

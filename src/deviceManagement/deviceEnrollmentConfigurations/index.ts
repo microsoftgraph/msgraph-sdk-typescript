@@ -71,10 +71,10 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", (x, y) => new DeviceEnrollmentConfigurationsRequestBuilder(x, y));
     }
     /**
-     * List properties and relationships of the deviceEnrollmentConfiguration objects.
+     * List properties and relationships of the deviceEnrollmentWindowsHelloForBusinessConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceEnrollmentConfigurationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentwindowshelloforbusinessconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceEnrollmentConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -104,7 +104,7 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendAsync<DeviceEnrollmentConfiguration>(requestInfo, createDeviceEnrollmentConfigurationFromDiscriminatorValue, errorMapping);
     }
     /**
-     * List properties and relationships of the deviceEnrollmentConfiguration objects.
+     * List properties and relationships of the deviceEnrollmentWindowsHelloForBusinessConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
