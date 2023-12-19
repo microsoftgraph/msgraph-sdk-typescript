@@ -72,10 +72,10 @@ export class PointsRequestBuilder extends BaseRequestBuilder<PointsRequestBuilde
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/series/{workbookChartSeries%2Did}/points{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", (x, y) => new PointsRequestBuilder(x, y));
     }
     /**
-     * Retrieve a list of chartpoint objects.
+     * Retrieve a list of chartpoints objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartPointCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/chartpoint-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartseries-list-points?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<PointsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartPointCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -114,7 +114,7 @@ export class PointsRequestBuilder extends BaseRequestBuilder<PointsRequestBuilde
         return this.requestAdapter.sendAsync<WorkbookChartPoint>(requestInfo, createWorkbookChartPointFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Retrieve a list of chartpoint objects.
+     * Retrieve a list of chartpoints objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

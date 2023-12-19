@@ -42,9 +42,10 @@ export class VirtualEventRegistrationItemRequestBuilder extends BaseRequestBuild
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     }
     /**
-     * Get registrations from solutions
+     * Get the properties and relationships of a virtualEventRegistration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of VirtualEventRegistration
+     * @see {@link https://learn.microsoft.com/graph/api/virtualeventregistration-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<VirtualEventRegistrationItemRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventRegistration | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -84,7 +85,7 @@ export class VirtualEventRegistrationItemRequestBuilder extends BaseRequestBuild
         return requestInfo;
     }
     /**
-     * Get registrations from solutions
+     * Get the properties and relationships of a virtualEventRegistration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
