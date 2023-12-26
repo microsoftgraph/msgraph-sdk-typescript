@@ -116,9 +116,9 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder<MessageItemReq
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/messages/{message%2Did}{?includeHiddenMessages*,%24select,%24expand}", (x, y) => new MessageItemRequestBuilder(x, y));
     }
     /**
-     * Delete eventMessage.
+     * Delete a message in the specified user's mailbox, or delete a relationship of the message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/eventmessage-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/message-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -147,11 +147,11 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder<MessageItemReq
         return this.requestAdapter.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Update the properties of an eventMessage object.
+     * Update the properties of a message object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Message
-     * @see {@link https://learn.microsoft.com/graph/api/eventmessage-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/message-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Message, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Message | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -164,7 +164,7 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder<MessageItemReq
         return this.requestAdapter.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Delete eventMessage.
+     * Delete a message in the specified user's mailbox, or delete a relationship of the message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -186,7 +186,7 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder<MessageItemReq
         return requestInfo;
     }
     /**
-     * Update the properties of an eventMessage object.
+     * Update the properties of a message object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

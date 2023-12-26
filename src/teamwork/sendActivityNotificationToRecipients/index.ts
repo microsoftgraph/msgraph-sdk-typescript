@@ -76,7 +76,7 @@ export class SendActivityNotificationToRecipientsRequestBuilder extends BaseRequ
         super(pathParameters, requestAdapter, "{+baseurl}/teamwork/sendActivityNotificationToRecipients", (x, y) => new SendActivityNotificationToRecipientsRequestBuilder(x, y));
     }
     /**
-     * Send activity feed notifications to multiple users, in bulk.  For more details about sending notifications and the requirements for doing so, seesending Teams activity notifications.
+     * Send activity feed notifications to multiple users, in bulk.  For more information, see sending Teams activity notifications.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/teamwork-sendactivitynotificationtorecipients?view=graph-rest-1.0|Find more info here}
@@ -92,7 +92,7 @@ export class SendActivityNotificationToRecipientsRequestBuilder extends BaseRequ
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     }
     /**
-     * Send activity feed notifications to multiple users, in bulk.  For more details about sending notifications and the requirements for doing so, seesending Teams activity notifications.
+     * Send activity feed notifications to multiple users, in bulk.  For more information, see sending Teams activity notifications.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

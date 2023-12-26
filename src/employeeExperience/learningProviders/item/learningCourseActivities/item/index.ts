@@ -28,7 +28,7 @@ export class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningCourseActivities/{learningCourseActivity%2Did}{?%24select,%24expand}", (x, y) => new LearningCourseActivityItemRequestBuilder(x, y));
     }
     /**
-     * Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity.
+     * Delete a learningCourseActivity object using the course activity ID of either an assignment or a self-initiated activity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/learningcourseactivity-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -75,7 +75,7 @@ export class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<LearningCourseActivity>(requestInfo, createLearningCourseActivityFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity.
+     * Delete a learningCourseActivity object using the course activity ID of either an assignment or a self-initiated activity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

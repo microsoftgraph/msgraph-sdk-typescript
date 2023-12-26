@@ -71,7 +71,7 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder<Permissio
         super(pathParameters, requestAdapter, "{+baseurl}/chats/{chat%2Did}/permissionGrants{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", (x, y) => new PermissionGrantsRequestBuilder(x, y));
     }
     /**
-     * List all resource-specific permission grants on the chat. This list specifies the Microsoft Entra apps that have access to the chat, along with the corresponding kind of resource-specific access that each app has.
+     * List all resource-specific permission grants on the chat. This list specifies the Microsoft Entra apps that have access to the chat, along with the corresponding resource-specific access that each app has.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceSpecificPermissionGrantCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/chat-list-permissiongrants?view=graph-rest-1.0|Find more info here}
@@ -103,7 +103,7 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder<Permissio
         return this.requestAdapter.sendAsync<ResourceSpecificPermissionGrant>(requestInfo, createResourceSpecificPermissionGrantFromDiscriminatorValue, errorMapping);
     }
     /**
-     * List all resource-specific permission grants on the chat. This list specifies the Microsoft Entra apps that have access to the chat, along with the corresponding kind of resource-specific access that each app has.
+     * List all resource-specific permission grants on the chat. This list specifies the Microsoft Entra apps that have access to the chat, along with the corresponding resource-specific access that each app has.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

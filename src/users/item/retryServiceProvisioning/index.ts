@@ -17,8 +17,9 @@ export class RetryServiceProvisioningRequestBuilder extends BaseRequestBuilder<R
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/retryServiceProvisioning", (x, y) => new RetryServiceProvisioningRequestBuilder(x, y));
     }
     /**
-     * Invoke action retryServiceProvisioning
+     * Retry the user service provisioning.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://learn.microsoft.com/graph/api/user-retryserviceprovisioning?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
@@ -31,7 +32,7 @@ export class RetryServiceProvisioningRequestBuilder extends BaseRequestBuilder<R
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     }
     /**
-     * Invoke action retryServiceProvisioning
+     * Retry the user service provisioning.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

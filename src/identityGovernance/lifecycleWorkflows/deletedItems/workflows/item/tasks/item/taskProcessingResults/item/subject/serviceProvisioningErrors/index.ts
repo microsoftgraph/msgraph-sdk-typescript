@@ -59,7 +59,7 @@ export class ServiceProvisioningErrorsRequestBuilder extends BaseRequestBuilder<
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/tasks/{task%2Did}/taskProcessingResults/{taskProcessingResult%2Did}/subject/serviceProvisioningErrors{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", (x, y) => new ServiceProvisioningErrorsRequestBuilder(x, y));
     }
     /**
-     * Get serviceProvisioningErrors property value
+     * Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a user object .  Supports $filter (eq, not, for isResolved and serviceInstance).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServiceProvisioningErrorCollectionResponse
      */
@@ -74,7 +74,7 @@ export class ServiceProvisioningErrorsRequestBuilder extends BaseRequestBuilder<
         return this.requestAdapter.sendAsync<ServiceProvisioningErrorCollectionResponse>(requestInfo, createServiceProvisioningErrorCollectionResponseFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Get serviceProvisioningErrors property value
+     * Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a user object .  Supports $filter (eq, not, for isResolved and serviceInstance).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

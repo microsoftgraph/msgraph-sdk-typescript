@@ -60,7 +60,7 @@ export class ServiceProvisioningErrorsRequestBuilder extends BaseRequestBuilder<
         super(pathParameters, requestAdapter, "{+baseurl}/privacy/subjectRightsRequests/{subjectRightsRequest%2Did}/collaborators/{user%2Did}/serviceProvisioningErrors{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", (x, y) => new ServiceProvisioningErrorsRequestBuilder(x, y));
     }
     /**
-     * Get serviceProvisioningErrors property value
+     * Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a user object .  Supports $filter (eq, not, for isResolved and serviceInstance).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServiceProvisioningErrorCollectionResponse
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
@@ -76,7 +76,7 @@ export class ServiceProvisioningErrorsRequestBuilder extends BaseRequestBuilder<
         return this.requestAdapter.sendAsync<ServiceProvisioningErrorCollectionResponse>(requestInfo, createServiceProvisioningErrorCollectionResponseFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Get serviceProvisioningErrors property value
+     * Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a user object .  Supports $filter (eq, not, for isResolved and serviceInstance).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20

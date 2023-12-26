@@ -64,7 +64,7 @@ export class SendActivityNotificationRequestBuilder extends BaseRequestBuilder<S
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/teamwork/sendActivityNotification", (x, y) => new SendActivityNotificationRequestBuilder(x, y));
     }
     /**
-     * Send an activity feed notification to a user. For more details about sending notifications and the requirements for doing so, see sending Teams activity notifications.
+     * Send an activity feed notification to a user. For more information, see sending Teams activity notifications.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/userteamwork-sendactivitynotification?view=graph-rest-1.0|Find more info here}
@@ -80,7 +80,7 @@ export class SendActivityNotificationRequestBuilder extends BaseRequestBuilder<S
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     }
     /**
-     * Send an activity feed notification to a user. For more details about sending notifications and the requirements for doing so, see sending Teams activity notifications.
+     * Send an activity feed notification to a user. For more information, see sending Teams activity notifications.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

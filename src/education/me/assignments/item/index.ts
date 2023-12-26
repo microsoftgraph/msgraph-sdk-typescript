@@ -4,6 +4,7 @@
 import { createEducationAssignmentFromDiscriminatorValue, deserializeIntoEducationAssignment, serializeEducationAssignment, type EducationAssignment } from '../../../../models/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError, type ODataError } from '../../../../models/oDataErrors/';
 import { CategoriesRequestBuilder } from './categories/';
+import { GradingCategoryRequestBuilder } from './gradingCategory/';
 import { PublishRequestBuilder } from './publish/';
 import { ResourcesRequestBuilder } from './resources/';
 import { RubricRequestBuilder } from './rubric/';
@@ -31,6 +32,12 @@ export class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder<Ed
      */
     public get categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the gradingCategory property of the microsoft.graph.educationAssignment entity.
+     */
+    public get gradingCategory(): GradingCategoryRequestBuilder {
+        return new GradingCategoryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to call the publish method.
