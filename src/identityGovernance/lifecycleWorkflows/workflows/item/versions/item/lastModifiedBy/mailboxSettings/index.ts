@@ -28,7 +28,7 @@ export class MailboxSettingsRequestBuilder extends BaseRequestBuilder<MailboxSet
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/versions/{workflowVersion%2DversionNumber}/lastModifiedBy/mailboxSettings{?%24select,%24expand}", (x, y) => new MailboxSettingsRequestBuilder(x, y));
     }
     /**
-     * Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale and time zone. Returned only on $select.
+     * Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MailboxSettings
      */
@@ -59,7 +59,7 @@ export class MailboxSettingsRequestBuilder extends BaseRequestBuilder<MailboxSet
         return this.requestAdapter.sendAsync<MailboxSettings>(requestInfo, createMailboxSettingsFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale and time zone. Returned only on $select.
+     * Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
