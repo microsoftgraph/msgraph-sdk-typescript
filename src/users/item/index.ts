@@ -573,7 +573,7 @@ export class UserItemRequestBuilder extends BaseRequestBuilder<UserItemRequestBu
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of User
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: User, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<User | undefined> {
         const requestInfo = this.toPatchRequestInformation(

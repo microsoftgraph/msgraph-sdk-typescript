@@ -78,10 +78,10 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder<ManagedEB
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     }
     /**
-     * Read properties and relationships of the managedEBook object.
+     * Read properties and relationships of the iosVppEBook object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedEBook
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebook-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebook-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<ManagedEBookItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedEBook | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -122,7 +122,7 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder<ManagedEB
         return requestInfo;
     }
     /**
-     * Read properties and relationships of the managedEBook object.
+     * Read properties and relationships of the iosVppEBook object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
