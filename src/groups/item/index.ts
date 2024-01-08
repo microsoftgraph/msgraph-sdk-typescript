@@ -360,11 +360,11 @@ export class GroupItemRequestBuilder extends BaseRequestBuilder<GroupItemRequest
         return this.requestAdapter.sendAsync<Group>(requestInfo, createGroupFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Update the properties of a group object.
+     * Add a member to a security or Microsoft 365 group through the members navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Group
-     * @see {@link https://learn.microsoft.com/graph/api/group-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-post-members?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Group, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Group | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -399,7 +399,7 @@ export class GroupItemRequestBuilder extends BaseRequestBuilder<GroupItemRequest
         return requestInfo;
     }
     /**
-     * Update the properties of a group object.
+     * Add a member to a security or Microsoft 365 group through the members navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

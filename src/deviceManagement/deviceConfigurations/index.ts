@@ -71,10 +71,10 @@ export class DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<Devic
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", (x, y) => new DeviceConfigurationsRequestBuilder(x, y));
     }
     /**
-     * List properties and relationships of the iosGeneralDeviceConfiguration objects.
+     * List properties and relationships of the windows81GeneralConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosgeneraldeviceconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows81generalconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<DeviceConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -87,11 +87,11 @@ export class DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<Devic
         return this.requestAdapter.sendAsync<DeviceConfigurationCollectionResponse>(requestInfo, createDeviceConfigurationCollectionResponseFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Create a new androidCustomConfiguration object.
+     * Create a new macOSDeviceFeaturesConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfiguration
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidcustomconfiguration-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-macosdevicefeaturesconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfiguration | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -104,7 +104,7 @@ export class DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<Devic
         return this.requestAdapter.sendAsync<DeviceConfiguration>(requestInfo, createDeviceConfigurationFromDiscriminatorValue, errorMapping);
     }
     /**
-     * List properties and relationships of the iosGeneralDeviceConfiguration objects.
+     * List properties and relationships of the windows81GeneralConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -115,7 +115,7 @@ export class DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<Devic
         return requestInfo;
     }
     /**
-     * Create a new androidCustomConfiguration object.
+     * Create a new macOSDeviceFeaturesConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

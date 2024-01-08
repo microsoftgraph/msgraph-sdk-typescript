@@ -46,11 +46,11 @@ export class AddRequestBuilder extends BaseRequestBuilder<AddRequestBuilder> {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/add", (x, y) => new AddRequestBuilder(x, y));
     }
     /**
-     * Create a new table. The range source address determines the worksheet under which the table will be added. If the table can't be added (for example, because the address is invalid, or the table would overlap with another table), an error is generated.
+     * Use this API to create a new Table.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTable
-     * @see {@link https://learn.microsoft.com/graph/api/tablecollection-add?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/workbook-post-tables?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTable | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -63,7 +63,7 @@ export class AddRequestBuilder extends BaseRequestBuilder<AddRequestBuilder> {
         return this.requestAdapter.sendAsync<WorkbookTable>(requestInfo, createWorkbookTableFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Create a new table. The range source address determines the worksheet under which the table will be added. If the table can't be added (for example, because the address is invalid, or the table would overlap with another table), an error is generated.
+     * Use this API to create a new Table.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

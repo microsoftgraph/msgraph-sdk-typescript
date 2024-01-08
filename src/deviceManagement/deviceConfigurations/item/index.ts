@@ -93,10 +93,10 @@ export class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder<De
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     }
     /**
-     * Read properties and relationships of the windows10GeneralConfiguration object.
+     * Read properties and relationships of the androidCustomConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfiguration
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10generalconfiguration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidcustomconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<DeviceConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfiguration | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -118,11 +118,11 @@ export class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder<De
         return new GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder(this.pathParameters, this.requestAdapter, secretReferenceValueId);
     }
     /**
-     * Update the properties of a windowsPhone81CustomConfiguration object.
+     * Update the properties of a macOSCustomConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfiguration
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windowsphone81customconfiguration-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-macoscustomconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfiguration | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -146,7 +146,7 @@ export class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder<De
         return requestInfo;
     }
     /**
-     * Read properties and relationships of the windows10GeneralConfiguration object.
+     * Read properties and relationships of the androidCustomConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -157,7 +157,7 @@ export class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder<De
         return requestInfo;
     }
     /**
-     * Update the properties of a windowsPhone81CustomConfiguration object.
+     * Update the properties of a macOSCustomConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

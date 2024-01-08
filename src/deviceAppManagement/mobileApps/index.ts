@@ -183,10 +183,10 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsReque
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", (x, y) => new MobileAppsRequestBuilder(x, y));
     }
     /**
-     * List properties and relationships of the managedMobileLobApp objects.
+     * List properties and relationships of the mobileApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-managedmobilelobapp-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileapp-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<MobileAppsRequestBuilderGetQueryParameters> | undefined) : Promise<MobileAppCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -216,7 +216,7 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsReque
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     }
     /**
-     * List properties and relationships of the managedMobileLobApp objects.
+     * List properties and relationships of the mobileApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
