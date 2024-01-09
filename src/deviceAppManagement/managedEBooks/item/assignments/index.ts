@@ -71,10 +71,10 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder<AssignmentsReq
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}/assignments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", (x, y) => new AssignmentsRequestBuilder(x, y));
     }
     /**
-     * List properties and relationships of the iosVppEBookAssignment objects.
+     * List properties and relationships of the managedEBookAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedEBookAssignmentCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebookassignment-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebookassignment-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedEBookAssignmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -104,7 +104,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder<AssignmentsReq
         return this.requestAdapter.sendAsync<ManagedEBookAssignment>(requestInfo, createManagedEBookAssignmentFromDiscriminatorValue, errorMapping);
     }
     /**
-     * List properties and relationships of the iosVppEBookAssignment objects.
+     * List properties and relationships of the managedEBookAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

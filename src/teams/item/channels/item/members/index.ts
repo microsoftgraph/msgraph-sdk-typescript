@@ -94,11 +94,11 @@ export class MembersRequestBuilder extends BaseRequestBuilder<MembersRequestBuil
         return this.requestAdapter.sendAsync<ConversationMemberCollectionResponse>(requestInfo, createConversationMemberCollectionResponseFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Add a conversationMember to a channel.
+     * Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationMember
-     * @see {@link https://learn.microsoft.com/graph/api/conversationmember-add?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConversationMember | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -122,7 +122,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder<MembersRequestBuil
         return requestInfo;
     }
     /**
-     * Add a conversationMember to a channel.
+     * Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

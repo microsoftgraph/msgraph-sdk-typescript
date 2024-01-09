@@ -78,10 +78,10 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder<Ma
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedAppRegistrations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", (x, y) => new ManagedAppRegistrationsRequestBuilder(x, y));
     }
     /**
-     * List properties and relationships of the managedAppRegistration objects.
+     * List properties and relationships of the androidManagedAppRegistration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppRegistrationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappregistration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappregistration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<ManagedAppRegistrationsRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedAppRegistrationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -111,7 +111,7 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder<Ma
         return this.requestAdapter.sendAsync<ManagedAppRegistration>(requestInfo, createManagedAppRegistrationFromDiscriminatorValue, errorMapping);
     }
     /**
-     * List properties and relationships of the managedAppRegistration objects.
+     * List properties and relationships of the androidManagedAppRegistration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
