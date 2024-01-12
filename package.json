@@ -2,8 +2,8 @@
     "name": "@microsoft/msgraph-sdk-javascript",
     "version": "1.0.0-preview.10",
     "description": "",
-    "main": "lib/src/graphclient/index.js",
-    "types": "lib/src/graphclient/index.d.ts",
+    "main": "lib/src/graphBaseServiceClient.js",
+    "types": "lib/src/graphBaseServiceClient.d.ts",
     "dependencies": {
         "@microsoft/kiota-abstractions": "^1.0.0-preview.34",
         "@microsoft/kiota-http-fetchlibrary": "^1.0.0-preview.33",
@@ -11,7 +11,6 @@
         "@microsoft/kiota-serialization-json": "^1.0.0-preview.34",
         "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.13",
         "@microsoft/kiota-serialization-text": "^1.0.0-preview.31",
-        "@microsoft/microsoft-graph-client": "4.0.0-Preview.1",
         "guid-typescript": "^1.0.9",
         "tslib": "^2.3.1"
     },
