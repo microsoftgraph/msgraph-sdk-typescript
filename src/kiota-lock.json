@@ -1,6 +1,6 @@
 {
   "descriptionHash": "76EEA49778E8E798810C3493B8DF4FB7A7BEF7F59ACCE80B76BB8B115C53E7C039F2C19BF504EEFDD0199533760171D3AA03EB125C7AFBDFD94D83E65084684E",
-  "descriptionLocation": "../../msgraph-metadata/clean_v10_openapi/openapi.yaml",
+  "descriptionLocation": "https://aka.ms/graph/v1.0/openapi.yaml",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.10.0",
   "clientClassName": "GraphBaseServiceClient",

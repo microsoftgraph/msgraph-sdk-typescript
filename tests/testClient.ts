@@ -1,4 +1,4 @@
-import { GraphBaseServiceClient } from "../src/graphBaseServiceClient";
+import { newGraphBaseServiceClient } from "../src/graphBaseServiceClient";
 import { AzureIdentityAuthenticationProvider } from "@microsoft/kiota-authentication-azure";
 import { ClientSecretCredential } from "@azure/identity";
 import { FetchRequestAdapter } from "@microsoft/kiota-http-fetchlibrary";
@@ -11,4 +11,4 @@ const tokenCredential = new ClientSecretCredential(
 
 const authProvider = new AzureIdentityAuthenticationProvider(tokenCredential);
 const requestAdapter = new FetchRequestAdapter(authProvider);
-export const graphServiceClient = new GraphBaseServiceClient(requestAdapter);
+export const graphServiceClient = newGraphBaseServiceClient(requestAdapter);
