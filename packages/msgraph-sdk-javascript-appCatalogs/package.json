@@ -13,8 +13,9 @@
   "author": "Vincent Biret <vibiret@microsoft.com>",
   "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
   "license": "MIT",
-  "main": "lib/index.js",
-  "types": "lib/index.ts",
+  "main": "dist/cjs/src/index.js",
+  "module": "dist/es/src/index.js",
+  "types": "dist/cjs/src/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "tests"
@@ -30,9 +31,12 @@
     "url": "git+https://github.com/microsoftgraph/msgraph-sdk-typescript.git"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "run": "node ./lib/main.js",
-    "test": "mocha lib/tests/*.js"
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.es.json",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "clean": "rm -r ./dist"
   },
   "bugs": {
     "url": "https://github.com/microsoftgraph/msgraph-sdk-typescript/issues"
