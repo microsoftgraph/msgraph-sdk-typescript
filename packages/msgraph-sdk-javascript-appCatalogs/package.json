@@ -44,6 +44,7 @@
     "@microsoft/kiota-serialization-json": "file:../../../kiota-typescript/packages/serialization/json",
     "@microsoft/kiota-serialization-multipart": "file:../../../kiota-typescript/packages/serialization/multipart",
     "@microsoft/kiota-serialization-text": "file:../../../kiota-typescript/packages/serialization/text",
+    "@microsoft/msgraph-sdk-javascript": "file:../msgraph-sdk-javascript",
     "guid-typescript": "^1.0.9",
     "tslib": "^2.6.2"
   },

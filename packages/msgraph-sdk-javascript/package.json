@@ -10,8 +10,8 @@
   "author": "Vincent Biret <vibiret@microsoft.com>",
   "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
   "license": "MIT",
-  "main": "lib/src/index.js",
-  "types": "lib/src/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "tests"
