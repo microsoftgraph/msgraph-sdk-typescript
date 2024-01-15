@@ -1,4 +1,5 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
 	"compilerOptions": {
 		"importHelpers": true,
 		"noEmitOnError": true,
@@ -12,6 +13,9 @@
 		"declaration": true,
         "declarationMap": true,
         "sourceMap": true,
-        "composite": true
-	}
+        "composite": true,
+        "rootDir": "src/",
+	},
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules", "dist"]
 }
