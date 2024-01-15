@@ -1,0 +1,34 @@
+{
+  "name": "@microsoft/msgraph-sdk-javascript",
+  "version": "1.0.0-preview.10",
+  "description": "Microsoft Graph JavaScript client library",
+  "keywords": [
+    "microsoft",
+    "graph",
+    "msgraph"
+  ],
+  "author": "Vincent Biret <vibiret@microsoft.com>",
+  "homepage": "https://graph.microsoft.com",
+  "license": "MIT",
+  "main": "lib/src/graphBaseServiceClient.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microsoftgraph/msgraph-sdk-typescript.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/@microsoft/msgraph-sdk-javascript.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/microsoftgraph/msgraph-sdk-typescript/issues"
+  }
+}
