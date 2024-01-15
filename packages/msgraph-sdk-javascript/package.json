@@ -8,9 +8,10 @@
     "msgraph"
   ],
   "author": "Vincent Biret <vibiret@microsoft.com>",
-  "homepage": "https://graph.microsoft.com",
+  "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
   "license": "MIT",
   "main": "lib/src/graphBaseServiceClient.js",
+  "types": "lib/src/graphBaseServiceClient.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -26,7 +27,9 @@
     "url": "git+https://github.com/microsoftgraph/msgraph-sdk-typescript.git"
   },
   "scripts": {
-    "test": "node ./__tests__/@microsoft/msgraph-sdk-javascript.test.js"
+    "build": "tsc -p tsconfig.json",
+    "run": "node ./lib/main.js",
+    "test": "mocha lib/tests/*.js"
   },
   "bugs": {
     "url": "https://github.com/microsoftgraph/msgraph-sdk-typescript/issues"
