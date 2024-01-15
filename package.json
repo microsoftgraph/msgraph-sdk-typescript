@@ -5,6 +5,11 @@
     "packages/*"
   ],
   "dependencies": {},
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "clean": "npm run clean --workspaces",
+    "test": "npm run test --workspaces"
+  },
   "devDependencies": {
     "lerna": "^8.0.2"
   }
