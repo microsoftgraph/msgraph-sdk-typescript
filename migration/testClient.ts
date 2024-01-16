@@ -1,4 +1,4 @@
-import { newGraphBaseServiceClient } from "../src/graphBaseServiceClient";
+import { newGraphBaseServiceClient } from "../graphBaseServiceClient";
 import { AzureIdentityAuthenticationProvider } from "@microsoft/kiota-authentication-azure";
 import { ClientSecretCredential } from "@azure/identity";
 import { FetchRequestAdapter } from "@microsoft/kiota-http-fetchlibrary";
