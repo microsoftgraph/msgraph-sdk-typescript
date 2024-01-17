@@ -9,3 +9,4 @@ declare module "@microsoft/msgraph-sdk-javascript" {
   interface GraphServiceClient extends AppCatalogsServiceClient {}
 }
 extendGraphServiceClient(AppCatalogsServiceClientNavigationMetadata);
+
