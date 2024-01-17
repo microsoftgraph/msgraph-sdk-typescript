@@ -1,12 +1,11 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
 
 import {
-  type AppCatalogsServiceClient,
-  AppCatalogsServiceClientNavigationMetadata,
-} from "./appCatalogsServiceClient";
+  type AdminServiceClient,
+  AdminServiceClientNavigationMetadata,
+} from "./adminServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  interface GraphServiceClient extends AppCatalogsServiceClient {}
+  interface GraphServiceClient extends AdminServiceClient {}
 }
-extendGraphServiceClient(AppCatalogsServiceClientNavigationMetadata);
-
+extendGraphServiceClient(AdminServiceClientNavigationMetadata);
