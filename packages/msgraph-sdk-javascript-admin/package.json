@@ -1,0 +1,47 @@
+{
+  "name": "@microsoft/msgraph-sdk-javascript-admin",
+  "version": "1.0.0-preview.10",
+  "description": "App catalogs fluent API for Microsoft Graph",
+  "keywords": [
+    "microsoft",
+    "Graph",
+    "msgraph",
+    "API",
+    "SDK",
+    "application"
+  ],
+  "author": "Vincent Biret <vibiret@microsoft.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microsoftgraph/msgraph-sdk-typescript.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix"
+  },
+  "bugs": {
+    "url": "https://github.com/microsoftgraph/msgraph-sdk-typescript/issues"
+  },
+  "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
+  "dependencies": {
+    "@microsoft/kiota-abstractions": "file:../../../kiota-typescript/packages/abstractions",
+    "@microsoft/kiota-http-fetchlibrary": "file:../../../kiota-typescript/packages/http/fetch",
+    "@microsoft/kiota-serialization-form": "file:../../../kiota-typescript/packages/serialization/form",
+    "@microsoft/kiota-serialization-json": "file:../../../kiota-typescript/packages/serialization/json",
+    "@microsoft/kiota-serialization-multipart": "file:../../../kiota-typescript/packages/serialization/multipart",
+    "@microsoft/kiota-serialization-text": "file:../../../kiota-typescript/packages/serialization/text",
+    "@microsoft/msgraph-sdk-javascript": "^1.0.0-preview.10",
+    "guid-typescript": "^1.0.9",
+    "tslib": "^2.6.2"
+  },
+  "types": "index.d.ts",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
