@@ -31,12 +31,9 @@
     "url": "git+https://github.com/microsoftgraph/msgraph-sdk-typescript.git"
   },
   "scripts": {
-    "build": "npm run build:cjs && npm run build:esm",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:esm": "tsc -p tsconfig.es.json",
+    "build": "tsc -p tsconfig.json",
     "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
-    "clean": "rm -r ./dist"
+    "lint:fix": "eslint . --ext .ts --fix"
   },
   "bugs": {
     "url": "https://github.com/microsoftgraph/msgraph-sdk-typescript/issues"
