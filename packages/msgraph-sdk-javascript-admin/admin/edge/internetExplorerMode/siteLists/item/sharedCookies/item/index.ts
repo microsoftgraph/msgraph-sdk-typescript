@@ -111,4 +111,3 @@ export const BrowserSharedCookieItemRequestBuilderRequestsMetadata: RequestsMeta
 export const BrowserSharedCookieItemRequestBuilderUriTemplate = "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sharedCookies/{browserSharedCookie%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -95,4 +95,3 @@ export const PublishRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const PublishRequestBuilderUriTemplate = "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/publish";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -53,4 +53,3 @@ export const AdminServiceClientNavigationMetadata: Record<Exclude<keyof AdminSer
 export const AdminServiceClientUriTemplate = "{+baseurl}";
 /* tslint:enable */
 /* eslint-enable */
-

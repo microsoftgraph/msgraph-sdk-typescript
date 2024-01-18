@@ -1,5 +1,5 @@
 {
-  "descriptionHash": "435B7605B64A7AF14B1B20A8BA3FF2DC552186D0A1DFDB08B7D13E235FA6FB08ADD2BEA996F92F208894BAAD3CAF5AD24BD8556D8353D01DC89A88CC75A5C4D5",
+  "descriptionHash": "8EC7239B3D233B40A9FED06FC22097CB6AE052AC94306E668E6E1DFFB8C90F269B7109E2AFB515E54CD4E31285376D52191D2C5D92AA28F516AF99EDD27CE4E7",
   "descriptionLocation": "https://aka.ms/graph/v1.0/openapi.yaml",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.11.0",
@@ -30,6 +30,9 @@
     "/appCatalogs",
     "/appCatalogs/**"
   ],
-  "excludePatterns": [],
+  "excludePatterns": [
+    "/me",
+    "/me/**"
+  ],
   "disabledValidationRules": []
 }

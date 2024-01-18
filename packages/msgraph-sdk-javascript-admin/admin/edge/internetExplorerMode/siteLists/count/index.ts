@@ -62,4 +62,3 @@ export const CountRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CountRequestBuilderUriTemplate = "{+baseurl}/admin/edge/internetExplorerMode/siteLists/$count{?%24search,%24filter}";
 /* tslint:enable */
 /* eslint-enable */
-

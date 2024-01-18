@@ -67,4 +67,3 @@ export const AttachmentsArchiveRequestBuilderRequestsMetadata: RequestsMetadata 
 export const AttachmentsArchiveRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}/attachmentsArchive";
 /* tslint:enable */
 /* eslint-enable */
-

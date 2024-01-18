@@ -109,4 +109,3 @@ export const BotRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const BotRequestBuilderUriTemplate = "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions/{teamsAppDefinition%2Did}/bot{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

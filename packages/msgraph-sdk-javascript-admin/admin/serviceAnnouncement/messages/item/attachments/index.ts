@@ -147,4 +147,3 @@ export const AttachmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const AttachmentsRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}/attachments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

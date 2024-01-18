@@ -88,4 +88,3 @@ export const PeopleRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const PeopleRequestBuilderUriTemplate = "{+baseurl}/admin/people{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

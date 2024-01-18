@@ -117,4 +117,3 @@ export const FavoriteRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const FavoriteRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/favorite";
 /* tslint:enable */
 /* eslint-enable */
-

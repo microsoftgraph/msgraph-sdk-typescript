@@ -104,4 +104,3 @@ export const AppCatalogsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const AppCatalogsRequestBuilderUriTemplate = "{+baseurl}/appCatalogs{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

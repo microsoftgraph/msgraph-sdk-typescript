@@ -123,4 +123,3 @@ export const ServiceAnnouncementAttachmentItemRequestBuilderRequestsMetadata: Re
 export const ServiceAnnouncementAttachmentItemRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}/attachments/{serviceAnnouncementAttachment%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

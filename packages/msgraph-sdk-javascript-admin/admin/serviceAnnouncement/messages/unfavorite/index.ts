@@ -117,4 +117,3 @@ export const UnfavoriteRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const UnfavoriteRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/unfavorite";
 /* tslint:enable */
 /* eslint-enable */
-
