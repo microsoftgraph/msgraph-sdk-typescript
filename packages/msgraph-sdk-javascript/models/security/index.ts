@@ -616,8 +616,18 @@ export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode |
                     return deserializeIntoDeviceEvidence;
                 case "#microsoft.graph.security.fileEvidence":
                     return deserializeIntoFileEvidence;
+                case "#microsoft.graph.security.gitHubOrganizationEvidence":
+                    return deserializeIntoGitHubOrganizationEvidence;
+                case "#microsoft.graph.security.gitHubRepoEvidence":
+                    return deserializeIntoGitHubRepoEvidence;
+                case "#microsoft.graph.security.gitHubUserEvidence":
+                    return deserializeIntoGitHubUserEvidence;
                 case "#microsoft.graph.security.googleCloudResourceEvidence":
                     return deserializeIntoGoogleCloudResourceEvidence;
+                case "#microsoft.graph.security.hostLogonSessionEvidence":
+                    return deserializeIntoHostLogonSessionEvidence;
+                case "#microsoft.graph.security.ioTDeviceEvidence":
+                    return deserializeIntoIoTDeviceEvidence;
                 case "#microsoft.graph.security.ipEvidence":
                     return deserializeIntoIpEvidence;
                 case "#microsoft.graph.security.kubernetesClusterEvidence":
@@ -638,6 +648,12 @@ export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode |
                     return deserializeIntoMailboxEvidence;
                 case "#microsoft.graph.security.mailClusterEvidence":
                     return deserializeIntoMailClusterEvidence;
+                case "#microsoft.graph.security.malwareEvidence":
+                    return deserializeIntoMalwareEvidence;
+                case "#microsoft.graph.security.networkConnectionEvidence":
+                    return deserializeIntoNetworkConnectionEvidence;
+                case "#microsoft.graph.security.nicEvidence":
+                    return deserializeIntoNicEvidence;
                 case "#microsoft.graph.security.oauthApplicationEvidence":
                     return deserializeIntoOauthApplicationEvidence;
                 case "#microsoft.graph.security.processEvidence":
@@ -646,8 +662,14 @@ export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode |
                     return deserializeIntoRegistryKeyEvidence;
                 case "#microsoft.graph.security.registryValueEvidence":
                     return deserializeIntoRegistryValueEvidence;
+                case "#microsoft.graph.security.sasTokenEvidence":
+                    return deserializeIntoSasTokenEvidence;
                 case "#microsoft.graph.security.securityGroupEvidence":
                     return deserializeIntoSecurityGroupEvidence;
+                case "#microsoft.graph.security.servicePrincipalEvidence":
+                    return deserializeIntoServicePrincipalEvidence;
+                case "#microsoft.graph.security.submissionMailEvidence":
+                    return deserializeIntoSubmissionMailEvidence;
                 case "#microsoft.graph.security.urlEvidence":
                     return deserializeIntoUrlEvidence;
                 case "#microsoft.graph.security.userEvidence":
@@ -1218,6 +1240,30 @@ export function createFormattedContentFromDiscriminatorValue(parseNode: ParseNod
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns a gitHubOrganizationEvidence
+ */
+export function createGitHubOrganizationEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    return deserializeIntoGitHubOrganizationEvidence;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns a gitHubRepoEvidence
+ */
+export function createGitHubRepoEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    return deserializeIntoGitHubRepoEvidence;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns a gitHubUserEvidence
+ */
+export function createGitHubUserEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    return deserializeIntoGitHubUserEvidence;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a googleCloudResourceEvidence
  */
 export function createGoogleCloudResourceEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
@@ -1283,6 +1329,14 @@ export function createHostFromDiscriminatorValue(parseNode: ParseNode | undefine
         }
     }
     return deserializeIntoHost;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns a hostLogonSessionEvidence
+ */
+export function createHostLogonSessionEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    return deserializeIntoHostLogonSessionEvidence;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -1500,6 +1554,14 @@ export function createIntelligenceProfileIndicatorFromDiscriminatorValue(parseNo
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns a ioTDeviceEvidence
+ */
+export function createIoTDeviceEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    return deserializeIntoIoTDeviceEvidence;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a ipAddress
  */
 export function createIpAddressFromDiscriminatorValue(parseNode: ParseNode | undefined) {
@@ -1600,6 +1662,30 @@ export function createMailboxEvidenceFromDiscriminatorValue(parseNode: ParseNode
  */
 export function createMailClusterEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     return deserializeIntoMailClusterEvidence;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns a malwareEvidence
+ */
+export function createMalwareEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    return deserializeIntoMalwareEvidence;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns a networkConnectionEvidence
+ */
+export function createNetworkConnectionEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    return deserializeIntoNetworkConnectionEvidence;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns a nicEvidence
+ */
+export function createNicEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    return deserializeIntoNicEvidence;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -1708,6 +1794,14 @@ export function createRetentionEventTypeFromDiscriminatorValue(parseNode: ParseN
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns a sasTokenEvidence
+ */
+export function createSasTokenEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    return deserializeIntoSasTokenEvidence;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a search
  */
 export function createSearchFromDiscriminatorValue(parseNode: ParseNode | undefined) {
@@ -1733,6 +1827,14 @@ export function createSearchFromDiscriminatorValue(parseNode: ParseNode | undefi
  */
 export function createSecurityGroupEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     return deserializeIntoSecurityGroupEvidence;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns a servicePrincipalEvidence
+ */
+export function createServicePrincipalEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    return deserializeIntoServicePrincipalEvidence;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -1797,6 +1899,14 @@ export function createSubdomainCollectionResponseFromDiscriminatorValue(parseNod
  */
 export function createSubdomainFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     return deserializeIntoSubdomain;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns a submissionMailEvidence
+ */
+export function createSubmissionMailEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    return deserializeIntoSubmissionMailEvidence;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -2890,6 +3000,49 @@ export function deserializeIntoFormattedContent(formattedContent: FormattedConte
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
+export function deserializeIntoGitHubOrganizationEvidence(gitHubOrganizationEvidence: GitHubOrganizationEvidence | undefined = {} as GitHubOrganizationEvidence) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(gitHubOrganizationEvidence),
+        "company": n => { gitHubOrganizationEvidence.company = n.getStringValue(); },
+        "displayName": n => { gitHubOrganizationEvidence.displayName = n.getStringValue(); },
+        "email": n => { gitHubOrganizationEvidence.email = n.getStringValue(); },
+        "login": n => { gitHubOrganizationEvidence.login = n.getStringValue(); },
+        "orgId": n => { gitHubOrganizationEvidence.orgId = n.getStringValue(); },
+        "webUrl": n => { gitHubOrganizationEvidence.webUrl = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns a Record<string, (node: ParseNode) => void>
+ */
+export function deserializeIntoGitHubRepoEvidence(gitHubRepoEvidence: GitHubRepoEvidence | undefined = {} as GitHubRepoEvidence) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(gitHubRepoEvidence),
+        "baseUrl": n => { gitHubRepoEvidence.baseUrl = n.getStringValue(); },
+        "login": n => { gitHubRepoEvidence.login = n.getStringValue(); },
+        "owner": n => { gitHubRepoEvidence.owner = n.getStringValue(); },
+        "ownerType": n => { gitHubRepoEvidence.ownerType = n.getStringValue(); },
+        "repoId": n => { gitHubRepoEvidence.repoId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns a Record<string, (node: ParseNode) => void>
+ */
+export function deserializeIntoGitHubUserEvidence(gitHubUserEvidence: GitHubUserEvidence | undefined = {} as GitHubUserEvidence) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(gitHubUserEvidence),
+        "email": n => { gitHubUserEvidence.email = n.getStringValue(); },
+        "login": n => { gitHubUserEvidence.login = n.getStringValue(); },
+        "name": n => { gitHubUserEvidence.name = n.getStringValue(); },
+        "userId": n => { gitHubUserEvidence.userId = n.getStringValue(); },
+        "webUrl": n => { gitHubUserEvidence.webUrl = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns a Record<string, (node: ParseNode) => void>
+ */
 export function deserializeIntoGoogleCloudResourceEvidence(googleCloudResourceEvidence: GoogleCloudResourceEvidence | undefined = {} as GoogleCloudResourceEvidence) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoAlertEvidence(googleCloudResourceEvidence),
@@ -2982,6 +3135,20 @@ export function deserializeIntoHostCookieCollectionResponse(hostCookieCollection
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(hostCookieCollectionResponse),
         "value": n => { hostCookieCollectionResponse.value = n.getCollectionOfObjectValues<HostCookie>(createHostCookieFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns a Record<string, (node: ParseNode) => void>
+ */
+export function deserializeIntoHostLogonSessionEvidence(hostLogonSessionEvidence: HostLogonSessionEvidence | undefined = {} as HostLogonSessionEvidence) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(hostLogonSessionEvidence),
+        "account": n => { hostLogonSessionEvidence.account = n.getObjectValue<UserEvidence>(createUserEvidenceFromDiscriminatorValue); },
+        "endUtcDateTime": n => { hostLogonSessionEvidence.endUtcDateTime = n.getDateValue(); },
+        "host": n => { hostLogonSessionEvidence.host = n.getObjectValue<DeviceEvidence>(createDeviceEvidenceFromDiscriminatorValue); },
+        "sessionId": n => { hostLogonSessionEvidence.sessionId = n.getStringValue(); },
+        "startUtcDateTime": n => { hostLogonSessionEvidence.startUtcDateTime = n.getDateValue(); },
     }
 }
 /**
@@ -3304,6 +3471,41 @@ export function deserializeIntoIntelligenceProfileIndicatorCollectionResponse(in
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
+export function deserializeIntoIoTDeviceEvidence(ioTDeviceEvidence: IoTDeviceEvidence | undefined = {} as IoTDeviceEvidence) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(ioTDeviceEvidence),
+        "deviceId": n => { ioTDeviceEvidence.deviceId = n.getStringValue(); },
+        "deviceName": n => { ioTDeviceEvidence.deviceName = n.getStringValue(); },
+        "devicePageLink": n => { ioTDeviceEvidence.devicePageLink = n.getStringValue(); },
+        "deviceSubType": n => { ioTDeviceEvidence.deviceSubType = n.getStringValue(); },
+        "deviceType": n => { ioTDeviceEvidence.deviceType = n.getStringValue(); },
+        "importance": n => { ioTDeviceEvidence.importance = n.getEnumValue<IoTDeviceImportanceType>(IoTDeviceImportanceTypeObject); },
+        "ioTHub": n => { ioTDeviceEvidence.ioTHub = n.getObjectValue<AzureResourceEvidence>(createAzureResourceEvidenceFromDiscriminatorValue); },
+        "ioTSecurityAgentId": n => { ioTDeviceEvidence.ioTSecurityAgentId = n.getStringValue(); },
+        "ipAddress": n => { ioTDeviceEvidence.ipAddress = n.getObjectValue<IpEvidence>(createIpEvidenceFromDiscriminatorValue); },
+        "isAuthorized": n => { ioTDeviceEvidence.isAuthorized = n.getBooleanValue(); },
+        "isProgramming": n => { ioTDeviceEvidence.isProgramming = n.getBooleanValue(); },
+        "isScanner": n => { ioTDeviceEvidence.isScanner = n.getBooleanValue(); },
+        "macAddress": n => { ioTDeviceEvidence.macAddress = n.getStringValue(); },
+        "manufacturer": n => { ioTDeviceEvidence.manufacturer = n.getStringValue(); },
+        "model": n => { ioTDeviceEvidence.model = n.getStringValue(); },
+        "nics": n => { ioTDeviceEvidence.nics = n.getObjectValue<NicEvidence>(createNicEvidenceFromDiscriminatorValue); },
+        "operatingSystem": n => { ioTDeviceEvidence.operatingSystem = n.getStringValue(); },
+        "owners": n => { ioTDeviceEvidence.owners = n.getCollectionOfPrimitiveValues<string>(); },
+        "protocols": n => { ioTDeviceEvidence.protocols = n.getCollectionOfPrimitiveValues<string>(); },
+        "purdueLayer": n => { ioTDeviceEvidence.purdueLayer = n.getStringValue(); },
+        "sensor": n => { ioTDeviceEvidence.sensor = n.getStringValue(); },
+        "serialNumber": n => { ioTDeviceEvidence.serialNumber = n.getStringValue(); },
+        "site": n => { ioTDeviceEvidence.site = n.getStringValue(); },
+        "source": n => { ioTDeviceEvidence.source = n.getStringValue(); },
+        "sourceRef": n => { ioTDeviceEvidence.sourceRef = n.getObjectValue<UrlEvidence>(createUrlEvidenceFromDiscriminatorValue); },
+        "zone": n => { ioTDeviceEvidence.zone = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns a Record<string, (node: ParseNode) => void>
+ */
 export function deserializeIntoIpAddress(ipAddress: IpAddress | undefined = {} as IpAddress) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoHost(ipAddress),
@@ -3472,6 +3674,45 @@ export function deserializeIntoMailClusterEvidence(mailClusterEvidence: MailClus
         "networkMessageIds": n => { mailClusterEvidence.networkMessageIds = n.getCollectionOfPrimitiveValues<string>(); },
         "query": n => { mailClusterEvidence.query = n.getStringValue(); },
         "urn": n => { mailClusterEvidence.urn = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns a Record<string, (node: ParseNode) => void>
+ */
+export function deserializeIntoMalwareEvidence(malwareEvidence: MalwareEvidence | undefined = {} as MalwareEvidence) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(malwareEvidence),
+        "category": n => { malwareEvidence.category = n.getStringValue(); },
+        "files": n => { malwareEvidence.files = n.getCollectionOfObjectValues<FileEvidence>(createFileEvidenceFromDiscriminatorValue); },
+        "name": n => { malwareEvidence.name = n.getStringValue(); },
+        "processes": n => { malwareEvidence.processes = n.getCollectionOfObjectValues<ProcessEvidence>(createProcessEvidenceFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns a Record<string, (node: ParseNode) => void>
+ */
+export function deserializeIntoNetworkConnectionEvidence(networkConnectionEvidence: NetworkConnectionEvidence | undefined = {} as NetworkConnectionEvidence) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(networkConnectionEvidence),
+        "destinationAddress": n => { networkConnectionEvidence.destinationAddress = n.getObjectValue<IpEvidence>(createIpEvidenceFromDiscriminatorValue); },
+        "destinationPort": n => { networkConnectionEvidence.destinationPort = n.getNumberValue(); },
+        "protocol": n => { networkConnectionEvidence.protocol = n.getEnumValue<ProtocolType>(ProtocolTypeObject); },
+        "sourceAddress": n => { networkConnectionEvidence.sourceAddress = n.getObjectValue<IpEvidence>(createIpEvidenceFromDiscriminatorValue); },
+        "sourcePort": n => { networkConnectionEvidence.sourcePort = n.getNumberValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns a Record<string, (node: ParseNode) => void>
+ */
+export function deserializeIntoNicEvidence(nicEvidence: NicEvidence | undefined = {} as NicEvidence) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(nicEvidence),
+        "ipAddress": n => { nicEvidence.ipAddress = n.getObjectValue<IpEvidence>(createIpEvidenceFromDiscriminatorValue); },
+        "macAddress": n => { nicEvidence.macAddress = n.getStringValue(); },
+        "vlans": n => { nicEvidence.vlans = n.getCollectionOfPrimitiveValues<string>(); },
     }
 }
 /**
@@ -3653,6 +3894,25 @@ export function deserializeIntoRetentionEventTypeCollectionResponse(retentionEve
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
+export function deserializeIntoSasTokenEvidence(sasTokenEvidence: SasTokenEvidence | undefined = {} as SasTokenEvidence) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(sasTokenEvidence),
+        "allowedIpAddresses": n => { sasTokenEvidence.allowedIpAddresses = n.getStringValue(); },
+        "allowedResourceTypes": n => { sasTokenEvidence.allowedResourceTypes = n.getCollectionOfPrimitiveValues<string>(); },
+        "allowedServices": n => { sasTokenEvidence.allowedServices = n.getCollectionOfPrimitiveValues<string>(); },
+        "expiryDateTime": n => { sasTokenEvidence.expiryDateTime = n.getDateValue(); },
+        "permissions": n => { sasTokenEvidence.permissions = n.getCollectionOfPrimitiveValues<string>(); },
+        "protocol": n => { sasTokenEvidence.protocol = n.getStringValue(); },
+        "signatureHash": n => { sasTokenEvidence.signatureHash = n.getStringValue(); },
+        "signedWith": n => { sasTokenEvidence.signedWith = n.getStringValue(); },
+        "startDateTime": n => { sasTokenEvidence.startDateTime = n.getDateValue(); },
+        "storageResource": n => { sasTokenEvidence.storageResource = n.getObjectValue<AzureResourceEvidence>(createAzureResourceEvidenceFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns a Record<string, (node: ParseNode) => void>
+ */
 export function deserializeIntoSearch(search: Search | undefined = {} as Search) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(search),
@@ -3674,6 +3934,21 @@ export function deserializeIntoSecurityGroupEvidence(securityGroupEvidence: Secu
         ...deserializeIntoAlertEvidence(securityGroupEvidence),
         "displayName": n => { securityGroupEvidence.displayName = n.getStringValue(); },
         "securityGroupId": n => { securityGroupEvidence.securityGroupId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns a Record<string, (node: ParseNode) => void>
+ */
+export function deserializeIntoServicePrincipalEvidence(servicePrincipalEvidence: ServicePrincipalEvidence | undefined = {} as ServicePrincipalEvidence) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(servicePrincipalEvidence),
+        "appId": n => { servicePrincipalEvidence.appId = n.getStringValue(); },
+        "appOwnerTenantId": n => { servicePrincipalEvidence.appOwnerTenantId = n.getStringValue(); },
+        "servicePrincipalName": n => { servicePrincipalEvidence.servicePrincipalName = n.getStringValue(); },
+        "servicePrincipalObjectId": n => { servicePrincipalEvidence.servicePrincipalObjectId = n.getStringValue(); },
+        "servicePrincipalType": n => { servicePrincipalEvidence.servicePrincipalType = n.getEnumValue<ServicePrincipalType>(ServicePrincipalTypeObject); },
+        "tenantId": n => { servicePrincipalEvidence.tenantId = n.getStringValue(); },
     }
 }
 /**
@@ -3773,6 +4048,24 @@ export function deserializeIntoSubdomainCollectionResponse(subdomainCollectionRe
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(subdomainCollectionResponse),
         "value": n => { subdomainCollectionResponse.value = n.getCollectionOfObjectValues<Subdomain>(createSubdomainFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns a Record<string, (node: ParseNode) => void>
+ */
+export function deserializeIntoSubmissionMailEvidence(submissionMailEvidence: SubmissionMailEvidence | undefined = {} as SubmissionMailEvidence) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(submissionMailEvidence),
+        "networkMessageId": n => { submissionMailEvidence.networkMessageId = n.getStringValue(); },
+        "recipient": n => { submissionMailEvidence.recipient = n.getStringValue(); },
+        "reportType": n => { submissionMailEvidence.reportType = n.getStringValue(); },
+        "sender": n => { submissionMailEvidence.sender = n.getStringValue(); },
+        "senderIp": n => { submissionMailEvidence.senderIp = n.getStringValue(); },
+        "subject": n => { submissionMailEvidence.subject = n.getStringValue(); },
+        "submissionDateTime": n => { submissionMailEvidence.submissionDateTime = n.getDateValue(); },
+        "submissionId": n => { submissionMailEvidence.submissionId = n.getStringValue(); },
+        "submitter": n => { submissionMailEvidence.submitter = n.getStringValue(); },
     }
 }
 /**
@@ -4626,6 +4919,76 @@ export interface FormattedContent extends AdditionalDataHolder, Parsable {
      */
     odataType?: string;
 }
+export interface GitHubOrganizationEvidence extends AlertEvidence, Parsable {
+    /**
+     * The company property
+     */
+    company?: string;
+    /**
+     * The displayName property
+     */
+    displayName?: string;
+    /**
+     * The email property
+     */
+    email?: string;
+    /**
+     * The login property
+     */
+    login?: string;
+    /**
+     * The orgId property
+     */
+    orgId?: string;
+    /**
+     * The webUrl property
+     */
+    webUrl?: string;
+}
+export interface GitHubRepoEvidence extends AlertEvidence, Parsable {
+    /**
+     * The baseUrl property
+     */
+    baseUrl?: string;
+    /**
+     * The login property
+     */
+    login?: string;
+    /**
+     * The owner property
+     */
+    owner?: string;
+    /**
+     * The ownerType property
+     */
+    ownerType?: string;
+    /**
+     * The repoId property
+     */
+    repoId?: string;
+}
+export interface GitHubUserEvidence extends AlertEvidence, Parsable {
+    /**
+     * The email property
+     */
+    email?: string;
+    /**
+     * The login property
+     */
+    login?: string;
+    /**
+     * The name property
+     */
+    name?: string;
+    /**
+     * The userId property
+     */
+    userId?: string;
+    /**
+     * The webUrl property
+     */
+    webUrl?: string;
+}
 export type GoogleCloudLocationType = (typeof GoogleCloudLocationTypeObject)[keyof typeof GoogleCloudLocationTypeObject];
 export interface GoogleCloudResourceEvidence extends AlertEvidence, Parsable {
     /**
@@ -4780,6 +5143,28 @@ export interface HostCookieCollectionResponse extends BaseCollectionPaginationCo
      * The value property
      */
     value?: HostCookie[];
+}
+export interface HostLogonSessionEvidence extends AlertEvidence, Parsable {
+    /**
+     * The account property
+     */
+    account?: UserEvidence;
+    /**
+     * The endUtcDateTime property
+     */
+    endUtcDateTime?: Date;
+    /**
+     * The host property
+     */
+    host?: DeviceEvidence;
+    /**
+     * The sessionId property
+     */
+    sessionId?: string;
+    /**
+     * The startUtcDateTime property
+     */
+    startUtcDateTime?: Date;
 }
 export interface Hostname extends Host, Parsable {
     /**
@@ -5266,6 +5651,113 @@ export interface IntelligenceProfileIndicatorCollectionResponse extends BaseColl
     value?: IntelligenceProfileIndicator[];
 }
 export type IntelligenceProfileKind = (typeof IntelligenceProfileKindObject)[keyof typeof IntelligenceProfileKindObject];
+export interface IoTDeviceEvidence extends AlertEvidence, Parsable {
+    /**
+     * The deviceId property
+     */
+    deviceId?: string;
+    /**
+     * The deviceName property
+     */
+    deviceName?: string;
+    /**
+     * The devicePageLink property
+     */
+    devicePageLink?: string;
+    /**
+     * The deviceSubType property
+     */
+    deviceSubType?: string;
+    /**
+     * The deviceType property
+     */
+    deviceType?: string;
+    /**
+     * The importance property
+     */
+    importance?: IoTDeviceImportanceType;
+    /**
+     * The ioTHub property
+     */
+    ioTHub?: AzureResourceEvidence;
+    /**
+     * The ioTSecurityAgentId property
+     */
+    ioTSecurityAgentId?: string;
+    /**
+     * The ipAddress property
+     */
+    ipAddress?: IpEvidence;
+    /**
+     * The isAuthorized property
+     */
+    isAuthorized?: boolean;
+    /**
+     * The isProgramming property
+     */
+    isProgramming?: boolean;
+    /**
+     * The isScanner property
+     */
+    isScanner?: boolean;
+    /**
+     * The macAddress property
+     */
+    macAddress?: string;
+    /**
+     * The manufacturer property
+     */
+    manufacturer?: string;
+    /**
+     * The model property
+     */
+    model?: string;
+    /**
+     * The nics property
+     */
+    nics?: NicEvidence;
+    /**
+     * The operatingSystem property
+     */
+    operatingSystem?: string;
+    /**
+     * The owners property
+     */
+    owners?: string[];
+    /**
+     * The protocols property
+     */
+    protocols?: string[];
+    /**
+     * The purdueLayer property
+     */
+    purdueLayer?: string;
+    /**
+     * The sensor property
+     */
+    sensor?: string;
+    /**
+     * The serialNumber property
+     */
+    serialNumber?: string;
+    /**
+     * The site property
+     */
+    site?: string;
+    /**
+     * The source property
+     */
+    source?: string;
+    /**
+     * The sourceRef property
+     */
+    sourceRef?: UrlEvidence;
+    /**
+     * The zone property
+     */
+    zone?: string;
+}
+export type IoTDeviceImportanceType = (typeof IoTDeviceImportanceTypeObject)[keyof typeof IoTDeviceImportanceTypeObject];
 export interface IpAddress extends Host, Parsable {
     /**
      * The details about the autonomous system to which this IP address belongs.
@@ -5538,6 +6030,60 @@ export interface MailClusterEvidence extends AlertEvidence, Parsable {
      */
     urn?: string;
 }
+export interface MalwareEvidence extends AlertEvidence, Parsable {
+    /**
+     * The category property
+     */
+    category?: string;
+    /**
+     * The files property
+     */
+    files?: FileEvidence[];
+    /**
+     * The name property
+     */
+    name?: string;
+    /**
+     * The processes property
+     */
+    processes?: ProcessEvidence[];
+}
+export interface NetworkConnectionEvidence extends AlertEvidence, Parsable {
+    /**
+     * The destinationAddress property
+     */
+    destinationAddress?: IpEvidence;
+    /**
+     * The destinationPort property
+     */
+    destinationPort?: number;
+    /**
+     * The protocol property
+     */
+    protocol?: ProtocolType;
+    /**
+     * The sourceAddress property
+     */
+    sourceAddress?: IpEvidence;
+    /**
+     * The sourcePort property
+     */
+    sourcePort?: number;
+}
+export interface NicEvidence extends AlertEvidence, Parsable {
+    /**
+     * The ipAddress property
+     */
+    ipAddress?: IpEvidence;
+    /**
+     * The macAddress property
+     */
+    macAddress?: string;
+    /**
+     * The vlans property
+     */
+    vlans?: string[];
+}
 export interface OauthApplicationEvidence extends AlertEvidence, Parsable {
     /**
      * Unique identifier of the application.
@@ -5653,6 +6199,7 @@ export interface ProcessEvidence extends AlertEvidence, Parsable {
      */
     userAccount?: UserAccount;
 }
+export type ProtocolType = (typeof ProtocolTypeObject)[keyof typeof ProtocolTypeObject];
 export type PurgeAreas = (typeof PurgeAreasObject)[keyof typeof PurgeAreasObject];
 export type PurgeType = (typeof PurgeTypeObject)[keyof typeof PurgeTypeObject];
 export type QueryType = (typeof QueryTypeObject)[keyof typeof QueryTypeObject];
@@ -5823,6 +6370,48 @@ export interface RetentionEventTypeCollectionResponse extends BaseCollectionPagi
      * The value property
      */
     value?: RetentionEventType[];
+}
+export interface SasTokenEvidence extends AlertEvidence, Parsable {
+    /**
+     * The allowedIpAddresses property
+     */
+    allowedIpAddresses?: string;
+    /**
+     * The allowedResourceTypes property
+     */
+    allowedResourceTypes?: string[];
+    /**
+     * The allowedServices property
+     */
+    allowedServices?: string[];
+    /**
+     * The expiryDateTime property
+     */
+    expiryDateTime?: Date;
+    /**
+     * The permissions property
+     */
+    permissions?: string[];
+    /**
+     * The protocol property
+     */
+    protocol?: string;
+    /**
+     * The signatureHash property
+     */
+    signatureHash?: string;
+    /**
+     * The signedWith property
+     */
+    signedWith?: string;
+    /**
+     * The startDateTime property
+     */
+    startDateTime?: Date;
+    /**
+     * The storageResource property
+     */
+    storageResource?: AzureResourceEvidence;
 }
 export interface Search extends Entity, Parsable {
     /**
@@ -6535,6 +7124,43 @@ export function serializeFormattedContent(writer: SerializationWriter, formatted
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+export function serializeGitHubOrganizationEvidence(writer: SerializationWriter, gitHubOrganizationEvidence: GitHubOrganizationEvidence | undefined = {} as GitHubOrganizationEvidence) : void {
+    serializeAlertEvidence(writer, gitHubOrganizationEvidence)
+    writer.writeStringValue("company", gitHubOrganizationEvidence.company);
+    writer.writeStringValue("displayName", gitHubOrganizationEvidence.displayName);
+    writer.writeStringValue("email", gitHubOrganizationEvidence.email);
+    writer.writeStringValue("login", gitHubOrganizationEvidence.login);
+    writer.writeStringValue("orgId", gitHubOrganizationEvidence.orgId);
+    writer.writeStringValue("webUrl", gitHubOrganizationEvidence.webUrl);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+export function serializeGitHubRepoEvidence(writer: SerializationWriter, gitHubRepoEvidence: GitHubRepoEvidence | undefined = {} as GitHubRepoEvidence) : void {
+    serializeAlertEvidence(writer, gitHubRepoEvidence)
+    writer.writeStringValue("baseUrl", gitHubRepoEvidence.baseUrl);
+    writer.writeStringValue("login", gitHubRepoEvidence.login);
+    writer.writeStringValue("owner", gitHubRepoEvidence.owner);
+    writer.writeStringValue("ownerType", gitHubRepoEvidence.ownerType);
+    writer.writeStringValue("repoId", gitHubRepoEvidence.repoId);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+export function serializeGitHubUserEvidence(writer: SerializationWriter, gitHubUserEvidence: GitHubUserEvidence | undefined = {} as GitHubUserEvidence) : void {
+    serializeAlertEvidence(writer, gitHubUserEvidence)
+    writer.writeStringValue("email", gitHubUserEvidence.email);
+    writer.writeStringValue("login", gitHubUserEvidence.login);
+    writer.writeStringValue("name", gitHubUserEvidence.name);
+    writer.writeStringValue("userId", gitHubUserEvidence.userId);
+    writer.writeStringValue("webUrl", gitHubUserEvidence.webUrl);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
 export function serializeGoogleCloudResourceEvidence(writer: SerializationWriter, googleCloudResourceEvidence: GoogleCloudResourceEvidence | undefined = {} as GoogleCloudResourceEvidence) : void {
     serializeAlertEvidence(writer, googleCloudResourceEvidence)
     writer.writeStringValue("location", googleCloudResourceEvidence.location);
@@ -6614,6 +7240,18 @@ export function serializeHostCookie(writer: SerializationWriter, hostCookie: Hos
 export function serializeHostCookieCollectionResponse(writer: SerializationWriter, hostCookieCollectionResponse: HostCookieCollectionResponse | undefined = {} as HostCookieCollectionResponse) : void {
     serializeBaseCollectionPaginationCountResponse(writer, hostCookieCollectionResponse)
     writer.writeCollectionOfObjectValues<HostCookie>("value", hostCookieCollectionResponse.value, serializeHostCookie);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+export function serializeHostLogonSessionEvidence(writer: SerializationWriter, hostLogonSessionEvidence: HostLogonSessionEvidence | undefined = {} as HostLogonSessionEvidence) : void {
+    serializeAlertEvidence(writer, hostLogonSessionEvidence)
+    writer.writeObjectValue<UserEvidence>("account", hostLogonSessionEvidence.account, serializeUserEvidence);
+    writer.writeDateValue("endUtcDateTime", hostLogonSessionEvidence.endUtcDateTime);
+    writer.writeObjectValue<DeviceEvidence>("host", hostLogonSessionEvidence.host, serializeDeviceEvidence);
+    writer.writeStringValue("sessionId", hostLogonSessionEvidence.sessionId);
+    writer.writeDateValue("startUtcDateTime", hostLogonSessionEvidence.startUtcDateTime);
 }
 /**
  * Serializes information the current object
@@ -6893,6 +7531,39 @@ export function serializeIntelligenceProfileIndicatorCollectionResponse(writer: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+export function serializeIoTDeviceEvidence(writer: SerializationWriter, ioTDeviceEvidence: IoTDeviceEvidence | undefined = {} as IoTDeviceEvidence) : void {
+    serializeAlertEvidence(writer, ioTDeviceEvidence)
+    writer.writeStringValue("deviceId", ioTDeviceEvidence.deviceId);
+    writer.writeStringValue("deviceName", ioTDeviceEvidence.deviceName);
+    writer.writeStringValue("devicePageLink", ioTDeviceEvidence.devicePageLink);
+    writer.writeStringValue("deviceSubType", ioTDeviceEvidence.deviceSubType);
+    writer.writeStringValue("deviceType", ioTDeviceEvidence.deviceType);
+    writer.writeEnumValue<IoTDeviceImportanceType>("importance", ioTDeviceEvidence.importance);
+    writer.writeObjectValue<AzureResourceEvidence>("ioTHub", ioTDeviceEvidence.ioTHub, serializeAzureResourceEvidence);
+    writer.writeStringValue("ioTSecurityAgentId", ioTDeviceEvidence.ioTSecurityAgentId);
+    writer.writeObjectValue<IpEvidence>("ipAddress", ioTDeviceEvidence.ipAddress, serializeIpEvidence);
+    writer.writeBooleanValue("isAuthorized", ioTDeviceEvidence.isAuthorized);
+    writer.writeBooleanValue("isProgramming", ioTDeviceEvidence.isProgramming);
+    writer.writeBooleanValue("isScanner", ioTDeviceEvidence.isScanner);
+    writer.writeStringValue("macAddress", ioTDeviceEvidence.macAddress);
+    writer.writeStringValue("manufacturer", ioTDeviceEvidence.manufacturer);
+    writer.writeStringValue("model", ioTDeviceEvidence.model);
+    writer.writeObjectValue<NicEvidence>("nics", ioTDeviceEvidence.nics, serializeNicEvidence);
+    writer.writeStringValue("operatingSystem", ioTDeviceEvidence.operatingSystem);
+    writer.writeCollectionOfPrimitiveValues<string>("owners", ioTDeviceEvidence.owners);
+    writer.writeCollectionOfPrimitiveValues<string>("protocols", ioTDeviceEvidence.protocols);
+    writer.writeStringValue("purdueLayer", ioTDeviceEvidence.purdueLayer);
+    writer.writeStringValue("sensor", ioTDeviceEvidence.sensor);
+    writer.writeStringValue("serialNumber", ioTDeviceEvidence.serialNumber);
+    writer.writeStringValue("site", ioTDeviceEvidence.site);
+    writer.writeStringValue("source", ioTDeviceEvidence.source);
+    writer.writeObjectValue<UrlEvidence>("sourceRef", ioTDeviceEvidence.sourceRef, serializeUrlEvidence);
+    writer.writeStringValue("zone", ioTDeviceEvidence.zone);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
 export function serializeIpAddress(writer: SerializationWriter, ipAddress: IpAddress | undefined = {} as IpAddress) : void {
     serializeHost(writer, ipAddress)
     writer.writeObjectValue<AutonomousSystem>("autonomousSystem", ipAddress.autonomousSystem, serializeAutonomousSystem);
@@ -7038,6 +7709,39 @@ export function serializeMailClusterEvidence(writer: SerializationWriter, mailCl
     writer.writeCollectionOfPrimitiveValues<string>("networkMessageIds", mailClusterEvidence.networkMessageIds);
     writer.writeStringValue("query", mailClusterEvidence.query);
     writer.writeStringValue("urn", mailClusterEvidence.urn);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+export function serializeMalwareEvidence(writer: SerializationWriter, malwareEvidence: MalwareEvidence | undefined = {} as MalwareEvidence) : void {
+    serializeAlertEvidence(writer, malwareEvidence)
+    writer.writeStringValue("category", malwareEvidence.category);
+    writer.writeCollectionOfObjectValues<FileEvidence>("files", malwareEvidence.files, serializeFileEvidence);
+    writer.writeStringValue("name", malwareEvidence.name);
+    writer.writeCollectionOfObjectValues<ProcessEvidence>("processes", malwareEvidence.processes, serializeProcessEvidence);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+export function serializeNetworkConnectionEvidence(writer: SerializationWriter, networkConnectionEvidence: NetworkConnectionEvidence | undefined = {} as NetworkConnectionEvidence) : void {
+    serializeAlertEvidence(writer, networkConnectionEvidence)
+    writer.writeObjectValue<IpEvidence>("destinationAddress", networkConnectionEvidence.destinationAddress, serializeIpEvidence);
+    writer.writeNumberValue("destinationPort", networkConnectionEvidence.destinationPort);
+    writer.writeEnumValue<ProtocolType>("protocol", networkConnectionEvidence.protocol);
+    writer.writeObjectValue<IpEvidence>("sourceAddress", networkConnectionEvidence.sourceAddress, serializeIpEvidence);
+    writer.writeNumberValue("sourcePort", networkConnectionEvidence.sourcePort);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+export function serializeNicEvidence(writer: SerializationWriter, nicEvidence: NicEvidence | undefined = {} as NicEvidence) : void {
+    serializeAlertEvidence(writer, nicEvidence)
+    writer.writeObjectValue<IpEvidence>("ipAddress", nicEvidence.ipAddress, serializeIpEvidence);
+    writer.writeStringValue("macAddress", nicEvidence.macAddress);
+    writer.writeCollectionOfPrimitiveValues<string>("vlans", nicEvidence.vlans);
 }
 /**
  * Serializes information the current object
@@ -7195,6 +7899,23 @@ export function serializeRetentionEventTypeCollectionResponse(writer: Serializat
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+export function serializeSasTokenEvidence(writer: SerializationWriter, sasTokenEvidence: SasTokenEvidence | undefined = {} as SasTokenEvidence) : void {
+    serializeAlertEvidence(writer, sasTokenEvidence)
+    writer.writeStringValue("allowedIpAddresses", sasTokenEvidence.allowedIpAddresses);
+    writer.writeCollectionOfPrimitiveValues<string>("allowedResourceTypes", sasTokenEvidence.allowedResourceTypes);
+    writer.writeCollectionOfPrimitiveValues<string>("allowedServices", sasTokenEvidence.allowedServices);
+    writer.writeDateValue("expiryDateTime", sasTokenEvidence.expiryDateTime);
+    writer.writeCollectionOfPrimitiveValues<string>("permissions", sasTokenEvidence.permissions);
+    writer.writeStringValue("protocol", sasTokenEvidence.protocol);
+    writer.writeStringValue("signatureHash", sasTokenEvidence.signatureHash);
+    writer.writeStringValue("signedWith", sasTokenEvidence.signedWith);
+    writer.writeDateValue("startDateTime", sasTokenEvidence.startDateTime);
+    writer.writeObjectValue<AzureResourceEvidence>("storageResource", sasTokenEvidence.storageResource, serializeAzureResourceEvidence);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
 export function serializeSearch(writer: SerializationWriter, search: Search | undefined = {} as Search) : void {
     serializeEntity(writer, search)
     writer.writeStringValue("contentQuery", search.contentQuery);
@@ -7213,6 +7934,19 @@ export function serializeSecurityGroupEvidence(writer: SerializationWriter, secu
     serializeAlertEvidence(writer, securityGroupEvidence)
     writer.writeStringValue("displayName", securityGroupEvidence.displayName);
     writer.writeStringValue("securityGroupId", securityGroupEvidence.securityGroupId);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+export function serializeServicePrincipalEvidence(writer: SerializationWriter, servicePrincipalEvidence: ServicePrincipalEvidence | undefined = {} as ServicePrincipalEvidence) : void {
+    serializeAlertEvidence(writer, servicePrincipalEvidence)
+    writer.writeStringValue("appId", servicePrincipalEvidence.appId);
+    writer.writeStringValue("appOwnerTenantId", servicePrincipalEvidence.appOwnerTenantId);
+    writer.writeStringValue("servicePrincipalName", servicePrincipalEvidence.servicePrincipalName);
+    writer.writeStringValue("servicePrincipalObjectId", servicePrincipalEvidence.servicePrincipalObjectId);
+    writer.writeEnumValue<ServicePrincipalType>("servicePrincipalType", servicePrincipalEvidence.servicePrincipalType);
+    writer.writeStringValue("tenantId", servicePrincipalEvidence.tenantId);
 }
 /**
  * Serializes information the current object
@@ -7298,6 +8032,22 @@ export function serializeSubdomain(writer: SerializationWriter, subdomain: Subdo
 export function serializeSubdomainCollectionResponse(writer: SerializationWriter, subdomainCollectionResponse: SubdomainCollectionResponse | undefined = {} as SubdomainCollectionResponse) : void {
     serializeBaseCollectionPaginationCountResponse(writer, subdomainCollectionResponse)
     writer.writeCollectionOfObjectValues<Subdomain>("value", subdomainCollectionResponse.value, serializeSubdomain);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+export function serializeSubmissionMailEvidence(writer: SerializationWriter, submissionMailEvidence: SubmissionMailEvidence | undefined = {} as SubmissionMailEvidence) : void {
+    serializeAlertEvidence(writer, submissionMailEvidence)
+    writer.writeStringValue("networkMessageId", submissionMailEvidence.networkMessageId);
+    writer.writeStringValue("recipient", submissionMailEvidence.recipient);
+    writer.writeStringValue("reportType", submissionMailEvidence.reportType);
+    writer.writeStringValue("sender", submissionMailEvidence.sender);
+    writer.writeStringValue("senderIp", submissionMailEvidence.senderIp);
+    writer.writeStringValue("subject", submissionMailEvidence.subject);
+    writer.writeDateValue("submissionDateTime", submissionMailEvidence.submissionDateTime);
+    writer.writeStringValue("submissionId", submissionMailEvidence.submissionId);
+    writer.writeStringValue("submitter", submissionMailEvidence.submitter);
 }
 /**
  * Serializes information the current object
@@ -7577,6 +8327,33 @@ export function serializeWhoisRecordCollectionResponse(writer: SerializationWrit
     serializeBaseCollectionPaginationCountResponse(writer, whoisRecordCollectionResponse)
     writer.writeCollectionOfObjectValues<WhoisRecord>("value", whoisRecordCollectionResponse.value, serializeWhoisRecord);
 }
+export interface ServicePrincipalEvidence extends AlertEvidence, Parsable {
+    /**
+     * The appId property
+     */
+    appId?: string;
+    /**
+     * The appOwnerTenantId property
+     */
+    appOwnerTenantId?: string;
+    /**
+     * The servicePrincipalName property
+     */
+    servicePrincipalName?: string;
+    /**
+     * The servicePrincipalObjectId property
+     */
+    servicePrincipalObjectId?: string;
+    /**
+     * The servicePrincipalType property
+     */
+    servicePrincipalType?: ServicePrincipalType;
+    /**
+     * The tenantId property
+     */
+    tenantId?: string;
+}
+export type ServicePrincipalType = (typeof ServicePrincipalTypeObject)[keyof typeof ServicePrincipalTypeObject];
 export type ServiceSource = (typeof ServiceSourceObject)[keyof typeof ServiceSourceObject];
 export interface SinglePropertySchema extends AdditionalDataHolder, Parsable {
     /**
@@ -7718,6 +8495,44 @@ export interface SubdomainCollectionResponse extends BaseCollectionPaginationCou
      * The value property
      */
     value?: Subdomain[];
+}
+export interface SubmissionMailEvidence extends AlertEvidence, Parsable {
+    /**
+     * The networkMessageId property
+     */
+    networkMessageId?: string;
+    /**
+     * The recipient property
+     */
+    recipient?: string;
+    /**
+     * The reportType property
+     */
+    reportType?: string;
+    /**
+     * The sender property
+     */
+    sender?: string;
+    /**
+     * The senderIp property
+     */
+    senderIp?: string;
+    /**
+     * The subject property
+     */
+    subject?: string;
+    /**
+     * The submissionDateTime property
+     */
+    submissionDateTime?: Date;
+    /**
+     * The submissionId property
+     */
+    submissionId?: string;
+    /**
+     * The submitter property
+     */
+    submitter?: string;
 }
 export interface Tag extends Entity, Parsable {
     /**
@@ -8510,6 +9325,13 @@ export const IntelligenceProfileKindObject = {
     Tool: "tool",
     UnknownFutureValue: "unknownFutureValue",
 }  as const;
+export const IoTDeviceImportanceTypeObject = {
+    Unknown: "unknown",
+    Low: "low",
+    Normal: "normal",
+    High: "high",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
 export const KubernetesPlatformObject = {
     Unknown: "unknown",
     Aks: "aks",
@@ -8533,6 +9355,11 @@ export const OnboardingStatusObject = {
     Unsupported: "unsupported",
     UnknownFutureValue: "unknownFutureValue",
 }  as const;
+export const ProtocolTypeObject = {
+    Tcp: "tcp",
+    Udp: "udp",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
 export const PurgeAreasObject = {
     Mailboxes: "mailboxes",
     TeamsMessages: "teamsMessages",
@@ -8546,6 +9373,13 @@ export const PurgeTypeObject = {
 export const QueryTypeObject = {
     Files: "files",
     Messages: "messages",
+    UnknownFutureValue: "unknownFutureValue",
+}  as const;
+export const ServicePrincipalTypeObject = {
+    Unknown: "unknown",
+    Application: "application",
+    ManagedIdentity: "managedIdentity",
+    Legacy: "legacy",
     UnknownFutureValue: "unknownFutureValue",
 }  as const;
 export const ServiceSourceObject = {
