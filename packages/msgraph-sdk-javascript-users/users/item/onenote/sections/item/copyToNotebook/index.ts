@@ -107,4 +107,3 @@ export const CopyToNotebookRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CopyToNotebookRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/sections/{onenoteSection%2Did}/copyToNotebook";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -101,4 +101,3 @@ export const CopyToSectionRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CopyToSectionRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/notebooks/{notebook%2Did}/sectionGroups/{sectionGroup%2Did}/sections/{onenoteSection%2Did}/pages/{onenotePage%2Did}/copyToSection";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -106,4 +106,3 @@ export const MessageRuleItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const MessageRuleItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/messageRules/{messageRule%2Did}{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

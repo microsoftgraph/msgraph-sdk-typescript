@@ -84,4 +84,3 @@ export const TemporaryAccessPassAuthenticationMethodItemRequestBuilderRequestsMe
 export const TemporaryAccessPassAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/temporaryAccessPassMethods/{temporaryAccessPassAuthenticationMethod%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -81,4 +81,3 @@ export const UpdateWindowsDeviceAccountRequestBuilderRequestsMetadata: RequestsM
 export const UpdateWindowsDeviceAccountRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/updateWindowsDeviceAccount";
 /* tslint:enable */
 /* eslint-enable */
-

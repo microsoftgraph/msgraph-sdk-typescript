@@ -89,4 +89,3 @@ export const MailboxSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const MailboxSettingsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailboxSettings{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -124,4 +124,3 @@ export const SettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const SettingsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

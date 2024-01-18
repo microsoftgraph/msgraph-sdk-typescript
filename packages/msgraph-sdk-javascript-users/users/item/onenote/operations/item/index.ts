@@ -109,4 +109,3 @@ export const OnenoteOperationItemRequestBuilderRequestsMetadata: RequestsMetadat
 export const OnenoteOperationItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/operations/{onenoteOperation%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

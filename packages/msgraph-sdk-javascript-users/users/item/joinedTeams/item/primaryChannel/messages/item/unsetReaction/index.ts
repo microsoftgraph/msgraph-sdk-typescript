@@ -79,4 +79,3 @@ export const UnsetReactionRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const UnsetReactionRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/primaryChannel/messages/{chatMessage%2Did}/unsetReaction";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -87,4 +87,3 @@ export const ReplyAllRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ReplyAllRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messages/{message%2Did}/replyAll";
 /* tslint:enable */
 /* eslint-enable */
-

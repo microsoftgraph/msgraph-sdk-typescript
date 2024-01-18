@@ -136,4 +136,3 @@ export const TodoTaskListItemRequestBuilderRequestsMetadata: RequestsMetadata = 
 export const TodoTaskListItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

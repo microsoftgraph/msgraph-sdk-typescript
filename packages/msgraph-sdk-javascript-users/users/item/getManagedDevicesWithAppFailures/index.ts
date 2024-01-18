@@ -110,4 +110,3 @@ export const GetManagedDevicesWithAppFailuresRequestBuilderRequestsMetadata: Req
 export const GetManagedDevicesWithAppFailuresRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/getManagedDevicesWithAppFailures(){?%24top,%24skip,%24search,%24filter,%24count}";
 /* tslint:enable */
 /* eslint-enable */
-

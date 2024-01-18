@@ -134,4 +134,3 @@ export const SharedWithChannelTeamInfoItemRequestBuilderRequestsMetadata: Reques
 export const SharedWithChannelTeamInfoItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/channels/{channel%2Did}/sharedWithTeams/{sharedWithChannelTeamInfo%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

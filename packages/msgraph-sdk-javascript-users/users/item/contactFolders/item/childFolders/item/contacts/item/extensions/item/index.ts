@@ -108,4 +108,3 @@ export const ExtensionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ExtensionItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}/childFolders/{contactFolder%2Did1}/contacts/{contact%2Did}/extensions/{extension%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

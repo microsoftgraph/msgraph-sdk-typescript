@@ -106,4 +106,3 @@ export const CalendarPermissionItemRequestBuilderRequestsMetadata: RequestsMetad
 export const CalendarPermissionItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendar/calendarPermissions/{calendarPermission%2Did}{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -42,4 +42,3 @@ export const ExportDeviceAndAppManagementDataRequestBuilderRequestsMetadata: Req
 export const ExportDeviceAndAppManagementDataRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/exportDeviceAndAppManagementData()";
 /* tslint:enable */
 /* eslint-enable */
-

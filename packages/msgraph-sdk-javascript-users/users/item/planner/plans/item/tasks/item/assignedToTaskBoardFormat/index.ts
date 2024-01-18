@@ -110,4 +110,3 @@ export const AssignedToTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMe
 export const AssignedToTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/planner/plans/{plannerPlan%2Did}/tasks/{plannerTask%2Did}/assignedToTaskBoardFormat{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

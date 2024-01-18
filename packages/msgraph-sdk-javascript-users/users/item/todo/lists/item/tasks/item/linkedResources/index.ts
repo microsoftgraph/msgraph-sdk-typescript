@@ -147,4 +147,3 @@ export const LinkedResourcesRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const LinkedResourcesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/linkedResources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

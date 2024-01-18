@@ -110,4 +110,3 @@ export const AttachmentSessionsRequestBuilderRequestsMetadata: RequestsMetadata 
 export const AttachmentSessionsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachmentSessions{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

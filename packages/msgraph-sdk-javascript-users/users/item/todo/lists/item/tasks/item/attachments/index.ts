@@ -147,4 +147,3 @@ export const AttachmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const AttachmentsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

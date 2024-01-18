@@ -63,4 +63,3 @@ export const GraphOrgContactRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const GraphOrgContactRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/directReports/{directoryObject%2Did}/graph.orgContact{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

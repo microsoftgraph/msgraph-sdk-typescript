@@ -149,4 +149,3 @@ export const PlannerTaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const PlannerTaskItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/planner/tasks/{plannerTask%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

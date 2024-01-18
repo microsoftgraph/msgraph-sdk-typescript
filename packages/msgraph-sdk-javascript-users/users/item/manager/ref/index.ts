@@ -88,4 +88,3 @@ export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const RefRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/manager/$ref";
 /* tslint:enable */
 /* eslint-enable */
-

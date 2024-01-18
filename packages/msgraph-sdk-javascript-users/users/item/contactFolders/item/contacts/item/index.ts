@@ -133,4 +133,3 @@ export const ContactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ContactItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}/contacts/{contact%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

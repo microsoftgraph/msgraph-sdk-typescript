@@ -80,4 +80,3 @@ export const ClearPresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ClearPresenceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/presence/clearPresence";
 /* tslint:enable */
 /* eslint-enable */
-

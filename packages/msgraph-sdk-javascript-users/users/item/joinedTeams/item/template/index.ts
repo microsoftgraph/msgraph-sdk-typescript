@@ -63,4 +63,3 @@ export const TemplateRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const TemplateRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/template{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

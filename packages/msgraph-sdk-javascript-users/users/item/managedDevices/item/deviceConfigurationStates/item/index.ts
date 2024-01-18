@@ -108,4 +108,3 @@ export const DeviceConfigurationStateItemRequestBuilderRequestsMetadata: Request
 export const DeviceConfigurationStateItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/deviceConfigurationStates/{deviceConfigurationState%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -84,4 +84,3 @@ export const SoftwareOathAuthenticationMethodItemRequestBuilderRequestsMetadata:
 export const SoftwareOathAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/softwareOathMethods/{softwareOathAuthenticationMethod%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

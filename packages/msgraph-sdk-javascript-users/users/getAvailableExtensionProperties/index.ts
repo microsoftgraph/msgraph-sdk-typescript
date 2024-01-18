@@ -115,4 +115,3 @@ export const GetAvailableExtensionPropertiesRequestBuilderRequestsMetadata: Requ
 export const GetAvailableExtensionPropertiesRequestBuilderUriTemplate = "{+baseurl}/users/getAvailableExtensionProperties";
 /* tslint:enable */
 /* eslint-enable */
-

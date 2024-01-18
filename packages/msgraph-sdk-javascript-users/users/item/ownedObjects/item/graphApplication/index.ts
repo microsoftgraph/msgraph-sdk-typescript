@@ -63,4 +63,3 @@ export const GraphApplicationRequestBuilderRequestsMetadata: RequestsMetadata = 
 export const GraphApplicationRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/ownedObjects/{directoryObject%2Did}/graph.application{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

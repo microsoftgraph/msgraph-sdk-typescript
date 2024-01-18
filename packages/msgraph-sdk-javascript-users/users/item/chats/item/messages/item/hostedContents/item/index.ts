@@ -123,4 +123,3 @@ export const ChatMessageHostedContentItemRequestBuilderRequestsMetadata: Request
 export const ChatMessageHostedContentItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/messages/{chatMessage%2Did}/hostedContents/{chatMessageHostedContent%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

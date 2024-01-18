@@ -93,4 +93,3 @@ export const DeclineRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const DeclineRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}/calendarView/{event%2Did}/decline";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -72,4 +72,3 @@ export const ProfilePhotoItemRequestBuilderRequestsMetadata: RequestsMetadata = 
 export const ProfilePhotoItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/photos/{profilePhoto%2Did}{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

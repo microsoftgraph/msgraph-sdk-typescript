@@ -80,4 +80,3 @@ export const ArchiveRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ArchiveRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/archive";
 /* tslint:enable */
 /* eslint-enable */
-

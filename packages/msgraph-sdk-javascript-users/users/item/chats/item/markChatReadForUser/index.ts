@@ -81,4 +81,3 @@ export const MarkChatReadForUserRequestBuilderRequestsMetadata: RequestsMetadata
 export const MarkChatReadForUserRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/markChatReadForUser";
 /* tslint:enable */
 /* eslint-enable */
-

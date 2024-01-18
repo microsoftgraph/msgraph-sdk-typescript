@@ -141,4 +141,3 @@ export const TimeOffRequestsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const TimeOffRequestsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/timeOffRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

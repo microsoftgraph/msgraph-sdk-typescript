@@ -115,4 +115,3 @@ export const AddRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const AddRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/channels/{channel%2Did}/members/add";
 /* tslint:enable */
 /* eslint-enable */
-

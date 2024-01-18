@@ -87,4 +87,3 @@ export const SendMailRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const SendMailRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/sendMail";
 /* tslint:enable */
 /* eslint-enable */
-

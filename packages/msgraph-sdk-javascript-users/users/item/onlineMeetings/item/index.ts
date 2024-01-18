@@ -164,4 +164,3 @@ export const OnlineMeetingItemRequestBuilderRequestsMetadata: RequestsMetadata =
 export const OnlineMeetingItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

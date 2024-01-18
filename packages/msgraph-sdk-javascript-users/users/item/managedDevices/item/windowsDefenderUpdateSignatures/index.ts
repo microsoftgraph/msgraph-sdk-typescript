@@ -40,4 +40,3 @@ export const WindowsDefenderUpdateSignaturesRequestBuilderRequestsMetadata: Requ
 export const WindowsDefenderUpdateSignaturesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/windowsDefenderUpdateSignatures";
 /* tslint:enable */
 /* eslint-enable */
-

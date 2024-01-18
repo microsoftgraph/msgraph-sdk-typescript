@@ -40,4 +40,3 @@ export const RecoverPasscodeRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const RecoverPasscodeRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/recoverPasscode";
 /* tslint:enable */
 /* eslint-enable */
-

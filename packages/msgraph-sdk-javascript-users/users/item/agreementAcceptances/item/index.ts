@@ -63,4 +63,3 @@ export const AgreementAcceptanceItemRequestBuilderRequestsMetadata: RequestsMeta
 export const AgreementAcceptanceItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/agreementAcceptances/{agreementAcceptance%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

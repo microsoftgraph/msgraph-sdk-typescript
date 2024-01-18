@@ -106,4 +106,3 @@ export const ShiftItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ShiftItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/shifts/{shift%2Did}{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

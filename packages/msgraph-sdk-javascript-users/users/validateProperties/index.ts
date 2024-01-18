@@ -99,4 +99,3 @@ export const ValidatePropertiesRequestBuilderRequestsMetadata: RequestsMetadata 
 export const ValidatePropertiesRequestBuilderUriTemplate = "{+baseurl}/users/validateProperties";
 /* tslint:enable */
 /* eslint-enable */
-

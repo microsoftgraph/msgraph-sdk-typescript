@@ -96,4 +96,3 @@ export const PhotosRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const PhotosRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/photos{?%24top,%24skip,%24filter,%24orderby,%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

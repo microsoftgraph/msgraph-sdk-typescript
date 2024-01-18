@@ -108,4 +108,3 @@ export const DeviceCompliancePolicyStateItemRequestBuilderRequestsMetadata: Requ
 export const DeviceCompliancePolicyStateItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/deviceCompliancePolicyStates/{deviceCompliancePolicyState%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

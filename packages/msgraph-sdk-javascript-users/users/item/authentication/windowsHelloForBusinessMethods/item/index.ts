@@ -98,4 +98,3 @@ export const WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderReques
 export const WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/windowsHelloForBusinessMethods/{windowsHelloForBusinessAuthenticationMethod%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

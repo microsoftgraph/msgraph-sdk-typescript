@@ -40,4 +40,3 @@ export const LocateDeviceRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const LocateDeviceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/locateDevice";
 /* tslint:enable */
 /* eslint-enable */
-

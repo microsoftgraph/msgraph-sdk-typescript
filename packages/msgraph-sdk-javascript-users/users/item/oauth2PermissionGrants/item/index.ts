@@ -63,4 +63,3 @@ export const OAuth2PermissionGrantItemRequestBuilderRequestsMetadata: RequestsMe
 export const OAuth2PermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

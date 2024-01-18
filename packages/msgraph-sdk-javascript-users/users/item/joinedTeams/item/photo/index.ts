@@ -104,4 +104,3 @@ export const PhotoRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const PhotoRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/photo{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

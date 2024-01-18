@@ -168,4 +168,3 @@ export const MailFolderItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const MailFolderItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}{?includeHiddenFolders*,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

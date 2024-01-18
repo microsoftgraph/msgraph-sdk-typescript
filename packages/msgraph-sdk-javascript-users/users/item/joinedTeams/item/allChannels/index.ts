@@ -120,4 +120,3 @@ export const AllChannelsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const AllChannelsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/allChannels{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

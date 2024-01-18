@@ -98,4 +98,3 @@ export const WipeRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const WipeRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/wipe";
 /* tslint:enable */
 /* eslint-enable */
-

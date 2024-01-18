@@ -121,4 +121,3 @@ export const GetByIdsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const GetByIdsRequestBuilderUriTemplate = "{+baseurl}/users/getByIds";
 /* tslint:enable */
 /* eslint-enable */
-

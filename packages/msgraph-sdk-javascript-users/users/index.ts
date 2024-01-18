@@ -179,4 +179,3 @@ export const UsersRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const UsersRequestBuilderUriTemplate = "{+baseurl}/users{?%24top,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

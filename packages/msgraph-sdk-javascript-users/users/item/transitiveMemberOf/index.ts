@@ -151,4 +151,3 @@ export const TransitiveMemberOfRequestBuilderRequestsMetadata: RequestsMetadata 
 export const TransitiveMemberOfRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/transitiveMemberOf{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

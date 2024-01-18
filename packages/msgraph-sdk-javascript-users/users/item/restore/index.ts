@@ -43,4 +43,3 @@ export const RestoreRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const RestoreRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/restore";
 /* tslint:enable */
 /* eslint-enable */
-

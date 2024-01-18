@@ -86,4 +86,3 @@ export const AcceptRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const AcceptRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}/events/{event%2Did}/accept";
 /* tslint:enable */
 /* eslint-enable */
-

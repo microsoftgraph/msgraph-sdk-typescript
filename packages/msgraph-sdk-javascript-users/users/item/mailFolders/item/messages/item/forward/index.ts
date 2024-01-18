@@ -93,4 +93,3 @@ export const ForwardRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ForwardRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/messages/{message%2Did}/forward";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -145,4 +145,3 @@ export const ScopedRoleMemberOfRequestBuilderRequestsMetadata: RequestsMetadata 
 export const ScopedRoleMemberOfRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/scopedRoleMemberOf{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

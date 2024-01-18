@@ -98,4 +98,3 @@ export const PhotoRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const PhotoRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}/childFolders/{contactFolder%2Did1}/contacts/{contact%2Did}/photo{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

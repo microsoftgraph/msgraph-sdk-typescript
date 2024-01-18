@@ -80,4 +80,3 @@ export const WindowsDefenderScanRequestBuilderRequestsMetadata: RequestsMetadata
 export const WindowsDefenderScanRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/windowsDefenderScan";
 /* tslint:enable */
 /* eslint-enable */
-

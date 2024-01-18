@@ -111,4 +111,3 @@ export const ConversationMemberItemRequestBuilderRequestsMetadata: RequestsMetad
 export const ConversationMemberItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/channels/{channel%2Did}/members/{conversationMember%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

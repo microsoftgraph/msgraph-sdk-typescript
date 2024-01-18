@@ -106,4 +106,3 @@ export const SchedulingGroupItemRequestBuilderRequestsMetadata: RequestsMetadata
 export const SchedulingGroupItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/schedulingGroups/{schedulingGroup%2Did}{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

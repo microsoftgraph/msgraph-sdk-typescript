@@ -121,4 +121,3 @@ export const GetMailTipsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const GetMailTipsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/getMailTips";
 /* tslint:enable */
 /* eslint-enable */
-

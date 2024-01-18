@@ -108,4 +108,3 @@ export const TeamsAsyncOperationItemRequestBuilderRequestsMetadata: RequestsMeta
 export const TeamsAsyncOperationItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/operations/{teamsAsyncOperation%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

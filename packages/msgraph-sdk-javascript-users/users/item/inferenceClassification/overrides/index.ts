@@ -137,4 +137,3 @@ export const OverridesRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const OverridesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/inferenceClassification/overrides{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

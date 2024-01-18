@@ -87,4 +87,3 @@ export const ForwardRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ForwardRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}/events/{event%2Did}/forward";
 /* tslint:enable */
 /* eslint-enable */
-

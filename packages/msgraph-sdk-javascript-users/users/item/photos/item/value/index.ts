@@ -66,4 +66,3 @@ export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ContentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/photos/{profilePhoto%2Did}/$value";
 /* tslint:enable */
 /* eslint-enable */
-

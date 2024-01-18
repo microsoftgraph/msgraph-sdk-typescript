@@ -63,4 +63,3 @@ export const GraphGroupRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const GraphGroupRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/transitiveMemberOf/{directoryObject%2Did}/graph.group{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

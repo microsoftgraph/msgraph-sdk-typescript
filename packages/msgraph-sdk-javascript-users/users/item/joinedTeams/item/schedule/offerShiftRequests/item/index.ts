@@ -109,4 +109,3 @@ export const OfferShiftRequestItemRequestBuilderRequestsMetadata: RequestsMetada
 export const OfferShiftRequestItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/offerShiftRequests/{offerShiftRequest%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

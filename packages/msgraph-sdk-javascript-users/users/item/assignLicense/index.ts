@@ -90,4 +90,3 @@ export const AssignLicenseRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const AssignLicenseRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/assignLicense";
 /* tslint:enable */
 /* eslint-enable */
-

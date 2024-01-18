@@ -147,4 +147,3 @@ export const TasksRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const TasksRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/planner/plans/{plannerPlan%2Did}/tasks{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

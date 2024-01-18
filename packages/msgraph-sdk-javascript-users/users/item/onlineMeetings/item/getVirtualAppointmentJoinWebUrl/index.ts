@@ -76,4 +76,3 @@ export const GetVirtualAppointmentJoinWebUrlRequestBuilderRequestsMetadata: Requ
 export const GetVirtualAppointmentJoinWebUrlRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/getVirtualAppointmentJoinWebUrl()";
 /* tslint:enable */
 /* eslint-enable */
-

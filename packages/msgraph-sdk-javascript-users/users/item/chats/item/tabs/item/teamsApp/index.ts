@@ -63,4 +63,3 @@ export const TeamsAppRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const TeamsAppRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/tabs/{teamsTab%2Did}/teamsApp{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

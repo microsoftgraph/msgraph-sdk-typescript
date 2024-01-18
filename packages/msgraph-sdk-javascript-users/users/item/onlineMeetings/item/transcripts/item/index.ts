@@ -132,4 +132,3 @@ export const CallTranscriptItemRequestBuilderRequestsMetadata: RequestsMetadata 
 export const CallTranscriptItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/transcripts/{callTranscript%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

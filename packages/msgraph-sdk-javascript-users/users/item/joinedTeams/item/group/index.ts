@@ -78,4 +78,3 @@ export const GroupRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const GroupRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/group{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

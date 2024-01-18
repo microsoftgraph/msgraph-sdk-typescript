@@ -40,4 +40,3 @@ export const CompleteMigrationRequestBuilderRequestsMetadata: RequestsMetadata =
 export const CompleteMigrationRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/channels/{channel%2Did}/completeMigration";
 /* tslint:enable */
 /* eslint-enable */
-

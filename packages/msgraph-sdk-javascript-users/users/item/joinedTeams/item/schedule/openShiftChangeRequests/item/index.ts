@@ -109,4 +109,3 @@ export const OpenShiftChangeRequestItemRequestBuilderRequestsMetadata: RequestsM
 export const OpenShiftChangeRequestItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/openShiftChangeRequests/{openShiftChangeRequest%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -123,4 +123,3 @@ export const MeetingAttendanceReportItemRequestBuilderRequestsMetadata: Requests
 export const MeetingAttendanceReportItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/attendanceReports/{meetingAttendanceReport%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

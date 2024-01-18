@@ -133,4 +133,3 @@ export const CalendarViewRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CalendarViewRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarView{?startDateTime*,endDateTime*,%24top,%24skip,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

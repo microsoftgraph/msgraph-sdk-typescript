@@ -120,4 +120,3 @@ export const GetManagedAppPoliciesRequestBuilderRequestsMetadata: RequestsMetada
 export const GetManagedAppPoliciesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/getManagedAppPolicies(){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}";
 /* tslint:enable */
 /* eslint-enable */
-

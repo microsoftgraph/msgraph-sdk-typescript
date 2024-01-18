@@ -109,4 +109,3 @@ export const ExtensionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ExtensionItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarView/{event%2Did}/extensions/{extension%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

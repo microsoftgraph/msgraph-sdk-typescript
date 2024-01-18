@@ -122,4 +122,3 @@ export const TrendingItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const TrendingItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/trending/{trending%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

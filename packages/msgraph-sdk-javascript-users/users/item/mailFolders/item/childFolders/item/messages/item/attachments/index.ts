@@ -141,4 +141,3 @@ export const AttachmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const AttachmentsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messages/{message%2Did}/attachments{?%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

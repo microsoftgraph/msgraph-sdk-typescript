@@ -40,4 +40,3 @@ export const ShutDownRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ShutDownRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/shutDown";
 /* tslint:enable */
 /* eslint-enable */
-

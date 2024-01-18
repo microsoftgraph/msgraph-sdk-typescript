@@ -98,4 +98,3 @@ export const MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderRequest
 export const MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/microsoftAuthenticatorMethods/{microsoftAuthenticatorAuthenticationMethod%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

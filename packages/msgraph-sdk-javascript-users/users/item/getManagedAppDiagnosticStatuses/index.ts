@@ -110,4 +110,3 @@ export const GetManagedAppDiagnosticStatusesRequestBuilderRequestsMetadata: Requ
 export const GetManagedAppDiagnosticStatusesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/getManagedAppDiagnosticStatuses(){?%24top,%24skip,%24search,%24filter,%24count}";
 /* tslint:enable */
 /* eslint-enable */
-

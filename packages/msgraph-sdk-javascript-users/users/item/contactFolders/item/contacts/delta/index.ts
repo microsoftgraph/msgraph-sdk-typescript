@@ -121,4 +121,3 @@ export const DeltaRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const DeltaRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}/contacts/delta(){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}";
 /* tslint:enable */
 /* eslint-enable */
-

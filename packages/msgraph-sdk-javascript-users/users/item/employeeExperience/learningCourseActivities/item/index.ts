@@ -64,4 +64,3 @@ export const LearningCourseActivityItemRequestBuilderRequestsMetadata: RequestsM
 export const LearningCourseActivityItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/employeeExperience/learningCourseActivities/{learningCourseActivity%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

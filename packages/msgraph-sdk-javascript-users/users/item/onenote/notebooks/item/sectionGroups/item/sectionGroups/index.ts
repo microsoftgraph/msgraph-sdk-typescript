@@ -120,4 +120,3 @@ export const SectionGroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const SectionGroupsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/notebooks/{notebook%2Did}/sectionGroups/{sectionGroup%2Did}/sectionGroups{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

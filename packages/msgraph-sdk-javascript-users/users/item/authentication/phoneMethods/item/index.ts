@@ -134,4 +134,3 @@ export const PhoneAuthenticationMethodItemRequestBuilderRequestsMetadata: Reques
 export const PhoneAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/phoneMethods/{phoneAuthenticationMethod%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

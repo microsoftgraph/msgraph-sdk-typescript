@@ -109,4 +109,3 @@ export const LongRunningOperationItemRequestBuilderRequestsMetadata: RequestsMet
 export const LongRunningOperationItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/operations/{longRunningOperation%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -83,4 +83,3 @@ export const GetNotebookFromWebUrlRequestBuilderRequestsMetadata: RequestsMetada
 export const GetNotebookFromWebUrlRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/notebooks/getNotebookFromWebUrl";
 /* tslint:enable */
 /* eslint-enable */
-

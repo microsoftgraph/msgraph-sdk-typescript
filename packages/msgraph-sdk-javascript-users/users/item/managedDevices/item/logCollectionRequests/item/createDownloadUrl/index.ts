@@ -76,4 +76,3 @@ export const CreateDownloadUrlRequestBuilderRequestsMetadata: RequestsMetadata =
 export const CreateDownloadUrlRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests/{deviceLogCollectionResponse%2Did}/createDownloadUrl";
 /* tslint:enable */
 /* eslint-enable */
-

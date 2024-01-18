@@ -81,4 +81,3 @@ export const SetStatusMessageRequestBuilderRequestsMetadata: RequestsMetadata = 
 export const SetStatusMessageRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/presence/setStatusMessage";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -111,4 +111,3 @@ export const ChecklistItemItemRequestBuilderRequestsMetadata: RequestsMetadata =
 export const ChecklistItemItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/checklistItems/{checklistItem%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

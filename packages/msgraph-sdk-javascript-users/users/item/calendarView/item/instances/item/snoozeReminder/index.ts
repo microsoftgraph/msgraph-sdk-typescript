@@ -81,4 +81,3 @@ export const SnoozeReminderRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const SnoozeReminderRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarView/{event%2Did}/instances/{event%2Did1}/snoozeReminder";
 /* tslint:enable */
 /* eslint-enable */
-

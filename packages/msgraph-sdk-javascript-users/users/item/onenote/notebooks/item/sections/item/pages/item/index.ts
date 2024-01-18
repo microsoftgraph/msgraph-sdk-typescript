@@ -167,4 +167,3 @@ export const OnenotePageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const OnenotePageItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/notebooks/{notebook%2Did}/sections/{onenoteSection%2Did}/pages/{onenotePage%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

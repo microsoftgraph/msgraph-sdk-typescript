@@ -83,4 +83,3 @@ export const ResetPasswordRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ResetPasswordRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/methods/{authenticationMethod%2Did}/resetPassword";
 /* tslint:enable */
 /* eslint-enable */
-

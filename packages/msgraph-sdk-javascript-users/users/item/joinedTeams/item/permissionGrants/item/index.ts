@@ -108,4 +108,3 @@ export const ResourceSpecificPermissionGrantItemRequestBuilderRequestsMetadata: 
 export const ResourceSpecificPermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/permissionGrants/{resourceSpecificPermissionGrant%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

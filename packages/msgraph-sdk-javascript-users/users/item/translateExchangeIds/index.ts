@@ -127,4 +127,3 @@ export const TranslateExchangeIdsRequestBuilderRequestsMetadata: RequestsMetadat
 export const TranslateExchangeIdsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/translateExchangeIds";
 /* tslint:enable */
 /* eslint-enable */
-

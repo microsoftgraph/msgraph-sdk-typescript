@@ -105,4 +105,3 @@ export const InferenceClassificationOverrideItemRequestBuilderRequestsMetadata: 
 export const InferenceClassificationOverrideItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/inferenceClassification/overrides/{inferenceClassificationOverride%2Did}{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-
