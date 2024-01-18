@@ -117,4 +117,3 @@ export const MarkReadRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const MarkReadRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/markRead";
 /* tslint:enable */
 /* eslint-enable */
-

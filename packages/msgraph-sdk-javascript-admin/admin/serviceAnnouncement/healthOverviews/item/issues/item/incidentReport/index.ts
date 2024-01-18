@@ -41,4 +41,3 @@ export const IncidentReportRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const IncidentReportRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/healthOverviews/{serviceHealth%2Did}/issues/{serviceHealthIssue%2Did}/incidentReport()";
 /* tslint:enable */
 /* eslint-enable */
-

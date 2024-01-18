@@ -117,4 +117,3 @@ export const UnarchiveRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const UnarchiveRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/unarchive";
 /* tslint:enable */
 /* eslint-enable */
-

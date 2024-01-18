@@ -117,4 +117,3 @@ export const ArchiveRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ArchiveRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/archive";
 /* tslint:enable */
 /* eslint-enable */
-

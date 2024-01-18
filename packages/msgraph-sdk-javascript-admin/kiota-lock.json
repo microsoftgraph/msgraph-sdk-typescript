@@ -30,6 +30,9 @@
     "/admin",
     "/admin/**"
   ],
-  "excludePatterns": [],
+  "excludePatterns": [
+    "/me",
+    "/me/**"
+  ],
   "disabledValidationRules": []
 }

@@ -122,4 +122,3 @@ export const ServiceHealthIssueItemRequestBuilderRequestsMetadata: RequestsMetad
 export const ServiceHealthIssueItemRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/healthOverviews/{serviceHealth%2Did}/issues/{serviceHealthIssue%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

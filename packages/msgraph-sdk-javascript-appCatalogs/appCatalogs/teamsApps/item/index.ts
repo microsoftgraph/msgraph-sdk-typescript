@@ -124,4 +124,3 @@ export const TeamsAppItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const TeamsAppItemRequestBuilderUriTemplate = "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

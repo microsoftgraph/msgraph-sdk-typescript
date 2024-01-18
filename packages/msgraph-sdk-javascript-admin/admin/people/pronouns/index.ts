@@ -91,4 +91,3 @@ export const PronounsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const PronounsRequestBuilderUriTemplate = "{+baseurl}/admin/people/pronouns{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

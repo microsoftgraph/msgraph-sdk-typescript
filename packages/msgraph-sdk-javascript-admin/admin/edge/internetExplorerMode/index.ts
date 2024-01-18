@@ -123,4 +123,3 @@ export const InternetExplorerModeRequestBuilderRequestsMetadata: RequestsMetadat
 export const InternetExplorerModeRequestBuilderUriTemplate = "{+baseurl}/admin/edge/internetExplorerMode{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

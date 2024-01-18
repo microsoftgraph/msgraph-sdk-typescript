@@ -133,4 +133,3 @@ export const ServiceUpdateMessageItemRequestBuilderRequestsMetadata: RequestsMet
 export const ServiceUpdateMessageItemRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

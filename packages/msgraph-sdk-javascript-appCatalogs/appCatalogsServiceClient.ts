@@ -53,11 +53,3 @@ export const AppCatalogsServiceClientNavigationMetadata: Record<Exclude<keyof Ap
 export const AppCatalogsServiceClientUriTemplate = "{+baseurl}";
 /* tslint:enable */
 /* eslint-enable */
-
-
-
-
-
-
-
-

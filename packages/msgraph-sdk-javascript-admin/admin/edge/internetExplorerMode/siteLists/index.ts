@@ -148,4 +148,3 @@ export const SiteListsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const SiteListsRequestBuilderUriTemplate = "{+baseurl}/admin/edge/internetExplorerMode/siteLists{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

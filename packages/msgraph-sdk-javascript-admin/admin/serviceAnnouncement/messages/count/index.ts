@@ -62,4 +62,3 @@ export const CountRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CountRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/$count{?%24search,%24filter}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -122,4 +122,3 @@ export const SharepointRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const SharepointRequestBuilderUriTemplate = "{+baseurl}/admin/sharepoint{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

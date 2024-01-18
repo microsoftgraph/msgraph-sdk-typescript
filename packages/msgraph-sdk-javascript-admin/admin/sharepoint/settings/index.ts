@@ -110,4 +110,3 @@ export const SettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const SettingsRequestBuilderUriTemplate = "{+baseurl}/admin/sharepoint/settings{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

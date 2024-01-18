@@ -117,4 +117,3 @@ export const MarkUnreadRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const MarkUnreadRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/markUnread";
 /* tslint:enable */
 /* eslint-enable */
-
