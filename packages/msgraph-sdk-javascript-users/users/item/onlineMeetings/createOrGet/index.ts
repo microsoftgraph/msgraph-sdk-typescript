@@ -113,4 +113,3 @@ export const CreateOrGetRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CreateOrGetRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings/createOrGet";
 /* tslint:enable */
 /* eslint-enable */
-

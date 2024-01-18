@@ -133,4 +133,3 @@ export const GetScheduleRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const GetScheduleRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendar/getSchedule";
 /* tslint:enable */
 /* eslint-enable */
-

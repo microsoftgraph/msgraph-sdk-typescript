@@ -87,4 +87,3 @@ export const MarkChatUnreadForUserRequestBuilderRequestsMetadata: RequestsMetada
 export const MarkChatUnreadForUserRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/markChatUnreadForUser";
 /* tslint:enable */
 /* eslint-enable */
-

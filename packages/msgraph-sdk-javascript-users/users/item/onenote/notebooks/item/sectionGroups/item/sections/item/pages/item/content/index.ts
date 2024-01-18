@@ -68,4 +68,3 @@ export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ContentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/notebooks/{notebook%2Did}/sectionGroups/{sectionGroup%2Did}/sections/{onenoteSection%2Did}/pages/{onenotePage%2Did}/content";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -98,4 +98,3 @@ export const SetPresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const SetPresenceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/presence/setPresence";
 /* tslint:enable */
 /* eslint-enable */
-

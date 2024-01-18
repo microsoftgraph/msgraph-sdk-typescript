@@ -67,4 +67,3 @@ export const MetadataContentRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const MetadataContentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/transcripts/{callTranscript%2Did}/metadataContent";
 /* tslint:enable */
 /* eslint-enable */
-

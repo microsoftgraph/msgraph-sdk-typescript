@@ -42,4 +42,3 @@ export const PreviewRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const PreviewRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/notebooks/{notebook%2Did}/sections/{onenoteSection%2Did}/pages/{onenotePage%2Did}/preview()";
 /* tslint:enable */
 /* eslint-enable */
-

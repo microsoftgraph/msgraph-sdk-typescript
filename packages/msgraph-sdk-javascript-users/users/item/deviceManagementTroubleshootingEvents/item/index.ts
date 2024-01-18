@@ -108,4 +108,3 @@ export const DeviceManagementTroubleshootingEventItemRequestBuilderRequestsMetad
 export const DeviceManagementTroubleshootingEventItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/deviceManagementTroubleshootingEvents/{deviceManagementTroubleshootingEvent%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

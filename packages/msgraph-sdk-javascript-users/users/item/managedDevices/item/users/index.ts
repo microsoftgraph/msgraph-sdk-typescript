@@ -94,4 +94,3 @@ export const UsersRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const UsersRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/users{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

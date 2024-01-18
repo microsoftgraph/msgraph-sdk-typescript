@@ -110,4 +110,3 @@ export const ShiftPreferencesRequestBuilderRequestsMetadata: RequestsMetadata = 
 export const ShiftPreferencesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/shiftPreferences{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

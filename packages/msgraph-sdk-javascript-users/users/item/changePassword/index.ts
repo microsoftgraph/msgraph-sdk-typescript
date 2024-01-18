@@ -86,4 +86,3 @@ export const ChangePasswordRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ChangePasswordRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/changePassword";
 /* tslint:enable */
 /* eslint-enable */
-

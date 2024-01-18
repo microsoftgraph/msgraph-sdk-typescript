@@ -68,4 +68,3 @@ export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ContentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/primaryChannel/filesFolder/content";
 /* tslint:enable */
 /* eslint-enable */
-

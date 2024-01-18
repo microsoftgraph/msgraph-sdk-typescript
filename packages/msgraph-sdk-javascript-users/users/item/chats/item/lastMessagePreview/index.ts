@@ -108,4 +108,3 @@ export const LastMessagePreviewRequestBuilderRequestsMetadata: RequestsMetadata 
 export const LastMessagePreviewRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/lastMessagePreview{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

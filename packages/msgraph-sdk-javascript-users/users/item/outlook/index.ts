@@ -102,4 +102,3 @@ export const OutlookRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const OutlookRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

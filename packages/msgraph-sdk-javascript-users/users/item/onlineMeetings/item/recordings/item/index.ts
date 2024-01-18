@@ -123,4 +123,3 @@ export const CallRecordingItemRequestBuilderRequestsMetadata: RequestsMetadata =
 export const CallRecordingItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/recordings/{callRecording%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

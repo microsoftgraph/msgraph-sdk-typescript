@@ -106,4 +106,3 @@ export const TimeOffReasonItemRequestBuilderRequestsMetadata: RequestsMetadata =
 export const TimeOffReasonItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/timeOffReasons/{timeOffReason%2Did}{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

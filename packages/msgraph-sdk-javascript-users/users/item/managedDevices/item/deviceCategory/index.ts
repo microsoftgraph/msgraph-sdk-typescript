@@ -110,4 +110,3 @@ export const DeviceCategoryRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const DeviceCategoryRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/deviceCategory{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

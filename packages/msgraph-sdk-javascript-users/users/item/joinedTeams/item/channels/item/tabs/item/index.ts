@@ -125,4 +125,3 @@ export const TeamsTabItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const TeamsTabItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/channels/{channel%2Did}/tabs/{teamsTab%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -110,4 +110,3 @@ export const ProgressTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMeta
 export const ProgressTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/planner/tasks/{plannerTask%2Did}/progressTaskBoardFormat{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

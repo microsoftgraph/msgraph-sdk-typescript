@@ -40,4 +40,3 @@ export const RemoteLockRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const RemoteLockRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/remoteLock";
 /* tslint:enable */
 /* eslint-enable */
-

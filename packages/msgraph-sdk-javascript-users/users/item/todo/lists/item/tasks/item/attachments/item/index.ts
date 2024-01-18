@@ -93,4 +93,3 @@ export const AttachmentBaseItemRequestBuilderRequestsMetadata: RequestsMetadata 
 export const AttachmentBaseItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments/{attachmentBase%2Did}{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

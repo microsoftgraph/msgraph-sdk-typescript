@@ -115,4 +115,3 @@ export const AddRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const AddRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/members/add";
 /* tslint:enable */
 /* eslint-enable */
-

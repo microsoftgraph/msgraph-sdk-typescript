@@ -63,4 +63,3 @@ export const ManagedAppRegistrationItemRequestBuilderRequestsMetadata: RequestsM
 export const ManagedAppRegistrationItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedAppRegistrations/{managedAppRegistration%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

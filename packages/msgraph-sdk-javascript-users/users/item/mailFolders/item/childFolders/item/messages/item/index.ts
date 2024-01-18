@@ -223,4 +223,3 @@ export const MessageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const MessageItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messages/{message%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

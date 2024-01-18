@@ -40,4 +40,3 @@ export const UnarchiveRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const UnarchiveRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/unarchive";
 /* tslint:enable */
 /* eslint-enable */
-

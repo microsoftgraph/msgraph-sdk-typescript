@@ -98,4 +98,3 @@ export const ManagerRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ManagerRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/manager{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

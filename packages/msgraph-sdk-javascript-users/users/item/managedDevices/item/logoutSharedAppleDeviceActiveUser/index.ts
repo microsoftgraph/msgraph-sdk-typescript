@@ -40,4 +40,3 @@ export const LogoutSharedAppleDeviceActiveUserRequestBuilderRequestsMetadata: Re
 export const LogoutSharedAppleDeviceActiveUserRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logoutSharedAppleDeviceActiveUser";
 /* tslint:enable */
 /* eslint-enable */
-

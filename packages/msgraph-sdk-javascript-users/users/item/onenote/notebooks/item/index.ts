@@ -143,4 +143,3 @@ export const NotebookItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const NotebookItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/notebooks/{notebook%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -83,4 +83,3 @@ export const CopyRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CopyRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/copy";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -30,6 +30,9 @@
     "/users",
     "/users/**"
   ],
-  "excludePatterns": [],
+  "excludePatterns": [
+    "/me",
+    "/me/**"
+  ],
   "disabledValidationRules": []
 }

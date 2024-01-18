@@ -83,4 +83,3 @@ export const CreateUploadSessionRequestBuilderRequestsMetadata: RequestsMetadata
 export const CreateUploadSessionRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments/createUploadSession";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -122,4 +122,3 @@ export const UsedInsightItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const UsedInsightItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/used/{usedInsight%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

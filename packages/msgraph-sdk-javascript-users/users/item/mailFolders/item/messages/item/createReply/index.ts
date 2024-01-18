@@ -89,4 +89,3 @@ export const CreateReplyRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CreateReplyRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/messages/{message%2Did}/createReply";
 /* tslint:enable */
 /* eslint-enable */
-

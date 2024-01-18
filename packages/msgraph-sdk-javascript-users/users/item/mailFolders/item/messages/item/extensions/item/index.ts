@@ -110,4 +110,3 @@ export const ExtensionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ExtensionItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/messages/{message%2Did}/extensions/{extension%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

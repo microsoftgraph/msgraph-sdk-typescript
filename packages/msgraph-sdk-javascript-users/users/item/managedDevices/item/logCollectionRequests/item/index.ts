@@ -122,4 +122,3 @@ export const DeviceLogCollectionResponseItemRequestBuilderRequestsMetadata: Requ
 export const DeviceLogCollectionResponseItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests/{deviceLogCollectionResponse%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

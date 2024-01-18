@@ -83,4 +83,3 @@ export const AttachmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const AttachmentItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}/calendarView/{event%2Did}/attachments/{attachment%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

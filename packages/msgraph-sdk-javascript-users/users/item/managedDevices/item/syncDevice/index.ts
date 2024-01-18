@@ -40,4 +40,3 @@ export const SyncDeviceRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const SyncDeviceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/syncDevice";
 /* tslint:enable */
 /* eslint-enable */
-

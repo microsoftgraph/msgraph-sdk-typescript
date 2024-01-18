@@ -40,4 +40,3 @@ export const RemoveAllDevicesFromManagementRequestBuilderRequestsMetadata: Reque
 export const RemoveAllDevicesFromManagementRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/removeAllDevicesFromManagement";
 /* tslint:enable */
 /* eslint-enable */
-

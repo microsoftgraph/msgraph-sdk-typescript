@@ -62,4 +62,3 @@ export const CountRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CountRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/notebooks/{notebook%2Did}/sections/{onenoteSection%2Did}/pages/$count{?%24search,%24filter}";
 /* tslint:enable */
 /* eslint-enable */
-

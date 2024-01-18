@@ -40,4 +40,3 @@ export const RetireRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const RetireRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/retire";
 /* tslint:enable */
 /* eslint-enable */
-

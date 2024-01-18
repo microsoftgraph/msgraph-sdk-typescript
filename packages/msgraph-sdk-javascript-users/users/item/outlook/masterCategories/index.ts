@@ -137,4 +137,3 @@ export const MasterCategoriesRequestBuilderRequestsMetadata: RequestsMetadata = 
 export const MasterCategoriesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/masterCategories{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

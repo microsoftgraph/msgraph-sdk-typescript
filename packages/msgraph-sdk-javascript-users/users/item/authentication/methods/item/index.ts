@@ -104,4 +104,3 @@ export const AuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMet
 export const AuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/methods/{authenticationMethod%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

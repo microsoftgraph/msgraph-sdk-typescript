@@ -67,4 +67,3 @@ export const AttendeeReportRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const AttendeeReportRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/attendeeReport";
 /* tslint:enable */
 /* eslint-enable */
-

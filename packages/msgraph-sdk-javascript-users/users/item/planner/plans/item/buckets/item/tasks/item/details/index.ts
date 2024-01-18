@@ -110,4 +110,3 @@ export const DetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const DetailsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/planner/plans/{plannerPlan%2Did}/buckets/{plannerBucket%2Did}/tasks/{plannerTask%2Did}/details{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

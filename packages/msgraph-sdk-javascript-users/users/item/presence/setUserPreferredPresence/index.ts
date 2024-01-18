@@ -92,4 +92,3 @@ export const SetUserPreferredPresenceRequestBuilderRequestsMetadata: RequestsMet
 export const SetUserPreferredPresenceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/presence/setUserPreferredPresence";
 /* tslint:enable */
 /* eslint-enable */
-

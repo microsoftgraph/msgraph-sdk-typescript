@@ -151,4 +151,3 @@ export const OwnedDevicesRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const OwnedDevicesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/ownedDevices{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

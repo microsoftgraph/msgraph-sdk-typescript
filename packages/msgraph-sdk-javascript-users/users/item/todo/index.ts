@@ -123,4 +123,3 @@ export const TodoRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const TodoRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

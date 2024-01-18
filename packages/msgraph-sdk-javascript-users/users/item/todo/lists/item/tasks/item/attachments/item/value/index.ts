@@ -67,4 +67,3 @@ export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ContentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments/{attachmentBase%2Did}/$value";
 /* tslint:enable */
 /* eslint-enable */
-

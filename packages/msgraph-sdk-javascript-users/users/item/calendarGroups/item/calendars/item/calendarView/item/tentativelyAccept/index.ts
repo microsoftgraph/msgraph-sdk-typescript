@@ -93,4 +93,3 @@ export const TentativelyAcceptRequestBuilderRequestsMetadata: RequestsMetadata =
 export const TentativelyAcceptRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}/calendarView/{event%2Did}/tentativelyAccept";
 /* tslint:enable */
 /* eslint-enable */
-

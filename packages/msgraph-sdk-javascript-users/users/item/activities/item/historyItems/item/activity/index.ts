@@ -63,4 +63,3 @@ export const ActivityRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ActivityRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/activities/{userActivity%2Did}/historyItems/{activityHistoryItem%2Did}/activity{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

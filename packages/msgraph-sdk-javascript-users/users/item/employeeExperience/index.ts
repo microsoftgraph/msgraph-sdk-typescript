@@ -123,4 +123,3 @@ export const EmployeeExperienceRequestBuilderRequestsMetadata: RequestsMetadata 
 export const EmployeeExperienceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/employeeExperience{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -81,4 +81,3 @@ export const UnhideForUserRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const UnhideForUserRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/unhideForUser";
 /* tslint:enable */
 /* eslint-enable */
-

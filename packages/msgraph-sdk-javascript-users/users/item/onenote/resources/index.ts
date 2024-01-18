@@ -146,4 +146,3 @@ export const ResourcesRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ResourcesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/resources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

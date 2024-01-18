@@ -63,4 +63,3 @@ export const GraphAppRoleAssignmentRequestBuilderRequestsMetadata: RequestsMetad
 export const GraphAppRoleAssignmentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/ownedDevices/{directoryObject%2Did}/graph.appRoleAssignment{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

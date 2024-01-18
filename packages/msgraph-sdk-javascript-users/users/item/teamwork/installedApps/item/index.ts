@@ -142,4 +142,3 @@ export const UserScopeTeamsAppInstallationItemRequestBuilderRequestsMetadata: Re
 export const UserScopeTeamsAppInstallationItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/teamwork/installedApps/{userScopeTeamsAppInstallation%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

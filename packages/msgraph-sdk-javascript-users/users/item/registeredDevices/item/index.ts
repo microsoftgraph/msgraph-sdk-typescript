@@ -95,4 +95,3 @@ export const DirectoryObjectItemRequestBuilderRequestsMetadata: RequestsMetadata
 export const DirectoryObjectItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/registeredDevices/{directoryObject%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

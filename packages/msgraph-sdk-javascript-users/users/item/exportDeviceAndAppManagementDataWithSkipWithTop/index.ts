@@ -42,4 +42,3 @@ export const ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilderReques
 export const ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/exportDeviceAndAppManagementData(skip={skip},top={top})";
 /* tslint:enable */
 /* eslint-enable */
-

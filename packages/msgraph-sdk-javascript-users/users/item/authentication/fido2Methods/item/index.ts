@@ -84,4 +84,3 @@ export const Fido2AuthenticationMethodItemRequestBuilderRequestsMetadata: Reques
 export const Fido2AuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/fido2Methods/{fido2AuthenticationMethod%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

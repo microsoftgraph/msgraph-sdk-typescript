@@ -178,4 +178,3 @@ export const EventItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const EventItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarView/{event%2Did}{?startDateTime*,endDateTime*,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

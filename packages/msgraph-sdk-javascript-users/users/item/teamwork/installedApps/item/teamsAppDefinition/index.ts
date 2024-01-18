@@ -63,4 +63,3 @@ export const TeamsAppDefinitionRequestBuilderRequestsMetadata: RequestsMetadata 
 export const TeamsAppDefinitionRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/teamwork/installedApps/{userScopeTeamsAppInstallation%2Did}/teamsAppDefinition{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

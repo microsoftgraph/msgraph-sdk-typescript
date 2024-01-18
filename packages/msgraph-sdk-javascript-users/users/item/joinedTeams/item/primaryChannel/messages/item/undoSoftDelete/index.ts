@@ -40,4 +40,3 @@ export const UndoSoftDeleteRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const UndoSoftDeleteRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/primaryChannel/messages/{chatMessage%2Did}/undoSoftDelete";
 /* tslint:enable */
 /* eslint-enable */
-

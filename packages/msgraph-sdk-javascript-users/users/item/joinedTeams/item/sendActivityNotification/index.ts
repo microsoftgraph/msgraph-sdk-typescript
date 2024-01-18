@@ -117,4 +117,3 @@ export const SendActivityNotificationRequestBuilderRequestsMetadata: RequestsMet
 export const SendActivityNotificationRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/sendActivityNotification";
 /* tslint:enable */
 /* eslint-enable */
-

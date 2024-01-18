@@ -108,4 +108,3 @@ export const ScopedRoleMembershipItemRequestBuilderRequestsMetadata: RequestsMet
 export const ScopedRoleMembershipItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/scopedRoleMemberOf/{scopedRoleMembership%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

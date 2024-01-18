@@ -160,4 +160,3 @@ export const OnenoteSectionItemRequestBuilderRequestsMetadata: RequestsMetadata 
 export const OnenoteSectionItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/sections/{onenoteSection%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

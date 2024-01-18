@@ -57,4 +57,3 @@ export const CountRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CountRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendar/calendarView/{event%2Did}/instances/{event%2Did1}/attachments/$count{?%24filter}";
 /* tslint:enable */
 /* eslint-enable */
-

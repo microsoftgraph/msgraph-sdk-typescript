@@ -148,4 +148,3 @@ export const PinnedMessagesRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const PinnedMessagesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/pinnedMessages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

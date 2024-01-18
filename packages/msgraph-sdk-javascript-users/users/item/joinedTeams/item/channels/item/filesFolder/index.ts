@@ -78,4 +78,3 @@ export const FilesFolderRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const FilesFolderRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/channels/{channel%2Did}/filesFolder{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

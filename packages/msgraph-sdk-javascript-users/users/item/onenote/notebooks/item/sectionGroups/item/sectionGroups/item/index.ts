@@ -63,4 +63,3 @@ export const SectionGroupItemRequestBuilderRequestsMetadata: RequestsMetadata = 
 export const SectionGroupItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/notebooks/{notebook%2Did}/sectionGroups/{sectionGroup%2Did}/sectionGroups/{sectionGroup%2Did1}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

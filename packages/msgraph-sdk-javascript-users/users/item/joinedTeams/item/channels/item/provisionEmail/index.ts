@@ -43,4 +43,3 @@ export const ProvisionEmailRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ProvisionEmailRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/channels/{channel%2Did}/provisionEmail";
 /* tslint:enable */
 /* eslint-enable */
-

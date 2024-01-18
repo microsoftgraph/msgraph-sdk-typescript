@@ -81,4 +81,3 @@ export const UpgradeRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const UpgradeRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/installedApps/{teamsAppInstallation%2Did}/upgrade";
 /* tslint:enable */
 /* eslint-enable */
-

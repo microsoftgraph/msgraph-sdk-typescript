@@ -62,4 +62,3 @@ export const CountRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CountRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messages/$count{?%24search,%24filter}";
 /* tslint:enable */
 /* eslint-enable */
-

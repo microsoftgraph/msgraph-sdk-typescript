@@ -99,4 +99,3 @@ export const InferenceClassificationRequestBuilderRequestsMetadata: RequestsMeta
 export const InferenceClassificationRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/inferenceClassification{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

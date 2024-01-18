@@ -143,4 +143,3 @@ export const InsightsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const InsightsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

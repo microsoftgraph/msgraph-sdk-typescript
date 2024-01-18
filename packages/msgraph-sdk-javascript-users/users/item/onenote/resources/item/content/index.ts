@@ -67,4 +67,3 @@ export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ContentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/resources/{onenoteResource%2Did}/content";
 /* tslint:enable */
 /* eslint-enable */
-

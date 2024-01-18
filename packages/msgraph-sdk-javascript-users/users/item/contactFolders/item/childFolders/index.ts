@@ -152,4 +152,3 @@ export const ChildFoldersRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ChildFoldersRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}/childFolders{?%24top,%24skip,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

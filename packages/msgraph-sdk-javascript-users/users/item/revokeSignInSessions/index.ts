@@ -77,4 +77,3 @@ export const RevokeSignInSessionsRequestBuilderRequestsMetadata: RequestsMetadat
 export const RevokeSignInSessionsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/revokeSignInSessions";
 /* tslint:enable */
 /* eslint-enable */
-

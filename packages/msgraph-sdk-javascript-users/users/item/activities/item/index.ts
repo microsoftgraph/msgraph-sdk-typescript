@@ -124,4 +124,3 @@ export const UserActivityItemRequestBuilderRequestsMetadata: RequestsMetadata = 
 export const UserActivityItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/activities/{userActivity%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

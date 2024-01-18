@@ -114,4 +114,3 @@ export const CheckMemberObjectsRequestBuilderRequestsMetadata: RequestsMetadata 
 export const CheckMemberObjectsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/checkMemberObjects";
 /* tslint:enable */
 /* eslint-enable */
-

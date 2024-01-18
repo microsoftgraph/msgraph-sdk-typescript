@@ -80,4 +80,3 @@ export const DeleteUserFromSharedAppleDeviceRequestBuilderRequestsMetadata: Requ
 export const DeleteUserFromSharedAppleDeviceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/deleteUserFromSharedAppleDevice";
 /* tslint:enable */
 /* eslint-enable */
-

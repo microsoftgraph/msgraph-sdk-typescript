@@ -64,4 +64,3 @@ export const ChatRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ChatRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/teamwork/installedApps/{userScopeTeamsAppInstallation%2Did}/chat{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -228,4 +228,3 @@ export const ChatItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ChatItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

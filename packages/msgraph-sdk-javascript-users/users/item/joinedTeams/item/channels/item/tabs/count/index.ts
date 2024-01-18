@@ -62,4 +62,3 @@ export const CountRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CountRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/channels/{channel%2Did}/tabs/$count{?%24search,%24filter}";
 /* tslint:enable */
 /* eslint-enable */
-

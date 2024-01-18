@@ -83,4 +83,3 @@ export const CreateUploadSessionRequestBuilderRequestsMetadata: RequestsMetadata
 export const CreateUploadSessionRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}/calendarView/{event%2Did}/attachments/createUploadSession";
 /* tslint:enable */
 /* eslint-enable */
-

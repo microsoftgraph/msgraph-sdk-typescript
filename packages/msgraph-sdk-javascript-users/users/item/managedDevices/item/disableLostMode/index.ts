@@ -40,4 +40,3 @@ export const DisableLostModeRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const DisableLostModeRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/disableLostMode";
 /* tslint:enable */
 /* eslint-enable */
-

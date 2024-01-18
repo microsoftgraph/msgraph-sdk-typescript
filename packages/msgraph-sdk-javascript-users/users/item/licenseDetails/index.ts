@@ -146,4 +146,3 @@ export const LicenseDetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const LicenseDetailsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/licenseDetails{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

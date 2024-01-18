@@ -148,4 +148,3 @@ export const InstalledAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const InstalledAppsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/installedApps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -131,4 +131,3 @@ export const SharedInsightItemRequestBuilderRequestsMetadata: RequestsMetadata =
 export const SharedInsightItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/shared/{sharedInsight%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

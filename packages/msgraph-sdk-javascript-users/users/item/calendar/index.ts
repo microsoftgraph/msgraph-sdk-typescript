@@ -141,4 +141,3 @@ export const CalendarRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CalendarRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendar{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

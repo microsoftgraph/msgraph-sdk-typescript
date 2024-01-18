@@ -40,4 +40,3 @@ export const DisableSmsSignInRequestBuilderRequestsMetadata: RequestsMetadata = 
 export const DisableSmsSignInRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/phoneMethods/{phoneAuthenticationMethod%2Did}/disableSmsSignIn";
 /* tslint:enable */
 /* eslint-enable */
-

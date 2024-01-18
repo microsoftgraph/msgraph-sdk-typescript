@@ -147,4 +147,3 @@ export const MethodsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const MethodsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/methods{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

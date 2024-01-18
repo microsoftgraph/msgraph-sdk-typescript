@@ -40,4 +40,3 @@ export const DismissReminderRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const DismissReminderRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendar/calendarView/{event%2Did}/dismissReminder";
 /* tslint:enable */
 /* eslint-enable */
-

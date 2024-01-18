@@ -40,4 +40,3 @@ export const RemoveEmailRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const RemoveEmailRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/channels/{channel%2Did}/removeEmail";
 /* tslint:enable */
 /* eslint-enable */
-

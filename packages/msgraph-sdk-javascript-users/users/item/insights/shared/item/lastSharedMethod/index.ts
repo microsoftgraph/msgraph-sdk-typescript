@@ -63,4 +63,3 @@ export const LastSharedMethodRequestBuilderRequestsMetadata: RequestsMetadata = 
 export const LastSharedMethodRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/shared/{sharedInsight%2Did}/lastSharedMethod{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

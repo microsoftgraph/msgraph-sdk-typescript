@@ -110,4 +110,3 @@ export const SupportedTimeZonesRequestBuilderRequestsMetadata: RequestsMetadata 
 export const SupportedTimeZonesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/supportedTimeZones(){?%24top,%24skip,%24search,%24filter,%24count}";
 /* tslint:enable */
 /* eslint-enable */
-

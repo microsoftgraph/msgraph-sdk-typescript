@@ -123,4 +123,3 @@ export const ActivityHistoryItemItemRequestBuilderRequestsMetadata: RequestsMeta
 export const ActivityHistoryItemItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/activities/{userActivity%2Did}/historyItems/{activityHistoryItem%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -80,4 +80,3 @@ export const CleanWindowsDeviceRequestBuilderRequestsMetadata: RequestsMetadata 
 export const CleanWindowsDeviceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/cleanWindowsDevice";
 /* tslint:enable */
 /* eslint-enable */
-

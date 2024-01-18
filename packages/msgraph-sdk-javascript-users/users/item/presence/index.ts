@@ -159,4 +159,3 @@ export const PresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const PresenceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/presence{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

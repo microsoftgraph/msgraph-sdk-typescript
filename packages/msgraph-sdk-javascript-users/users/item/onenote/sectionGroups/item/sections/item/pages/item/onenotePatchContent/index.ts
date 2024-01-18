@@ -80,4 +80,3 @@ export const OnenotePatchContentRequestBuilderRequestsMetadata: RequestsMetadata
 export const OnenotePatchContentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/sectionGroups/{sectionGroup%2Did}/sections/{onenoteSection%2Did}/pages/{onenotePage%2Did}/onenotePatchContent";
 /* tslint:enable */
 /* eslint-enable */
-

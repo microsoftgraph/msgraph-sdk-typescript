@@ -63,4 +63,3 @@ export const TeamRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const TeamRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/primaryChannel/sharedWithTeams/{sharedWithChannelTeamInfo%2Did}/team{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

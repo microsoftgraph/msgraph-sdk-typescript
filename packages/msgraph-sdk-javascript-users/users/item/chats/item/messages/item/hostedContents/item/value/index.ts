@@ -67,4 +67,3 @@ export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ContentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/messages/{chatMessage%2Did}/hostedContents/{chatMessageHostedContent%2Did}/$value";
 /* tslint:enable */
 /* eslint-enable */
-

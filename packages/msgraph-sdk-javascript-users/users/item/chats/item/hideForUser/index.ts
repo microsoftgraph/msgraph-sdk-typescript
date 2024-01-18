@@ -81,4 +81,3 @@ export const HideForUserRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const HideForUserRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/hideForUser";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -63,4 +63,3 @@ export const GraphServicePrincipalRequestBuilderRequestsMetadata: RequestsMetada
 export const GraphServicePrincipalRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/createdObjects/{directoryObject%2Did}/graph.servicePrincipal{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -106,4 +106,3 @@ export const OutlookCategoryItemRequestBuilderRequestsMetadata: RequestsMetadata
 export const OutlookCategoryItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/masterCategories/{outlookCategory%2Did}{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

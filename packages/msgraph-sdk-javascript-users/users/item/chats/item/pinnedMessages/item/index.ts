@@ -123,4 +123,3 @@ export const PinnedChatMessageInfoItemRequestBuilderRequestsMetadata: RequestsMe
 export const PinnedChatMessageInfoItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/pinnedMessages/{pinnedChatMessageInfo%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

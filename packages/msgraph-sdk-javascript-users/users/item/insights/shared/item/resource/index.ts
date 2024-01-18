@@ -63,4 +63,3 @@ export const ResourceRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ResourceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/shared/{sharedInsight%2Did}/resource{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

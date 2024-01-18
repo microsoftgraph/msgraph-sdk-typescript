@@ -63,4 +63,3 @@ export const DeviceRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const DeviceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/microsoftAuthenticatorMethods/{microsoftAuthenticatorAuthenticationMethod%2Did}/device{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

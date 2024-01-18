@@ -92,4 +92,3 @@ export const ShareRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ShareRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/share";
 /* tslint:enable */
 /* eslint-enable */
-

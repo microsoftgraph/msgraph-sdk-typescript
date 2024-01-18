@@ -109,4 +109,3 @@ export const SwapShiftsChangeRequestItemRequestBuilderRequestsMetadata: Requests
 export const SwapShiftsChangeRequestItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/swapShiftsChangeRequests/{swapShiftsChangeRequest%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -80,4 +80,3 @@ export const ExportPersonalDataRequestBuilderRequestsMetadata: RequestsMetadata 
 export const ExportPersonalDataRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/exportPersonalData";
 /* tslint:enable */
 /* eslint-enable */
-

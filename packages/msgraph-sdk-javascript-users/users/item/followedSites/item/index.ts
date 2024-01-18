@@ -63,4 +63,3 @@ export const SiteItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const SiteItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/followedSites/{site%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

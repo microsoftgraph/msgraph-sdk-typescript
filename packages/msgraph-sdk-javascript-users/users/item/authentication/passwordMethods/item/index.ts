@@ -64,4 +64,3 @@ export const PasswordAuthenticationMethodItemRequestBuilderRequestsMetadata: Req
 export const PasswordAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/passwordMethods/{passwordAuthenticationMethod%2Did}{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

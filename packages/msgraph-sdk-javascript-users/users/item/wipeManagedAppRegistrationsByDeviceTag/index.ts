@@ -80,4 +80,3 @@ export const WipeManagedAppRegistrationsByDeviceTagRequestBuilderRequestsMetadat
 export const WipeManagedAppRegistrationsByDeviceTagRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/wipeManagedAppRegistrationsByDeviceTag";
 /* tslint:enable */
 /* eslint-enable */
-

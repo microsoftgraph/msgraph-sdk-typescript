@@ -40,4 +40,3 @@ export const ClearUserPreferredPresenceRequestBuilderRequestsMetadata: RequestsM
 export const ClearUserPreferredPresenceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/presence/clearUserPreferredPresence";
 /* tslint:enable */
 /* eslint-enable */
-

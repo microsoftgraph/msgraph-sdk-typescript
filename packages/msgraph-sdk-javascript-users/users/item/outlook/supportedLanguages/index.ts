@@ -111,4 +111,3 @@ export const SupportedLanguagesRequestBuilderRequestsMetadata: RequestsMetadata 
 export const SupportedLanguagesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/supportedLanguages(){?%24top,%24skip,%24search,%24filter,%24count}";
 /* tslint:enable */
 /* eslint-enable */
-

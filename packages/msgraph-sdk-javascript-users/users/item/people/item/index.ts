@@ -58,4 +58,3 @@ export const PersonItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const PersonItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/people/{person%2Did}{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

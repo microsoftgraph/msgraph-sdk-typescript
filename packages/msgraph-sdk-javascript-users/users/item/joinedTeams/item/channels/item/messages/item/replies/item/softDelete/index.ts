@@ -40,4 +40,3 @@ export const SoftDeleteRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const SoftDeleteRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/softDelete";
 /* tslint:enable */
 /* eslint-enable */
-

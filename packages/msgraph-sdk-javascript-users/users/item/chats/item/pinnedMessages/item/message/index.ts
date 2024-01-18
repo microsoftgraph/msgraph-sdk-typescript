@@ -63,4 +63,3 @@ export const MessageRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const MessageRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/pinnedMessages/{pinnedChatMessageInfo%2Did}/message{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

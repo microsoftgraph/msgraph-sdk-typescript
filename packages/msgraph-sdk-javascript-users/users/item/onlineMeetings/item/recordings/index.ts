@@ -146,4 +146,3 @@ export const RecordingsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const RecordingsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/recordings{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

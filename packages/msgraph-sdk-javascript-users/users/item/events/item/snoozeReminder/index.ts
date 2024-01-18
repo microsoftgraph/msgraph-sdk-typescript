@@ -81,4 +81,3 @@ export const SnoozeReminderRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const SnoozeReminderRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/events/{event%2Did}/snoozeReminder";
 /* tslint:enable */
 /* eslint-enable */
-

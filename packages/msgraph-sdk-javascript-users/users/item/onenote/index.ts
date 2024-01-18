@@ -173,4 +173,3 @@ export const OnenoteRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const OnenoteRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

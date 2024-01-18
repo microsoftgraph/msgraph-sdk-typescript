@@ -115,4 +115,3 @@ export const GetMemberGroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const GetMemberGroupsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/getMemberGroups";
 /* tslint:enable */
 /* eslint-enable */
-

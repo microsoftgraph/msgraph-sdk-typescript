@@ -40,4 +40,3 @@ export const RebootNowRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const RebootNowRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/rebootNow";
 /* tslint:enable */
 /* eslint-enable */
-

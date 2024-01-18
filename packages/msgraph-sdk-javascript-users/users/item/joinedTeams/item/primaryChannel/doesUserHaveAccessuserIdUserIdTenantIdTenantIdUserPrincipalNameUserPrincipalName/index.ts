@@ -93,4 +93,3 @@ export const DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUser
 export const DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/primaryChannel/doesUserHaveAccess(userId='@userId',tenantId='@tenantId',userPrincipalName='@userPrincipalName'){?userId*,tenantId*,userPrincipalName*}";
 /* tslint:enable */
 /* eslint-enable */
-

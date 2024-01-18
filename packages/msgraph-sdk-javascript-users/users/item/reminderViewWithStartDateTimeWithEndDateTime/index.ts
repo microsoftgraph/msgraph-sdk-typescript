@@ -110,4 +110,3 @@ export const ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderRequestsM
 export const ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/reminderView(StartDateTime='{StartDateTime}',EndDateTime='{EndDateTime}'){?%24top,%24skip,%24search,%24filter,%24count}";
 /* tslint:enable */
 /* eslint-enable */
-

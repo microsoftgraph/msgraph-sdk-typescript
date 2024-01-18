@@ -63,4 +63,3 @@ export const ParentSectionRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const ParentSectionRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/notebooks/{notebook%2Did}/sections/{onenoteSection%2Did}/pages/{onenotePage%2Did}/parentSection{?%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

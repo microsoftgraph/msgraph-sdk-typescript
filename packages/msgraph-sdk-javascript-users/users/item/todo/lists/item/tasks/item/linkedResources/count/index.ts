@@ -62,4 +62,3 @@ export const CountRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CountRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/linkedResources/$count{?%24search,%24filter}";
 /* tslint:enable */
 /* eslint-enable */
-

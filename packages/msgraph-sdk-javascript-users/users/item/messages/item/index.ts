@@ -230,4 +230,3 @@ export const MessageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const MessageItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/messages/{message%2Did}{?includeHiddenMessages*,%24select,%24expand}";
 /* tslint:enable */
 /* eslint-enable */
-

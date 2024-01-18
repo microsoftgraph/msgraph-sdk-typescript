@@ -111,4 +111,3 @@ export const CloneRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CloneRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/clone";
 /* tslint:enable */
 /* eslint-enable */
-

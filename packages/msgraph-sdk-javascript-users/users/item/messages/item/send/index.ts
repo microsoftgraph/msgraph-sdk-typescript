@@ -40,4 +40,3 @@ export const SendRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const SendRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/messages/{message%2Did}/send";
 /* tslint:enable */
 /* eslint-enable */
-

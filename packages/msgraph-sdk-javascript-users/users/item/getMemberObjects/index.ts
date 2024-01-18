@@ -115,4 +115,3 @@ export const GetMemberObjectsRequestBuilderRequestsMetadata: RequestsMetadata = 
 export const GetMemberObjectsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/getMemberObjects";
 /* tslint:enable */
 /* eslint-enable */
-

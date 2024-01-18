@@ -79,4 +79,3 @@ export const SetReactionRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const SetReactionRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/messages/{chatMessage%2Did}/setReaction";
 /* tslint:enable */
 /* eslint-enable */
-

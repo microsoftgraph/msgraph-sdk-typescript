@@ -83,4 +83,3 @@ export const MoveRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const MoveRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messages/{message%2Did}/move";
 /* tslint:enable */
 /* eslint-enable */
-

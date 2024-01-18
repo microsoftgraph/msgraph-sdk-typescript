@@ -53,4 +53,3 @@ export const UsersServiceClientNavigationMetadata: Record<Exclude<keyof UsersSer
 export const UsersServiceClientUriTemplate = "{+baseurl}";
 /* tslint:enable */
 /* eslint-enable */
-

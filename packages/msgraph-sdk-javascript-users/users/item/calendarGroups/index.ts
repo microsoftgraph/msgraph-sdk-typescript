@@ -138,4 +138,3 @@ export const CalendarGroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CalendarGroupsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}";
 /* tslint:enable */
 /* eslint-enable */
-

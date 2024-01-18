@@ -80,4 +80,3 @@ export const CancelRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const CancelRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}/calendarView/{event%2Did}/instances/{event%2Did1}/cancel";
 /* tslint:enable */
 /* eslint-enable */
-

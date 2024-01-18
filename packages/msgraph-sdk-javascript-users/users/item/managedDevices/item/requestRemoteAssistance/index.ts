@@ -40,4 +40,3 @@ export const RequestRemoteAssistanceRequestBuilderRequestsMetadata: RequestsMeta
 export const RequestRemoteAssistanceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/requestRemoteAssistance";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -121,4 +121,3 @@ export const RecentRequestBuilderRequestsMetadata: RequestsMetadata = {
 export const RecentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/activities/recent(){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -111,4 +111,3 @@ export const AllowedCalendarSharingRolesWithUserRequestBuilderRequestsMetadata: 
 export const AllowedCalendarSharingRolesWithUserRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendar/allowedCalendarSharingRoles(User='{User}'){?%24top,%24skip,%24search,%24filter,%24count}";
 /* tslint:enable */
 /* eslint-enable */
-

@@ -121,4 +121,3 @@ export const CalendarGroupItemRequestBuilderRequestsMetadata: RequestsMetadata =
 export const CalendarGroupItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}{?%24select}";
 /* tslint:enable */
 /* eslint-enable */
-
