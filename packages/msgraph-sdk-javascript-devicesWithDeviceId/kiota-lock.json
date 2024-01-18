@@ -1,0 +1,38 @@
+{
+  "descriptionHash": "C05C74F8C48F0E29BC7712586581D3A41770262BF7DE15E5C791E93371547045A91DE99577F02A7E22B228168C2A2250BB50703109D40E3E01639E1F198894D7",
+  "descriptionLocation": "https://aka.ms/graph/v1.0/openapi.yaml",
+  "lockFileVersion": "1.0.0",
+  "kiotaVersion": "1.11.0",
+  "clientClassName": "DevicesWithDeviceIdServiceClient",
+  "clientNamespaceName": "github.com/microsoftgraph/msgraph-sdk-typescript/",
+  "language": "TypeScript",
+  "usesBackingStore": false,
+  "excludeBackwardCompatible": false,
+  "includeAdditionalData": true,
+  "serializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Multipart.MultipartSerializationWriterFactory"
+  ],
+  "deserializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
+  ],
+  "structuredMimeTypes": [
+    "application/json",
+    "text/plain;q=0.9",
+    "application/x-www-form-urlencoded;q=0.2",
+    "multipart/form-data;q=0.1"
+  ],
+  "includePatterns": [
+    "/devicesWithDeviceId",
+    "/devicesWithDeviceId/**"
+  ],
+  "excludePatterns": [
+    "/me",
+    "/me/**"
+  ],
+  "disabledValidationRules": []
+}

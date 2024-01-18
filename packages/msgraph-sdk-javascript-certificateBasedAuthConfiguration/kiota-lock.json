@@ -1,0 +1,38 @@
+{
+  "descriptionHash": "6B62451B152F4701C229F554F3DDE4E140E31727834DB69DA9A083266F4440A551918B77BA16430AD7F44B1821105C8CF99E7A70520BB0C7204231FBAC17F6E4",
+  "descriptionLocation": "https://aka.ms/graph/v1.0/openapi.yaml",
+  "lockFileVersion": "1.0.0",
+  "kiotaVersion": "1.11.0",
+  "clientClassName": "CertificateBasedAuthConfigurationServiceClient",
+  "clientNamespaceName": "github.com/microsoftgraph/msgraph-sdk-typescript/",
+  "language": "TypeScript",
+  "usesBackingStore": false,
+  "excludeBackwardCompatible": false,
+  "includeAdditionalData": true,
+  "serializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Multipart.MultipartSerializationWriterFactory"
+  ],
+  "deserializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
+  ],
+  "structuredMimeTypes": [
+    "application/json",
+    "text/plain;q=0.9",
+    "application/x-www-form-urlencoded;q=0.2",
+    "multipart/form-data;q=0.1"
+  ],
+  "includePatterns": [
+    "/certificateBasedAuthConfiguration",
+    "/certificateBasedAuthConfiguration/**"
+  ],
+  "excludePatterns": [
+    "/me",
+    "/me/**"
+  ],
+  "disabledValidationRules": []
+}
