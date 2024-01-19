@@ -21,7 +21,7 @@ export interface DevicesServiceClient extends BaseRequestBuilder<DevicesServiceC
  * Instantiates a new DevicesServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newDevicesServiceClient(requestAdapter: RequestAdapter) {
+export function createDevicesServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

@@ -21,7 +21,7 @@ export interface ChatsServiceClient extends BaseRequestBuilder<ChatsServiceClien
  * Instantiates a new ChatsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newChatsServiceClient(requestAdapter: RequestAdapter) {
+export function createChatsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

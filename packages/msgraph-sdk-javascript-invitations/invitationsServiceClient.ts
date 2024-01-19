@@ -21,7 +21,7 @@ export interface InvitationsServiceClient extends BaseRequestBuilder<Invitations
  * Instantiates a new InvitationsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newInvitationsServiceClient(requestAdapter: RequestAdapter) {
+export function createInvitationsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

@@ -21,7 +21,7 @@ export interface ExternalServiceClient extends BaseRequestBuilder<ExternalServic
  * Instantiates a new ExternalServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newExternalServiceClient(requestAdapter: RequestAdapter) {
+export function createExternalServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

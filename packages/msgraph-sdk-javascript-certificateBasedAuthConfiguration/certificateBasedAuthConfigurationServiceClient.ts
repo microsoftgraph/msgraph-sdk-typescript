@@ -21,7 +21,7 @@ export interface CertificateBasedAuthConfigurationServiceClient extends BaseRequ
  * Instantiates a new CertificateBasedAuthConfigurationServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newCertificateBasedAuthConfigurationServiceClient(requestAdapter: RequestAdapter) {
+export function createCertificateBasedAuthConfigurationServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

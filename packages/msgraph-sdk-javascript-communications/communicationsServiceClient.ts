@@ -21,7 +21,7 @@ export interface CommunicationsServiceClient extends BaseRequestBuilder<Communic
  * Instantiates a new CommunicationsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newCommunicationsServiceClient(requestAdapter: RequestAdapter) {
+export function createCommunicationsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

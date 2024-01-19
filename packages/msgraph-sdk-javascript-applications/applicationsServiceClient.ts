@@ -21,7 +21,7 @@ export interface ApplicationsServiceClient extends BaseRequestBuilder<Applicatio
  * Instantiates a new ApplicationsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newApplicationsServiceClient(requestAdapter: RequestAdapter) {
+export function createApplicationsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

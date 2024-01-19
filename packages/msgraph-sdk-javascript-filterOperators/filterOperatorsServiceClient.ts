@@ -21,7 +21,7 @@ export interface FilterOperatorsServiceClient extends BaseRequestBuilder<FilterO
  * Instantiates a new FilterOperatorsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newFilterOperatorsServiceClient(requestAdapter: RequestAdapter) {
+export function createFilterOperatorsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

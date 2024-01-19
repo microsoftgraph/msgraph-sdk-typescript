@@ -21,7 +21,7 @@ export interface EducationServiceClient extends BaseRequestBuilder<EducationServ
  * Instantiates a new EducationServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newEducationServiceClient(requestAdapter: RequestAdapter) {
+export function createEducationServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

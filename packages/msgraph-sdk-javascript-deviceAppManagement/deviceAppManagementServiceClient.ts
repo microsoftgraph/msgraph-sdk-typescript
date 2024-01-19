@@ -21,7 +21,7 @@ export interface DeviceAppManagementServiceClient extends BaseRequestBuilder<Dev
  * Instantiates a new DeviceAppManagementServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newDeviceAppManagementServiceClient(requestAdapter: RequestAdapter) {
+export function createDeviceAppManagementServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

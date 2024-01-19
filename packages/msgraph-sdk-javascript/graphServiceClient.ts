@@ -16,7 +16,7 @@ export interface GraphServiceClient extends BaseRequestBuilder<GraphServiceClien
  * Instantiates a new GraphServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newGraphServiceClient(requestAdapter: RequestAdapter) {
+export function createGraphServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);
@@ -59,10 +59,3 @@ export function extendGraphServiceClient(clientNavigationMetadata?: NavigationMe
 export const GraphServiceClientUriTemplate = "{+baseurl}";
 /* tslint:enable */
 /* eslint-enable */
-
-
-
-
-
-
-

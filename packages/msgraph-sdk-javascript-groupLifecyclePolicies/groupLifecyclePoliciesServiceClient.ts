@@ -21,7 +21,7 @@ export interface GroupLifecyclePoliciesServiceClient extends BaseRequestBuilder<
  * Instantiates a new GroupLifecyclePoliciesServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newGroupLifecyclePoliciesServiceClient(requestAdapter: RequestAdapter) {
+export function createGroupLifecyclePoliciesServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

@@ -21,7 +21,7 @@ export interface FunctionsServiceClient extends BaseRequestBuilder<FunctionsServ
  * Instantiates a new FunctionsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newFunctionsServiceClient(requestAdapter: RequestAdapter) {
+export function createFunctionsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

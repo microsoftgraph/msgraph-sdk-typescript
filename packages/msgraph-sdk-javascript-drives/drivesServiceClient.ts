@@ -21,7 +21,7 @@ export interface DrivesServiceClient extends BaseRequestBuilder<DrivesServiceCli
  * Instantiates a new DrivesServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newDrivesServiceClient(requestAdapter: RequestAdapter) {
+export function createDrivesServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

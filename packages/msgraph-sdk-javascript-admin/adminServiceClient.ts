@@ -21,7 +21,7 @@ export interface AdminServiceClient extends BaseRequestBuilder<AdminServiceClien
  * Instantiates a new AdminServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newAdminServiceClient(requestAdapter: RequestAdapter) {
+export function createAdminServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

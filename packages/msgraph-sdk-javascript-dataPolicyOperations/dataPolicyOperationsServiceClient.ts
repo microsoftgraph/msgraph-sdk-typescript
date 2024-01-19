@@ -21,7 +21,7 @@ export interface DataPolicyOperationsServiceClient extends BaseRequestBuilder<Da
  * Instantiates a new DataPolicyOperationsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newDataPolicyOperationsServiceClient(requestAdapter: RequestAdapter) {
+export function createDataPolicyOperationsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

@@ -21,7 +21,7 @@ export interface AuthenticationMethodsPolicyServiceClient extends BaseRequestBui
  * Instantiates a new AuthenticationMethodsPolicyServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newAuthenticationMethodsPolicyServiceClient(requestAdapter: RequestAdapter) {
+export function createAuthenticationMethodsPolicyServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);
