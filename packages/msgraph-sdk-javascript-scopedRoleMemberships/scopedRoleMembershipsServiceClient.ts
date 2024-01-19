@@ -12,7 +12,7 @@ import { TextParseNodeFactory, TextSerializationWriterFactory } from '@microsoft
  * Instantiates a new ScopedRoleMembershipsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newScopedRoleMembershipsServiceClient(requestAdapter: RequestAdapter) {
+export function createScopedRoleMembershipsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

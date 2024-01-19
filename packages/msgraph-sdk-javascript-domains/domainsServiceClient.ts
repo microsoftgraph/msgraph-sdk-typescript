@@ -21,7 +21,7 @@ export interface DomainsServiceClient extends BaseRequestBuilder<DomainsServiceC
  * Instantiates a new DomainsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newDomainsServiceClient(requestAdapter: RequestAdapter) {
+export function createDomainsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

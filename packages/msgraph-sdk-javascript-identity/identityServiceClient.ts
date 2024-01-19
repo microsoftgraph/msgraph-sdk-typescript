@@ -21,7 +21,7 @@ export interface IdentityServiceClient extends BaseRequestBuilder<IdentityServic
  * Instantiates a new IdentityServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newIdentityServiceClient(requestAdapter: RequestAdapter) {
+export function createIdentityServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

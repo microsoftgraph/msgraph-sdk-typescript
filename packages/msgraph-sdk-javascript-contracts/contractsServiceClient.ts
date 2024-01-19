@@ -21,7 +21,7 @@ export interface ContractsServiceClient extends BaseRequestBuilder<ContractsServ
  * Instantiates a new ContractsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newContractsServiceClient(requestAdapter: RequestAdapter) {
+export function createContractsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

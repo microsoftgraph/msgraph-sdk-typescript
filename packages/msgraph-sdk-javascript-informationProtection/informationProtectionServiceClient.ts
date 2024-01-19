@@ -21,7 +21,7 @@ export interface InformationProtectionServiceClient extends BaseRequestBuilder<I
  * Instantiates a new InformationProtectionServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newInformationProtectionServiceClient(requestAdapter: RequestAdapter) {
+export function createInformationProtectionServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

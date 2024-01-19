@@ -21,7 +21,7 @@ export interface AgreementsServiceClient extends BaseRequestBuilder<AgreementsSe
  * Instantiates a new AgreementsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newAgreementsServiceClient(requestAdapter: RequestAdapter) {
+export function createAgreementsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

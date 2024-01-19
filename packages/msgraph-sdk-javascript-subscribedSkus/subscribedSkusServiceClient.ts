@@ -12,7 +12,7 @@ import { TextParseNodeFactory, TextSerializationWriterFactory } from '@microsoft
  * Instantiates a new SubscribedSkusServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newSubscribedSkusServiceClient(requestAdapter: RequestAdapter) {
+export function createSubscribedSkusServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

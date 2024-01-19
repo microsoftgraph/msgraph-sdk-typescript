@@ -12,7 +12,7 @@ import { TextParseNodeFactory, TextSerializationWriterFactory } from '@microsoft
  * Instantiates a new RoleManagementServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newRoleManagementServiceClient(requestAdapter: RequestAdapter) {
+export function createRoleManagementServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

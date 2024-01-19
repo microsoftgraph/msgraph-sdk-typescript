@@ -12,7 +12,7 @@ import { TextParseNodeFactory, TextSerializationWriterFactory } from '@microsoft
  * Instantiates a new SharesServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newSharesServiceClient(requestAdapter: RequestAdapter) {
+export function createSharesServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

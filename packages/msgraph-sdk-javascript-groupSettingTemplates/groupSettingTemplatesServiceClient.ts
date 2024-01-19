@@ -21,7 +21,7 @@ export interface GroupSettingTemplatesServiceClient extends BaseRequestBuilder<G
  * Instantiates a new GroupSettingTemplatesServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newGroupSettingTemplatesServiceClient(requestAdapter: RequestAdapter) {
+export function createGroupSettingTemplatesServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

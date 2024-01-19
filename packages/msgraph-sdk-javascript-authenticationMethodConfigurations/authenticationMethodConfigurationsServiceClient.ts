@@ -21,7 +21,7 @@ export interface AuthenticationMethodConfigurationsServiceClient extends BaseReq
  * Instantiates a new AuthenticationMethodConfigurationsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newAuthenticationMethodConfigurationsServiceClient(requestAdapter: RequestAdapter) {
+export function createAuthenticationMethodConfigurationsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

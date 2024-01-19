@@ -12,7 +12,7 @@ import { TextParseNodeFactory, TextSerializationWriterFactory } from '@microsoft
  * Instantiates a new ServicePrincipalsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newServicePrincipalsServiceClient(requestAdapter: RequestAdapter) {
+export function createServicePrincipalsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

@@ -21,7 +21,7 @@ export interface DomainDnsRecordsServiceClient extends BaseRequestBuilder<Domain
  * Instantiates a new DomainDnsRecordsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newDomainDnsRecordsServiceClient(requestAdapter: RequestAdapter) {
+export function createDomainDnsRecordsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

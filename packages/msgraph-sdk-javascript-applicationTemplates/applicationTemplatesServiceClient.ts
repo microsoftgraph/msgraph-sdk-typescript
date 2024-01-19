@@ -21,7 +21,7 @@ export interface ApplicationTemplatesServiceClient extends BaseRequestBuilder<Ap
  * Instantiates a new ApplicationTemplatesServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newApplicationTemplatesServiceClient(requestAdapter: RequestAdapter) {
+export function createApplicationTemplatesServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

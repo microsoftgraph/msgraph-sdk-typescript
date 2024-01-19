@@ -21,7 +21,7 @@ export interface AppCatalogsServiceClient extends BaseRequestBuilder<AppCatalogs
  * Instantiates a new AppCatalogsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newAppCatalogsServiceClient(requestAdapter: RequestAdapter) {
+export function createAppCatalogsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

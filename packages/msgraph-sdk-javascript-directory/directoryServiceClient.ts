@@ -21,7 +21,7 @@ export interface DirectoryServiceClient extends BaseRequestBuilder<DirectoryServ
  * Instantiates a new DirectoryServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newDirectoryServiceClient(requestAdapter: RequestAdapter) {
+export function createDirectoryServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

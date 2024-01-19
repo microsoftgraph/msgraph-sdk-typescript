@@ -21,7 +21,7 @@ export interface ContactsServiceClient extends BaseRequestBuilder<ContactsServic
  * Instantiates a new ContactsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newContactsServiceClient(requestAdapter: RequestAdapter) {
+export function createContactsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

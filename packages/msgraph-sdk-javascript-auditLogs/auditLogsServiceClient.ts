@@ -21,7 +21,7 @@ export interface AuditLogsServiceClient extends BaseRequestBuilder<AuditLogsServ
  * Instantiates a new AuditLogsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newAuditLogsServiceClient(requestAdapter: RequestAdapter) {
+export function createAuditLogsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

@@ -21,7 +21,7 @@ export interface EmployeeExperienceServiceClient extends BaseRequestBuilder<Empl
  * Instantiates a new EmployeeExperienceServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newEmployeeExperienceServiceClient(requestAdapter: RequestAdapter) {
+export function createEmployeeExperienceServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

@@ -21,7 +21,7 @@ export interface ComplianceServiceClient extends BaseRequestBuilder<ComplianceSe
  * Instantiates a new ComplianceServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newComplianceServiceClient(requestAdapter: RequestAdapter) {
+export function createComplianceServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

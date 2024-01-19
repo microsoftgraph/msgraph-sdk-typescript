@@ -21,7 +21,7 @@ export interface IdentityGovernanceServiceClient extends BaseRequestBuilder<Iden
  * Instantiates a new IdentityGovernanceServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newIdentityGovernanceServiceClient(requestAdapter: RequestAdapter) {
+export function createIdentityGovernanceServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

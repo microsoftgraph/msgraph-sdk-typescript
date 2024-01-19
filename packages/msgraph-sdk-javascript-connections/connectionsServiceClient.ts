@@ -21,7 +21,7 @@ export interface ConnectionsServiceClient extends BaseRequestBuilder<Connections
  * Instantiates a new ConnectionsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newConnectionsServiceClient(requestAdapter: RequestAdapter) {
+export function createConnectionsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

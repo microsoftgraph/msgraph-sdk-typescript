@@ -21,7 +21,7 @@ export interface DirectoryObjectsServiceClient extends BaseRequestBuilder<Direct
  * Instantiates a new DirectoryObjectsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newDirectoryObjectsServiceClient(requestAdapter: RequestAdapter) {
+export function createDirectoryObjectsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

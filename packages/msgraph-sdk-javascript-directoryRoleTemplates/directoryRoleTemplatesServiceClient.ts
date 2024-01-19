@@ -21,7 +21,7 @@ export interface DirectoryRoleTemplatesServiceClient extends BaseRequestBuilder<
  * Instantiates a new DirectoryRoleTemplatesServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newDirectoryRoleTemplatesServiceClient(requestAdapter: RequestAdapter) {
+export function createDirectoryRoleTemplatesServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

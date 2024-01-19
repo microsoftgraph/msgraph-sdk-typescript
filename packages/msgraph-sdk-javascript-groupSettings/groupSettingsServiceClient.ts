@@ -21,7 +21,7 @@ export interface GroupSettingsServiceClient extends BaseRequestBuilder<GroupSett
  * Instantiates a new GroupSettingsServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newGroupSettingsServiceClient(requestAdapter: RequestAdapter) {
+export function createGroupSettingsServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);

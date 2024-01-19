@@ -21,7 +21,7 @@ export interface IdentityProtectionServiceClient extends BaseRequestBuilder<Iden
  * Instantiates a new IdentityProtectionServiceClient and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
-export function newIdentityProtectionServiceClient(requestAdapter: RequestAdapter) {
+export function createIdentityProtectionServiceClient(requestAdapter: RequestAdapter) {
     registerDefaultSerializer(JsonSerializationWriterFactory);
     registerDefaultSerializer(TextSerializationWriterFactory);
     registerDefaultSerializer(FormSerializationWriterFactory);
