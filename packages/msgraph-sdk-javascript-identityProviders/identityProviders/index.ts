@@ -14,26 +14,26 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
 export interface IdentityProvidersRequestBuilder extends BaseRequestBuilder<IdentityProvidersRequestBuilder> {
     /**
      * Provides operations to call the availableProviderTypes method.
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
     get availableProviderTypes(): AvailableProviderTypesRequestBuilder;
     /**
      * Provides operations to count the resources in the collection.
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
     get count(): CountRequestBuilder;
     /**
      * Provides operations to manage the collection of identityProvider entities.
      * @param identityProviderId The unique identifier of identityProvider
      * @returns a IdentityProviderItemRequestBuilder
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
      byIdentityProviderId(identityProviderId: string) : IdentityProviderItemRequestBuilder;
     /**
      * Retrieve all identityProviders in the directory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityProviderCollectionResponse
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      * @see {@link https://learn.microsoft.com/graph/api/identityprovider-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IdentityProvidersRequestBuilderGetQueryParameters> | undefined) : Promise<IdentityProviderCollectionResponse | undefined>;
@@ -42,7 +42,7 @@ export interface IdentityProvidersRequestBuilder extends BaseRequestBuilder<Iden
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityProvider
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      * @see {@link https://learn.microsoft.com/graph/api/identityprovider-post-identityproviders?view=graph-rest-1.0|Find more info here}
      */
      post(body: IdentityProvider, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IdentityProvider | undefined>;
@@ -50,7 +50,7 @@ export interface IdentityProvidersRequestBuilder extends BaseRequestBuilder<Iden
      * Retrieve all identityProviders in the directory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IdentityProvidersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
@@ -58,7 +58,7 @@ export interface IdentityProvidersRequestBuilder extends BaseRequestBuilder<Iden
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
      toPostRequestInformation(body: IdentityProvider, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }

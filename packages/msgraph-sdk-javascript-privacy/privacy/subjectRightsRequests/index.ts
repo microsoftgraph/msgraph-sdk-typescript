@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
 export interface SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder<SubjectRightsRequestsRequestBuilder> {
     /**
      * Provides operations to count the resources in the collection.
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     get count(): CountRequestBuilder;
     /**
      * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
      * @param subjectRightsRequestId The unique identifier of subjectRightsRequest
      * @returns a SubjectRightsRequestItemRequestBuilder
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
      bySubjectRightsRequestId(subjectRightsRequestId: string) : SubjectRightsRequestItemRequestBuilder;
     /**
      * Get a list of subjectRightsRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubjectRightsRequestCollectionResponse
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SubjectRightsRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<SubjectRightsRequestCollectionResponse | undefined>;
@@ -36,7 +36,7 @@ export interface SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder<
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubjectRightsRequest
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: SubjectRightsRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SubjectRightsRequest | undefined>;
@@ -44,7 +44,7 @@ export interface SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder<
      * Get a list of subjectRightsRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SubjectRightsRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
@@ -52,7 +52,7 @@ export interface SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder<
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
      toPostRequestInformation(body: SubjectRightsRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }

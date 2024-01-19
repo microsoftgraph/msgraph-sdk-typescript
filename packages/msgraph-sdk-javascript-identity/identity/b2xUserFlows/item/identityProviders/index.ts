@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
 export interface IdentityProvidersRequestBuilder extends BaseRequestBuilder<IdentityProvidersRequestBuilder> {
     /**
      * Provides operations to count the resources in the collection.
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
     get count(): CountRequestBuilder;
     /**
      * Provides operations to manage the identityProviders property of the microsoft.graph.b2xIdentityUserFlow entity.
      * @param identityProviderId The unique identifier of identityProvider
      * @returns a IdentityProviderItemRequestBuilder
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
      byIdentityProviderId(identityProviderId: string) : IdentityProviderItemRequestBuilder;
     /**
      * Get the identity providers in a b2xIdentityUserFlow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityProviderCollectionResponse
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      * @see {@link https://learn.microsoft.com/graph/api/b2xidentityuserflow-list-identityproviders?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IdentityProvidersRequestBuilderGetQueryParameters> | undefined) : Promise<IdentityProviderCollectionResponse | undefined>;
@@ -35,7 +35,7 @@ export interface IdentityProvidersRequestBuilder extends BaseRequestBuilder<Iden
      * Get the identity providers in a b2xIdentityUserFlow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IdentityProvidersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
