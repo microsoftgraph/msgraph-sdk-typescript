@@ -77,10 +77,10 @@ export class PresenceRequestBuilder extends BaseRequestBuilder<PresenceRequestBu
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     }
     /**
-     * Set a presence status message for a user. An optional expiration date and time can be supplied.
+     * Get a user's presence information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Presence
-     * @see {@link https://learn.microsoft.com/graph/api/presence-setstatusmessage?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/presence-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<PresenceRequestBuilderGetQueryParameters> | undefined) : Promise<Presence | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -120,7 +120,7 @@ export class PresenceRequestBuilder extends BaseRequestBuilder<PresenceRequestBu
         return requestInfo;
     }
     /**
-     * Set a presence status message for a user. An optional expiration date and time can be supplied.
+     * Get a user's presence information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

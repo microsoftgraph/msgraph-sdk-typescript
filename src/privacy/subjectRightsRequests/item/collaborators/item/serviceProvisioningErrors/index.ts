@@ -46,7 +46,7 @@ export interface ServiceProvisioningErrorsRequestBuilderGetQueryParameters {
 export class ServiceProvisioningErrorsRequestBuilder extends BaseRequestBuilder<ServiceProvisioningErrorsRequestBuilder> {
     /**
      * Provides operations to count the resources in the collection.
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -63,7 +63,7 @@ export class ServiceProvisioningErrorsRequestBuilder extends BaseRequestBuilder<
      * Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a user object .  Supports $filter (eq, not, for isResolved and serviceInstance).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServiceProvisioningErrorCollectionResponse
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public get(requestConfiguration?: RequestConfiguration<ServiceProvisioningErrorsRequestBuilderGetQueryParameters> | undefined) : Promise<ServiceProvisioningErrorCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -79,7 +79,7 @@ export class ServiceProvisioningErrorsRequestBuilder extends BaseRequestBuilder<
      * Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a user object .  Supports $filter (eq, not, for isResolved and serviceInstance).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ServiceProvisioningErrorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
         const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);

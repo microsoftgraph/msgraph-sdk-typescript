@@ -87,11 +87,11 @@ export class DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuilder<D
         return this.requestAdapter.sendAsync<DeviceCompliancePolicyCollectionResponse>(requestInfo, createDeviceCompliancePolicyCollectionResponseFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Create a new androidWorkProfileCompliancePolicy object.
+     * Create a new windows81CompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicy
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows81compliancepolicy-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceCompliancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCompliancePolicy | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -115,7 +115,7 @@ export class DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuilder<D
         return requestInfo;
     }
     /**
-     * Create a new androidWorkProfileCompliancePolicy object.
+     * Create a new windows81CompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

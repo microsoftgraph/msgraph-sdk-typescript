@@ -47,7 +47,7 @@ export interface NotesRequestBuilderGetQueryParameters {
 export class NotesRequestBuilder extends BaseRequestBuilder<NotesRequestBuilder> {
     /**
      * Provides operations to count the resources in the collection.
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -56,7 +56,7 @@ export class NotesRequestBuilder extends BaseRequestBuilder<NotesRequestBuilder>
      * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.
      * @param authoredNoteId The unique identifier of authoredNote
      * @returns a AuthoredNoteItemRequestBuilder
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public byAuthoredNoteId(authoredNoteId: string) : AuthoredNoteItemRequestBuilder {
         if(!authoredNoteId) throw new Error("authoredNoteId cannot be undefined");
@@ -76,7 +76,7 @@ export class NotesRequestBuilder extends BaseRequestBuilder<NotesRequestBuilder>
      * Get the list of authored notes assoicated with a subject rights request. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthoredNoteCollectionResponse
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-list-notes?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<NotesRequestBuilderGetQueryParameters> | undefined) : Promise<AuthoredNoteCollectionResponse | undefined> {
@@ -94,7 +94,7 @@ export class NotesRequestBuilder extends BaseRequestBuilder<NotesRequestBuilder>
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthoredNote
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-post-notes?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AuthoredNote, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthoredNote | undefined> {
@@ -111,7 +111,7 @@ export class NotesRequestBuilder extends BaseRequestBuilder<NotesRequestBuilder>
      * Get the list of authored notes assoicated with a subject rights request. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public toGetRequestInformation(requestConfiguration?: RequestConfiguration<NotesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
         const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
@@ -124,7 +124,7 @@ export class NotesRequestBuilder extends BaseRequestBuilder<NotesRequestBuilder>
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public toPostRequestInformation(body: AuthoredNote, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");

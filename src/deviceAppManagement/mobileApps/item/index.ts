@@ -161,9 +161,9 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAppIte
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}{?%24select,%24expand}", (x, y) => new MobileAppItemRequestBuilder(x, y));
     }
     /**
-     * Deletes a windowsAppX.
+     * Deletes a managedIOSLobApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowsappx-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-managedioslobapp-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -176,10 +176,10 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAppIte
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     }
     /**
-     * Read properties and relationships of the windowsMicrosoftEdgeApp object.
+     * Read properties and relationships of the windowsAppX object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowsmicrosoftedgeapp-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowsappx-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<MobileAppItemRequestBuilderGetQueryParameters> | undefined) : Promise<MobileApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -192,11 +192,11 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAppIte
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Update the properties of a iosiPadOSWebClip object.
+     * Update the properties of a managedAndroidStoreApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosipadoswebclip-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-managedandroidstoreapp-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileApp | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -209,7 +209,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAppIte
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Deletes a windowsAppX.
+     * Deletes a managedIOSLobApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -220,7 +220,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAppIte
         return requestInfo;
     }
     /**
-     * Read properties and relationships of the windowsMicrosoftEdgeApp object.
+     * Read properties and relationships of the windowsAppX object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -231,7 +231,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAppIte
         return requestInfo;
     }
     /**
-     * Update the properties of a iosiPadOSWebClip object.
+     * Update the properties of a managedAndroidStoreApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

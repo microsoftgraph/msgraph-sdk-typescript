@@ -33,7 +33,7 @@ export class ConversationItemRequestBuilder extends BaseRequestBuilder<Conversat
     /**
      * Delete conversation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/conversation-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-delete-conversation?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(

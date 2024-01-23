@@ -48,14 +48,14 @@ export interface IdentityProvidersRequestBuilderGetQueryParameters {
 export class IdentityProvidersRequestBuilder extends BaseRequestBuilder<IdentityProvidersRequestBuilder> {
     /**
      * Provides operations to call the availableProviderTypes method.
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
     public get availableProviderTypes(): AvailableProviderTypesRequestBuilder {
         return new AvailableProviderTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to count the resources in the collection.
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -64,7 +64,7 @@ export class IdentityProvidersRequestBuilder extends BaseRequestBuilder<Identity
      * Provides operations to manage the collection of identityProvider entities.
      * @param identityProviderId The unique identifier of identityProvider
      * @returns a IdentityProviderItemRequestBuilder
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
     public byIdentityProviderId(identityProviderId: string) : IdentityProviderItemRequestBuilder {
         if(!identityProviderId) throw new Error("identityProviderId cannot be undefined");
@@ -84,7 +84,7 @@ export class IdentityProvidersRequestBuilder extends BaseRequestBuilder<Identity
      * Retrieve all identityProviders in the directory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityProviderCollectionResponse
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      * @see {@link https://learn.microsoft.com/graph/api/identityprovider-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<IdentityProvidersRequestBuilderGetQueryParameters> | undefined) : Promise<IdentityProviderCollectionResponse | undefined> {
@@ -102,7 +102,7 @@ export class IdentityProvidersRequestBuilder extends BaseRequestBuilder<Identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityProvider
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      * @see {@link https://learn.microsoft.com/graph/api/identityprovider-post-identityproviders?view=graph-rest-1.0|Find more info here}
      */
     public post(body: IdentityProvider, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IdentityProvider | undefined> {
@@ -119,7 +119,7 @@ export class IdentityProvidersRequestBuilder extends BaseRequestBuilder<Identity
      * Retrieve all identityProviders in the directory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
     public toGetRequestInformation(requestConfiguration?: RequestConfiguration<IdentityProvidersRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
         const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
@@ -132,7 +132,7 @@ export class IdentityProvidersRequestBuilder extends BaseRequestBuilder<Identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
     public toPostRequestInformation(body: IdentityProvider, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");

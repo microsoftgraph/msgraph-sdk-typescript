@@ -4,7 +4,9 @@
 import { createLearningProviderFromDiscriminatorValue, deserializeIntoLearningProvider, serializeLearningProvider, type LearningProvider } from '../../../models/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError, type ODataError } from '../../../models/oDataErrors/';
 import { LearningContentsRequestBuilder } from './learningContents/';
+import { LearningContentsWithExternalIdRequestBuilder } from './learningContentsWithExternalId/';
 import { LearningCourseActivitiesRequestBuilder } from './learningCourseActivities/';
+import { LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder } from './learningCourseActivitiesWithExternalcourseActivityId/';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LearningProviderItemRequestBuilderGetQueryParameters {
@@ -71,6 +73,24 @@ export class LearningProviderItemRequestBuilder extends BaseRequestBuilder<Learn
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter.sendAsync<LearningProvider>(requestInfo, createLearningProviderFromDiscriminatorValue, errorMapping);
+    }
+    /**
+     * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
+     * @param externalId Alternate key of learningContent
+     * @returns a learningContentsWithExternalIdRequestBuilder
+     */
+    public learningContentsWithExternalId(externalId: string | undefined) : LearningContentsWithExternalIdRequestBuilder {
+        if(!externalId) throw new Error("externalId cannot be undefined");
+        return new LearningContentsWithExternalIdRequestBuilder(this.pathParameters, this.requestAdapter, externalId);
+    }
+    /**
+     * Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.
+     * @param externalcourseActivityId Alternate key of learningCourseActivity
+     * @returns a learningCourseActivitiesWithExternalcourseActivityIdRequestBuilder
+     */
+    public learningCourseActivitiesWithExternalcourseActivityId(externalcourseActivityId: string | undefined) : LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder {
+        if(!externalcourseActivityId) throw new Error("externalcourseActivityId cannot be undefined");
+        return new LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder(this.pathParameters, this.requestAdapter, externalcourseActivityId);
     }
     /**
      * Update the properties of a learningProvider object.

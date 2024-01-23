@@ -62,7 +62,7 @@ export class AvailableProviderTypesRequestBuilder extends BaseRequestBuilder<Ava
      * Invoke function availableProviderTypes
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AvailableProviderTypesGetResponse
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
     public get(requestConfiguration?: RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters> | undefined) : Promise<AvailableProviderTypesGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -78,7 +78,7 @@ export class AvailableProviderTypesRequestBuilder extends BaseRequestBuilder<Ava
      * Invoke function availableProviderTypes
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
     public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
         const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);

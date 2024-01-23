@@ -30,7 +30,7 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder<Ident
     /**
      * Delete an identity provider from a b2xIdentityUserFlow object. For self-service sign-up user flows, the values can be Google-OAUTH or Facebook-OAUTH.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      * @see {@link https://learn.microsoft.com/graph/api/b2xidentityuserflow-delete-identityproviders?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
@@ -47,7 +47,7 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder<Ident
      * The identity providers included in the user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityProvider
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
     public get(requestConfiguration?: RequestConfiguration<IdentityProviderItemRequestBuilderGetQueryParameters> | undefined) : Promise<IdentityProvider | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -63,7 +63,7 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder<Ident
      * Delete an identity provider from a b2xIdentityUserFlow object. For self-service sign-up user flows, the values can be Google-OAUTH or Facebook-OAUTH.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
     public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
@@ -75,7 +75,7 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder<Ident
      * The identity providers included in the user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
     public toGetRequestInformation(requestConfiguration?: RequestConfiguration<IdentityProviderItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
         const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);

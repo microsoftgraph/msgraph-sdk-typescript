@@ -4,6 +4,7 @@
 import { createEmployeeExperienceFromDiscriminatorValue, deserializeIntoEmployeeExperience, serializeEmployeeExperience, type EmployeeExperience } from '../models/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError, type ODataError } from '../models/oDataErrors/';
 import { LearningCourseActivitiesRequestBuilder } from './learningCourseActivities/';
+import { LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder } from './learningCourseActivitiesWithExternalcourseActivityId/';
 import { LearningProvidersRequestBuilder } from './learningProviders/';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
@@ -55,6 +56,15 @@ export class EmployeeExperienceRequestBuilder extends BaseRequestBuilder<Employe
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter.sendAsync<EmployeeExperience>(requestInfo, createEmployeeExperienceFromDiscriminatorValue, errorMapping);
+    }
+    /**
+     * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
+     * @param externalcourseActivityId Alternate key of learningCourseActivity
+     * @returns a learningCourseActivitiesWithExternalcourseActivityIdRequestBuilder
+     */
+    public learningCourseActivitiesWithExternalcourseActivityId(externalcourseActivityId: string | undefined) : LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder {
+        if(!externalcourseActivityId) throw new Error("externalcourseActivityId cannot be undefined");
+        return new LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder(this.pathParameters, this.requestAdapter, externalcourseActivityId);
     }
     /**
      * Update employeeExperience

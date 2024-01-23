@@ -20,7 +20,7 @@ export class ContentRequestBuilder extends BaseRequestBuilder<ContentRequestBuil
      * Get media content for the navigation property messages from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
-     * @see {@link https://learn.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/opentypeextension-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -27,42 +27,42 @@ export interface SubjectRightsRequestItemRequestBuilderGetQueryParameters {
 export class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder<SubjectRightsRequestItemRequestBuilder> {
     /**
      * Provides operations to manage the approvers property of the microsoft.graph.subjectRightsRequest entity.
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public get approvers(): ApproversRequestBuilder {
         return new ApproversRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the collaborators property of the microsoft.graph.subjectRightsRequest entity.
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public get collaborators(): CollaboratorsRequestBuilder {
         return new CollaboratorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to call the getFinalAttachment method.
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public get getFinalAttachment(): GetFinalAttachmentRequestBuilder {
         return new GetFinalAttachmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to call the getFinalReport method.
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public get getFinalReport(): GetFinalReportRequestBuilder {
         return new GetFinalReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public get notes(): NotesRequestBuilder {
         return new NotesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the team property of the microsoft.graph.subjectRightsRequest entity.
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public get team(): TeamRequestBuilder {
         return new TeamRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -78,7 +78,7 @@ export class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder<S
     /**
      * Delete navigation property subjectRightsRequests for privacy
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -94,7 +94,7 @@ export class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder<S
      * Read the properties and relationships of a subjectRightsRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubjectRightsRequest
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestConfiguration<SubjectRightsRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<SubjectRightsRequest | undefined> {
@@ -112,7 +112,7 @@ export class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder<S
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubjectRightsRequest
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: SubjectRightsRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SubjectRightsRequest | undefined> {
@@ -129,7 +129,7 @@ export class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder<S
      * Delete navigation property subjectRightsRequests for privacy
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
@@ -141,7 +141,7 @@ export class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder<S
      * Read the properties and relationships of a subjectRightsRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SubjectRightsRequestItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
         const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
@@ -154,7 +154,7 @@ export class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder<S
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     public toPatchRequestInformation(body: SubjectRightsRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");

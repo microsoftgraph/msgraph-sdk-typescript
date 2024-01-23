@@ -28,9 +28,9 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}/assignments/{managedEBookAssignment%2Did}{?%24select,%24expand}", (x, y) => new ManagedEBookAssignmentItemRequestBuilder(x, y));
     }
     /**
-     * Deletes a iosVppEBookAssignment.
+     * Deletes a managedEBookAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebookassignment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebookassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -59,11 +59,11 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<ManagedEBookAssignment>(requestInfo, createManagedEBookAssignmentFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Update the properties of a iosVppEBookAssignment object.
+     * Update the properties of a managedEBookAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedEBookAssignment
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebookassignment-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebookassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ManagedEBookAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedEBookAssignment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -76,7 +76,7 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<ManagedEBookAssignment>(requestInfo, createManagedEBookAssignmentFromDiscriminatorValue, errorMapping);
     }
     /**
-     * Deletes a iosVppEBookAssignment.
+     * Deletes a managedEBookAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -98,7 +98,7 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     }
     /**
-     * Update the properties of a iosVppEBookAssignment object.
+     * Update the properties of a managedEBookAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
