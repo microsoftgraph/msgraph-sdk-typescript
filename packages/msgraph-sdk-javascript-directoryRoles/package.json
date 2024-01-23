@@ -1,5 +1,5 @@
 {
-  "name": "@microsoft/msgraph-sdk-javascript-directoryRoles",
+  "name": "@microsoft/msgraph-sdk-javascript-directoryroles",
   "version": "1.0.0-preview.10",
   "description": "App catalogs fluent API for Microsoft Graph",
   "keywords": [
@@ -32,12 +32,11 @@
   "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
   "types": "index.d.ts",
   "dependencies": {
-    "@microsoft/kiota-abstractions": "file:../../../kiota-typescript/packages/abstractions",
-    "@microsoft/kiota-http-fetchlibrary": "file:../../../kiota-typescript/packages/http/fetch",
-    "@microsoft/kiota-serialization-form": "file:../../../kiota-typescript/packages/serialization/form",
-    "@microsoft/kiota-serialization-json": "file:../../../kiota-typescript/packages/serialization/json",
-    "@microsoft/kiota-serialization-multipart": "file:../../../kiota-typescript/packages/serialization/multipart",
-    "@microsoft/kiota-serialization-text": "file:../../../kiota-typescript/packages/serialization/text",
+    "@microsoft/kiota-abstractions": "^1.0.0-preview.37",
+    "@microsoft/kiota-serialization-form": "^1.0.0-preview.26",
+    "@microsoft/kiota-serialization-json": "^1.0.0-preview.37",
+    "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.16",
+    "@microsoft/kiota-serialization-text": "^1.0.0-preview.34",
     "@microsoft/msgraph-sdk-javascript": "^1.0.0-preview.10",
     "guid-typescript": "^1.0.9",
     "tslib": "^2.6.2"
