@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { AuthenticationMethodConfigurationsRequestBuilder } from "authenticationMethodConfigurations";
 
-import {
-  type AuthenticationMethodConfigurationsServiceClient,
-  AuthenticationMethodConfigurationsServiceClientNavigationMetadata,
-} from "./authenticationMethodConfigurationsServiceClient";
-import { AuthenticationMethodConfigurationsRequestBuilder } from "authenticationMethodConfigurations";
+import { AuthenticationMethodConfigurationsServiceClientNavigationMetadata } from "./authenticationMethodConfigurationsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends AuthenticationMethodConfigurationsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the authenticationMethodConfigurations singleton.
@@ -15,6 +11,7 @@ declare module "@microsoft/msgraph-sdk-javascript" {
     get authenticationMethodConfigurations(): AuthenticationMethodConfigurationsRequestBuilder;
   }
 }
-extendGraphServiceClient(AuthenticationMethodConfigurationsServiceClientNavigationMetadata);
+extendGraphServiceClient(
+  AuthenticationMethodConfigurationsServiceClientNavigationMetadata,
+);
 export * from "./authenticationMethodConfigurationsServiceClient";
-

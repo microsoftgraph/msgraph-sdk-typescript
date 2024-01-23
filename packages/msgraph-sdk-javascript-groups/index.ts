@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { GroupsRequestBuilder } from "groups";
 
-import {
-  type GroupsServiceClient,
-  GroupsServiceClientNavigationMetadata,
-} from "./groupsServiceClient";
-import { GroupsRequestBuilder } from "groups";
+import { GroupsServiceClientNavigationMetadata } from "./groupsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends GroupsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the groups singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(GroupsServiceClientNavigationMetadata);
 export * from "./groupsServiceClient";
-

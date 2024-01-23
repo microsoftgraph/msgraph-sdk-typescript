@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { DevicesRequestBuilder } from "devices";
 
-import {
-  type DevicesServiceClient,
-  DevicesServiceClientNavigationMetadata,
-} from "./devicesServiceClient";
-import { DevicesRequestBuilder } from "devices";
+import { DevicesServiceClientNavigationMetadata } from "./devicesServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends DevicesServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the devices singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(DevicesServiceClientNavigationMetadata);
 export * from "./devicesServiceClient";
-

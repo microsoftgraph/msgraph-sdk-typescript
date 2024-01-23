@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { DomainsRequestBuilder } from "domains";
 
-import {
-  type DomainsServiceClient,
-  DomainsServiceClientNavigationMetadata,
-} from "./domainsServiceClient";
-import { DomainsRequestBuilder } from "domains";
+import { DomainsServiceClientNavigationMetadata } from "./domainsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends DomainsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the domains singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(DomainsServiceClientNavigationMetadata);
 export * from "./domainsServiceClient";
-

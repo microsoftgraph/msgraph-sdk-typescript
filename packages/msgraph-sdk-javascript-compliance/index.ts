@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { ComplianceRequestBuilder } from "compliance";
 
-import {
-  type ComplianceServiceClient,
-  ComplianceServiceClientNavigationMetadata,
-} from "./complianceServiceClient";
-import { ComplianceRequestBuilder } from "compliance";
+import { ComplianceServiceClientNavigationMetadata } from "./complianceServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends ComplianceServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the compliance singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(ComplianceServiceClientNavigationMetadata);
 export * from "./complianceServiceClient";
-

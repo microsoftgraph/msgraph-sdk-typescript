@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { PlannerRequestBuilder } from "planner";
 
-import {
-  type PlannerServiceClient,
-  PlannerServiceClientNavigationMetadata,
-} from "./plannerServiceClient";
-import { PlannerRequestBuilder } from "planner";
+import { PlannerServiceClientNavigationMetadata } from "./plannerServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends PlannerServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the planner singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(PlannerServiceClientNavigationMetadata);
 export * from "./plannerServiceClient";
-

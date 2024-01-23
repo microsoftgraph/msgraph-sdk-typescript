@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { SecurityRequestBuilder } from "security";
 
-import {
-  type SecurityServiceClient,
-  SecurityServiceClientNavigationMetadata,
-} from "./securityServiceClient";
-import { SecurityRequestBuilder } from "security";
+import { SecurityServiceClientNavigationMetadata } from "./securityServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends SecurityServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the security singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(SecurityServiceClientNavigationMetadata);
 export * from "./securityServiceClient";
-

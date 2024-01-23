@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { GroupSettingsRequestBuilder } from "groupSettings";
 
-import {
-  type GroupSettingsServiceClient,
-  GroupSettingsServiceClientNavigationMetadata,
-} from "./groupSettingsServiceClient";
-import { GroupSettingsRequestBuilder } from "groupSettings";
+import { GroupSettingsServiceClientNavigationMetadata } from "./groupSettingsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends GroupSettingsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the groupSettings singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(GroupSettingsServiceClientNavigationMetadata);
 export * from "./groupSettingsServiceClient";
-

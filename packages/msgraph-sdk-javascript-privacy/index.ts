@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { PrivacyRequestBuilder } from "privacy";
 
-import {
-  type PrivacyServiceClient,
-  PrivacyServiceClientNavigationMetadata,
-} from "./privacyServiceClient";
-import { PrivacyRequestBuilder } from "privacy";
+import { PrivacyServiceClientNavigationMetadata } from "./privacyServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends PrivacyServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the privacy singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(PrivacyServiceClientNavigationMetadata);
 export * from "./privacyServiceClient";
-

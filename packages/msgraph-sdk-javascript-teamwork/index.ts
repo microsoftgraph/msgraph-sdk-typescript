@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { TeamworkRequestBuilder } from "teamwork";
 
-import {
-  type TeamworkServiceClient,
-  TeamworkServiceClientNavigationMetadata,
-} from "./teamworkServiceClient";
-import { TeamworkRequestBuilder } from "teamwork";
+import { TeamworkServiceClientNavigationMetadata } from "./teamworkServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends TeamworkServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the teamwork singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(TeamworkServiceClientNavigationMetadata);
 export * from "./teamworkServiceClient";
-

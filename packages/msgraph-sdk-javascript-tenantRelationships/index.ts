@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { TenantRelationshipsRequestBuilder } from "tenantRelationships";
 
-import {
-  type TenantRelationshipsServiceClient,
-  TenantRelationshipsServiceClientNavigationMetadata,
-} from "./tenantRelationshipsServiceClient";
-import { TenantRelationshipsRequestBuilder } from "tenantRelationships";
+import { TenantRelationshipsServiceClientNavigationMetadata } from "./tenantRelationshipsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends TenantRelationshipsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the tenantRelationships singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(TenantRelationshipsServiceClientNavigationMetadata);
 export * from "./tenantRelationshipsServiceClient";
-

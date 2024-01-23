@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { SchemaExtensionsRequestBuilder } from "schemaExtensions";
 
-import {
-  type SchemaExtensionsServiceClient,
-  SchemaExtensionsServiceClientNavigationMetadata,
-} from "./schemaExtensionsServiceClient";
-import { SchemaExtensionsRequestBuilder } from "schemaExtensions";
+import { SchemaExtensionsServiceClientNavigationMetadata } from "./schemaExtensionsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends SchemaExtensionsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the schemaExtensions singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(SchemaExtensionsServiceClientNavigationMetadata);
 export * from "./schemaExtensionsServiceClient";
-

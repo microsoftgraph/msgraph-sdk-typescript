@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { IdentityProtectionRequestBuilder } from "identityProtection";
 
-import {
-  type IdentityProtectionServiceClient,
-  IdentityProtectionServiceClientNavigationMetadata,
-} from "./identityProtectionServiceClient";
-import { IdentityProtectionRequestBuilder } from "identityProtection";
+import { IdentityProtectionServiceClientNavigationMetadata } from "./identityProtectionServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends IdentityProtectionServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the identityProtection singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(IdentityProtectionServiceClientNavigationMetadata);
 export * from "./identityProtectionServiceClient";
-

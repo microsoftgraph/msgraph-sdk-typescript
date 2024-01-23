@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { DrivesRequestBuilder } from "drives";
 
-import {
-  type DrivesServiceClient,
-  DrivesServiceClientNavigationMetadata,
-} from "./drivesServiceClient";
-import { DrivesRequestBuilder } from "drives";
+import { DrivesServiceClientNavigationMetadata } from "./drivesServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends DrivesServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the drives singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(DrivesServiceClientNavigationMetadata);
 export * from "./drivesServiceClient";
-

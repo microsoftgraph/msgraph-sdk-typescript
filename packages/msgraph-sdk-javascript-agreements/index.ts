@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { AgreementsRequestBuilder } from "agreements";
 
-import {
-  type AgreementsServiceClient,
-  AgreementsServiceClientNavigationMetadata,
-} from "./agreementsServiceClient";
-import { AgreementsRequestBuilder } from "agreements";
+import { AgreementsServiceClientNavigationMetadata } from "./agreementsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends AgreementsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the agreements singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(AgreementsServiceClientNavigationMetadata);
 export * from "./agreementsServiceClient";
-

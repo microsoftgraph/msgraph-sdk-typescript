@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { RoleManagementRequestBuilder } from "roleManagement";
 
-import {
-  type RoleManagementServiceClient,
-  RoleManagementServiceClientNavigationMetadata,
-} from "./roleManagementServiceClient";
-import { RoleManagementRequestBuilder } from "roleManagement";
+import { RoleManagementServiceClientNavigationMetadata } from "./roleManagementServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends RoleManagementServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the roleManagement singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(RoleManagementServiceClientNavigationMetadata);
 export * from "./roleManagementServiceClient";
-

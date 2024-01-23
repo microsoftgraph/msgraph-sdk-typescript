@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { ContractsRequestBuilder } from "contracts";
 
-import {
-  type ContractsServiceClient,
-  ContractsServiceClientNavigationMetadata,
-} from "./contractsServiceClient";
-import { ContractsRequestBuilder } from "contracts";
+import { ContractsServiceClientNavigationMetadata } from "./contractsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends ContractsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the contracts singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(ContractsServiceClientNavigationMetadata);
 export * from "./contractsServiceClient";
-

@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { SharesRequestBuilder } from "shares";
 
-import {
-  type SharesServiceClient,
-  SharesServiceClientNavigationMetadata,
-} from "./sharesServiceClient";
-import { SharesRequestBuilder } from "shares";
+import { SharesServiceClientNavigationMetadata } from "./sharesServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends SharesServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the shares singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(SharesServiceClientNavigationMetadata);
 export * from "./sharesServiceClient";
-

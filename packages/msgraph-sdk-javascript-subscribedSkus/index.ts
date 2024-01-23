@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { SubscribedSkusRequestBuilder } from "subscribedSkus";
 
-import {
-  type SubscribedSkusServiceClient,
-  SubscribedSkusServiceClientNavigationMetadata,
-} from "./subscribedSkusServiceClient";
-import { SubscribedSkusRequestBuilder } from "subscribedSkus";
+import { SubscribedSkusServiceClientNavigationMetadata } from "./subscribedSkusServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends SubscribedSkusServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the subscribedSkus singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(SubscribedSkusServiceClientNavigationMetadata);
 export * from "./subscribedSkusServiceClient";
-

@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { DirectoryRoleTemplatesRequestBuilder } from "directoryRoleTemplates";
 
-import {
-  type DirectoryRoleTemplatesServiceClient,
-  DirectoryRoleTemplatesServiceClientNavigationMetadata,
-} from "./directoryRoleTemplatesServiceClient";
-import { DirectoryRoleTemplatesRequestBuilder } from "directoryRoleTemplates";
+import { DirectoryRoleTemplatesServiceClientNavigationMetadata } from "./directoryRoleTemplatesServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends DirectoryRoleTemplatesServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the directoryRoleTemplates singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(DirectoryRoleTemplatesServiceClientNavigationMetadata);
 export * from "./directoryRoleTemplatesServiceClient";
-

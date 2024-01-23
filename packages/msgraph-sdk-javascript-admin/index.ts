@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { AdminRequestBuilder } from "admin";
 
-import {
-  type AdminServiceClient,
-  AdminServiceClientNavigationMetadata,
-} from "./adminServiceClient";
-import { AdminRequestBuilder } from "admin";
+import { AdminServiceClientNavigationMetadata } from "./adminServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends AdminServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the admin singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(AdminServiceClientNavigationMetadata);
 export * from "./adminServiceClient";
-

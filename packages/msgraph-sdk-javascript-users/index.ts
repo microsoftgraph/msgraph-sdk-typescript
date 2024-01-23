@@ -1,10 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { UsersRequestBuilder } from "users";
 
-import { UsersRequestBuilder } from "users";
 import { UsersServiceClientNavigationMetadata } from "./usersServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends AppCatalogsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the collection of user entities.
@@ -14,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(UsersServiceClientNavigationMetadata);
 export * from "./usersServiceClient";
-

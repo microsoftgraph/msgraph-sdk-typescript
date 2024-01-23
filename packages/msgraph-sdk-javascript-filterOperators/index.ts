@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { FilterOperatorsRequestBuilder } from "filterOperators";
 
-import {
-  type FilterOperatorsServiceClient,
-  FilterOperatorsServiceClientNavigationMetadata,
-} from "./filterOperatorsServiceClient";
-import { FilterOperatorsRequestBuilder } from "filterOperators";
+import { FilterOperatorsServiceClientNavigationMetadata } from "./filterOperatorsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends FilterOperatorsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the filterOperators singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(FilterOperatorsServiceClientNavigationMetadata);
 export * from "./filterOperatorsServiceClient";
-

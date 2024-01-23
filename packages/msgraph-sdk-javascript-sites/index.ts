@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { SitesRequestBuilder } from "sites";
 
-import {
-  type SitesServiceClient,
-  SitesServiceClientNavigationMetadata,
-} from "./sitesServiceClient";
-import { SitesRequestBuilder } from "sites";
+import { SitesServiceClientNavigationMetadata } from "./sitesServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends SitesServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the sites singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(SitesServiceClientNavigationMetadata);
 export * from "./sitesServiceClient";
-

@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { TeamsTemplatesRequestBuilder } from "teamsTemplates";
 
-import {
-  type TeamsTemplatesServiceClient,
-  TeamsTemplatesServiceClientNavigationMetadata,
-} from "./teamsTemplatesServiceClient";
-import { TeamsTemplatesRequestBuilder } from "teamsTemplates";
+import { TeamsTemplatesServiceClientNavigationMetadata } from "./teamsTemplatesServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends TeamsTemplatesServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the teamsTemplates singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(TeamsTemplatesServiceClientNavigationMetadata);
 export * from "./teamsTemplatesServiceClient";
-

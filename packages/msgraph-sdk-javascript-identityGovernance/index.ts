@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { IdentityGovernanceRequestBuilder } from "identityGovernance";
 
-import {
-  type IdentityGovernanceServiceClient,
-  IdentityGovernanceServiceClientNavigationMetadata,
-} from "./identityGovernanceServiceClient";
-import { IdentityGovernanceRequestBuilder } from "identityGovernance";
+import { IdentityGovernanceServiceClientNavigationMetadata } from "./identityGovernanceServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends IdentityGovernanceServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the identityGovernance singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(IdentityGovernanceServiceClientNavigationMetadata);
 export * from "./identityGovernanceServiceClient";
-

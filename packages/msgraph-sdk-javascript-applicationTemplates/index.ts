@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { ApplicationTemplatesRequestBuilder } from "applicationTemplates";
 
-import {
-  type ApplicationTemplatesServiceClient,
-  ApplicationTemplatesServiceClientNavigationMetadata,
-} from "./applicationTemplatesServiceClient";
-import { ApplicationTemplatesRequestBuilder } from "applicationTemplates";
+import { ApplicationTemplatesServiceClientNavigationMetadata } from "./applicationTemplatesServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends ApplicationTemplatesServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the applicationTemplates singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(ApplicationTemplatesServiceClientNavigationMetadata);
 export * from "./applicationTemplatesServiceClient";
-

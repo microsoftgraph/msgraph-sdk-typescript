@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { PermissionGrantsRequestBuilder } from "permissionGrants";
 
-import {
-  type PermissionGrantsServiceClient,
-  PermissionGrantsServiceClientNavigationMetadata,
-} from "./permissionGrantsServiceClient";
-import { PermissionGrantsRequestBuilder } from "permissionGrants";
+import { PermissionGrantsServiceClientNavigationMetadata } from "./permissionGrantsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends PermissionGrantsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the permissionGrants singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(PermissionGrantsServiceClientNavigationMetadata);
 export * from "./permissionGrantsServiceClient";
-

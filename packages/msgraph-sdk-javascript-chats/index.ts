@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { ChatsRequestBuilder } from "chats";
 
-import {
-  type ChatsServiceClient,
-  ChatsServiceClientNavigationMetadata,
-} from "./chatsServiceClient";
-import { ChatsRequestBuilder } from "chats";
+import { ChatsServiceClientNavigationMetadata } from "./chatsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends ChatsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the chats singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(ChatsServiceClientNavigationMetadata);
 export * from "./chatsServiceClient";
-

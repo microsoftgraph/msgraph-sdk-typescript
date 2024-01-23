@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { AppCatalogsRequestBuilder } from "appCatalogs";
 
-import {
-  type AppCatalogsServiceClient,
-  AppCatalogsServiceClientNavigationMetadata,
-} from "./appCatalogsServiceClient";
-import { AppCatalogsRequestBuilder } from "appCatalogs";
+import { AppCatalogsServiceClientNavigationMetadata } from "./appCatalogsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends AppCatalogsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the appCatalogs singleton.

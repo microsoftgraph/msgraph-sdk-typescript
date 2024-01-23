@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { PrintRequestBuilder } from "print";
 
-import {
-  type PrintServiceClient,
-  PrintServiceClientNavigationMetadata,
-} from "./printServiceClient";
-import { PrintRequestBuilder } from "print";
+import { PrintServiceClientNavigationMetadata } from "./printServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends PrintServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the print singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(PrintServiceClientNavigationMetadata);
 export * from "./printServiceClient";
-

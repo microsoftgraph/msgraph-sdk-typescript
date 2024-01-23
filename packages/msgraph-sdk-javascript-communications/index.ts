@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { CommunicationsRequestBuilder } from "communications";
 
-import {
-  type CommunicationsServiceClient,
-  CommunicationsServiceClientNavigationMetadata,
-} from "./communicationsServiceClient";
-import { CommunicationsRequestBuilder } from "communications";
+import { CommunicationsServiceClientNavigationMetadata } from "./communicationsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends CommunicationsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the communications singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(CommunicationsServiceClientNavigationMetadata);
 export * from "./communicationsServiceClient";
-

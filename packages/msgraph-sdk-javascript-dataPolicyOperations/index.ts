@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { DataPolicyOperationsRequestBuilder } from "dataPolicyOperations";
 
-import {
-  type DataPolicyOperationsServiceClient,
-  DataPolicyOperationsServiceClientNavigationMetadata,
-} from "./dataPolicyOperationsServiceClient";
-import { DataPolicyOperationsRequestBuilder } from "dataPolicyOperations";
+import { DataPolicyOperationsServiceClientNavigationMetadata } from "./dataPolicyOperationsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends DataPolicyOperationsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the dataPolicyOperations singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(DataPolicyOperationsServiceClientNavigationMetadata);
 export * from "./dataPolicyOperationsServiceClient";
-

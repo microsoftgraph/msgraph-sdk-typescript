@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { InvitationsRequestBuilder } from "invitations";
 
-import {
-  type InvitationsServiceClient,
-  InvitationsServiceClientNavigationMetadata,
-} from "./invitationsServiceClient";
-import { InvitationsRequestBuilder } from "invitations";
+import { InvitationsServiceClientNavigationMetadata } from "./invitationsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends InvitationsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the invitations singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(InvitationsServiceClientNavigationMetadata);
 export * from "./invitationsServiceClient";
-

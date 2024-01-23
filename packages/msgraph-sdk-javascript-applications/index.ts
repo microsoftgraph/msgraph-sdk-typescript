@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { ApplicationsRequestBuilder } from "applications";
 
-import {
-  type ApplicationsServiceClient,
-  ApplicationsServiceClientNavigationMetadata,
-} from "./applicationsServiceClient";
-import { ApplicationsRequestBuilder } from "applications";
+import { ApplicationsServiceClientNavigationMetadata } from "./applicationsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends ApplicationsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the applications singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(ApplicationsServiceClientNavigationMetadata);
 export * from "./applicationsServiceClient";
-

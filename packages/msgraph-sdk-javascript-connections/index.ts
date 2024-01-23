@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { ConnectionsRequestBuilder } from "connections";
 
-import {
-  type ConnectionsServiceClient,
-  ConnectionsServiceClientNavigationMetadata,
-} from "./connectionsServiceClient";
-import { ConnectionsRequestBuilder } from "connections";
+import { ConnectionsServiceClientNavigationMetadata } from "./connectionsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends ConnectionsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the connections singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(ConnectionsServiceClientNavigationMetadata);
 export * from "./connectionsServiceClient";
-

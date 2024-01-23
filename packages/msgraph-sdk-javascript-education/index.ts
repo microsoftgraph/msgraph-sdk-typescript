@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { EducationRequestBuilder } from "education";
 
-import {
-  type EducationServiceClient,
-  EducationServiceClientNavigationMetadata,
-} from "./educationServiceClient";
-import { EducationRequestBuilder } from "education";
+import { EducationServiceClientNavigationMetadata } from "./educationServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends EducationServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the education singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(EducationServiceClientNavigationMetadata);
 export * from "./educationServiceClient";
-

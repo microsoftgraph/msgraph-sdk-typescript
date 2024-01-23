@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { OrganizationRequestBuilder } from "organization";
 
-import {
-  type OrganizationServiceClient,
-  OrganizationServiceClientNavigationMetadata,
-} from "./organizationServiceClient";
-import { OrganizationRequestBuilder } from "organization";
+import { OrganizationServiceClientNavigationMetadata } from "./organizationServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends OrganizationServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the organization singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(OrganizationServiceClientNavigationMetadata);
 export * from "./organizationServiceClient";
-

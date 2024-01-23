@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { SearchRequestBuilder } from "search";
 
-import {
-  type SearchServiceClient,
-  SearchServiceClientNavigationMetadata,
-} from "./searchServiceClient";
-import { SearchRequestBuilder } from "search";
+import { SearchServiceClientNavigationMetadata } from "./searchServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends SearchServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the search singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(SearchServiceClientNavigationMetadata);
 export * from "./searchServiceClient";
-

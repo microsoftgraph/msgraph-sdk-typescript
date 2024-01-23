@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { ExternalRequestBuilder } from "external";
 
-import {
-  type ExternalServiceClient,
-  ExternalServiceClientNavigationMetadata,
-} from "./externalServiceClient";
-import { ExternalRequestBuilder } from "external";
+import { ExternalServiceClientNavigationMetadata } from "./externalServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends ExternalServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the external singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(ExternalServiceClientNavigationMetadata);
 export * from "./externalServiceClient";
-

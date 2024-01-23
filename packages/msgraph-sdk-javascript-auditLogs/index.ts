@@ -1,13 +1,9 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
+import type { AuditLogsRequestBuilder } from "auditLogs";
 
-import {
-  type AuditLogsServiceClient,
-  AuditLogsServiceClientNavigationMetadata,
-} from "./auditLogsServiceClient";
-import { AuditLogsRequestBuilder } from "auditLogs";
+import { AuditLogsServiceClientNavigationMetadata } from "./auditLogsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
-  // interface GraphServiceClient extends AuditLogsServiceClient {}
   interface GraphServiceClient {
     /**
      * Provides operations to manage the auditLogs singleton.
@@ -17,4 +13,3 @@ declare module "@microsoft/msgraph-sdk-javascript" {
 }
 extendGraphServiceClient(AuditLogsServiceClientNavigationMetadata);
 export * from "./auditLogsServiceClient";
-
