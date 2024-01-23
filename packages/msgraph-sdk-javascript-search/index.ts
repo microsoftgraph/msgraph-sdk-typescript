@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { SearchRequestBuilder } from "search";
 
+import type { SearchRequestBuilder } from "./search";
 import { SearchServiceClientNavigationMetadata } from "./searchServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

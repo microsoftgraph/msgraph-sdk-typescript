@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { ComplianceRequestBuilder } from "compliance";
 
+import type { ComplianceRequestBuilder } from "./compliance";
 import { ComplianceServiceClientNavigationMetadata } from "./complianceServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

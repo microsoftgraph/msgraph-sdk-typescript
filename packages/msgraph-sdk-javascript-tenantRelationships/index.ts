@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { TenantRelationshipsRequestBuilder } from "tenantRelationships";
 
+import type { TenantRelationshipsRequestBuilder } from "./tenantRelationships";
 import { TenantRelationshipsServiceClientNavigationMetadata } from "./tenantRelationshipsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

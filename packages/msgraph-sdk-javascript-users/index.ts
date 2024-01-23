@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { UsersRequestBuilder } from "users";
 
+import type { UsersRequestBuilder } from "./users";
 import { UsersServiceClientNavigationMetadata } from "./usersServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

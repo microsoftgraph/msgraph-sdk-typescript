@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { DeviceAppManagementRequestBuilder } from "deviceAppManagement";
 
+import type { DeviceAppManagementRequestBuilder } from "./deviceAppManagement";
 import { DeviceAppManagementServiceClientNavigationMetadata } from "./deviceAppManagementServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

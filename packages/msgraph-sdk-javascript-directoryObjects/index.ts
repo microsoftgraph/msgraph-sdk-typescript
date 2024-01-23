@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { DirectoryObjectsRequestBuilder } from "directoryObjects";
 
+import type { DirectoryObjectsRequestBuilder } from "./directoryObjects";
 import { DirectoryObjectsServiceClientNavigationMetadata } from "./directoryObjectsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

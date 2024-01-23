@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { CommunicationsRequestBuilder } from "communications";
 
+import type { CommunicationsRequestBuilder } from "./communications";
 import { CommunicationsServiceClientNavigationMetadata } from "./communicationsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { FunctionsRequestBuilder } from "functions";
 
+import type { FunctionsRequestBuilder } from "./functions";
 import { FunctionsServiceClientNavigationMetadata } from "./functionsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

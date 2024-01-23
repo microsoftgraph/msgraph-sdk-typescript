@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { SolutionsRequestBuilder } from "solutions";
 
+import type { SolutionsRequestBuilder } from "./solutions";
 import { SolutionsServiceClientNavigationMetadata } from "./solutionsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

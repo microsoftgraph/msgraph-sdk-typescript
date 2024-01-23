@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { PoliciesRequestBuilder } from "policies";
 
+import type { PoliciesRequestBuilder } from "./policies";
 import { PoliciesServiceClientNavigationMetadata } from "./policiesServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

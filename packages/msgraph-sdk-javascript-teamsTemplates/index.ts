@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { TeamsTemplatesRequestBuilder } from "teamsTemplates";
 
+import type { TeamsTemplatesRequestBuilder } from "./teamsTemplates";
 import { TeamsTemplatesServiceClientNavigationMetadata } from "./teamsTemplatesServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

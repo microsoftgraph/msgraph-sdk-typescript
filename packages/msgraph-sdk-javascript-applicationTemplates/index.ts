@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { ApplicationTemplatesRequestBuilder } from "applicationTemplates";
 
+import type { ApplicationTemplatesRequestBuilder } from "./applicationTemplates";
 import { ApplicationTemplatesServiceClientNavigationMetadata } from "./applicationTemplatesServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

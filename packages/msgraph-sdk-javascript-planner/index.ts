@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { PlannerRequestBuilder } from "planner";
 
+import type { PlannerRequestBuilder } from "./planner";
 import { PlannerServiceClientNavigationMetadata } from "./plannerServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

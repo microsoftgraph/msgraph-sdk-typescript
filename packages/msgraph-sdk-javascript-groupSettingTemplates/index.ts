@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { GroupSettingTemplatesRequestBuilder } from "groupSettingTemplates";
 
+import type { GroupSettingTemplatesRequestBuilder } from "./groupSettingTemplates";
 import { GroupSettingTemplatesServiceClientNavigationMetadata } from "./groupSettingTemplatesServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

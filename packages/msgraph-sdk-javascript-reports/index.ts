@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { ReportsRequestBuilder } from "reports";
 
+import type { ReportsRequestBuilder } from "./reports";
 import { ReportsServiceClientNavigationMetadata } from "./reportsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

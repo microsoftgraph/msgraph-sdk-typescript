@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { InvitationsRequestBuilder } from "invitations";
 
+import type { InvitationsRequestBuilder } from "./invitations";
 import { InvitationsServiceClientNavigationMetadata } from "./invitationsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

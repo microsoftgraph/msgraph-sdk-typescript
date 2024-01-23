@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { IdentityRequestBuilder } from "identity";
 
+import type { IdentityRequestBuilder } from "./identity";
 import { IdentityServiceClientNavigationMetadata } from "./identityServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

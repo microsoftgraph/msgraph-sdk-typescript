@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { AdminRequestBuilder } from "admin";
 
+import type { AdminRequestBuilder } from "./admin";
 import { AdminServiceClientNavigationMetadata } from "./adminServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

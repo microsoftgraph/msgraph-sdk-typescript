@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { GroupsRequestBuilder } from "groups";
 
+import type { GroupsRequestBuilder } from "./groups";
 import { GroupsServiceClientNavigationMetadata } from "./groupsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

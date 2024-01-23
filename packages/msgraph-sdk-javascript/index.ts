@@ -1,1 +1,1 @@
-export * from './graphServiceClient';
+export * from "./graphServiceClient";

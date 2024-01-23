@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { SharesRequestBuilder } from "shares";
 
+import type { SharesRequestBuilder } from "./shares";
 import { SharesServiceClientNavigationMetadata } from "./sharesServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

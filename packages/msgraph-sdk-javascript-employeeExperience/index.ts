@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { EmployeeExperienceRequestBuilder } from "employeeExperience";
 
+import type { EmployeeExperienceRequestBuilder } from "./employeeExperience";
 import { EmployeeExperienceServiceClientNavigationMetadata } from "./employeeExperienceServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

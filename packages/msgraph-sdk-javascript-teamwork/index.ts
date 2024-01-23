@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { TeamworkRequestBuilder } from "teamwork";
 
+import type { TeamworkRequestBuilder } from "./teamwork";
 import { TeamworkServiceClientNavigationMetadata } from "./teamworkServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

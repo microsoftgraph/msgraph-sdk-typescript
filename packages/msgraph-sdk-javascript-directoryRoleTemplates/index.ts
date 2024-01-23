@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { DirectoryRoleTemplatesRequestBuilder } from "directoryRoleTemplates";
 
+import type { DirectoryRoleTemplatesRequestBuilder } from "./directoryRoleTemplates";
 import { DirectoryRoleTemplatesServiceClientNavigationMetadata } from "./directoryRoleTemplatesServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

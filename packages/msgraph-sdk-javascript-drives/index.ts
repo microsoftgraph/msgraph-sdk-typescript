@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { DrivesRequestBuilder } from "drives";
 
+import type { DrivesRequestBuilder } from "./drives";
 import { DrivesServiceClientNavigationMetadata } from "./drivesServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {

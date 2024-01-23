@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import type { ContactsRequestBuilder } from "contacts";
 
+import type { ContactsRequestBuilder } from "./contacts";
 import { ContactsServiceClientNavigationMetadata } from "./contactsServiceClient";
 
 declare module "@microsoft/msgraph-sdk-javascript" {
