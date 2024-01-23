@@ -7,7 +7,7 @@
   "scripts": {
     "build": "npm run build --workspaces",
     "clean": "npm run clean --workspaces",
-    "test": "npm run test --workspaces"
+    "test": "npm run test -w @microsoft/msgraph-sdk-javascript-tests"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.19.0",
