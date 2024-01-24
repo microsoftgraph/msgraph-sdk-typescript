@@ -1,14 +1,14 @@
 {
   "name": "@microsoft/msgraph-sdk-javascript-oauth2permissiongrants",
   "version": "1.0.0-preview.10",
-  "description": "App catalogs fluent API for Microsoft Graph",
+  "description": "Oauth2PermissionGrants fluent API for Microsoft Graph",
   "keywords": [
-    "microsoft",
+    "Microsoft",
     "Graph",
     "msgraph",
     "API",
     "SDK",
-    "application"
+    "oauth2PermissionGrants"
   ],
   "author": "Microsoft <graphsdkpub+javascript@microsoft.com>",
   "license": "MIT",

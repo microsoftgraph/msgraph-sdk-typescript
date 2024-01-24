@@ -1,14 +1,14 @@
 {
   "name": "@microsoft/msgraph-sdk-javascript-sites",
   "version": "1.0.0-preview.10",
-  "description": "App catalogs fluent API for Microsoft Graph",
+  "description": "Sites fluent API for Microsoft Graph",
   "keywords": [
-    "microsoft",
+    "Microsoft",
     "Graph",
     "msgraph",
     "API",
     "SDK",
-    "application"
+    "sites"
   ],
   "author": "Microsoft <graphsdkpub+javascript@microsoft.com>",
   "license": "MIT",

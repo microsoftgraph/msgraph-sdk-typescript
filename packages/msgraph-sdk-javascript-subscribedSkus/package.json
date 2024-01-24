@@ -1,14 +1,14 @@
 {
   "name": "@microsoft/msgraph-sdk-javascript-subscribedskus",
   "version": "1.0.0-preview.10",
-  "description": "App catalogs fluent API for Microsoft Graph",
+  "description": "SubscribedSkus fluent API for Microsoft Graph",
   "keywords": [
-    "microsoft",
+    "Microsoft",
     "Graph",
     "msgraph",
     "API",
     "SDK",
-    "application"
+    "subscribedSkus"
   ],
   "author": "Microsoft <graphsdkpub+javascript@microsoft.com>",
   "license": "MIT",

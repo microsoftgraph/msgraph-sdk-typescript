@@ -1,14 +1,14 @@
 {
   "name": "@microsoft/msgraph-sdk-javascript-groupsettingtemplates",
   "version": "1.0.0-preview.10",
-  "description": "App catalogs fluent API for Microsoft Graph",
+  "description": "GroupSettingTemplates fluent API for Microsoft Graph",
   "keywords": [
-    "microsoft",
+    "Microsoft",
     "Graph",
     "msgraph",
     "API",
     "SDK",
-    "application"
+    "groupSettingTemplates"
   ],
   "author": "Microsoft <graphsdkpub+javascript@microsoft.com>",
   "license": "MIT",
