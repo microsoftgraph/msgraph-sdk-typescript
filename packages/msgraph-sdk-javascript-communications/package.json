@@ -10,7 +10,7 @@
     "SDK",
     "application"
   ],
-  "author": "Vincent Biret <vibiret@microsoft.com>",
+  "author": "Microsoft <graphsdkpub+javascript@microsoft.com>",
   "license": "MIT",
   "main": "index.js",
   "publishConfig": {

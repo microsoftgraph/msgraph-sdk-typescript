@@ -2,7 +2,7 @@
   "name": "@microsoft/msgraph-sdk-javascript-tests",
   "version": "1.0.0-preview.10",
   "description": "Tests package for the packages",
-  "author": "Vincent Biret <vibiret@microsoft.com>",
+  "author": "Microsoft <graphsdkpub+javascript@microsoft.com>",
   "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
   "license": "MIT",
   "main": "index.js",
