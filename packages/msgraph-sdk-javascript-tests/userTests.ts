@@ -1,6 +1,6 @@
 import { assert } from "chai";
 
-import { graphServiceClient } from "./testClient";
+import { graphServiceClient } from "./testClient.js";
 
 describe("TestGet", () => {
   it("should return list of users", async () => {

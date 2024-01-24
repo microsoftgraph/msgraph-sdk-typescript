@@ -10,6 +10,7 @@
   "publishConfig": {
     "access": "restricted"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/microsoftgraph/msgraph-sdk-typescript.git"

@@ -1,2 +1,1 @@
-export * from "./testClient";
-export * from "./userTests";
+export * from "./userTests.js";
