@@ -1,0 +1,15 @@
+import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
+
+import type { SharesRequestBuilder } from "./shares";
+import { SharesServiceClientNavigationMetadata } from "./sharesServiceClient";
+
+declare module "@microsoft/msgraph-sdk" {
+  interface GraphServiceClient {
+    /**
+     * Provides operations to manage the shares singleton.
+     */
+    get shares(): SharesRequestBuilder;
+  }
+}
+extendGraphServiceClient(SharesServiceClientNavigationMetadata);
+export * from "./sharesServiceClient";

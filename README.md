@@ -10,11 +10,11 @@ Get started with the Microsoft Graph SDK for Typescript by integrating the [Micr
 
 ```shell
 # this will install the main package
-npm install @microsoft/msgraph-sdk-javascript
+npm install @microsoft/msgraph-sdk
 # this will install the authentication provider for Azure Identity / Microsoft Entra
 npm install @microsoft/kiota-authentication-azure @azure/identity
 # this will install the fluent API package for the users API paths
-npm install @microsoft/msgraph-sdk-javascript-users
+npm install @microsoft/msgraph-sdk-users
 ```
 
 ## 2. Getting started
@@ -50,8 +50,8 @@ To retrieve the user's detailed information:
 
 ```typescript
 import { FetchRequestAdapter } from "@microsoft/kiota-http-fetchlibrary";
-import { createGraphServiceClient } from "@microsoft/msgraph-sdk-javascript";
-import "@microsoft/msgraph-sdk-javascript-users";
+import { createGraphServiceClient } from "@microsoft/msgraph-sdk";
+import "@microsoft/msgraph-sdk-users";
 
 const requestAdapter = new FetchRequestAdapter(authProvider);
 const graphServiceClient = createGraphServiceClient(requestAdapter);

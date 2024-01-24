@@ -7,7 +7,7 @@
   "scripts": {
     "build": "npm run build --workspaces",
     "clean": "npm run clean --workspaces",
-    "test": "npm run test -w @microsoft/msgraph-sdk-javascript-tests"
+    "test": "npm run test -w @microsoft/msgraph-sdk-tests"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.19.0",
@@ -16,6 +16,6 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "rimraff": "^0.0.1-security"
+    "rimraf": "^5.0.5"
   }
 }

@@ -10,5 +10,5 @@
     "composite": true
   },
   "files": [],
-  "references": [{ "path": "./msgraph-sdk-javascript" }]
+  "references": [{ "path": "./msgraph-sdk" }]
 }
