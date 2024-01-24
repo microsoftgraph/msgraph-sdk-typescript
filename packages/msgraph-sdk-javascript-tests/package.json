@@ -6,6 +6,7 @@
   "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
   "license": "MIT",
   "main": "index.js",
+  "private": true,
   "publishConfig": {
     "access": "restricted"
   },
