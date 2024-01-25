@@ -35,6 +35,7 @@
     "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.16",
     "@microsoft/kiota-serialization-text": "^1.0.0-preview.34",
     "@microsoft/msgraph-sdk": "^1.0.0-preview.10",
+    "@microsoft/msgraph-sdk-core": "file:../../../msgraph-sdk-typescript-core",
     "@microsoft/msgraph-sdk-users": "^1.0.0-preview.10",
     "guid-typescript": "^1.0.9",
     "tslib": "^2.6.2"
