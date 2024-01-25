@@ -1,0 +1,47 @@
+{
+  "name": "@microsoft/msgraph-sdk-subscribedskus",
+  "version": "1.0.0-preview.10",
+  "description": "SubscribedSkus fluent API for Microsoft Graph",
+  "keywords": [
+    "Microsoft",
+    "Graph",
+    "msgraph",
+    "API",
+    "SDK",
+    "subscribedSkus"
+  ],
+  "author": "Microsoft <graphsdkpub+javascript@microsoft.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microsoftgraph/msgraph-sdk-typescript.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "clean": "rimraf -g **/*.d.ts && rimraf -g **/*.d.ts.map && rimraf -g **/*.js.map && rimraf -g **/*.js && rimraf tsconfig.tsbuildinfo"
+  },
+  "bugs": {
+    "url": "https://github.com/microsoftgraph/msgraph-sdk-typescript/issues"
+  },
+  "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
+  "types": "index.d.ts",
+  "dependencies": {
+    "@microsoft/kiota-abstractions": "^1.0.0-preview.37",
+    "@microsoft/kiota-serialization-form": "^1.0.0-preview.26",
+    "@microsoft/kiota-serialization-json": "^1.0.0-preview.37",
+    "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.16",
+    "@microsoft/kiota-serialization-text": "^1.0.0-preview.34",
+    "@microsoft/msgraph-sdk": "^1.0.0-preview.10",
+    "guid-typescript": "^1.0.9",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

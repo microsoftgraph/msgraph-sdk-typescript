@@ -1,47 +1,21 @@
 {
-    "name": "@microsoft/msgraph-sdk-javascript",
-    "version": "1.0.0-preview.10",
-    "description": "",
-    "main": "lib/src/graphclient/index.js",
-    "types": "lib/src/graphclient/index.d.ts",
-    "dependencies": {
-        "@microsoft/kiota-abstractions": "^1.0.0-preview.34",
-        "@microsoft/kiota-http-fetchlibrary": "^1.0.0-preview.33",
-        "@microsoft/kiota-serialization-form": "^1.0.0-preview.23",
-        "@microsoft/kiota-serialization-json": "^1.0.0-preview.34",
-        "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.13",
-        "@microsoft/kiota-serialization-text": "^1.0.0-preview.31",
-        "@microsoft/microsoft-graph-client": "4.0.0-Preview.1",
-        "guid-typescript": "^1.0.9",
-        "tslib": "^2.3.1"
-    },
-    "files": [
-        "lib"
-    ],
-    "scripts": {
-        "build": "tsc -p tsconfig.json",
-        "run": "node ./lib/main.js",
-        "test": "mocha lib/tests/*.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/microsoftgraph/msgraph-sdk-typescript.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/microsoftgraph/msgraph-sdk-typescript/issues"
-    },
-    "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
-    "devDependencies": {
-        "@azure/identity": "4.0.0",
-        "@microsoft/kiota-authentication-azure": "^1.0.0-preview.29",
-        "@types/chai": "^4.3.0",
-        "@types/mocha": "^10.0.0",
-        "@types/node": "^20.1.0",
-        "chai": "^4.3.6",
-        "mocha": "^10.1.0",
-        "typescript": "^5.0.2"
-    }
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "clean": "npm run clean --workspaces",
+    "test": "npm run test -w @microsoft/msgraph-sdk-tests"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "rimraf": "^5.0.5"
+  }
 }

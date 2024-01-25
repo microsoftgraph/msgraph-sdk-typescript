@@ -8,8 +8,13 @@ Get started with the Microsoft Graph SDK for Typescript by integrating the [Micr
 
 ## 1. Installation
 
-```typescript
-npm install @microsoft/msgraph-sdk-javascript
+```shell
+# this will install the main package
+npm install @microsoft/msgraph-sdk
+# this will install the authentication provider for Azure Identity / Microsoft Entra
+npm install @microsoft/kiota-authentication-azure @azure/identity
+# this will install the fluent API package for the users API paths
+npm install @microsoft/msgraph-sdk-users
 ```
 
 ## 2. Getting started
@@ -31,24 +36,29 @@ For an example of how to get an authentication provider, see [choose a Microsoft
 You must get a **GraphServiceClient** object to make requests against the service.
 
 ```typescript
-const graphServiceClient = GraphServiceClient.init({authProvider});
+const requestAdapter = new FetchRequestAdapter(authProvider);
+const graphServiceClient = createGraphServiceClient(requestAdapter);
 ```
 
 ## 3. Make requests against the service
 
 After you have a **GraphServiceClient** that is authenticated, you can begin making calls against the service. The requests against the service look like our [REST API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0).
 
-### 3.1 Get application's owners
+### 3.1 Get user's detailed information
 
-To retrieve the applications's owners:
+To retrieve the user's detailed information:
 
 ```typescript
-const graphServiceClient = GraphServiceClient.init({authProvider});
+import { FetchRequestAdapter } from "@microsoft/kiota-http-fetchlibrary";
+import { createGraphServiceClient } from "@microsoft/msgraph-sdk";
+import "@microsoft/msgraph-sdk-users";
 
-const result = async () => {
-	await graphServiceClient.applicationsById("application-id").owners.get()
-}
+const requestAdapter = new FetchRequestAdapter(authProvider);
+const graphServiceClient = createGraphServiceClient(requestAdapter);
+
+const jane = await graphServiceClient.users.byUserId("jane@contoso.com").get();
 ```
+
 ## 4. Documentation
 
 For more detailed documentation, see:
