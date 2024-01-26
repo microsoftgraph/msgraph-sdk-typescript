@@ -5,11 +5,11 @@ import {
   type SerializationWriterFactory,
   SerializationWriterFactoryRegistry,
 } from "@microsoft/kiota-abstractions";
-import type { HttpClient } from "@microsoft/kiota-http-fetchlibrary";
 import {
+  type HttpClient,
   type ObservabilityOptions,
   ObservabilityOptionsImpl,
-} from "@microsoft/kiota-http-fetchlibrary/dist/cjs/src/observabilityOptions"; //TODO update the reference once the new version of kiota-typescript is published
+} from "@microsoft/kiota-http-fetchlibrary";
 import { BaseGraphRequestAdapter } from "@microsoft/msgraph-sdk-core";
 
 import { version } from "./version";
