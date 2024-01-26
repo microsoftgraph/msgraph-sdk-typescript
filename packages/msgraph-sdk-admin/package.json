@@ -31,11 +31,11 @@
   },
   "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
   "dependencies": {
-    "@microsoft/kiota-abstractions": "^1.0.0-preview.37",
-    "@microsoft/kiota-serialization-form": "^1.0.0-preview.26",
-    "@microsoft/kiota-serialization-json": "^1.0.0-preview.37",
-    "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.16",
-    "@microsoft/kiota-serialization-text": "^1.0.0-preview.34",
+    "@microsoft/kiota-abstractions": "^1.0.0-preview.38",
+    "@microsoft/kiota-serialization-form": "^1.0.0-preview.27",
+    "@microsoft/kiota-serialization-json": "^1.0.0-preview.38",
+    "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.17",
+    "@microsoft/kiota-serialization-text": "^1.0.0-preview.35",
     "@microsoft/msgraph-sdk": "^1.0.0-preview.10",
     "guid-typescript": "^1.0.9",
     "tslib": "^2.6.2"
