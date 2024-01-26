@@ -29,6 +29,7 @@ export function createGraphServiceClient(requestAdapter: RequestAdapter) {
     }
     const pathParameters: Record<string, unknown> = {
         "baseurl": requestAdapter.baseUrl,
+        "user%2Did": "TokenToReplace",
     };
     return apiClientProxifier<GraphServiceClient>(requestAdapter, pathParameters, GraphServiceClientUriTemplate, GraphServiceClientNavigationMetadata, GraphServiceClientRequestsMetadata);
 }
