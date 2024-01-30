@@ -9,7 +9,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a markReadPostRequestBody
  */
-export function createMarkReadPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMarkReadPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMarkReadPostRequestBody;
 }
 /**
@@ -17,14 +17,14 @@ export function createMarkReadPostRequestBodyFromDiscriminatorValue(parseNode: P
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a markReadPostResponse
  */
-export function createMarkReadPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMarkReadPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMarkReadPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMarkReadPostRequestBody(markReadPostRequestBody: MarkReadPostRequestBody | undefined = {} as MarkReadPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMarkReadPostRequestBody(markReadPostRequestBody: Partial<MarkReadPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { markReadPostRequestBody.backingStoreEnabled = true; },
         "messageIds": n => { markReadPostRequestBody.messageIds = n.getCollectionOfPrimitiveValues<string>(); },
@@ -34,7 +34,7 @@ export function deserializeIntoMarkReadPostRequestBody(markReadPostRequestBody: 
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMarkReadPostResponse(markReadPostResponse: MarkReadPostResponse | undefined = {} as MarkReadPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMarkReadPostResponse(markReadPostResponse: Partial<MarkReadPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { markReadPostResponse.backingStoreEnabled = true; },
         "value": n => { markReadPostResponse.value = n.getBooleanValue(); },
@@ -92,7 +92,7 @@ export interface MarkReadRequestBuilder extends BaseRequestBuilder<MarkReadReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMarkReadPostRequestBody(writer: SerializationWriter, markReadPostRequestBody: MarkReadPostRequestBody | undefined = {} as MarkReadPostRequestBody) : void {
+export function serializeMarkReadPostRequestBody(writer: SerializationWriter, markReadPostRequestBody: Partial<MarkReadPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("messageIds", markReadPostRequestBody.messageIds);
     writer.writeAdditionalData(markReadPostRequestBody.additionalData);
 }
@@ -100,7 +100,7 @@ export function serializeMarkReadPostRequestBody(writer: SerializationWriter, ma
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMarkReadPostResponse(writer: SerializationWriter, markReadPostResponse: MarkReadPostResponse | undefined = {} as MarkReadPostResponse) : void {
+export function serializeMarkReadPostResponse(writer: SerializationWriter, markReadPostResponse: Partial<MarkReadPostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", markReadPostResponse.value);
     writer.writeAdditionalData(markReadPostResponse.additionalData);
 }

@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a setReactionPostRequestBody
  */
-export function createSetReactionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSetReactionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetReactionPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSetReactionPostRequestBody(setReactionPostRequestBody: SetReactionPostRequestBody | undefined = {} as SetReactionPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSetReactionPostRequestBody(setReactionPostRequestBody: Partial<SetReactionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { setReactionPostRequestBody.backingStoreEnabled = true; },
         "reactionType": n => { setReactionPostRequestBody.reactionType = n.getStringValue(); },
@@ -26,7 +26,7 @@ export function deserializeIntoSetReactionPostRequestBody(setReactionPostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSetReactionPostRequestBody(writer: SerializationWriter, setReactionPostRequestBody: SetReactionPostRequestBody | undefined = {} as SetReactionPostRequestBody) : void {
+export function serializeSetReactionPostRequestBody(writer: SerializationWriter, setReactionPostRequestBody: Partial<SetReactionPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("reactionType", setReactionPostRequestBody.reactionType);
     writer.writeAdditionalData(setReactionPostRequestBody.additionalData);
 }

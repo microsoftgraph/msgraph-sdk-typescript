@@ -43,14 +43,14 @@ export interface CountBlankRequestBuilder extends BaseRequestBuilder<CountBlankR
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a countBlankPostRequestBody
  */
-export function createCountBlankPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCountBlankPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCountBlankPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCountBlankPostRequestBody(countBlankPostRequestBody: CountBlankPostRequestBody | undefined = {} as CountBlankPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCountBlankPostRequestBody(countBlankPostRequestBody: Partial<CountBlankPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { countBlankPostRequestBody.backingStoreEnabled = true; },
         "range": n => { countBlankPostRequestBody.range = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoCountBlankPostRequestBody(countBlankPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCountBlankPostRequestBody(writer: SerializationWriter, countBlankPostRequestBody: CountBlankPostRequestBody | undefined = {} as CountBlankPostRequestBody) : void {
+export function serializeCountBlankPostRequestBody(writer: SerializationWriter, countBlankPostRequestBody: Partial<CountBlankPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("range", countBlankPostRequestBody.range, serializeJson);
     writer.writeAdditionalData(countBlankPostRequestBody.additionalData);
 }

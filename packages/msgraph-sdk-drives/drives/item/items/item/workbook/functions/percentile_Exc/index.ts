@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a percentile_ExcPostRequestBody
  */
-export function createPercentile_ExcPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPercentile_ExcPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPercentile_ExcPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPercentile_ExcPostRequestBody(percentile_ExcPostRequestBody: Percentile_ExcPostRequestBody | undefined = {} as Percentile_ExcPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPercentile_ExcPostRequestBody(percentile_ExcPostRequestBody: Partial<Percentile_ExcPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { percentile_ExcPostRequestBody.array = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { percentile_ExcPostRequestBody.backingStoreEnabled = true; },
@@ -65,7 +65,7 @@ export interface Percentile_ExcRequestBuilder extends BaseRequestBuilder<Percent
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePercentile_ExcPostRequestBody(writer: SerializationWriter, percentile_ExcPostRequestBody: Percentile_ExcPostRequestBody | undefined = {} as Percentile_ExcPostRequestBody) : void {
+export function serializePercentile_ExcPostRequestBody(writer: SerializationWriter, percentile_ExcPostRequestBody: Partial<Percentile_ExcPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("array", percentile_ExcPostRequestBody.array, serializeJson);
     writer.writeObjectValue<Json>("k", percentile_ExcPostRequestBody.k, serializeJson);
     writer.writeAdditionalData(percentile_ExcPostRequestBody.additionalData);

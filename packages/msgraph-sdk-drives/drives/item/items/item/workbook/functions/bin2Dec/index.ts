@@ -43,14 +43,14 @@ export interface Bin2DecRequestBuilder extends BaseRequestBuilder<Bin2DecRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a bin2DecPostRequestBody
  */
-export function createBin2DecPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createBin2DecPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBin2DecPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoBin2DecPostRequestBody(bin2DecPostRequestBody: Bin2DecPostRequestBody | undefined = {} as Bin2DecPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoBin2DecPostRequestBody(bin2DecPostRequestBody: Partial<Bin2DecPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { bin2DecPostRequestBody.backingStoreEnabled = true; },
         "number": n => { bin2DecPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoBin2DecPostRequestBody(bin2DecPostRequestBody: Bi
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBin2DecPostRequestBody(writer: SerializationWriter, bin2DecPostRequestBody: Bin2DecPostRequestBody | undefined = {} as Bin2DecPostRequestBody) : void {
+export function serializeBin2DecPostRequestBody(writer: SerializationWriter, bin2DecPostRequestBody: Partial<Bin2DecPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", bin2DecPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(bin2DecPostRequestBody.additionalData);
 }

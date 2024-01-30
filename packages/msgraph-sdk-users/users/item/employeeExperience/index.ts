@@ -4,6 +4,7 @@
 import { createEmployeeExperienceUserFromDiscriminatorValue, serializeEmployeeExperienceUser, type EmployeeExperienceUser } from '@microsoft/msgraph-sdk/models/';
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { LearningCourseActivitiesRequestBuilderNavigationMetadata, LearningCourseActivitiesRequestBuilderRequestsMetadata, LearningCourseActivitiesRequestBuilderUriTemplate, type LearningCourseActivitiesRequestBuilder } from './learningCourseActivities/';
+import { LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderRequestsMetadata, LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate, type LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder } from './learningCourseActivitiesWithExternalcourseActivityId/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -25,6 +26,12 @@ export interface EmployeeExperienceRequestBuilder extends BaseRequestBuilder<Emp
      * @returns a Promise of EmployeeExperienceUser
      */
      get(requestConfiguration?: RequestConfiguration<EmployeeExperienceRequestBuilderGetQueryParameters> | undefined) : Promise<EmployeeExperienceUser | undefined>;
+    /**
+     * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperienceUser entity.
+     * @param externalcourseActivityId Alternate key of learningCourseActivity
+     * @returns a learningCourseActivitiesWithExternalcourseActivityIdRequestBuilder
+     */
+     learningCourseActivitiesWithExternalcourseActivityId(externalcourseActivityId: string | undefined) : LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder;
     /**
      * Update the navigation property employeeExperience in users
      * @param body The request body
@@ -76,6 +83,10 @@ const EmployeeExperienceRequestBuilderGetQueryParametersMapper: Record<string, s
  * Metadata for all the navigation properties in the request builder.
  */
 export const EmployeeExperienceRequestBuilderNavigationMetadata: Record<Exclude<keyof EmployeeExperienceRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    learningCourseActivitiesWithExternalcourseActivityId: {
+        uriTemplate: LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate,
+        requestsMetadata: LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderRequestsMetadata,
+    },
     learningCourseActivities: {
         uriTemplate: LearningCourseActivitiesRequestBuilderUriTemplate,
         requestsMetadata: LearningCourseActivitiesRequestBuilderRequestsMetadata,

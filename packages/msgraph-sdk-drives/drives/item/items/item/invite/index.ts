@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a invitePostRequestBody
  */
-export function createInvitePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createInvitePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoInvitePostRequestBody;
 }
 /**
@@ -18,14 +18,14 @@ export function createInvitePostRequestBodyFromDiscriminatorValue(parseNode: Par
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a invitePostResponse
  */
-export function createInvitePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createInvitePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoInvitePostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoInvitePostRequestBody(invitePostRequestBody: InvitePostRequestBody | undefined = {} as InvitePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoInvitePostRequestBody(invitePostRequestBody: Partial<InvitePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { invitePostRequestBody.backingStoreEnabled = true; },
         "expirationDateTime": n => { invitePostRequestBody.expirationDateTime = n.getStringValue(); },
@@ -42,7 +42,7 @@ export function deserializeIntoInvitePostRequestBody(invitePostRequestBody: Invi
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoInvitePostResponse(invitePostResponse: InvitePostResponse | undefined = {} as InvitePostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoInvitePostResponse(invitePostResponse: Partial<InvitePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(invitePostResponse),
         "value": n => { invitePostResponse.value = n.getCollectionOfObjectValues<Permission>(createPermissionFromDiscriminatorValue); },
@@ -120,7 +120,7 @@ export interface InviteRequestBuilder extends BaseRequestBuilder<InviteRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeInvitePostRequestBody(writer: SerializationWriter, invitePostRequestBody: InvitePostRequestBody | undefined = {} as InvitePostRequestBody) : void {
+export function serializeInvitePostRequestBody(writer: SerializationWriter, invitePostRequestBody: Partial<InvitePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("expirationDateTime", invitePostRequestBody.expirationDateTime);
     writer.writeStringValue("message", invitePostRequestBody.message);
     writer.writeStringValue("password", invitePostRequestBody.password);
@@ -135,7 +135,7 @@ export function serializeInvitePostRequestBody(writer: SerializationWriter, invi
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeInvitePostResponse(writer: SerializationWriter, invitePostResponse: InvitePostResponse | undefined = {} as InvitePostResponse) : void {
+export function serializeInvitePostResponse(writer: SerializationWriter, invitePostResponse: Partial<InvitePostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, invitePostResponse)
     writer.writeCollectionOfObjectValues<Permission>("value", invitePostResponse.value, serializePermission);
 }

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a updateRecordingStatusPostRequestBody
  */
-export function createUpdateRecordingStatusPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createUpdateRecordingStatusPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUpdateRecordingStatusPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoUpdateRecordingStatusPostRequestBody(updateRecordingStatusPostRequestBody: UpdateRecordingStatusPostRequestBody | undefined = {} as UpdateRecordingStatusPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoUpdateRecordingStatusPostRequestBody(updateRecordingStatusPostRequestBody: Partial<UpdateRecordingStatusPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { updateRecordingStatusPostRequestBody.backingStoreEnabled = true; },
         "clientContext": n => { updateRecordingStatusPostRequestBody.clientContext = n.getStringValue(); },
@@ -28,7 +28,7 @@ export function deserializeIntoUpdateRecordingStatusPostRequestBody(updateRecord
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUpdateRecordingStatusPostRequestBody(writer: SerializationWriter, updateRecordingStatusPostRequestBody: UpdateRecordingStatusPostRequestBody | undefined = {} as UpdateRecordingStatusPostRequestBody) : void {
+export function serializeUpdateRecordingStatusPostRequestBody(writer: SerializationWriter, updateRecordingStatusPostRequestBody: Partial<UpdateRecordingStatusPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("clientContext", updateRecordingStatusPostRequestBody.clientContext);
     writer.writeEnumValue<RecordingStatus>("status", updateRecordingStatusPostRequestBody.status);
     writer.writeAdditionalData(updateRecordingStatusPostRequestBody.additionalData);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a matchPostRequestBody
  */
-export function createMatchPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMatchPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMatchPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMatchPostRequestBody(matchPostRequestBody: MatchPostRequestBody | undefined = {} as MatchPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMatchPostRequestBody(matchPostRequestBody: Partial<MatchPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { matchPostRequestBody.backingStoreEnabled = true; },
         "lookupArray": n => { matchPostRequestBody.lookupArray = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface MatchRequestBuilder extends BaseRequestBuilder<MatchRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMatchPostRequestBody(writer: SerializationWriter, matchPostRequestBody: MatchPostRequestBody | undefined = {} as MatchPostRequestBody) : void {
+export function serializeMatchPostRequestBody(writer: SerializationWriter, matchPostRequestBody: Partial<MatchPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("lookupArray", matchPostRequestBody.lookupArray, serializeJson);
     writer.writeObjectValue<Json>("lookupValue", matchPostRequestBody.lookupValue, serializeJson);
     writer.writeObjectValue<Json>("matchType", matchPostRequestBody.matchType, serializeJson);

@@ -47,14 +47,14 @@ export interface BitrshiftRequestBuilder extends BaseRequestBuilder<BitrshiftReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a bitrshiftPostRequestBody
  */
-export function createBitrshiftPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createBitrshiftPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBitrshiftPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoBitrshiftPostRequestBody(bitrshiftPostRequestBody: BitrshiftPostRequestBody | undefined = {} as BitrshiftPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoBitrshiftPostRequestBody(bitrshiftPostRequestBody: Partial<BitrshiftPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { bitrshiftPostRequestBody.backingStoreEnabled = true; },
         "number": n => { bitrshiftPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoBitrshiftPostRequestBody(bitrshiftPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBitrshiftPostRequestBody(writer: SerializationWriter, bitrshiftPostRequestBody: BitrshiftPostRequestBody | undefined = {} as BitrshiftPostRequestBody) : void {
+export function serializeBitrshiftPostRequestBody(writer: SerializationWriter, bitrshiftPostRequestBody: Partial<BitrshiftPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", bitrshiftPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("shiftAmount", bitrshiftPostRequestBody.shiftAmount, serializeJson);
     writer.writeAdditionalData(bitrshiftPostRequestBody.additionalData);

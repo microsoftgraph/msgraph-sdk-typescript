@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a poisson_DistPostRequestBody
  */
-export function createPoisson_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPoisson_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPoisson_DistPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPoisson_DistPostRequestBody(poisson_DistPostRequestBody: Poisson_DistPostRequestBody | undefined = {} as Poisson_DistPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPoisson_DistPostRequestBody(poisson_DistPostRequestBody: Partial<Poisson_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { poisson_DistPostRequestBody.backingStoreEnabled = true; },
         "cumulative": n => { poisson_DistPostRequestBody.cumulative = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface Poisson_DistRequestBuilder extends BaseRequestBuilder<Poisson_D
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePoisson_DistPostRequestBody(writer: SerializationWriter, poisson_DistPostRequestBody: Poisson_DistPostRequestBody | undefined = {} as Poisson_DistPostRequestBody) : void {
+export function serializePoisson_DistPostRequestBody(writer: SerializationWriter, poisson_DistPostRequestBody: Partial<Poisson_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("cumulative", poisson_DistPostRequestBody.cumulative, serializeJson);
     writer.writeObjectValue<Json>("mean", poisson_DistPostRequestBody.mean, serializeJson);
     writer.writeObjectValue<Json>("x", poisson_DistPostRequestBody.x, serializeJson);

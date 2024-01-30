@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a norm_DistPostRequestBody
  */
-export function createNorm_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createNorm_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNorm_DistPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoNorm_DistPostRequestBody(norm_DistPostRequestBody: Norm_DistPostRequestBody | undefined = {} as Norm_DistPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoNorm_DistPostRequestBody(norm_DistPostRequestBody: Partial<Norm_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { norm_DistPostRequestBody.backingStoreEnabled = true; },
         "cumulative": n => { norm_DistPostRequestBody.cumulative = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export interface Norm_DistRequestBuilder extends BaseRequestBuilder<Norm_DistReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNorm_DistPostRequestBody(writer: SerializationWriter, norm_DistPostRequestBody: Norm_DistPostRequestBody | undefined = {} as Norm_DistPostRequestBody) : void {
+export function serializeNorm_DistPostRequestBody(writer: SerializationWriter, norm_DistPostRequestBody: Partial<Norm_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("cumulative", norm_DistPostRequestBody.cumulative, serializeJson);
     writer.writeObjectValue<Json>("mean", norm_DistPostRequestBody.mean, serializeJson);
     writer.writeObjectValue<Json>("standardDev", norm_DistPostRequestBody.standardDev, serializeJson);

@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a queryPostRequestBody
  */
-export function createQueryPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createQueryPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoQueryPostRequestBody;
 }
 /**
@@ -18,14 +18,14 @@ export function createQueryPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a queryPostResponse
  */
-export function createQueryPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createQueryPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoQueryPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoQueryPostRequestBody(queryPostRequestBody: QueryPostRequestBody | undefined = {} as QueryPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoQueryPostRequestBody(queryPostRequestBody: Partial<QueryPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { queryPostRequestBody.backingStoreEnabled = true; },
         "requests": n => { queryPostRequestBody.requests = n.getCollectionOfObjectValues<SearchRequest>(createSearchRequestFromDiscriminatorValue); },
@@ -35,7 +35,7 @@ export function deserializeIntoQueryPostRequestBody(queryPostRequestBody: QueryP
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoQueryPostResponse(queryPostResponse: QueryPostResponse | undefined = {} as QueryPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoQueryPostResponse(queryPostResponse: Partial<QueryPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(queryPostResponse),
         "value": n => { queryPostResponse.value = n.getCollectionOfObjectValues<SearchResponse>(createSearchResponseFromDiscriminatorValue); },
@@ -85,7 +85,7 @@ export interface QueryRequestBuilder extends BaseRequestBuilder<QueryRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeQueryPostRequestBody(writer: SerializationWriter, queryPostRequestBody: QueryPostRequestBody | undefined = {} as QueryPostRequestBody) : void {
+export function serializeQueryPostRequestBody(writer: SerializationWriter, queryPostRequestBody: Partial<QueryPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<SearchRequest>("requests", queryPostRequestBody.requests, serializeSearchRequest);
     writer.writeAdditionalData(queryPostRequestBody.additionalData);
 }
@@ -93,7 +93,7 @@ export function serializeQueryPostRequestBody(writer: SerializationWriter, query
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeQueryPostResponse(writer: SerializationWriter, queryPostResponse: QueryPostResponse | undefined = {} as QueryPostResponse) : void {
+export function serializeQueryPostResponse(writer: SerializationWriter, queryPostResponse: Partial<QueryPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, queryPostResponse)
     writer.writeCollectionOfObjectValues<SearchResponse>("value", queryPostResponse.value, serializeSearchResponse);
 }

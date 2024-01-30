@@ -10,7 +10,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a deltaGetResponse
  */
-export function createDeltaGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDeltaGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDeltaGetResponse;
 }
 export interface DeltaGetResponse extends BaseDeltaFunctionResponse, Parsable {
@@ -74,7 +74,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDeltaGetResponse(deltaGetResponse: DeltaGetResponse | undefined = {} as DeltaGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseDeltaFunctionResponse(deltaGetResponse),
         "value": n => { deltaGetResponse.value = n.getCollectionOfObjectValues<Contact>(createContactFromDiscriminatorValue); },
@@ -84,7 +84,7 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: DeltaGetRespon
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDeltaGetResponse(writer: SerializationWriter, deltaGetResponse: DeltaGetResponse | undefined = {} as DeltaGetResponse) : void {
+export function serializeDeltaGetResponse(writer: SerializationWriter, deltaGetResponse: Partial<DeltaGetResponse> | undefined = {}) : void {
     serializeBaseDeltaFunctionResponse(writer, deltaGetResponse)
     writer.writeCollectionOfObjectValues<Contact>("value", deltaGetResponse.value, serializeContact);
 }

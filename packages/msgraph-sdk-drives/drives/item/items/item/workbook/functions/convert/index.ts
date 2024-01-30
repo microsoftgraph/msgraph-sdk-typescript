@@ -51,14 +51,14 @@ export interface ConvertRequestBuilder extends BaseRequestBuilder<ConvertRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a convertPostRequestBody
  */
-export function createConvertPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createConvertPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConvertPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoConvertPostRequestBody(convertPostRequestBody: ConvertPostRequestBody | undefined = {} as ConvertPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoConvertPostRequestBody(convertPostRequestBody: Partial<ConvertPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { convertPostRequestBody.backingStoreEnabled = true; },
         "fromUnit": n => { convertPostRequestBody.fromUnit = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export function deserializeIntoConvertPostRequestBody(convertPostRequestBody: Co
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeConvertPostRequestBody(writer: SerializationWriter, convertPostRequestBody: ConvertPostRequestBody | undefined = {} as ConvertPostRequestBody) : void {
+export function serializeConvertPostRequestBody(writer: SerializationWriter, convertPostRequestBody: Partial<ConvertPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("fromUnit", convertPostRequestBody.fromUnit, serializeJson);
     writer.writeObjectValue<Json>("number", convertPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("toUnit", convertPostRequestBody.toUnit, serializeJson);

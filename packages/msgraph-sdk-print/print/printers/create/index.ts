@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a createPostRequestBody
  */
-export function createCreatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCreatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreatePostRequestBody;
 }
 export interface CreatePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -74,7 +74,7 @@ export interface CreateRequestBuilder extends BaseRequestBuilder<CreateRequestBu
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCreatePostRequestBody(createPostRequestBody: CreatePostRequestBody | undefined = {} as CreatePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCreatePostRequestBody(createPostRequestBody: Partial<CreatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createPostRequestBody.backingStoreEnabled = true; },
         "certificateSigningRequest": n => { createPostRequestBody.certificateSigningRequest = n.getObjectValue<PrintCertificateSigningRequest>(createPrintCertificateSigningRequestFromDiscriminatorValue); },
@@ -90,7 +90,7 @@ export function deserializeIntoCreatePostRequestBody(createPostRequestBody: Crea
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCreatePostRequestBody(writer: SerializationWriter, createPostRequestBody: CreatePostRequestBody | undefined = {} as CreatePostRequestBody) : void {
+export function serializeCreatePostRequestBody(writer: SerializationWriter, createPostRequestBody: Partial<CreatePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<PrintCertificateSigningRequest>("certificateSigningRequest", createPostRequestBody.certificateSigningRequest, serializePrintCertificateSigningRequest);
     writer.writeStringValue("connectorId", createPostRequestBody.connectorId);
     writer.writeStringValue("displayName", createPostRequestBody.displayName);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a medianPostRequestBody
  */
-export function createMedianPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMedianPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMedianPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMedianPostRequestBody(medianPostRequestBody: MedianPostRequestBody | undefined = {} as MedianPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMedianPostRequestBody(medianPostRequestBody: Partial<MedianPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { medianPostRequestBody.backingStoreEnabled = true; },
         "values": n => { medianPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface MedianRequestBuilder extends BaseRequestBuilder<MedianRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMedianPostRequestBody(writer: SerializationWriter, medianPostRequestBody: MedianPostRequestBody | undefined = {} as MedianPostRequestBody) : void {
+export function serializeMedianPostRequestBody(writer: SerializationWriter, medianPostRequestBody: Partial<MedianPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", medianPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(medianPostRequestBody.additionalData);
 }

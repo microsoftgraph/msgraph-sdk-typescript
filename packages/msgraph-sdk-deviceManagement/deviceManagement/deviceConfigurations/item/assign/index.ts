@@ -50,7 +50,7 @@ export interface AssignRequestBuilder extends BaseRequestBuilder<AssignRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a assignPostRequestBody
  */
-export function createAssignPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAssignPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAssignPostRequestBody;
 }
 /**
@@ -58,14 +58,14 @@ export function createAssignPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a assignPostResponse
  */
-export function createAssignPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAssignPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAssignPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAssignPostRequestBody(assignPostRequestBody: AssignPostRequestBody | undefined = {} as AssignPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAssignPostRequestBody(assignPostRequestBody: Partial<AssignPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "assignments": n => { assignPostRequestBody.assignments = n.getCollectionOfObjectValues<DeviceConfigurationAssignment>(createDeviceConfigurationAssignmentFromDiscriminatorValue); },
         "backingStoreEnabled": n => { assignPostRequestBody.backingStoreEnabled = true; },
@@ -75,7 +75,7 @@ export function deserializeIntoAssignPostRequestBody(assignPostRequestBody: Assi
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAssignPostResponse(assignPostResponse: AssignPostResponse | undefined = {} as AssignPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAssignPostResponse(assignPostResponse: Partial<AssignPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(assignPostResponse),
         "value": n => { assignPostResponse.value = n.getCollectionOfObjectValues<DeviceConfigurationAssignment>(createDeviceConfigurationAssignmentFromDiscriminatorValue); },
@@ -85,7 +85,7 @@ export function deserializeIntoAssignPostResponse(assignPostResponse: AssignPost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAssignPostRequestBody(writer: SerializationWriter, assignPostRequestBody: AssignPostRequestBody | undefined = {} as AssignPostRequestBody) : void {
+export function serializeAssignPostRequestBody(writer: SerializationWriter, assignPostRequestBody: Partial<AssignPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<DeviceConfigurationAssignment>("assignments", assignPostRequestBody.assignments, serializeDeviceConfigurationAssignment);
     writer.writeAdditionalData(assignPostRequestBody.additionalData);
 }
@@ -93,7 +93,7 @@ export function serializeAssignPostRequestBody(writer: SerializationWriter, assi
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAssignPostResponse(writer: SerializationWriter, assignPostResponse: AssignPostResponse | undefined = {} as AssignPostResponse) : void {
+export function serializeAssignPostResponse(writer: SerializationWriter, assignPostResponse: Partial<AssignPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, assignPostResponse)
     writer.writeCollectionOfObjectValues<DeviceConfigurationAssignment>("value", assignPostResponse.value, serializeDeviceConfigurationAssignment);
 }

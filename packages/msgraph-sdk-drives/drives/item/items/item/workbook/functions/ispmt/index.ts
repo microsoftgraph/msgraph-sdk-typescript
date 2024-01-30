@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a ispmtPostRequestBody
  */
-export function createIspmtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createIspmtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIspmtPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoIspmtPostRequestBody(ispmtPostRequestBody: IspmtPostRequestBody | undefined = {} as IspmtPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIspmtPostRequestBody(ispmtPostRequestBody: Partial<IspmtPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ispmtPostRequestBody.backingStoreEnabled = true; },
         "nper": n => { ispmtPostRequestBody.nper = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export interface IspmtRequestBuilder extends BaseRequestBuilder<IspmtRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIspmtPostRequestBody(writer: SerializationWriter, ispmtPostRequestBody: IspmtPostRequestBody | undefined = {} as IspmtPostRequestBody) : void {
+export function serializeIspmtPostRequestBody(writer: SerializationWriter, ispmtPostRequestBody: Partial<IspmtPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("nper", ispmtPostRequestBody.nper, serializeJson);
     writer.writeObjectValue<Json>("per", ispmtPostRequestBody.per, serializeJson);
     writer.writeObjectValue<Json>("pv", ispmtPostRequestBody.pv, serializeJson);

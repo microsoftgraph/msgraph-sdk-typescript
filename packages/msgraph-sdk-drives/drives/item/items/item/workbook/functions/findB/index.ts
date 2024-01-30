@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a findBPostRequestBody
  */
-export function createFindBPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFindBPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFindBPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFindBPostRequestBody(findBPostRequestBody: FindBPostRequestBody | undefined = {} as FindBPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFindBPostRequestBody(findBPostRequestBody: Partial<FindBPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { findBPostRequestBody.backingStoreEnabled = true; },
         "findText": n => { findBPostRequestBody.findText = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface FindBRequestBuilder extends BaseRequestBuilder<FindBRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFindBPostRequestBody(writer: SerializationWriter, findBPostRequestBody: FindBPostRequestBody | undefined = {} as FindBPostRequestBody) : void {
+export function serializeFindBPostRequestBody(writer: SerializationWriter, findBPostRequestBody: Partial<FindBPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("findText", findBPostRequestBody.findText, serializeJson);
     writer.writeObjectValue<Json>("startNum", findBPostRequestBody.startNum, serializeJson);
     writer.writeObjectValue<Json>("withinText", findBPostRequestBody.withinText, serializeJson);

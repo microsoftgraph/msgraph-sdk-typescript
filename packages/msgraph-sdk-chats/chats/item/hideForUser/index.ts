@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a hideForUserPostRequestBody
  */
-export function createHideForUserPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createHideForUserPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHideForUserPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoHideForUserPostRequestBody(hideForUserPostRequestBody: HideForUserPostRequestBody | undefined = {} as HideForUserPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoHideForUserPostRequestBody(hideForUserPostRequestBody: Partial<HideForUserPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { hideForUserPostRequestBody.backingStoreEnabled = true; },
         "user": n => { hideForUserPostRequestBody.user = n.getObjectValue<TeamworkUserIdentity>(createTeamworkUserIdentityFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface HideForUserRequestBuilder extends BaseRequestBuilder<HideForUse
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeHideForUserPostRequestBody(writer: SerializationWriter, hideForUserPostRequestBody: HideForUserPostRequestBody | undefined = {} as HideForUserPostRequestBody) : void {
+export function serializeHideForUserPostRequestBody(writer: SerializationWriter, hideForUserPostRequestBody: Partial<HideForUserPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<TeamworkUserIdentity>("user", hideForUserPostRequestBody.user, serializeTeamworkUserIdentity);
     writer.writeAdditionalData(hideForUserPostRequestBody.additionalData);
 }

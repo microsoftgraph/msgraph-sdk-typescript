@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse
  */
-export function createGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse(getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse: GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse | undefined = {} as GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse(getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse: Partial<GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.backingStoreEnabled = true; },
         "value": n => { getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.value = n.getStringValue(); },
@@ -57,7 +57,7 @@ export interface GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBui
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse(writer: SerializationWriter, getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse: GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse | undefined = {} as GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse) : void {
+export function serializeGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse(writer: SerializationWriter, getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse: Partial<GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse> | undefined = {}) : void {
     writer.writeStringValue("value", getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.value);
     writer.writeAdditionalData(getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.additionalData);
 }

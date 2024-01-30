@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a ddbPostRequestBody
  */
-export function createDdbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDdbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDdbPostRequestBody;
 }
 export interface DdbPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -66,7 +66,7 @@ export interface DdbRequestBuilder extends BaseRequestBuilder<DdbRequestBuilder>
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDdbPostRequestBody(ddbPostRequestBody: DdbPostRequestBody | undefined = {} as DdbPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDdbPostRequestBody(ddbPostRequestBody: Partial<DdbPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ddbPostRequestBody.backingStoreEnabled = true; },
         "cost": n => { ddbPostRequestBody.cost = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -80,7 +80,7 @@ export function deserializeIntoDdbPostRequestBody(ddbPostRequestBody: DdbPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDdbPostRequestBody(writer: SerializationWriter, ddbPostRequestBody: DdbPostRequestBody | undefined = {} as DdbPostRequestBody) : void {
+export function serializeDdbPostRequestBody(writer: SerializationWriter, ddbPostRequestBody: Partial<DdbPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("cost", ddbPostRequestBody.cost, serializeJson);
     writer.writeObjectValue<Json>("factor", ddbPostRequestBody.factor, serializeJson);
     writer.writeObjectValue<Json>("life", ddbPostRequestBody.life, serializeJson);

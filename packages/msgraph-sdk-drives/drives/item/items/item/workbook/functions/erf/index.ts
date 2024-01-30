@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a erfPostRequestBody
  */
-export function createErfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createErfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoErfPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoErfPostRequestBody(erfPostRequestBody: ErfPostRequestBody | undefined = {} as ErfPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoErfPostRequestBody(erfPostRequestBody: Partial<ErfPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { erfPostRequestBody.backingStoreEnabled = true; },
         "lowerLimit": n => { erfPostRequestBody.lowerLimit = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface ErfRequestBuilder extends BaseRequestBuilder<ErfRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeErfPostRequestBody(writer: SerializationWriter, erfPostRequestBody: ErfPostRequestBody | undefined = {} as ErfPostRequestBody) : void {
+export function serializeErfPostRequestBody(writer: SerializationWriter, erfPostRequestBody: Partial<ErfPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("lowerLimit", erfPostRequestBody.lowerLimit, serializeJson);
     writer.writeObjectValue<Json>("upperLimit", erfPostRequestBody.upperLimit, serializeJson);
     writer.writeAdditionalData(erfPostRequestBody.additionalData);

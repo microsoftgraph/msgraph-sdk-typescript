@@ -43,14 +43,14 @@ export interface AsinhRequestBuilder extends BaseRequestBuilder<AsinhRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a asinhPostRequestBody
  */
-export function createAsinhPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAsinhPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAsinhPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAsinhPostRequestBody(asinhPostRequestBody: AsinhPostRequestBody | undefined = {} as AsinhPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAsinhPostRequestBody(asinhPostRequestBody: Partial<AsinhPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { asinhPostRequestBody.backingStoreEnabled = true; },
         "number": n => { asinhPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoAsinhPostRequestBody(asinhPostRequestBody: AsinhP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAsinhPostRequestBody(writer: SerializationWriter, asinhPostRequestBody: AsinhPostRequestBody | undefined = {} as AsinhPostRequestBody) : void {
+export function serializeAsinhPostRequestBody(writer: SerializationWriter, asinhPostRequestBody: Partial<AsinhPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", asinhPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(asinhPostRequestBody.additionalData);
 }

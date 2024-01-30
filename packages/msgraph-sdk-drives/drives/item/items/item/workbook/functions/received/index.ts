@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a receivedPostRequestBody
  */
-export function createReceivedPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createReceivedPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoReceivedPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoReceivedPostRequestBody(receivedPostRequestBody: ReceivedPostRequestBody | undefined = {} as ReceivedPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoReceivedPostRequestBody(receivedPostRequestBody: Partial<ReceivedPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { receivedPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { receivedPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -80,7 +80,7 @@ export interface ReceivedRequestBuilder extends BaseRequestBuilder<ReceivedReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeReceivedPostRequestBody(writer: SerializationWriter, receivedPostRequestBody: ReceivedPostRequestBody | undefined = {} as ReceivedPostRequestBody) : void {
+export function serializeReceivedPostRequestBody(writer: SerializationWriter, receivedPostRequestBody: Partial<ReceivedPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", receivedPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("discount", receivedPostRequestBody.discount, serializeJson);
     writer.writeObjectValue<Json>("investment", receivedPostRequestBody.investment, serializeJson);

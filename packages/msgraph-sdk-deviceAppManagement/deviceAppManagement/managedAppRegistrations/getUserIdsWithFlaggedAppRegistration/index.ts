@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getUserIdsWithFlaggedAppRegistrationGetResponse
  */
-export function createGetUserIdsWithFlaggedAppRegistrationGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetUserIdsWithFlaggedAppRegistrationGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetUserIdsWithFlaggedAppRegistrationGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetUserIdsWithFlaggedAppRegistrationGetResponse(getUserIdsWithFlaggedAppRegistrationGetResponse: GetUserIdsWithFlaggedAppRegistrationGetResponse | undefined = {} as GetUserIdsWithFlaggedAppRegistrationGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetUserIdsWithFlaggedAppRegistrationGetResponse(getUserIdsWithFlaggedAppRegistrationGetResponse: Partial<GetUserIdsWithFlaggedAppRegistrationGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getUserIdsWithFlaggedAppRegistrationGetResponse),
         "value": n => { getUserIdsWithFlaggedAppRegistrationGetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
@@ -75,7 +75,7 @@ export interface GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParam
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetUserIdsWithFlaggedAppRegistrationGetResponse(writer: SerializationWriter, getUserIdsWithFlaggedAppRegistrationGetResponse: GetUserIdsWithFlaggedAppRegistrationGetResponse | undefined = {} as GetUserIdsWithFlaggedAppRegistrationGetResponse) : void {
+export function serializeGetUserIdsWithFlaggedAppRegistrationGetResponse(writer: SerializationWriter, getUserIdsWithFlaggedAppRegistrationGetResponse: Partial<GetUserIdsWithFlaggedAppRegistrationGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getUserIdsWithFlaggedAppRegistrationGetResponse)
     writer.writeCollectionOfPrimitiveValues<string>("value", getUserIdsWithFlaggedAppRegistrationGetResponse.value);
 }

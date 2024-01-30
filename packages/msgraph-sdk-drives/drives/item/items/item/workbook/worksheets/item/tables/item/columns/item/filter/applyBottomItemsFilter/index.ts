@@ -41,14 +41,14 @@ export interface ApplyBottomItemsFilterRequestBuilder extends BaseRequestBuilder
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a applyBottomItemsFilterPostRequestBody
  */
-export function createApplyBottomItemsFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createApplyBottomItemsFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyBottomItemsFilterPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoApplyBottomItemsFilterPostRequestBody(applyBottomItemsFilterPostRequestBody: ApplyBottomItemsFilterPostRequestBody | undefined = {} as ApplyBottomItemsFilterPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoApplyBottomItemsFilterPostRequestBody(applyBottomItemsFilterPostRequestBody: Partial<ApplyBottomItemsFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyBottomItemsFilterPostRequestBody.backingStoreEnabled = true; },
         "count": n => { applyBottomItemsFilterPostRequestBody.count = n.getNumberValue(); },
@@ -58,7 +58,7 @@ export function deserializeIntoApplyBottomItemsFilterPostRequestBody(applyBottom
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyBottomItemsFilterPostRequestBody(writer: SerializationWriter, applyBottomItemsFilterPostRequestBody: ApplyBottomItemsFilterPostRequestBody | undefined = {} as ApplyBottomItemsFilterPostRequestBody) : void {
+export function serializeApplyBottomItemsFilterPostRequestBody(writer: SerializationWriter, applyBottomItemsFilterPostRequestBody: Partial<ApplyBottomItemsFilterPostRequestBody> | undefined = {}) : void {
     writer.writeNumberValue("count", applyBottomItemsFilterPostRequestBody.count);
     writer.writeAdditionalData(applyBottomItemsFilterPostRequestBody.additionalData);
 }

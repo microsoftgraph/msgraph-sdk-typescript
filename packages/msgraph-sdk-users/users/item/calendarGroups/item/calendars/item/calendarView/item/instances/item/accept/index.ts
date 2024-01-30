@@ -46,14 +46,14 @@ export interface AcceptRequestBuilder extends BaseRequestBuilder<AcceptRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a acceptPostRequestBody
  */
-export function createAcceptPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAcceptPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAcceptPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAcceptPostRequestBody(acceptPostRequestBody: AcceptPostRequestBody | undefined = {} as AcceptPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAcceptPostRequestBody(acceptPostRequestBody: Partial<AcceptPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { acceptPostRequestBody.backingStoreEnabled = true; },
         "comment": n => { acceptPostRequestBody.comment = n.getStringValue(); },
@@ -64,7 +64,7 @@ export function deserializeIntoAcceptPostRequestBody(acceptPostRequestBody: Acce
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAcceptPostRequestBody(writer: SerializationWriter, acceptPostRequestBody: AcceptPostRequestBody | undefined = {} as AcceptPostRequestBody) : void {
+export function serializeAcceptPostRequestBody(writer: SerializationWriter, acceptPostRequestBody: Partial<AcceptPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("Comment", acceptPostRequestBody.comment);
     writer.writeBooleanValue("SendResponse", acceptPostRequestBody.sendResponse);
     writer.writeAdditionalData(acceptPostRequestBody.additionalData);

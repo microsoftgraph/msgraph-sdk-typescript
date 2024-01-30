@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a imArgumentPostRequestBody
  */
-export function createImArgumentPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImArgumentPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImArgumentPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImArgumentPostRequestBody(imArgumentPostRequestBody: ImArgumentPostRequestBody | undefined = {} as ImArgumentPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImArgumentPostRequestBody(imArgumentPostRequestBody: Partial<ImArgumentPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imArgumentPostRequestBody.backingStoreEnabled = true; },
         "inumber": n => { imArgumentPostRequestBody.inumber = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface ImArgumentRequestBuilder extends BaseRequestBuilder<ImArgumentR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImArgumentPostRequestBody(writer: SerializationWriter, imArgumentPostRequestBody: ImArgumentPostRequestBody | undefined = {} as ImArgumentPostRequestBody) : void {
+export function serializeImArgumentPostRequestBody(writer: SerializationWriter, imArgumentPostRequestBody: Partial<ImArgumentPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("inumber", imArgumentPostRequestBody.inumber, serializeJson);
     writer.writeAdditionalData(imArgumentPostRequestBody.additionalData);
 }

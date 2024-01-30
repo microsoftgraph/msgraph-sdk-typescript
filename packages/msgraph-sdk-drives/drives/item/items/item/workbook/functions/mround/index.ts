@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a mroundPostRequestBody
  */
-export function createMroundPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMroundPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMroundPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMroundPostRequestBody(mroundPostRequestBody: MroundPostRequestBody | undefined = {} as MroundPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMroundPostRequestBody(mroundPostRequestBody: Partial<MroundPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { mroundPostRequestBody.backingStoreEnabled = true; },
         "multiple": n => { mroundPostRequestBody.multiple = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface MroundRequestBuilder extends BaseRequestBuilder<MroundRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMroundPostRequestBody(writer: SerializationWriter, mroundPostRequestBody: MroundPostRequestBody | undefined = {} as MroundPostRequestBody) : void {
+export function serializeMroundPostRequestBody(writer: SerializationWriter, mroundPostRequestBody: Partial<MroundPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("multiple", mroundPostRequestBody.multiple, serializeJson);
     writer.writeObjectValue<Json>("number", mroundPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(mroundPostRequestBody.additionalData);

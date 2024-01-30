@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a dbPostRequestBody
  */
-export function createDbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDbPostRequestBody;
 }
 export interface DbPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -66,7 +66,7 @@ export interface DbRequestBuilder extends BaseRequestBuilder<DbRequestBuilder> {
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDbPostRequestBody(dbPostRequestBody: DbPostRequestBody | undefined = {} as DbPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDbPostRequestBody(dbPostRequestBody: Partial<DbPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dbPostRequestBody.backingStoreEnabled = true; },
         "cost": n => { dbPostRequestBody.cost = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -80,7 +80,7 @@ export function deserializeIntoDbPostRequestBody(dbPostRequestBody: DbPostReques
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDbPostRequestBody(writer: SerializationWriter, dbPostRequestBody: DbPostRequestBody | undefined = {} as DbPostRequestBody) : void {
+export function serializeDbPostRequestBody(writer: SerializationWriter, dbPostRequestBody: Partial<DbPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("cost", dbPostRequestBody.cost, serializeJson);
     writer.writeObjectValue<Json>("life", dbPostRequestBody.life, serializeJson);
     writer.writeObjectValue<Json>("month", dbPostRequestBody.month, serializeJson);

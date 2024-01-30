@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a imRealPostRequestBody
  */
-export function createImRealPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImRealPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImRealPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImRealPostRequestBody(imRealPostRequestBody: ImRealPostRequestBody | undefined = {} as ImRealPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImRealPostRequestBody(imRealPostRequestBody: Partial<ImRealPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imRealPostRequestBody.backingStoreEnabled = true; },
         "inumber": n => { imRealPostRequestBody.inumber = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface ImRealRequestBuilder extends BaseRequestBuilder<ImRealRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImRealPostRequestBody(writer: SerializationWriter, imRealPostRequestBody: ImRealPostRequestBody | undefined = {} as ImRealPostRequestBody) : void {
+export function serializeImRealPostRequestBody(writer: SerializationWriter, imRealPostRequestBody: Partial<ImRealPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("inumber", imRealPostRequestBody.inumber, serializeJson);
     writer.writeAdditionalData(imRealPostRequestBody.additionalData);
 }

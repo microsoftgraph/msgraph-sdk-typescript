@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a imageGetResponse
  */
-export function createImageGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImageGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImageGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImageGetResponse(imageGetResponse: ImageGetResponse | undefined = {} as ImageGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImageGetResponse(imageGetResponse: Partial<ImageGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imageGetResponse.backingStoreEnabled = true; },
         "value": n => { imageGetResponse.value = n.getStringValue(); },
@@ -57,7 +57,7 @@ export interface ImageRequestBuilder extends BaseRequestBuilder<ImageRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImageGetResponse(writer: SerializationWriter, imageGetResponse: ImageGetResponse | undefined = {} as ImageGetResponse) : void {
+export function serializeImageGetResponse(writer: SerializationWriter, imageGetResponse: Partial<ImageGetResponse> | undefined = {}) : void {
     writer.writeStringValue("value", imageGetResponse.value);
     writer.writeAdditionalData(imageGetResponse.additionalData);
 }

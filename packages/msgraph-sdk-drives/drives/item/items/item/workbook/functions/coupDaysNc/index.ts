@@ -55,14 +55,14 @@ export interface CoupDaysNcRequestBuilder extends BaseRequestBuilder<CoupDaysNcR
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a coupDaysNcPostRequestBody
  */
-export function createCoupDaysNcPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCoupDaysNcPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCoupDaysNcPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCoupDaysNcPostRequestBody(coupDaysNcPostRequestBody: CoupDaysNcPostRequestBody | undefined = {} as CoupDaysNcPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCoupDaysNcPostRequestBody(coupDaysNcPostRequestBody: Partial<CoupDaysNcPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { coupDaysNcPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { coupDaysNcPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export function deserializeIntoCoupDaysNcPostRequestBody(coupDaysNcPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCoupDaysNcPostRequestBody(writer: SerializationWriter, coupDaysNcPostRequestBody: CoupDaysNcPostRequestBody | undefined = {} as CoupDaysNcPostRequestBody) : void {
+export function serializeCoupDaysNcPostRequestBody(writer: SerializationWriter, coupDaysNcPostRequestBody: Partial<CoupDaysNcPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", coupDaysNcPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("frequency", coupDaysNcPostRequestBody.frequency, serializeJson);
     writer.writeObjectValue<Json>("maturity", coupDaysNcPostRequestBody.maturity, serializeJson);

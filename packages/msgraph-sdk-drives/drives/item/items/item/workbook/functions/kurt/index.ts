@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a kurtPostRequestBody
  */
-export function createKurtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createKurtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoKurtPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoKurtPostRequestBody(kurtPostRequestBody: KurtPostRequestBody | undefined = {} as KurtPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoKurtPostRequestBody(kurtPostRequestBody: Partial<KurtPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { kurtPostRequestBody.backingStoreEnabled = true; },
         "values": n => { kurtPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface KurtRequestBuilder extends BaseRequestBuilder<KurtRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeKurtPostRequestBody(writer: SerializationWriter, kurtPostRequestBody: KurtPostRequestBody | undefined = {} as KurtPostRequestBody) : void {
+export function serializeKurtPostRequestBody(writer: SerializationWriter, kurtPostRequestBody: Partial<KurtPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", kurtPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(kurtPostRequestBody.additionalData);
 }

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a midPostRequestBody
  */
-export function createMidPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMidPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMidPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMidPostRequestBody(midPostRequestBody: MidPostRequestBody | undefined = {} as MidPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMidPostRequestBody(midPostRequestBody: Partial<MidPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { midPostRequestBody.backingStoreEnabled = true; },
         "numChars": n => { midPostRequestBody.numChars = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface MidRequestBuilder extends BaseRequestBuilder<MidRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMidPostRequestBody(writer: SerializationWriter, midPostRequestBody: MidPostRequestBody | undefined = {} as MidPostRequestBody) : void {
+export function serializeMidPostRequestBody(writer: SerializationWriter, midPostRequestBody: Partial<MidPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("numChars", midPostRequestBody.numChars, serializeJson);
     writer.writeObjectValue<Json>("startNum", midPostRequestBody.startNum, serializeJson);
     writer.writeObjectValue<Json>("text", midPostRequestBody.text, serializeJson);

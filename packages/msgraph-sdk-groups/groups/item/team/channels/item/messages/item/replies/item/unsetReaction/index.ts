@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a unsetReactionPostRequestBody
  */
-export function createUnsetReactionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createUnsetReactionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnsetReactionPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoUnsetReactionPostRequestBody(unsetReactionPostRequestBody: UnsetReactionPostRequestBody | undefined = {} as UnsetReactionPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoUnsetReactionPostRequestBody(unsetReactionPostRequestBody: Partial<UnsetReactionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unsetReactionPostRequestBody.backingStoreEnabled = true; },
         "reactionType": n => { unsetReactionPostRequestBody.reactionType = n.getStringValue(); },
@@ -26,7 +26,7 @@ export function deserializeIntoUnsetReactionPostRequestBody(unsetReactionPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUnsetReactionPostRequestBody(writer: SerializationWriter, unsetReactionPostRequestBody: UnsetReactionPostRequestBody | undefined = {} as UnsetReactionPostRequestBody) : void {
+export function serializeUnsetReactionPostRequestBody(writer: SerializationWriter, unsetReactionPostRequestBody: Partial<UnsetReactionPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("reactionType", unsetReactionPostRequestBody.reactionType);
     writer.writeAdditionalData(unsetReactionPostRequestBody.additionalData);
 }

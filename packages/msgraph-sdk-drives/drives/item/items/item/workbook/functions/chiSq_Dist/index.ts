@@ -51,14 +51,14 @@ export interface ChiSq_DistRequestBuilder extends BaseRequestBuilder<ChiSq_DistR
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a chiSq_DistPostRequestBody
  */
-export function createChiSq_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createChiSq_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoChiSq_DistPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoChiSq_DistPostRequestBody(chiSq_DistPostRequestBody: ChiSq_DistPostRequestBody | undefined = {} as ChiSq_DistPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoChiSq_DistPostRequestBody(chiSq_DistPostRequestBody: Partial<ChiSq_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { chiSq_DistPostRequestBody.backingStoreEnabled = true; },
         "cumulative": n => { chiSq_DistPostRequestBody.cumulative = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export function deserializeIntoChiSq_DistPostRequestBody(chiSq_DistPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeChiSq_DistPostRequestBody(writer: SerializationWriter, chiSq_DistPostRequestBody: ChiSq_DistPostRequestBody | undefined = {} as ChiSq_DistPostRequestBody) : void {
+export function serializeChiSq_DistPostRequestBody(writer: SerializationWriter, chiSq_DistPostRequestBody: Partial<ChiSq_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("cumulative", chiSq_DistPostRequestBody.cumulative, serializeJson);
     writer.writeObjectValue<Json>("degFreedom", chiSq_DistPostRequestBody.degFreedom, serializeJson);
     writer.writeObjectValue<Json>("x", chiSq_DistPostRequestBody.x, serializeJson);

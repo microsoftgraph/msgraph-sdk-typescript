@@ -9,7 +9,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Pa
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a groupCollectionResponse
  */
-export function createGroupCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGroupCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGroupCollectionResponse;
 }
 /**
@@ -17,7 +17,7 @@ export function createGroupCollectionResponseFromDiscriminatorValue(parseNode: P
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a group
  */
-export function createGroupFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGroupFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGroup;
 }
 /**
@@ -25,7 +25,7 @@ export function createGroupFromDiscriminatorValue(parseNode: ParseNode | undefin
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a localizedDescription
  */
-export function createLocalizedDescriptionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createLocalizedDescriptionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLocalizedDescription;
 }
 /**
@@ -33,7 +33,7 @@ export function createLocalizedDescriptionFromDiscriminatorValue(parseNode: Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a localizedLabel
  */
-export function createLocalizedLabelFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createLocalizedLabelFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLocalizedLabel;
 }
 /**
@@ -41,7 +41,7 @@ export function createLocalizedLabelFromDiscriminatorValue(parseNode: ParseNode 
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a localizedName
  */
-export function createLocalizedNameFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createLocalizedNameFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLocalizedName;
 }
 /**
@@ -49,7 +49,7 @@ export function createLocalizedNameFromDiscriminatorValue(parseNode: ParseNode |
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a relationCollectionResponse
  */
-export function createRelationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRelationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRelationCollectionResponse;
 }
 /**
@@ -57,7 +57,7 @@ export function createRelationCollectionResponseFromDiscriminatorValue(parseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a relation
  */
-export function createRelationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRelationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRelation;
 }
 /**
@@ -65,7 +65,7 @@ export function createRelationFromDiscriminatorValue(parseNode: ParseNode | unde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a setCollectionResponse
  */
-export function createSetCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSetCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetCollectionResponse;
 }
 /**
@@ -73,7 +73,7 @@ export function createSetCollectionResponseFromDiscriminatorValue(parseNode: Par
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a set
  */
-export function createSetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSetFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSet;
 }
 /**
@@ -81,7 +81,7 @@ export function createSetFromDiscriminatorValue(parseNode: ParseNode | undefined
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a storeCollectionResponse
  */
-export function createStoreCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createStoreCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoStoreCollectionResponse;
 }
 /**
@@ -89,7 +89,7 @@ export function createStoreCollectionResponseFromDiscriminatorValue(parseNode: P
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a store
  */
-export function createStoreFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createStoreFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoStore;
 }
 /**
@@ -97,7 +97,7 @@ export function createStoreFromDiscriminatorValue(parseNode: ParseNode | undefin
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a termCollectionResponse
  */
-export function createTermCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createTermCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTermCollectionResponse;
 }
 /**
@@ -105,14 +105,14 @@ export function createTermCollectionResponseFromDiscriminatorValue(parseNode: Pa
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a term
  */
-export function createTermFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createTermFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTerm;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGroup(group: Group | undefined = {} as Group) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGroup(group: Partial<Group> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(group),
         "createdDateTime": n => { group.createdDateTime = n.getDateValue(); },
@@ -127,7 +127,7 @@ export function deserializeIntoGroup(group: Group | undefined = {} as Group) : R
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGroupCollectionResponse(groupCollectionResponse: GroupCollectionResponse | undefined = {} as GroupCollectionResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGroupCollectionResponse(groupCollectionResponse: Partial<GroupCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(groupCollectionResponse),
         "value": n => { groupCollectionResponse.value = n.getCollectionOfObjectValues<Group>(createGroupFromDiscriminatorValue); },
@@ -137,7 +137,7 @@ export function deserializeIntoGroupCollectionResponse(groupCollectionResponse: 
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoLocalizedDescription(localizedDescription: LocalizedDescription | undefined = {} as LocalizedDescription) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoLocalizedDescription(localizedDescription: Partial<LocalizedDescription> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { localizedDescription.backingStoreEnabled = true; },
         "description": n => { localizedDescription.description = n.getStringValue(); },
@@ -149,7 +149,7 @@ export function deserializeIntoLocalizedDescription(localizedDescription: Locali
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoLocalizedLabel(localizedLabel: LocalizedLabel | undefined = {} as LocalizedLabel) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoLocalizedLabel(localizedLabel: Partial<LocalizedLabel> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { localizedLabel.backingStoreEnabled = true; },
         "isDefault": n => { localizedLabel.isDefault = n.getBooleanValue(); },
@@ -162,7 +162,7 @@ export function deserializeIntoLocalizedLabel(localizedLabel: LocalizedLabel | u
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoLocalizedName(localizedName: LocalizedName | undefined = {} as LocalizedName) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoLocalizedName(localizedName: Partial<LocalizedName> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { localizedName.backingStoreEnabled = true; },
         "languageTag": n => { localizedName.languageTag = n.getStringValue(); },
@@ -174,7 +174,7 @@ export function deserializeIntoLocalizedName(localizedName: LocalizedName | unde
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRelation(relation: Relation | undefined = {} as Relation) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRelation(relation: Partial<Relation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(relation),
         "fromTerm": n => { relation.fromTerm = n.getObjectValue<Term>(createTermFromDiscriminatorValue); },
@@ -187,7 +187,7 @@ export function deserializeIntoRelation(relation: Relation | undefined = {} as R
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRelationCollectionResponse(relationCollectionResponse: RelationCollectionResponse | undefined = {} as RelationCollectionResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRelationCollectionResponse(relationCollectionResponse: Partial<RelationCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(relationCollectionResponse),
         "value": n => { relationCollectionResponse.value = n.getCollectionOfObjectValues<Relation>(createRelationFromDiscriminatorValue); },
@@ -197,7 +197,7 @@ export function deserializeIntoRelationCollectionResponse(relationCollectionResp
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSet(set: Set | undefined = {} as Set) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSet(set: Partial<Set> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(set),
         "children": n => { set.children = n.getCollectionOfObjectValues<Term>(createTermFromDiscriminatorValue); },
@@ -214,7 +214,7 @@ export function deserializeIntoSet(set: Set | undefined = {} as Set) : Record<st
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSetCollectionResponse(setCollectionResponse: SetCollectionResponse | undefined = {} as SetCollectionResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSetCollectionResponse(setCollectionResponse: Partial<SetCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(setCollectionResponse),
         "value": n => { setCollectionResponse.value = n.getCollectionOfObjectValues<Set>(createSetFromDiscriminatorValue); },
@@ -224,7 +224,7 @@ export function deserializeIntoSetCollectionResponse(setCollectionResponse: SetC
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoStore(store: Store | undefined = {} as Store) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoStore(store: Partial<Store> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(store),
         "defaultLanguageTag": n => { store.defaultLanguageTag = n.getStringValue(); },
@@ -237,7 +237,7 @@ export function deserializeIntoStore(store: Store | undefined = {} as Store) : R
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoStoreCollectionResponse(storeCollectionResponse: StoreCollectionResponse | undefined = {} as StoreCollectionResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoStoreCollectionResponse(storeCollectionResponse: Partial<StoreCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(storeCollectionResponse),
         "value": n => { storeCollectionResponse.value = n.getCollectionOfObjectValues<Store>(createStoreFromDiscriminatorValue); },
@@ -247,7 +247,7 @@ export function deserializeIntoStoreCollectionResponse(storeCollectionResponse: 
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoTerm(term: Term | undefined = {} as Term) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTerm(term: Partial<Term> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(term),
         "children": n => { term.children = n.getCollectionOfObjectValues<Term>(createTermFromDiscriminatorValue); },
@@ -264,7 +264,7 @@ export function deserializeIntoTerm(term: Term | undefined = {} as Term) : Recor
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoTermCollectionResponse(termCollectionResponse: TermCollectionResponse | undefined = {} as TermCollectionResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTermCollectionResponse(termCollectionResponse: Partial<TermCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(termCollectionResponse),
         "value": n => { termCollectionResponse.value = n.getCollectionOfObjectValues<Term>(createTermFromDiscriminatorValue); },
@@ -401,7 +401,7 @@ export type RelationType = (typeof RelationTypeObject)[keyof typeof RelationType
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGroup(writer: SerializationWriter, group: Group | undefined = {} as Group) : void {
+export function serializeGroup(writer: SerializationWriter, group: Partial<Group> | undefined = {}) : void {
     serializeEntity(writer, group)
     writer.writeDateValue("createdDateTime", group.createdDateTime);
     writer.writeStringValue("description", group.description);
@@ -414,7 +414,7 @@ export function serializeGroup(writer: SerializationWriter, group: Group | undef
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGroupCollectionResponse(writer: SerializationWriter, groupCollectionResponse: GroupCollectionResponse | undefined = {} as GroupCollectionResponse) : void {
+export function serializeGroupCollectionResponse(writer: SerializationWriter, groupCollectionResponse: Partial<GroupCollectionResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, groupCollectionResponse)
     writer.writeCollectionOfObjectValues<Group>("value", groupCollectionResponse.value, serializeGroup);
 }
@@ -422,7 +422,7 @@ export function serializeGroupCollectionResponse(writer: SerializationWriter, gr
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLocalizedDescription(writer: SerializationWriter, localizedDescription: LocalizedDescription | undefined = {} as LocalizedDescription) : void {
+export function serializeLocalizedDescription(writer: SerializationWriter, localizedDescription: Partial<LocalizedDescription> | undefined = {}) : void {
     writer.writeStringValue("description", localizedDescription.description);
     writer.writeStringValue("languageTag", localizedDescription.languageTag);
     writer.writeStringValue("@odata.type", localizedDescription.odataType);
@@ -432,7 +432,7 @@ export function serializeLocalizedDescription(writer: SerializationWriter, local
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLocalizedLabel(writer: SerializationWriter, localizedLabel: LocalizedLabel | undefined = {} as LocalizedLabel) : void {
+export function serializeLocalizedLabel(writer: SerializationWriter, localizedLabel: Partial<LocalizedLabel> | undefined = {}) : void {
     writer.writeBooleanValue("isDefault", localizedLabel.isDefault);
     writer.writeStringValue("languageTag", localizedLabel.languageTag);
     writer.writeStringValue("name", localizedLabel.name);
@@ -443,7 +443,7 @@ export function serializeLocalizedLabel(writer: SerializationWriter, localizedLa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLocalizedName(writer: SerializationWriter, localizedName: LocalizedName | undefined = {} as LocalizedName) : void {
+export function serializeLocalizedName(writer: SerializationWriter, localizedName: Partial<LocalizedName> | undefined = {}) : void {
     writer.writeStringValue("languageTag", localizedName.languageTag);
     writer.writeStringValue("name", localizedName.name);
     writer.writeStringValue("@odata.type", localizedName.odataType);
@@ -453,7 +453,7 @@ export function serializeLocalizedName(writer: SerializationWriter, localizedNam
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRelation(writer: SerializationWriter, relation: Relation | undefined = {} as Relation) : void {
+export function serializeRelation(writer: SerializationWriter, relation: Partial<Relation> | undefined = {}) : void {
     serializeEntity(writer, relation)
     writer.writeObjectValue<Term>("fromTerm", relation.fromTerm, serializeTerm);
     writer.writeEnumValue<RelationType>("relationship", relation.relationship);
@@ -464,7 +464,7 @@ export function serializeRelation(writer: SerializationWriter, relation: Relatio
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRelationCollectionResponse(writer: SerializationWriter, relationCollectionResponse: RelationCollectionResponse | undefined = {} as RelationCollectionResponse) : void {
+export function serializeRelationCollectionResponse(writer: SerializationWriter, relationCollectionResponse: Partial<RelationCollectionResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, relationCollectionResponse)
     writer.writeCollectionOfObjectValues<Relation>("value", relationCollectionResponse.value, serializeRelation);
 }
@@ -472,7 +472,7 @@ export function serializeRelationCollectionResponse(writer: SerializationWriter,
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSet(writer: SerializationWriter, set: Set | undefined = {} as Set) : void {
+export function serializeSet(writer: SerializationWriter, set: Partial<Set> | undefined = {}) : void {
     serializeEntity(writer, set)
     writer.writeCollectionOfObjectValues<Term>("children", set.children, serializeTerm);
     writer.writeDateValue("createdDateTime", set.createdDateTime);
@@ -487,7 +487,7 @@ export function serializeSet(writer: SerializationWriter, set: Set | undefined =
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSetCollectionResponse(writer: SerializationWriter, setCollectionResponse: SetCollectionResponse | undefined = {} as SetCollectionResponse) : void {
+export function serializeSetCollectionResponse(writer: SerializationWriter, setCollectionResponse: Partial<SetCollectionResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, setCollectionResponse)
     writer.writeCollectionOfObjectValues<Set>("value", setCollectionResponse.value, serializeSet);
 }
@@ -495,7 +495,7 @@ export function serializeSetCollectionResponse(writer: SerializationWriter, setC
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeStore(writer: SerializationWriter, store: Store | undefined = {} as Store) : void {
+export function serializeStore(writer: SerializationWriter, store: Partial<Store> | undefined = {}) : void {
     serializeEntity(writer, store)
     writer.writeStringValue("defaultLanguageTag", store.defaultLanguageTag);
     writer.writeCollectionOfObjectValues<Group>("groups", store.groups, serializeGroup);
@@ -506,7 +506,7 @@ export function serializeStore(writer: SerializationWriter, store: Store | undef
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeStoreCollectionResponse(writer: SerializationWriter, storeCollectionResponse: StoreCollectionResponse | undefined = {} as StoreCollectionResponse) : void {
+export function serializeStoreCollectionResponse(writer: SerializationWriter, storeCollectionResponse: Partial<StoreCollectionResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, storeCollectionResponse)
     writer.writeCollectionOfObjectValues<Store>("value", storeCollectionResponse.value, serializeStore);
 }
@@ -514,7 +514,7 @@ export function serializeStoreCollectionResponse(writer: SerializationWriter, st
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTerm(writer: SerializationWriter, term: Term | undefined = {} as Term) : void {
+export function serializeTerm(writer: SerializationWriter, term: Partial<Term> | undefined = {}) : void {
     serializeEntity(writer, term)
     writer.writeCollectionOfObjectValues<Term>("children", term.children, serializeTerm);
     writer.writeDateValue("createdDateTime", term.createdDateTime);
@@ -529,7 +529,7 @@ export function serializeTerm(writer: SerializationWriter, term: Term | undefine
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTermCollectionResponse(writer: SerializationWriter, termCollectionResponse: TermCollectionResponse | undefined = {} as TermCollectionResponse) : void {
+export function serializeTermCollectionResponse(writer: SerializationWriter, termCollectionResponse: Partial<TermCollectionResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, termCollectionResponse)
     writer.writeCollectionOfObjectValues<Term>("value", termCollectionResponse.value, serializeTerm);
 }
@@ -642,12 +642,12 @@ export const RelationTypeObject = {
     Pin: "pin",
     Reuse: "reuse",
     UnknownFutureValue: "unknownFutureValue",
-}  as const;
+} as const;
 export const TermGroupScopeObject = {
     Global: "global",
     System: "system",
     SiteCollection: "siteCollection",
     UnknownFutureValue: "unknownFutureValue",
-}  as const;
+} as const;
 /* tslint:enable */
 /* eslint-enable */

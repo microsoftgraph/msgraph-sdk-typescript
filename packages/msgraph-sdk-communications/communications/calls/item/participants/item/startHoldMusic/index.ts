@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a startHoldMusicPostRequestBody
  */
-export function createStartHoldMusicPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createStartHoldMusicPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoStartHoldMusicPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoStartHoldMusicPostRequestBody(startHoldMusicPostRequestBody: StartHoldMusicPostRequestBody | undefined = {} as StartHoldMusicPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoStartHoldMusicPostRequestBody(startHoldMusicPostRequestBody: Partial<StartHoldMusicPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { startHoldMusicPostRequestBody.backingStoreEnabled = true; },
         "clientContext": n => { startHoldMusicPostRequestBody.clientContext = n.getStringValue(); },
@@ -28,7 +28,7 @@ export function deserializeIntoStartHoldMusicPostRequestBody(startHoldMusicPostR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeStartHoldMusicPostRequestBody(writer: SerializationWriter, startHoldMusicPostRequestBody: StartHoldMusicPostRequestBody | undefined = {} as StartHoldMusicPostRequestBody) : void {
+export function serializeStartHoldMusicPostRequestBody(writer: SerializationWriter, startHoldMusicPostRequestBody: Partial<StartHoldMusicPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("clientContext", startHoldMusicPostRequestBody.clientContext);
     writer.writeObjectValue<Prompt>("customPrompt", startHoldMusicPostRequestBody.customPrompt, serializePrompt);
     writer.writeAdditionalData(startHoldMusicPostRequestBody.additionalData);

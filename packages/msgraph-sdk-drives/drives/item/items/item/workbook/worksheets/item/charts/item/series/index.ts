@@ -5,7 +5,7 @@ import { createWorkbookChartSeriesCollectionResponseFromDiscriminatorValue, crea
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { CountRequestBuilderRequestsMetadata, CountRequestBuilderUriTemplate, type CountRequestBuilder } from './count/';
 import { type WorkbookChartSeriesItemRequestBuilder, WorkbookChartSeriesItemRequestBuilderNavigationMetadata, WorkbookChartSeriesItemRequestBuilderRequestsMetadata, WorkbookChartSeriesItemRequestBuilderUriTemplate } from './item/';
-import { ItemAtWithIndexRequestBuilderRequestsMetadata, ItemAtWithIndexRequestBuilderUriTemplate, type ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/';
+import { ItemAtWithIndexRequestBuilderNavigationMetadata, ItemAtWithIndexRequestBuilderRequestsMetadata, ItemAtWithIndexRequestBuilderUriTemplate, type ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -26,7 +26,7 @@ export interface SeriesRequestBuilder extends BaseRequestBuilder<SeriesRequestBu
      * Retrieve a list of chartseries objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartSeriesCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/chartseries-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chart-list-series?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SeriesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartSeriesCollectionResponse | undefined>;
     /**
@@ -120,6 +120,7 @@ export const SeriesRequestBuilderNavigationMetadata: Record<Exclude<keyof Series
     itemAtWithIndex: {
         uriTemplate: ItemAtWithIndexRequestBuilderUriTemplate,
         requestsMetadata: ItemAtWithIndexRequestBuilderRequestsMetadata,
+        navigationMetadata: ItemAtWithIndexRequestBuilderNavigationMetadata,
     },
     count: {
         uriTemplate: CountRequestBuilderUriTemplate,

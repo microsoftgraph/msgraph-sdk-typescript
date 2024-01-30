@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a norm_InvPostRequestBody
  */
-export function createNorm_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createNorm_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNorm_InvPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoNorm_InvPostRequestBody(norm_InvPostRequestBody: Norm_InvPostRequestBody | undefined = {} as Norm_InvPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoNorm_InvPostRequestBody(norm_InvPostRequestBody: Partial<Norm_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { norm_InvPostRequestBody.backingStoreEnabled = true; },
         "mean": n => { norm_InvPostRequestBody.mean = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface Norm_InvRequestBuilder extends BaseRequestBuilder<Norm_InvReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNorm_InvPostRequestBody(writer: SerializationWriter, norm_InvPostRequestBody: Norm_InvPostRequestBody | undefined = {} as Norm_InvPostRequestBody) : void {
+export function serializeNorm_InvPostRequestBody(writer: SerializationWriter, norm_InvPostRequestBody: Partial<Norm_InvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("mean", norm_InvPostRequestBody.mean, serializeJson);
     writer.writeObjectValue<Json>("probability", norm_InvPostRequestBody.probability, serializeJson);
     writer.writeObjectValue<Json>("standardDev", norm_InvPostRequestBody.standardDev, serializeJson);

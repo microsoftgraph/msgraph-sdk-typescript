@@ -49,7 +49,7 @@ export interface CheckMemberObjectsRequestBuilder extends BaseRequestBuilder<Che
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a checkMemberObjectsPostRequestBody
  */
-export function createCheckMemberObjectsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCheckMemberObjectsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCheckMemberObjectsPostRequestBody;
 }
 /**
@@ -57,14 +57,14 @@ export function createCheckMemberObjectsPostRequestBodyFromDiscriminatorValue(pa
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a checkMemberObjectsPostResponse
  */
-export function createCheckMemberObjectsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCheckMemberObjectsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCheckMemberObjectsPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCheckMemberObjectsPostRequestBody(checkMemberObjectsPostRequestBody: CheckMemberObjectsPostRequestBody | undefined = {} as CheckMemberObjectsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCheckMemberObjectsPostRequestBody(checkMemberObjectsPostRequestBody: Partial<CheckMemberObjectsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { checkMemberObjectsPostRequestBody.backingStoreEnabled = true; },
         "ids": n => { checkMemberObjectsPostRequestBody.ids = n.getCollectionOfPrimitiveValues<string>(); },
@@ -74,7 +74,7 @@ export function deserializeIntoCheckMemberObjectsPostRequestBody(checkMemberObje
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCheckMemberObjectsPostResponse(checkMemberObjectsPostResponse: CheckMemberObjectsPostResponse | undefined = {} as CheckMemberObjectsPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCheckMemberObjectsPostResponse(checkMemberObjectsPostResponse: Partial<CheckMemberObjectsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(checkMemberObjectsPostResponse),
         "value": n => { checkMemberObjectsPostResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
@@ -84,7 +84,7 @@ export function deserializeIntoCheckMemberObjectsPostResponse(checkMemberObjects
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCheckMemberObjectsPostRequestBody(writer: SerializationWriter, checkMemberObjectsPostRequestBody: CheckMemberObjectsPostRequestBody | undefined = {} as CheckMemberObjectsPostRequestBody) : void {
+export function serializeCheckMemberObjectsPostRequestBody(writer: SerializationWriter, checkMemberObjectsPostRequestBody: Partial<CheckMemberObjectsPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("ids", checkMemberObjectsPostRequestBody.ids);
     writer.writeAdditionalData(checkMemberObjectsPostRequestBody.additionalData);
 }
@@ -92,7 +92,7 @@ export function serializeCheckMemberObjectsPostRequestBody(writer: Serialization
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCheckMemberObjectsPostResponse(writer: SerializationWriter, checkMemberObjectsPostResponse: CheckMemberObjectsPostResponse | undefined = {} as CheckMemberObjectsPostResponse) : void {
+export function serializeCheckMemberObjectsPostResponse(writer: SerializationWriter, checkMemberObjectsPostResponse: Partial<CheckMemberObjectsPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, checkMemberObjectsPostResponse)
     writer.writeCollectionOfPrimitiveValues<string>("value", checkMemberObjectsPostResponse.value);
 }

@@ -55,14 +55,14 @@ export interface Binom_Dist_RangeRequestBuilder extends BaseRequestBuilder<Binom
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a binom_Dist_RangePostRequestBody
  */
-export function createBinom_Dist_RangePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createBinom_Dist_RangePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBinom_Dist_RangePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoBinom_Dist_RangePostRequestBody(binom_Dist_RangePostRequestBody: Binom_Dist_RangePostRequestBody | undefined = {} as Binom_Dist_RangePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoBinom_Dist_RangePostRequestBody(binom_Dist_RangePostRequestBody: Partial<Binom_Dist_RangePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { binom_Dist_RangePostRequestBody.backingStoreEnabled = true; },
         "numberS": n => { binom_Dist_RangePostRequestBody.numberS = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export function deserializeIntoBinom_Dist_RangePostRequestBody(binom_Dist_RangeP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBinom_Dist_RangePostRequestBody(writer: SerializationWriter, binom_Dist_RangePostRequestBody: Binom_Dist_RangePostRequestBody | undefined = {} as Binom_Dist_RangePostRequestBody) : void {
+export function serializeBinom_Dist_RangePostRequestBody(writer: SerializationWriter, binom_Dist_RangePostRequestBody: Partial<Binom_Dist_RangePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("numberS", binom_Dist_RangePostRequestBody.numberS, serializeJson);
     writer.writeObjectValue<Json>("numberS2", binom_Dist_RangePostRequestBody.numberS2, serializeJson);
     writer.writeObjectValue<Json>("probabilityS", binom_Dist_RangePostRequestBody.probabilityS, serializeJson);

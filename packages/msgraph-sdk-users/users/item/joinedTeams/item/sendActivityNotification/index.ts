@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a sendActivityNotificationPostRequestBody
  */
-export function createSendActivityNotificationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSendActivityNotificationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSendActivityNotificationPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSendActivityNotificationPostRequestBody(sendActivityNotificationPostRequestBody: SendActivityNotificationPostRequestBody | undefined = {} as SendActivityNotificationPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSendActivityNotificationPostRequestBody(sendActivityNotificationPostRequestBody: Partial<SendActivityNotificationPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "activityType": n => { sendActivityNotificationPostRequestBody.activityType = n.getStringValue(); },
         "backingStoreEnabled": n => { sendActivityNotificationPostRequestBody.backingStoreEnabled = true; },
@@ -72,14 +72,14 @@ export interface SendActivityNotificationPostRequestBody extends AdditionalDataH
  */
 export interface SendActivityNotificationRequestBuilder extends BaseRequestBuilder<SendActivityNotificationRequestBuilder> {
     /**
-     * Send an activity feed notification in the scope of a team. For more details about sending notifications and the requirements for doing so, seesending Teams activity notifications.
+     * Send an activity feed notification in the scope of a team. For more information about sending notifications and the requirements for doing so, seesending Teams activity notifications.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/team-sendactivitynotification?view=graph-rest-1.0|Find more info here}
      */
      post(body: SendActivityNotificationPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Send an activity feed notification in the scope of a team. For more details about sending notifications and the requirements for doing so, seesending Teams activity notifications.
+     * Send an activity feed notification in the scope of a team. For more information about sending notifications and the requirements for doing so, seesending Teams activity notifications.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -90,7 +90,7 @@ export interface SendActivityNotificationRequestBuilder extends BaseRequestBuild
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSendActivityNotificationPostRequestBody(writer: SerializationWriter, sendActivityNotificationPostRequestBody: SendActivityNotificationPostRequestBody | undefined = {} as SendActivityNotificationPostRequestBody) : void {
+export function serializeSendActivityNotificationPostRequestBody(writer: SerializationWriter, sendActivityNotificationPostRequestBody: Partial<SendActivityNotificationPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("activityType", sendActivityNotificationPostRequestBody.activityType);
     writer.writeNumberValue("chainId", sendActivityNotificationPostRequestBody.chainId);
     writer.writeObjectValue<ItemBody>("previewText", sendActivityNotificationPostRequestBody.previewText, serializeItemBody);

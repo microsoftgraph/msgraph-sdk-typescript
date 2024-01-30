@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RangeRequestBuilder extends BaseRequestBuilder<RangeRequestBuilder> {
     /**
-     * Returns the range object that is associated with the name. Throws an exception if the named item's type is not a range.
+     * Retrieve the properties and relationships of range object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookRange
-     * @see {@link https://learn.microsoft.com/graph/api/nameditem-range?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/range-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookRange | undefined>;
     /**
-     * Returns the range object that is associated with the name. Throws an exception if the named item's type is not a range.
+     * Retrieve the properties and relationships of range object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

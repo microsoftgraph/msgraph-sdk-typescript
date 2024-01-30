@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a roundUpPostRequestBody
  */
-export function createRoundUpPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRoundUpPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRoundUpPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRoundUpPostRequestBody(roundUpPostRequestBody: RoundUpPostRequestBody | undefined = {} as RoundUpPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRoundUpPostRequestBody(roundUpPostRequestBody: Partial<RoundUpPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { roundUpPostRequestBody.backingStoreEnabled = true; },
         "number": n => { roundUpPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface RoundUpRequestBuilder extends BaseRequestBuilder<RoundUpRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRoundUpPostRequestBody(writer: SerializationWriter, roundUpPostRequestBody: RoundUpPostRequestBody | undefined = {} as RoundUpPostRequestBody) : void {
+export function serializeRoundUpPostRequestBody(writer: SerializationWriter, roundUpPostRequestBody: Partial<RoundUpPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", roundUpPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("numDigits", roundUpPostRequestBody.numDigits, serializeJson);
     writer.writeAdditionalData(roundUpPostRequestBody.additionalData);

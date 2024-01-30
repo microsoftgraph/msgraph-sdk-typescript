@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a norm_S_InvPostRequestBody
  */
-export function createNorm_S_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createNorm_S_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNorm_S_InvPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoNorm_S_InvPostRequestBody(norm_S_InvPostRequestBody: Norm_S_InvPostRequestBody | undefined = {} as Norm_S_InvPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoNorm_S_InvPostRequestBody(norm_S_InvPostRequestBody: Partial<Norm_S_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { norm_S_InvPostRequestBody.backingStoreEnabled = true; },
         "probability": n => { norm_S_InvPostRequestBody.probability = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface Norm_S_InvRequestBuilder extends BaseRequestBuilder<Norm_S_InvR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNorm_S_InvPostRequestBody(writer: SerializationWriter, norm_S_InvPostRequestBody: Norm_S_InvPostRequestBody | undefined = {} as Norm_S_InvPostRequestBody) : void {
+export function serializeNorm_S_InvPostRequestBody(writer: SerializationWriter, norm_S_InvPostRequestBody: Partial<Norm_S_InvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("probability", norm_S_InvPostRequestBody.probability, serializeJson);
     writer.writeAdditionalData(norm_S_InvPostRequestBody.additionalData);
 }

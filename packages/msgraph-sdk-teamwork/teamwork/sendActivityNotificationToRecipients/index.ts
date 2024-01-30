@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a sendActivityNotificationToRecipientsPostRequestBody
  */
-export function createSendActivityNotificationToRecipientsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSendActivityNotificationToRecipientsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSendActivityNotificationToRecipientsPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSendActivityNotificationToRecipientsPostRequestBody(sendActivityNotificationToRecipientsPostRequestBody: SendActivityNotificationToRecipientsPostRequestBody | undefined = {} as SendActivityNotificationToRecipientsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSendActivityNotificationToRecipientsPostRequestBody(sendActivityNotificationToRecipientsPostRequestBody: Partial<SendActivityNotificationToRecipientsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "activityType": n => { sendActivityNotificationToRecipientsPostRequestBody.activityType = n.getStringValue(); },
         "backingStoreEnabled": n => { sendActivityNotificationToRecipientsPostRequestBody.backingStoreEnabled = true; },
@@ -90,7 +90,7 @@ export interface SendActivityNotificationToRecipientsRequestBuilder extends Base
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSendActivityNotificationToRecipientsPostRequestBody(writer: SerializationWriter, sendActivityNotificationToRecipientsPostRequestBody: SendActivityNotificationToRecipientsPostRequestBody | undefined = {} as SendActivityNotificationToRecipientsPostRequestBody) : void {
+export function serializeSendActivityNotificationToRecipientsPostRequestBody(writer: SerializationWriter, sendActivityNotificationToRecipientsPostRequestBody: Partial<SendActivityNotificationToRecipientsPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("activityType", sendActivityNotificationToRecipientsPostRequestBody.activityType);
     writer.writeNumberValue("chainId", sendActivityNotificationToRecipientsPostRequestBody.chainId);
     writer.writeObjectValue<ItemBody>("previewText", sendActivityNotificationToRecipientsPostRequestBody.previewText, serializeItemBody);

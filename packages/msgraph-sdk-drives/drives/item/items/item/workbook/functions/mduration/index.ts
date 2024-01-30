@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a mdurationPostRequestBody
  */
-export function createMdurationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMdurationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMdurationPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMdurationPostRequestBody(mdurationPostRequestBody: MdurationPostRequestBody | undefined = {} as MdurationPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMdurationPostRequestBody(mdurationPostRequestBody: Partial<MdurationPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { mdurationPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { mdurationPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -85,7 +85,7 @@ export interface MdurationRequestBuilder extends BaseRequestBuilder<MdurationReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMdurationPostRequestBody(writer: SerializationWriter, mdurationPostRequestBody: MdurationPostRequestBody | undefined = {} as MdurationPostRequestBody) : void {
+export function serializeMdurationPostRequestBody(writer: SerializationWriter, mdurationPostRequestBody: Partial<MdurationPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", mdurationPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("coupon", mdurationPostRequestBody.coupon, serializeJson);
     writer.writeObjectValue<Json>("frequency", mdurationPostRequestBody.frequency, serializeJson);

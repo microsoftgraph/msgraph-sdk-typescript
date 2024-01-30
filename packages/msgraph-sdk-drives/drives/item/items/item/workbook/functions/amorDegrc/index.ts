@@ -67,14 +67,14 @@ export interface AmorDegrcRequestBuilder extends BaseRequestBuilder<AmorDegrcReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a amorDegrcPostRequestBody
  */
-export function createAmorDegrcPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAmorDegrcPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAmorDegrcPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAmorDegrcPostRequestBody(amorDegrcPostRequestBody: AmorDegrcPostRequestBody | undefined = {} as AmorDegrcPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAmorDegrcPostRequestBody(amorDegrcPostRequestBody: Partial<AmorDegrcPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { amorDegrcPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { amorDegrcPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -90,7 +90,7 @@ export function deserializeIntoAmorDegrcPostRequestBody(amorDegrcPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAmorDegrcPostRequestBody(writer: SerializationWriter, amorDegrcPostRequestBody: AmorDegrcPostRequestBody | undefined = {} as AmorDegrcPostRequestBody) : void {
+export function serializeAmorDegrcPostRequestBody(writer: SerializationWriter, amorDegrcPostRequestBody: Partial<AmorDegrcPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", amorDegrcPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("cost", amorDegrcPostRequestBody.cost, serializeJson);
     writer.writeObjectValue<Json>("datePurchased", amorDegrcPostRequestBody.datePurchased, serializeJson);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a slnPostRequestBody
  */
-export function createSlnPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSlnPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSlnPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSlnPostRequestBody(slnPostRequestBody: SlnPostRequestBody | undefined = {} as SlnPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSlnPostRequestBody(slnPostRequestBody: Partial<SlnPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { slnPostRequestBody.backingStoreEnabled = true; },
         "cost": n => { slnPostRequestBody.cost = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -29,7 +29,7 @@ export function deserializeIntoSlnPostRequestBody(slnPostRequestBody: SlnPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSlnPostRequestBody(writer: SerializationWriter, slnPostRequestBody: SlnPostRequestBody | undefined = {} as SlnPostRequestBody) : void {
+export function serializeSlnPostRequestBody(writer: SerializationWriter, slnPostRequestBody: Partial<SlnPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("cost", slnPostRequestBody.cost, serializeJson);
     writer.writeObjectValue<Json>("life", slnPostRequestBody.life, serializeJson);
     writer.writeObjectValue<Json>("salvage", slnPostRequestBody.salvage, serializeJson);

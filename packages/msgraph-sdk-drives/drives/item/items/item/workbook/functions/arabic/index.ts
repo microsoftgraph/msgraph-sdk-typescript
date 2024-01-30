@@ -43,14 +43,14 @@ export interface ArabicRequestBuilder extends BaseRequestBuilder<ArabicRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a arabicPostRequestBody
  */
-export function createArabicPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createArabicPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoArabicPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoArabicPostRequestBody(arabicPostRequestBody: ArabicPostRequestBody | undefined = {} as ArabicPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoArabicPostRequestBody(arabicPostRequestBody: Partial<ArabicPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { arabicPostRequestBody.backingStoreEnabled = true; },
         "text": n => { arabicPostRequestBody.text = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoArabicPostRequestBody(arabicPostRequestBody: Arab
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeArabicPostRequestBody(writer: SerializationWriter, arabicPostRequestBody: ArabicPostRequestBody | undefined = {} as ArabicPostRequestBody) : void {
+export function serializeArabicPostRequestBody(writer: SerializationWriter, arabicPostRequestBody: Partial<ArabicPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("text", arabicPostRequestBody.text, serializeJson);
     writer.writeAdditionalData(arabicPostRequestBody.additionalData);
 }

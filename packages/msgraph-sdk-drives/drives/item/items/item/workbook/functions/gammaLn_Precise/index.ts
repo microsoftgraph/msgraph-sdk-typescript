@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a gammaLn_PrecisePostRequestBody
  */
-export function createGammaLn_PrecisePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGammaLn_PrecisePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGammaLn_PrecisePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGammaLn_PrecisePostRequestBody(gammaLn_PrecisePostRequestBody: GammaLn_PrecisePostRequestBody | undefined = {} as GammaLn_PrecisePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGammaLn_PrecisePostRequestBody(gammaLn_PrecisePostRequestBody: Partial<GammaLn_PrecisePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { gammaLn_PrecisePostRequestBody.backingStoreEnabled = true; },
         "x": n => { gammaLn_PrecisePostRequestBody.x = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface GammaLn_PreciseRequestBuilder extends BaseRequestBuilder<GammaL
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGammaLn_PrecisePostRequestBody(writer: SerializationWriter, gammaLn_PrecisePostRequestBody: GammaLn_PrecisePostRequestBody | undefined = {} as GammaLn_PrecisePostRequestBody) : void {
+export function serializeGammaLn_PrecisePostRequestBody(writer: SerializationWriter, gammaLn_PrecisePostRequestBody: Partial<GammaLn_PrecisePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("x", gammaLn_PrecisePostRequestBody.x, serializeJson);
     writer.writeAdditionalData(gammaLn_PrecisePostRequestBody.additionalData);
 }

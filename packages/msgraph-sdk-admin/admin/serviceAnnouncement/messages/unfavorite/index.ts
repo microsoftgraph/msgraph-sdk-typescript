@@ -9,7 +9,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a unfavoritePostRequestBody
  */
-export function createUnfavoritePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createUnfavoritePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnfavoritePostRequestBody;
 }
 /**
@@ -17,14 +17,14 @@ export function createUnfavoritePostRequestBodyFromDiscriminatorValue(parseNode:
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a unfavoritePostResponse
  */
-export function createUnfavoritePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createUnfavoritePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnfavoritePostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoUnfavoritePostRequestBody(unfavoritePostRequestBody: UnfavoritePostRequestBody | undefined = {} as UnfavoritePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoUnfavoritePostRequestBody(unfavoritePostRequestBody: Partial<UnfavoritePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unfavoritePostRequestBody.backingStoreEnabled = true; },
         "messageIds": n => { unfavoritePostRequestBody.messageIds = n.getCollectionOfPrimitiveValues<string>(); },
@@ -34,7 +34,7 @@ export function deserializeIntoUnfavoritePostRequestBody(unfavoritePostRequestBo
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoUnfavoritePostResponse(unfavoritePostResponse: UnfavoritePostResponse | undefined = {} as UnfavoritePostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoUnfavoritePostResponse(unfavoritePostResponse: Partial<UnfavoritePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unfavoritePostResponse.backingStoreEnabled = true; },
         "value": n => { unfavoritePostResponse.value = n.getBooleanValue(); },
@@ -44,7 +44,7 @@ export function deserializeIntoUnfavoritePostResponse(unfavoritePostResponse: Un
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUnfavoritePostRequestBody(writer: SerializationWriter, unfavoritePostRequestBody: UnfavoritePostRequestBody | undefined = {} as UnfavoritePostRequestBody) : void {
+export function serializeUnfavoritePostRequestBody(writer: SerializationWriter, unfavoritePostRequestBody: Partial<UnfavoritePostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("messageIds", unfavoritePostRequestBody.messageIds);
     writer.writeAdditionalData(unfavoritePostRequestBody.additionalData);
 }
@@ -52,7 +52,7 @@ export function serializeUnfavoritePostRequestBody(writer: SerializationWriter, 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUnfavoritePostResponse(writer: SerializationWriter, unfavoritePostResponse: UnfavoritePostResponse | undefined = {} as UnfavoritePostResponse) : void {
+export function serializeUnfavoritePostResponse(writer: SerializationWriter, unfavoritePostResponse: Partial<UnfavoritePostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", unfavoritePostResponse.value);
     writer.writeAdditionalData(unfavoritePostResponse.additionalData);
 }

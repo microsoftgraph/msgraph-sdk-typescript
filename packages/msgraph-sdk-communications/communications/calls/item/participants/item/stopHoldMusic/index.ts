@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a stopHoldMusicPostRequestBody
  */
-export function createStopHoldMusicPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createStopHoldMusicPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoStopHoldMusicPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoStopHoldMusicPostRequestBody(stopHoldMusicPostRequestBody: StopHoldMusicPostRequestBody | undefined = {} as StopHoldMusicPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoStopHoldMusicPostRequestBody(stopHoldMusicPostRequestBody: Partial<StopHoldMusicPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { stopHoldMusicPostRequestBody.backingStoreEnabled = true; },
         "clientContext": n => { stopHoldMusicPostRequestBody.clientContext = n.getStringValue(); },
@@ -27,7 +27,7 @@ export function deserializeIntoStopHoldMusicPostRequestBody(stopHoldMusicPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeStopHoldMusicPostRequestBody(writer: SerializationWriter, stopHoldMusicPostRequestBody: StopHoldMusicPostRequestBody | undefined = {} as StopHoldMusicPostRequestBody) : void {
+export function serializeStopHoldMusicPostRequestBody(writer: SerializationWriter, stopHoldMusicPostRequestBody: Partial<StopHoldMusicPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("clientContext", stopHoldMusicPostRequestBody.clientContext);
     writer.writeAdditionalData(stopHoldMusicPostRequestBody.additionalData);
 }

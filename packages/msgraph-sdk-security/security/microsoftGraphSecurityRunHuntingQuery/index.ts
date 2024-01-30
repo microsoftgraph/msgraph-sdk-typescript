@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a runHuntingQueryPostRequestBody
  */
-export function createRunHuntingQueryPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRunHuntingQueryPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRunHuntingQueryPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRunHuntingQueryPostRequestBody(runHuntingQueryPostRequestBody: RunHuntingQueryPostRequestBody | undefined = {} as RunHuntingQueryPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRunHuntingQueryPostRequestBody(runHuntingQueryPostRequestBody: Partial<RunHuntingQueryPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { runHuntingQueryPostRequestBody.backingStoreEnabled = true; },
         "query": n => { runHuntingQueryPostRequestBody.query = n.getStringValue(); },
@@ -60,7 +60,7 @@ export interface RunHuntingQueryPostRequestBody extends AdditionalDataHolder, Ba
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRunHuntingQueryPostRequestBody(writer: SerializationWriter, runHuntingQueryPostRequestBody: RunHuntingQueryPostRequestBody | undefined = {} as RunHuntingQueryPostRequestBody) : void {
+export function serializeRunHuntingQueryPostRequestBody(writer: SerializationWriter, runHuntingQueryPostRequestBody: Partial<RunHuntingQueryPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("query", runHuntingQueryPostRequestBody.query);
     writer.writeAdditionalData(runHuntingQueryPostRequestBody.additionalData);
 }

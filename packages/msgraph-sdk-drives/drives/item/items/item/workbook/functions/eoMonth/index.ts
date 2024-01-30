@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a eoMonthPostRequestBody
  */
-export function createEoMonthPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createEoMonthPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoEoMonthPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoEoMonthPostRequestBody(eoMonthPostRequestBody: EoMonthPostRequestBody | undefined = {} as EoMonthPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoEoMonthPostRequestBody(eoMonthPostRequestBody: Partial<EoMonthPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { eoMonthPostRequestBody.backingStoreEnabled = true; },
         "months": n => { eoMonthPostRequestBody.months = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface EoMonthRequestBuilder extends BaseRequestBuilder<EoMonthRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeEoMonthPostRequestBody(writer: SerializationWriter, eoMonthPostRequestBody: EoMonthPostRequestBody | undefined = {} as EoMonthPostRequestBody) : void {
+export function serializeEoMonthPostRequestBody(writer: SerializationWriter, eoMonthPostRequestBody: Partial<EoMonthPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("months", eoMonthPostRequestBody.months, serializeJson);
     writer.writeObjectValue<Json>("startDate", eoMonthPostRequestBody.startDate, serializeJson);
     writer.writeAdditionalData(eoMonthPostRequestBody.additionalData);

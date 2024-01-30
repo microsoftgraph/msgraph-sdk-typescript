@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a playPromptPostRequestBody
  */
-export function createPlayPromptPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPlayPromptPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPlayPromptPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPlayPromptPostRequestBody(playPromptPostRequestBody: PlayPromptPostRequestBody | undefined = {} as PlayPromptPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPlayPromptPostRequestBody(playPromptPostRequestBody: Partial<PlayPromptPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { playPromptPostRequestBody.backingStoreEnabled = true; },
         "clientContext": n => { playPromptPostRequestBody.clientContext = n.getStringValue(); },
@@ -66,7 +66,7 @@ export interface PlayPromptRequestBuilder extends BaseRequestBuilder<PlayPromptR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePlayPromptPostRequestBody(writer: SerializationWriter, playPromptPostRequestBody: PlayPromptPostRequestBody | undefined = {} as PlayPromptPostRequestBody) : void {
+export function serializePlayPromptPostRequestBody(writer: SerializationWriter, playPromptPostRequestBody: Partial<PlayPromptPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("clientContext", playPromptPostRequestBody.clientContext);
     writer.writeCollectionOfObjectValues<Prompt>("prompts", playPromptPostRequestBody.prompts, serializePrompt);
     writer.writeAdditionalData(playPromptPostRequestBody.additionalData);

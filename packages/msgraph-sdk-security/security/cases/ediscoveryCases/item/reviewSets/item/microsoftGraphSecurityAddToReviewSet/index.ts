@@ -28,14 +28,14 @@ export interface AddToReviewSetPostRequestBody extends AdditionalDataHolder, Bac
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a addToReviewSetPostRequestBody
  */
-export function createAddToReviewSetPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAddToReviewSetPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddToReviewSetPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAddToReviewSetPostRequestBody(addToReviewSetPostRequestBody: AddToReviewSetPostRequestBody | undefined = {} as AddToReviewSetPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddToReviewSetPostRequestBody(addToReviewSetPostRequestBody: Partial<AddToReviewSetPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "additionalDataOptions": n => { addToReviewSetPostRequestBody.additionalDataOptions = n.getCollectionOfEnumValues<AdditionalDataOptions>(AdditionalDataOptionsObject); },
         "backingStoreEnabled": n => { addToReviewSetPostRequestBody.backingStoreEnabled = true; },
@@ -65,7 +65,7 @@ export interface MicrosoftGraphSecurityAddToReviewSetRequestBuilder extends Base
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddToReviewSetPostRequestBody(writer: SerializationWriter, addToReviewSetPostRequestBody: AddToReviewSetPostRequestBody | undefined = {} as AddToReviewSetPostRequestBody) : void {
+export function serializeAddToReviewSetPostRequestBody(writer: SerializationWriter, addToReviewSetPostRequestBody: Partial<AddToReviewSetPostRequestBody> | undefined = {}) : void {
     writer.writeEnumValue<AdditionalDataOptions[]>("additionalDataOptions", addToReviewSetPostRequestBody.additionalDataOptions);
     writer.writeObjectValue<EdiscoverySearch>("search", addToReviewSetPostRequestBody.search, serializeEdiscoverySearch);
     writer.writeAdditionalData(addToReviewSetPostRequestBody.additionalData);

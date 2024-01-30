@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a setVerifiedPublisherPostRequestBody
  */
-export function createSetVerifiedPublisherPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSetVerifiedPublisherPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetVerifiedPublisherPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSetVerifiedPublisherPostRequestBody(setVerifiedPublisherPostRequestBody: SetVerifiedPublisherPostRequestBody | undefined = {} as SetVerifiedPublisherPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSetVerifiedPublisherPostRequestBody(setVerifiedPublisherPostRequestBody: Partial<SetVerifiedPublisherPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { setVerifiedPublisherPostRequestBody.backingStoreEnabled = true; },
         "verifiedPublisherId": n => { setVerifiedPublisherPostRequestBody.verifiedPublisherId = n.getStringValue(); },
@@ -26,7 +26,7 @@ export function deserializeIntoSetVerifiedPublisherPostRequestBody(setVerifiedPu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSetVerifiedPublisherPostRequestBody(writer: SerializationWriter, setVerifiedPublisherPostRequestBody: SetVerifiedPublisherPostRequestBody | undefined = {} as SetVerifiedPublisherPostRequestBody) : void {
+export function serializeSetVerifiedPublisherPostRequestBody(writer: SerializationWriter, setVerifiedPublisherPostRequestBody: Partial<SetVerifiedPublisherPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("verifiedPublisherId", setVerifiedPublisherPostRequestBody.verifiedPublisherId);
     writer.writeAdditionalData(setVerifiedPublisherPostRequestBody.additionalData);
 }

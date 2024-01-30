@@ -46,14 +46,14 @@ export interface ChangePasswordRequestBuilder extends BaseRequestBuilder<ChangeP
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a changePasswordPostRequestBody
  */
-export function createChangePasswordPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createChangePasswordPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoChangePasswordPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoChangePasswordPostRequestBody(changePasswordPostRequestBody: ChangePasswordPostRequestBody | undefined = {} as ChangePasswordPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoChangePasswordPostRequestBody(changePasswordPostRequestBody: Partial<ChangePasswordPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { changePasswordPostRequestBody.backingStoreEnabled = true; },
         "currentPassword": n => { changePasswordPostRequestBody.currentPassword = n.getStringValue(); },
@@ -64,7 +64,7 @@ export function deserializeIntoChangePasswordPostRequestBody(changePasswordPostR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeChangePasswordPostRequestBody(writer: SerializationWriter, changePasswordPostRequestBody: ChangePasswordPostRequestBody | undefined = {} as ChangePasswordPostRequestBody) : void {
+export function serializeChangePasswordPostRequestBody(writer: SerializationWriter, changePasswordPostRequestBody: Partial<ChangePasswordPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("currentPassword", changePasswordPostRequestBody.currentPassword);
     writer.writeStringValue("newPassword", changePasswordPostRequestBody.newPassword);
     writer.writeAdditionalData(changePasswordPostRequestBody.additionalData);

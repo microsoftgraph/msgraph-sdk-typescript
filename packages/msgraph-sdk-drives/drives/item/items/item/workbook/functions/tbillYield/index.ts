@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a tbillYieldPostRequestBody
  */
-export function createTbillYieldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createTbillYieldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTbillYieldPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoTbillYieldPostRequestBody(tbillYieldPostRequestBody: TbillYieldPostRequestBody | undefined = {} as TbillYieldPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTbillYieldPostRequestBody(tbillYieldPostRequestBody: Partial<TbillYieldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { tbillYieldPostRequestBody.backingStoreEnabled = true; },
         "maturity": n => { tbillYieldPostRequestBody.maturity = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -29,7 +29,7 @@ export function deserializeIntoTbillYieldPostRequestBody(tbillYieldPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTbillYieldPostRequestBody(writer: SerializationWriter, tbillYieldPostRequestBody: TbillYieldPostRequestBody | undefined = {} as TbillYieldPostRequestBody) : void {
+export function serializeTbillYieldPostRequestBody(writer: SerializationWriter, tbillYieldPostRequestBody: Partial<TbillYieldPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("maturity", tbillYieldPostRequestBody.maturity, serializeJson);
     writer.writeObjectValue<Json>("pr", tbillYieldPostRequestBody.pr, serializeJson);
     writer.writeObjectValue<Json>("settlement", tbillYieldPostRequestBody.settlement, serializeJson);

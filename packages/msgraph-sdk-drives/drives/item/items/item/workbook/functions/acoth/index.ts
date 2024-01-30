@@ -43,14 +43,14 @@ export interface AcothRequestBuilder extends BaseRequestBuilder<AcothRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a acothPostRequestBody
  */
-export function createAcothPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAcothPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAcothPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAcothPostRequestBody(acothPostRequestBody: AcothPostRequestBody | undefined = {} as AcothPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAcothPostRequestBody(acothPostRequestBody: Partial<AcothPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { acothPostRequestBody.backingStoreEnabled = true; },
         "number": n => { acothPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoAcothPostRequestBody(acothPostRequestBody: AcothP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAcothPostRequestBody(writer: SerializationWriter, acothPostRequestBody: AcothPostRequestBody | undefined = {} as AcothPostRequestBody) : void {
+export function serializeAcothPostRequestBody(writer: SerializationWriter, acothPostRequestBody: Partial<AcothPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", acothPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(acothPostRequestBody.additionalData);
 }

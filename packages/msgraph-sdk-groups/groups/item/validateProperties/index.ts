@@ -10,14 +10,14 @@ import { type Guid } from 'guid-typescript';
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a validatePropertiesPostRequestBody
  */
-export function createValidatePropertiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createValidatePropertiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoValidatePropertiesPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoValidatePropertiesPostRequestBody(validatePropertiesPostRequestBody: ValidatePropertiesPostRequestBody | undefined = {} as ValidatePropertiesPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoValidatePropertiesPostRequestBody(validatePropertiesPostRequestBody: Partial<ValidatePropertiesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { validatePropertiesPostRequestBody.backingStoreEnabled = true; },
         "displayName": n => { validatePropertiesPostRequestBody.displayName = n.getStringValue(); },
@@ -29,7 +29,7 @@ export function deserializeIntoValidatePropertiesPostRequestBody(validatePropert
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeValidatePropertiesPostRequestBody(writer: SerializationWriter, validatePropertiesPostRequestBody: ValidatePropertiesPostRequestBody | undefined = {} as ValidatePropertiesPostRequestBody) : void {
+export function serializeValidatePropertiesPostRequestBody(writer: SerializationWriter, validatePropertiesPostRequestBody: Partial<ValidatePropertiesPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("displayName", validatePropertiesPostRequestBody.displayName);
     writer.writeStringValue("mailNickname", validatePropertiesPostRequestBody.mailNickname);
     writer.writeGuidValue("onBehalfOfUserId", validatePropertiesPostRequestBody.onBehalfOfUserId);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a fvPostRequestBody
  */
-export function createFvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFvPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFvPostRequestBody(fvPostRequestBody: FvPostRequestBody | undefined = {} as FvPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFvPostRequestBody(fvPostRequestBody: Partial<FvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { fvPostRequestBody.backingStoreEnabled = true; },
         "nper": n => { fvPostRequestBody.nper = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -80,7 +80,7 @@ export interface FvRequestBuilder extends BaseRequestBuilder<FvRequestBuilder> {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFvPostRequestBody(writer: SerializationWriter, fvPostRequestBody: FvPostRequestBody | undefined = {} as FvPostRequestBody) : void {
+export function serializeFvPostRequestBody(writer: SerializationWriter, fvPostRequestBody: Partial<FvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("nper", fvPostRequestBody.nper, serializeJson);
     writer.writeObjectValue<Json>("pmt", fvPostRequestBody.pmt, serializeJson);
     writer.writeObjectValue<Json>("pv", fvPostRequestBody.pv, serializeJson);

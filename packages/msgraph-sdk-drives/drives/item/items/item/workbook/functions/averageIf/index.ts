@@ -51,14 +51,14 @@ export interface AverageIfRequestBuilder extends BaseRequestBuilder<AverageIfReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a averageIfPostRequestBody
  */
-export function createAverageIfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAverageIfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAverageIfPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAverageIfPostRequestBody(averageIfPostRequestBody: AverageIfPostRequestBody | undefined = {} as AverageIfPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAverageIfPostRequestBody(averageIfPostRequestBody: Partial<AverageIfPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "averageRange": n => { averageIfPostRequestBody.averageRange = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { averageIfPostRequestBody.backingStoreEnabled = true; },
@@ -70,7 +70,7 @@ export function deserializeIntoAverageIfPostRequestBody(averageIfPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAverageIfPostRequestBody(writer: SerializationWriter, averageIfPostRequestBody: AverageIfPostRequestBody | undefined = {} as AverageIfPostRequestBody) : void {
+export function serializeAverageIfPostRequestBody(writer: SerializationWriter, averageIfPostRequestBody: Partial<AverageIfPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("averageRange", averageIfPostRequestBody.averageRange, serializeJson);
     writer.writeObjectValue<Json>("criteria", averageIfPostRequestBody.criteria, serializeJson);
     writer.writeObjectValue<Json>("range", averageIfPostRequestBody.range, serializeJson);

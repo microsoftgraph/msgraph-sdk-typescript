@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a purgeDataPostRequestBody
  */
-export function createPurgeDataPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPurgeDataPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPurgeDataPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPurgeDataPostRequestBody(purgeDataPostRequestBody: PurgeDataPostRequestBody | undefined = {} as PurgeDataPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPurgeDataPostRequestBody(purgeDataPostRequestBody: Partial<PurgeDataPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { purgeDataPostRequestBody.backingStoreEnabled = true; },
         "purgeAreas": n => { purgeDataPostRequestBody.purgeAreas = n.getCollectionOfEnumValues<PurgeAreas>(PurgeAreasObject); },
@@ -65,7 +65,7 @@ export interface PurgeDataPostRequestBody extends AdditionalDataHolder, BackedMo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePurgeDataPostRequestBody(writer: SerializationWriter, purgeDataPostRequestBody: PurgeDataPostRequestBody | undefined = {} as PurgeDataPostRequestBody) : void {
+export function serializePurgeDataPostRequestBody(writer: SerializationWriter, purgeDataPostRequestBody: Partial<PurgeDataPostRequestBody> | undefined = {}) : void {
     writer.writeEnumValue<PurgeAreas[]>("purgeAreas", purgeDataPostRequestBody.purgeAreas);
     writer.writeEnumValue<PurgeType>("purgeType", purgeDataPostRequestBody.purgeType);
     writer.writeAdditionalData(purgeDataPostRequestBody.additionalData);

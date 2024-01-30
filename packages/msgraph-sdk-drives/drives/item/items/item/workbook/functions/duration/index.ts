@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a durationPostRequestBody
  */
-export function createDurationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDurationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDurationPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDurationPostRequestBody(durationPostRequestBody: DurationPostRequestBody | undefined = {} as DurationPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDurationPostRequestBody(durationPostRequestBody: Partial<DurationPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { durationPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { durationPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -85,7 +85,7 @@ export interface DurationRequestBuilder extends BaseRequestBuilder<DurationReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDurationPostRequestBody(writer: SerializationWriter, durationPostRequestBody: DurationPostRequestBody | undefined = {} as DurationPostRequestBody) : void {
+export function serializeDurationPostRequestBody(writer: SerializationWriter, durationPostRequestBody: Partial<DurationPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", durationPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("coupon", durationPostRequestBody.coupon, serializeJson);
     writer.writeObjectValue<Json>("frequency", durationPostRequestBody.frequency, serializeJson);

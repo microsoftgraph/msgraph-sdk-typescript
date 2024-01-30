@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getAllSitesGetResponse
  */
-export function createGetAllSitesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetAllSitesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAllSitesGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetAllSitesGetResponse(getAllSitesGetResponse: GetAllSitesGetResponse | undefined = {} as GetAllSitesGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAllSitesGetResponse(getAllSitesGetResponse: Partial<GetAllSitesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getAllSitesGetResponse),
         "value": n => { getAllSitesGetResponse.value = n.getCollectionOfObjectValues<Site>(createSiteFromDiscriminatorValue); },
@@ -83,7 +83,7 @@ export interface GetAllSitesRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetAllSitesGetResponse(writer: SerializationWriter, getAllSitesGetResponse: GetAllSitesGetResponse | undefined = {} as GetAllSitesGetResponse) : void {
+export function serializeGetAllSitesGetResponse(writer: SerializationWriter, getAllSitesGetResponse: Partial<GetAllSitesGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getAllSitesGetResponse)
     writer.writeCollectionOfObjectValues<Site>("value", getAllSitesGetResponse.value, serializeSite);
 }

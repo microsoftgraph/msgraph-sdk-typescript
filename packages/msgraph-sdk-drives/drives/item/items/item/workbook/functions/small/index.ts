@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a smallPostRequestBody
  */
-export function createSmallPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSmallPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSmallPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSmallPostRequestBody(smallPostRequestBody: SmallPostRequestBody | undefined = {} as SmallPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSmallPostRequestBody(smallPostRequestBody: Partial<SmallPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { smallPostRequestBody.array = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { smallPostRequestBody.backingStoreEnabled = true; },
@@ -28,7 +28,7 @@ export function deserializeIntoSmallPostRequestBody(smallPostRequestBody: SmallP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSmallPostRequestBody(writer: SerializationWriter, smallPostRequestBody: SmallPostRequestBody | undefined = {} as SmallPostRequestBody) : void {
+export function serializeSmallPostRequestBody(writer: SerializationWriter, smallPostRequestBody: Partial<SmallPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("array", smallPostRequestBody.array, serializeJson);
     writer.writeObjectValue<Json>("k", smallPostRequestBody.k, serializeJson);
     writer.writeAdditionalData(smallPostRequestBody.additionalData);

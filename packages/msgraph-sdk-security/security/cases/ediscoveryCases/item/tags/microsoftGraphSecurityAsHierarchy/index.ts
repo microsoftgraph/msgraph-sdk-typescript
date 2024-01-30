@@ -17,14 +17,14 @@ export interface AsHierarchyGetResponse extends BaseCollectionPaginationCountRes
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a asHierarchyGetResponse
  */
-export function createAsHierarchyGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAsHierarchyGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAsHierarchyGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAsHierarchyGetResponse(asHierarchyGetResponse: AsHierarchyGetResponse | undefined = {} as AsHierarchyGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAsHierarchyGetResponse(asHierarchyGetResponse: Partial<AsHierarchyGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(asHierarchyGetResponse),
         "value": n => { asHierarchyGetResponse.value = n.getCollectionOfObjectValues<EdiscoveryReviewTag>(createEdiscoveryReviewTagFromDiscriminatorValue); },
@@ -84,7 +84,7 @@ export interface MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParamete
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAsHierarchyGetResponse(writer: SerializationWriter, asHierarchyGetResponse: AsHierarchyGetResponse | undefined = {} as AsHierarchyGetResponse) : void {
+export function serializeAsHierarchyGetResponse(writer: SerializationWriter, asHierarchyGetResponse: Partial<AsHierarchyGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, asHierarchyGetResponse)
     writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("value", asHierarchyGetResponse.value, serializeEdiscoveryReviewTag);
 }

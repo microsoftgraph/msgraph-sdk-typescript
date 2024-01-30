@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a fisherInvPostRequestBody
  */
-export function createFisherInvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFisherInvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFisherInvPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFisherInvPostRequestBody(fisherInvPostRequestBody: FisherInvPostRequestBody | undefined = {} as FisherInvPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFisherInvPostRequestBody(fisherInvPostRequestBody: Partial<FisherInvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { fisherInvPostRequestBody.backingStoreEnabled = true; },
         "y": n => { fisherInvPostRequestBody.y = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface FisherInvRequestBuilder extends BaseRequestBuilder<FisherInvReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFisherInvPostRequestBody(writer: SerializationWriter, fisherInvPostRequestBody: FisherInvPostRequestBody | undefined = {} as FisherInvPostRequestBody) : void {
+export function serializeFisherInvPostRequestBody(writer: SerializationWriter, fisherInvPostRequestBody: Partial<FisherInvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("y", fisherInvPostRequestBody.y, serializeJson);
     writer.writeAdditionalData(fisherInvPostRequestBody.additionalData);
 }

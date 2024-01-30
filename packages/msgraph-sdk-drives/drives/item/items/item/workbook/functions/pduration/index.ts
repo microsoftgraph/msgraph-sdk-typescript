@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a pdurationPostRequestBody
  */
-export function createPdurationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPdurationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPdurationPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPdurationPostRequestBody(pdurationPostRequestBody: PdurationPostRequestBody | undefined = {} as PdurationPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPdurationPostRequestBody(pdurationPostRequestBody: Partial<PdurationPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { pdurationPostRequestBody.backingStoreEnabled = true; },
         "fv": n => { pdurationPostRequestBody.fv = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface PdurationRequestBuilder extends BaseRequestBuilder<PdurationReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePdurationPostRequestBody(writer: SerializationWriter, pdurationPostRequestBody: PdurationPostRequestBody | undefined = {} as PdurationPostRequestBody) : void {
+export function serializePdurationPostRequestBody(writer: SerializationWriter, pdurationPostRequestBody: Partial<PdurationPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("fv", pdurationPostRequestBody.fv, serializeJson);
     writer.writeObjectValue<Json>("pv", pdurationPostRequestBody.pv, serializeJson);
     writer.writeObjectValue<Json>("rate", pdurationPostRequestBody.rate, serializeJson);

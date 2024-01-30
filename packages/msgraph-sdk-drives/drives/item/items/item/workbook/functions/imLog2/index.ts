@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a imLog2PostRequestBody
  */
-export function createImLog2PostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImLog2PostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImLog2PostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImLog2PostRequestBody(imLog2PostRequestBody: ImLog2PostRequestBody | undefined = {} as ImLog2PostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImLog2PostRequestBody(imLog2PostRequestBody: Partial<ImLog2PostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imLog2PostRequestBody.backingStoreEnabled = true; },
         "inumber": n => { imLog2PostRequestBody.inumber = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface ImLog2RequestBuilder extends BaseRequestBuilder<ImLog2RequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImLog2PostRequestBody(writer: SerializationWriter, imLog2PostRequestBody: ImLog2PostRequestBody | undefined = {} as ImLog2PostRequestBody) : void {
+export function serializeImLog2PostRequestBody(writer: SerializationWriter, imLog2PostRequestBody: Partial<ImLog2PostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("inumber", imLog2PostRequestBody.inumber, serializeJson);
     writer.writeAdditionalData(imLog2PostRequestBody.additionalData);
 }

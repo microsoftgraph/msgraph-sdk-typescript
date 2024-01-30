@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a f_Dist_RTPostRequestBody
  */
-export function createF_Dist_RTPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createF_Dist_RTPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoF_Dist_RTPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoF_Dist_RTPostRequestBody(f_Dist_RTPostRequestBody: F_Dist_RTPostRequestBody | undefined = {} as F_Dist_RTPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoF_Dist_RTPostRequestBody(f_Dist_RTPostRequestBody: Partial<F_Dist_RTPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { f_Dist_RTPostRequestBody.backingStoreEnabled = true; },
         "degFreedom1": n => { f_Dist_RTPostRequestBody.degFreedom1 = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface F_Dist_RTRequestBuilder extends BaseRequestBuilder<F_Dist_RTReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeF_Dist_RTPostRequestBody(writer: SerializationWriter, f_Dist_RTPostRequestBody: F_Dist_RTPostRequestBody | undefined = {} as F_Dist_RTPostRequestBody) : void {
+export function serializeF_Dist_RTPostRequestBody(writer: SerializationWriter, f_Dist_RTPostRequestBody: Partial<F_Dist_RTPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("degFreedom1", f_Dist_RTPostRequestBody.degFreedom1, serializeJson);
     writer.writeObjectValue<Json>("degFreedom2", f_Dist_RTPostRequestBody.degFreedom2, serializeJson);
     writer.writeObjectValue<Json>("x", f_Dist_RTPostRequestBody.x, serializeJson);

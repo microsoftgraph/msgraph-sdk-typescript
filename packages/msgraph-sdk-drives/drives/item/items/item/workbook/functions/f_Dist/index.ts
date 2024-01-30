@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a f_DistPostRequestBody
  */
-export function createF_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createF_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoF_DistPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoF_DistPostRequestBody(f_DistPostRequestBody: F_DistPostRequestBody | undefined = {} as F_DistPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoF_DistPostRequestBody(f_DistPostRequestBody: Partial<F_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { f_DistPostRequestBody.backingStoreEnabled = true; },
         "cumulative": n => { f_DistPostRequestBody.cumulative = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export interface F_DistRequestBuilder extends BaseRequestBuilder<F_DistRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeF_DistPostRequestBody(writer: SerializationWriter, f_DistPostRequestBody: F_DistPostRequestBody | undefined = {} as F_DistPostRequestBody) : void {
+export function serializeF_DistPostRequestBody(writer: SerializationWriter, f_DistPostRequestBody: Partial<F_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("cumulative", f_DistPostRequestBody.cumulative, serializeJson);
     writer.writeObjectValue<Json>("degFreedom1", f_DistPostRequestBody.degFreedom1, serializeJson);
     writer.writeObjectValue<Json>("degFreedom2", f_DistPostRequestBody.degFreedom2, serializeJson);

@@ -41,14 +41,14 @@ export interface ApplyTopItemsFilterRequestBuilder extends BaseRequestBuilder<Ap
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a applyTopItemsFilterPostRequestBody
  */
-export function createApplyTopItemsFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createApplyTopItemsFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyTopItemsFilterPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoApplyTopItemsFilterPostRequestBody(applyTopItemsFilterPostRequestBody: ApplyTopItemsFilterPostRequestBody | undefined = {} as ApplyTopItemsFilterPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoApplyTopItemsFilterPostRequestBody(applyTopItemsFilterPostRequestBody: Partial<ApplyTopItemsFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyTopItemsFilterPostRequestBody.backingStoreEnabled = true; },
         "count": n => { applyTopItemsFilterPostRequestBody.count = n.getNumberValue(); },
@@ -58,7 +58,7 @@ export function deserializeIntoApplyTopItemsFilterPostRequestBody(applyTopItemsF
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyTopItemsFilterPostRequestBody(writer: SerializationWriter, applyTopItemsFilterPostRequestBody: ApplyTopItemsFilterPostRequestBody | undefined = {} as ApplyTopItemsFilterPostRequestBody) : void {
+export function serializeApplyTopItemsFilterPostRequestBody(writer: SerializationWriter, applyTopItemsFilterPostRequestBody: Partial<ApplyTopItemsFilterPostRequestBody> | undefined = {}) : void {
     writer.writeNumberValue("count", applyTopItemsFilterPostRequestBody.count);
     writer.writeAdditionalData(applyTopItemsFilterPostRequestBody.additionalData);
 }

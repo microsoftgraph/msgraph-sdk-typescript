@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a decimalPostRequestBody
  */
-export function createDecimalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDecimalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDecimalPostRequestBody;
 }
 export interface DecimalPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -54,7 +54,7 @@ export interface DecimalRequestBuilder extends BaseRequestBuilder<DecimalRequest
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDecimalPostRequestBody(decimalPostRequestBody: DecimalPostRequestBody | undefined = {} as DecimalPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDecimalPostRequestBody(decimalPostRequestBody: Partial<DecimalPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { decimalPostRequestBody.backingStoreEnabled = true; },
         "number": n => { decimalPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoDecimalPostRequestBody(decimalPostRequestBody: De
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDecimalPostRequestBody(writer: SerializationWriter, decimalPostRequestBody: DecimalPostRequestBody | undefined = {} as DecimalPostRequestBody) : void {
+export function serializeDecimalPostRequestBody(writer: SerializationWriter, decimalPostRequestBody: Partial<DecimalPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", decimalPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("radix", decimalPostRequestBody.radix, serializeJson);
     writer.writeAdditionalData(decimalPostRequestBody.additionalData);

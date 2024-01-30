@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getAuditActivityTypesWithCategoryGetResponse
  */
-export function createGetAuditActivityTypesWithCategoryGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetAuditActivityTypesWithCategoryGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAuditActivityTypesWithCategoryGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetAuditActivityTypesWithCategoryGetResponse(getAuditActivityTypesWithCategoryGetResponse: GetAuditActivityTypesWithCategoryGetResponse | undefined = {} as GetAuditActivityTypesWithCategoryGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAuditActivityTypesWithCategoryGetResponse(getAuditActivityTypesWithCategoryGetResponse: Partial<GetAuditActivityTypesWithCategoryGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getAuditActivityTypesWithCategoryGetResponse),
         "value": n => { getAuditActivityTypesWithCategoryGetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
@@ -75,7 +75,7 @@ export interface GetAuditActivityTypesWithCategoryRequestBuilderGetQueryParamete
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetAuditActivityTypesWithCategoryGetResponse(writer: SerializationWriter, getAuditActivityTypesWithCategoryGetResponse: GetAuditActivityTypesWithCategoryGetResponse | undefined = {} as GetAuditActivityTypesWithCategoryGetResponse) : void {
+export function serializeGetAuditActivityTypesWithCategoryGetResponse(writer: SerializationWriter, getAuditActivityTypesWithCategoryGetResponse: Partial<GetAuditActivityTypesWithCategoryGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getAuditActivityTypesWithCategoryGetResponse)
     writer.writeCollectionOfPrimitiveValues<string>("value", getAuditActivityTypesWithCategoryGetResponse.value);
 }

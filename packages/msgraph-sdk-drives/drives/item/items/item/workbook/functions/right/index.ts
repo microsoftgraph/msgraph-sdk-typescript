@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a rightPostRequestBody
  */
-export function createRightPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRightPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRightPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRightPostRequestBody(rightPostRequestBody: RightPostRequestBody | undefined = {} as RightPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRightPostRequestBody(rightPostRequestBody: Partial<RightPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { rightPostRequestBody.backingStoreEnabled = true; },
         "numChars": n => { rightPostRequestBody.numChars = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface RightRequestBuilder extends BaseRequestBuilder<RightRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRightPostRequestBody(writer: SerializationWriter, rightPostRequestBody: RightPostRequestBody | undefined = {} as RightPostRequestBody) : void {
+export function serializeRightPostRequestBody(writer: SerializationWriter, rightPostRequestBody: Partial<RightPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("numChars", rightPostRequestBody.numChars, serializeJson);
     writer.writeObjectValue<Json>("text", rightPostRequestBody.text, serializeJson);
     writer.writeAdditionalData(rightPostRequestBody.additionalData);

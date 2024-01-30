@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a replyPostRequestBody
  */
-export function createReplyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createReplyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoReplyPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoReplyPostRequestBody(replyPostRequestBody: ReplyPostRequestBody | undefined = {} as ReplyPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoReplyPostRequestBody(replyPostRequestBody: Partial<ReplyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { replyPostRequestBody.backingStoreEnabled = true; },
         "post": n => { replyPostRequestBody.post = n.getObjectValue<Post>(createPostFromDiscriminatorValue); },
@@ -42,14 +42,13 @@ export interface ReplyPostRequestBody extends AdditionalDataHolder, BackedModel,
  */
 export interface ReplyRequestBuilder extends BaseRequestBuilder<ReplyRequestBuilder> {
     /**
-     * Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. The table in the Permissions section lists the resources that support open extensions.
+     * Invoke action reply
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/opentypeextension-post-opentypeextension?view=graph-rest-1.0|Find more info here}
      */
      post(body: ReplyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. The table in the Permissions section lists the resources that support open extensions.
+     * Invoke action reply
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -60,7 +59,7 @@ export interface ReplyRequestBuilder extends BaseRequestBuilder<ReplyRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeReplyPostRequestBody(writer: SerializationWriter, replyPostRequestBody: ReplyPostRequestBody | undefined = {} as ReplyPostRequestBody) : void {
+export function serializeReplyPostRequestBody(writer: SerializationWriter, replyPostRequestBody: Partial<ReplyPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Post>("Post", replyPostRequestBody.post, serializePost);
     writer.writeAdditionalData(replyPostRequestBody.additionalData);
 }

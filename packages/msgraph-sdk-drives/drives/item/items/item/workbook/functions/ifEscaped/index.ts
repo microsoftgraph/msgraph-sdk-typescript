@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a ifPostRequestBody
  */
-export function createIfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createIfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIfPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoIfPostRequestBody(ifPostRequestBody: IfPostRequestBody | undefined = {} as IfPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIfPostRequestBody(ifPostRequestBody: Partial<IfPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ifPostRequestBody.backingStoreEnabled = true; },
         "logicalTest": n => { ifPostRequestBody.logicalTest = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface IfRequestBuilder extends BaseRequestBuilder<IfRequestBuilder> {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIfPostRequestBody(writer: SerializationWriter, ifPostRequestBody: IfPostRequestBody | undefined = {} as IfPostRequestBody) : void {
+export function serializeIfPostRequestBody(writer: SerializationWriter, ifPostRequestBody: Partial<IfPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("logicalTest", ifPostRequestBody.logicalTest, serializeJson);
     writer.writeObjectValue<Json>("valueIfFalse", ifPostRequestBody.valueIfFalse, serializeJson);
     writer.writeObjectValue<Json>("valueIfTrue", ifPostRequestBody.valueIfTrue, serializeJson);

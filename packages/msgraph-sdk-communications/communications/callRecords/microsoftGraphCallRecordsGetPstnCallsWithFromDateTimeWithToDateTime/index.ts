@@ -11,14 +11,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getPstnCallsWithFromDateTimeWithToDateTimeGetResponse
  */
-export function createGetPstnCallsWithFromDateTimeWithToDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetPstnCallsWithFromDateTimeWithToDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetPstnCallsWithFromDateTimeWithToDateTimeGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetPstnCallsWithFromDateTimeWithToDateTimeGetResponse(getPstnCallsWithFromDateTimeWithToDateTimeGetResponse: GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse | undefined = {} as GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetPstnCallsWithFromDateTimeWithToDateTimeGetResponse(getPstnCallsWithFromDateTimeWithToDateTimeGetResponse: Partial<GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getPstnCallsWithFromDateTimeWithToDateTimeGetResponse),
         "value": n => { getPstnCallsWithFromDateTimeWithToDateTimeGetResponse.value = n.getCollectionOfObjectValues<PstnCallLogRow>(createPstnCallLogRowFromDiscriminatorValue); },
@@ -76,7 +76,7 @@ export interface MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDate
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetPstnCallsWithFromDateTimeWithToDateTimeGetResponse(writer: SerializationWriter, getPstnCallsWithFromDateTimeWithToDateTimeGetResponse: GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse | undefined = {} as GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse) : void {
+export function serializeGetPstnCallsWithFromDateTimeWithToDateTimeGetResponse(writer: SerializationWriter, getPstnCallsWithFromDateTimeWithToDateTimeGetResponse: Partial<GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getPstnCallsWithFromDateTimeWithToDateTimeGetResponse)
     writer.writeCollectionOfObjectValues<PstnCallLogRow>("value", getPstnCallsWithFromDateTimeWithToDateTimeGetResponse.value, serializePstnCallLogRow);
 }

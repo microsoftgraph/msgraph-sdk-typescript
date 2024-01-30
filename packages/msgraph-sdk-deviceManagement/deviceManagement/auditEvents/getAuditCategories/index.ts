@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getAuditCategoriesGetResponse
  */
-export function createGetAuditCategoriesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetAuditCategoriesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAuditCategoriesGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetAuditCategoriesGetResponse(getAuditCategoriesGetResponse: GetAuditCategoriesGetResponse | undefined = {} as GetAuditCategoriesGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAuditCategoriesGetResponse(getAuditCategoriesGetResponse: Partial<GetAuditCategoriesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getAuditCategoriesGetResponse),
         "value": n => { getAuditCategoriesGetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
@@ -75,7 +75,7 @@ export interface GetAuditCategoriesRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetAuditCategoriesGetResponse(writer: SerializationWriter, getAuditCategoriesGetResponse: GetAuditCategoriesGetResponse | undefined = {} as GetAuditCategoriesGetResponse) : void {
+export function serializeGetAuditCategoriesGetResponse(writer: SerializationWriter, getAuditCategoriesGetResponse: Partial<GetAuditCategoriesGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getAuditCategoriesGetResponse)
     writer.writeCollectionOfPrimitiveValues<string>("value", getAuditCategoriesGetResponse.value);
 }

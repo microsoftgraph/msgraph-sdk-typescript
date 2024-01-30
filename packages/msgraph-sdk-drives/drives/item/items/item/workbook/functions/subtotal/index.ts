@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a subtotalPostRequestBody
  */
-export function createSubtotalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSubtotalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSubtotalPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSubtotalPostRequestBody(subtotalPostRequestBody: SubtotalPostRequestBody | undefined = {} as SubtotalPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSubtotalPostRequestBody(subtotalPostRequestBody: Partial<SubtotalPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { subtotalPostRequestBody.backingStoreEnabled = true; },
         "functionNum": n => { subtotalPostRequestBody.functionNum = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -28,7 +28,7 @@ export function deserializeIntoSubtotalPostRequestBody(subtotalPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSubtotalPostRequestBody(writer: SerializationWriter, subtotalPostRequestBody: SubtotalPostRequestBody | undefined = {} as SubtotalPostRequestBody) : void {
+export function serializeSubtotalPostRequestBody(writer: SerializationWriter, subtotalPostRequestBody: Partial<SubtotalPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("functionNum", subtotalPostRequestBody.functionNum, serializeJson);
     writer.writeObjectValue<Json>("values", subtotalPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(subtotalPostRequestBody.additionalData);

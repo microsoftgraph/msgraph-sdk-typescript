@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a translateExchangeIdsPostRequestBody
  */
-export function createTranslateExchangeIdsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createTranslateExchangeIdsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTranslateExchangeIdsPostRequestBody;
 }
 /**
@@ -18,14 +18,14 @@ export function createTranslateExchangeIdsPostRequestBodyFromDiscriminatorValue(
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a translateExchangeIdsPostResponse
  */
-export function createTranslateExchangeIdsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createTranslateExchangeIdsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTranslateExchangeIdsPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoTranslateExchangeIdsPostRequestBody(translateExchangeIdsPostRequestBody: TranslateExchangeIdsPostRequestBody | undefined = {} as TranslateExchangeIdsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTranslateExchangeIdsPostRequestBody(translateExchangeIdsPostRequestBody: Partial<TranslateExchangeIdsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { translateExchangeIdsPostRequestBody.backingStoreEnabled = true; },
         "inputIds": n => { translateExchangeIdsPostRequestBody.inputIds = n.getCollectionOfPrimitiveValues<string>(); },
@@ -37,7 +37,7 @@ export function deserializeIntoTranslateExchangeIdsPostRequestBody(translateExch
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoTranslateExchangeIdsPostResponse(translateExchangeIdsPostResponse: TranslateExchangeIdsPostResponse | undefined = {} as TranslateExchangeIdsPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTranslateExchangeIdsPostResponse(translateExchangeIdsPostResponse: Partial<TranslateExchangeIdsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(translateExchangeIdsPostResponse),
         "value": n => { translateExchangeIdsPostResponse.value = n.getCollectionOfObjectValues<ConvertIdResult>(createConvertIdResultFromDiscriminatorValue); },
@@ -47,7 +47,7 @@ export function deserializeIntoTranslateExchangeIdsPostResponse(translateExchang
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTranslateExchangeIdsPostRequestBody(writer: SerializationWriter, translateExchangeIdsPostRequestBody: TranslateExchangeIdsPostRequestBody | undefined = {} as TranslateExchangeIdsPostRequestBody) : void {
+export function serializeTranslateExchangeIdsPostRequestBody(writer: SerializationWriter, translateExchangeIdsPostRequestBody: Partial<TranslateExchangeIdsPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("InputIds", translateExchangeIdsPostRequestBody.inputIds);
     writer.writeEnumValue<ExchangeIdFormat>("SourceIdType", translateExchangeIdsPostRequestBody.sourceIdType);
     writer.writeEnumValue<ExchangeIdFormat>("TargetIdType", translateExchangeIdsPostRequestBody.targetIdType);
@@ -57,7 +57,7 @@ export function serializeTranslateExchangeIdsPostRequestBody(writer: Serializati
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTranslateExchangeIdsPostResponse(writer: SerializationWriter, translateExchangeIdsPostResponse: TranslateExchangeIdsPostResponse | undefined = {} as TranslateExchangeIdsPostResponse) : void {
+export function serializeTranslateExchangeIdsPostResponse(writer: SerializationWriter, translateExchangeIdsPostResponse: Partial<TranslateExchangeIdsPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, translateExchangeIdsPostResponse)
     writer.writeCollectionOfObjectValues<ConvertIdResult>("value", translateExchangeIdsPostResponse.value, serializeConvertIdResult);
 }

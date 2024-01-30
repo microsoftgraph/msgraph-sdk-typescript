@@ -9,7 +9,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a markUnreadPostRequestBody
  */
-export function createMarkUnreadPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMarkUnreadPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMarkUnreadPostRequestBody;
 }
 /**
@@ -17,14 +17,14 @@ export function createMarkUnreadPostRequestBodyFromDiscriminatorValue(parseNode:
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a markUnreadPostResponse
  */
-export function createMarkUnreadPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMarkUnreadPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMarkUnreadPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMarkUnreadPostRequestBody(markUnreadPostRequestBody: MarkUnreadPostRequestBody | undefined = {} as MarkUnreadPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMarkUnreadPostRequestBody(markUnreadPostRequestBody: Partial<MarkUnreadPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { markUnreadPostRequestBody.backingStoreEnabled = true; },
         "messageIds": n => { markUnreadPostRequestBody.messageIds = n.getCollectionOfPrimitiveValues<string>(); },
@@ -34,7 +34,7 @@ export function deserializeIntoMarkUnreadPostRequestBody(markUnreadPostRequestBo
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMarkUnreadPostResponse(markUnreadPostResponse: MarkUnreadPostResponse | undefined = {} as MarkUnreadPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMarkUnreadPostResponse(markUnreadPostResponse: Partial<MarkUnreadPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { markUnreadPostResponse.backingStoreEnabled = true; },
         "value": n => { markUnreadPostResponse.value = n.getBooleanValue(); },
@@ -92,7 +92,7 @@ export interface MarkUnreadRequestBuilder extends BaseRequestBuilder<MarkUnreadR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMarkUnreadPostRequestBody(writer: SerializationWriter, markUnreadPostRequestBody: MarkUnreadPostRequestBody | undefined = {} as MarkUnreadPostRequestBody) : void {
+export function serializeMarkUnreadPostRequestBody(writer: SerializationWriter, markUnreadPostRequestBody: Partial<MarkUnreadPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("messageIds", markUnreadPostRequestBody.messageIds);
     writer.writeAdditionalData(markUnreadPostRequestBody.additionalData);
 }
@@ -100,7 +100,7 @@ export function serializeMarkUnreadPostRequestBody(writer: SerializationWriter, 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMarkUnreadPostResponse(writer: SerializationWriter, markUnreadPostResponse: MarkUnreadPostResponse | undefined = {} as MarkUnreadPostResponse) : void {
+export function serializeMarkUnreadPostResponse(writer: SerializationWriter, markUnreadPostResponse: Partial<MarkUnreadPostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", markUnreadPostResponse.value);
     writer.writeAdditionalData(markUnreadPostResponse.additionalData);
 }

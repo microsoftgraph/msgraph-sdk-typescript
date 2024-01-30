@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a gammaPostRequestBody
  */
-export function createGammaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGammaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGammaPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGammaPostRequestBody(gammaPostRequestBody: GammaPostRequestBody | undefined = {} as GammaPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGammaPostRequestBody(gammaPostRequestBody: Partial<GammaPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { gammaPostRequestBody.backingStoreEnabled = true; },
         "x": n => { gammaPostRequestBody.x = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface GammaRequestBuilder extends BaseRequestBuilder<GammaRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGammaPostRequestBody(writer: SerializationWriter, gammaPostRequestBody: GammaPostRequestBody | undefined = {} as GammaPostRequestBody) : void {
+export function serializeGammaPostRequestBody(writer: SerializationWriter, gammaPostRequestBody: Partial<GammaPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("x", gammaPostRequestBody.x, serializeJson);
     writer.writeAdditionalData(gammaPostRequestBody.additionalData);
 }

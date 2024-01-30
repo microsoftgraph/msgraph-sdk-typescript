@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a sumIfsPostRequestBody
  */
-export function createSumIfsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSumIfsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSumIfsPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSumIfsPostRequestBody(sumIfsPostRequestBody: SumIfsPostRequestBody | undefined = {} as SumIfsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSumIfsPostRequestBody(sumIfsPostRequestBody: Partial<SumIfsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sumIfsPostRequestBody.backingStoreEnabled = true; },
         "sumRange": n => { sumIfsPostRequestBody.sumRange = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -28,7 +28,7 @@ export function deserializeIntoSumIfsPostRequestBody(sumIfsPostRequestBody: SumI
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSumIfsPostRequestBody(writer: SerializationWriter, sumIfsPostRequestBody: SumIfsPostRequestBody | undefined = {} as SumIfsPostRequestBody) : void {
+export function serializeSumIfsPostRequestBody(writer: SerializationWriter, sumIfsPostRequestBody: Partial<SumIfsPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("sumRange", sumIfsPostRequestBody.sumRange, serializeJson);
     writer.writeObjectValue<Json>("values", sumIfsPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(sumIfsPostRequestBody.additionalData);

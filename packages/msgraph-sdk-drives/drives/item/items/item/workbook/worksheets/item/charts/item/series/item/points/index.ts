@@ -5,7 +5,7 @@ import { createWorkbookChartPointCollectionResponseFromDiscriminatorValue, creat
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { CountRequestBuilderRequestsMetadata, CountRequestBuilderUriTemplate, type CountRequestBuilder } from './count/';
 import { type WorkbookChartPointItemRequestBuilder, WorkbookChartPointItemRequestBuilderNavigationMetadata, WorkbookChartPointItemRequestBuilderRequestsMetadata, WorkbookChartPointItemRequestBuilderUriTemplate } from './item/';
-import { ItemAtWithIndexRequestBuilderRequestsMetadata, ItemAtWithIndexRequestBuilderUriTemplate, type ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/';
+import { ItemAtWithIndexRequestBuilderNavigationMetadata, ItemAtWithIndexRequestBuilderRequestsMetadata, ItemAtWithIndexRequestBuilderUriTemplate, type ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -120,6 +120,7 @@ export const PointsRequestBuilderNavigationMetadata: Record<Exclude<keyof Points
     itemAtWithIndex: {
         uriTemplate: ItemAtWithIndexRequestBuilderUriTemplate,
         requestsMetadata: ItemAtWithIndexRequestBuilderRequestsMetadata,
+        navigationMetadata: ItemAtWithIndexRequestBuilderNavigationMetadata,
     },
     count: {
         uriTemplate: CountRequestBuilderUriTemplate,

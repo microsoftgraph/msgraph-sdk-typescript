@@ -49,14 +49,14 @@ export interface ApplyCustomFilterRequestBuilder extends BaseRequestBuilder<Appl
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a applyCustomFilterPostRequestBody
  */
-export function createApplyCustomFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createApplyCustomFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyCustomFilterPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoApplyCustomFilterPostRequestBody(applyCustomFilterPostRequestBody: ApplyCustomFilterPostRequestBody | undefined = {} as ApplyCustomFilterPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoApplyCustomFilterPostRequestBody(applyCustomFilterPostRequestBody: Partial<ApplyCustomFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyCustomFilterPostRequestBody.backingStoreEnabled = true; },
         "criteria1": n => { applyCustomFilterPostRequestBody.criteria1 = n.getStringValue(); },
@@ -68,7 +68,7 @@ export function deserializeIntoApplyCustomFilterPostRequestBody(applyCustomFilte
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyCustomFilterPostRequestBody(writer: SerializationWriter, applyCustomFilterPostRequestBody: ApplyCustomFilterPostRequestBody | undefined = {} as ApplyCustomFilterPostRequestBody) : void {
+export function serializeApplyCustomFilterPostRequestBody(writer: SerializationWriter, applyCustomFilterPostRequestBody: Partial<ApplyCustomFilterPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("criteria1", applyCustomFilterPostRequestBody.criteria1);
     writer.writeStringValue("criteria2", applyCustomFilterPostRequestBody.criteria2);
     writer.writeStringValue("oper", applyCustomFilterPostRequestBody.oper);

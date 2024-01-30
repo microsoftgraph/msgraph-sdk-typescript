@@ -23,14 +23,14 @@ export interface ApplyHoldPostRequestBody extends AdditionalDataHolder, BackedMo
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a applyHoldPostRequestBody
  */
-export function createApplyHoldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createApplyHoldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyHoldPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoApplyHoldPostRequestBody(applyHoldPostRequestBody: ApplyHoldPostRequestBody | undefined = {} as ApplyHoldPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoApplyHoldPostRequestBody(applyHoldPostRequestBody: Partial<ApplyHoldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyHoldPostRequestBody.backingStoreEnabled = true; },
         "ids": n => { applyHoldPostRequestBody.ids = n.getCollectionOfPrimitiveValues<string>(); },
@@ -58,7 +58,7 @@ export interface MicrosoftGraphSecurityApplyHoldRequestBuilder extends BaseReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyHoldPostRequestBody(writer: SerializationWriter, applyHoldPostRequestBody: ApplyHoldPostRequestBody | undefined = {} as ApplyHoldPostRequestBody) : void {
+export function serializeApplyHoldPostRequestBody(writer: SerializationWriter, applyHoldPostRequestBody: Partial<ApplyHoldPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("ids", applyHoldPostRequestBody.ids);
     writer.writeAdditionalData(applyHoldPostRequestBody.additionalData);
 }

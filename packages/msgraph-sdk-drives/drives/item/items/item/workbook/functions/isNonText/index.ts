@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a isNonTextPostRequestBody
  */
-export function createIsNonTextPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createIsNonTextPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsNonTextPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoIsNonTextPostRequestBody(isNonTextPostRequestBody: IsNonTextPostRequestBody | undefined = {} as IsNonTextPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIsNonTextPostRequestBody(isNonTextPostRequestBody: Partial<IsNonTextPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isNonTextPostRequestBody.backingStoreEnabled = true; },
         "value": n => { isNonTextPostRequestBody.value = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface IsNonTextRequestBuilder extends BaseRequestBuilder<IsNonTextReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsNonTextPostRequestBody(writer: SerializationWriter, isNonTextPostRequestBody: IsNonTextPostRequestBody | undefined = {} as IsNonTextPostRequestBody) : void {
+export function serializeIsNonTextPostRequestBody(writer: SerializationWriter, isNonTextPostRequestBody: Partial<IsNonTextPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("value", isNonTextPostRequestBody.value, serializeJson);
     writer.writeAdditionalData(isNonTextPostRequestBody.additionalData);
 }

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a isEvenPostRequestBody
  */
-export function createIsEvenPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createIsEvenPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsEvenPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoIsEvenPostRequestBody(isEvenPostRequestBody: IsEvenPostRequestBody | undefined = {} as IsEvenPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIsEvenPostRequestBody(isEvenPostRequestBody: Partial<IsEvenPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isEvenPostRequestBody.backingStoreEnabled = true; },
         "number": n => { isEvenPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface IsEvenRequestBuilder extends BaseRequestBuilder<IsEvenRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsEvenPostRequestBody(writer: SerializationWriter, isEvenPostRequestBody: IsEvenPostRequestBody | undefined = {} as IsEvenPostRequestBody) : void {
+export function serializeIsEvenPostRequestBody(writer: SerializationWriter, isEvenPostRequestBody: Partial<IsEvenPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", isEvenPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(isEvenPostRequestBody.additionalData);
 }

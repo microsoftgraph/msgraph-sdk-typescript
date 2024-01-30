@@ -10,6 +10,12 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder> {
     /**
+     * Remove a member from a group via the members navigation property. You can't remove a member from groups with dynamic memberships.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://learn.microsoft.com/graph/api/group-delete-members?view=graph-rest-1.0|Find more info here}
+     */
+     delete(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : Promise<void>;
+    /**
      * The members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of StringCollectionResponse
@@ -24,6 +30,12 @@ export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder>
      */
      post(body: ReferenceCreate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
+     * Remove a member from a group via the members navigation property. You can't remove a member from groups with dynamic memberships.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : RequestInformation;
+    /**
      * The members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -36,6 +48,15 @@ export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder>
      * @returns a RequestInformation
      */
      toPostRequestInformation(body: ReferenceCreate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
+}
+/**
+ * Remove a member from a group via the members navigation property. You can't remove a member from groups with dynamic memberships.
+ */
+export interface RefRequestBuilderDeleteQueryParameters {
+    /**
+     * The delete Uri
+     */
+    id?: string;
 }
 /**
  * The members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
@@ -69,6 +90,12 @@ export interface RefRequestBuilderGetQueryParameters {
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
+const RefRequestBuilderDeleteQueryParametersMapper: Record<string, string> = {
+    "id": "%40id",
+};
+/**
+ * Mapper for query parameters from symbol name to serialization name represented as a constant.
+ */
 const RefRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "count": "%24count",
     "filter": "%24filter",
@@ -81,6 +108,15 @@ const RefRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the requests in the request builder.
  */
 export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
+    delete: {
+        responseBodyContentType: "application/json",
+        errorMappings: {
+            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+        },
+        adapterMethodName: "sendNoResponseContentAsync",
+        queryParametersMapper: RefRequestBuilderDeleteQueryParametersMapper,
+    },
     get: {
         responseBodyContentType: "application/json",
         errorMappings: {
@@ -106,6 +142,6 @@ export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const RefRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/members/$ref{?%24top,%24skip,%24search,%24filter,%24count,%24orderby}";
+export const RefRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/members/$ref{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%40id*}";
 /* tslint:enable */
 /* eslint-enable */

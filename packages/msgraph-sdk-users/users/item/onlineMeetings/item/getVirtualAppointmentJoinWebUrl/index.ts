@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getVirtualAppointmentJoinWebUrlGetResponse
  */
-export function createGetVirtualAppointmentJoinWebUrlGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetVirtualAppointmentJoinWebUrlGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetVirtualAppointmentJoinWebUrlGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetVirtualAppointmentJoinWebUrlGetResponse(getVirtualAppointmentJoinWebUrlGetResponse: GetVirtualAppointmentJoinWebUrlGetResponse | undefined = {} as GetVirtualAppointmentJoinWebUrlGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetVirtualAppointmentJoinWebUrlGetResponse(getVirtualAppointmentJoinWebUrlGetResponse: Partial<GetVirtualAppointmentJoinWebUrlGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getVirtualAppointmentJoinWebUrlGetResponse.backingStoreEnabled = true; },
         "value": n => { getVirtualAppointmentJoinWebUrlGetResponse.value = n.getStringValue(); },
@@ -57,7 +57,7 @@ export interface GetVirtualAppointmentJoinWebUrlRequestBuilder extends BaseReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetVirtualAppointmentJoinWebUrlGetResponse(writer: SerializationWriter, getVirtualAppointmentJoinWebUrlGetResponse: GetVirtualAppointmentJoinWebUrlGetResponse | undefined = {} as GetVirtualAppointmentJoinWebUrlGetResponse) : void {
+export function serializeGetVirtualAppointmentJoinWebUrlGetResponse(writer: SerializationWriter, getVirtualAppointmentJoinWebUrlGetResponse: Partial<GetVirtualAppointmentJoinWebUrlGetResponse> | undefined = {}) : void {
     writer.writeStringValue("value", getVirtualAppointmentJoinWebUrlGetResponse.value);
     writer.writeAdditionalData(getVirtualAppointmentJoinWebUrlGetResponse.additionalData);
 }

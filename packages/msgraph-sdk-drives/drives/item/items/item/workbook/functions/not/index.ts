@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a notPostRequestBody
  */
-export function createNotPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createNotPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNotPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoNotPostRequestBody(notPostRequestBody: NotPostRequestBody | undefined = {} as NotPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoNotPostRequestBody(notPostRequestBody: Partial<NotPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { notPostRequestBody.backingStoreEnabled = true; },
         "logical": n => { notPostRequestBody.logical = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface NotRequestBuilder extends BaseRequestBuilder<NotRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNotPostRequestBody(writer: SerializationWriter, notPostRequestBody: NotPostRequestBody | undefined = {} as NotPostRequestBody) : void {
+export function serializeNotPostRequestBody(writer: SerializationWriter, notPostRequestBody: Partial<NotPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("logical", notPostRequestBody.logical, serializeJson);
     writer.writeAdditionalData(notPostRequestBody.additionalData);
 }

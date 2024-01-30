@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a filterByCurrentUserWithOnGetResponse
  */
-export function createFilterByCurrentUserWithOnGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFilterByCurrentUserWithOnGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFilterByCurrentUserWithOnGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFilterByCurrentUserWithOnGetResponse(filterByCurrentUserWithOnGetResponse: FilterByCurrentUserWithOnGetResponse | undefined = {} as FilterByCurrentUserWithOnGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFilterByCurrentUserWithOnGetResponse(filterByCurrentUserWithOnGetResponse: Partial<FilterByCurrentUserWithOnGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(filterByCurrentUserWithOnGetResponse),
         "value": n => { filterByCurrentUserWithOnGetResponse.value = n.getCollectionOfObjectValues<AccessReviewStage>(createAccessReviewStageFromDiscriminatorValue); },
@@ -83,7 +83,7 @@ export interface FilterByCurrentUserWithOnRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFilterByCurrentUserWithOnGetResponse(writer: SerializationWriter, filterByCurrentUserWithOnGetResponse: FilterByCurrentUserWithOnGetResponse | undefined = {} as FilterByCurrentUserWithOnGetResponse) : void {
+export function serializeFilterByCurrentUserWithOnGetResponse(writer: SerializationWriter, filterByCurrentUserWithOnGetResponse: Partial<FilterByCurrentUserWithOnGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
     writer.writeCollectionOfObjectValues<AccessReviewStage>("value", filterByCurrentUserWithOnGetResponse.value, serializeAccessReviewStage);
 }

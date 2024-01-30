@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a filterOperatorsGetResponse
  */
-export function createFilterOperatorsGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFilterOperatorsGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFilterOperatorsGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFilterOperatorsGetResponse(filterOperatorsGetResponse: FilterOperatorsGetResponse | undefined = {} as FilterOperatorsGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFilterOperatorsGetResponse(filterOperatorsGetResponse: Partial<FilterOperatorsGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(filterOperatorsGetResponse),
         "value": n => { filterOperatorsGetResponse.value = n.getCollectionOfObjectValues<FilterOperatorSchema>(createFilterOperatorSchemaFromDiscriminatorValue); },
@@ -83,7 +83,7 @@ export interface FilterOperatorsRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFilterOperatorsGetResponse(writer: SerializationWriter, filterOperatorsGetResponse: FilterOperatorsGetResponse | undefined = {} as FilterOperatorsGetResponse) : void {
+export function serializeFilterOperatorsGetResponse(writer: SerializationWriter, filterOperatorsGetResponse: Partial<FilterOperatorsGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, filterOperatorsGetResponse)
     writer.writeCollectionOfObjectValues<FilterOperatorSchema>("value", filterOperatorsGetResponse.value, serializeFilterOperatorSchema);
 }

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a productPostRequestBody
  */
-export function createProductPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createProductPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProductPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoProductPostRequestBody(productPostRequestBody: ProductPostRequestBody | undefined = {} as ProductPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoProductPostRequestBody(productPostRequestBody: Partial<ProductPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { productPostRequestBody.backingStoreEnabled = true; },
         "values": n => { productPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface ProductRequestBuilder extends BaseRequestBuilder<ProductRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeProductPostRequestBody(writer: SerializationWriter, productPostRequestBody: ProductPostRequestBody | undefined = {} as ProductPostRequestBody) : void {
+export function serializeProductPostRequestBody(writer: SerializationWriter, productPostRequestBody: Partial<ProductPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", productPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(productPostRequestBody.additionalData);
 }

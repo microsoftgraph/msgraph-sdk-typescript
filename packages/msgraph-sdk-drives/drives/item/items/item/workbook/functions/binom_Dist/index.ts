@@ -55,14 +55,14 @@ export interface Binom_DistRequestBuilder extends BaseRequestBuilder<Binom_DistR
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a binom_DistPostRequestBody
  */
-export function createBinom_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createBinom_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBinom_DistPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoBinom_DistPostRequestBody(binom_DistPostRequestBody: Binom_DistPostRequestBody | undefined = {} as Binom_DistPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoBinom_DistPostRequestBody(binom_DistPostRequestBody: Partial<Binom_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { binom_DistPostRequestBody.backingStoreEnabled = true; },
         "cumulative": n => { binom_DistPostRequestBody.cumulative = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export function deserializeIntoBinom_DistPostRequestBody(binom_DistPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBinom_DistPostRequestBody(writer: SerializationWriter, binom_DistPostRequestBody: Binom_DistPostRequestBody | undefined = {} as Binom_DistPostRequestBody) : void {
+export function serializeBinom_DistPostRequestBody(writer: SerializationWriter, binom_DistPostRequestBody: Partial<Binom_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("cumulative", binom_DistPostRequestBody.cumulative, serializeJson);
     writer.writeObjectValue<Json>("numberS", binom_DistPostRequestBody.numberS, serializeJson);
     writer.writeObjectValue<Json>("probabilityS", binom_DistPostRequestBody.probabilityS, serializeJson);

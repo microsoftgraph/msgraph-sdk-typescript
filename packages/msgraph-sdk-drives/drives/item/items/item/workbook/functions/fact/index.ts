@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a factPostRequestBody
  */
-export function createFactPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFactPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFactPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFactPostRequestBody(factPostRequestBody: FactPostRequestBody | undefined = {} as FactPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFactPostRequestBody(factPostRequestBody: Partial<FactPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { factPostRequestBody.backingStoreEnabled = true; },
         "number": n => { factPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface FactRequestBuilder extends BaseRequestBuilder<FactRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFactPostRequestBody(writer: SerializationWriter, factPostRequestBody: FactPostRequestBody | undefined = {} as FactPostRequestBody) : void {
+export function serializeFactPostRequestBody(writer: SerializationWriter, factPostRequestBody: Partial<FactPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", factPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(factPostRequestBody.additionalData);
 }

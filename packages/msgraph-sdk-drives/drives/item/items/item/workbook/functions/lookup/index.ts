@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a lookupPostRequestBody
  */
-export function createLookupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createLookupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLookupPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoLookupPostRequestBody(lookupPostRequestBody: LookupPostRequestBody | undefined = {} as LookupPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoLookupPostRequestBody(lookupPostRequestBody: Partial<LookupPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { lookupPostRequestBody.backingStoreEnabled = true; },
         "lookupValue": n => { lookupPostRequestBody.lookupValue = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface LookupRequestBuilder extends BaseRequestBuilder<LookupRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLookupPostRequestBody(writer: SerializationWriter, lookupPostRequestBody: LookupPostRequestBody | undefined = {} as LookupPostRequestBody) : void {
+export function serializeLookupPostRequestBody(writer: SerializationWriter, lookupPostRequestBody: Partial<LookupPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("lookupValue", lookupPostRequestBody.lookupValue, serializeJson);
     writer.writeObjectValue<Json>("lookupVector", lookupPostRequestBody.lookupVector, serializeJson);
     writer.writeObjectValue<Json>("resultVector", lookupPostRequestBody.resultVector, serializeJson);

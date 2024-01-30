@@ -6,7 +6,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { AddRequestBuilderRequestsMetadata, AddRequestBuilderUriTemplate, type AddRequestBuilder } from './add/';
 import { CountRequestBuilderRequestsMetadata, CountRequestBuilderUriTemplate, type CountRequestBuilder } from './count/';
 import { type WorkbookTableColumnItemRequestBuilder, WorkbookTableColumnItemRequestBuilderNavigationMetadata, WorkbookTableColumnItemRequestBuilderRequestsMetadata, WorkbookTableColumnItemRequestBuilderUriTemplate } from './item/';
-import { ItemAtWithIndexRequestBuilderRequestsMetadata, ItemAtWithIndexRequestBuilderUriTemplate, type ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/';
+import { ItemAtWithIndexRequestBuilderNavigationMetadata, ItemAtWithIndexRequestBuilderRequestsMetadata, ItemAtWithIndexRequestBuilderUriTemplate, type ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -125,6 +125,7 @@ export const ColumnsRequestBuilderNavigationMetadata: Record<Exclude<keyof Colum
     itemAtWithIndex: {
         uriTemplate: ItemAtWithIndexRequestBuilderUriTemplate,
         requestsMetadata: ItemAtWithIndexRequestBuilderRequestsMetadata,
+        navigationMetadata: ItemAtWithIndexRequestBuilderNavigationMetadata,
     },
     add: {
         uriTemplate: AddRequestBuilderUriTemplate,

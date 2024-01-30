@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a setSolidColorPostRequestBody
  */
-export function createSetSolidColorPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSetSolidColorPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetSolidColorPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSetSolidColorPostRequestBody(setSolidColorPostRequestBody: SetSolidColorPostRequestBody | undefined = {} as SetSolidColorPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSetSolidColorPostRequestBody(setSolidColorPostRequestBody: Partial<SetSolidColorPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { setSolidColorPostRequestBody.backingStoreEnabled = true; },
         "color": n => { setSolidColorPostRequestBody.color = n.getStringValue(); },
@@ -26,7 +26,7 @@ export function deserializeIntoSetSolidColorPostRequestBody(setSolidColorPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSetSolidColorPostRequestBody(writer: SerializationWriter, setSolidColorPostRequestBody: SetSolidColorPostRequestBody | undefined = {} as SetSolidColorPostRequestBody) : void {
+export function serializeSetSolidColorPostRequestBody(writer: SerializationWriter, setSolidColorPostRequestBody: Partial<SetSolidColorPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("color", setSolidColorPostRequestBody.color);
     writer.writeAdditionalData(setSolidColorPostRequestBody.additionalData);
 }

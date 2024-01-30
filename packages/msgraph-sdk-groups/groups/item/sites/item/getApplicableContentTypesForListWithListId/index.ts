@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getApplicableContentTypesForListWithListIdGetResponse
  */
-export function createGetApplicableContentTypesForListWithListIdGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetApplicableContentTypesForListWithListIdGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetApplicableContentTypesForListWithListIdGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetApplicableContentTypesForListWithListIdGetResponse(getApplicableContentTypesForListWithListIdGetResponse: GetApplicableContentTypesForListWithListIdGetResponse | undefined = {} as GetApplicableContentTypesForListWithListIdGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetApplicableContentTypesForListWithListIdGetResponse(getApplicableContentTypesForListWithListIdGetResponse: Partial<GetApplicableContentTypesForListWithListIdGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getApplicableContentTypesForListWithListIdGetResponse),
         "value": n => { getApplicableContentTypesForListWithListIdGetResponse.value = n.getCollectionOfObjectValues<ContentType>(createContentTypeFromDiscriminatorValue); },
@@ -83,7 +83,7 @@ export interface GetApplicableContentTypesForListWithListIdRequestBuilderGetQuer
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetApplicableContentTypesForListWithListIdGetResponse(writer: SerializationWriter, getApplicableContentTypesForListWithListIdGetResponse: GetApplicableContentTypesForListWithListIdGetResponse | undefined = {} as GetApplicableContentTypesForListWithListIdGetResponse) : void {
+export function serializeGetApplicableContentTypesForListWithListIdGetResponse(writer: SerializationWriter, getApplicableContentTypesForListWithListIdGetResponse: Partial<GetApplicableContentTypesForListWithListIdGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getApplicableContentTypesForListWithListIdGetResponse)
     writer.writeCollectionOfObjectValues<ContentType>("value", getApplicableContentTypesForListWithListIdGetResponse.value, serializeContentType);
 }

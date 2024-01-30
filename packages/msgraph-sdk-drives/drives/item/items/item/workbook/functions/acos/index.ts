@@ -43,14 +43,14 @@ export interface AcosRequestBuilder extends BaseRequestBuilder<AcosRequestBuilde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a acosPostRequestBody
  */
-export function createAcosPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAcosPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAcosPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAcosPostRequestBody(acosPostRequestBody: AcosPostRequestBody | undefined = {} as AcosPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAcosPostRequestBody(acosPostRequestBody: Partial<AcosPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { acosPostRequestBody.backingStoreEnabled = true; },
         "number": n => { acosPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoAcosPostRequestBody(acosPostRequestBody: AcosPost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAcosPostRequestBody(writer: SerializationWriter, acosPostRequestBody: AcosPostRequestBody | undefined = {} as AcosPostRequestBody) : void {
+export function serializeAcosPostRequestBody(writer: SerializationWriter, acosPostRequestBody: Partial<AcosPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", acosPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(acosPostRequestBody.additionalData);
 }

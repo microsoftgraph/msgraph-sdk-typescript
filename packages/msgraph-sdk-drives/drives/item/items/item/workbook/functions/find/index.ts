@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a findPostRequestBody
  */
-export function createFindPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFindPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFindPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFindPostRequestBody(findPostRequestBody: FindPostRequestBody | undefined = {} as FindPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFindPostRequestBody(findPostRequestBody: Partial<FindPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { findPostRequestBody.backingStoreEnabled = true; },
         "findText": n => { findPostRequestBody.findText = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface FindRequestBuilder extends BaseRequestBuilder<FindRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFindPostRequestBody(writer: SerializationWriter, findPostRequestBody: FindPostRequestBody | undefined = {} as FindPostRequestBody) : void {
+export function serializeFindPostRequestBody(writer: SerializationWriter, findPostRequestBody: Partial<FindPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("findText", findPostRequestBody.findText, serializeJson);
     writer.writeObjectValue<Json>("startNum", findPostRequestBody.startNum, serializeJson);
     writer.writeObjectValue<Json>("withinText", findPostRequestBody.withinText, serializeJson);

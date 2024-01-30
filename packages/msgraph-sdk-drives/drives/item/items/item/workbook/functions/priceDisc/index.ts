@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a priceDiscPostRequestBody
  */
-export function createPriceDiscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPriceDiscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPriceDiscPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPriceDiscPostRequestBody(priceDiscPostRequestBody: PriceDiscPostRequestBody | undefined = {} as PriceDiscPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPriceDiscPostRequestBody(priceDiscPostRequestBody: Partial<PriceDiscPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { priceDiscPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { priceDiscPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -80,7 +80,7 @@ export interface PriceDiscRequestBuilder extends BaseRequestBuilder<PriceDiscReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePriceDiscPostRequestBody(writer: SerializationWriter, priceDiscPostRequestBody: PriceDiscPostRequestBody | undefined = {} as PriceDiscPostRequestBody) : void {
+export function serializePriceDiscPostRequestBody(writer: SerializationWriter, priceDiscPostRequestBody: Partial<PriceDiscPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", priceDiscPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("discount", priceDiscPostRequestBody.discount, serializeJson);
     writer.writeObjectValue<Json>("maturity", priceDiscPostRequestBody.maturity, serializeJson);

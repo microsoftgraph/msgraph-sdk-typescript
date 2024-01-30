@@ -10,14 +10,14 @@ import { type Guid } from 'guid-typescript';
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a removePasswordPostRequestBody
  */
-export function createRemovePasswordPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRemovePasswordPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRemovePasswordPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRemovePasswordPostRequestBody(removePasswordPostRequestBody: RemovePasswordPostRequestBody | undefined = {} as RemovePasswordPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRemovePasswordPostRequestBody(removePasswordPostRequestBody: Partial<RemovePasswordPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { removePasswordPostRequestBody.backingStoreEnabled = true; },
         "keyId": n => { removePasswordPostRequestBody.keyId = n.getGuidValue(); },
@@ -60,7 +60,7 @@ export interface RemovePasswordRequestBuilder extends BaseRequestBuilder<RemoveP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRemovePasswordPostRequestBody(writer: SerializationWriter, removePasswordPostRequestBody: RemovePasswordPostRequestBody | undefined = {} as RemovePasswordPostRequestBody) : void {
+export function serializeRemovePasswordPostRequestBody(writer: SerializationWriter, removePasswordPostRequestBody: Partial<RemovePasswordPostRequestBody> | undefined = {}) : void {
     writer.writeGuidValue("keyId", removePasswordPostRequestBody.keyId);
     writer.writeAdditionalData(removePasswordPostRequestBody.additionalData);
 }

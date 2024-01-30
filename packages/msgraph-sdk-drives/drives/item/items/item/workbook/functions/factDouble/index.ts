@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a factDoublePostRequestBody
  */
-export function createFactDoublePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFactDoublePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFactDoublePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFactDoublePostRequestBody(factDoublePostRequestBody: FactDoublePostRequestBody | undefined = {} as FactDoublePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFactDoublePostRequestBody(factDoublePostRequestBody: Partial<FactDoublePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { factDoublePostRequestBody.backingStoreEnabled = true; },
         "number": n => { factDoublePostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface FactDoubleRequestBuilder extends BaseRequestBuilder<FactDoubleR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFactDoublePostRequestBody(writer: SerializationWriter, factDoublePostRequestBody: FactDoublePostRequestBody | undefined = {} as FactDoublePostRequestBody) : void {
+export function serializeFactDoublePostRequestBody(writer: SerializationWriter, factDoublePostRequestBody: Partial<FactDoublePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", factDoublePostRequestBody.number, serializeJson);
     writer.writeAdditionalData(factDoublePostRequestBody.additionalData);
 }

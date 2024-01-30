@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a yieldDiscPostRequestBody
  */
-export function createYieldDiscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createYieldDiscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoYieldDiscPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoYieldDiscPostRequestBody(yieldDiscPostRequestBody: YieldDiscPostRequestBody | undefined = {} as YieldDiscPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoYieldDiscPostRequestBody(yieldDiscPostRequestBody: Partial<YieldDiscPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { yieldDiscPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { yieldDiscPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -31,7 +31,7 @@ export function deserializeIntoYieldDiscPostRequestBody(yieldDiscPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeYieldDiscPostRequestBody(writer: SerializationWriter, yieldDiscPostRequestBody: YieldDiscPostRequestBody | undefined = {} as YieldDiscPostRequestBody) : void {
+export function serializeYieldDiscPostRequestBody(writer: SerializationWriter, yieldDiscPostRequestBody: Partial<YieldDiscPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", yieldDiscPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("maturity", yieldDiscPostRequestBody.maturity, serializeJson);
     writer.writeObjectValue<Json>("pr", yieldDiscPostRequestBody.pr, serializeJson);

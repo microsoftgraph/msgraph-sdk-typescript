@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a cumPrincPostRequestBody
  */
-export function createCumPrincPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCumPrincPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCumPrincPostRequestBody;
 }
 export interface CumPrincPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -70,7 +70,7 @@ export interface CumPrincRequestBuilder extends BaseRequestBuilder<CumPrincReque
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCumPrincPostRequestBody(cumPrincPostRequestBody: CumPrincPostRequestBody | undefined = {} as CumPrincPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCumPrincPostRequestBody(cumPrincPostRequestBody: Partial<CumPrincPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cumPrincPostRequestBody.backingStoreEnabled = true; },
         "endPeriod": n => { cumPrincPostRequestBody.endPeriod = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -85,7 +85,7 @@ export function deserializeIntoCumPrincPostRequestBody(cumPrincPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCumPrincPostRequestBody(writer: SerializationWriter, cumPrincPostRequestBody: CumPrincPostRequestBody | undefined = {} as CumPrincPostRequestBody) : void {
+export function serializeCumPrincPostRequestBody(writer: SerializationWriter, cumPrincPostRequestBody: Partial<CumPrincPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("endPeriod", cumPrincPostRequestBody.endPeriod, serializeJson);
     writer.writeObjectValue<Json>("nper", cumPrincPostRequestBody.nper, serializeJson);
     writer.writeObjectValue<Json>("pv", cumPrincPostRequestBody.pv, serializeJson);

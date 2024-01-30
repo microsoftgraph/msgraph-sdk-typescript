@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a functionsGetResponse
  */
-export function createFunctionsGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFunctionsGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFunctionsGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFunctionsGetResponse(functionsGetResponse: FunctionsGetResponse | undefined = {} as FunctionsGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFunctionsGetResponse(functionsGetResponse: Partial<FunctionsGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(functionsGetResponse),
         "value": n => { functionsGetResponse.value = n.getCollectionOfObjectValues<AttributeMappingFunctionSchema>(createAttributeMappingFunctionSchemaFromDiscriminatorValue); },
@@ -83,7 +83,7 @@ export interface FunctionsRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFunctionsGetResponse(writer: SerializationWriter, functionsGetResponse: FunctionsGetResponse | undefined = {} as FunctionsGetResponse) : void {
+export function serializeFunctionsGetResponse(writer: SerializationWriter, functionsGetResponse: Partial<FunctionsGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, functionsGetResponse)
     writer.writeCollectionOfObjectValues<AttributeMappingFunctionSchema>("value", functionsGetResponse.value, serializeAttributeMappingFunctionSchema);
 }

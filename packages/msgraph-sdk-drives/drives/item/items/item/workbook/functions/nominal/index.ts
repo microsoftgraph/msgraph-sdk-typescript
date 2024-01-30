@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a nominalPostRequestBody
  */
-export function createNominalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createNominalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNominalPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoNominalPostRequestBody(nominalPostRequestBody: NominalPostRequestBody | undefined = {} as NominalPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoNominalPostRequestBody(nominalPostRequestBody: Partial<NominalPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { nominalPostRequestBody.backingStoreEnabled = true; },
         "effectRate": n => { nominalPostRequestBody.effectRate = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface NominalRequestBuilder extends BaseRequestBuilder<NominalRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNominalPostRequestBody(writer: SerializationWriter, nominalPostRequestBody: NominalPostRequestBody | undefined = {} as NominalPostRequestBody) : void {
+export function serializeNominalPostRequestBody(writer: SerializationWriter, nominalPostRequestBody: Partial<NominalPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("effectRate", nominalPostRequestBody.effectRate, serializeJson);
     writer.writeObjectValue<Json>("npery", nominalPostRequestBody.npery, serializeJson);
     writer.writeAdditionalData(nominalPostRequestBody.additionalData);

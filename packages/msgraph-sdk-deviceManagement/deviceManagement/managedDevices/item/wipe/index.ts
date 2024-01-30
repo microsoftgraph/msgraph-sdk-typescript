@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a wipePostRequestBody
  */
-export function createWipePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createWipePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoWipePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoWipePostRequestBody(wipePostRequestBody: WipePostRequestBody | undefined = {} as WipePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoWipePostRequestBody(wipePostRequestBody: Partial<WipePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { wipePostRequestBody.backingStoreEnabled = true; },
         "keepEnrollmentData": n => { wipePostRequestBody.keepEnrollmentData = n.getBooleanValue(); },
@@ -29,7 +29,7 @@ export function deserializeIntoWipePostRequestBody(wipePostRequestBody: WipePost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeWipePostRequestBody(writer: SerializationWriter, wipePostRequestBody: WipePostRequestBody | undefined = {} as WipePostRequestBody) : void {
+export function serializeWipePostRequestBody(writer: SerializationWriter, wipePostRequestBody: Partial<WipePostRequestBody> | undefined = {}) : void {
     writer.writeBooleanValue("keepEnrollmentData", wipePostRequestBody.keepEnrollmentData);
     writer.writeBooleanValue("keepUserData", wipePostRequestBody.keepUserData);
     writer.writeStringValue("macOsUnlockCode", wipePostRequestBody.macOsUnlockCode);

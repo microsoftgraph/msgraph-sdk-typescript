@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a sqrtPiPostRequestBody
  */
-export function createSqrtPiPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSqrtPiPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSqrtPiPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSqrtPiPostRequestBody(sqrtPiPostRequestBody: SqrtPiPostRequestBody | undefined = {} as SqrtPiPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSqrtPiPostRequestBody(sqrtPiPostRequestBody: Partial<SqrtPiPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sqrtPiPostRequestBody.backingStoreEnabled = true; },
         "number": n => { sqrtPiPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoSqrtPiPostRequestBody(sqrtPiPostRequestBody: Sqrt
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSqrtPiPostRequestBody(writer: SerializationWriter, sqrtPiPostRequestBody: SqrtPiPostRequestBody | undefined = {} as SqrtPiPostRequestBody) : void {
+export function serializeSqrtPiPostRequestBody(writer: SerializationWriter, sqrtPiPostRequestBody: Partial<SqrtPiPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", sqrtPiPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(sqrtPiPostRequestBody.additionalData);
 }

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a isFormulaPostRequestBody
  */
-export function createIsFormulaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createIsFormulaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsFormulaPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoIsFormulaPostRequestBody(isFormulaPostRequestBody: IsFormulaPostRequestBody | undefined = {} as IsFormulaPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIsFormulaPostRequestBody(isFormulaPostRequestBody: Partial<IsFormulaPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isFormulaPostRequestBody.backingStoreEnabled = true; },
         "reference": n => { isFormulaPostRequestBody.reference = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface IsFormulaRequestBuilder extends BaseRequestBuilder<IsFormulaReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsFormulaPostRequestBody(writer: SerializationWriter, isFormulaPostRequestBody: IsFormulaPostRequestBody | undefined = {} as IsFormulaPostRequestBody) : void {
+export function serializeIsFormulaPostRequestBody(writer: SerializationWriter, isFormulaPostRequestBody: Partial<IsFormulaPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("reference", isFormulaPostRequestBody.reference, serializeJson);
     writer.writeAdditionalData(isFormulaPostRequestBody.additionalData);
 }

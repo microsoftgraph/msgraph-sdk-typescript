@@ -55,14 +55,14 @@ export interface CoupDayBsRequestBuilder extends BaseRequestBuilder<CoupDayBsReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a coupDayBsPostRequestBody
  */
-export function createCoupDayBsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCoupDayBsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCoupDayBsPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCoupDayBsPostRequestBody(coupDayBsPostRequestBody: CoupDayBsPostRequestBody | undefined = {} as CoupDayBsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCoupDayBsPostRequestBody(coupDayBsPostRequestBody: Partial<CoupDayBsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { coupDayBsPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { coupDayBsPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export function deserializeIntoCoupDayBsPostRequestBody(coupDayBsPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCoupDayBsPostRequestBody(writer: SerializationWriter, coupDayBsPostRequestBody: CoupDayBsPostRequestBody | undefined = {} as CoupDayBsPostRequestBody) : void {
+export function serializeCoupDayBsPostRequestBody(writer: SerializationWriter, coupDayBsPostRequestBody: Partial<CoupDayBsPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", coupDayBsPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("frequency", coupDayBsPostRequestBody.frequency, serializeJson);
     writer.writeObjectValue<Json>("maturity", coupDayBsPostRequestBody.maturity, serializeJson);

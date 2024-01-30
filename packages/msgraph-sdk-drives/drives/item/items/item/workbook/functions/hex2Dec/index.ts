@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a hex2DecPostRequestBody
  */
-export function createHex2DecPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createHex2DecPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHex2DecPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoHex2DecPostRequestBody(hex2DecPostRequestBody: Hex2DecPostRequestBody | undefined = {} as Hex2DecPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoHex2DecPostRequestBody(hex2DecPostRequestBody: Partial<Hex2DecPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { hex2DecPostRequestBody.backingStoreEnabled = true; },
         "number": n => { hex2DecPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface Hex2DecRequestBuilder extends BaseRequestBuilder<Hex2DecRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeHex2DecPostRequestBody(writer: SerializationWriter, hex2DecPostRequestBody: Hex2DecPostRequestBody | undefined = {} as Hex2DecPostRequestBody) : void {
+export function serializeHex2DecPostRequestBody(writer: SerializationWriter, hex2DecPostRequestBody: Partial<Hex2DecPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", hex2DecPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(hex2DecPostRequestBody.additionalData);
 }

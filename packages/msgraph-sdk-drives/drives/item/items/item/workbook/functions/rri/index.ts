@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a rriPostRequestBody
  */
-export function createRriPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRriPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRriPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRriPostRequestBody(rriPostRequestBody: RriPostRequestBody | undefined = {} as RriPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRriPostRequestBody(rriPostRequestBody: Partial<RriPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { rriPostRequestBody.backingStoreEnabled = true; },
         "fv": n => { rriPostRequestBody.fv = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface RriRequestBuilder extends BaseRequestBuilder<RriRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRriPostRequestBody(writer: SerializationWriter, rriPostRequestBody: RriPostRequestBody | undefined = {} as RriPostRequestBody) : void {
+export function serializeRriPostRequestBody(writer: SerializationWriter, rriPostRequestBody: Partial<RriPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("fv", rriPostRequestBody.fv, serializeJson);
     writer.writeObjectValue<Json>("nper", rriPostRequestBody.nper, serializeJson);
     writer.writeObjectValue<Json>("pv", rriPostRequestBody.pv, serializeJson);

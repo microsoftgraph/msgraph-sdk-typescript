@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a trimPostRequestBody
  */
-export function createTrimPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createTrimPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTrimPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoTrimPostRequestBody(trimPostRequestBody: TrimPostRequestBody | undefined = {} as TrimPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTrimPostRequestBody(trimPostRequestBody: Partial<TrimPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { trimPostRequestBody.backingStoreEnabled = true; },
         "text": n => { trimPostRequestBody.text = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoTrimPostRequestBody(trimPostRequestBody: TrimPost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTrimPostRequestBody(writer: SerializationWriter, trimPostRequestBody: TrimPostRequestBody | undefined = {} as TrimPostRequestBody) : void {
+export function serializeTrimPostRequestBody(writer: SerializationWriter, trimPostRequestBody: Partial<TrimPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("text", trimPostRequestBody.text, serializeJson);
     writer.writeAdditionalData(trimPostRequestBody.additionalData);
 }

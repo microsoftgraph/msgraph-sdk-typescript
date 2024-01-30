@@ -47,14 +47,14 @@ export interface BitandRequestBuilder extends BaseRequestBuilder<BitandRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a bitandPostRequestBody
  */
-export function createBitandPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createBitandPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBitandPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoBitandPostRequestBody(bitandPostRequestBody: BitandPostRequestBody | undefined = {} as BitandPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoBitandPostRequestBody(bitandPostRequestBody: Partial<BitandPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { bitandPostRequestBody.backingStoreEnabled = true; },
         "number1": n => { bitandPostRequestBody.number1 = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoBitandPostRequestBody(bitandPostRequestBody: Bita
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBitandPostRequestBody(writer: SerializationWriter, bitandPostRequestBody: BitandPostRequestBody | undefined = {} as BitandPostRequestBody) : void {
+export function serializeBitandPostRequestBody(writer: SerializationWriter, bitandPostRequestBody: Partial<BitandPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number1", bitandPostRequestBody.number1, serializeJson);
     writer.writeObjectValue<Json>("number2", bitandPostRequestBody.number2, serializeJson);
     writer.writeAdditionalData(bitandPostRequestBody.additionalData);

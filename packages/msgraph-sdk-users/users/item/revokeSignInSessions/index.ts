@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a revokeSignInSessionsPostResponse
  */
-export function createRevokeSignInSessionsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRevokeSignInSessionsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRevokeSignInSessionsPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRevokeSignInSessionsPostResponse(revokeSignInSessionsPostResponse: RevokeSignInSessionsPostResponse | undefined = {} as RevokeSignInSessionsPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRevokeSignInSessionsPostResponse(revokeSignInSessionsPostResponse: Partial<RevokeSignInSessionsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { revokeSignInSessionsPostResponse.backingStoreEnabled = true; },
         "value": n => { revokeSignInSessionsPostResponse.value = n.getBooleanValue(); },
@@ -58,7 +58,7 @@ export interface RevokeSignInSessionsRequestBuilder extends BaseRequestBuilder<R
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRevokeSignInSessionsPostResponse(writer: SerializationWriter, revokeSignInSessionsPostResponse: RevokeSignInSessionsPostResponse | undefined = {} as RevokeSignInSessionsPostResponse) : void {
+export function serializeRevokeSignInSessionsPostResponse(writer: SerializationWriter, revokeSignInSessionsPostResponse: Partial<RevokeSignInSessionsPostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", revokeSignInSessionsPostResponse.value);
     writer.writeAdditionalData(revokeSignInSessionsPostResponse.additionalData);
 }

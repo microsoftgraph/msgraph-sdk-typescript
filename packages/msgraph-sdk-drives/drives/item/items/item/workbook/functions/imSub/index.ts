@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a imSubPostRequestBody
  */
-export function createImSubPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImSubPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImSubPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImSubPostRequestBody(imSubPostRequestBody: ImSubPostRequestBody | undefined = {} as ImSubPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImSubPostRequestBody(imSubPostRequestBody: Partial<ImSubPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imSubPostRequestBody.backingStoreEnabled = true; },
         "inumber1": n => { imSubPostRequestBody.inumber1 = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface ImSubRequestBuilder extends BaseRequestBuilder<ImSubRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImSubPostRequestBody(writer: SerializationWriter, imSubPostRequestBody: ImSubPostRequestBody | undefined = {} as ImSubPostRequestBody) : void {
+export function serializeImSubPostRequestBody(writer: SerializationWriter, imSubPostRequestBody: Partial<ImSubPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("inumber1", imSubPostRequestBody.inumber1, serializeJson);
     writer.writeObjectValue<Json>("inumber2", imSubPostRequestBody.inumber2, serializeJson);
     writer.writeAdditionalData(imSubPostRequestBody.additionalData);

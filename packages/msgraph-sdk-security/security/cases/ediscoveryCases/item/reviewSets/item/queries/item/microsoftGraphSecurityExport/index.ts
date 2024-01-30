@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a exportPostRequestBody
  */
-export function createExportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createExportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExportPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoExportPostRequestBody(exportPostRequestBody: ExportPostRequestBody | undefined = {} as ExportPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoExportPostRequestBody(exportPostRequestBody: Partial<ExportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { exportPostRequestBody.backingStoreEnabled = true; },
         "description": n => { exportPostRequestBody.description = n.getStringValue(); },
@@ -75,7 +75,7 @@ export interface MicrosoftGraphSecurityExportRequestBuilder extends BaseRequestB
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExportPostRequestBody(writer: SerializationWriter, exportPostRequestBody: ExportPostRequestBody | undefined = {} as ExportPostRequestBody) : void {
+export function serializeExportPostRequestBody(writer: SerializationWriter, exportPostRequestBody: Partial<ExportPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("description", exportPostRequestBody.description);
     writer.writeEnumValue<ExportOptions[]>("exportOptions", exportPostRequestBody.exportOptions);
     writer.writeEnumValue<ExportFileStructure>("exportStructure", exportPostRequestBody.exportStructure);

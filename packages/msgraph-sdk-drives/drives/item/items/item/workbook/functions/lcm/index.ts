@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a lcmPostRequestBody
  */
-export function createLcmPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createLcmPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLcmPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoLcmPostRequestBody(lcmPostRequestBody: LcmPostRequestBody | undefined = {} as LcmPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoLcmPostRequestBody(lcmPostRequestBody: Partial<LcmPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { lcmPostRequestBody.backingStoreEnabled = true; },
         "values": n => { lcmPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface LcmRequestBuilder extends BaseRequestBuilder<LcmRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLcmPostRequestBody(writer: SerializationWriter, lcmPostRequestBody: LcmPostRequestBody | undefined = {} as LcmPostRequestBody) : void {
+export function serializeLcmPostRequestBody(writer: SerializationWriter, lcmPostRequestBody: Partial<LcmPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", lcmPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(lcmPostRequestBody.additionalData);
 }

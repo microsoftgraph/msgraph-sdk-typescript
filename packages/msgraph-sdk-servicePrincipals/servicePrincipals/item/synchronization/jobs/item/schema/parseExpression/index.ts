@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a parseExpressionPostRequestBody
  */
-export function createParseExpressionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createParseExpressionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoParseExpressionPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoParseExpressionPostRequestBody(parseExpressionPostRequestBody: ParseExpressionPostRequestBody | undefined = {} as ParseExpressionPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoParseExpressionPostRequestBody(parseExpressionPostRequestBody: Partial<ParseExpressionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { parseExpressionPostRequestBody.backingStoreEnabled = true; },
         "expression": n => { parseExpressionPostRequestBody.expression = n.getStringValue(); },
@@ -71,7 +71,7 @@ export interface ParseExpressionRequestBuilder extends BaseRequestBuilder<ParseE
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeParseExpressionPostRequestBody(writer: SerializationWriter, parseExpressionPostRequestBody: ParseExpressionPostRequestBody | undefined = {} as ParseExpressionPostRequestBody) : void {
+export function serializeParseExpressionPostRequestBody(writer: SerializationWriter, parseExpressionPostRequestBody: Partial<ParseExpressionPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("expression", parseExpressionPostRequestBody.expression);
     writer.writeObjectValue<AttributeDefinition>("targetAttributeDefinition", parseExpressionPostRequestBody.targetAttributeDefinition, serializeAttributeDefinition);
     writer.writeObjectValue<ExpressionInputObject>("testInputObject", parseExpressionPostRequestBody.testInputObject, serializeExpressionInputObject);

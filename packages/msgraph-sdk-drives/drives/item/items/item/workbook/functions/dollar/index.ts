@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a dollarPostRequestBody
  */
-export function createDollarPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDollarPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDollarPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDollarPostRequestBody(dollarPostRequestBody: DollarPostRequestBody | undefined = {} as DollarPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDollarPostRequestBody(dollarPostRequestBody: Partial<DollarPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dollarPostRequestBody.backingStoreEnabled = true; },
         "decimals": n => { dollarPostRequestBody.decimals = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface DollarRequestBuilder extends BaseRequestBuilder<DollarRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDollarPostRequestBody(writer: SerializationWriter, dollarPostRequestBody: DollarPostRequestBody | undefined = {} as DollarPostRequestBody) : void {
+export function serializeDollarPostRequestBody(writer: SerializationWriter, dollarPostRequestBody: Partial<DollarPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("decimals", dollarPostRequestBody.decimals, serializeJson);
     writer.writeObjectValue<Json>("number", dollarPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(dollarPostRequestBody.additionalData);

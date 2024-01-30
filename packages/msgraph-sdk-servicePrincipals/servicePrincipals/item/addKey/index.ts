@@ -52,14 +52,14 @@ export interface AddKeyRequestBuilder extends BaseRequestBuilder<AddKeyRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a addKeyPostRequestBody
  */
-export function createAddKeyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAddKeyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddKeyPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAddKeyPostRequestBody(addKeyPostRequestBody: AddKeyPostRequestBody | undefined = {} as AddKeyPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddKeyPostRequestBody(addKeyPostRequestBody: Partial<AddKeyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addKeyPostRequestBody.backingStoreEnabled = true; },
         "keyCredential": n => { addKeyPostRequestBody.keyCredential = n.getObjectValue<KeyCredential>(createKeyCredentialFromDiscriminatorValue); },
@@ -71,7 +71,7 @@ export function deserializeIntoAddKeyPostRequestBody(addKeyPostRequestBody: AddK
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddKeyPostRequestBody(writer: SerializationWriter, addKeyPostRequestBody: AddKeyPostRequestBody | undefined = {} as AddKeyPostRequestBody) : void {
+export function serializeAddKeyPostRequestBody(writer: SerializationWriter, addKeyPostRequestBody: Partial<AddKeyPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<KeyCredential>("keyCredential", addKeyPostRequestBody.keyCredential, serializeKeyCredential);
     writer.writeObjectValue<PasswordCredential>("passwordCredential", addKeyPostRequestBody.passwordCredential, serializePasswordCredential);
     writer.writeStringValue("proof", addKeyPostRequestBody.proof);

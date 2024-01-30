@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getComplianceSettingNonComplianceReportPostRequestBody
  */
-export function createGetComplianceSettingNonComplianceReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetComplianceSettingNonComplianceReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetComplianceSettingNonComplianceReportPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetComplianceSettingNonComplianceReportPostRequestBody(getComplianceSettingNonComplianceReportPostRequestBody: GetComplianceSettingNonComplianceReportPostRequestBody | undefined = {} as GetComplianceSettingNonComplianceReportPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetComplianceSettingNonComplianceReportPostRequestBody(getComplianceSettingNonComplianceReportPostRequestBody: Partial<GetComplianceSettingNonComplianceReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getComplianceSettingNonComplianceReportPostRequestBody.backingStoreEnabled = true; },
         "filter": n => { getComplianceSettingNonComplianceReportPostRequestBody.filter = n.getStringValue(); },
@@ -100,7 +100,7 @@ export interface GetComplianceSettingNonComplianceReportRequestBuilder extends B
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetComplianceSettingNonComplianceReportPostRequestBody(writer: SerializationWriter, getComplianceSettingNonComplianceReportPostRequestBody: GetComplianceSettingNonComplianceReportPostRequestBody | undefined = {} as GetComplianceSettingNonComplianceReportPostRequestBody) : void {
+export function serializeGetComplianceSettingNonComplianceReportPostRequestBody(writer: SerializationWriter, getComplianceSettingNonComplianceReportPostRequestBody: Partial<GetComplianceSettingNonComplianceReportPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("filter", getComplianceSettingNonComplianceReportPostRequestBody.filter);
     writer.writeCollectionOfPrimitiveValues<string>("groupBy", getComplianceSettingNonComplianceReportPostRequestBody.groupBy);
     writer.writeStringValue("name", getComplianceSettingNonComplianceReportPostRequestBody.name);

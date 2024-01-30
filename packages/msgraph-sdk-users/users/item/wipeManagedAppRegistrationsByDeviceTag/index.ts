@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a wipeManagedAppRegistrationsByDeviceTagPostRequestBody
  */
-export function createWipeManagedAppRegistrationsByDeviceTagPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createWipeManagedAppRegistrationsByDeviceTagPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoWipeManagedAppRegistrationsByDeviceTagPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoWipeManagedAppRegistrationsByDeviceTagPostRequestBody(wipeManagedAppRegistrationsByDeviceTagPostRequestBody: WipeManagedAppRegistrationsByDeviceTagPostRequestBody | undefined = {} as WipeManagedAppRegistrationsByDeviceTagPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoWipeManagedAppRegistrationsByDeviceTagPostRequestBody(wipeManagedAppRegistrationsByDeviceTagPostRequestBody: Partial<WipeManagedAppRegistrationsByDeviceTagPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { wipeManagedAppRegistrationsByDeviceTagPostRequestBody.backingStoreEnabled = true; },
         "deviceTag": n => { wipeManagedAppRegistrationsByDeviceTagPostRequestBody.deviceTag = n.getStringValue(); },
@@ -26,7 +26,7 @@ export function deserializeIntoWipeManagedAppRegistrationsByDeviceTagPostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeWipeManagedAppRegistrationsByDeviceTagPostRequestBody(writer: SerializationWriter, wipeManagedAppRegistrationsByDeviceTagPostRequestBody: WipeManagedAppRegistrationsByDeviceTagPostRequestBody | undefined = {} as WipeManagedAppRegistrationsByDeviceTagPostRequestBody) : void {
+export function serializeWipeManagedAppRegistrationsByDeviceTagPostRequestBody(writer: SerializationWriter, wipeManagedAppRegistrationsByDeviceTagPostRequestBody: Partial<WipeManagedAppRegistrationsByDeviceTagPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("deviceTag", wipeManagedAppRegistrationsByDeviceTagPostRequestBody.deviceTag);
     writer.writeAdditionalData(wipeManagedAppRegistrationsByDeviceTagPostRequestBody.additionalData);
 }

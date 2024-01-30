@@ -9,7 +9,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a favoritePostRequestBody
  */
-export function createFavoritePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFavoritePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFavoritePostRequestBody;
 }
 /**
@@ -17,14 +17,14 @@ export function createFavoritePostRequestBodyFromDiscriminatorValue(parseNode: P
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a favoritePostResponse
  */
-export function createFavoritePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFavoritePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFavoritePostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFavoritePostRequestBody(favoritePostRequestBody: FavoritePostRequestBody | undefined = {} as FavoritePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFavoritePostRequestBody(favoritePostRequestBody: Partial<FavoritePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { favoritePostRequestBody.backingStoreEnabled = true; },
         "messageIds": n => { favoritePostRequestBody.messageIds = n.getCollectionOfPrimitiveValues<string>(); },
@@ -34,7 +34,7 @@ export function deserializeIntoFavoritePostRequestBody(favoritePostRequestBody: 
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFavoritePostResponse(favoritePostResponse: FavoritePostResponse | undefined = {} as FavoritePostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFavoritePostResponse(favoritePostResponse: Partial<FavoritePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { favoritePostResponse.backingStoreEnabled = true; },
         "value": n => { favoritePostResponse.value = n.getBooleanValue(); },
@@ -92,7 +92,7 @@ export interface FavoriteRequestBuilder extends BaseRequestBuilder<FavoriteReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFavoritePostRequestBody(writer: SerializationWriter, favoritePostRequestBody: FavoritePostRequestBody | undefined = {} as FavoritePostRequestBody) : void {
+export function serializeFavoritePostRequestBody(writer: SerializationWriter, favoritePostRequestBody: Partial<FavoritePostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("messageIds", favoritePostRequestBody.messageIds);
     writer.writeAdditionalData(favoritePostRequestBody.additionalData);
 }
@@ -100,7 +100,7 @@ export function serializeFavoritePostRequestBody(writer: SerializationWriter, fa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFavoritePostResponse(writer: SerializationWriter, favoritePostResponse: FavoritePostResponse | undefined = {} as FavoritePostResponse) : void {
+export function serializeFavoritePostResponse(writer: SerializationWriter, favoritePostResponse: Partial<FavoritePostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", favoritePostResponse.value);
     writer.writeAdditionalData(favoritePostResponse.additionalData);
 }

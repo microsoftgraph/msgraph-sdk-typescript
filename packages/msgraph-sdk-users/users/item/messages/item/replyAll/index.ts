@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a replyAllPostRequestBody
  */
-export function createReplyAllPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createReplyAllPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoReplyAllPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoReplyAllPostRequestBody(replyAllPostRequestBody: ReplyAllPostRequestBody | undefined = {} as ReplyAllPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoReplyAllPostRequestBody(replyAllPostRequestBody: Partial<ReplyAllPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { replyAllPostRequestBody.backingStoreEnabled = true; },
         "comment": n => { replyAllPostRequestBody.comment = n.getStringValue(); },
@@ -65,7 +65,7 @@ export interface ReplyAllRequestBuilder extends BaseRequestBuilder<ReplyAllReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeReplyAllPostRequestBody(writer: SerializationWriter, replyAllPostRequestBody: ReplyAllPostRequestBody | undefined = {} as ReplyAllPostRequestBody) : void {
+export function serializeReplyAllPostRequestBody(writer: SerializationWriter, replyAllPostRequestBody: Partial<ReplyAllPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("Comment", replyAllPostRequestBody.comment);
     writer.writeObjectValue<Message>("Message", replyAllPostRequestBody.message, serializeMessage);
     writer.writeAdditionalData(replyAllPostRequestBody.additionalData);

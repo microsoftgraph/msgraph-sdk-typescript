@@ -50,7 +50,7 @@ export interface CheckMemberGroupsRequestBuilder extends BaseRequestBuilder<Chec
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a checkMemberGroupsPostRequestBody
  */
-export function createCheckMemberGroupsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCheckMemberGroupsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCheckMemberGroupsPostRequestBody;
 }
 /**
@@ -58,14 +58,14 @@ export function createCheckMemberGroupsPostRequestBodyFromDiscriminatorValue(par
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a checkMemberGroupsPostResponse
  */
-export function createCheckMemberGroupsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCheckMemberGroupsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCheckMemberGroupsPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCheckMemberGroupsPostRequestBody(checkMemberGroupsPostRequestBody: CheckMemberGroupsPostRequestBody | undefined = {} as CheckMemberGroupsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCheckMemberGroupsPostRequestBody(checkMemberGroupsPostRequestBody: Partial<CheckMemberGroupsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { checkMemberGroupsPostRequestBody.backingStoreEnabled = true; },
         "groupIds": n => { checkMemberGroupsPostRequestBody.groupIds = n.getCollectionOfPrimitiveValues<string>(); },
@@ -75,7 +75,7 @@ export function deserializeIntoCheckMemberGroupsPostRequestBody(checkMemberGroup
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCheckMemberGroupsPostResponse(checkMemberGroupsPostResponse: CheckMemberGroupsPostResponse | undefined = {} as CheckMemberGroupsPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCheckMemberGroupsPostResponse(checkMemberGroupsPostResponse: Partial<CheckMemberGroupsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(checkMemberGroupsPostResponse),
         "value": n => { checkMemberGroupsPostResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
@@ -85,7 +85,7 @@ export function deserializeIntoCheckMemberGroupsPostResponse(checkMemberGroupsPo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCheckMemberGroupsPostRequestBody(writer: SerializationWriter, checkMemberGroupsPostRequestBody: CheckMemberGroupsPostRequestBody | undefined = {} as CheckMemberGroupsPostRequestBody) : void {
+export function serializeCheckMemberGroupsPostRequestBody(writer: SerializationWriter, checkMemberGroupsPostRequestBody: Partial<CheckMemberGroupsPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("groupIds", checkMemberGroupsPostRequestBody.groupIds);
     writer.writeAdditionalData(checkMemberGroupsPostRequestBody.additionalData);
 }
@@ -93,7 +93,7 @@ export function serializeCheckMemberGroupsPostRequestBody(writer: SerializationW
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCheckMemberGroupsPostResponse(writer: SerializationWriter, checkMemberGroupsPostResponse: CheckMemberGroupsPostResponse | undefined = {} as CheckMemberGroupsPostResponse) : void {
+export function serializeCheckMemberGroupsPostResponse(writer: SerializationWriter, checkMemberGroupsPostResponse: Partial<CheckMemberGroupsPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, checkMemberGroupsPostResponse)
     writer.writeCollectionOfPrimitiveValues<string>("value", checkMemberGroupsPostResponse.value);
 }

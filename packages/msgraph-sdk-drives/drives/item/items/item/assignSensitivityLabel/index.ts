@@ -50,14 +50,14 @@ export interface AssignSensitivityLabelRequestBuilder extends BaseRequestBuilder
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a assignSensitivityLabelPostRequestBody
  */
-export function createAssignSensitivityLabelPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAssignSensitivityLabelPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAssignSensitivityLabelPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAssignSensitivityLabelPostRequestBody(assignSensitivityLabelPostRequestBody: AssignSensitivityLabelPostRequestBody | undefined = {} as AssignSensitivityLabelPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAssignSensitivityLabelPostRequestBody(assignSensitivityLabelPostRequestBody: Partial<AssignSensitivityLabelPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "assignmentMethod": n => { assignSensitivityLabelPostRequestBody.assignmentMethod = n.getEnumValue<SensitivityLabelAssignmentMethod>(SensitivityLabelAssignmentMethodObject); },
         "backingStoreEnabled": n => { assignSensitivityLabelPostRequestBody.backingStoreEnabled = true; },
@@ -69,7 +69,7 @@ export function deserializeIntoAssignSensitivityLabelPostRequestBody(assignSensi
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAssignSensitivityLabelPostRequestBody(writer: SerializationWriter, assignSensitivityLabelPostRequestBody: AssignSensitivityLabelPostRequestBody | undefined = {} as AssignSensitivityLabelPostRequestBody) : void {
+export function serializeAssignSensitivityLabelPostRequestBody(writer: SerializationWriter, assignSensitivityLabelPostRequestBody: Partial<AssignSensitivityLabelPostRequestBody> | undefined = {}) : void {
     writer.writeEnumValue<SensitivityLabelAssignmentMethod>("assignmentMethod", assignSensitivityLabelPostRequestBody.assignmentMethod);
     writer.writeStringValue("justificationText", assignSensitivityLabelPostRequestBody.justificationText);
     writer.writeStringValue("sensitivityLabelId", assignSensitivityLabelPostRequestBody.sensitivityLabelId);

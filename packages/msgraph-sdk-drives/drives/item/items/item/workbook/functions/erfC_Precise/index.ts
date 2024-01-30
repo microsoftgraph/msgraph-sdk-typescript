@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a erfC_PrecisePostRequestBody
  */
-export function createErfC_PrecisePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createErfC_PrecisePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoErfC_PrecisePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoErfC_PrecisePostRequestBody(erfC_PrecisePostRequestBody: ErfC_PrecisePostRequestBody | undefined = {} as ErfC_PrecisePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoErfC_PrecisePostRequestBody(erfC_PrecisePostRequestBody: Partial<ErfC_PrecisePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { erfC_PrecisePostRequestBody.backingStoreEnabled = true; },
         "x": n => { erfC_PrecisePostRequestBody.x = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface ErfC_PreciseRequestBuilder extends BaseRequestBuilder<ErfC_Prec
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeErfC_PrecisePostRequestBody(writer: SerializationWriter, erfC_PrecisePostRequestBody: ErfC_PrecisePostRequestBody | undefined = {} as ErfC_PrecisePostRequestBody) : void {
+export function serializeErfC_PrecisePostRequestBody(writer: SerializationWriter, erfC_PrecisePostRequestBody: Partial<ErfC_PrecisePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("X", erfC_PrecisePostRequestBody.x, serializeJson);
     writer.writeAdditionalData(erfC_PrecisePostRequestBody.additionalData);
 }

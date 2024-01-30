@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a discPostRequestBody
  */
-export function createDiscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDiscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDiscPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDiscPostRequestBody(discPostRequestBody: DiscPostRequestBody | undefined = {} as DiscPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDiscPostRequestBody(discPostRequestBody: Partial<DiscPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { discPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { discPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -80,7 +80,7 @@ export interface DiscRequestBuilder extends BaseRequestBuilder<DiscRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDiscPostRequestBody(writer: SerializationWriter, discPostRequestBody: DiscPostRequestBody | undefined = {} as DiscPostRequestBody) : void {
+export function serializeDiscPostRequestBody(writer: SerializationWriter, discPostRequestBody: Partial<DiscPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", discPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("maturity", discPostRequestBody.maturity, serializeJson);
     writer.writeObjectValue<Json>("pr", discPostRequestBody.pr, serializeJson);

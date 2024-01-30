@@ -48,14 +48,14 @@ export interface AddTokenSigningCertificateRequestBuilder extends BaseRequestBui
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a addTokenSigningCertificatePostRequestBody
  */
-export function createAddTokenSigningCertificatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAddTokenSigningCertificatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddTokenSigningCertificatePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAddTokenSigningCertificatePostRequestBody(addTokenSigningCertificatePostRequestBody: AddTokenSigningCertificatePostRequestBody | undefined = {} as AddTokenSigningCertificatePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddTokenSigningCertificatePostRequestBody(addTokenSigningCertificatePostRequestBody: Partial<AddTokenSigningCertificatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addTokenSigningCertificatePostRequestBody.backingStoreEnabled = true; },
         "displayName": n => { addTokenSigningCertificatePostRequestBody.displayName = n.getStringValue(); },
@@ -66,7 +66,7 @@ export function deserializeIntoAddTokenSigningCertificatePostRequestBody(addToke
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddTokenSigningCertificatePostRequestBody(writer: SerializationWriter, addTokenSigningCertificatePostRequestBody: AddTokenSigningCertificatePostRequestBody | undefined = {} as AddTokenSigningCertificatePostRequestBody) : void {
+export function serializeAddTokenSigningCertificatePostRequestBody(writer: SerializationWriter, addTokenSigningCertificatePostRequestBody: Partial<AddTokenSigningCertificatePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("displayName", addTokenSigningCertificatePostRequestBody.displayName);
     writer.writeDateValue("endDateTime", addTokenSigningCertificatePostRequestBody.endDateTime);
     writer.writeAdditionalData(addTokenSigningCertificatePostRequestBody.additionalData);

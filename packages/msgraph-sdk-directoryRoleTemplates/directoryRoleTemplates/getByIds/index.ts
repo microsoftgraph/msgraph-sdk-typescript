@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getByIdsPostRequestBody
  */
-export function createGetByIdsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetByIdsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetByIdsPostRequestBody;
 }
 /**
@@ -18,14 +18,14 @@ export function createGetByIdsPostRequestBodyFromDiscriminatorValue(parseNode: P
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getByIdsPostResponse
  */
-export function createGetByIdsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetByIdsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetByIdsPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetByIdsPostRequestBody(getByIdsPostRequestBody: GetByIdsPostRequestBody | undefined = {} as GetByIdsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetByIdsPostRequestBody(getByIdsPostRequestBody: Partial<GetByIdsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getByIdsPostRequestBody.backingStoreEnabled = true; },
         "ids": n => { getByIdsPostRequestBody.ids = n.getCollectionOfPrimitiveValues<string>(); },
@@ -36,7 +36,7 @@ export function deserializeIntoGetByIdsPostRequestBody(getByIdsPostRequestBody: 
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetByIdsPostResponse(getByIdsPostResponse: GetByIdsPostResponse | undefined = {} as GetByIdsPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetByIdsPostResponse(getByIdsPostResponse: Partial<GetByIdsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getByIdsPostResponse),
         "value": n => { getByIdsPostResponse.value = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
@@ -90,7 +90,7 @@ export interface GetByIdsRequestBuilder extends BaseRequestBuilder<GetByIdsReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetByIdsPostRequestBody(writer: SerializationWriter, getByIdsPostRequestBody: GetByIdsPostRequestBody | undefined = {} as GetByIdsPostRequestBody) : void {
+export function serializeGetByIdsPostRequestBody(writer: SerializationWriter, getByIdsPostRequestBody: Partial<GetByIdsPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("ids", getByIdsPostRequestBody.ids);
     writer.writeCollectionOfPrimitiveValues<string>("types", getByIdsPostRequestBody.types);
     writer.writeAdditionalData(getByIdsPostRequestBody.additionalData);
@@ -99,7 +99,7 @@ export function serializeGetByIdsPostRequestBody(writer: SerializationWriter, ge
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetByIdsPostResponse(writer: SerializationWriter, getByIdsPostResponse: GetByIdsPostResponse | undefined = {} as GetByIdsPostResponse) : void {
+export function serializeGetByIdsPostResponse(writer: SerializationWriter, getByIdsPostResponse: Partial<GetByIdsPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getByIdsPostResponse)
     writer.writeCollectionOfObjectValues<DirectoryObject>("value", getByIdsPostResponse.value, serializeDirectoryObject);
 }

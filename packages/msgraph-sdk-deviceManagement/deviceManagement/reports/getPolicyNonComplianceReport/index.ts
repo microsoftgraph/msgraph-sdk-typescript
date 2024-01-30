@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getPolicyNonComplianceReportPostRequestBody
  */
-export function createGetPolicyNonComplianceReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetPolicyNonComplianceReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetPolicyNonComplianceReportPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetPolicyNonComplianceReportPostRequestBody(getPolicyNonComplianceReportPostRequestBody: GetPolicyNonComplianceReportPostRequestBody | undefined = {} as GetPolicyNonComplianceReportPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetPolicyNonComplianceReportPostRequestBody(getPolicyNonComplianceReportPostRequestBody: Partial<GetPolicyNonComplianceReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getPolicyNonComplianceReportPostRequestBody.backingStoreEnabled = true; },
         "filter": n => { getPolicyNonComplianceReportPostRequestBody.filter = n.getStringValue(); },
@@ -100,7 +100,7 @@ export interface GetPolicyNonComplianceReportRequestBuilder extends BaseRequestB
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetPolicyNonComplianceReportPostRequestBody(writer: SerializationWriter, getPolicyNonComplianceReportPostRequestBody: GetPolicyNonComplianceReportPostRequestBody | undefined = {} as GetPolicyNonComplianceReportPostRequestBody) : void {
+export function serializeGetPolicyNonComplianceReportPostRequestBody(writer: SerializationWriter, getPolicyNonComplianceReportPostRequestBody: Partial<GetPolicyNonComplianceReportPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("filter", getPolicyNonComplianceReportPostRequestBody.filter);
     writer.writeCollectionOfPrimitiveValues<string>("groupBy", getPolicyNonComplianceReportPostRequestBody.groupBy);
     writer.writeStringValue("name", getPolicyNonComplianceReportPostRequestBody.name);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a t_Dist_RTPostRequestBody
  */
-export function createT_Dist_RTPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createT_Dist_RTPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoT_Dist_RTPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoT_Dist_RTPostRequestBody(t_Dist_RTPostRequestBody: T_Dist_RTPostRequestBody | undefined = {} as T_Dist_RTPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoT_Dist_RTPostRequestBody(t_Dist_RTPostRequestBody: Partial<T_Dist_RTPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { t_Dist_RTPostRequestBody.backingStoreEnabled = true; },
         "degFreedom": n => { t_Dist_RTPostRequestBody.degFreedom = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -28,7 +28,7 @@ export function deserializeIntoT_Dist_RTPostRequestBody(t_Dist_RTPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeT_Dist_RTPostRequestBody(writer: SerializationWriter, t_Dist_RTPostRequestBody: T_Dist_RTPostRequestBody | undefined = {} as T_Dist_RTPostRequestBody) : void {
+export function serializeT_Dist_RTPostRequestBody(writer: SerializationWriter, t_Dist_RTPostRequestBody: Partial<T_Dist_RTPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("degFreedom", t_Dist_RTPostRequestBody.degFreedom, serializeJson);
     writer.writeObjectValue<Json>("x", t_Dist_RTPostRequestBody.x, serializeJson);
     writer.writeAdditionalData(t_Dist_RTPostRequestBody.additionalData);

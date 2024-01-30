@@ -51,14 +51,14 @@ export interface Confidence_NormRequestBuilder extends BaseRequestBuilder<Confid
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a confidence_NormPostRequestBody
  */
-export function createConfidence_NormPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createConfidence_NormPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConfidence_NormPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoConfidence_NormPostRequestBody(confidence_NormPostRequestBody: Confidence_NormPostRequestBody | undefined = {} as Confidence_NormPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoConfidence_NormPostRequestBody(confidence_NormPostRequestBody: Partial<Confidence_NormPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "alpha": n => { confidence_NormPostRequestBody.alpha = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { confidence_NormPostRequestBody.backingStoreEnabled = true; },
@@ -70,7 +70,7 @@ export function deserializeIntoConfidence_NormPostRequestBody(confidence_NormPos
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeConfidence_NormPostRequestBody(writer: SerializationWriter, confidence_NormPostRequestBody: Confidence_NormPostRequestBody | undefined = {} as Confidence_NormPostRequestBody) : void {
+export function serializeConfidence_NormPostRequestBody(writer: SerializationWriter, confidence_NormPostRequestBody: Partial<Confidence_NormPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("alpha", confidence_NormPostRequestBody.alpha, serializeJson);
     writer.writeObjectValue<Json>("size", confidence_NormPostRequestBody.size, serializeJson);
     writer.writeObjectValue<Json>("standardDev", confidence_NormPostRequestBody.standardDev, serializeJson);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a rank_AvgPostRequestBody
  */
-export function createRank_AvgPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRank_AvgPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRank_AvgPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRank_AvgPostRequestBody(rank_AvgPostRequestBody: Rank_AvgPostRequestBody | undefined = {} as Rank_AvgPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRank_AvgPostRequestBody(rank_AvgPostRequestBody: Partial<Rank_AvgPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { rank_AvgPostRequestBody.backingStoreEnabled = true; },
         "number": n => { rank_AvgPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface Rank_AvgRequestBuilder extends BaseRequestBuilder<Rank_AvgReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRank_AvgPostRequestBody(writer: SerializationWriter, rank_AvgPostRequestBody: Rank_AvgPostRequestBody | undefined = {} as Rank_AvgPostRequestBody) : void {
+export function serializeRank_AvgPostRequestBody(writer: SerializationWriter, rank_AvgPostRequestBody: Partial<Rank_AvgPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", rank_AvgPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("order", rank_AvgPostRequestBody.order, serializeJson);
     writer.writeObjectValue<Json>("ref", rank_AvgPostRequestBody.ref, serializeJson);

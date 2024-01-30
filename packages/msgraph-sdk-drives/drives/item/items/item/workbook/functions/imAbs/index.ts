@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a imAbsPostRequestBody
  */
-export function createImAbsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImAbsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImAbsPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImAbsPostRequestBody(imAbsPostRequestBody: ImAbsPostRequestBody | undefined = {} as ImAbsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImAbsPostRequestBody(imAbsPostRequestBody: Partial<ImAbsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imAbsPostRequestBody.backingStoreEnabled = true; },
         "inumber": n => { imAbsPostRequestBody.inumber = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface ImAbsRequestBuilder extends BaseRequestBuilder<ImAbsRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImAbsPostRequestBody(writer: SerializationWriter, imAbsPostRequestBody: ImAbsPostRequestBody | undefined = {} as ImAbsPostRequestBody) : void {
+export function serializeImAbsPostRequestBody(writer: SerializationWriter, imAbsPostRequestBody: Partial<ImAbsPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("inumber", imAbsPostRequestBody.inumber, serializeJson);
     writer.writeAdditionalData(imAbsPostRequestBody.additionalData);
 }

@@ -35,7 +35,7 @@ export interface NamesRequestBuilder extends BaseRequestBuilder<NamesRequestBuil
      * Retrieve a list of nameditem objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookNamedItemCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/nameditem-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/workbook-list-names?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<NamesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookNamedItemCollectionResponse | undefined>;
     /**

@@ -4,6 +4,7 @@
 import { createEmployeeExperienceFromDiscriminatorValue, serializeEmployeeExperience, type EmployeeExperience } from '@microsoft/msgraph-sdk/models/';
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { LearningCourseActivitiesRequestBuilderNavigationMetadata, LearningCourseActivitiesRequestBuilderRequestsMetadata, LearningCourseActivitiesRequestBuilderUriTemplate, type LearningCourseActivitiesRequestBuilder } from './learningCourseActivities/';
+import { LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderRequestsMetadata, LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate, type LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder } from './learningCourseActivitiesWithExternalcourseActivityId/';
 import { LearningProvidersRequestBuilderNavigationMetadata, LearningProvidersRequestBuilderRequestsMetadata, LearningProvidersRequestBuilderUriTemplate, type LearningProvidersRequestBuilder } from './learningProviders/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -25,6 +26,12 @@ export interface EmployeeExperienceRequestBuilder extends BaseRequestBuilder<Emp
      * @returns a Promise of EmployeeExperience
      */
      get(requestConfiguration?: RequestConfiguration<EmployeeExperienceRequestBuilderGetQueryParameters> | undefined) : Promise<EmployeeExperience | undefined>;
+    /**
+     * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
+     * @param externalcourseActivityId Alternate key of learningCourseActivity
+     * @returns a learningCourseActivitiesWithExternalcourseActivityIdRequestBuilder
+     */
+     learningCourseActivitiesWithExternalcourseActivityId(externalcourseActivityId: string | undefined) : LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder;
     /**
      * Update employeeExperience
      * @param body The request body
@@ -51,10 +58,6 @@ export interface EmployeeExperienceRequestBuilder extends BaseRequestBuilder<Emp
  */
 export interface EmployeeExperienceRequestBuilderGetQueryParameters {
     /**
-     * Expand related entities
-     */
-    expand?: string[];
-    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -63,13 +66,16 @@ export interface EmployeeExperienceRequestBuilderGetQueryParameters {
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const EmployeeExperienceRequestBuilderGetQueryParametersMapper: Record<string, string> = {
-    "expand": "%24expand",
     "select": "%24select",
 };
 /**
  * Metadata for all the navigation properties in the request builder.
  */
 export const EmployeeExperienceRequestBuilderNavigationMetadata: Record<Exclude<keyof EmployeeExperienceRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    learningCourseActivitiesWithExternalcourseActivityId: {
+        uriTemplate: LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate,
+        requestsMetadata: LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderRequestsMetadata,
+    },
     learningCourseActivities: {
         uriTemplate: LearningCourseActivitiesRequestBuilderUriTemplate,
         requestsMetadata: LearningCourseActivitiesRequestBuilderRequestsMetadata,
@@ -111,6 +117,6 @@ export const EmployeeExperienceRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const EmployeeExperienceRequestBuilderUriTemplate = "{+baseurl}/employeeExperience{?%24select,%24expand}";
+export const EmployeeExperienceRequestBuilderUriTemplate = "{+baseurl}/employeeExperience{?%24select}";
 /* tslint:enable */
 /* eslint-enable */

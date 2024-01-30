@@ -47,14 +47,14 @@ export interface Atan2RequestBuilder extends BaseRequestBuilder<Atan2RequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a atan2PostRequestBody
  */
-export function createAtan2PostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAtan2PostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAtan2PostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAtan2PostRequestBody(atan2PostRequestBody: Atan2PostRequestBody | undefined = {} as Atan2PostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAtan2PostRequestBody(atan2PostRequestBody: Partial<Atan2PostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { atan2PostRequestBody.backingStoreEnabled = true; },
         "xNum": n => { atan2PostRequestBody.xNum = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoAtan2PostRequestBody(atan2PostRequestBody: Atan2P
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAtan2PostRequestBody(writer: SerializationWriter, atan2PostRequestBody: Atan2PostRequestBody | undefined = {} as Atan2PostRequestBody) : void {
+export function serializeAtan2PostRequestBody(writer: SerializationWriter, atan2PostRequestBody: Partial<Atan2PostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("xNum", atan2PostRequestBody.xNum, serializeJson);
     writer.writeObjectValue<Json>("yNum", atan2PostRequestBody.yNum, serializeJson);
     writer.writeAdditionalData(atan2PostRequestBody.additionalData);

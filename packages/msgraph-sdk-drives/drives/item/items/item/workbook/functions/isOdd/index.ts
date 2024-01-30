@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a isOddPostRequestBody
  */
-export function createIsOddPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createIsOddPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsOddPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoIsOddPostRequestBody(isOddPostRequestBody: IsOddPostRequestBody | undefined = {} as IsOddPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIsOddPostRequestBody(isOddPostRequestBody: Partial<IsOddPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isOddPostRequestBody.backingStoreEnabled = true; },
         "number": n => { isOddPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface IsOddRequestBuilder extends BaseRequestBuilder<IsOddRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsOddPostRequestBody(writer: SerializationWriter, isOddPostRequestBody: IsOddPostRequestBody | undefined = {} as IsOddPostRequestBody) : void {
+export function serializeIsOddPostRequestBody(writer: SerializationWriter, isOddPostRequestBody: Partial<IsOddPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", isOddPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(isOddPostRequestBody.additionalData);
 }

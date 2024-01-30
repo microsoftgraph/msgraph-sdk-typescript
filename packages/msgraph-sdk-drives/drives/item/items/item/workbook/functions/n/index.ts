@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a nPostRequestBody
  */
-export function createNPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createNPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoNPostRequestBody(nPostRequestBody: NPostRequestBody | undefined = {} as NPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoNPostRequestBody(nPostRequestBody: Partial<NPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { nPostRequestBody.backingStoreEnabled = true; },
         "value": n => { nPostRequestBody.value = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface NRequestBuilder extends BaseRequestBuilder<NRequestBuilder> {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNPostRequestBody(writer: SerializationWriter, nPostRequestBody: NPostRequestBody | undefined = {} as NPostRequestBody) : void {
+export function serializeNPostRequestBody(writer: SerializationWriter, nPostRequestBody: Partial<NPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("value", nPostRequestBody.value, serializeJson);
     writer.writeAdditionalData(nPostRequestBody.additionalData);
 }

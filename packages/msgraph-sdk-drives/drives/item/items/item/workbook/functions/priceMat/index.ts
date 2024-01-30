@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a priceMatPostRequestBody
  */
-export function createPriceMatPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPriceMatPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPriceMatPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPriceMatPostRequestBody(priceMatPostRequestBody: PriceMatPostRequestBody | undefined = {} as PriceMatPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPriceMatPostRequestBody(priceMatPostRequestBody: Partial<PriceMatPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { priceMatPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { priceMatPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -85,7 +85,7 @@ export interface PriceMatRequestBuilder extends BaseRequestBuilder<PriceMatReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePriceMatPostRequestBody(writer: SerializationWriter, priceMatPostRequestBody: PriceMatPostRequestBody | undefined = {} as PriceMatPostRequestBody) : void {
+export function serializePriceMatPostRequestBody(writer: SerializationWriter, priceMatPostRequestBody: Partial<PriceMatPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", priceMatPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("issue", priceMatPostRequestBody.issue, serializeJson);
     writer.writeObjectValue<Json>("maturity", priceMatPostRequestBody.maturity, serializeJson);

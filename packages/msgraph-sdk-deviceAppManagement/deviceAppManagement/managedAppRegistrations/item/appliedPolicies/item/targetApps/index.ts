@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a targetAppsPostRequestBody
  */
-export function createTargetAppsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createTargetAppsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTargetAppsPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoTargetAppsPostRequestBody(targetAppsPostRequestBody: TargetAppsPostRequestBody | undefined = {} as TargetAppsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTargetAppsPostRequestBody(targetAppsPostRequestBody: Partial<TargetAppsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "apps": n => { targetAppsPostRequestBody.apps = n.getCollectionOfObjectValues<ManagedMobileApp>(createManagedMobileAppFromDiscriminatorValue); },
         "backingStoreEnabled": n => { targetAppsPostRequestBody.backingStoreEnabled = true; },
@@ -27,7 +27,7 @@ export function deserializeIntoTargetAppsPostRequestBody(targetAppsPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTargetAppsPostRequestBody(writer: SerializationWriter, targetAppsPostRequestBody: TargetAppsPostRequestBody | undefined = {} as TargetAppsPostRequestBody) : void {
+export function serializeTargetAppsPostRequestBody(writer: SerializationWriter, targetAppsPostRequestBody: Partial<TargetAppsPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", targetAppsPostRequestBody.apps, serializeManagedMobileApp);
     writer.writeAdditionalData(targetAppsPostRequestBody.additionalData);
 }

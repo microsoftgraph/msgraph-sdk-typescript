@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse
  */
-export function createGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse(getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse: GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse | undefined = {} as GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse(getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse: Partial<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse),
         "value": n => { getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse.value = n.getCollectionOfObjectValues<ItemActivityStat>(createItemActivityStatFromDiscriminatorValue); },
@@ -83,7 +83,7 @@ export interface GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInte
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse(writer: SerializationWriter, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse: GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse | undefined = {} as GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse) : void {
+export function serializeGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse(writer: SerializationWriter, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse: Partial<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse)
     writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse.value, serializeItemActivityStat);
 }

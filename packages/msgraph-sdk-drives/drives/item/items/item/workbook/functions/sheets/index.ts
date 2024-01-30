@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a sheetsPostRequestBody
  */
-export function createSheetsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSheetsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSheetsPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSheetsPostRequestBody(sheetsPostRequestBody: SheetsPostRequestBody | undefined = {} as SheetsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSheetsPostRequestBody(sheetsPostRequestBody: Partial<SheetsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sheetsPostRequestBody.backingStoreEnabled = true; },
         "reference": n => { sheetsPostRequestBody.reference = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoSheetsPostRequestBody(sheetsPostRequestBody: Shee
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSheetsPostRequestBody(writer: SerializationWriter, sheetsPostRequestBody: SheetsPostRequestBody | undefined = {} as SheetsPostRequestBody) : void {
+export function serializeSheetsPostRequestBody(writer: SerializationWriter, sheetsPostRequestBody: Partial<SheetsPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("reference", sheetsPostRequestBody.reference, serializeJson);
     writer.writeAdditionalData(sheetsPostRequestBody.additionalData);
 }

@@ -6,7 +6,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { AddRequestBuilderRequestsMetadata, AddRequestBuilderUriTemplate, type AddRequestBuilder } from './add/';
 import { CountRequestBuilderRequestsMetadata, CountRequestBuilderUriTemplate, type CountRequestBuilder } from './count/';
 import { type WorkbookTableItemRequestBuilder, WorkbookTableItemRequestBuilderNavigationMetadata, WorkbookTableItemRequestBuilderRequestsMetadata, WorkbookTableItemRequestBuilderUriTemplate } from './item/';
-import { ItemAtWithIndexRequestBuilderRequestsMetadata, ItemAtWithIndexRequestBuilderUriTemplate, type ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/';
+import { ItemAtWithIndexRequestBuilderNavigationMetadata, ItemAtWithIndexRequestBuilderRequestsMetadata, ItemAtWithIndexRequestBuilderUriTemplate, type ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -31,7 +31,7 @@ export interface TablesRequestBuilder extends BaseRequestBuilder<TablesRequestBu
      * Retrieve a list of table objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/workbook-list-tables?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/table-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TablesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookTableCollectionResponse | undefined>;
     /**
@@ -124,6 +124,7 @@ export const TablesRequestBuilderNavigationMetadata: Record<Exclude<keyof Tables
     itemAtWithIndex: {
         uriTemplate: ItemAtWithIndexRequestBuilderUriTemplate,
         requestsMetadata: ItemAtWithIndexRequestBuilderRequestsMetadata,
+        navigationMetadata: ItemAtWithIndexRequestBuilderNavigationMetadata,
     },
     add: {
         uriTemplate: AddRequestBuilderUriTemplate,

@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getManagedAppPoliciesGetResponse
  */
-export function createGetManagedAppPoliciesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetManagedAppPoliciesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetManagedAppPoliciesGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetManagedAppPoliciesGetResponse(getManagedAppPoliciesGetResponse: GetManagedAppPoliciesGetResponse | undefined = {} as GetManagedAppPoliciesGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetManagedAppPoliciesGetResponse(getManagedAppPoliciesGetResponse: Partial<GetManagedAppPoliciesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getManagedAppPoliciesGetResponse),
         "value": n => { getManagedAppPoliciesGetResponse.value = n.getCollectionOfObjectValues<ManagedAppPolicy>(createManagedAppPolicyFromDiscriminatorValue); },
@@ -83,7 +83,7 @@ export interface GetManagedAppPoliciesRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetManagedAppPoliciesGetResponse(writer: SerializationWriter, getManagedAppPoliciesGetResponse: GetManagedAppPoliciesGetResponse | undefined = {} as GetManagedAppPoliciesGetResponse) : void {
+export function serializeGetManagedAppPoliciesGetResponse(writer: SerializationWriter, getManagedAppPoliciesGetResponse: Partial<GetManagedAppPoliciesGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getManagedAppPoliciesGetResponse)
     writer.writeCollectionOfObjectValues<ManagedAppPolicy>("value", getManagedAppPoliciesGetResponse.value, serializeManagedAppPolicy);
 }

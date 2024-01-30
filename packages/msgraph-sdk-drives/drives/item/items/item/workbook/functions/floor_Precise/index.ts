@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a floor_PrecisePostRequestBody
  */
-export function createFloor_PrecisePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFloor_PrecisePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFloor_PrecisePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFloor_PrecisePostRequestBody(floor_PrecisePostRequestBody: Floor_PrecisePostRequestBody | undefined = {} as Floor_PrecisePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFloor_PrecisePostRequestBody(floor_PrecisePostRequestBody: Partial<Floor_PrecisePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { floor_PrecisePostRequestBody.backingStoreEnabled = true; },
         "number": n => { floor_PrecisePostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface Floor_PreciseRequestBuilder extends BaseRequestBuilder<Floor_Pr
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFloor_PrecisePostRequestBody(writer: SerializationWriter, floor_PrecisePostRequestBody: Floor_PrecisePostRequestBody | undefined = {} as Floor_PrecisePostRequestBody) : void {
+export function serializeFloor_PrecisePostRequestBody(writer: SerializationWriter, floor_PrecisePostRequestBody: Partial<Floor_PrecisePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", floor_PrecisePostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("significance", floor_PrecisePostRequestBody.significance, serializeJson);
     writer.writeAdditionalData(floor_PrecisePostRequestBody.additionalData);

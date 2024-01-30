@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a lenPostRequestBody
  */
-export function createLenPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createLenPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLenPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoLenPostRequestBody(lenPostRequestBody: LenPostRequestBody | undefined = {} as LenPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoLenPostRequestBody(lenPostRequestBody: Partial<LenPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { lenPostRequestBody.backingStoreEnabled = true; },
         "text": n => { lenPostRequestBody.text = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface LenRequestBuilder extends BaseRequestBuilder<LenRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLenPostRequestBody(writer: SerializationWriter, lenPostRequestBody: LenPostRequestBody | undefined = {} as LenPostRequestBody) : void {
+export function serializeLenPostRequestBody(writer: SerializationWriter, lenPostRequestBody: Partial<LenPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("text", lenPostRequestBody.text, serializeJson);
     writer.writeAdditionalData(lenPostRequestBody.additionalData);
 }

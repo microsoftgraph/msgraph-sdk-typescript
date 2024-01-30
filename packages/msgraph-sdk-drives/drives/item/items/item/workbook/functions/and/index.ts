@@ -43,14 +43,14 @@ export interface AndRequestBuilder extends BaseRequestBuilder<AndRequestBuilder>
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a andPostRequestBody
  */
-export function createAndPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAndPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAndPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAndPostRequestBody(andPostRequestBody: AndPostRequestBody | undefined = {} as AndPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAndPostRequestBody(andPostRequestBody: Partial<AndPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { andPostRequestBody.backingStoreEnabled = true; },
         "values": n => { andPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoAndPostRequestBody(andPostRequestBody: AndPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAndPostRequestBody(writer: SerializationWriter, andPostRequestBody: AndPostRequestBody | undefined = {} as AndPostRequestBody) : void {
+export function serializeAndPostRequestBody(writer: SerializationWriter, andPostRequestBody: Partial<AndPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", andPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(andPostRequestBody.additionalData);
 }

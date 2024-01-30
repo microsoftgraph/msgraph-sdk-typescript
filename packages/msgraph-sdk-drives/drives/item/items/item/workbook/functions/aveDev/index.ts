@@ -43,14 +43,14 @@ export interface AveDevRequestBuilder extends BaseRequestBuilder<AveDevRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a aveDevPostRequestBody
  */
-export function createAveDevPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAveDevPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAveDevPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAveDevPostRequestBody(aveDevPostRequestBody: AveDevPostRequestBody | undefined = {} as AveDevPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAveDevPostRequestBody(aveDevPostRequestBody: Partial<AveDevPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { aveDevPostRequestBody.backingStoreEnabled = true; },
         "values": n => { aveDevPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoAveDevPostRequestBody(aveDevPostRequestBody: AveD
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAveDevPostRequestBody(writer: SerializationWriter, aveDevPostRequestBody: AveDevPostRequestBody | undefined = {} as AveDevPostRequestBody) : void {
+export function serializeAveDevPostRequestBody(writer: SerializationWriter, aveDevPostRequestBody: Partial<AveDevPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", aveDevPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(aveDevPostRequestBody.additionalData);
 }

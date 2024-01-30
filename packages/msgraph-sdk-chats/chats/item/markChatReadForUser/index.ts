@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a markChatReadForUserPostRequestBody
  */
-export function createMarkChatReadForUserPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMarkChatReadForUserPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMarkChatReadForUserPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMarkChatReadForUserPostRequestBody(markChatReadForUserPostRequestBody: MarkChatReadForUserPostRequestBody | undefined = {} as MarkChatReadForUserPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMarkChatReadForUserPostRequestBody(markChatReadForUserPostRequestBody: Partial<MarkChatReadForUserPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { markChatReadForUserPostRequestBody.backingStoreEnabled = true; },
         "user": n => { markChatReadForUserPostRequestBody.user = n.getObjectValue<TeamworkUserIdentity>(createTeamworkUserIdentityFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface MarkChatReadForUserRequestBuilder extends BaseRequestBuilder<Ma
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMarkChatReadForUserPostRequestBody(writer: SerializationWriter, markChatReadForUserPostRequestBody: MarkChatReadForUserPostRequestBody | undefined = {} as MarkChatReadForUserPostRequestBody) : void {
+export function serializeMarkChatReadForUserPostRequestBody(writer: SerializationWriter, markChatReadForUserPostRequestBody: Partial<MarkChatReadForUserPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<TeamworkUserIdentity>("user", markChatReadForUserPostRequestBody.user, serializeTeamworkUserIdentity);
     writer.writeAdditionalData(markChatReadForUserPostRequestBody.additionalData);
 }

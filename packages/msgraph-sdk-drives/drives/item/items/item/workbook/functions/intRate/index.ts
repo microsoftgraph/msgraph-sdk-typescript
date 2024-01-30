@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a intRatePostRequestBody
  */
-export function createIntRatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createIntRatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIntRatePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoIntRatePostRequestBody(intRatePostRequestBody: IntRatePostRequestBody | undefined = {} as IntRatePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIntRatePostRequestBody(intRatePostRequestBody: Partial<IntRatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { intRatePostRequestBody.backingStoreEnabled = true; },
         "basis": n => { intRatePostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -80,7 +80,7 @@ export interface IntRateRequestBuilder extends BaseRequestBuilder<IntRateRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIntRatePostRequestBody(writer: SerializationWriter, intRatePostRequestBody: IntRatePostRequestBody | undefined = {} as IntRatePostRequestBody) : void {
+export function serializeIntRatePostRequestBody(writer: SerializationWriter, intRatePostRequestBody: Partial<IntRatePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", intRatePostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("investment", intRatePostRequestBody.investment, serializeJson);
     writer.writeObjectValue<Json>("maturity", intRatePostRequestBody.maturity, serializeJson);

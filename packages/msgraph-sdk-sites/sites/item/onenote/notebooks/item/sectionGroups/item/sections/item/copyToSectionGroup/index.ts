@@ -60,14 +60,14 @@ export interface CopyToSectionGroupRequestBuilder extends BaseRequestBuilder<Cop
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a copyToSectionGroupPostRequestBody
  */
-export function createCopyToSectionGroupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCopyToSectionGroupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopyToSectionGroupPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCopyToSectionGroupPostRequestBody(copyToSectionGroupPostRequestBody: CopyToSectionGroupPostRequestBody | undefined = {} as CopyToSectionGroupPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCopyToSectionGroupPostRequestBody(copyToSectionGroupPostRequestBody: Partial<CopyToSectionGroupPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { copyToSectionGroupPostRequestBody.backingStoreEnabled = true; },
         "groupId": n => { copyToSectionGroupPostRequestBody.groupId = n.getStringValue(); },
@@ -81,7 +81,7 @@ export function deserializeIntoCopyToSectionGroupPostRequestBody(copyToSectionGr
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCopyToSectionGroupPostRequestBody(writer: SerializationWriter, copyToSectionGroupPostRequestBody: CopyToSectionGroupPostRequestBody | undefined = {} as CopyToSectionGroupPostRequestBody) : void {
+export function serializeCopyToSectionGroupPostRequestBody(writer: SerializationWriter, copyToSectionGroupPostRequestBody: Partial<CopyToSectionGroupPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("groupId", copyToSectionGroupPostRequestBody.groupId);
     writer.writeStringValue("id", copyToSectionGroupPostRequestBody.id);
     writer.writeStringValue("renameAs", copyToSectionGroupPostRequestBody.renameAs);

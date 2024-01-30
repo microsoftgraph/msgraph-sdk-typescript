@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a isPublishedGetResponse
  */
-export function createIsPublishedGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createIsPublishedGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsPublishedGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoIsPublishedGetResponse(isPublishedGetResponse: IsPublishedGetResponse | undefined = {} as IsPublishedGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIsPublishedGetResponse(isPublishedGetResponse: Partial<IsPublishedGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isPublishedGetResponse.backingStoreEnabled = true; },
         "value": n => { isPublishedGetResponse.value = n.getBooleanValue(); },
@@ -57,7 +57,7 @@ export interface IsPublishedRequestBuilder extends BaseRequestBuilder<IsPublishe
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsPublishedGetResponse(writer: SerializationWriter, isPublishedGetResponse: IsPublishedGetResponse | undefined = {} as IsPublishedGetResponse) : void {
+export function serializeIsPublishedGetResponse(writer: SerializationWriter, isPublishedGetResponse: Partial<IsPublishedGetResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", isPublishedGetResponse.value);
     writer.writeAdditionalData(isPublishedGetResponse.additionalData);
 }

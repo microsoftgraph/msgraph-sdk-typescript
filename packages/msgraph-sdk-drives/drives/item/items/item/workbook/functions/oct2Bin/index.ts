@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a oct2BinPostRequestBody
  */
-export function createOct2BinPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createOct2BinPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOct2BinPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoOct2BinPostRequestBody(oct2BinPostRequestBody: Oct2BinPostRequestBody | undefined = {} as Oct2BinPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoOct2BinPostRequestBody(oct2BinPostRequestBody: Partial<Oct2BinPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { oct2BinPostRequestBody.backingStoreEnabled = true; },
         "number": n => { oct2BinPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface Oct2BinRequestBuilder extends BaseRequestBuilder<Oct2BinRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeOct2BinPostRequestBody(writer: SerializationWriter, oct2BinPostRequestBody: Oct2BinPostRequestBody | undefined = {} as Oct2BinPostRequestBody) : void {
+export function serializeOct2BinPostRequestBody(writer: SerializationWriter, oct2BinPostRequestBody: Partial<Oct2BinPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", oct2BinPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("places", oct2BinPostRequestBody.places, serializeJson);
     writer.writeAdditionalData(oct2BinPostRequestBody.additionalData);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a edatePostRequestBody
  */
-export function createEdatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createEdatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoEdatePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoEdatePostRequestBody(edatePostRequestBody: EdatePostRequestBody | undefined = {} as EdatePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoEdatePostRequestBody(edatePostRequestBody: Partial<EdatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { edatePostRequestBody.backingStoreEnabled = true; },
         "months": n => { edatePostRequestBody.months = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface EdateRequestBuilder extends BaseRequestBuilder<EdateRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeEdatePostRequestBody(writer: SerializationWriter, edatePostRequestBody: EdatePostRequestBody | undefined = {} as EdatePostRequestBody) : void {
+export function serializeEdatePostRequestBody(writer: SerializationWriter, edatePostRequestBody: Partial<EdatePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("months", edatePostRequestBody.months, serializeJson);
     writer.writeObjectValue<Json>("startDate", edatePostRequestBody.startDate, serializeJson);
     writer.writeAdditionalData(edatePostRequestBody.additionalData);

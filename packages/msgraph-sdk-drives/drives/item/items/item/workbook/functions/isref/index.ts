@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a isrefPostRequestBody
  */
-export function createIsrefPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createIsrefPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsrefPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoIsrefPostRequestBody(isrefPostRequestBody: IsrefPostRequestBody | undefined = {} as IsrefPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIsrefPostRequestBody(isrefPostRequestBody: Partial<IsrefPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isrefPostRequestBody.backingStoreEnabled = true; },
         "value": n => { isrefPostRequestBody.value = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface IsrefRequestBuilder extends BaseRequestBuilder<IsrefRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsrefPostRequestBody(writer: SerializationWriter, isrefPostRequestBody: IsrefPostRequestBody | undefined = {} as IsrefPostRequestBody) : void {
+export function serializeIsrefPostRequestBody(writer: SerializationWriter, isrefPostRequestBody: Partial<IsrefPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("value", isrefPostRequestBody.value, serializeJson);
     writer.writeAdditionalData(isrefPostRequestBody.additionalData);
 }

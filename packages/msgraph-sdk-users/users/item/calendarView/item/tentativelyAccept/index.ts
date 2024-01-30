@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a tentativelyAcceptPostRequestBody
  */
-export function createTentativelyAcceptPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createTentativelyAcceptPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTentativelyAcceptPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoTentativelyAcceptPostRequestBody(tentativelyAcceptPostRequestBody: TentativelyAcceptPostRequestBody | undefined = {} as TentativelyAcceptPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTentativelyAcceptPostRequestBody(tentativelyAcceptPostRequestBody: Partial<TentativelyAcceptPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { tentativelyAcceptPostRequestBody.backingStoreEnabled = true; },
         "comment": n => { tentativelyAcceptPostRequestBody.comment = n.getStringValue(); },
@@ -29,7 +29,7 @@ export function deserializeIntoTentativelyAcceptPostRequestBody(tentativelyAccep
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTentativelyAcceptPostRequestBody(writer: SerializationWriter, tentativelyAcceptPostRequestBody: TentativelyAcceptPostRequestBody | undefined = {} as TentativelyAcceptPostRequestBody) : void {
+export function serializeTentativelyAcceptPostRequestBody(writer: SerializationWriter, tentativelyAcceptPostRequestBody: Partial<TentativelyAcceptPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("Comment", tentativelyAcceptPostRequestBody.comment);
     writer.writeObjectValue<TimeSlot>("ProposedNewTime", tentativelyAcceptPostRequestBody.proposedNewTime, serializeTimeSlot);
     writer.writeBooleanValue("SendResponse", tentativelyAcceptPostRequestBody.sendResponse);

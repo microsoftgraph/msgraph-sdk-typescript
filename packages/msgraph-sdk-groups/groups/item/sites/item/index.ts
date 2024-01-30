@@ -13,7 +13,7 @@ import { ExternalColumnsRequestBuilderNavigationMetadata, ExternalColumnsRequest
 import { GetActivitiesByIntervalRequestBuilderRequestsMetadata, GetActivitiesByIntervalRequestBuilderUriTemplate, type GetActivitiesByIntervalRequestBuilder } from './getActivitiesByInterval/';
 import { GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderRequestsMetadata, GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderUriTemplate, type GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder } from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/';
 import { GetApplicableContentTypesForListWithListIdRequestBuilderRequestsMetadata, GetApplicableContentTypesForListWithListIdRequestBuilderUriTemplate, type GetApplicableContentTypesForListWithListIdRequestBuilder } from './getApplicableContentTypesForListWithListId/';
-import { GetByPathWithPathRequestBuilderRequestsMetadata, GetByPathWithPathRequestBuilderUriTemplate, type GetByPathWithPathRequestBuilder } from './getByPathWithPath/';
+import { GetByPathWithPathRequestBuilderNavigationMetadata, GetByPathWithPathRequestBuilderRequestsMetadata, GetByPathWithPathRequestBuilderUriTemplate, type GetByPathWithPathRequestBuilder } from './getByPathWithPath/';
 import { ItemsRequestBuilderNavigationMetadata, ItemsRequestBuilderRequestsMetadata, ItemsRequestBuilderUriTemplate, type ItemsRequestBuilder } from './items/';
 import { LastModifiedByUserRequestBuilderNavigationMetadata, LastModifiedByUserRequestBuilderRequestsMetadata, LastModifiedByUserRequestBuilderUriTemplate, type LastModifiedByUserRequestBuilder } from './lastModifiedByUser/';
 import { ListsRequestBuilderNavigationMetadata, ListsRequestBuilderRequestsMetadata, ListsRequestBuilderUriTemplate, type ListsRequestBuilder } from './lists/';
@@ -179,6 +179,7 @@ export const SiteItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Site
     getByPathWithPath: {
         uriTemplate: GetByPathWithPathRequestBuilderUriTemplate,
         requestsMetadata: GetByPathWithPathRequestBuilderRequestsMetadata,
+        navigationMetadata: GetByPathWithPathRequestBuilderNavigationMetadata,
     },
     analytics: {
         uriTemplate: AnalyticsRequestBuilderUriTemplate,

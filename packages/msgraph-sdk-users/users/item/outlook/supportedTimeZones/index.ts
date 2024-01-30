@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a supportedTimeZonesGetResponse
  */
-export function createSupportedTimeZonesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSupportedTimeZonesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSupportedTimeZonesGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSupportedTimeZonesGetResponse(supportedTimeZonesGetResponse: SupportedTimeZonesGetResponse | undefined = {} as SupportedTimeZonesGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSupportedTimeZonesGetResponse(supportedTimeZonesGetResponse: Partial<SupportedTimeZonesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(supportedTimeZonesGetResponse),
         "value": n => { supportedTimeZonesGetResponse.value = n.getCollectionOfObjectValues<TimeZoneInformation>(createTimeZoneInformationFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoSupportedTimeZonesGetResponse(supportedTimeZonesG
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSupportedTimeZonesGetResponse(writer: SerializationWriter, supportedTimeZonesGetResponse: SupportedTimeZonesGetResponse | undefined = {} as SupportedTimeZonesGetResponse) : void {
+export function serializeSupportedTimeZonesGetResponse(writer: SerializationWriter, supportedTimeZonesGetResponse: Partial<SupportedTimeZonesGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, supportedTimeZonesGetResponse)
     writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesGetResponse.value, serializeTimeZoneInformation);
 }

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a unmutePostRequestBody
  */
-export function createUnmutePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createUnmutePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnmutePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoUnmutePostRequestBody(unmutePostRequestBody: UnmutePostRequestBody | undefined = {} as UnmutePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoUnmutePostRequestBody(unmutePostRequestBody: Partial<UnmutePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unmutePostRequestBody.backingStoreEnabled = true; },
         "clientContext": n => { unmutePostRequestBody.clientContext = n.getStringValue(); },
@@ -27,7 +27,7 @@ export function deserializeIntoUnmutePostRequestBody(unmutePostRequestBody: Unmu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUnmutePostRequestBody(writer: SerializationWriter, unmutePostRequestBody: UnmutePostRequestBody | undefined = {} as UnmutePostRequestBody) : void {
+export function serializeUnmutePostRequestBody(writer: SerializationWriter, unmutePostRequestBody: Partial<UnmutePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("clientContext", unmutePostRequestBody.clientContext);
     writer.writeAdditionalData(unmutePostRequestBody.additionalData);
 }

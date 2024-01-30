@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a createReplyPostRequestBody
  */
-export function createCreateReplyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCreateReplyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateReplyPostRequestBody;
 }
 export interface CreateReplyPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -55,7 +55,7 @@ export interface CreateReplyRequestBuilder extends BaseRequestBuilder<CreateRepl
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCreateReplyPostRequestBody(createReplyPostRequestBody: CreateReplyPostRequestBody | undefined = {} as CreateReplyPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCreateReplyPostRequestBody(createReplyPostRequestBody: Partial<CreateReplyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createReplyPostRequestBody.backingStoreEnabled = true; },
         "comment": n => { createReplyPostRequestBody.comment = n.getStringValue(); },
@@ -66,7 +66,7 @@ export function deserializeIntoCreateReplyPostRequestBody(createReplyPostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCreateReplyPostRequestBody(writer: SerializationWriter, createReplyPostRequestBody: CreateReplyPostRequestBody | undefined = {} as CreateReplyPostRequestBody) : void {
+export function serializeCreateReplyPostRequestBody(writer: SerializationWriter, createReplyPostRequestBody: Partial<CreateReplyPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("Comment", createReplyPostRequestBody.comment);
     writer.writeObjectValue<Message>("Message", createReplyPostRequestBody.message, serializeMessage);
     writer.writeAdditionalData(createReplyPostRequestBody.additionalData);

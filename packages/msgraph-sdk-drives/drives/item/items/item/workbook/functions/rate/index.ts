@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a ratePostRequestBody
  */
-export function createRatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRatePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRatePostRequestBody(ratePostRequestBody: RatePostRequestBody | undefined = {} as RatePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRatePostRequestBody(ratePostRequestBody: Partial<RatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ratePostRequestBody.backingStoreEnabled = true; },
         "fv": n => { ratePostRequestBody.fv = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -85,7 +85,7 @@ export interface RateRequestBuilder extends BaseRequestBuilder<RateRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRatePostRequestBody(writer: SerializationWriter, ratePostRequestBody: RatePostRequestBody | undefined = {} as RatePostRequestBody) : void {
+export function serializeRatePostRequestBody(writer: SerializationWriter, ratePostRequestBody: Partial<RatePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("fv", ratePostRequestBody.fv, serializeJson);
     writer.writeObjectValue<Json>("guess", ratePostRequestBody.guess, serializeJson);
     writer.writeObjectValue<Json>("nper", ratePostRequestBody.nper, serializeJson);

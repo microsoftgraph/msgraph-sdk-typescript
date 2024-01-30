@@ -42,14 +42,14 @@ export interface ConfirmCompromisedRequestBuilder extends BaseRequestBuilder<Con
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a confirmCompromisedPostRequestBody
  */
-export function createConfirmCompromisedPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createConfirmCompromisedPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConfirmCompromisedPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoConfirmCompromisedPostRequestBody(confirmCompromisedPostRequestBody: ConfirmCompromisedPostRequestBody | undefined = {} as ConfirmCompromisedPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoConfirmCompromisedPostRequestBody(confirmCompromisedPostRequestBody: Partial<ConfirmCompromisedPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { confirmCompromisedPostRequestBody.backingStoreEnabled = true; },
         "userIds": n => { confirmCompromisedPostRequestBody.userIds = n.getCollectionOfPrimitiveValues<string>(); },
@@ -59,7 +59,7 @@ export function deserializeIntoConfirmCompromisedPostRequestBody(confirmCompromi
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeConfirmCompromisedPostRequestBody(writer: SerializationWriter, confirmCompromisedPostRequestBody: ConfirmCompromisedPostRequestBody | undefined = {} as ConfirmCompromisedPostRequestBody) : void {
+export function serializeConfirmCompromisedPostRequestBody(writer: SerializationWriter, confirmCompromisedPostRequestBody: Partial<ConfirmCompromisedPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("userIds", confirmCompromisedPostRequestBody.userIds);
     writer.writeAdditionalData(confirmCompromisedPostRequestBody.additionalData);
 }

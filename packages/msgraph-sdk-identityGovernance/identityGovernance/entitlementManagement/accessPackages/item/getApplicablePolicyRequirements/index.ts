@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getApplicablePolicyRequirementsPostResponse
  */
-export function createGetApplicablePolicyRequirementsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetApplicablePolicyRequirementsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetApplicablePolicyRequirementsPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetApplicablePolicyRequirementsPostResponse(getApplicablePolicyRequirementsPostResponse: GetApplicablePolicyRequirementsPostResponse | undefined = {} as GetApplicablePolicyRequirementsPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetApplicablePolicyRequirementsPostResponse(getApplicablePolicyRequirementsPostResponse: Partial<GetApplicablePolicyRequirementsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getApplicablePolicyRequirementsPostResponse),
         "value": n => { getApplicablePolicyRequirementsPostResponse.value = n.getCollectionOfObjectValues<AccessPackageAssignmentRequestRequirements>(createAccessPackageAssignmentRequestRequirementsFromDiscriminatorValue); },
@@ -51,7 +51,7 @@ export interface GetApplicablePolicyRequirementsRequestBuilder extends BaseReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetApplicablePolicyRequirementsPostResponse(writer: SerializationWriter, getApplicablePolicyRequirementsPostResponse: GetApplicablePolicyRequirementsPostResponse | undefined = {} as GetApplicablePolicyRequirementsPostResponse) : void {
+export function serializeGetApplicablePolicyRequirementsPostResponse(writer: SerializationWriter, getApplicablePolicyRequirementsPostResponse: Partial<GetApplicablePolicyRequirementsPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getApplicablePolicyRequirementsPostResponse)
     writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestRequirements>("value", getApplicablePolicyRequirementsPostResponse.value, serializeAccessPackageAssignmentRequestRequirements);
 }

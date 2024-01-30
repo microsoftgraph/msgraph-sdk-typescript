@@ -43,14 +43,14 @@ export interface AssignRequestBuilder extends BaseRequestBuilder<AssignRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a assignPostRequestBody
  */
-export function createAssignPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAssignPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAssignPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAssignPostRequestBody(assignPostRequestBody: AssignPostRequestBody | undefined = {} as AssignPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAssignPostRequestBody(assignPostRequestBody: Partial<AssignPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "assignments": n => { assignPostRequestBody.assignments = n.getCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>(createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue); },
         "backingStoreEnabled": n => { assignPostRequestBody.backingStoreEnabled = true; },
@@ -60,7 +60,7 @@ export function deserializeIntoAssignPostRequestBody(assignPostRequestBody: Assi
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAssignPostRequestBody(writer: SerializationWriter, assignPostRequestBody: AssignPostRequestBody | undefined = {} as AssignPostRequestBody) : void {
+export function serializeAssignPostRequestBody(writer: SerializationWriter, assignPostRequestBody: Partial<AssignPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>("assignments", assignPostRequestBody.assignments, serializeTargetedManagedAppPolicyAssignment);
     writer.writeAdditionalData(assignPostRequestBody.additionalData);
 }

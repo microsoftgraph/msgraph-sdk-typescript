@@ -42,14 +42,14 @@ export interface ApplyValuesFilterRequestBuilder extends BaseRequestBuilder<Appl
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a applyValuesFilterPostRequestBody
  */
-export function createApplyValuesFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createApplyValuesFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyValuesFilterPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoApplyValuesFilterPostRequestBody(applyValuesFilterPostRequestBody: ApplyValuesFilterPostRequestBody | undefined = {} as ApplyValuesFilterPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoApplyValuesFilterPostRequestBody(applyValuesFilterPostRequestBody: Partial<ApplyValuesFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyValuesFilterPostRequestBody.backingStoreEnabled = true; },
         "values": n => { applyValuesFilterPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -59,7 +59,7 @@ export function deserializeIntoApplyValuesFilterPostRequestBody(applyValuesFilte
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyValuesFilterPostRequestBody(writer: SerializationWriter, applyValuesFilterPostRequestBody: ApplyValuesFilterPostRequestBody | undefined = {} as ApplyValuesFilterPostRequestBody) : void {
+export function serializeApplyValuesFilterPostRequestBody(writer: SerializationWriter, applyValuesFilterPostRequestBody: Partial<ApplyValuesFilterPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", applyValuesFilterPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(applyValuesFilterPostRequestBody.additionalData);
 }

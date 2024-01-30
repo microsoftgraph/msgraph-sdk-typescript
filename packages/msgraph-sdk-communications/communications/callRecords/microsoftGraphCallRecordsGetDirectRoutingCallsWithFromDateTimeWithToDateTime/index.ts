@@ -11,14 +11,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse
  */
-export function createGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse(getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse: GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse | undefined = {} as GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse(getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse: Partial<GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse),
         "value": n => { getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse.value = n.getCollectionOfObjectValues<DirectRoutingLogRow>(createDirectRoutingLogRowFromDiscriminatorValue); },
@@ -76,7 +76,7 @@ export interface MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeW
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse(writer: SerializationWriter, getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse: GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse | undefined = {} as GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse) : void {
+export function serializeGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse(writer: SerializationWriter, getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse: Partial<GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse)
     writer.writeCollectionOfObjectValues<DirectRoutingLogRow>("value", getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse.value, serializeDirectRoutingLogRow);
 }

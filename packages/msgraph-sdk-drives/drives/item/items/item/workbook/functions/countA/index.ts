@@ -43,14 +43,14 @@ export interface CountARequestBuilder extends BaseRequestBuilder<CountARequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a countAPostRequestBody
  */
-export function createCountAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCountAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCountAPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCountAPostRequestBody(countAPostRequestBody: CountAPostRequestBody | undefined = {} as CountAPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCountAPostRequestBody(countAPostRequestBody: Partial<CountAPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { countAPostRequestBody.backingStoreEnabled = true; },
         "values": n => { countAPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoCountAPostRequestBody(countAPostRequestBody: Coun
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCountAPostRequestBody(writer: SerializationWriter, countAPostRequestBody: CountAPostRequestBody | undefined = {} as CountAPostRequestBody) : void {
+export function serializeCountAPostRequestBody(writer: SerializationWriter, countAPostRequestBody: Partial<CountAPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", countAPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(countAPostRequestBody.additionalData);
 }

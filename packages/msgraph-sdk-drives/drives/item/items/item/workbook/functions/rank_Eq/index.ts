@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a rank_EqPostRequestBody
  */
-export function createRank_EqPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRank_EqPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRank_EqPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRank_EqPostRequestBody(rank_EqPostRequestBody: Rank_EqPostRequestBody | undefined = {} as Rank_EqPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRank_EqPostRequestBody(rank_EqPostRequestBody: Partial<Rank_EqPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { rank_EqPostRequestBody.backingStoreEnabled = true; },
         "number": n => { rank_EqPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface Rank_EqRequestBuilder extends BaseRequestBuilder<Rank_EqRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRank_EqPostRequestBody(writer: SerializationWriter, rank_EqPostRequestBody: Rank_EqPostRequestBody | undefined = {} as Rank_EqPostRequestBody) : void {
+export function serializeRank_EqPostRequestBody(writer: SerializationWriter, rank_EqPostRequestBody: Partial<Rank_EqPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", rank_EqPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("order", rank_EqPostRequestBody.order, serializeJson);
     writer.writeObjectValue<Json>("ref", rank_EqPostRequestBody.ref, serializeJson);

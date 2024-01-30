@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a datevaluePostRequestBody
  */
-export function createDatevaluePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDatevaluePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDatevaluePostRequestBody;
 }
 export interface DatevaluePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -50,7 +50,7 @@ export interface DatevalueRequestBuilder extends BaseRequestBuilder<DatevalueReq
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDatevaluePostRequestBody(datevaluePostRequestBody: DatevaluePostRequestBody | undefined = {} as DatevaluePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDatevaluePostRequestBody(datevaluePostRequestBody: Partial<DatevaluePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { datevaluePostRequestBody.backingStoreEnabled = true; },
         "dateText": n => { datevaluePostRequestBody.dateText = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoDatevaluePostRequestBody(datevaluePostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDatevaluePostRequestBody(writer: SerializationWriter, datevaluePostRequestBody: DatevaluePostRequestBody | undefined = {} as DatevaluePostRequestBody) : void {
+export function serializeDatevaluePostRequestBody(writer: SerializationWriter, datevaluePostRequestBody: Partial<DatevaluePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("dateText", datevaluePostRequestBody.dateText, serializeJson);
     writer.writeAdditionalData(datevaluePostRequestBody.additionalData);
 }

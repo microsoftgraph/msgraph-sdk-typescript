@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a floor_MathPostRequestBody
  */
-export function createFloor_MathPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFloor_MathPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFloor_MathPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFloor_MathPostRequestBody(floor_MathPostRequestBody: Floor_MathPostRequestBody | undefined = {} as Floor_MathPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFloor_MathPostRequestBody(floor_MathPostRequestBody: Partial<Floor_MathPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { floor_MathPostRequestBody.backingStoreEnabled = true; },
         "mode": n => { floor_MathPostRequestBody.mode = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface Floor_MathRequestBuilder extends BaseRequestBuilder<Floor_MathR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFloor_MathPostRequestBody(writer: SerializationWriter, floor_MathPostRequestBody: Floor_MathPostRequestBody | undefined = {} as Floor_MathPostRequestBody) : void {
+export function serializeFloor_MathPostRequestBody(writer: SerializationWriter, floor_MathPostRequestBody: Partial<Floor_MathPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("mode", floor_MathPostRequestBody.mode, serializeJson);
     writer.writeObjectValue<Json>("number", floor_MathPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("significance", floor_MathPostRequestBody.significance, serializeJson);

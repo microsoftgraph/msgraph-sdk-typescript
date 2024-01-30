@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a xnpvPostRequestBody
  */
-export function createXnpvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createXnpvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoXnpvPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoXnpvPostRequestBody(xnpvPostRequestBody: XnpvPostRequestBody | undefined = {} as XnpvPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoXnpvPostRequestBody(xnpvPostRequestBody: Partial<XnpvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { xnpvPostRequestBody.backingStoreEnabled = true; },
         "dates": n => { xnpvPostRequestBody.dates = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -29,7 +29,7 @@ export function deserializeIntoXnpvPostRequestBody(xnpvPostRequestBody: XnpvPost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeXnpvPostRequestBody(writer: SerializationWriter, xnpvPostRequestBody: XnpvPostRequestBody | undefined = {} as XnpvPostRequestBody) : void {
+export function serializeXnpvPostRequestBody(writer: SerializationWriter, xnpvPostRequestBody: Partial<XnpvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("dates", xnpvPostRequestBody.dates, serializeJson);
     writer.writeObjectValue<Json>("rate", xnpvPostRequestBody.rate, serializeJson);
     writer.writeObjectValue<Json>("values", xnpvPostRequestBody.values, serializeJson);

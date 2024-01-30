@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a setPriorityPostRequestBody
  */
-export function createSetPriorityPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSetPriorityPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetPriorityPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSetPriorityPostRequestBody(setPriorityPostRequestBody: SetPriorityPostRequestBody | undefined = {} as SetPriorityPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSetPriorityPostRequestBody(setPriorityPostRequestBody: Partial<SetPriorityPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { setPriorityPostRequestBody.backingStoreEnabled = true; },
         "priority": n => { setPriorityPostRequestBody.priority = n.getNumberValue(); },
@@ -26,7 +26,7 @@ export function deserializeIntoSetPriorityPostRequestBody(setPriorityPostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSetPriorityPostRequestBody(writer: SerializationWriter, setPriorityPostRequestBody: SetPriorityPostRequestBody | undefined = {} as SetPriorityPostRequestBody) : void {
+export function serializeSetPriorityPostRequestBody(writer: SerializationWriter, setPriorityPostRequestBody: Partial<SetPriorityPostRequestBody> | undefined = {}) : void {
     writer.writeNumberValue("priority", setPriorityPostRequestBody.priority);
     writer.writeAdditionalData(setPriorityPostRequestBody.additionalData);
 }

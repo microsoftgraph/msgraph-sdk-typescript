@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a datePostRequestBody
  */
-export function createDatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDatePostRequestBody;
 }
 export interface DatePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -58,7 +58,7 @@ export interface DateRequestBuilder extends BaseRequestBuilder<DateRequestBuilde
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDatePostRequestBody(datePostRequestBody: DatePostRequestBody | undefined = {} as DatePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDatePostRequestBody(datePostRequestBody: Partial<DatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { datePostRequestBody.backingStoreEnabled = true; },
         "day": n => { datePostRequestBody.day = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export function deserializeIntoDatePostRequestBody(datePostRequestBody: DatePost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDatePostRequestBody(writer: SerializationWriter, datePostRequestBody: DatePostRequestBody | undefined = {} as DatePostRequestBody) : void {
+export function serializeDatePostRequestBody(writer: SerializationWriter, datePostRequestBody: Partial<DatePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("day", datePostRequestBody.day, serializeJson);
     writer.writeObjectValue<Json>("month", datePostRequestBody.month, serializeJson);
     writer.writeObjectValue<Json>("year", datePostRequestBody.year, serializeJson);

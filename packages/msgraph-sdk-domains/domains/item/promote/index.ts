@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a promotePostResponse
  */
-export function createPromotePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPromotePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPromotePostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPromotePostResponse(promotePostResponse: PromotePostResponse | undefined = {} as PromotePostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPromotePostResponse(promotePostResponse: Partial<PromotePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { promotePostResponse.backingStoreEnabled = true; },
         "value": n => { promotePostResponse.value = n.getBooleanValue(); },
@@ -58,7 +58,7 @@ export interface PromoteRequestBuilder extends BaseRequestBuilder<PromoteRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePromotePostResponse(writer: SerializationWriter, promotePostResponse: PromotePostResponse | undefined = {} as PromotePostResponse) : void {
+export function serializePromotePostResponse(writer: SerializationWriter, promotePostResponse: Partial<PromotePostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", promotePostResponse.value);
     writer.writeAdditionalData(promotePostResponse.additionalData);
 }

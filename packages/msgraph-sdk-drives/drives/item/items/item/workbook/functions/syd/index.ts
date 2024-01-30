@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a sydPostRequestBody
  */
-export function createSydPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSydPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSydPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSydPostRequestBody(sydPostRequestBody: SydPostRequestBody | undefined = {} as SydPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSydPostRequestBody(sydPostRequestBody: Partial<SydPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sydPostRequestBody.backingStoreEnabled = true; },
         "cost": n => { sydPostRequestBody.cost = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -30,7 +30,7 @@ export function deserializeIntoSydPostRequestBody(sydPostRequestBody: SydPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSydPostRequestBody(writer: SerializationWriter, sydPostRequestBody: SydPostRequestBody | undefined = {} as SydPostRequestBody) : void {
+export function serializeSydPostRequestBody(writer: SerializationWriter, sydPostRequestBody: Partial<SydPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("cost", sydPostRequestBody.cost, serializeJson);
     writer.writeObjectValue<Json>("life", sydPostRequestBody.life, serializeJson);
     writer.writeObjectValue<Json>("per", sydPostRequestBody.per, serializeJson);

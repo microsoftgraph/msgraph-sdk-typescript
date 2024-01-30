@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a uploadClientCertificatePostRequestBody
  */
-export function createUploadClientCertificatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createUploadClientCertificatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUploadClientCertificatePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoUploadClientCertificatePostRequestBody(uploadClientCertificatePostRequestBody: UploadClientCertificatePostRequestBody | undefined = {} as UploadClientCertificatePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoUploadClientCertificatePostRequestBody(uploadClientCertificatePostRequestBody: Partial<UploadClientCertificatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { uploadClientCertificatePostRequestBody.backingStoreEnabled = true; },
         "password": n => { uploadClientCertificatePostRequestBody.password = n.getStringValue(); },
@@ -28,7 +28,7 @@ export function deserializeIntoUploadClientCertificatePostRequestBody(uploadClie
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUploadClientCertificatePostRequestBody(writer: SerializationWriter, uploadClientCertificatePostRequestBody: UploadClientCertificatePostRequestBody | undefined = {} as UploadClientCertificatePostRequestBody) : void {
+export function serializeUploadClientCertificatePostRequestBody(writer: SerializationWriter, uploadClientCertificatePostRequestBody: Partial<UploadClientCertificatePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("password", uploadClientCertificatePostRequestBody.password);
     writer.writeStringValue("pkcs12Value", uploadClientCertificatePostRequestBody.pkcs12Value);
     writer.writeAdditionalData(uploadClientCertificatePostRequestBody.additionalData);

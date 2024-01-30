@@ -48,14 +48,14 @@ export interface CopyRequestBuilder extends BaseRequestBuilder<CopyRequestBuilde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a copyPostRequestBody
  */
-export function createCopyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCopyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopyPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCopyPostRequestBody(copyPostRequestBody: CopyPostRequestBody | undefined = {} as CopyPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCopyPostRequestBody(copyPostRequestBody: Partial<CopyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { copyPostRequestBody.backingStoreEnabled = true; },
         "name": n => { copyPostRequestBody.name = n.getStringValue(); },
@@ -66,7 +66,7 @@ export function deserializeIntoCopyPostRequestBody(copyPostRequestBody: CopyPost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCopyPostRequestBody(writer: SerializationWriter, copyPostRequestBody: CopyPostRequestBody | undefined = {} as CopyPostRequestBody) : void {
+export function serializeCopyPostRequestBody(writer: SerializationWriter, copyPostRequestBody: Partial<CopyPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("name", copyPostRequestBody.name);
     writer.writeObjectValue<ItemReference>("parentReference", copyPostRequestBody.parentReference, serializeItemReference);
     writer.writeAdditionalData(copyPostRequestBody.additionalData);

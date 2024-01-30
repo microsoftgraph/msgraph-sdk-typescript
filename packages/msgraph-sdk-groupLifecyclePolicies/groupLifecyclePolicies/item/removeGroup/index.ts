@@ -9,7 +9,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a removeGroupPostRequestBody
  */
-export function createRemoveGroupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRemoveGroupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRemoveGroupPostRequestBody;
 }
 /**
@@ -17,14 +17,14 @@ export function createRemoveGroupPostRequestBodyFromDiscriminatorValue(parseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a removeGroupPostResponse
  */
-export function createRemoveGroupPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRemoveGroupPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRemoveGroupPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRemoveGroupPostRequestBody(removeGroupPostRequestBody: RemoveGroupPostRequestBody | undefined = {} as RemoveGroupPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRemoveGroupPostRequestBody(removeGroupPostRequestBody: Partial<RemoveGroupPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { removeGroupPostRequestBody.backingStoreEnabled = true; },
         "groupId": n => { removeGroupPostRequestBody.groupId = n.getStringValue(); },
@@ -34,7 +34,7 @@ export function deserializeIntoRemoveGroupPostRequestBody(removeGroupPostRequest
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRemoveGroupPostResponse(removeGroupPostResponse: RemoveGroupPostResponse | undefined = {} as RemoveGroupPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRemoveGroupPostResponse(removeGroupPostResponse: Partial<RemoveGroupPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { removeGroupPostResponse.backingStoreEnabled = true; },
         "value": n => { removeGroupPostResponse.value = n.getBooleanValue(); },
@@ -92,7 +92,7 @@ export interface RemoveGroupRequestBuilder extends BaseRequestBuilder<RemoveGrou
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRemoveGroupPostRequestBody(writer: SerializationWriter, removeGroupPostRequestBody: RemoveGroupPostRequestBody | undefined = {} as RemoveGroupPostRequestBody) : void {
+export function serializeRemoveGroupPostRequestBody(writer: SerializationWriter, removeGroupPostRequestBody: Partial<RemoveGroupPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("groupId", removeGroupPostRequestBody.groupId);
     writer.writeAdditionalData(removeGroupPostRequestBody.additionalData);
 }
@@ -100,7 +100,7 @@ export function serializeRemoveGroupPostRequestBody(writer: SerializationWriter,
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRemoveGroupPostResponse(writer: SerializationWriter, removeGroupPostResponse: RemoveGroupPostResponse | undefined = {} as RemoveGroupPostResponse) : void {
+export function serializeRemoveGroupPostResponse(writer: SerializationWriter, removeGroupPostResponse: Partial<RemoveGroupPostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", removeGroupPostResponse.value);
     writer.writeAdditionalData(removeGroupPostResponse.additionalData);
 }

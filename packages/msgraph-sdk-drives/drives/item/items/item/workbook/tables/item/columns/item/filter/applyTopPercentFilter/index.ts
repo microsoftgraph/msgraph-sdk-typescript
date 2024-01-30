@@ -41,14 +41,14 @@ export interface ApplyTopPercentFilterRequestBuilder extends BaseRequestBuilder<
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a applyTopPercentFilterPostRequestBody
  */
-export function createApplyTopPercentFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createApplyTopPercentFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyTopPercentFilterPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoApplyTopPercentFilterPostRequestBody(applyTopPercentFilterPostRequestBody: ApplyTopPercentFilterPostRequestBody | undefined = {} as ApplyTopPercentFilterPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoApplyTopPercentFilterPostRequestBody(applyTopPercentFilterPostRequestBody: Partial<ApplyTopPercentFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyTopPercentFilterPostRequestBody.backingStoreEnabled = true; },
         "percent": n => { applyTopPercentFilterPostRequestBody.percent = n.getNumberValue(); },
@@ -58,7 +58,7 @@ export function deserializeIntoApplyTopPercentFilterPostRequestBody(applyTopPerc
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyTopPercentFilterPostRequestBody(writer: SerializationWriter, applyTopPercentFilterPostRequestBody: ApplyTopPercentFilterPostRequestBody | undefined = {} as ApplyTopPercentFilterPostRequestBody) : void {
+export function serializeApplyTopPercentFilterPostRequestBody(writer: SerializationWriter, applyTopPercentFilterPostRequestBody: Partial<ApplyTopPercentFilterPostRequestBody> | undefined = {}) : void {
     writer.writeNumberValue("percent", applyTopPercentFilterPostRequestBody.percent);
     writer.writeAdditionalData(applyTopPercentFilterPostRequestBody.additionalData);
 }

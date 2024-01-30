@@ -51,14 +51,14 @@ export interface ComplexRequestBuilder extends BaseRequestBuilder<ComplexRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a complexPostRequestBody
  */
-export function createComplexPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createComplexPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoComplexPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoComplexPostRequestBody(complexPostRequestBody: ComplexPostRequestBody | undefined = {} as ComplexPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoComplexPostRequestBody(complexPostRequestBody: Partial<ComplexPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { complexPostRequestBody.backingStoreEnabled = true; },
         "iNum": n => { complexPostRequestBody.iNum = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export function deserializeIntoComplexPostRequestBody(complexPostRequestBody: Co
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeComplexPostRequestBody(writer: SerializationWriter, complexPostRequestBody: ComplexPostRequestBody | undefined = {} as ComplexPostRequestBody) : void {
+export function serializeComplexPostRequestBody(writer: SerializationWriter, complexPostRequestBody: Partial<ComplexPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("iNum", complexPostRequestBody.iNum, serializeJson);
     writer.writeObjectValue<Json>("realNum", complexPostRequestBody.realNum, serializeJson);
     writer.writeObjectValue<Json>("suffix", complexPostRequestBody.suffix, serializeJson);

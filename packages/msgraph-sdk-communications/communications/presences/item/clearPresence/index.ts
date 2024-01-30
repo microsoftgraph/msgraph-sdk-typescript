@@ -42,14 +42,14 @@ export interface ClearPresenceRequestBuilder extends BaseRequestBuilder<ClearPre
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a clearPresencePostRequestBody
  */
-export function createClearPresencePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createClearPresencePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoClearPresencePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoClearPresencePostRequestBody(clearPresencePostRequestBody: ClearPresencePostRequestBody | undefined = {} as ClearPresencePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoClearPresencePostRequestBody(clearPresencePostRequestBody: Partial<ClearPresencePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { clearPresencePostRequestBody.backingStoreEnabled = true; },
         "sessionId": n => { clearPresencePostRequestBody.sessionId = n.getStringValue(); },
@@ -59,7 +59,7 @@ export function deserializeIntoClearPresencePostRequestBody(clearPresencePostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeClearPresencePostRequestBody(writer: SerializationWriter, clearPresencePostRequestBody: ClearPresencePostRequestBody | undefined = {} as ClearPresencePostRequestBody) : void {
+export function serializeClearPresencePostRequestBody(writer: SerializationWriter, clearPresencePostRequestBody: Partial<ClearPresencePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("sessionId", clearPresencePostRequestBody.sessionId);
     writer.writeAdditionalData(clearPresencePostRequestBody.additionalData);
 }

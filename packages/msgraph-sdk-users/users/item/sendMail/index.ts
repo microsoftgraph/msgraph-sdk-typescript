@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a sendMailPostRequestBody
  */
-export function createSendMailPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSendMailPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSendMailPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSendMailPostRequestBody(sendMailPostRequestBody: SendMailPostRequestBody | undefined = {} as SendMailPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSendMailPostRequestBody(sendMailPostRequestBody: Partial<SendMailPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sendMailPostRequestBody.backingStoreEnabled = true; },
         "message": n => { sendMailPostRequestBody.message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface SendMailRequestBuilder extends BaseRequestBuilder<SendMailReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSendMailPostRequestBody(writer: SerializationWriter, sendMailPostRequestBody: SendMailPostRequestBody | undefined = {} as SendMailPostRequestBody) : void {
+export function serializeSendMailPostRequestBody(writer: SerializationWriter, sendMailPostRequestBody: Partial<SendMailPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Message>("Message", sendMailPostRequestBody.message, serializeMessage);
     writer.writeBooleanValue("SaveToSentItems", sendMailPostRequestBody.saveToSentItems);
     writer.writeAdditionalData(sendMailPostRequestBody.additionalData);

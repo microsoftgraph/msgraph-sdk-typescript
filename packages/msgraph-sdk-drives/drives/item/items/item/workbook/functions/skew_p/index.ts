@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a skew_pPostRequestBody
  */
-export function createSkew_pPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSkew_pPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSkew_pPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSkew_pPostRequestBody(skew_pPostRequestBody: Skew_pPostRequestBody | undefined = {} as Skew_pPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSkew_pPostRequestBody(skew_pPostRequestBody: Partial<Skew_pPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { skew_pPostRequestBody.backingStoreEnabled = true; },
         "values": n => { skew_pPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoSkew_pPostRequestBody(skew_pPostRequestBody: Skew
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSkew_pPostRequestBody(writer: SerializationWriter, skew_pPostRequestBody: Skew_pPostRequestBody | undefined = {} as Skew_pPostRequestBody) : void {
+export function serializeSkew_pPostRequestBody(writer: SerializationWriter, skew_pPostRequestBody: Partial<Skew_pPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", skew_pPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(skew_pPostRequestBody.additionalData);
 }

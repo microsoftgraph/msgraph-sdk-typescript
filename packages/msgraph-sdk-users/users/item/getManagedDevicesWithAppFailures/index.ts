@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getManagedDevicesWithAppFailuresGetResponse
  */
-export function createGetManagedDevicesWithAppFailuresGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetManagedDevicesWithAppFailuresGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetManagedDevicesWithAppFailuresGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetManagedDevicesWithAppFailuresGetResponse(getManagedDevicesWithAppFailuresGetResponse: GetManagedDevicesWithAppFailuresGetResponse | undefined = {} as GetManagedDevicesWithAppFailuresGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetManagedDevicesWithAppFailuresGetResponse(getManagedDevicesWithAppFailuresGetResponse: Partial<GetManagedDevicesWithAppFailuresGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getManagedDevicesWithAppFailuresGetResponse),
         "value": n => { getManagedDevicesWithAppFailuresGetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
@@ -75,7 +75,7 @@ export interface GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameter
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetManagedDevicesWithAppFailuresGetResponse(writer: SerializationWriter, getManagedDevicesWithAppFailuresGetResponse: GetManagedDevicesWithAppFailuresGetResponse | undefined = {} as GetManagedDevicesWithAppFailuresGetResponse) : void {
+export function serializeGetManagedDevicesWithAppFailuresGetResponse(writer: SerializationWriter, getManagedDevicesWithAppFailuresGetResponse: Partial<GetManagedDevicesWithAppFailuresGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getManagedDevicesWithAppFailuresGetResponse)
     writer.writeCollectionOfPrimitiveValues<string>("value", getManagedDevicesWithAppFailuresGetResponse.value);
 }

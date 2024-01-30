@@ -54,14 +54,14 @@ export interface BatchRecordDecisionsRequestBuilder extends BaseRequestBuilder<B
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a batchRecordDecisionsPostRequestBody
  */
-export function createBatchRecordDecisionsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createBatchRecordDecisionsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBatchRecordDecisionsPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoBatchRecordDecisionsPostRequestBody(batchRecordDecisionsPostRequestBody: BatchRecordDecisionsPostRequestBody | undefined = {} as BatchRecordDecisionsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoBatchRecordDecisionsPostRequestBody(batchRecordDecisionsPostRequestBody: Partial<BatchRecordDecisionsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { batchRecordDecisionsPostRequestBody.backingStoreEnabled = true; },
         "decision": n => { batchRecordDecisionsPostRequestBody.decision = n.getStringValue(); },
@@ -74,7 +74,7 @@ export function deserializeIntoBatchRecordDecisionsPostRequestBody(batchRecordDe
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBatchRecordDecisionsPostRequestBody(writer: SerializationWriter, batchRecordDecisionsPostRequestBody: BatchRecordDecisionsPostRequestBody | undefined = {} as BatchRecordDecisionsPostRequestBody) : void {
+export function serializeBatchRecordDecisionsPostRequestBody(writer: SerializationWriter, batchRecordDecisionsPostRequestBody: Partial<BatchRecordDecisionsPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("decision", batchRecordDecisionsPostRequestBody.decision);
     writer.writeStringValue("justification", batchRecordDecisionsPostRequestBody.justification);
     writer.writeStringValue("principalId", batchRecordDecisionsPostRequestBody.principalId);

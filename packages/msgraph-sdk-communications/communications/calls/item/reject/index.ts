@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a rejectPostRequestBody
  */
-export function createRejectPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRejectPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRejectPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRejectPostRequestBody(rejectPostRequestBody: RejectPostRequestBody | undefined = {} as RejectPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRejectPostRequestBody(rejectPostRequestBody: Partial<RejectPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { rejectPostRequestBody.backingStoreEnabled = true; },
         "callbackUri": n => { rejectPostRequestBody.callbackUri = n.getStringValue(); },
@@ -65,7 +65,7 @@ export interface RejectRequestBuilder extends BaseRequestBuilder<RejectRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRejectPostRequestBody(writer: SerializationWriter, rejectPostRequestBody: RejectPostRequestBody | undefined = {} as RejectPostRequestBody) : void {
+export function serializeRejectPostRequestBody(writer: SerializationWriter, rejectPostRequestBody: Partial<RejectPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("callbackUri", rejectPostRequestBody.callbackUri);
     writer.writeEnumValue<RejectReason>("reason", rejectPostRequestBody.reason);
     writer.writeAdditionalData(rejectPostRequestBody.additionalData);

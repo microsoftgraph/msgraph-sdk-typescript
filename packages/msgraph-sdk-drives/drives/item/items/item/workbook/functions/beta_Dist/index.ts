@@ -63,14 +63,14 @@ export interface Beta_DistRequestBuilder extends BaseRequestBuilder<Beta_DistReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a beta_DistPostRequestBody
  */
-export function createBeta_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createBeta_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBeta_DistPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoBeta_DistPostRequestBody(beta_DistPostRequestBody: Beta_DistPostRequestBody | undefined = {} as Beta_DistPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoBeta_DistPostRequestBody(beta_DistPostRequestBody: Partial<Beta_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "a": n => { beta_DistPostRequestBody.a = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "alpha": n => { beta_DistPostRequestBody.alpha = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -85,7 +85,7 @@ export function deserializeIntoBeta_DistPostRequestBody(beta_DistPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBeta_DistPostRequestBody(writer: SerializationWriter, beta_DistPostRequestBody: Beta_DistPostRequestBody | undefined = {} as Beta_DistPostRequestBody) : void {
+export function serializeBeta_DistPostRequestBody(writer: SerializationWriter, beta_DistPostRequestBody: Partial<Beta_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("A", beta_DistPostRequestBody.a, serializeJson);
     writer.writeObjectValue<Json>("alpha", beta_DistPostRequestBody.alpha, serializeJson);
     writer.writeObjectValue<Json>("B", beta_DistPostRequestBody.b, serializeJson);

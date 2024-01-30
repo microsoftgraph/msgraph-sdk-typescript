@@ -41,14 +41,14 @@ export interface ApplyBottomPercentFilterRequestBuilder extends BaseRequestBuild
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a applyBottomPercentFilterPostRequestBody
  */
-export function createApplyBottomPercentFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createApplyBottomPercentFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyBottomPercentFilterPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoApplyBottomPercentFilterPostRequestBody(applyBottomPercentFilterPostRequestBody: ApplyBottomPercentFilterPostRequestBody | undefined = {} as ApplyBottomPercentFilterPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoApplyBottomPercentFilterPostRequestBody(applyBottomPercentFilterPostRequestBody: Partial<ApplyBottomPercentFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyBottomPercentFilterPostRequestBody.backingStoreEnabled = true; },
         "percent": n => { applyBottomPercentFilterPostRequestBody.percent = n.getNumberValue(); },
@@ -58,7 +58,7 @@ export function deserializeIntoApplyBottomPercentFilterPostRequestBody(applyBott
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyBottomPercentFilterPostRequestBody(writer: SerializationWriter, applyBottomPercentFilterPostRequestBody: ApplyBottomPercentFilterPostRequestBody | undefined = {} as ApplyBottomPercentFilterPostRequestBody) : void {
+export function serializeApplyBottomPercentFilterPostRequestBody(writer: SerializationWriter, applyBottomPercentFilterPostRequestBody: Partial<ApplyBottomPercentFilterPostRequestBody> | undefined = {}) : void {
     writer.writeNumberValue("percent", applyBottomPercentFilterPostRequestBody.percent);
     writer.writeAdditionalData(applyBottomPercentFilterPostRequestBody.additionalData);
 }

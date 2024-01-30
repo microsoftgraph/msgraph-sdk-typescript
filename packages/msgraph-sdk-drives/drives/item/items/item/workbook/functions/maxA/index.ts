@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a maxAPostRequestBody
  */
-export function createMaxAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMaxAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMaxAPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMaxAPostRequestBody(maxAPostRequestBody: MaxAPostRequestBody | undefined = {} as MaxAPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMaxAPostRequestBody(maxAPostRequestBody: Partial<MaxAPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { maxAPostRequestBody.backingStoreEnabled = true; },
         "values": n => { maxAPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface MaxARequestBuilder extends BaseRequestBuilder<MaxARequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMaxAPostRequestBody(writer: SerializationWriter, maxAPostRequestBody: MaxAPostRequestBody | undefined = {} as MaxAPostRequestBody) : void {
+export function serializeMaxAPostRequestBody(writer: SerializationWriter, maxAPostRequestBody: Partial<MaxAPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", maxAPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(maxAPostRequestBody.additionalData);
 }

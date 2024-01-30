@@ -47,14 +47,14 @@ export interface BesselYRequestBuilder extends BaseRequestBuilder<BesselYRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a besselYPostRequestBody
  */
-export function createBesselYPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createBesselYPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBesselYPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoBesselYPostRequestBody(besselYPostRequestBody: BesselYPostRequestBody | undefined = {} as BesselYPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoBesselYPostRequestBody(besselYPostRequestBody: Partial<BesselYPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { besselYPostRequestBody.backingStoreEnabled = true; },
         "n": n => { besselYPostRequestBody.n = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoBesselYPostRequestBody(besselYPostRequestBody: Be
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBesselYPostRequestBody(writer: SerializationWriter, besselYPostRequestBody: BesselYPostRequestBody | undefined = {} as BesselYPostRequestBody) : void {
+export function serializeBesselYPostRequestBody(writer: SerializationWriter, besselYPostRequestBody: Partial<BesselYPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("n", besselYPostRequestBody.n, serializeJson);
     writer.writeObjectValue<Json>("x", besselYPostRequestBody.x, serializeJson);
     writer.writeAdditionalData(besselYPostRequestBody.additionalData);

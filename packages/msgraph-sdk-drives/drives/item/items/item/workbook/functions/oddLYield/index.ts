@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a oddLYieldPostRequestBody
  */
-export function createOddLYieldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createOddLYieldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOddLYieldPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoOddLYieldPostRequestBody(oddLYieldPostRequestBody: OddLYieldPostRequestBody | undefined = {} as OddLYieldPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoOddLYieldPostRequestBody(oddLYieldPostRequestBody: Partial<OddLYieldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { oddLYieldPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { oddLYieldPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -95,7 +95,7 @@ export interface OddLYieldRequestBuilder extends BaseRequestBuilder<OddLYieldReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeOddLYieldPostRequestBody(writer: SerializationWriter, oddLYieldPostRequestBody: OddLYieldPostRequestBody | undefined = {} as OddLYieldPostRequestBody) : void {
+export function serializeOddLYieldPostRequestBody(writer: SerializationWriter, oddLYieldPostRequestBody: Partial<OddLYieldPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", oddLYieldPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("frequency", oddLYieldPostRequestBody.frequency, serializeJson);
     writer.writeObjectValue<Json>("lastInterest", oddLYieldPostRequestBody.lastInterest, serializeJson);

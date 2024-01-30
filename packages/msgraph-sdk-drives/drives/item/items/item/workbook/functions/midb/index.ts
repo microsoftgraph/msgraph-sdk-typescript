@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a midbPostRequestBody
  */
-export function createMidbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMidbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMidbPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMidbPostRequestBody(midbPostRequestBody: MidbPostRequestBody | undefined = {} as MidbPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMidbPostRequestBody(midbPostRequestBody: Partial<MidbPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { midbPostRequestBody.backingStoreEnabled = true; },
         "numBytes": n => { midbPostRequestBody.numBytes = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface MidbRequestBuilder extends BaseRequestBuilder<MidbRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMidbPostRequestBody(writer: SerializationWriter, midbPostRequestBody: MidbPostRequestBody | undefined = {} as MidbPostRequestBody) : void {
+export function serializeMidbPostRequestBody(writer: SerializationWriter, midbPostRequestBody: Partial<MidbPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("numBytes", midbPostRequestBody.numBytes, serializeJson);
     writer.writeObjectValue<Json>("startNum", midbPostRequestBody.startNum, serializeJson);
     writer.writeObjectValue<Json>("text", midbPostRequestBody.text, serializeJson);

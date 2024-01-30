@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a secPostRequestBody
  */
-export function createSecPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSecPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSecPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSecPostRequestBody(secPostRequestBody: SecPostRequestBody | undefined = {} as SecPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSecPostRequestBody(secPostRequestBody: Partial<SecPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { secPostRequestBody.backingStoreEnabled = true; },
         "number": n => { secPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface SecRequestBuilder extends BaseRequestBuilder<SecRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSecPostRequestBody(writer: SerializationWriter, secPostRequestBody: SecPostRequestBody | undefined = {} as SecPostRequestBody) : void {
+export function serializeSecPostRequestBody(writer: SerializationWriter, secPostRequestBody: Partial<SecPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", secPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(secPostRequestBody.additionalData);
 }

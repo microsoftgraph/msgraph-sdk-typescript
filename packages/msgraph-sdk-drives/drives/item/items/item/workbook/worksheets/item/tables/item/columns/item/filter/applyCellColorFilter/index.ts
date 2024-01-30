@@ -41,14 +41,14 @@ export interface ApplyCellColorFilterRequestBuilder extends BaseRequestBuilder<A
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a applyCellColorFilterPostRequestBody
  */
-export function createApplyCellColorFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createApplyCellColorFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyCellColorFilterPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoApplyCellColorFilterPostRequestBody(applyCellColorFilterPostRequestBody: ApplyCellColorFilterPostRequestBody | undefined = {} as ApplyCellColorFilterPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoApplyCellColorFilterPostRequestBody(applyCellColorFilterPostRequestBody: Partial<ApplyCellColorFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyCellColorFilterPostRequestBody.backingStoreEnabled = true; },
         "color": n => { applyCellColorFilterPostRequestBody.color = n.getStringValue(); },
@@ -58,7 +58,7 @@ export function deserializeIntoApplyCellColorFilterPostRequestBody(applyCellColo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyCellColorFilterPostRequestBody(writer: SerializationWriter, applyCellColorFilterPostRequestBody: ApplyCellColorFilterPostRequestBody | undefined = {} as ApplyCellColorFilterPostRequestBody) : void {
+export function serializeApplyCellColorFilterPostRequestBody(writer: SerializationWriter, applyCellColorFilterPostRequestBody: Partial<ApplyCellColorFilterPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("color", applyCellColorFilterPostRequestBody.color);
     writer.writeAdditionalData(applyCellColorFilterPostRequestBody.additionalData);
 }

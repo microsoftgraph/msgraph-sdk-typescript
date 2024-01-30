@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a timevaluePostRequestBody
  */
-export function createTimevaluePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createTimevaluePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTimevaluePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoTimevaluePostRequestBody(timevaluePostRequestBody: TimevaluePostRequestBody | undefined = {} as TimevaluePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTimevaluePostRequestBody(timevaluePostRequestBody: Partial<TimevaluePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { timevaluePostRequestBody.backingStoreEnabled = true; },
         "timeText": n => { timevaluePostRequestBody.timeText = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoTimevaluePostRequestBody(timevaluePostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTimevaluePostRequestBody(writer: SerializationWriter, timevaluePostRequestBody: TimevaluePostRequestBody | undefined = {} as TimevaluePostRequestBody) : void {
+export function serializeTimevaluePostRequestBody(writer: SerializationWriter, timevaluePostRequestBody: Partial<TimevaluePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("timeText", timevaluePostRequestBody.timeText, serializeJson);
     writer.writeAdditionalData(timevaluePostRequestBody.additionalData);
 }

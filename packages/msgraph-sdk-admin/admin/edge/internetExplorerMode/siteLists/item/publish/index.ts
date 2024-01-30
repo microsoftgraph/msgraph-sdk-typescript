@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a publishPostRequestBody
  */
-export function createPublishPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPublishPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPublishPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPublishPostRequestBody(publishPostRequestBody: PublishPostRequestBody | undefined = {} as PublishPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPublishPostRequestBody(publishPostRequestBody: Partial<PublishPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { publishPostRequestBody.backingStoreEnabled = true; },
         "revision": n => { publishPostRequestBody.revision = n.getStringValue(); },
@@ -71,7 +71,7 @@ export interface PublishRequestBuilder extends BaseRequestBuilder<PublishRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePublishPostRequestBody(writer: SerializationWriter, publishPostRequestBody: PublishPostRequestBody | undefined = {} as PublishPostRequestBody) : void {
+export function serializePublishPostRequestBody(writer: SerializationWriter, publishPostRequestBody: Partial<PublishPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("revision", publishPostRequestBody.revision);
     writer.writeCollectionOfObjectValues<BrowserSharedCookie>("sharedCookies", publishPostRequestBody.sharedCookies, serializeBrowserSharedCookie);
     writer.writeCollectionOfObjectValues<BrowserSite>("sites", publishPostRequestBody.sites, serializeBrowserSite);

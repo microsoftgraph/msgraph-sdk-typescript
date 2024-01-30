@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a hyperlinkPostRequestBody
  */
-export function createHyperlinkPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createHyperlinkPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHyperlinkPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoHyperlinkPostRequestBody(hyperlinkPostRequestBody: HyperlinkPostRequestBody | undefined = {} as HyperlinkPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoHyperlinkPostRequestBody(hyperlinkPostRequestBody: Partial<HyperlinkPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { hyperlinkPostRequestBody.backingStoreEnabled = true; },
         "friendlyName": n => { hyperlinkPostRequestBody.friendlyName = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface HyperlinkRequestBuilder extends BaseRequestBuilder<HyperlinkReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeHyperlinkPostRequestBody(writer: SerializationWriter, hyperlinkPostRequestBody: HyperlinkPostRequestBody | undefined = {} as HyperlinkPostRequestBody) : void {
+export function serializeHyperlinkPostRequestBody(writer: SerializationWriter, hyperlinkPostRequestBody: Partial<HyperlinkPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("friendlyName", hyperlinkPostRequestBody.friendlyName, serializeJson);
     writer.writeObjectValue<Json>("linkLocation", hyperlinkPostRequestBody.linkLocation, serializeJson);
     writer.writeAdditionalData(hyperlinkPostRequestBody.additionalData);

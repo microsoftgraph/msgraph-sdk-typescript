@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a substitutePostRequestBody
  */
-export function createSubstitutePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSubstitutePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSubstitutePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSubstitutePostRequestBody(substitutePostRequestBody: SubstitutePostRequestBody | undefined = {} as SubstitutePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSubstitutePostRequestBody(substitutePostRequestBody: Partial<SubstitutePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { substitutePostRequestBody.backingStoreEnabled = true; },
         "instanceNum": n => { substitutePostRequestBody.instanceNum = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -30,7 +30,7 @@ export function deserializeIntoSubstitutePostRequestBody(substitutePostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSubstitutePostRequestBody(writer: SerializationWriter, substitutePostRequestBody: SubstitutePostRequestBody | undefined = {} as SubstitutePostRequestBody) : void {
+export function serializeSubstitutePostRequestBody(writer: SerializationWriter, substitutePostRequestBody: Partial<SubstitutePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("instanceNum", substitutePostRequestBody.instanceNum, serializeJson);
     writer.writeObjectValue<Json>("newText", substitutePostRequestBody.newText, serializeJson);
     writer.writeObjectValue<Json>("oldText", substitutePostRequestBody.oldText, serializeJson);

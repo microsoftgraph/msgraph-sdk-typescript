@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a createForwardPostRequestBody
  */
-export function createCreateForwardPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCreateForwardPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateForwardPostRequestBody;
 }
 export interface CreateForwardPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -59,7 +59,7 @@ export interface CreateForwardRequestBuilder extends BaseRequestBuilder<CreateFo
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCreateForwardPostRequestBody(createForwardPostRequestBody: CreateForwardPostRequestBody | undefined = {} as CreateForwardPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCreateForwardPostRequestBody(createForwardPostRequestBody: Partial<CreateForwardPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createForwardPostRequestBody.backingStoreEnabled = true; },
         "comment": n => { createForwardPostRequestBody.comment = n.getStringValue(); },
@@ -71,7 +71,7 @@ export function deserializeIntoCreateForwardPostRequestBody(createForwardPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCreateForwardPostRequestBody(writer: SerializationWriter, createForwardPostRequestBody: CreateForwardPostRequestBody | undefined = {} as CreateForwardPostRequestBody) : void {
+export function serializeCreateForwardPostRequestBody(writer: SerializationWriter, createForwardPostRequestBody: Partial<CreateForwardPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("Comment", createForwardPostRequestBody.comment);
     writer.writeObjectValue<Message>("Message", createForwardPostRequestBody.message, serializeMessage);
     writer.writeCollectionOfObjectValues<Recipient>("ToRecipients", createForwardPostRequestBody.toRecipients, serializeRecipient);

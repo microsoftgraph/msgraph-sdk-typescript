@@ -31,7 +31,7 @@ export interface AddActivitiesPostResponse extends BaseCollectionPaginationCount
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a addActivitiesPostRequestBody
  */
-export function createAddActivitiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAddActivitiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddActivitiesPostRequestBody;
 }
 /**
@@ -39,14 +39,14 @@ export function createAddActivitiesPostRequestBodyFromDiscriminatorValue(parseNo
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a addActivitiesPostResponse
  */
-export function createAddActivitiesPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAddActivitiesPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddActivitiesPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAddActivitiesPostRequestBody(addActivitiesPostRequestBody: AddActivitiesPostRequestBody | undefined = {} as AddActivitiesPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddActivitiesPostRequestBody(addActivitiesPostRequestBody: Partial<AddActivitiesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "activities": n => { addActivitiesPostRequestBody.activities = n.getCollectionOfObjectValues<ExternalActivity>(createExternalActivityFromDiscriminatorValue); },
         "backingStoreEnabled": n => { addActivitiesPostRequestBody.backingStoreEnabled = true; },
@@ -56,7 +56,7 @@ export function deserializeIntoAddActivitiesPostRequestBody(addActivitiesPostReq
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAddActivitiesPostResponse(addActivitiesPostResponse: AddActivitiesPostResponse | undefined = {} as AddActivitiesPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddActivitiesPostResponse(addActivitiesPostResponse: Partial<AddActivitiesPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(addActivitiesPostResponse),
         "value": n => { addActivitiesPostResponse.value = n.getCollectionOfObjectValues<ExternalActivityResult>(createExternalActivityResultFromDiscriminatorValue); },
@@ -85,7 +85,7 @@ export interface MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder ext
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddActivitiesPostRequestBody(writer: SerializationWriter, addActivitiesPostRequestBody: AddActivitiesPostRequestBody | undefined = {} as AddActivitiesPostRequestBody) : void {
+export function serializeAddActivitiesPostRequestBody(writer: SerializationWriter, addActivitiesPostRequestBody: Partial<AddActivitiesPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<ExternalActivity>("activities", addActivitiesPostRequestBody.activities, serializeExternalActivity);
     writer.writeAdditionalData(addActivitiesPostRequestBody.additionalData);
 }
@@ -93,7 +93,7 @@ export function serializeAddActivitiesPostRequestBody(writer: SerializationWrite
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddActivitiesPostResponse(writer: SerializationWriter, addActivitiesPostResponse: AddActivitiesPostResponse | undefined = {} as AddActivitiesPostResponse) : void {
+export function serializeAddActivitiesPostResponse(writer: SerializationWriter, addActivitiesPostResponse: Partial<AddActivitiesPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, addActivitiesPostResponse)
     writer.writeCollectionOfObjectValues<ExternalActivityResult>("value", addActivitiesPostResponse.value, serializeExternalActivityResult);
 }

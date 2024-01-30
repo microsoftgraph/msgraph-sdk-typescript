@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse
  */
-export function createGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse(getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse: GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse | undefined = {} as GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse(getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse: Partial<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse),
         "value": n => { getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse.value = n.getCollectionOfObjectValues<ArchivedPrintJob>(createArchivedPrintJobFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export interface GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateT
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse: GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse | undefined = {} as GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse) : void {
+export function serializeGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse: Partial<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse)
     writer.writeCollectionOfObjectValues<ArchivedPrintJob>("value", getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse.value, serializeArchivedPrintJob);
 }

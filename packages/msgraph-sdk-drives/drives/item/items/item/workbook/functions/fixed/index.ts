@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a fixedPostRequestBody
  */
-export function createFixedPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFixedPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFixedPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFixedPostRequestBody(fixedPostRequestBody: FixedPostRequestBody | undefined = {} as FixedPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFixedPostRequestBody(fixedPostRequestBody: Partial<FixedPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { fixedPostRequestBody.backingStoreEnabled = true; },
         "decimals": n => { fixedPostRequestBody.decimals = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface FixedRequestBuilder extends BaseRequestBuilder<FixedRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFixedPostRequestBody(writer: SerializationWriter, fixedPostRequestBody: FixedPostRequestBody | undefined = {} as FixedPostRequestBody) : void {
+export function serializeFixedPostRequestBody(writer: SerializationWriter, fixedPostRequestBody: Partial<FixedPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("decimals", fixedPostRequestBody.decimals, serializeJson);
     writer.writeObjectValue<Json>("noCommas", fixedPostRequestBody.noCommas, serializeJson);
     writer.writeObjectValue<Json>("number", fixedPostRequestBody.number, serializeJson);
