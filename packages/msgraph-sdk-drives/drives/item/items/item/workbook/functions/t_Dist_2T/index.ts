@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a t_Dist_2TPostRequestBody
  */
-export function createT_Dist_2TPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createT_Dist_2TPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoT_Dist_2TPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoT_Dist_2TPostRequestBody(t_Dist_2TPostRequestBody: T_Dist_2TPostRequestBody | undefined = {} as T_Dist_2TPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoT_Dist_2TPostRequestBody(t_Dist_2TPostRequestBody: Partial<T_Dist_2TPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { t_Dist_2TPostRequestBody.backingStoreEnabled = true; },
         "degFreedom": n => { t_Dist_2TPostRequestBody.degFreedom = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -28,7 +28,7 @@ export function deserializeIntoT_Dist_2TPostRequestBody(t_Dist_2TPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeT_Dist_2TPostRequestBody(writer: SerializationWriter, t_Dist_2TPostRequestBody: T_Dist_2TPostRequestBody | undefined = {} as T_Dist_2TPostRequestBody) : void {
+export function serializeT_Dist_2TPostRequestBody(writer: SerializationWriter, t_Dist_2TPostRequestBody: Partial<T_Dist_2TPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("degFreedom", t_Dist_2TPostRequestBody.degFreedom, serializeJson);
     writer.writeObjectValue<Json>("x", t_Dist_2TPostRequestBody.x, serializeJson);
     writer.writeAdditionalData(t_Dist_2TPostRequestBody.additionalData);

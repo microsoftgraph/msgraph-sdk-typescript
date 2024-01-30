@@ -42,14 +42,14 @@ export interface ArchiveRequestBuilder extends BaseRequestBuilder<ArchiveRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a archivePostRequestBody
  */
-export function createArchivePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createArchivePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoArchivePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: ArchivePostRequestBody | undefined = {} as ArchivePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { archivePostRequestBody.backingStoreEnabled = true; },
         "shouldSetSpoSiteReadOnlyForMembers": n => { archivePostRequestBody.shouldSetSpoSiteReadOnlyForMembers = n.getBooleanValue(); },
@@ -59,7 +59,7 @@ export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Ar
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeArchivePostRequestBody(writer: SerializationWriter, archivePostRequestBody: ArchivePostRequestBody | undefined = {} as ArchivePostRequestBody) : void {
+export function serializeArchivePostRequestBody(writer: SerializationWriter, archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined = {}) : void {
     writer.writeBooleanValue("shouldSetSpoSiteReadOnlyForMembers", archivePostRequestBody.shouldSetSpoSiteReadOnlyForMembers);
     writer.writeAdditionalData(archivePostRequestBody.additionalData);
 }

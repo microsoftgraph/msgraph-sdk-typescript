@@ -43,14 +43,14 @@ export interface AbsRequestBuilder extends BaseRequestBuilder<AbsRequestBuilder>
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a absPostRequestBody
  */
-export function createAbsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAbsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAbsPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAbsPostRequestBody(absPostRequestBody: AbsPostRequestBody | undefined = {} as AbsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAbsPostRequestBody(absPostRequestBody: Partial<AbsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { absPostRequestBody.backingStoreEnabled = true; },
         "number": n => { absPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoAbsPostRequestBody(absPostRequestBody: AbsPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAbsPostRequestBody(writer: SerializationWriter, absPostRequestBody: AbsPostRequestBody | undefined = {} as AbsPostRequestBody) : void {
+export function serializeAbsPostRequestBody(writer: SerializationWriter, absPostRequestBody: Partial<AbsPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", absPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(absPostRequestBody.additionalData);
 }

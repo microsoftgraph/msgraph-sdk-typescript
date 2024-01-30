@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a fvschedulePostRequestBody
  */
-export function createFvschedulePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createFvschedulePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFvschedulePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoFvschedulePostRequestBody(fvschedulePostRequestBody: FvschedulePostRequestBody | undefined = {} as FvschedulePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFvschedulePostRequestBody(fvschedulePostRequestBody: Partial<FvschedulePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { fvschedulePostRequestBody.backingStoreEnabled = true; },
         "principal": n => { fvschedulePostRequestBody.principal = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface FvscheduleRequestBuilder extends BaseRequestBuilder<FvscheduleR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFvschedulePostRequestBody(writer: SerializationWriter, fvschedulePostRequestBody: FvschedulePostRequestBody | undefined = {} as FvschedulePostRequestBody) : void {
+export function serializeFvschedulePostRequestBody(writer: SerializationWriter, fvschedulePostRequestBody: Partial<FvschedulePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("principal", fvschedulePostRequestBody.principal, serializeJson);
     writer.writeObjectValue<Json>("schedule", fvschedulePostRequestBody.schedule, serializeJson);
     writer.writeAdditionalData(fvschedulePostRequestBody.additionalData);

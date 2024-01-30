@@ -47,14 +47,14 @@ export interface BitorRequestBuilder extends BaseRequestBuilder<BitorRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a bitorPostRequestBody
  */
-export function createBitorPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createBitorPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBitorPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoBitorPostRequestBody(bitorPostRequestBody: BitorPostRequestBody | undefined = {} as BitorPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoBitorPostRequestBody(bitorPostRequestBody: Partial<BitorPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { bitorPostRequestBody.backingStoreEnabled = true; },
         "number1": n => { bitorPostRequestBody.number1 = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoBitorPostRequestBody(bitorPostRequestBody: BitorP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBitorPostRequestBody(writer: SerializationWriter, bitorPostRequestBody: BitorPostRequestBody | undefined = {} as BitorPostRequestBody) : void {
+export function serializeBitorPostRequestBody(writer: SerializationWriter, bitorPostRequestBody: Partial<BitorPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number1", bitorPostRequestBody.number1, serializeJson);
     writer.writeObjectValue<Json>("number2", bitorPostRequestBody.number2, serializeJson);
     writer.writeAdditionalData(bitorPostRequestBody.additionalData);

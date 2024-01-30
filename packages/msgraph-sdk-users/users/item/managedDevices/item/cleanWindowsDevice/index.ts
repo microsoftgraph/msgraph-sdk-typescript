@@ -42,14 +42,14 @@ export interface CleanWindowsDeviceRequestBuilder extends BaseRequestBuilder<Cle
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a cleanWindowsDevicePostRequestBody
  */
-export function createCleanWindowsDevicePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCleanWindowsDevicePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCleanWindowsDevicePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCleanWindowsDevicePostRequestBody(cleanWindowsDevicePostRequestBody: CleanWindowsDevicePostRequestBody | undefined = {} as CleanWindowsDevicePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCleanWindowsDevicePostRequestBody(cleanWindowsDevicePostRequestBody: Partial<CleanWindowsDevicePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cleanWindowsDevicePostRequestBody.backingStoreEnabled = true; },
         "keepUserData": n => { cleanWindowsDevicePostRequestBody.keepUserData = n.getBooleanValue(); },
@@ -59,7 +59,7 @@ export function deserializeIntoCleanWindowsDevicePostRequestBody(cleanWindowsDev
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCleanWindowsDevicePostRequestBody(writer: SerializationWriter, cleanWindowsDevicePostRequestBody: CleanWindowsDevicePostRequestBody | undefined = {} as CleanWindowsDevicePostRequestBody) : void {
+export function serializeCleanWindowsDevicePostRequestBody(writer: SerializationWriter, cleanWindowsDevicePostRequestBody: Partial<CleanWindowsDevicePostRequestBody> | undefined = {}) : void {
     writer.writeBooleanValue("keepUserData", cleanWindowsDevicePostRequestBody.keepUserData);
     writer.writeAdditionalData(cleanWindowsDevicePostRequestBody.additionalData);
 }

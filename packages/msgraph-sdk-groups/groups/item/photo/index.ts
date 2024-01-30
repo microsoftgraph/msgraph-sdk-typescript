@@ -15,11 +15,6 @@ export interface PhotoRequestBuilder extends BaseRequestBuilder<PhotoRequestBuil
      */
     get content(): ContentRequestBuilder;
     /**
-     * Delete navigation property photo for groups
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     */
-     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
-    /**
      * The group's profile photo
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProfilePhoto
@@ -32,12 +27,6 @@ export interface PhotoRequestBuilder extends BaseRequestBuilder<PhotoRequestBuil
      * @returns a Promise of ProfilePhoto
      */
      patch(body: ProfilePhoto, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ProfilePhoto | undefined>;
-    /**
-     * Delete navigation property photo for groups
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * The group's profile photo
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -80,14 +69,6 @@ export const PhotoRequestBuilderNavigationMetadata: Record<Exclude<keyof PhotoRe
  * Metadata for all the requests in the request builder.
  */
 export const PhotoRequestBuilderRequestsMetadata: RequestsMetadata = {
-    delete: {
-        responseBodyContentType: "application/json",
-        errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-        },
-        adapterMethodName: "sendNoResponseContentAsync",
-    },
     get: {
         responseBodyContentType: "application/json",
         errorMappings: {

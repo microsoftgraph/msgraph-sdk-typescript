@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a dsumPostRequestBody
  */
-export function createDsumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDsumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDsumPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDsumPostRequestBody(dsumPostRequestBody: DsumPostRequestBody | undefined = {} as DsumPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDsumPostRequestBody(dsumPostRequestBody: Partial<DsumPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dsumPostRequestBody.backingStoreEnabled = true; },
         "criteria": n => { dsumPostRequestBody.criteria = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface DsumRequestBuilder extends BaseRequestBuilder<DsumRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDsumPostRequestBody(writer: SerializationWriter, dsumPostRequestBody: DsumPostRequestBody | undefined = {} as DsumPostRequestBody) : void {
+export function serializeDsumPostRequestBody(writer: SerializationWriter, dsumPostRequestBody: Partial<DsumPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("criteria", dsumPostRequestBody.criteria, serializeJson);
     writer.writeObjectValue<Json>("database", dsumPostRequestBody.database, serializeJson);
     writer.writeObjectValue<Json>("field", dsumPostRequestBody.field, serializeJson);

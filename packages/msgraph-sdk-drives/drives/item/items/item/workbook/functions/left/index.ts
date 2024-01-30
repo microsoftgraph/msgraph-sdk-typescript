@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a leftPostRequestBody
  */
-export function createLeftPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createLeftPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLeftPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoLeftPostRequestBody(leftPostRequestBody: LeftPostRequestBody | undefined = {} as LeftPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoLeftPostRequestBody(leftPostRequestBody: Partial<LeftPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { leftPostRequestBody.backingStoreEnabled = true; },
         "numChars": n => { leftPostRequestBody.numChars = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface LeftRequestBuilder extends BaseRequestBuilder<LeftRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLeftPostRequestBody(writer: SerializationWriter, leftPostRequestBody: LeftPostRequestBody | undefined = {} as LeftPostRequestBody) : void {
+export function serializeLeftPostRequestBody(writer: SerializationWriter, leftPostRequestBody: Partial<LeftPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("numChars", leftPostRequestBody.numChars, serializeJson);
     writer.writeObjectValue<Json>("text", leftPostRequestBody.text, serializeJson);
     writer.writeAdditionalData(leftPostRequestBody.additionalData);

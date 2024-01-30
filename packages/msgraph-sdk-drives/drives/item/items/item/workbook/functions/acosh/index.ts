@@ -43,14 +43,14 @@ export interface AcoshRequestBuilder extends BaseRequestBuilder<AcoshRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a acoshPostRequestBody
  */
-export function createAcoshPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAcoshPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAcoshPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAcoshPostRequestBody(acoshPostRequestBody: AcoshPostRequestBody | undefined = {} as AcoshPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAcoshPostRequestBody(acoshPostRequestBody: Partial<AcoshPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { acoshPostRequestBody.backingStoreEnabled = true; },
         "number": n => { acoshPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoAcoshPostRequestBody(acoshPostRequestBody: AcoshP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAcoshPostRequestBody(writer: SerializationWriter, acoshPostRequestBody: AcoshPostRequestBody | undefined = {} as AcoshPostRequestBody) : void {
+export function serializeAcoshPostRequestBody(writer: SerializationWriter, acoshPostRequestBody: Partial<AcoshPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", acoshPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(acoshPostRequestBody.additionalData);
 }

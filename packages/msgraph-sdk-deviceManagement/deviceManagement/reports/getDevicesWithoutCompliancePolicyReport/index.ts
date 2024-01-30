@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getDevicesWithoutCompliancePolicyReportPostRequestBody
  */
-export function createGetDevicesWithoutCompliancePolicyReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetDevicesWithoutCompliancePolicyReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetDevicesWithoutCompliancePolicyReportPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetDevicesWithoutCompliancePolicyReportPostRequestBody(getDevicesWithoutCompliancePolicyReportPostRequestBody: GetDevicesWithoutCompliancePolicyReportPostRequestBody | undefined = {} as GetDevicesWithoutCompliancePolicyReportPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetDevicesWithoutCompliancePolicyReportPostRequestBody(getDevicesWithoutCompliancePolicyReportPostRequestBody: Partial<GetDevicesWithoutCompliancePolicyReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getDevicesWithoutCompliancePolicyReportPostRequestBody.backingStoreEnabled = true; },
         "filter": n => { getDevicesWithoutCompliancePolicyReportPostRequestBody.filter = n.getStringValue(); },
@@ -100,7 +100,7 @@ export interface GetDevicesWithoutCompliancePolicyReportRequestBuilder extends B
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetDevicesWithoutCompliancePolicyReportPostRequestBody(writer: SerializationWriter, getDevicesWithoutCompliancePolicyReportPostRequestBody: GetDevicesWithoutCompliancePolicyReportPostRequestBody | undefined = {} as GetDevicesWithoutCompliancePolicyReportPostRequestBody) : void {
+export function serializeGetDevicesWithoutCompliancePolicyReportPostRequestBody(writer: SerializationWriter, getDevicesWithoutCompliancePolicyReportPostRequestBody: Partial<GetDevicesWithoutCompliancePolicyReportPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("filter", getDevicesWithoutCompliancePolicyReportPostRequestBody.filter);
     writer.writeCollectionOfPrimitiveValues<string>("groupBy", getDevicesWithoutCompliancePolicyReportPostRequestBody.groupBy);
     writer.writeStringValue("name", getDevicesWithoutCompliancePolicyReportPostRequestBody.name);

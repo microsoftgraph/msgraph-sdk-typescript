@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a degreesPostRequestBody
  */
-export function createDegreesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDegreesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDegreesPostRequestBody;
 }
 export interface DegreesPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -50,7 +50,7 @@ export interface DegreesRequestBuilder extends BaseRequestBuilder<DegreesRequest
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDegreesPostRequestBody(degreesPostRequestBody: DegreesPostRequestBody | undefined = {} as DegreesPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDegreesPostRequestBody(degreesPostRequestBody: Partial<DegreesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "angle": n => { degreesPostRequestBody.angle = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { degreesPostRequestBody.backingStoreEnabled = true; },
@@ -60,7 +60,7 @@ export function deserializeIntoDegreesPostRequestBody(degreesPostRequestBody: De
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDegreesPostRequestBody(writer: SerializationWriter, degreesPostRequestBody: DegreesPostRequestBody | undefined = {} as DegreesPostRequestBody) : void {
+export function serializeDegreesPostRequestBody(writer: SerializationWriter, degreesPostRequestBody: Partial<DegreesPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("angle", degreesPostRequestBody.angle, serializeJson);
     writer.writeAdditionalData(degreesPostRequestBody.additionalData);
 }

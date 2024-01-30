@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a importPostRequestBody
  */
-export function createImportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImportPostRequestBody;
 }
 /**
@@ -18,14 +18,14 @@ export function createImportPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a importPostResponse
  */
-export function createImportPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImportPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImportPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImportPostRequestBody(importPostRequestBody: ImportPostRequestBody | undefined = {} as ImportPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImportPostRequestBody(importPostRequestBody: Partial<ImportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { importPostRequestBody.backingStoreEnabled = true; },
         "importedWindowsAutopilotDeviceIdentities": n => { importPostRequestBody.importedWindowsAutopilotDeviceIdentities = n.getCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>(createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue); },
@@ -35,7 +35,7 @@ export function deserializeIntoImportPostRequestBody(importPostRequestBody: Impo
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImportPostResponse(importPostResponse: ImportPostResponse | undefined = {} as ImportPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImportPostResponse(importPostResponse: Partial<ImportPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(importPostResponse),
         "value": n => { importPostResponse.value = n.getCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>(createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue); },
@@ -85,7 +85,7 @@ export interface ImportRequestBuilder extends BaseRequestBuilder<ImportRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImportPostRequestBody(writer: SerializationWriter, importPostRequestBody: ImportPostRequestBody | undefined = {} as ImportPostRequestBody) : void {
+export function serializeImportPostRequestBody(writer: SerializationWriter, importPostRequestBody: Partial<ImportPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("importedWindowsAutopilotDeviceIdentities", importPostRequestBody.importedWindowsAutopilotDeviceIdentities, serializeImportedWindowsAutopilotDeviceIdentity);
     writer.writeAdditionalData(importPostRequestBody.additionalData);
 }
@@ -93,7 +93,7 @@ export function serializeImportPostRequestBody(writer: SerializationWriter, impo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImportPostResponse(writer: SerializationWriter, importPostResponse: ImportPostResponse | undefined = {} as ImportPostResponse) : void {
+export function serializeImportPostResponse(writer: SerializationWriter, importPostResponse: Partial<ImportPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, importPostResponse)
     writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("value", importPostResponse.value, serializeImportedWindowsAutopilotDeviceIdentity);
 }

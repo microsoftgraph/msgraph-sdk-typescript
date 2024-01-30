@@ -67,14 +67,14 @@ export interface AmorLincRequestBuilder extends BaseRequestBuilder<AmorLincReque
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a amorLincPostRequestBody
  */
-export function createAmorLincPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAmorLincPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAmorLincPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAmorLincPostRequestBody(amorLincPostRequestBody: AmorLincPostRequestBody | undefined = {} as AmorLincPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAmorLincPostRequestBody(amorLincPostRequestBody: Partial<AmorLincPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { amorLincPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { amorLincPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -90,7 +90,7 @@ export function deserializeIntoAmorLincPostRequestBody(amorLincPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAmorLincPostRequestBody(writer: SerializationWriter, amorLincPostRequestBody: AmorLincPostRequestBody | undefined = {} as AmorLincPostRequestBody) : void {
+export function serializeAmorLincPostRequestBody(writer: SerializationWriter, amorLincPostRequestBody: Partial<AmorLincPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", amorLincPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("cost", amorLincPostRequestBody.cost, serializeJson);
     writer.writeObjectValue<Json>("datePurchased", amorLincPostRequestBody.datePurchased, serializeJson);

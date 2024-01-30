@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a permutationaPostRequestBody
  */
-export function createPermutationaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPermutationaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPermutationaPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPermutationaPostRequestBody(permutationaPostRequestBody: PermutationaPostRequestBody | undefined = {} as PermutationaPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPermutationaPostRequestBody(permutationaPostRequestBody: Partial<PermutationaPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { permutationaPostRequestBody.backingStoreEnabled = true; },
         "number": n => { permutationaPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface PermutationaRequestBuilder extends BaseRequestBuilder<Permutati
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePermutationaPostRequestBody(writer: SerializationWriter, permutationaPostRequestBody: PermutationaPostRequestBody | undefined = {} as PermutationaPostRequestBody) : void {
+export function serializePermutationaPostRequestBody(writer: SerializationWriter, permutationaPostRequestBody: Partial<PermutationaPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", permutationaPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("numberChosen", permutationaPostRequestBody.numberChosen, serializeJson);
     writer.writeAdditionalData(permutationaPostRequestBody.additionalData);

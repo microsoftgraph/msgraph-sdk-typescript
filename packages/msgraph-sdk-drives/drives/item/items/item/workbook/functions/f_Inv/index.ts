@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a f_InvPostRequestBody
  */
-export function createF_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createF_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoF_InvPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoF_InvPostRequestBody(f_InvPostRequestBody: F_InvPostRequestBody | undefined = {} as F_InvPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoF_InvPostRequestBody(f_InvPostRequestBody: Partial<F_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { f_InvPostRequestBody.backingStoreEnabled = true; },
         "degFreedom1": n => { f_InvPostRequestBody.degFreedom1 = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface F_InvRequestBuilder extends BaseRequestBuilder<F_InvRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeF_InvPostRequestBody(writer: SerializationWriter, f_InvPostRequestBody: F_InvPostRequestBody | undefined = {} as F_InvPostRequestBody) : void {
+export function serializeF_InvPostRequestBody(writer: SerializationWriter, f_InvPostRequestBody: Partial<F_InvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("degFreedom1", f_InvPostRequestBody.degFreedom1, serializeJson);
     writer.writeObjectValue<Json>("degFreedom2", f_InvPostRequestBody.degFreedom2, serializeJson);
     writer.writeObjectValue<Json>("probability", f_InvPostRequestBody.probability, serializeJson);

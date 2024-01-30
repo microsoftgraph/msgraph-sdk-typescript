@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a quartile_IncPostRequestBody
  */
-export function createQuartile_IncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createQuartile_IncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoQuartile_IncPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoQuartile_IncPostRequestBody(quartile_IncPostRequestBody: Quartile_IncPostRequestBody | undefined = {} as Quartile_IncPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoQuartile_IncPostRequestBody(quartile_IncPostRequestBody: Partial<Quartile_IncPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { quartile_IncPostRequestBody.array = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { quartile_IncPostRequestBody.backingStoreEnabled = true; },
@@ -65,7 +65,7 @@ export interface Quartile_IncRequestBuilder extends BaseRequestBuilder<Quartile_
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeQuartile_IncPostRequestBody(writer: SerializationWriter, quartile_IncPostRequestBody: Quartile_IncPostRequestBody | undefined = {} as Quartile_IncPostRequestBody) : void {
+export function serializeQuartile_IncPostRequestBody(writer: SerializationWriter, quartile_IncPostRequestBody: Partial<Quartile_IncPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("array", quartile_IncPostRequestBody.array, serializeJson);
     writer.writeObjectValue<Json>("quart", quartile_IncPostRequestBody.quart, serializeJson);
     writer.writeAdditionalData(quartile_IncPostRequestBody.additionalData);

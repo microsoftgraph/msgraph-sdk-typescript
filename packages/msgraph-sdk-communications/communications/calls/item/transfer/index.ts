@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a transferPostRequestBody
  */
-export function createTransferPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createTransferPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTransferPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoTransferPostRequestBody(transferPostRequestBody: TransferPostRequestBody | undefined = {} as TransferPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTransferPostRequestBody(transferPostRequestBody: Partial<TransferPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { transferPostRequestBody.backingStoreEnabled = true; },
         "transferee": n => { transferPostRequestBody.transferee = n.getObjectValue<ParticipantInfo>(createParticipantInfoFromDiscriminatorValue); },
@@ -28,7 +28,7 @@ export function deserializeIntoTransferPostRequestBody(transferPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTransferPostRequestBody(writer: SerializationWriter, transferPostRequestBody: TransferPostRequestBody | undefined = {} as TransferPostRequestBody) : void {
+export function serializeTransferPostRequestBody(writer: SerializationWriter, transferPostRequestBody: Partial<TransferPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<ParticipantInfo>("transferee", transferPostRequestBody.transferee, serializeParticipantInfo);
     writer.writeObjectValue<InvitationParticipantInfo>("transferTarget", transferPostRequestBody.transferTarget, serializeInvitationParticipantInfo);
     writer.writeAdditionalData(transferPostRequestBody.additionalData);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a lnPostRequestBody
  */
-export function createLnPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createLnPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLnPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoLnPostRequestBody(lnPostRequestBody: LnPostRequestBody | undefined = {} as LnPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoLnPostRequestBody(lnPostRequestBody: Partial<LnPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { lnPostRequestBody.backingStoreEnabled = true; },
         "number": n => { lnPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface LnRequestBuilder extends BaseRequestBuilder<LnRequestBuilder> {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLnPostRequestBody(writer: SerializationWriter, lnPostRequestBody: LnPostRequestBody | undefined = {} as LnPostRequestBody) : void {
+export function serializeLnPostRequestBody(writer: SerializationWriter, lnPostRequestBody: Partial<LnPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", lnPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(lnPostRequestBody.additionalData);
 }

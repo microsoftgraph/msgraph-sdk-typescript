@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a recentGetResponse
  */
-export function createRecentGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRecentGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRecentGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRecentGetResponse(recentGetResponse: RecentGetResponse | undefined = {} as RecentGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRecentGetResponse(recentGetResponse: Partial<RecentGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(recentGetResponse),
         "value": n => { recentGetResponse.value = n.getCollectionOfObjectValues<UserActivity>(createUserActivityFromDiscriminatorValue); },
@@ -84,7 +84,7 @@ export interface RecentRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRecentGetResponse(writer: SerializationWriter, recentGetResponse: RecentGetResponse | undefined = {} as RecentGetResponse) : void {
+export function serializeRecentGetResponse(writer: SerializationWriter, recentGetResponse: Partial<RecentGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, recentGetResponse)
     writer.writeCollectionOfObjectValues<UserActivity>("value", recentGetResponse.value, serializeUserActivity);
 }

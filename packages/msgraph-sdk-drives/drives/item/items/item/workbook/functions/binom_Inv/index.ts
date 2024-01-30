@@ -51,14 +51,14 @@ export interface Binom_InvRequestBuilder extends BaseRequestBuilder<Binom_InvReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a binom_InvPostRequestBody
  */
-export function createBinom_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createBinom_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBinom_InvPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoBinom_InvPostRequestBody(binom_InvPostRequestBody: Binom_InvPostRequestBody | undefined = {} as Binom_InvPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoBinom_InvPostRequestBody(binom_InvPostRequestBody: Partial<Binom_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "alpha": n => { binom_InvPostRequestBody.alpha = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { binom_InvPostRequestBody.backingStoreEnabled = true; },
@@ -70,7 +70,7 @@ export function deserializeIntoBinom_InvPostRequestBody(binom_InvPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBinom_InvPostRequestBody(writer: SerializationWriter, binom_InvPostRequestBody: Binom_InvPostRequestBody | undefined = {} as Binom_InvPostRequestBody) : void {
+export function serializeBinom_InvPostRequestBody(writer: SerializationWriter, binom_InvPostRequestBody: Partial<Binom_InvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("alpha", binom_InvPostRequestBody.alpha, serializeJson);
     writer.writeObjectValue<Json>("probabilityS", binom_InvPostRequestBody.probabilityS, serializeJson);
     writer.writeObjectValue<Json>("trials", binom_InvPostRequestBody.trials, serializeJson);

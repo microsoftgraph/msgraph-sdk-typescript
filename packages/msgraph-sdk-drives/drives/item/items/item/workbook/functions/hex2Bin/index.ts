@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a hex2BinPostRequestBody
  */
-export function createHex2BinPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createHex2BinPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHex2BinPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoHex2BinPostRequestBody(hex2BinPostRequestBody: Hex2BinPostRequestBody | undefined = {} as Hex2BinPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoHex2BinPostRequestBody(hex2BinPostRequestBody: Partial<Hex2BinPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { hex2BinPostRequestBody.backingStoreEnabled = true; },
         "number": n => { hex2BinPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface Hex2BinRequestBuilder extends BaseRequestBuilder<Hex2BinRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeHex2BinPostRequestBody(writer: SerializationWriter, hex2BinPostRequestBody: Hex2BinPostRequestBody | undefined = {} as Hex2BinPostRequestBody) : void {
+export function serializeHex2BinPostRequestBody(writer: SerializationWriter, hex2BinPostRequestBody: Partial<Hex2BinPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", hex2BinPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("places", hex2BinPostRequestBody.places, serializeJson);
     writer.writeAdditionalData(hex2BinPostRequestBody.additionalData);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a orPostRequestBody
  */
-export function createOrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createOrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOrPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoOrPostRequestBody(orPostRequestBody: OrPostRequestBody | undefined = {} as OrPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoOrPostRequestBody(orPostRequestBody: Partial<OrPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { orPostRequestBody.backingStoreEnabled = true; },
         "values": n => { orPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface OrRequestBuilder extends BaseRequestBuilder<OrRequestBuilder> {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeOrPostRequestBody(writer: SerializationWriter, orPostRequestBody: OrPostRequestBody | undefined = {} as OrPostRequestBody) : void {
+export function serializeOrPostRequestBody(writer: SerializationWriter, orPostRequestBody: Partial<OrPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", orPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(orPostRequestBody.additionalData);
 }

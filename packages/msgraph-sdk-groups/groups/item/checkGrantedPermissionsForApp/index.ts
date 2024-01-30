@@ -33,14 +33,14 @@ export interface CheckGrantedPermissionsForAppRequestBuilder extends BaseRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a checkGrantedPermissionsForAppPostResponse
  */
-export function createCheckGrantedPermissionsForAppPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCheckGrantedPermissionsForAppPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCheckGrantedPermissionsForAppPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCheckGrantedPermissionsForAppPostResponse(checkGrantedPermissionsForAppPostResponse: CheckGrantedPermissionsForAppPostResponse | undefined = {} as CheckGrantedPermissionsForAppPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCheckGrantedPermissionsForAppPostResponse(checkGrantedPermissionsForAppPostResponse: Partial<CheckGrantedPermissionsForAppPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(checkGrantedPermissionsForAppPostResponse),
         "value": n => { checkGrantedPermissionsForAppPostResponse.value = n.getCollectionOfObjectValues<ResourceSpecificPermissionGrant>(createResourceSpecificPermissionGrantFromDiscriminatorValue); },
@@ -50,7 +50,7 @@ export function deserializeIntoCheckGrantedPermissionsForAppPostResponse(checkGr
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCheckGrantedPermissionsForAppPostResponse(writer: SerializationWriter, checkGrantedPermissionsForAppPostResponse: CheckGrantedPermissionsForAppPostResponse | undefined = {} as CheckGrantedPermissionsForAppPostResponse) : void {
+export function serializeCheckGrantedPermissionsForAppPostResponse(writer: SerializationWriter, checkGrantedPermissionsForAppPostResponse: Partial<CheckGrantedPermissionsForAppPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, checkGrantedPermissionsForAppPostResponse)
     writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("value", checkGrantedPermissionsForAppPostResponse.value, serializeResourceSpecificPermissionGrant);
 }

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a signPostRequestBody
  */
-export function createSignPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSignPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSignPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSignPostRequestBody(signPostRequestBody: SignPostRequestBody | undefined = {} as SignPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSignPostRequestBody(signPostRequestBody: Partial<SignPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { signPostRequestBody.backingStoreEnabled = true; },
         "number": n => { signPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoSignPostRequestBody(signPostRequestBody: SignPost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSignPostRequestBody(writer: SerializationWriter, signPostRequestBody: SignPostRequestBody | undefined = {} as SignPostRequestBody) : void {
+export function serializeSignPostRequestBody(writer: SerializationWriter, signPostRequestBody: Partial<SignPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", signPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(signPostRequestBody.additionalData);
 }

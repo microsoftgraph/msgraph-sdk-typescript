@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a truncPostRequestBody
  */
-export function createTruncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createTruncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTruncPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoTruncPostRequestBody(truncPostRequestBody: TruncPostRequestBody | undefined = {} as TruncPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTruncPostRequestBody(truncPostRequestBody: Partial<TruncPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { truncPostRequestBody.backingStoreEnabled = true; },
         "number": n => { truncPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -28,7 +28,7 @@ export function deserializeIntoTruncPostRequestBody(truncPostRequestBody: TruncP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTruncPostRequestBody(writer: SerializationWriter, truncPostRequestBody: TruncPostRequestBody | undefined = {} as TruncPostRequestBody) : void {
+export function serializeTruncPostRequestBody(writer: SerializationWriter, truncPostRequestBody: Partial<TruncPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", truncPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("numDigits", truncPostRequestBody.numDigits, serializeJson);
     writer.writeAdditionalData(truncPostRequestBody.additionalData);

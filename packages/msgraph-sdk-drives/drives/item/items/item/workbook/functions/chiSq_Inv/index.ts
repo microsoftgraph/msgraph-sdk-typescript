@@ -47,14 +47,14 @@ export interface ChiSq_InvRequestBuilder extends BaseRequestBuilder<ChiSq_InvReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a chiSq_InvPostRequestBody
  */
-export function createChiSq_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createChiSq_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoChiSq_InvPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoChiSq_InvPostRequestBody(chiSq_InvPostRequestBody: ChiSq_InvPostRequestBody | undefined = {} as ChiSq_InvPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoChiSq_InvPostRequestBody(chiSq_InvPostRequestBody: Partial<ChiSq_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { chiSq_InvPostRequestBody.backingStoreEnabled = true; },
         "degFreedom": n => { chiSq_InvPostRequestBody.degFreedom = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoChiSq_InvPostRequestBody(chiSq_InvPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeChiSq_InvPostRequestBody(writer: SerializationWriter, chiSq_InvPostRequestBody: ChiSq_InvPostRequestBody | undefined = {} as ChiSq_InvPostRequestBody) : void {
+export function serializeChiSq_InvPostRequestBody(writer: SerializationWriter, chiSq_InvPostRequestBody: Partial<ChiSq_InvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("degFreedom", chiSq_InvPostRequestBody.degFreedom, serializeJson);
     writer.writeObjectValue<Json>("probability", chiSq_InvPostRequestBody.probability, serializeJson);
     writer.writeAdditionalData(chiSq_InvPostRequestBody.additionalData);

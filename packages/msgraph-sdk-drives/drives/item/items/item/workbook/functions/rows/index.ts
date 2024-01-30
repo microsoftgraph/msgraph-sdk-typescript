@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a rowsPostRequestBody
  */
-export function createRowsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRowsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRowsPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRowsPostRequestBody(rowsPostRequestBody: RowsPostRequestBody | undefined = {} as RowsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRowsPostRequestBody(rowsPostRequestBody: Partial<RowsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { rowsPostRequestBody.array = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { rowsPostRequestBody.backingStoreEnabled = true; },
@@ -60,7 +60,7 @@ export interface RowsRequestBuilder extends BaseRequestBuilder<RowsRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRowsPostRequestBody(writer: SerializationWriter, rowsPostRequestBody: RowsPostRequestBody | undefined = {} as RowsPostRequestBody) : void {
+export function serializeRowsPostRequestBody(writer: SerializationWriter, rowsPostRequestBody: Partial<RowsPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("array", rowsPostRequestBody.array, serializeJson);
     writer.writeAdditionalData(rowsPostRequestBody.additionalData);
 }

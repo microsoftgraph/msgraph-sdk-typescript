@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a dayPostRequestBody
  */
-export function createDayPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDayPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDayPostRequestBody;
 }
 export interface DayPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -50,7 +50,7 @@ export interface DayRequestBuilder extends BaseRequestBuilder<DayRequestBuilder>
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDayPostRequestBody(dayPostRequestBody: DayPostRequestBody | undefined = {} as DayPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDayPostRequestBody(dayPostRequestBody: Partial<DayPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dayPostRequestBody.backingStoreEnabled = true; },
         "serialNumber": n => { dayPostRequestBody.serialNumber = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoDayPostRequestBody(dayPostRequestBody: DayPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDayPostRequestBody(writer: SerializationWriter, dayPostRequestBody: DayPostRequestBody | undefined = {} as DayPostRequestBody) : void {
+export function serializeDayPostRequestBody(writer: SerializationWriter, dayPostRequestBody: Partial<DayPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("serialNumber", dayPostRequestBody.serialNumber, serializeJson);
     writer.writeAdditionalData(dayPostRequestBody.additionalData);
 }

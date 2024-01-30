@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a createOrGetPostRequestBody
  */
-export function createCreateOrGetPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCreateOrGetPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateOrGetPostRequestBody;
 }
 export interface CreateOrGetPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -71,7 +71,7 @@ export interface CreateOrGetRequestBuilder extends BaseRequestBuilder<CreateOrGe
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCreateOrGetPostRequestBody(createOrGetPostRequestBody: CreateOrGetPostRequestBody | undefined = {} as CreateOrGetPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCreateOrGetPostRequestBody(createOrGetPostRequestBody: Partial<CreateOrGetPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createOrGetPostRequestBody.backingStoreEnabled = true; },
         "chatInfo": n => { createOrGetPostRequestBody.chatInfo = n.getObjectValue<ChatInfo>(createChatInfoFromDiscriminatorValue); },
@@ -86,7 +86,7 @@ export function deserializeIntoCreateOrGetPostRequestBody(createOrGetPostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCreateOrGetPostRequestBody(writer: SerializationWriter, createOrGetPostRequestBody: CreateOrGetPostRequestBody | undefined = {} as CreateOrGetPostRequestBody) : void {
+export function serializeCreateOrGetPostRequestBody(writer: SerializationWriter, createOrGetPostRequestBody: Partial<CreateOrGetPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<ChatInfo>("chatInfo", createOrGetPostRequestBody.chatInfo, serializeChatInfo);
     writer.writeDateValue("endDateTime", createOrGetPostRequestBody.endDateTime);
     writer.writeStringValue("externalId", createOrGetPostRequestBody.externalId);

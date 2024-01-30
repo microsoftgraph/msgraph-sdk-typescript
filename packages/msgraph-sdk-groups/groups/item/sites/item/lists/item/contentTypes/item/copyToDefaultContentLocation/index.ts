@@ -47,14 +47,14 @@ export interface CopyToDefaultContentLocationRequestBuilder extends BaseRequestB
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a copyToDefaultContentLocationPostRequestBody
  */
-export function createCopyToDefaultContentLocationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCopyToDefaultContentLocationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopyToDefaultContentLocationPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCopyToDefaultContentLocationPostRequestBody(copyToDefaultContentLocationPostRequestBody: CopyToDefaultContentLocationPostRequestBody | undefined = {} as CopyToDefaultContentLocationPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCopyToDefaultContentLocationPostRequestBody(copyToDefaultContentLocationPostRequestBody: Partial<CopyToDefaultContentLocationPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { copyToDefaultContentLocationPostRequestBody.backingStoreEnabled = true; },
         "destinationFileName": n => { copyToDefaultContentLocationPostRequestBody.destinationFileName = n.getStringValue(); },
@@ -65,7 +65,7 @@ export function deserializeIntoCopyToDefaultContentLocationPostRequestBody(copyT
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCopyToDefaultContentLocationPostRequestBody(writer: SerializationWriter, copyToDefaultContentLocationPostRequestBody: CopyToDefaultContentLocationPostRequestBody | undefined = {} as CopyToDefaultContentLocationPostRequestBody) : void {
+export function serializeCopyToDefaultContentLocationPostRequestBody(writer: SerializationWriter, copyToDefaultContentLocationPostRequestBody: Partial<CopyToDefaultContentLocationPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("destinationFileName", copyToDefaultContentLocationPostRequestBody.destinationFileName);
     writer.writeObjectValue<ItemReference>("sourceFile", copyToDefaultContentLocationPostRequestBody.sourceFile, serializeItemReference);
     writer.writeAdditionalData(copyToDefaultContentLocationPostRequestBody.additionalData);

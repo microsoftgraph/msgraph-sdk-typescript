@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a imaginaryPostRequestBody
  */
-export function createImaginaryPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImaginaryPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImaginaryPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImaginaryPostRequestBody(imaginaryPostRequestBody: ImaginaryPostRequestBody | undefined = {} as ImaginaryPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImaginaryPostRequestBody(imaginaryPostRequestBody: Partial<ImaginaryPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imaginaryPostRequestBody.backingStoreEnabled = true; },
         "inumber": n => { imaginaryPostRequestBody.inumber = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface ImaginaryRequestBuilder extends BaseRequestBuilder<ImaginaryReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImaginaryPostRequestBody(writer: SerializationWriter, imaginaryPostRequestBody: ImaginaryPostRequestBody | undefined = {} as ImaginaryPostRequestBody) : void {
+export function serializeImaginaryPostRequestBody(writer: SerializationWriter, imaginaryPostRequestBody: Partial<ImaginaryPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("inumber", imaginaryPostRequestBody.inumber, serializeJson);
     writer.writeAdditionalData(imaginaryPostRequestBody.additionalData);
 }

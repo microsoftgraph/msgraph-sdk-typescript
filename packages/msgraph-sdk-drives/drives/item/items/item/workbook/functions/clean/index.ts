@@ -43,14 +43,14 @@ export interface CleanRequestBuilder extends BaseRequestBuilder<CleanRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a cleanPostRequestBody
  */
-export function createCleanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCleanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCleanPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCleanPostRequestBody(cleanPostRequestBody: CleanPostRequestBody | undefined = {} as CleanPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCleanPostRequestBody(cleanPostRequestBody: Partial<CleanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cleanPostRequestBody.backingStoreEnabled = true; },
         "text": n => { cleanPostRequestBody.text = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoCleanPostRequestBody(cleanPostRequestBody: CleanP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCleanPostRequestBody(writer: SerializationWriter, cleanPostRequestBody: CleanPostRequestBody | undefined = {} as CleanPostRequestBody) : void {
+export function serializeCleanPostRequestBody(writer: SerializationWriter, cleanPostRequestBody: Partial<CleanPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("text", cleanPostRequestBody.text, serializeJson);
     writer.writeAdditionalData(cleanPostRequestBody.additionalData);
 }

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a setPositionPostRequestBody
  */
-export function createSetPositionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSetPositionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetPositionPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSetPositionPostRequestBody(setPositionPostRequestBody: SetPositionPostRequestBody | undefined = {} as SetPositionPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSetPositionPostRequestBody(setPositionPostRequestBody: Partial<SetPositionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { setPositionPostRequestBody.backingStoreEnabled = true; },
         "endCell": n => { setPositionPostRequestBody.endCell = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -28,7 +28,7 @@ export function deserializeIntoSetPositionPostRequestBody(setPositionPostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSetPositionPostRequestBody(writer: SerializationWriter, setPositionPostRequestBody: SetPositionPostRequestBody | undefined = {} as SetPositionPostRequestBody) : void {
+export function serializeSetPositionPostRequestBody(writer: SerializationWriter, setPositionPostRequestBody: Partial<SetPositionPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("endCell", setPositionPostRequestBody.endCell, serializeJson);
     writer.writeObjectValue<Json>("startCell", setPositionPostRequestBody.startCell, serializeJson);
     writer.writeAdditionalData(setPositionPostRequestBody.additionalData);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a sendDtmfTonesPostRequestBody
  */
-export function createSendDtmfTonesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSendDtmfTonesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSendDtmfTonesPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSendDtmfTonesPostRequestBody(sendDtmfTonesPostRequestBody: SendDtmfTonesPostRequestBody | undefined = {} as SendDtmfTonesPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSendDtmfTonesPostRequestBody(sendDtmfTonesPostRequestBody: Partial<SendDtmfTonesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sendDtmfTonesPostRequestBody.backingStoreEnabled = true; },
         "clientContext": n => { sendDtmfTonesPostRequestBody.clientContext = n.getStringValue(); },
@@ -70,7 +70,7 @@ export interface SendDtmfTonesRequestBuilder extends BaseRequestBuilder<SendDtmf
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSendDtmfTonesPostRequestBody(writer: SerializationWriter, sendDtmfTonesPostRequestBody: SendDtmfTonesPostRequestBody | undefined = {} as SendDtmfTonesPostRequestBody) : void {
+export function serializeSendDtmfTonesPostRequestBody(writer: SerializationWriter, sendDtmfTonesPostRequestBody: Partial<SendDtmfTonesPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("clientContext", sendDtmfTonesPostRequestBody.clientContext);
     writer.writeNumberValue("delayBetweenTonesMs", sendDtmfTonesPostRequestBody.delayBetweenTonesMs);
     if(sendDtmfTonesPostRequestBody.tones)

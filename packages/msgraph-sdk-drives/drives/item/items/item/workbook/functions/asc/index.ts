@@ -43,14 +43,14 @@ export interface AscRequestBuilder extends BaseRequestBuilder<AscRequestBuilder>
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a ascPostRequestBody
  */
-export function createAscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAscPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAscPostRequestBody(ascPostRequestBody: AscPostRequestBody | undefined = {} as AscPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAscPostRequestBody(ascPostRequestBody: Partial<AscPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ascPostRequestBody.backingStoreEnabled = true; },
         "text": n => { ascPostRequestBody.text = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoAscPostRequestBody(ascPostRequestBody: AscPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAscPostRequestBody(writer: SerializationWriter, ascPostRequestBody: AscPostRequestBody | undefined = {} as AscPostRequestBody) : void {
+export function serializeAscPostRequestBody(writer: SerializationWriter, ascPostRequestBody: Partial<AscPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("text", ascPostRequestBody.text, serializeJson);
     writer.writeAdditionalData(ascPostRequestBody.additionalData);
 }

@@ -44,14 +44,14 @@ export interface CancelMediaProcessingRequestBuilder extends BaseRequestBuilder<
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a cancelMediaProcessingPostRequestBody
  */
-export function createCancelMediaProcessingPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCancelMediaProcessingPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCancelMediaProcessingPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCancelMediaProcessingPostRequestBody(cancelMediaProcessingPostRequestBody: CancelMediaProcessingPostRequestBody | undefined = {} as CancelMediaProcessingPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCancelMediaProcessingPostRequestBody(cancelMediaProcessingPostRequestBody: Partial<CancelMediaProcessingPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cancelMediaProcessingPostRequestBody.backingStoreEnabled = true; },
         "clientContext": n => { cancelMediaProcessingPostRequestBody.clientContext = n.getStringValue(); },
@@ -61,7 +61,7 @@ export function deserializeIntoCancelMediaProcessingPostRequestBody(cancelMediaP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCancelMediaProcessingPostRequestBody(writer: SerializationWriter, cancelMediaProcessingPostRequestBody: CancelMediaProcessingPostRequestBody | undefined = {} as CancelMediaProcessingPostRequestBody) : void {
+export function serializeCancelMediaProcessingPostRequestBody(writer: SerializationWriter, cancelMediaProcessingPostRequestBody: Partial<CancelMediaProcessingPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("clientContext", cancelMediaProcessingPostRequestBody.clientContext);
     writer.writeAdditionalData(cancelMediaProcessingPostRequestBody.additionalData);
 }

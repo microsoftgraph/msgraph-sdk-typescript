@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a createNewVersionPostRequestBody
  */
-export function createCreateNewVersionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCreateNewVersionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateNewVersionPostRequestBody;
 }
 export interface CreateNewVersionPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -31,7 +31,7 @@ export interface CreateNewVersionPostRequestBody extends AdditionalDataHolder, B
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCreateNewVersionPostRequestBody(createNewVersionPostRequestBody: CreateNewVersionPostRequestBody | undefined = {} as CreateNewVersionPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCreateNewVersionPostRequestBody(createNewVersionPostRequestBody: Partial<CreateNewVersionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createNewVersionPostRequestBody.backingStoreEnabled = true; },
         "workflow": n => { createNewVersionPostRequestBody.workflow = n.getObjectValue<Workflow>(createWorkflowFromDiscriminatorValue); },
@@ -61,7 +61,7 @@ export interface MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCreateNewVersionPostRequestBody(writer: SerializationWriter, createNewVersionPostRequestBody: CreateNewVersionPostRequestBody | undefined = {} as CreateNewVersionPostRequestBody) : void {
+export function serializeCreateNewVersionPostRequestBody(writer: SerializationWriter, createNewVersionPostRequestBody: Partial<CreateNewVersionPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Workflow>("workflow", createNewVersionPostRequestBody.workflow, serializeWorkflow);
     writer.writeAdditionalData(createNewVersionPostRequestBody.additionalData);
 }

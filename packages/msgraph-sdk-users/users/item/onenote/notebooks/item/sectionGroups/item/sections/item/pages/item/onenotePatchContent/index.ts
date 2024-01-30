@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a onenotePatchContentPostRequestBody
  */
-export function createOnenotePatchContentPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createOnenotePatchContentPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOnenotePatchContentPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoOnenotePatchContentPostRequestBody(onenotePatchContentPostRequestBody: OnenotePatchContentPostRequestBody | undefined = {} as OnenotePatchContentPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoOnenotePatchContentPostRequestBody(onenotePatchContentPostRequestBody: Partial<OnenotePatchContentPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { onenotePatchContentPostRequestBody.backingStoreEnabled = true; },
         "commands": n => { onenotePatchContentPostRequestBody.commands = n.getCollectionOfObjectValues<OnenotePatchContentCommand>(createOnenotePatchContentCommandFromDiscriminatorValue); },
@@ -59,7 +59,7 @@ export interface OnenotePatchContentRequestBuilder extends BaseRequestBuilder<On
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeOnenotePatchContentPostRequestBody(writer: SerializationWriter, onenotePatchContentPostRequestBody: OnenotePatchContentPostRequestBody | undefined = {} as OnenotePatchContentPostRequestBody) : void {
+export function serializeOnenotePatchContentPostRequestBody(writer: SerializationWriter, onenotePatchContentPostRequestBody: Partial<OnenotePatchContentPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<OnenotePatchContentCommand>("commands", onenotePatchContentPostRequestBody.commands, serializeOnenotePatchContentCommand);
     writer.writeAdditionalData(onenotePatchContentPostRequestBody.additionalData);
 }

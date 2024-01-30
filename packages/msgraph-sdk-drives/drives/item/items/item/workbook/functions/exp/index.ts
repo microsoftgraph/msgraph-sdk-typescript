@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a expPostRequestBody
  */
-export function createExpPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createExpPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExpPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoExpPostRequestBody(expPostRequestBody: ExpPostRequestBody | undefined = {} as ExpPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoExpPostRequestBody(expPostRequestBody: Partial<ExpPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { expPostRequestBody.backingStoreEnabled = true; },
         "number": n => { expPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface ExpRequestBuilder extends BaseRequestBuilder<ExpRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExpPostRequestBody(writer: SerializationWriter, expPostRequestBody: ExpPostRequestBody | undefined = {} as ExpPostRequestBody) : void {
+export function serializeExpPostRequestBody(writer: SerializationWriter, expPostRequestBody: Partial<ExpPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", expPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(expPostRequestBody.additionalData);
 }

@@ -51,14 +51,14 @@ export interface BaseRequestBuilderEscaped extends BaseRequestBuilder<BaseReques
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a basePostRequestBody
  */
-export function createBasePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createBasePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBasePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoBasePostRequestBody(basePostRequestBody: BasePostRequestBody | undefined = {} as BasePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoBasePostRequestBody(basePostRequestBody: Partial<BasePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { basePostRequestBody.backingStoreEnabled = true; },
         "minLength": n => { basePostRequestBody.minLength = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export function deserializeIntoBasePostRequestBody(basePostRequestBody: BasePost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBasePostRequestBody(writer: SerializationWriter, basePostRequestBody: BasePostRequestBody | undefined = {} as BasePostRequestBody) : void {
+export function serializeBasePostRequestBody(writer: SerializationWriter, basePostRequestBody: Partial<BasePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("minLength", basePostRequestBody.minLength, serializeJson);
     writer.writeObjectValue<Json>("number", basePostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("radix", basePostRequestBody.radix, serializeJson);

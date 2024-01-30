@@ -29,11 +29,11 @@ export interface ConversationsRequestBuilder extends BaseRequestBuilder<Conversa
      */
      get(requestConfiguration?: RequestConfiguration<ConversationsRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationCollectionResponse | undefined>;
     /**
-     * Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. The table in the Permissions section lists the resources that support open extensions.
+     * Use reply thread or reply post to further post to that conversation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Conversation
-     * @see {@link https://learn.microsoft.com/graph/api/opentypeextension-post-opentypeextension?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-post-conversations?view=graph-rest-1.0|Find more info here}
      */
      post(body: Conversation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Conversation | undefined>;
     /**
@@ -43,7 +43,7 @@ export interface ConversationsRequestBuilder extends BaseRequestBuilder<Conversa
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConversationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. The table in the Permissions section lists the resources that support open extensions.
+     * Use reply thread or reply post to further post to that conversation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

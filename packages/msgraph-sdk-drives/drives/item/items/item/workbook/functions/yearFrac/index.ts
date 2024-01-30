@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a yearFracPostRequestBody
  */
-export function createYearFracPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createYearFracPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoYearFracPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoYearFracPostRequestBody(yearFracPostRequestBody: YearFracPostRequestBody | undefined = {} as YearFracPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoYearFracPostRequestBody(yearFracPostRequestBody: Partial<YearFracPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { yearFracPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { yearFracPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -29,7 +29,7 @@ export function deserializeIntoYearFracPostRequestBody(yearFracPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeYearFracPostRequestBody(writer: SerializationWriter, yearFracPostRequestBody: YearFracPostRequestBody | undefined = {} as YearFracPostRequestBody) : void {
+export function serializeYearFracPostRequestBody(writer: SerializationWriter, yearFracPostRequestBody: Partial<YearFracPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", yearFracPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("endDate", yearFracPostRequestBody.endDate, serializeJson);
     writer.writeObjectValue<Json>("startDate", yearFracPostRequestBody.startDate, serializeJson);

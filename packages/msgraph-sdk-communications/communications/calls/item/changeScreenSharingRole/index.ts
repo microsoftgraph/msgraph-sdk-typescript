@@ -43,14 +43,14 @@ export interface ChangeScreenSharingRoleRequestBuilder extends BaseRequestBuilde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a changeScreenSharingRolePostRequestBody
  */
-export function createChangeScreenSharingRolePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createChangeScreenSharingRolePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoChangeScreenSharingRolePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoChangeScreenSharingRolePostRequestBody(changeScreenSharingRolePostRequestBody: ChangeScreenSharingRolePostRequestBody | undefined = {} as ChangeScreenSharingRolePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoChangeScreenSharingRolePostRequestBody(changeScreenSharingRolePostRequestBody: Partial<ChangeScreenSharingRolePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { changeScreenSharingRolePostRequestBody.backingStoreEnabled = true; },
         "role": n => { changeScreenSharingRolePostRequestBody.role = n.getEnumValue<ScreenSharingRole>(ScreenSharingRoleObject); },
@@ -60,7 +60,7 @@ export function deserializeIntoChangeScreenSharingRolePostRequestBody(changeScre
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeChangeScreenSharingRolePostRequestBody(writer: SerializationWriter, changeScreenSharingRolePostRequestBody: ChangeScreenSharingRolePostRequestBody | undefined = {} as ChangeScreenSharingRolePostRequestBody) : void {
+export function serializeChangeScreenSharingRolePostRequestBody(writer: SerializationWriter, changeScreenSharingRolePostRequestBody: Partial<ChangeScreenSharingRolePostRequestBody> | undefined = {}) : void {
     writer.writeEnumValue<ScreenSharingRole>("role", changeScreenSharingRolePostRequestBody.role);
     writer.writeAdditionalData(changeScreenSharingRolePostRequestBody.additionalData);
 }

@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a exportPersonalDataPostRequestBody
  */
-export function createExportPersonalDataPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createExportPersonalDataPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExportPersonalDataPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoExportPersonalDataPostRequestBody(exportPersonalDataPostRequestBody: ExportPersonalDataPostRequestBody | undefined = {} as ExportPersonalDataPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoExportPersonalDataPostRequestBody(exportPersonalDataPostRequestBody: Partial<ExportPersonalDataPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { exportPersonalDataPostRequestBody.backingStoreEnabled = true; },
         "storageLocation": n => { exportPersonalDataPostRequestBody.storageLocation = n.getStringValue(); },
@@ -59,7 +59,7 @@ export interface ExportPersonalDataRequestBuilder extends BaseRequestBuilder<Exp
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExportPersonalDataPostRequestBody(writer: SerializationWriter, exportPersonalDataPostRequestBody: ExportPersonalDataPostRequestBody | undefined = {} as ExportPersonalDataPostRequestBody) : void {
+export function serializeExportPersonalDataPostRequestBody(writer: SerializationWriter, exportPersonalDataPostRequestBody: Partial<ExportPersonalDataPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("storageLocation", exportPersonalDataPostRequestBody.storageLocation);
     writer.writeAdditionalData(exportPersonalDataPostRequestBody.additionalData);
 }

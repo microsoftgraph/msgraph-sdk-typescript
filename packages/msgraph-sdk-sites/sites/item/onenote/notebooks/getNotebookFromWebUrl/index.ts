@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getNotebookFromWebUrlPostRequestBody
  */
-export function createGetNotebookFromWebUrlPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetNotebookFromWebUrlPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetNotebookFromWebUrlPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetNotebookFromWebUrlPostRequestBody(getNotebookFromWebUrlPostRequestBody: GetNotebookFromWebUrlPostRequestBody | undefined = {} as GetNotebookFromWebUrlPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetNotebookFromWebUrlPostRequestBody(getNotebookFromWebUrlPostRequestBody: Partial<GetNotebookFromWebUrlPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getNotebookFromWebUrlPostRequestBody.backingStoreEnabled = true; },
         "webUrl": n => { getNotebookFromWebUrlPostRequestBody.webUrl = n.getStringValue(); },
@@ -61,7 +61,7 @@ export interface GetNotebookFromWebUrlRequestBuilder extends BaseRequestBuilder<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetNotebookFromWebUrlPostRequestBody(writer: SerializationWriter, getNotebookFromWebUrlPostRequestBody: GetNotebookFromWebUrlPostRequestBody | undefined = {} as GetNotebookFromWebUrlPostRequestBody) : void {
+export function serializeGetNotebookFromWebUrlPostRequestBody(writer: SerializationWriter, getNotebookFromWebUrlPostRequestBody: Partial<GetNotebookFromWebUrlPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("webUrl", getNotebookFromWebUrlPostRequestBody.webUrl);
     writer.writeAdditionalData(getNotebookFromWebUrlPostRequestBody.additionalData);
 }

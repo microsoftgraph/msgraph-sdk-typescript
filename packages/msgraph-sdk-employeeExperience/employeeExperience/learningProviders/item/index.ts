@@ -4,7 +4,9 @@
 import { createLearningProviderFromDiscriminatorValue, serializeLearningProvider, type LearningProvider } from '@microsoft/msgraph-sdk/models/';
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { LearningContentsRequestBuilderNavigationMetadata, LearningContentsRequestBuilderRequestsMetadata, LearningContentsRequestBuilderUriTemplate, type LearningContentsRequestBuilder } from './learningContents/';
+import { LearningContentsWithExternalIdRequestBuilderRequestsMetadata, LearningContentsWithExternalIdRequestBuilderUriTemplate, type LearningContentsWithExternalIdRequestBuilder } from './learningContentsWithExternalId/';
 import { LearningCourseActivitiesRequestBuilderNavigationMetadata, LearningCourseActivitiesRequestBuilderRequestsMetadata, LearningCourseActivitiesRequestBuilderUriTemplate, type LearningCourseActivitiesRequestBuilder } from './learningCourseActivities/';
+import { LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderRequestsMetadata, LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate, type LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder } from './learningCourseActivitiesWithExternalcourseActivityId/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -32,6 +34,18 @@ export interface LearningProviderItemRequestBuilder extends BaseRequestBuilder<L
      * @see {@link https://learn.microsoft.com/graph/api/learningprovider-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LearningProviderItemRequestBuilderGetQueryParameters> | undefined) : Promise<LearningProvider | undefined>;
+    /**
+     * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
+     * @param externalId Alternate key of learningContent
+     * @returns a learningContentsWithExternalIdRequestBuilder
+     */
+     learningContentsWithExternalId(externalId: string | undefined) : LearningContentsWithExternalIdRequestBuilder;
+    /**
+     * Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.
+     * @param externalcourseActivityId Alternate key of learningCourseActivity
+     * @returns a learningCourseActivitiesWithExternalcourseActivityIdRequestBuilder
+     */
+     learningCourseActivitiesWithExternalcourseActivityId(externalcourseActivityId: string | undefined) : LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder;
     /**
      * Update the properties of a learningProvider object.
      * @param body The request body
@@ -84,6 +98,14 @@ const LearningProviderItemRequestBuilderGetQueryParametersMapper: Record<string,
  * Metadata for all the navigation properties in the request builder.
  */
 export const LearningProviderItemRequestBuilderNavigationMetadata: Record<Exclude<keyof LearningProviderItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    learningContentsWithExternalId: {
+        uriTemplate: LearningContentsWithExternalIdRequestBuilderUriTemplate,
+        requestsMetadata: LearningContentsWithExternalIdRequestBuilderRequestsMetadata,
+    },
+    learningCourseActivitiesWithExternalcourseActivityId: {
+        uriTemplate: LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate,
+        requestsMetadata: LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderRequestsMetadata,
+    },
     learningContents: {
         uriTemplate: LearningContentsRequestBuilderUriTemplate,
         requestsMetadata: LearningContentsRequestBuilderRequestsMetadata,

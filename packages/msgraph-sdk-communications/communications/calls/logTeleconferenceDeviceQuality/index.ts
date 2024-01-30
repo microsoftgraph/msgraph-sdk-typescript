@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a logTeleconferenceDeviceQualityPostRequestBody
  */
-export function createLogTeleconferenceDeviceQualityPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createLogTeleconferenceDeviceQualityPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLogTeleconferenceDeviceQualityPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoLogTeleconferenceDeviceQualityPostRequestBody(logTeleconferenceDeviceQualityPostRequestBody: LogTeleconferenceDeviceQualityPostRequestBody | undefined = {} as LogTeleconferenceDeviceQualityPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoLogTeleconferenceDeviceQualityPostRequestBody(logTeleconferenceDeviceQualityPostRequestBody: Partial<LogTeleconferenceDeviceQualityPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { logTeleconferenceDeviceQualityPostRequestBody.backingStoreEnabled = true; },
         "quality": n => { logTeleconferenceDeviceQualityPostRequestBody.quality = n.getObjectValue<TeleconferenceDeviceQuality>(createTeleconferenceDeviceQualityFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface LogTeleconferenceDeviceQualityRequestBuilder extends BaseReques
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLogTeleconferenceDeviceQualityPostRequestBody(writer: SerializationWriter, logTeleconferenceDeviceQualityPostRequestBody: LogTeleconferenceDeviceQualityPostRequestBody | undefined = {} as LogTeleconferenceDeviceQualityPostRequestBody) : void {
+export function serializeLogTeleconferenceDeviceQualityPostRequestBody(writer: SerializationWriter, logTeleconferenceDeviceQualityPostRequestBody: Partial<LogTeleconferenceDeviceQualityPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<TeleconferenceDeviceQuality>("quality", logTeleconferenceDeviceQualityPostRequestBody.quality, serializeTeleconferenceDeviceQuality);
     writer.writeAdditionalData(logTeleconferenceDeviceQualityPostRequestBody.additionalData);
 }

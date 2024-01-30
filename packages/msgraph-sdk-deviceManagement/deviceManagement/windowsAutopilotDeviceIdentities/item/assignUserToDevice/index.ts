@@ -46,14 +46,14 @@ export interface AssignUserToDeviceRequestBuilder extends BaseRequestBuilder<Ass
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a assignUserToDevicePostRequestBody
  */
-export function createAssignUserToDevicePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAssignUserToDevicePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAssignUserToDevicePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAssignUserToDevicePostRequestBody(assignUserToDevicePostRequestBody: AssignUserToDevicePostRequestBody | undefined = {} as AssignUserToDevicePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAssignUserToDevicePostRequestBody(assignUserToDevicePostRequestBody: Partial<AssignUserToDevicePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "addressableUserName": n => { assignUserToDevicePostRequestBody.addressableUserName = n.getStringValue(); },
         "backingStoreEnabled": n => { assignUserToDevicePostRequestBody.backingStoreEnabled = true; },
@@ -64,7 +64,7 @@ export function deserializeIntoAssignUserToDevicePostRequestBody(assignUserToDev
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAssignUserToDevicePostRequestBody(writer: SerializationWriter, assignUserToDevicePostRequestBody: AssignUserToDevicePostRequestBody | undefined = {} as AssignUserToDevicePostRequestBody) : void {
+export function serializeAssignUserToDevicePostRequestBody(writer: SerializationWriter, assignUserToDevicePostRequestBody: Partial<AssignUserToDevicePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("addressableUserName", assignUserToDevicePostRequestBody.addressableUserName);
     writer.writeStringValue("userPrincipalName", assignUserToDevicePostRequestBody.userPrincipalName);
     writer.writeAdditionalData(assignUserToDevicePostRequestBody.additionalData);

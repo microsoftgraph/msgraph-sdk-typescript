@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a imageWithWidthWithHeightWithFittingModeGetResponse
  */
-export function createImageWithWidthWithHeightWithFittingModeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImageWithWidthWithHeightWithFittingModeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImageWithWidthWithHeightWithFittingModeGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImageWithWidthWithHeightWithFittingModeGetResponse(imageWithWidthWithHeightWithFittingModeGetResponse: ImageWithWidthWithHeightWithFittingModeGetResponse | undefined = {} as ImageWithWidthWithHeightWithFittingModeGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImageWithWidthWithHeightWithFittingModeGetResponse(imageWithWidthWithHeightWithFittingModeGetResponse: Partial<ImageWithWidthWithHeightWithFittingModeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imageWithWidthWithHeightWithFittingModeGetResponse.backingStoreEnabled = true; },
         "value": n => { imageWithWidthWithHeightWithFittingModeGetResponse.value = n.getStringValue(); },
@@ -57,7 +57,7 @@ export interface ImageWithWidthWithHeightWithFittingModeRequestBuilder extends B
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImageWithWidthWithHeightWithFittingModeGetResponse(writer: SerializationWriter, imageWithWidthWithHeightWithFittingModeGetResponse: ImageWithWidthWithHeightWithFittingModeGetResponse | undefined = {} as ImageWithWidthWithHeightWithFittingModeGetResponse) : void {
+export function serializeImageWithWidthWithHeightWithFittingModeGetResponse(writer: SerializationWriter, imageWithWidthWithHeightWithFittingModeGetResponse: Partial<ImageWithWidthWithHeightWithFittingModeGetResponse> | undefined = {}) : void {
     writer.writeStringValue("value", imageWithWidthWithHeightWithFittingModeGetResponse.value);
     writer.writeAdditionalData(imageWithWidthWithHeightWithFittingModeGetResponse.additionalData);
 }

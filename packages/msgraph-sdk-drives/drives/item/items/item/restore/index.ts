@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a restorePostRequestBody
  */
-export function createRestorePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRestorePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRestorePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRestorePostRequestBody(restorePostRequestBody: RestorePostRequestBody | undefined = {} as RestorePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRestorePostRequestBody(restorePostRequestBody: Partial<RestorePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { restorePostRequestBody.backingStoreEnabled = true; },
         "name": n => { restorePostRequestBody.name = n.getStringValue(); },
@@ -66,7 +66,7 @@ export interface RestoreRequestBuilder extends BaseRequestBuilder<RestoreRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRestorePostRequestBody(writer: SerializationWriter, restorePostRequestBody: RestorePostRequestBody | undefined = {} as RestorePostRequestBody) : void {
+export function serializeRestorePostRequestBody(writer: SerializationWriter, restorePostRequestBody: Partial<RestorePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("name", restorePostRequestBody.name);
     writer.writeObjectValue<ItemReference>("parentReference", restorePostRequestBody.parentReference, serializeItemReference);
     writer.writeAdditionalData(restorePostRequestBody.additionalData);

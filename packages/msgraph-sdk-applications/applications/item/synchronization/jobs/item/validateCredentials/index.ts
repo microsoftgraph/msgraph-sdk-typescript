@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a validateCredentialsPostRequestBody
  */
-export function createValidateCredentialsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createValidateCredentialsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoValidateCredentialsPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoValidateCredentialsPostRequestBody(validateCredentialsPostRequestBody: ValidateCredentialsPostRequestBody | undefined = {} as ValidateCredentialsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoValidateCredentialsPostRequestBody(validateCredentialsPostRequestBody: Partial<ValidateCredentialsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "applicationIdentifier": n => { validateCredentialsPostRequestBody.applicationIdentifier = n.getStringValue(); },
         "backingStoreEnabled": n => { validateCredentialsPostRequestBody.backingStoreEnabled = true; },
@@ -30,7 +30,7 @@ export function deserializeIntoValidateCredentialsPostRequestBody(validateCreden
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeValidateCredentialsPostRequestBody(writer: SerializationWriter, validateCredentialsPostRequestBody: ValidateCredentialsPostRequestBody | undefined = {} as ValidateCredentialsPostRequestBody) : void {
+export function serializeValidateCredentialsPostRequestBody(writer: SerializationWriter, validateCredentialsPostRequestBody: Partial<ValidateCredentialsPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("applicationIdentifier", validateCredentialsPostRequestBody.applicationIdentifier);
     writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("credentials", validateCredentialsPostRequestBody.credentials, serializeSynchronizationSecretKeyStringValuePair);
     writer.writeStringValue("templateId", validateCredentialsPostRequestBody.templateId);

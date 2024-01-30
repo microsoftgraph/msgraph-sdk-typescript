@@ -60,14 +60,14 @@ export interface CopyToNotebookRequestBuilder extends BaseRequestBuilder<CopyToN
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a copyToNotebookPostRequestBody
  */
-export function createCopyToNotebookPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCopyToNotebookPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopyToNotebookPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCopyToNotebookPostRequestBody(copyToNotebookPostRequestBody: CopyToNotebookPostRequestBody | undefined = {} as CopyToNotebookPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCopyToNotebookPostRequestBody(copyToNotebookPostRequestBody: Partial<CopyToNotebookPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { copyToNotebookPostRequestBody.backingStoreEnabled = true; },
         "groupId": n => { copyToNotebookPostRequestBody.groupId = n.getStringValue(); },
@@ -81,7 +81,7 @@ export function deserializeIntoCopyToNotebookPostRequestBody(copyToNotebookPostR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCopyToNotebookPostRequestBody(writer: SerializationWriter, copyToNotebookPostRequestBody: CopyToNotebookPostRequestBody | undefined = {} as CopyToNotebookPostRequestBody) : void {
+export function serializeCopyToNotebookPostRequestBody(writer: SerializationWriter, copyToNotebookPostRequestBody: Partial<CopyToNotebookPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("groupId", copyToNotebookPostRequestBody.groupId);
     writer.writeStringValue("id", copyToNotebookPostRequestBody.id);
     writer.writeStringValue("renameAs", copyToNotebookPostRequestBody.renameAs);

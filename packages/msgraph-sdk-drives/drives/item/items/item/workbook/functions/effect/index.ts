@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a effectPostRequestBody
  */
-export function createEffectPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createEffectPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoEffectPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoEffectPostRequestBody(effectPostRequestBody: EffectPostRequestBody | undefined = {} as EffectPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoEffectPostRequestBody(effectPostRequestBody: Partial<EffectPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { effectPostRequestBody.backingStoreEnabled = true; },
         "nominalRate": n => { effectPostRequestBody.nominalRate = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface EffectRequestBuilder extends BaseRequestBuilder<EffectRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeEffectPostRequestBody(writer: SerializationWriter, effectPostRequestBody: EffectPostRequestBody | undefined = {} as EffectPostRequestBody) : void {
+export function serializeEffectPostRequestBody(writer: SerializationWriter, effectPostRequestBody: Partial<EffectPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("nominalRate", effectPostRequestBody.nominalRate, serializeJson);
     writer.writeObjectValue<Json>("npery", effectPostRequestBody.npery, serializeJson);
     writer.writeAdditionalData(effectPostRequestBody.additionalData);

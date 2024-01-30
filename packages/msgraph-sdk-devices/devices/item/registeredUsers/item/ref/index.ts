@@ -13,29 +13,14 @@ export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder>
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/device-delete-registeredusers?view=graph-rest-1.0|Find more info here}
      */
-     delete(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : Promise<void>;
+     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Remove a user as a registered user of the device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : RequestInformation;
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
-/**
- * Remove a user as a registered user of the device.
- */
-export interface RefRequestBuilderDeleteQueryParameters {
-    /**
-     * Delete Uri
-     */
-    id?: string;
-}
-/**
- * Mapper for query parameters from symbol name to serialization name represented as a constant.
- */
-const RefRequestBuilderDeleteQueryParametersMapper: Record<string, string> = {
-    "id": "%40id",
-};
 /**
  * Metadata for all the requests in the request builder.
  */
@@ -47,12 +32,11 @@ export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
             _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
-        queryParametersMapper: RefRequestBuilderDeleteQueryParametersMapper,
     },
 };
 /**
  * Uri template for the request builder.
  */
-export const RefRequestBuilderUriTemplate = "{+baseurl}/devices/{device%2Did}/registeredUsers/{directoryObject%2Did}/$ref{?%40id*}";
+export const RefRequestBuilderUriTemplate = "{+baseurl}/devices/{device%2Did}/registeredUsers/{directoryObject%2Did}/$ref";
 /* tslint:enable */
 /* eslint-enable */

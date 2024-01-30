@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a reminderViewWithStartDateTimeWithEndDateTimeGetResponse
  */
-export function createReminderViewWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createReminderViewWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoReminderViewWithStartDateTimeWithEndDateTimeGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoReminderViewWithStartDateTimeWithEndDateTimeGetResponse(reminderViewWithStartDateTimeWithEndDateTimeGetResponse: ReminderViewWithStartDateTimeWithEndDateTimeGetResponse | undefined = {} as ReminderViewWithStartDateTimeWithEndDateTimeGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoReminderViewWithStartDateTimeWithEndDateTimeGetResponse(reminderViewWithStartDateTimeWithEndDateTimeGetResponse: Partial<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(reminderViewWithStartDateTimeWithEndDateTimeGetResponse),
         "value": n => { reminderViewWithStartDateTimeWithEndDateTimeGetResponse.value = n.getCollectionOfObjectValues<Reminder>(createReminderFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export interface ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeReminderViewWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, reminderViewWithStartDateTimeWithEndDateTimeGetResponse: ReminderViewWithStartDateTimeWithEndDateTimeGetResponse | undefined = {} as ReminderViewWithStartDateTimeWithEndDateTimeGetResponse) : void {
+export function serializeReminderViewWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, reminderViewWithStartDateTimeWithEndDateTimeGetResponse: Partial<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, reminderViewWithStartDateTimeWithEndDateTimeGetResponse)
     writer.writeCollectionOfObjectValues<Reminder>("value", reminderViewWithStartDateTimeWithEndDateTimeGetResponse.value, serializeReminder);
 }

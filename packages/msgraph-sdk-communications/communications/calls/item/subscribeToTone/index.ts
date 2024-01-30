@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a subscribeToTonePostRequestBody
  */
-export function createSubscribeToTonePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSubscribeToTonePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSubscribeToTonePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSubscribeToTonePostRequestBody(subscribeToTonePostRequestBody: SubscribeToTonePostRequestBody | undefined = {} as SubscribeToTonePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSubscribeToTonePostRequestBody(subscribeToTonePostRequestBody: Partial<SubscribeToTonePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { subscribeToTonePostRequestBody.backingStoreEnabled = true; },
         "clientContext": n => { subscribeToTonePostRequestBody.clientContext = n.getStringValue(); },
@@ -27,7 +27,7 @@ export function deserializeIntoSubscribeToTonePostRequestBody(subscribeToTonePos
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSubscribeToTonePostRequestBody(writer: SerializationWriter, subscribeToTonePostRequestBody: SubscribeToTonePostRequestBody | undefined = {} as SubscribeToTonePostRequestBody) : void {
+export function serializeSubscribeToTonePostRequestBody(writer: SerializationWriter, subscribeToTonePostRequestBody: Partial<SubscribeToTonePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("clientContext", subscribeToTonePostRequestBody.clientContext);
     writer.writeAdditionalData(subscribeToTonePostRequestBody.additionalData);
 }

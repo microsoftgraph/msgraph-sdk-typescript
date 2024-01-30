@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a z_TestPostRequestBody
  */
-export function createZ_TestPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createZ_TestPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoZ_TestPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoZ_TestPostRequestBody(z_TestPostRequestBody: Z_TestPostRequestBody | undefined = {} as Z_TestPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoZ_TestPostRequestBody(z_TestPostRequestBody: Partial<Z_TestPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { z_TestPostRequestBody.array = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { z_TestPostRequestBody.backingStoreEnabled = true; },
@@ -29,7 +29,7 @@ export function deserializeIntoZ_TestPostRequestBody(z_TestPostRequestBody: Z_Te
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeZ_TestPostRequestBody(writer: SerializationWriter, z_TestPostRequestBody: Z_TestPostRequestBody | undefined = {} as Z_TestPostRequestBody) : void {
+export function serializeZ_TestPostRequestBody(writer: SerializationWriter, z_TestPostRequestBody: Partial<Z_TestPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("array", z_TestPostRequestBody.array, serializeJson);
     writer.writeObjectValue<Json>("sigma", z_TestPostRequestBody.sigma, serializeJson);
     writer.writeObjectValue<Json>("x", z_TestPostRequestBody.x, serializeJson);

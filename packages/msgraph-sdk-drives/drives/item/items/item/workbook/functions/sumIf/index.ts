@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a sumIfPostRequestBody
  */
-export function createSumIfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSumIfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSumIfPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSumIfPostRequestBody(sumIfPostRequestBody: SumIfPostRequestBody | undefined = {} as SumIfPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSumIfPostRequestBody(sumIfPostRequestBody: Partial<SumIfPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sumIfPostRequestBody.backingStoreEnabled = true; },
         "criteria": n => { sumIfPostRequestBody.criteria = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -29,7 +29,7 @@ export function deserializeIntoSumIfPostRequestBody(sumIfPostRequestBody: SumIfP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSumIfPostRequestBody(writer: SerializationWriter, sumIfPostRequestBody: SumIfPostRequestBody | undefined = {} as SumIfPostRequestBody) : void {
+export function serializeSumIfPostRequestBody(writer: SerializationWriter, sumIfPostRequestBody: Partial<SumIfPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("criteria", sumIfPostRequestBody.criteria, serializeJson);
     writer.writeObjectValue<Json>("range", sumIfPostRequestBody.range, serializeJson);
     writer.writeObjectValue<Json>("sumRange", sumIfPostRequestBody.sumRange, serializeJson);

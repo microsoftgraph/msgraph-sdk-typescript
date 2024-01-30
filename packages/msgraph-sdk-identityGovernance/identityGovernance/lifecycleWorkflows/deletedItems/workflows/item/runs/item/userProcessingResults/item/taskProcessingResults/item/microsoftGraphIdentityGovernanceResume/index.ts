@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a resumePostRequestBody
  */
-export function createResumePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createResumePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoResumePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoResumePostRequestBody(resumePostRequestBody: ResumePostRequestBody | undefined = {} as ResumePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoResumePostRequestBody(resumePostRequestBody: Partial<ResumePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { resumePostRequestBody.backingStoreEnabled = true; },
         "data": n => { resumePostRequestBody.data = n.getObjectValue<CustomTaskExtensionCallbackData>(createCustomTaskExtensionCallbackDataFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface ResumePostRequestBody extends AdditionalDataHolder, BackedModel
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeResumePostRequestBody(writer: SerializationWriter, resumePostRequestBody: ResumePostRequestBody | undefined = {} as ResumePostRequestBody) : void {
+export function serializeResumePostRequestBody(writer: SerializationWriter, resumePostRequestBody: Partial<ResumePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<CustomTaskExtensionCallbackData>("data", resumePostRequestBody.data, serializeCustomTaskExtensionCallbackData);
     writer.writeStringValue("source", resumePostRequestBody.source);
     writer.writeStringValue("type", resumePostRequestBody.type);

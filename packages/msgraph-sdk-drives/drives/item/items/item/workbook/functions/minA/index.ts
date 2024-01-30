@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a minAPostRequestBody
  */
-export function createMinAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMinAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMinAPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMinAPostRequestBody(minAPostRequestBody: MinAPostRequestBody | undefined = {} as MinAPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMinAPostRequestBody(minAPostRequestBody: Partial<MinAPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { minAPostRequestBody.backingStoreEnabled = true; },
         "values": n => { minAPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface MinARequestBuilder extends BaseRequestBuilder<MinARequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMinAPostRequestBody(writer: SerializationWriter, minAPostRequestBody: MinAPostRequestBody | undefined = {} as MinAPostRequestBody) : void {
+export function serializeMinAPostRequestBody(writer: SerializationWriter, minAPostRequestBody: Partial<MinAPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", minAPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(minAPostRequestBody.additionalData);
 }

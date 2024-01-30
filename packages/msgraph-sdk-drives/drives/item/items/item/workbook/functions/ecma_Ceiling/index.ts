@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a ecma_CeilingPostRequestBody
  */
-export function createEcma_CeilingPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createEcma_CeilingPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoEcma_CeilingPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoEcma_CeilingPostRequestBody(ecma_CeilingPostRequestBody: Ecma_CeilingPostRequestBody | undefined = {} as Ecma_CeilingPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoEcma_CeilingPostRequestBody(ecma_CeilingPostRequestBody: Partial<Ecma_CeilingPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ecma_CeilingPostRequestBody.backingStoreEnabled = true; },
         "number": n => { ecma_CeilingPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface Ecma_CeilingRequestBuilder extends BaseRequestBuilder<Ecma_Ceil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeEcma_CeilingPostRequestBody(writer: SerializationWriter, ecma_CeilingPostRequestBody: Ecma_CeilingPostRequestBody | undefined = {} as Ecma_CeilingPostRequestBody) : void {
+export function serializeEcma_CeilingPostRequestBody(writer: SerializationWriter, ecma_CeilingPostRequestBody: Partial<Ecma_CeilingPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", ecma_CeilingPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("significance", ecma_CeilingPostRequestBody.significance, serializeJson);
     writer.writeAdditionalData(ecma_CeilingPostRequestBody.additionalData);

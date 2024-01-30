@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a windowsDefenderScanPostRequestBody
  */
-export function createWindowsDefenderScanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createWindowsDefenderScanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoWindowsDefenderScanPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoWindowsDefenderScanPostRequestBody(windowsDefenderScanPostRequestBody: WindowsDefenderScanPostRequestBody | undefined = {} as WindowsDefenderScanPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoWindowsDefenderScanPostRequestBody(windowsDefenderScanPostRequestBody: Partial<WindowsDefenderScanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { windowsDefenderScanPostRequestBody.backingStoreEnabled = true; },
         "quickScan": n => { windowsDefenderScanPostRequestBody.quickScan = n.getBooleanValue(); },
@@ -26,7 +26,7 @@ export function deserializeIntoWindowsDefenderScanPostRequestBody(windowsDefende
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeWindowsDefenderScanPostRequestBody(writer: SerializationWriter, windowsDefenderScanPostRequestBody: WindowsDefenderScanPostRequestBody | undefined = {} as WindowsDefenderScanPostRequestBody) : void {
+export function serializeWindowsDefenderScanPostRequestBody(writer: SerializationWriter, windowsDefenderScanPostRequestBody: Partial<WindowsDefenderScanPostRequestBody> | undefined = {}) : void {
     writer.writeBooleanValue("quickScan", windowsDefenderScanPostRequestBody.quickScan);
     writer.writeAdditionalData(windowsDefenderScanPostRequestBody.additionalData);
 }

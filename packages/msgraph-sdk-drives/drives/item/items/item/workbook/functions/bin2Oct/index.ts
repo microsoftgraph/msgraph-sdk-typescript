@@ -47,14 +47,14 @@ export interface Bin2OctRequestBuilder extends BaseRequestBuilder<Bin2OctRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a bin2OctPostRequestBody
  */
-export function createBin2OctPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createBin2OctPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBin2OctPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoBin2OctPostRequestBody(bin2OctPostRequestBody: Bin2OctPostRequestBody | undefined = {} as Bin2OctPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoBin2OctPostRequestBody(bin2OctPostRequestBody: Partial<Bin2OctPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { bin2OctPostRequestBody.backingStoreEnabled = true; },
         "number": n => { bin2OctPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoBin2OctPostRequestBody(bin2OctPostRequestBody: Bi
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBin2OctPostRequestBody(writer: SerializationWriter, bin2OctPostRequestBody: Bin2OctPostRequestBody | undefined = {} as Bin2OctPostRequestBody) : void {
+export function serializeBin2OctPostRequestBody(writer: SerializationWriter, bin2OctPostRequestBody: Partial<Bin2OctPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", bin2OctPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("places", bin2OctPostRequestBody.places, serializeJson);
     writer.writeAdditionalData(bin2OctPostRequestBody.additionalData);

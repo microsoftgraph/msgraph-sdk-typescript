@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getAvailableExtensionPropertiesPostRequestBody
  */
-export function createGetAvailableExtensionPropertiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetAvailableExtensionPropertiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAvailableExtensionPropertiesPostRequestBody;
 }
 /**
@@ -18,14 +18,14 @@ export function createGetAvailableExtensionPropertiesPostRequestBodyFromDiscrimi
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getAvailableExtensionPropertiesPostResponse
  */
-export function createGetAvailableExtensionPropertiesPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetAvailableExtensionPropertiesPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAvailableExtensionPropertiesPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetAvailableExtensionPropertiesPostRequestBody(getAvailableExtensionPropertiesPostRequestBody: GetAvailableExtensionPropertiesPostRequestBody | undefined = {} as GetAvailableExtensionPropertiesPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAvailableExtensionPropertiesPostRequestBody(getAvailableExtensionPropertiesPostRequestBody: Partial<GetAvailableExtensionPropertiesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getAvailableExtensionPropertiesPostRequestBody.backingStoreEnabled = true; },
         "isSyncedFromOnPremises": n => { getAvailableExtensionPropertiesPostRequestBody.isSyncedFromOnPremises = n.getBooleanValue(); },
@@ -35,7 +35,7 @@ export function deserializeIntoGetAvailableExtensionPropertiesPostRequestBody(ge
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetAvailableExtensionPropertiesPostResponse(getAvailableExtensionPropertiesPostResponse: GetAvailableExtensionPropertiesPostResponse | undefined = {} as GetAvailableExtensionPropertiesPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAvailableExtensionPropertiesPostResponse(getAvailableExtensionPropertiesPostResponse: Partial<GetAvailableExtensionPropertiesPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getAvailableExtensionPropertiesPostResponse),
         "value": n => { getAvailableExtensionPropertiesPostResponse.value = n.getCollectionOfObjectValues<ExtensionProperty>(createExtensionPropertyFromDiscriminatorValue); },
@@ -85,7 +85,7 @@ export interface GetAvailableExtensionPropertiesRequestBuilder extends BaseReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetAvailableExtensionPropertiesPostRequestBody(writer: SerializationWriter, getAvailableExtensionPropertiesPostRequestBody: GetAvailableExtensionPropertiesPostRequestBody | undefined = {} as GetAvailableExtensionPropertiesPostRequestBody) : void {
+export function serializeGetAvailableExtensionPropertiesPostRequestBody(writer: SerializationWriter, getAvailableExtensionPropertiesPostRequestBody: Partial<GetAvailableExtensionPropertiesPostRequestBody> | undefined = {}) : void {
     writer.writeBooleanValue("isSyncedFromOnPremises", getAvailableExtensionPropertiesPostRequestBody.isSyncedFromOnPremises);
     writer.writeAdditionalData(getAvailableExtensionPropertiesPostRequestBody.additionalData);
 }
@@ -93,7 +93,7 @@ export function serializeGetAvailableExtensionPropertiesPostRequestBody(writer: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetAvailableExtensionPropertiesPostResponse(writer: SerializationWriter, getAvailableExtensionPropertiesPostResponse: GetAvailableExtensionPropertiesPostResponse | undefined = {} as GetAvailableExtensionPropertiesPostResponse) : void {
+export function serializeGetAvailableExtensionPropertiesPostResponse(writer: SerializationWriter, getAvailableExtensionPropertiesPostResponse: Partial<GetAvailableExtensionPropertiesPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getAvailableExtensionPropertiesPostResponse)
     writer.writeCollectionOfObjectValues<ExtensionProperty>("value", getAvailableExtensionPropertiesPostResponse.value, serializeExtensionProperty);
 }

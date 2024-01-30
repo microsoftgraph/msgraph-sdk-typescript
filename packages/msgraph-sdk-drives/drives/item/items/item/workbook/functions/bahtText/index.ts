@@ -43,14 +43,14 @@ export interface BahtTextRequestBuilder extends BaseRequestBuilder<BahtTextReque
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a bahtTextPostRequestBody
  */
-export function createBahtTextPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createBahtTextPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBahtTextPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoBahtTextPostRequestBody(bahtTextPostRequestBody: BahtTextPostRequestBody | undefined = {} as BahtTextPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoBahtTextPostRequestBody(bahtTextPostRequestBody: Partial<BahtTextPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { bahtTextPostRequestBody.backingStoreEnabled = true; },
         "number": n => { bahtTextPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoBahtTextPostRequestBody(bahtTextPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBahtTextPostRequestBody(writer: SerializationWriter, bahtTextPostRequestBody: BahtTextPostRequestBody | undefined = {} as BahtTextPostRequestBody) : void {
+export function serializeBahtTextPostRequestBody(writer: SerializationWriter, bahtTextPostRequestBody: Partial<BahtTextPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", bahtTextPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(bahtTextPostRequestBody.additionalData);
 }

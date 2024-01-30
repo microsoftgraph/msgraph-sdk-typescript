@@ -44,14 +44,14 @@ export interface AddPasswordRequestBuilder extends BaseRequestBuilder<AddPasswor
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a addPasswordPostRequestBody
  */
-export function createAddPasswordPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAddPasswordPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddPasswordPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAddPasswordPostRequestBody(addPasswordPostRequestBody: AddPasswordPostRequestBody | undefined = {} as AddPasswordPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddPasswordPostRequestBody(addPasswordPostRequestBody: Partial<AddPasswordPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addPasswordPostRequestBody.backingStoreEnabled = true; },
         "passwordCredential": n => { addPasswordPostRequestBody.passwordCredential = n.getObjectValue<PasswordCredential>(createPasswordCredentialFromDiscriminatorValue); },
@@ -61,7 +61,7 @@ export function deserializeIntoAddPasswordPostRequestBody(addPasswordPostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddPasswordPostRequestBody(writer: SerializationWriter, addPasswordPostRequestBody: AddPasswordPostRequestBody | undefined = {} as AddPasswordPostRequestBody) : void {
+export function serializeAddPasswordPostRequestBody(writer: SerializationWriter, addPasswordPostRequestBody: Partial<AddPasswordPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<PasswordCredential>("passwordCredential", addPasswordPostRequestBody.passwordCredential, serializePasswordCredential);
     writer.writeAdditionalData(addPasswordPostRequestBody.additionalData);
 }

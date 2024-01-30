@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a harMeanPostRequestBody
  */
-export function createHarMeanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createHarMeanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHarMeanPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoHarMeanPostRequestBody(harMeanPostRequestBody: HarMeanPostRequestBody | undefined = {} as HarMeanPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoHarMeanPostRequestBody(harMeanPostRequestBody: Partial<HarMeanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { harMeanPostRequestBody.backingStoreEnabled = true; },
         "values": n => { harMeanPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface HarMeanRequestBuilder extends BaseRequestBuilder<HarMeanRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeHarMeanPostRequestBody(writer: SerializationWriter, harMeanPostRequestBody: HarMeanPostRequestBody | undefined = {} as HarMeanPostRequestBody) : void {
+export function serializeHarMeanPostRequestBody(writer: SerializationWriter, harMeanPostRequestBody: Partial<HarMeanPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", harMeanPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(harMeanPostRequestBody.additionalData);
 }

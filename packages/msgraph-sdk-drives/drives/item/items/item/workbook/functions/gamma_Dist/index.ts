@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a gamma_DistPostRequestBody
  */
-export function createGamma_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGamma_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGamma_DistPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGamma_DistPostRequestBody(gamma_DistPostRequestBody: Gamma_DistPostRequestBody | undefined = {} as Gamma_DistPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGamma_DistPostRequestBody(gamma_DistPostRequestBody: Partial<Gamma_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "alpha": n => { gamma_DistPostRequestBody.alpha = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { gamma_DistPostRequestBody.backingStoreEnabled = true; },
@@ -75,7 +75,7 @@ export interface Gamma_DistRequestBuilder extends BaseRequestBuilder<Gamma_DistR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGamma_DistPostRequestBody(writer: SerializationWriter, gamma_DistPostRequestBody: Gamma_DistPostRequestBody | undefined = {} as Gamma_DistPostRequestBody) : void {
+export function serializeGamma_DistPostRequestBody(writer: SerializationWriter, gamma_DistPostRequestBody: Partial<Gamma_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("alpha", gamma_DistPostRequestBody.alpha, serializeJson);
     writer.writeObjectValue<Json>("beta", gamma_DistPostRequestBody.beta, serializeJson);
     writer.writeObjectValue<Json>("cumulative", gamma_DistPostRequestBody.cumulative, serializeJson);

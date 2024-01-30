@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a deltaPostRequestBody
  */
-export function createDeltaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDeltaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDeltaPostRequestBody;
 }
 export interface DeltaPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -54,7 +54,7 @@ export interface DeltaRequestBuilder extends BaseRequestBuilder<DeltaRequestBuil
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDeltaPostRequestBody(deltaPostRequestBody: DeltaPostRequestBody | undefined = {} as DeltaPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDeltaPostRequestBody(deltaPostRequestBody: Partial<DeltaPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { deltaPostRequestBody.backingStoreEnabled = true; },
         "number1": n => { deltaPostRequestBody.number1 = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoDeltaPostRequestBody(deltaPostRequestBody: DeltaP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDeltaPostRequestBody(writer: SerializationWriter, deltaPostRequestBody: DeltaPostRequestBody | undefined = {} as DeltaPostRequestBody) : void {
+export function serializeDeltaPostRequestBody(writer: SerializationWriter, deltaPostRequestBody: Partial<DeltaPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number1", deltaPostRequestBody.number1, serializeJson);
     writer.writeObjectValue<Json>("number2", deltaPostRequestBody.number2, serializeJson);
     writer.writeAdditionalData(deltaPostRequestBody.additionalData);

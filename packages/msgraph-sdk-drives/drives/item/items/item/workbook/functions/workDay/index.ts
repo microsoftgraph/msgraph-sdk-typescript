@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a workDayPostRequestBody
  */
-export function createWorkDayPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createWorkDayPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoWorkDayPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoWorkDayPostRequestBody(workDayPostRequestBody: WorkDayPostRequestBody | undefined = {} as WorkDayPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoWorkDayPostRequestBody(workDayPostRequestBody: Partial<WorkDayPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { workDayPostRequestBody.backingStoreEnabled = true; },
         "days": n => { workDayPostRequestBody.days = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -29,7 +29,7 @@ export function deserializeIntoWorkDayPostRequestBody(workDayPostRequestBody: Wo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeWorkDayPostRequestBody(writer: SerializationWriter, workDayPostRequestBody: WorkDayPostRequestBody | undefined = {} as WorkDayPostRequestBody) : void {
+export function serializeWorkDayPostRequestBody(writer: SerializationWriter, workDayPostRequestBody: Partial<WorkDayPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("days", workDayPostRequestBody.days, serializeJson);
     writer.writeObjectValue<Json>("holidays", workDayPostRequestBody.holidays, serializeJson);
     writer.writeObjectValue<Json>("startDate", workDayPostRequestBody.startDate, serializeJson);

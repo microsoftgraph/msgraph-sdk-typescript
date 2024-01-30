@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a tanhPostRequestBody
  */
-export function createTanhPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createTanhPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTanhPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoTanhPostRequestBody(tanhPostRequestBody: TanhPostRequestBody | undefined = {} as TanhPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTanhPostRequestBody(tanhPostRequestBody: Partial<TanhPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { tanhPostRequestBody.backingStoreEnabled = true; },
         "number": n => { tanhPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoTanhPostRequestBody(tanhPostRequestBody: TanhPost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTanhPostRequestBody(writer: SerializationWriter, tanhPostRequestBody: TanhPostRequestBody | undefined = {} as TanhPostRequestBody) : void {
+export function serializeTanhPostRequestBody(writer: SerializationWriter, tanhPostRequestBody: Partial<TanhPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", tanhPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(tanhPostRequestBody.additionalData);
 }

@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a supportedLanguagesGetResponse
  */
-export function createSupportedLanguagesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSupportedLanguagesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSupportedLanguagesGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSupportedLanguagesGetResponse(supportedLanguagesGetResponse: SupportedLanguagesGetResponse | undefined = {} as SupportedLanguagesGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSupportedLanguagesGetResponse(supportedLanguagesGetResponse: Partial<SupportedLanguagesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(supportedLanguagesGetResponse),
         "value": n => { supportedLanguagesGetResponse.value = n.getCollectionOfObjectValues<LocaleInfo>(createLocaleInfoFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoSupportedLanguagesGetResponse(supportedLanguagesG
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSupportedLanguagesGetResponse(writer: SerializationWriter, supportedLanguagesGetResponse: SupportedLanguagesGetResponse | undefined = {} as SupportedLanguagesGetResponse) : void {
+export function serializeSupportedLanguagesGetResponse(writer: SerializationWriter, supportedLanguagesGetResponse: Partial<SupportedLanguagesGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, supportedLanguagesGetResponse)
     writer.writeCollectionOfObjectValues<LocaleInfo>("value", supportedLanguagesGetResponse.value, serializeLocaleInfo);
 }

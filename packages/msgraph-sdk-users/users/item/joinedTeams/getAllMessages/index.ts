@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getAllMessagesGetResponse
  */
-export function createGetAllMessagesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetAllMessagesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAllMessagesGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetAllMessagesGetResponse(getAllMessagesGetResponse: GetAllMessagesGetResponse | undefined = {} as GetAllMessagesGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAllMessagesGetResponse(getAllMessagesGetResponse: Partial<GetAllMessagesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getAllMessagesGetResponse),
         "value": n => { getAllMessagesGetResponse.value = n.getCollectionOfObjectValues<ChatMessage>(createChatMessageFromDiscriminatorValue); },
@@ -87,7 +87,7 @@ export interface GetAllMessagesRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetAllMessagesGetResponse(writer: SerializationWriter, getAllMessagesGetResponse: GetAllMessagesGetResponse | undefined = {} as GetAllMessagesGetResponse) : void {
+export function serializeGetAllMessagesGetResponse(writer: SerializationWriter, getAllMessagesGetResponse: Partial<GetAllMessagesGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getAllMessagesGetResponse)
     writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllMessagesGetResponse.value, serializeChatMessage);
 }

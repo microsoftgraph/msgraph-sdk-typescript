@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getSchedulePostRequestBody
  */
-export function createGetSchedulePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetSchedulePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetSchedulePostRequestBody;
 }
 /**
@@ -18,14 +18,14 @@ export function createGetSchedulePostRequestBodyFromDiscriminatorValue(parseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getSchedulePostResponse
  */
-export function createGetSchedulePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetSchedulePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetSchedulePostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetSchedulePostRequestBody(getSchedulePostRequestBody: GetSchedulePostRequestBody | undefined = {} as GetSchedulePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetSchedulePostRequestBody(getSchedulePostRequestBody: Partial<GetSchedulePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "availabilityViewInterval": n => { getSchedulePostRequestBody.availabilityViewInterval = n.getNumberValue(); },
         "backingStoreEnabled": n => { getSchedulePostRequestBody.backingStoreEnabled = true; },
@@ -38,7 +38,7 @@ export function deserializeIntoGetSchedulePostRequestBody(getSchedulePostRequest
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetSchedulePostResponse(getSchedulePostResponse: GetSchedulePostResponse | undefined = {} as GetSchedulePostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetSchedulePostResponse(getSchedulePostResponse: Partial<GetSchedulePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getSchedulePostResponse),
         "value": n => { getSchedulePostResponse.value = n.getCollectionOfObjectValues<ScheduleInformation>(createScheduleInformationFromDiscriminatorValue); },
@@ -100,7 +100,7 @@ export interface GetScheduleRequestBuilder extends BaseRequestBuilder<GetSchedul
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetSchedulePostRequestBody(writer: SerializationWriter, getSchedulePostRequestBody: GetSchedulePostRequestBody | undefined = {} as GetSchedulePostRequestBody) : void {
+export function serializeGetSchedulePostRequestBody(writer: SerializationWriter, getSchedulePostRequestBody: Partial<GetSchedulePostRequestBody> | undefined = {}) : void {
     writer.writeNumberValue("AvailabilityViewInterval", getSchedulePostRequestBody.availabilityViewInterval);
     writer.writeObjectValue<DateTimeTimeZone>("EndTime", getSchedulePostRequestBody.endTime, serializeDateTimeTimeZone);
     writer.writeCollectionOfPrimitiveValues<string>("Schedules", getSchedulePostRequestBody.schedules);
@@ -111,7 +111,7 @@ export function serializeGetSchedulePostRequestBody(writer: SerializationWriter,
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetSchedulePostResponse(writer: SerializationWriter, getSchedulePostResponse: GetSchedulePostResponse | undefined = {} as GetSchedulePostResponse) : void {
+export function serializeGetSchedulePostResponse(writer: SerializationWriter, getSchedulePostResponse: Partial<GetSchedulePostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getSchedulePostResponse)
     writer.writeCollectionOfObjectValues<ScheduleInformation>("value", getSchedulePostResponse.value, serializeScheduleInformation);
 }

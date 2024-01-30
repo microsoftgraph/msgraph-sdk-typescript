@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a geStepPostRequestBody
  */
-export function createGeStepPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGeStepPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGeStepPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGeStepPostRequestBody(geStepPostRequestBody: GeStepPostRequestBody | undefined = {} as GeStepPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGeStepPostRequestBody(geStepPostRequestBody: Partial<GeStepPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { geStepPostRequestBody.backingStoreEnabled = true; },
         "number": n => { geStepPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface GeStepRequestBuilder extends BaseRequestBuilder<GeStepRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGeStepPostRequestBody(writer: SerializationWriter, geStepPostRequestBody: GeStepPostRequestBody | undefined = {} as GeStepPostRequestBody) : void {
+export function serializeGeStepPostRequestBody(writer: SerializationWriter, geStepPostRequestBody: Partial<GeStepPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", geStepPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("step", geStepPostRequestBody.step, serializeJson);
     writer.writeAdditionalData(geStepPostRequestBody.additionalData);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a t_DistPostRequestBody
  */
-export function createT_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createT_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoT_DistPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoT_DistPostRequestBody(t_DistPostRequestBody: T_DistPostRequestBody | undefined = {} as T_DistPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoT_DistPostRequestBody(t_DistPostRequestBody: Partial<T_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { t_DistPostRequestBody.backingStoreEnabled = true; },
         "cumulative": n => { t_DistPostRequestBody.cumulative = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -29,7 +29,7 @@ export function deserializeIntoT_DistPostRequestBody(t_DistPostRequestBody: T_Di
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeT_DistPostRequestBody(writer: SerializationWriter, t_DistPostRequestBody: T_DistPostRequestBody | undefined = {} as T_DistPostRequestBody) : void {
+export function serializeT_DistPostRequestBody(writer: SerializationWriter, t_DistPostRequestBody: Partial<T_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("cumulative", t_DistPostRequestBody.cumulative, serializeJson);
     writer.writeObjectValue<Json>("degFreedom", t_DistPostRequestBody.degFreedom, serializeJson);
     writer.writeObjectValue<Json>("x", t_DistPostRequestBody.x, serializeJson);

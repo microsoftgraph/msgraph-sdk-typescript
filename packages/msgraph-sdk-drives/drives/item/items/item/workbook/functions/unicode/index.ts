@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a unicodePostRequestBody
  */
-export function createUnicodePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createUnicodePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnicodePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoUnicodePostRequestBody(unicodePostRequestBody: UnicodePostRequestBody | undefined = {} as UnicodePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoUnicodePostRequestBody(unicodePostRequestBody: Partial<UnicodePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unicodePostRequestBody.backingStoreEnabled = true; },
         "text": n => { unicodePostRequestBody.text = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoUnicodePostRequestBody(unicodePostRequestBody: Un
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUnicodePostRequestBody(writer: SerializationWriter, unicodePostRequestBody: UnicodePostRequestBody | undefined = {} as UnicodePostRequestBody) : void {
+export function serializeUnicodePostRequestBody(writer: SerializationWriter, unicodePostRequestBody: Partial<UnicodePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("text", unicodePostRequestBody.text, serializeJson);
     writer.writeAdditionalData(unicodePostRequestBody.additionalData);
 }

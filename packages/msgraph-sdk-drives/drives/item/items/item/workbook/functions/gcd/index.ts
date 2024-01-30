@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a gcdPostRequestBody
  */
-export function createGcdPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGcdPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGcdPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGcdPostRequestBody(gcdPostRequestBody: GcdPostRequestBody | undefined = {} as GcdPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGcdPostRequestBody(gcdPostRequestBody: Partial<GcdPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { gcdPostRequestBody.backingStoreEnabled = true; },
         "values": n => { gcdPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface GcdRequestBuilder extends BaseRequestBuilder<GcdRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGcdPostRequestBody(writer: SerializationWriter, gcdPostRequestBody: GcdPostRequestBody | undefined = {} as GcdPostRequestBody) : void {
+export function serializeGcdPostRequestBody(writer: SerializationWriter, gcdPostRequestBody: Partial<GcdPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", gcdPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(gcdPostRequestBody.additionalData);
 }

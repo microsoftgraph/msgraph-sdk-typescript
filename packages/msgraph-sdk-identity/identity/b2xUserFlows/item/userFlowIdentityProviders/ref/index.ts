@@ -10,6 +10,11 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder> {
     /**
+     * Delete ref of navigation property userFlowIdentityProviders for identity
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     */
+     delete(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : Promise<void>;
+    /**
      * Get ref of userFlowIdentityProviders from identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of StringCollectionResponse
@@ -21,6 +26,12 @@ export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder>
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
      post(body: ReferenceCreate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
+    /**
+     * Delete ref of navigation property userFlowIdentityProviders for identity
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : RequestInformation;
     /**
      * Get ref of userFlowIdentityProviders from identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -34,6 +45,15 @@ export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder>
      * @returns a RequestInformation
      */
      toPostRequestInformation(body: ReferenceCreate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
+}
+/**
+ * Delete ref of navigation property userFlowIdentityProviders for identity
+ */
+export interface RefRequestBuilderDeleteQueryParameters {
+    /**
+     * The delete Uri
+     */
+    id?: string;
 }
 /**
  * Get ref of userFlowIdentityProviders from identity
@@ -67,6 +87,12 @@ export interface RefRequestBuilderGetQueryParameters {
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
+const RefRequestBuilderDeleteQueryParametersMapper: Record<string, string> = {
+    "id": "%40id",
+};
+/**
+ * Mapper for query parameters from symbol name to serialization name represented as a constant.
+ */
 const RefRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "count": "%24count",
     "filter": "%24filter",
@@ -79,6 +105,15 @@ const RefRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the requests in the request builder.
  */
 export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
+    delete: {
+        responseBodyContentType: "application/json",
+        errorMappings: {
+            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+        },
+        adapterMethodName: "sendNoResponseContentAsync",
+        queryParametersMapper: RefRequestBuilderDeleteQueryParametersMapper,
+    },
     get: {
         responseBodyContentType: "application/json",
         errorMappings: {
@@ -104,6 +139,6 @@ export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const RefRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userFlowIdentityProviders/$ref{?%24top,%24skip,%24search,%24filter,%24count,%24orderby}";
+export const RefRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userFlowIdentityProviders/$ref{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%40id*}";
 /* tslint:enable */
 /* eslint-enable */

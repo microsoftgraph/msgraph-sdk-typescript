@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a imSumPostRequestBody
  */
-export function createImSumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImSumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImSumPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImSumPostRequestBody(imSumPostRequestBody: ImSumPostRequestBody | undefined = {} as ImSumPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImSumPostRequestBody(imSumPostRequestBody: Partial<ImSumPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imSumPostRequestBody.backingStoreEnabled = true; },
         "values": n => { imSumPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface ImSumRequestBuilder extends BaseRequestBuilder<ImSumRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImSumPostRequestBody(writer: SerializationWriter, imSumPostRequestBody: ImSumPostRequestBody | undefined = {} as ImSumPostRequestBody) : void {
+export function serializeImSumPostRequestBody(writer: SerializationWriter, imSumPostRequestBody: Partial<ImSumPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", imSumPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(imSumPostRequestBody.additionalData);
 }

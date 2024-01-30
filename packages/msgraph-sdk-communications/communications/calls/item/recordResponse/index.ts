@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a recordResponsePostRequestBody
  */
-export function createRecordResponsePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRecordResponsePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRecordResponsePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRecordResponsePostRequestBody(recordResponsePostRequestBody: RecordResponsePostRequestBody | undefined = {} as RecordResponsePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRecordResponsePostRequestBody(recordResponsePostRequestBody: Partial<RecordResponsePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { recordResponsePostRequestBody.backingStoreEnabled = true; },
         "bargeInAllowed": n => { recordResponsePostRequestBody.bargeInAllowed = n.getBooleanValue(); },
@@ -96,7 +96,7 @@ export interface RecordResponseRequestBuilder extends BaseRequestBuilder<RecordR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRecordResponsePostRequestBody(writer: SerializationWriter, recordResponsePostRequestBody: RecordResponsePostRequestBody | undefined = {} as RecordResponsePostRequestBody) : void {
+export function serializeRecordResponsePostRequestBody(writer: SerializationWriter, recordResponsePostRequestBody: Partial<RecordResponsePostRequestBody> | undefined = {}) : void {
     writer.writeBooleanValue("bargeInAllowed", recordResponsePostRequestBody.bargeInAllowed);
     writer.writeStringValue("clientContext", recordResponsePostRequestBody.clientContext);
     writer.writeNumberValue("initialSilenceTimeoutInSeconds", recordResponsePostRequestBody.initialSilenceTimeoutInSeconds);

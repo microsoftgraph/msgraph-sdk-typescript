@@ -49,14 +49,14 @@ export interface AssignLicenseRequestBuilder extends BaseRequestBuilder<AssignLi
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a assignLicensePostRequestBody
  */
-export function createAssignLicensePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAssignLicensePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAssignLicensePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAssignLicensePostRequestBody(assignLicensePostRequestBody: AssignLicensePostRequestBody | undefined = {} as AssignLicensePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAssignLicensePostRequestBody(assignLicensePostRequestBody: Partial<AssignLicensePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "addLicenses": n => { assignLicensePostRequestBody.addLicenses = n.getCollectionOfObjectValues<AssignedLicense>(createAssignedLicenseFromDiscriminatorValue); },
         "backingStoreEnabled": n => { assignLicensePostRequestBody.backingStoreEnabled = true; },
@@ -67,7 +67,7 @@ export function deserializeIntoAssignLicensePostRequestBody(assignLicensePostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAssignLicensePostRequestBody(writer: SerializationWriter, assignLicensePostRequestBody: AssignLicensePostRequestBody | undefined = {} as AssignLicensePostRequestBody) : void {
+export function serializeAssignLicensePostRequestBody(writer: SerializationWriter, assignLicensePostRequestBody: Partial<AssignLicensePostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<AssignedLicense>("addLicenses", assignLicensePostRequestBody.addLicenses, serializeAssignedLicense);
     writer.writeCollectionOfPrimitiveValues<Guid>("removeLicenses", assignLicensePostRequestBody.removeLicenses);
     writer.writeAdditionalData(assignLicensePostRequestBody.additionalData);

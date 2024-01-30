@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a numberValuePostRequestBody
  */
-export function createNumberValuePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createNumberValuePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNumberValuePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoNumberValuePostRequestBody(numberValuePostRequestBody: NumberValuePostRequestBody | undefined = {} as NumberValuePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoNumberValuePostRequestBody(numberValuePostRequestBody: Partial<NumberValuePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { numberValuePostRequestBody.backingStoreEnabled = true; },
         "decimalSeparator": n => { numberValuePostRequestBody.decimalSeparator = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface NumberValueRequestBuilder extends BaseRequestBuilder<NumberValu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNumberValuePostRequestBody(writer: SerializationWriter, numberValuePostRequestBody: NumberValuePostRequestBody | undefined = {} as NumberValuePostRequestBody) : void {
+export function serializeNumberValuePostRequestBody(writer: SerializationWriter, numberValuePostRequestBody: Partial<NumberValuePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("decimalSeparator", numberValuePostRequestBody.decimalSeparator, serializeJson);
     writer.writeObjectValue<Json>("groupSeparator", numberValuePostRequestBody.groupSeparator, serializeJson);
     writer.writeObjectValue<Json>("text", numberValuePostRequestBody.text, serializeJson);

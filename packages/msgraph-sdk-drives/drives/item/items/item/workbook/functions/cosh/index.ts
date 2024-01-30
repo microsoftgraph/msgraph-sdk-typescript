@@ -43,14 +43,14 @@ export interface CoshRequestBuilder extends BaseRequestBuilder<CoshRequestBuilde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a coshPostRequestBody
  */
-export function createCoshPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCoshPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCoshPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCoshPostRequestBody(coshPostRequestBody: CoshPostRequestBody | undefined = {} as CoshPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCoshPostRequestBody(coshPostRequestBody: Partial<CoshPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { coshPostRequestBody.backingStoreEnabled = true; },
         "number": n => { coshPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoCoshPostRequestBody(coshPostRequestBody: CoshPost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCoshPostRequestBody(writer: SerializationWriter, coshPostRequestBody: CoshPostRequestBody | undefined = {} as CoshPostRequestBody) : void {
+export function serializeCoshPostRequestBody(writer: SerializationWriter, coshPostRequestBody: Partial<CoshPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", coshPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(coshPostRequestBody.additionalData);
 }

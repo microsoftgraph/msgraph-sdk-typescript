@@ -29,11 +29,11 @@ export interface RoleDefinitionsRequestBuilder extends BaseRequestBuilder<RoleDe
      */
      get(requestConfiguration?: RequestConfiguration<RoleDefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<RoleDefinitionCollectionResponse | undefined>;
     /**
-     * Create a new deviceAndAppManagementRoleDefinition object.
+     * Create a new roleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RoleDefinition
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: RoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RoleDefinition | undefined>;
     /**
@@ -43,7 +43,7 @@ export interface RoleDefinitionsRequestBuilder extends BaseRequestBuilder<RoleDe
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleDefinitionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new deviceAndAppManagementRoleDefinition object.
+     * Create a new roleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

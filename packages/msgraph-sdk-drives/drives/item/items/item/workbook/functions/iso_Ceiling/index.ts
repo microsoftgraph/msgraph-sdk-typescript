@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a iso_CeilingPostRequestBody
  */
-export function createIso_CeilingPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createIso_CeilingPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIso_CeilingPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoIso_CeilingPostRequestBody(iso_CeilingPostRequestBody: Iso_CeilingPostRequestBody | undefined = {} as Iso_CeilingPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIso_CeilingPostRequestBody(iso_CeilingPostRequestBody: Partial<Iso_CeilingPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { iso_CeilingPostRequestBody.backingStoreEnabled = true; },
         "number": n => { iso_CeilingPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface Iso_CeilingRequestBuilder extends BaseRequestBuilder<Iso_Ceilin
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIso_CeilingPostRequestBody(writer: SerializationWriter, iso_CeilingPostRequestBody: Iso_CeilingPostRequestBody | undefined = {} as Iso_CeilingPostRequestBody) : void {
+export function serializeIso_CeilingPostRequestBody(writer: SerializationWriter, iso_CeilingPostRequestBody: Partial<Iso_CeilingPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", iso_CeilingPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("significance", iso_CeilingPostRequestBody.significance, serializeJson);
     writer.writeAdditionalData(iso_CeilingPostRequestBody.additionalData);

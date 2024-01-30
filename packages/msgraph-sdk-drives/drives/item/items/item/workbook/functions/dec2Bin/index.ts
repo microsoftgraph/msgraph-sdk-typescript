@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a dec2BinPostRequestBody
  */
-export function createDec2BinPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDec2BinPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDec2BinPostRequestBody;
 }
 export interface Dec2BinPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -54,7 +54,7 @@ export interface Dec2BinRequestBuilder extends BaseRequestBuilder<Dec2BinRequest
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDec2BinPostRequestBody(dec2BinPostRequestBody: Dec2BinPostRequestBody | undefined = {} as Dec2BinPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDec2BinPostRequestBody(dec2BinPostRequestBody: Partial<Dec2BinPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dec2BinPostRequestBody.backingStoreEnabled = true; },
         "number": n => { dec2BinPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoDec2BinPostRequestBody(dec2BinPostRequestBody: De
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDec2BinPostRequestBody(writer: SerializationWriter, dec2BinPostRequestBody: Dec2BinPostRequestBody | undefined = {} as Dec2BinPostRequestBody) : void {
+export function serializeDec2BinPostRequestBody(writer: SerializationWriter, dec2BinPostRequestBody: Partial<Dec2BinPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", dec2BinPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("places", dec2BinPostRequestBody.places, serializeJson);
     writer.writeAdditionalData(dec2BinPostRequestBody.additionalData);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a lenbPostRequestBody
  */
-export function createLenbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createLenbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLenbPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoLenbPostRequestBody(lenbPostRequestBody: LenbPostRequestBody | undefined = {} as LenbPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoLenbPostRequestBody(lenbPostRequestBody: Partial<LenbPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { lenbPostRequestBody.backingStoreEnabled = true; },
         "text": n => { lenbPostRequestBody.text = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface LenbRequestBuilder extends BaseRequestBuilder<LenbRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLenbPostRequestBody(writer: SerializationWriter, lenbPostRequestBody: LenbPostRequestBody | undefined = {} as LenbPostRequestBody) : void {
+export function serializeLenbPostRequestBody(writer: SerializationWriter, lenbPostRequestBody: Partial<LenbPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("text", lenbPostRequestBody.text, serializeJson);
     writer.writeAdditionalData(lenbPostRequestBody.additionalData);
 }

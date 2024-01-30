@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a replacePostRequestBody
  */
-export function createReplacePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createReplacePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoReplacePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoReplacePostRequestBody(replacePostRequestBody: ReplacePostRequestBody | undefined = {} as ReplacePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoReplacePostRequestBody(replacePostRequestBody: Partial<ReplacePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { replacePostRequestBody.backingStoreEnabled = true; },
         "newText": n => { replacePostRequestBody.newText = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export interface ReplaceRequestBuilder extends BaseRequestBuilder<ReplaceRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeReplacePostRequestBody(writer: SerializationWriter, replacePostRequestBody: ReplacePostRequestBody | undefined = {} as ReplacePostRequestBody) : void {
+export function serializeReplacePostRequestBody(writer: SerializationWriter, replacePostRequestBody: Partial<ReplacePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("newText", replacePostRequestBody.newText, serializeJson);
     writer.writeObjectValue<Json>("numChars", replacePostRequestBody.numChars, serializeJson);
     writer.writeObjectValue<Json>("oldText", replacePostRequestBody.oldText, serializeJson);

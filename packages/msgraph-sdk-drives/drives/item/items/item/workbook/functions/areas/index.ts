@@ -43,14 +43,14 @@ export interface AreasRequestBuilder extends BaseRequestBuilder<AreasRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a areasPostRequestBody
  */
-export function createAreasPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAreasPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAreasPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAreasPostRequestBody(areasPostRequestBody: AreasPostRequestBody | undefined = {} as AreasPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAreasPostRequestBody(areasPostRequestBody: Partial<AreasPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { areasPostRequestBody.backingStoreEnabled = true; },
         "reference": n => { areasPostRequestBody.reference = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoAreasPostRequestBody(areasPostRequestBody: AreasP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAreasPostRequestBody(writer: SerializationWriter, areasPostRequestBody: AreasPostRequestBody | undefined = {} as AreasPostRequestBody) : void {
+export function serializeAreasPostRequestBody(writer: SerializationWriter, areasPostRequestBody: Partial<AreasPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("reference", areasPostRequestBody.reference, serializeJson);
     writer.writeAdditionalData(areasPostRequestBody.additionalData);
 }

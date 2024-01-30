@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a movePostRequestBody
  */
-export function createMovePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMovePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMovePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMovePostRequestBody(movePostRequestBody: MovePostRequestBody | undefined = {} as MovePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMovePostRequestBody(movePostRequestBody: Partial<MovePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { movePostRequestBody.backingStoreEnabled = true; },
         "destinationId": n => { movePostRequestBody.destinationId = n.getStringValue(); },
@@ -61,7 +61,7 @@ export interface MoveRequestBuilder extends BaseRequestBuilder<MoveRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMovePostRequestBody(writer: SerializationWriter, movePostRequestBody: MovePostRequestBody | undefined = {} as MovePostRequestBody) : void {
+export function serializeMovePostRequestBody(writer: SerializationWriter, movePostRequestBody: Partial<MovePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("DestinationId", movePostRequestBody.destinationId);
     writer.writeAdditionalData(movePostRequestBody.additionalData);
 }

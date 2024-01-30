@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a modPostRequestBody
  */
-export function createModPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createModPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoModPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoModPostRequestBody(modPostRequestBody: ModPostRequestBody | undefined = {} as ModPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoModPostRequestBody(modPostRequestBody: Partial<ModPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { modPostRequestBody.backingStoreEnabled = true; },
         "divisor": n => { modPostRequestBody.divisor = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface ModRequestBuilder extends BaseRequestBuilder<ModRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeModPostRequestBody(writer: SerializationWriter, modPostRequestBody: ModPostRequestBody | undefined = {} as ModPostRequestBody) : void {
+export function serializeModPostRequestBody(writer: SerializationWriter, modPostRequestBody: Partial<ModPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("divisor", modPostRequestBody.divisor, serializeJson);
     writer.writeObjectValue<Json>("number", modPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(modPostRequestBody.additionalData);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a redirectPostRequestBody
  */
-export function createRedirectPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRedirectPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRedirectPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRedirectPostRequestBody(redirectPostRequestBody: RedirectPostRequestBody | undefined = {} as RedirectPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRedirectPostRequestBody(redirectPostRequestBody: Partial<RedirectPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { redirectPostRequestBody.backingStoreEnabled = true; },
         "callbackUri": n => { redirectPostRequestBody.callbackUri = n.getStringValue(); },
@@ -70,7 +70,7 @@ export interface RedirectRequestBuilder extends BaseRequestBuilder<RedirectReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRedirectPostRequestBody(writer: SerializationWriter, redirectPostRequestBody: RedirectPostRequestBody | undefined = {} as RedirectPostRequestBody) : void {
+export function serializeRedirectPostRequestBody(writer: SerializationWriter, redirectPostRequestBody: Partial<RedirectPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("callbackUri", redirectPostRequestBody.callbackUri);
     writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("targets", redirectPostRequestBody.targets, serializeInvitationParticipantInfo);
     writer.writeNumberValue("timeout", redirectPostRequestBody.timeout);

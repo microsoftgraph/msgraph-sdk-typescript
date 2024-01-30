@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a searchWithQGetResponse
  */
-export function createSearchWithQGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSearchWithQGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSearchWithQGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSearchWithQGetResponse(searchWithQGetResponse: SearchWithQGetResponse | undefined = {} as SearchWithQGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSearchWithQGetResponse(searchWithQGetResponse: Partial<SearchWithQGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(searchWithQGetResponse),
         "value": n => { searchWithQGetResponse.value = n.getCollectionOfObjectValues<DriveItem>(createDriveItemFromDiscriminatorValue); },
@@ -83,7 +83,7 @@ export interface SearchWithQRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSearchWithQGetResponse(writer: SerializationWriter, searchWithQGetResponse: SearchWithQGetResponse | undefined = {} as SearchWithQGetResponse) : void {
+export function serializeSearchWithQGetResponse(writer: SerializationWriter, searchWithQGetResponse: Partial<SearchWithQGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, searchWithQGetResponse)
     writer.writeCollectionOfObjectValues<DriveItem>("value", searchWithQGetResponse.value, serializeDriveItem);
 }

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a sumSqPostRequestBody
  */
-export function createSumSqPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSumSqPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSumSqPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSumSqPostRequestBody(sumSqPostRequestBody: SumSqPostRequestBody | undefined = {} as SumSqPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSumSqPostRequestBody(sumSqPostRequestBody: Partial<SumSqPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sumSqPostRequestBody.backingStoreEnabled = true; },
         "values": n => { sumSqPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoSumSqPostRequestBody(sumSqPostRequestBody: SumSqP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSumSqPostRequestBody(writer: SerializationWriter, sumSqPostRequestBody: SumSqPostRequestBody | undefined = {} as SumSqPostRequestBody) : void {
+export function serializeSumSqPostRequestBody(writer: SerializationWriter, sumSqPostRequestBody: Partial<SumSqPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", sumSqPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(sumSqPostRequestBody.additionalData);
 }

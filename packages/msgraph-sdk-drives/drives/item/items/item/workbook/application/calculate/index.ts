@@ -42,14 +42,14 @@ export interface CalculateRequestBuilder extends BaseRequestBuilder<CalculateReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a calculatePostRequestBody
  */
-export function createCalculatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCalculatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCalculatePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCalculatePostRequestBody(calculatePostRequestBody: CalculatePostRequestBody | undefined = {} as CalculatePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCalculatePostRequestBody(calculatePostRequestBody: Partial<CalculatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { calculatePostRequestBody.backingStoreEnabled = true; },
         "calculationType": n => { calculatePostRequestBody.calculationType = n.getStringValue(); },
@@ -59,7 +59,7 @@ export function deserializeIntoCalculatePostRequestBody(calculatePostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCalculatePostRequestBody(writer: SerializationWriter, calculatePostRequestBody: CalculatePostRequestBody | undefined = {} as CalculatePostRequestBody) : void {
+export function serializeCalculatePostRequestBody(writer: SerializationWriter, calculatePostRequestBody: Partial<CalculatePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("calculationType", calculatePostRequestBody.calculationType);
     writer.writeAdditionalData(calculatePostRequestBody.additionalData);
 }

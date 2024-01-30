@@ -41,10 +41,10 @@ export interface ManagedEBookItemRequestBuilder extends BaseRequestBuilder<Manag
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the managedEBook object.
+     * Read properties and relationships of the iosVppEBook object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedEBook
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebook-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebook-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedEBookItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedEBook | undefined>;
     /**
@@ -62,7 +62,7 @@ export interface ManagedEBookItemRequestBuilder extends BaseRequestBuilder<Manag
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the managedEBook object.
+     * Read properties and relationships of the iosVppEBook object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -76,7 +76,7 @@ export interface ManagedEBookItemRequestBuilder extends BaseRequestBuilder<Manag
      toPatchRequestInformation(body: ManagedEBook, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the managedEBook object.
+ * Read properties and relationships of the iosVppEBook object.
  */
 export interface ManagedEBookItemRequestBuilderGetQueryParameters {
     /**

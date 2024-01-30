@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a log10PostRequestBody
  */
-export function createLog10PostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createLog10PostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLog10PostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoLog10PostRequestBody(log10PostRequestBody: Log10PostRequestBody | undefined = {} as Log10PostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoLog10PostRequestBody(log10PostRequestBody: Partial<Log10PostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { log10PostRequestBody.backingStoreEnabled = true; },
         "number": n => { log10PostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface Log10RequestBuilder extends BaseRequestBuilder<Log10RequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLog10PostRequestBody(writer: SerializationWriter, log10PostRequestBody: Log10PostRequestBody | undefined = {} as Log10PostRequestBody) : void {
+export function serializeLog10PostRequestBody(writer: SerializationWriter, log10PostRequestBody: Partial<Log10PostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", log10PostRequestBody.number, serializeJson);
     writer.writeAdditionalData(log10PostRequestBody.additionalData);
 }

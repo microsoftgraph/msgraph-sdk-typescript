@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a xirrPostRequestBody
  */
-export function createXirrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createXirrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoXirrPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoXirrPostRequestBody(xirrPostRequestBody: XirrPostRequestBody | undefined = {} as XirrPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoXirrPostRequestBody(xirrPostRequestBody: Partial<XirrPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { xirrPostRequestBody.backingStoreEnabled = true; },
         "dates": n => { xirrPostRequestBody.dates = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -29,7 +29,7 @@ export function deserializeIntoXirrPostRequestBody(xirrPostRequestBody: XirrPost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeXirrPostRequestBody(writer: SerializationWriter, xirrPostRequestBody: XirrPostRequestBody | undefined = {} as XirrPostRequestBody) : void {
+export function serializeXirrPostRequestBody(writer: SerializationWriter, xirrPostRequestBody: Partial<XirrPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("dates", xirrPostRequestBody.dates, serializeJson);
     writer.writeObjectValue<Json>("guess", xirrPostRequestBody.guess, serializeJson);
     writer.writeObjectValue<Json>("values", xirrPostRequestBody.values, serializeJson);

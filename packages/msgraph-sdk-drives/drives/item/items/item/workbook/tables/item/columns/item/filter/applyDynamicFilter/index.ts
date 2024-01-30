@@ -41,14 +41,14 @@ export interface ApplyDynamicFilterRequestBuilder extends BaseRequestBuilder<App
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a applyDynamicFilterPostRequestBody
  */
-export function createApplyDynamicFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createApplyDynamicFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyDynamicFilterPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoApplyDynamicFilterPostRequestBody(applyDynamicFilterPostRequestBody: ApplyDynamicFilterPostRequestBody | undefined = {} as ApplyDynamicFilterPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoApplyDynamicFilterPostRequestBody(applyDynamicFilterPostRequestBody: Partial<ApplyDynamicFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyDynamicFilterPostRequestBody.backingStoreEnabled = true; },
         "criteria": n => { applyDynamicFilterPostRequestBody.criteria = n.getStringValue(); },
@@ -58,7 +58,7 @@ export function deserializeIntoApplyDynamicFilterPostRequestBody(applyDynamicFil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyDynamicFilterPostRequestBody(writer: SerializationWriter, applyDynamicFilterPostRequestBody: ApplyDynamicFilterPostRequestBody | undefined = {} as ApplyDynamicFilterPostRequestBody) : void {
+export function serializeApplyDynamicFilterPostRequestBody(writer: SerializationWriter, applyDynamicFilterPostRequestBody: Partial<ApplyDynamicFilterPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("criteria", applyDynamicFilterPostRequestBody.criteria);
     writer.writeAdditionalData(applyDynamicFilterPostRequestBody.additionalData);
 }

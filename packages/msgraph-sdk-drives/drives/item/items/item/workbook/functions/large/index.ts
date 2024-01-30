@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a largePostRequestBody
  */
-export function createLargePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createLargePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLargePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoLargePostRequestBody(largePostRequestBody: LargePostRequestBody | undefined = {} as LargePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoLargePostRequestBody(largePostRequestBody: Partial<LargePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { largePostRequestBody.array = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { largePostRequestBody.backingStoreEnabled = true; },
@@ -65,7 +65,7 @@ export interface LargeRequestBuilder extends BaseRequestBuilder<LargeRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLargePostRequestBody(writer: SerializationWriter, largePostRequestBody: LargePostRequestBody | undefined = {} as LargePostRequestBody) : void {
+export function serializeLargePostRequestBody(writer: SerializationWriter, largePostRequestBody: Partial<LargePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("array", largePostRequestBody.array, serializeJson);
     writer.writeObjectValue<Json>("k", largePostRequestBody.k, serializeJson);
     writer.writeAdditionalData(largePostRequestBody.additionalData);

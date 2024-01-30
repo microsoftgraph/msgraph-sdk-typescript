@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a setUserPreferredPresencePostRequestBody
  */
-export function createSetUserPreferredPresencePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSetUserPreferredPresencePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetUserPreferredPresencePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSetUserPreferredPresencePostRequestBody(setUserPreferredPresencePostRequestBody: SetUserPreferredPresencePostRequestBody | undefined = {} as SetUserPreferredPresencePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSetUserPreferredPresencePostRequestBody(setUserPreferredPresencePostRequestBody: Partial<SetUserPreferredPresencePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "activity": n => { setUserPreferredPresencePostRequestBody.activity = n.getStringValue(); },
         "availability": n => { setUserPreferredPresencePostRequestBody.availability = n.getStringValue(); },
@@ -28,7 +28,7 @@ export function deserializeIntoSetUserPreferredPresencePostRequestBody(setUserPr
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSetUserPreferredPresencePostRequestBody(writer: SerializationWriter, setUserPreferredPresencePostRequestBody: SetUserPreferredPresencePostRequestBody | undefined = {} as SetUserPreferredPresencePostRequestBody) : void {
+export function serializeSetUserPreferredPresencePostRequestBody(writer: SerializationWriter, setUserPreferredPresencePostRequestBody: Partial<SetUserPreferredPresencePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("activity", setUserPreferredPresencePostRequestBody.activity);
     writer.writeStringValue("availability", setUserPreferredPresencePostRequestBody.availability);
     writer.writeDurationValue("expirationDuration", setUserPreferredPresencePostRequestBody.expirationDuration);

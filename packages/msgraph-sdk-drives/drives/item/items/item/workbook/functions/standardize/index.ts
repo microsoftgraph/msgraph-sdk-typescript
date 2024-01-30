@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a standardizePostRequestBody
  */
-export function createStandardizePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createStandardizePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoStandardizePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoStandardizePostRequestBody(standardizePostRequestBody: StandardizePostRequestBody | undefined = {} as StandardizePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoStandardizePostRequestBody(standardizePostRequestBody: Partial<StandardizePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { standardizePostRequestBody.backingStoreEnabled = true; },
         "mean": n => { standardizePostRequestBody.mean = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -29,7 +29,7 @@ export function deserializeIntoStandardizePostRequestBody(standardizePostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeStandardizePostRequestBody(writer: SerializationWriter, standardizePostRequestBody: StandardizePostRequestBody | undefined = {} as StandardizePostRequestBody) : void {
+export function serializeStandardizePostRequestBody(writer: SerializationWriter, standardizePostRequestBody: Partial<StandardizePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("mean", standardizePostRequestBody.mean, serializeJson);
     writer.writeObjectValue<Json>("standardDev", standardizePostRequestBody.standardDev, serializeJson);
     writer.writeObjectValue<Json>("x", standardizePostRequestBody.x, serializeJson);

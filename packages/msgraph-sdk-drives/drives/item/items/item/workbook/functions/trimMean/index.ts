@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a trimMeanPostRequestBody
  */
-export function createTrimMeanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createTrimMeanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTrimMeanPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoTrimMeanPostRequestBody(trimMeanPostRequestBody: TrimMeanPostRequestBody | undefined = {} as TrimMeanPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTrimMeanPostRequestBody(trimMeanPostRequestBody: Partial<TrimMeanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { trimMeanPostRequestBody.array = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { trimMeanPostRequestBody.backingStoreEnabled = true; },
@@ -28,7 +28,7 @@ export function deserializeIntoTrimMeanPostRequestBody(trimMeanPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTrimMeanPostRequestBody(writer: SerializationWriter, trimMeanPostRequestBody: TrimMeanPostRequestBody | undefined = {} as TrimMeanPostRequestBody) : void {
+export function serializeTrimMeanPostRequestBody(writer: SerializationWriter, trimMeanPostRequestBody: Partial<TrimMeanPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("array", trimMeanPostRequestBody.array, serializeJson);
     writer.writeObjectValue<Json>("percent", trimMeanPostRequestBody.percent, serializeJson);
     writer.writeAdditionalData(trimMeanPostRequestBody.additionalData);

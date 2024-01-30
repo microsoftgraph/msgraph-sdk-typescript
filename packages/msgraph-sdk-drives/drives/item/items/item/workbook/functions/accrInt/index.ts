@@ -71,14 +71,14 @@ export interface AccrIntRequestBuilder extends BaseRequestBuilder<AccrIntRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a accrIntPostRequestBody
  */
-export function createAccrIntPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAccrIntPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAccrIntPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAccrIntPostRequestBody(accrIntPostRequestBody: AccrIntPostRequestBody | undefined = {} as AccrIntPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAccrIntPostRequestBody(accrIntPostRequestBody: Partial<AccrIntPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { accrIntPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { accrIntPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -95,7 +95,7 @@ export function deserializeIntoAccrIntPostRequestBody(accrIntPostRequestBody: Ac
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAccrIntPostRequestBody(writer: SerializationWriter, accrIntPostRequestBody: AccrIntPostRequestBody | undefined = {} as AccrIntPostRequestBody) : void {
+export function serializeAccrIntPostRequestBody(writer: SerializationWriter, accrIntPostRequestBody: Partial<AccrIntPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", accrIntPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("calcMethod", accrIntPostRequestBody.calcMethod, serializeJson);
     writer.writeObjectValue<Json>("firstInterest", accrIntPostRequestBody.firstInterest, serializeJson);

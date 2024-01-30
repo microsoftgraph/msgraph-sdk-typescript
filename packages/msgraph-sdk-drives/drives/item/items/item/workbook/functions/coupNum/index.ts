@@ -55,14 +55,14 @@ export interface CoupNumRequestBuilder extends BaseRequestBuilder<CoupNumRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a coupNumPostRequestBody
  */
-export function createCoupNumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCoupNumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCoupNumPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCoupNumPostRequestBody(coupNumPostRequestBody: CoupNumPostRequestBody | undefined = {} as CoupNumPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCoupNumPostRequestBody(coupNumPostRequestBody: Partial<CoupNumPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { coupNumPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { coupNumPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export function deserializeIntoCoupNumPostRequestBody(coupNumPostRequestBody: Co
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCoupNumPostRequestBody(writer: SerializationWriter, coupNumPostRequestBody: CoupNumPostRequestBody | undefined = {} as CoupNumPostRequestBody) : void {
+export function serializeCoupNumPostRequestBody(writer: SerializationWriter, coupNumPostRequestBody: Partial<CoupNumPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", coupNumPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("frequency", coupNumPostRequestBody.frequency, serializeJson);
     writer.writeObjectValue<Json>("maturity", coupNumPostRequestBody.maturity, serializeJson);

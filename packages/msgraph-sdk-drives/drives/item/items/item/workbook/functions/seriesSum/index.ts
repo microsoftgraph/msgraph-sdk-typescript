@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a seriesSumPostRequestBody
  */
-export function createSeriesSumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSeriesSumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSeriesSumPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSeriesSumPostRequestBody(seriesSumPostRequestBody: SeriesSumPostRequestBody | undefined = {} as SeriesSumPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSeriesSumPostRequestBody(seriesSumPostRequestBody: Partial<SeriesSumPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { seriesSumPostRequestBody.backingStoreEnabled = true; },
         "coefficients": n => { seriesSumPostRequestBody.coefficients = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -30,7 +30,7 @@ export function deserializeIntoSeriesSumPostRequestBody(seriesSumPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSeriesSumPostRequestBody(writer: SerializationWriter, seriesSumPostRequestBody: SeriesSumPostRequestBody | undefined = {} as SeriesSumPostRequestBody) : void {
+export function serializeSeriesSumPostRequestBody(writer: SerializationWriter, seriesSumPostRequestBody: Partial<SeriesSumPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("coefficients", seriesSumPostRequestBody.coefficients, serializeJson);
     writer.writeObjectValue<Json>("m", seriesSumPostRequestBody.m, serializeJson);
     writer.writeObjectValue<Json>("n", seriesSumPostRequestBody.n, serializeJson);

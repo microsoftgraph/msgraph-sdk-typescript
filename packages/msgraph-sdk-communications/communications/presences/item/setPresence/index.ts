@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a setPresencePostRequestBody
  */
-export function createSetPresencePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSetPresencePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetPresencePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSetPresencePostRequestBody(setPresencePostRequestBody: SetPresencePostRequestBody | undefined = {} as SetPresencePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSetPresencePostRequestBody(setPresencePostRequestBody: Partial<SetPresencePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "activity": n => { setPresencePostRequestBody.activity = n.getStringValue(); },
         "availability": n => { setPresencePostRequestBody.availability = n.getStringValue(); },
@@ -29,7 +29,7 @@ export function deserializeIntoSetPresencePostRequestBody(setPresencePostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSetPresencePostRequestBody(writer: SerializationWriter, setPresencePostRequestBody: SetPresencePostRequestBody | undefined = {} as SetPresencePostRequestBody) : void {
+export function serializeSetPresencePostRequestBody(writer: SerializationWriter, setPresencePostRequestBody: Partial<SetPresencePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("activity", setPresencePostRequestBody.activity);
     writer.writeStringValue("availability", setPresencePostRequestBody.availability);
     writer.writeDurationValue("expirationDuration", setPresencePostRequestBody.expirationDuration);

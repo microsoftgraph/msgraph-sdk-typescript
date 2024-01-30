@@ -44,14 +44,14 @@ export interface AddCopyFromContentTypeHubRequestBuilder extends BaseRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a addCopyFromContentTypeHubPostRequestBody
  */
-export function createAddCopyFromContentTypeHubPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAddCopyFromContentTypeHubPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddCopyFromContentTypeHubPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAddCopyFromContentTypeHubPostRequestBody(addCopyFromContentTypeHubPostRequestBody: AddCopyFromContentTypeHubPostRequestBody | undefined = {} as AddCopyFromContentTypeHubPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddCopyFromContentTypeHubPostRequestBody(addCopyFromContentTypeHubPostRequestBody: Partial<AddCopyFromContentTypeHubPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addCopyFromContentTypeHubPostRequestBody.backingStoreEnabled = true; },
         "contentTypeId": n => { addCopyFromContentTypeHubPostRequestBody.contentTypeId = n.getStringValue(); },
@@ -61,7 +61,7 @@ export function deserializeIntoAddCopyFromContentTypeHubPostRequestBody(addCopyF
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddCopyFromContentTypeHubPostRequestBody(writer: SerializationWriter, addCopyFromContentTypeHubPostRequestBody: AddCopyFromContentTypeHubPostRequestBody | undefined = {} as AddCopyFromContentTypeHubPostRequestBody) : void {
+export function serializeAddCopyFromContentTypeHubPostRequestBody(writer: SerializationWriter, addCopyFromContentTypeHubPostRequestBody: Partial<AddCopyFromContentTypeHubPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("contentTypeId", addCopyFromContentTypeHubPostRequestBody.contentTypeId);
     writer.writeAdditionalData(addCopyFromContentTypeHubPostRequestBody.additionalData);
 }

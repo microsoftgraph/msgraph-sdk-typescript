@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a provisionOnDemandPostRequestBody
  */
-export function createProvisionOnDemandPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createProvisionOnDemandPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProvisionOnDemandPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoProvisionOnDemandPostRequestBody(provisionOnDemandPostRequestBody: ProvisionOnDemandPostRequestBody | undefined = {} as ProvisionOnDemandPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoProvisionOnDemandPostRequestBody(provisionOnDemandPostRequestBody: Partial<ProvisionOnDemandPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { provisionOnDemandPostRequestBody.backingStoreEnabled = true; },
         "parameters": n => { provisionOnDemandPostRequestBody.parameters = n.getCollectionOfObjectValues<SynchronizationJobApplicationParameters>(createSynchronizationJobApplicationParametersFromDiscriminatorValue); },
@@ -61,7 +61,7 @@ export interface ProvisionOnDemandRequestBuilder extends BaseRequestBuilder<Prov
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeProvisionOnDemandPostRequestBody(writer: SerializationWriter, provisionOnDemandPostRequestBody: ProvisionOnDemandPostRequestBody | undefined = {} as ProvisionOnDemandPostRequestBody) : void {
+export function serializeProvisionOnDemandPostRequestBody(writer: SerializationWriter, provisionOnDemandPostRequestBody: Partial<ProvisionOnDemandPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<SynchronizationJobApplicationParameters>("parameters", provisionOnDemandPostRequestBody.parameters, serializeSynchronizationJobApplicationParameters);
     writer.writeAdditionalData(provisionOnDemandPostRequestBody.additionalData);
 }

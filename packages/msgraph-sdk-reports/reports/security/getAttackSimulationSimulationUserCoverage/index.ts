@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getAttackSimulationSimulationUserCoverageGetResponse
  */
-export function createGetAttackSimulationSimulationUserCoverageGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetAttackSimulationSimulationUserCoverageGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAttackSimulationSimulationUserCoverageGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetAttackSimulationSimulationUserCoverageGetResponse(getAttackSimulationSimulationUserCoverageGetResponse: GetAttackSimulationSimulationUserCoverageGetResponse | undefined = {} as GetAttackSimulationSimulationUserCoverageGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAttackSimulationSimulationUserCoverageGetResponse(getAttackSimulationSimulationUserCoverageGetResponse: Partial<GetAttackSimulationSimulationUserCoverageGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getAttackSimulationSimulationUserCoverageGetResponse),
         "value": n => { getAttackSimulationSimulationUserCoverageGetResponse.value = n.getCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>(createAttackSimulationSimulationUserCoverageFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export interface GetAttackSimulationSimulationUserCoverageRequestBuilderGetQuery
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetAttackSimulationSimulationUserCoverageGetResponse(writer: SerializationWriter, getAttackSimulationSimulationUserCoverageGetResponse: GetAttackSimulationSimulationUserCoverageGetResponse | undefined = {} as GetAttackSimulationSimulationUserCoverageGetResponse) : void {
+export function serializeGetAttackSimulationSimulationUserCoverageGetResponse(writer: SerializationWriter, getAttackSimulationSimulationUserCoverageGetResponse: Partial<GetAttackSimulationSimulationUserCoverageGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationSimulationUserCoverageGetResponse)
     writer.writeCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>("value", getAttackSimulationSimulationUserCoverageGetResponse.value, serializeAttackSimulationSimulationUserCoverage);
 }

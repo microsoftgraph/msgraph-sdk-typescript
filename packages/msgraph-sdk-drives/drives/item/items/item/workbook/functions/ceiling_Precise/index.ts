@@ -47,14 +47,14 @@ export interface Ceiling_PreciseRequestBuilder extends BaseRequestBuilder<Ceilin
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a ceiling_PrecisePostRequestBody
  */
-export function createCeiling_PrecisePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCeiling_PrecisePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCeiling_PrecisePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCeiling_PrecisePostRequestBody(ceiling_PrecisePostRequestBody: Ceiling_PrecisePostRequestBody | undefined = {} as Ceiling_PrecisePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCeiling_PrecisePostRequestBody(ceiling_PrecisePostRequestBody: Partial<Ceiling_PrecisePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ceiling_PrecisePostRequestBody.backingStoreEnabled = true; },
         "number": n => { ceiling_PrecisePostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoCeiling_PrecisePostRequestBody(ceiling_PrecisePos
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCeiling_PrecisePostRequestBody(writer: SerializationWriter, ceiling_PrecisePostRequestBody: Ceiling_PrecisePostRequestBody | undefined = {} as Ceiling_PrecisePostRequestBody) : void {
+export function serializeCeiling_PrecisePostRequestBody(writer: SerializationWriter, ceiling_PrecisePostRequestBody: Partial<Ceiling_PrecisePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", ceiling_PrecisePostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("significance", ceiling_PrecisePostRequestBody.significance, serializeJson);
     writer.writeAdditionalData(ceiling_PrecisePostRequestBody.additionalData);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a quotientPostRequestBody
  */
-export function createQuotientPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createQuotientPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoQuotientPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoQuotientPostRequestBody(quotientPostRequestBody: QuotientPostRequestBody | undefined = {} as QuotientPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoQuotientPostRequestBody(quotientPostRequestBody: Partial<QuotientPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { quotientPostRequestBody.backingStoreEnabled = true; },
         "denominator": n => { quotientPostRequestBody.denominator = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface QuotientRequestBuilder extends BaseRequestBuilder<QuotientReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeQuotientPostRequestBody(writer: SerializationWriter, quotientPostRequestBody: QuotientPostRequestBody | undefined = {} as QuotientPostRequestBody) : void {
+export function serializeQuotientPostRequestBody(writer: SerializationWriter, quotientPostRequestBody: Partial<QuotientPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("denominator", quotientPostRequestBody.denominator, serializeJson);
     writer.writeObjectValue<Json>("numerator", quotientPostRequestBody.numerator, serializeJson);
     writer.writeAdditionalData(quotientPostRequestBody.additionalData);

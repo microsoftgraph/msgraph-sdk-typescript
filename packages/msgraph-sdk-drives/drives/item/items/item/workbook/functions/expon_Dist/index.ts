@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a expon_DistPostRequestBody
  */
-export function createExpon_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createExpon_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExpon_DistPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoExpon_DistPostRequestBody(expon_DistPostRequestBody: Expon_DistPostRequestBody | undefined = {} as Expon_DistPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoExpon_DistPostRequestBody(expon_DistPostRequestBody: Partial<Expon_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { expon_DistPostRequestBody.backingStoreEnabled = true; },
         "cumulative": n => { expon_DistPostRequestBody.cumulative = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface Expon_DistRequestBuilder extends BaseRequestBuilder<Expon_DistR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExpon_DistPostRequestBody(writer: SerializationWriter, expon_DistPostRequestBody: Expon_DistPostRequestBody | undefined = {} as Expon_DistPostRequestBody) : void {
+export function serializeExpon_DistPostRequestBody(writer: SerializationWriter, expon_DistPostRequestBody: Partial<Expon_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("cumulative", expon_DistPostRequestBody.cumulative, serializeJson);
     writer.writeObjectValue<Json>("lambda", expon_DistPostRequestBody.lambda, serializeJson);
     writer.writeObjectValue<Json>("x", expon_DistPostRequestBody.x, serializeJson);

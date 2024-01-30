@@ -47,14 +47,14 @@ export interface CombinaRequestBuilder extends BaseRequestBuilder<CombinaRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a combinaPostRequestBody
  */
-export function createCombinaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCombinaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCombinaPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCombinaPostRequestBody(combinaPostRequestBody: CombinaPostRequestBody | undefined = {} as CombinaPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCombinaPostRequestBody(combinaPostRequestBody: Partial<CombinaPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { combinaPostRequestBody.backingStoreEnabled = true; },
         "number": n => { combinaPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoCombinaPostRequestBody(combinaPostRequestBody: Co
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCombinaPostRequestBody(writer: SerializationWriter, combinaPostRequestBody: CombinaPostRequestBody | undefined = {} as CombinaPostRequestBody) : void {
+export function serializeCombinaPostRequestBody(writer: SerializationWriter, combinaPostRequestBody: Partial<CombinaPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", combinaPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("numberChosen", combinaPostRequestBody.numberChosen, serializeJson);
     writer.writeAdditionalData(combinaPostRequestBody.additionalData);

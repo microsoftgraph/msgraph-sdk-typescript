@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a protectPostRequestBody
  */
-export function createProtectPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createProtectPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProtectPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoProtectPostRequestBody(protectPostRequestBody: ProtectPostRequestBody | undefined = {} as ProtectPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoProtectPostRequestBody(protectPostRequestBody: Partial<ProtectPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { protectPostRequestBody.backingStoreEnabled = true; },
         "options": n => { protectPostRequestBody.options = n.getObjectValue<WorkbookWorksheetProtectionOptions>(createWorkbookWorksheetProtectionOptionsFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface ProtectRequestBuilder extends BaseRequestBuilder<ProtectRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeProtectPostRequestBody(writer: SerializationWriter, protectPostRequestBody: ProtectPostRequestBody | undefined = {} as ProtectPostRequestBody) : void {
+export function serializeProtectPostRequestBody(writer: SerializationWriter, protectPostRequestBody: Partial<ProtectPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<WorkbookWorksheetProtectionOptions>("options", protectPostRequestBody.options, serializeWorkbookWorksheetProtectionOptions);
     writer.writeAdditionalData(protectPostRequestBody.additionalData);
 }

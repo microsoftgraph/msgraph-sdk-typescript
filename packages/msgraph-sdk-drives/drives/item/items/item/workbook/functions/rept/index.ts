@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a reptPostRequestBody
  */
-export function createReptPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createReptPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoReptPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoReptPostRequestBody(reptPostRequestBody: ReptPostRequestBody | undefined = {} as ReptPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoReptPostRequestBody(reptPostRequestBody: Partial<ReptPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { reptPostRequestBody.backingStoreEnabled = true; },
         "numberTimes": n => { reptPostRequestBody.numberTimes = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface ReptRequestBuilder extends BaseRequestBuilder<ReptRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeReptPostRequestBody(writer: SerializationWriter, reptPostRequestBody: ReptPostRequestBody | undefined = {} as ReptPostRequestBody) : void {
+export function serializeReptPostRequestBody(writer: SerializationWriter, reptPostRequestBody: Partial<ReptPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("numberTimes", reptPostRequestBody.numberTimes, serializeJson);
     writer.writeObjectValue<Json>("text", reptPostRequestBody.text, serializeJson);
     writer.writeAdditionalData(reptPostRequestBody.additionalData);

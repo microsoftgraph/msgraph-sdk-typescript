@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a percentRank_IncPostRequestBody
  */
-export function createPercentRank_IncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPercentRank_IncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPercentRank_IncPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPercentRank_IncPostRequestBody(percentRank_IncPostRequestBody: PercentRank_IncPostRequestBody | undefined = {} as PercentRank_IncPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPercentRank_IncPostRequestBody(percentRank_IncPostRequestBody: Partial<PercentRank_IncPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { percentRank_IncPostRequestBody.array = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { percentRank_IncPostRequestBody.backingStoreEnabled = true; },
@@ -70,7 +70,7 @@ export interface PercentRank_IncRequestBuilder extends BaseRequestBuilder<Percen
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePercentRank_IncPostRequestBody(writer: SerializationWriter, percentRank_IncPostRequestBody: PercentRank_IncPostRequestBody | undefined = {} as PercentRank_IncPostRequestBody) : void {
+export function serializePercentRank_IncPostRequestBody(writer: SerializationWriter, percentRank_IncPostRequestBody: Partial<PercentRank_IncPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("array", percentRank_IncPostRequestBody.array, serializeJson);
     writer.writeObjectValue<Json>("significance", percentRank_IncPostRequestBody.significance, serializeJson);
     writer.writeObjectValue<Json>("x", percentRank_IncPostRequestBody.x, serializeJson);

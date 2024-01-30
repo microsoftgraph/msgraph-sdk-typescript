@@ -66,14 +66,14 @@ export interface AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackag
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse
  */
-export function createAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse(additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse: AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse | undefined = {} as AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse(additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse: Partial<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse),
         "value": n => { additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse.value = n.getCollectionOfObjectValues<AccessPackageAssignment>(createAccessPackageAssignmentFromDiscriminatorValue); },
@@ -83,7 +83,7 @@ export function deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatib
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse(writer: SerializationWriter, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse: AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse | undefined = {} as AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse) : void {
+export function serializeAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse(writer: SerializationWriter, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse: Partial<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse)
     writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse.value, serializeAccessPackageAssignment);
 }

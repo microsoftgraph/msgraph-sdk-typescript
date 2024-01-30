@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a networkDays_IntlPostRequestBody
  */
-export function createNetworkDays_IntlPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createNetworkDays_IntlPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNetworkDays_IntlPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoNetworkDays_IntlPostRequestBody(networkDays_IntlPostRequestBody: NetworkDays_IntlPostRequestBody | undefined = {} as NetworkDays_IntlPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoNetworkDays_IntlPostRequestBody(networkDays_IntlPostRequestBody: Partial<NetworkDays_IntlPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { networkDays_IntlPostRequestBody.backingStoreEnabled = true; },
         "endDate": n => { networkDays_IntlPostRequestBody.endDate = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export interface NetworkDays_IntlRequestBuilder extends BaseRequestBuilder<Netwo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNetworkDays_IntlPostRequestBody(writer: SerializationWriter, networkDays_IntlPostRequestBody: NetworkDays_IntlPostRequestBody | undefined = {} as NetworkDays_IntlPostRequestBody) : void {
+export function serializeNetworkDays_IntlPostRequestBody(writer: SerializationWriter, networkDays_IntlPostRequestBody: Partial<NetworkDays_IntlPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("endDate", networkDays_IntlPostRequestBody.endDate, serializeJson);
     writer.writeObjectValue<Json>("holidays", networkDays_IntlPostRequestBody.holidays, serializeJson);
     writer.writeObjectValue<Json>("startDate", networkDays_IntlPostRequestBody.startDate, serializeJson);

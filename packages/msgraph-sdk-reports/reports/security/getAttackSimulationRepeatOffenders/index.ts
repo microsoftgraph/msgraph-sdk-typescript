@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getAttackSimulationRepeatOffendersGetResponse
  */
-export function createGetAttackSimulationRepeatOffendersGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetAttackSimulationRepeatOffendersGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAttackSimulationRepeatOffendersGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetAttackSimulationRepeatOffendersGetResponse(getAttackSimulationRepeatOffendersGetResponse: GetAttackSimulationRepeatOffendersGetResponse | undefined = {} as GetAttackSimulationRepeatOffendersGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAttackSimulationRepeatOffendersGetResponse(getAttackSimulationRepeatOffendersGetResponse: Partial<GetAttackSimulationRepeatOffendersGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getAttackSimulationRepeatOffendersGetResponse),
         "value": n => { getAttackSimulationRepeatOffendersGetResponse.value = n.getCollectionOfObjectValues<AttackSimulationRepeatOffender>(createAttackSimulationRepeatOffenderFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export interface GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParamet
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetAttackSimulationRepeatOffendersGetResponse(writer: SerializationWriter, getAttackSimulationRepeatOffendersGetResponse: GetAttackSimulationRepeatOffendersGetResponse | undefined = {} as GetAttackSimulationRepeatOffendersGetResponse) : void {
+export function serializeGetAttackSimulationRepeatOffendersGetResponse(writer: SerializationWriter, getAttackSimulationRepeatOffendersGetResponse: Partial<GetAttackSimulationRepeatOffendersGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationRepeatOffendersGetResponse)
     writer.writeCollectionOfObjectValues<AttackSimulationRepeatOffender>("value", getAttackSimulationRepeatOffendersGetResponse.value, serializeAttackSimulationRepeatOffender);
 }

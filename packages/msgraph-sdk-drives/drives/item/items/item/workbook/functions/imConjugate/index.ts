@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a imConjugatePostRequestBody
  */
-export function createImConjugatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImConjugatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImConjugatePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImConjugatePostRequestBody(imConjugatePostRequestBody: ImConjugatePostRequestBody | undefined = {} as ImConjugatePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImConjugatePostRequestBody(imConjugatePostRequestBody: Partial<ImConjugatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imConjugatePostRequestBody.backingStoreEnabled = true; },
         "inumber": n => { imConjugatePostRequestBody.inumber = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface ImConjugateRequestBuilder extends BaseRequestBuilder<ImConjugat
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImConjugatePostRequestBody(writer: SerializationWriter, imConjugatePostRequestBody: ImConjugatePostRequestBody | undefined = {} as ImConjugatePostRequestBody) : void {
+export function serializeImConjugatePostRequestBody(writer: SerializationWriter, imConjugatePostRequestBody: Partial<ImConjugatePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("inumber", imConjugatePostRequestBody.inumber, serializeJson);
     writer.writeAdditionalData(imConjugatePostRequestBody.additionalData);
 }

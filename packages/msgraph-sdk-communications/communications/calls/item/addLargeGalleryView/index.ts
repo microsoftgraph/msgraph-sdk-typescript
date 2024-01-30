@@ -44,14 +44,14 @@ export interface AddLargeGalleryViewRequestBuilder extends BaseRequestBuilder<Ad
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a addLargeGalleryViewPostRequestBody
  */
-export function createAddLargeGalleryViewPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAddLargeGalleryViewPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddLargeGalleryViewPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAddLargeGalleryViewPostRequestBody(addLargeGalleryViewPostRequestBody: AddLargeGalleryViewPostRequestBody | undefined = {} as AddLargeGalleryViewPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddLargeGalleryViewPostRequestBody(addLargeGalleryViewPostRequestBody: Partial<AddLargeGalleryViewPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addLargeGalleryViewPostRequestBody.backingStoreEnabled = true; },
         "clientContext": n => { addLargeGalleryViewPostRequestBody.clientContext = n.getStringValue(); },
@@ -61,7 +61,7 @@ export function deserializeIntoAddLargeGalleryViewPostRequestBody(addLargeGaller
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddLargeGalleryViewPostRequestBody(writer: SerializationWriter, addLargeGalleryViewPostRequestBody: AddLargeGalleryViewPostRequestBody | undefined = {} as AddLargeGalleryViewPostRequestBody) : void {
+export function serializeAddLargeGalleryViewPostRequestBody(writer: SerializationWriter, addLargeGalleryViewPostRequestBody: Partial<AddLargeGalleryViewPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("clientContext", addLargeGalleryViewPostRequestBody.clientContext);
     writer.writeAdditionalData(addLargeGalleryViewPostRequestBody.additionalData);
 }

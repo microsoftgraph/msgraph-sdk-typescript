@@ -43,14 +43,14 @@ export interface CothRequestBuilder extends BaseRequestBuilder<CothRequestBuilde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a cothPostRequestBody
  */
-export function createCothPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCothPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCothPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCothPostRequestBody(cothPostRequestBody: CothPostRequestBody | undefined = {} as CothPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCothPostRequestBody(cothPostRequestBody: Partial<CothPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cothPostRequestBody.backingStoreEnabled = true; },
         "number": n => { cothPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoCothPostRequestBody(cothPostRequestBody: CothPost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCothPostRequestBody(writer: SerializationWriter, cothPostRequestBody: CothPostRequestBody | undefined = {} as CothPostRequestBody) : void {
+export function serializeCothPostRequestBody(writer: SerializationWriter, cothPostRequestBody: Partial<CothPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", cothPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(cothPostRequestBody.additionalData);
 }

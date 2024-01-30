@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a sinPostRequestBody
  */
-export function createSinPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSinPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSinPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSinPostRequestBody(sinPostRequestBody: SinPostRequestBody | undefined = {} as SinPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSinPostRequestBody(sinPostRequestBody: Partial<SinPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sinPostRequestBody.backingStoreEnabled = true; },
         "number": n => { sinPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoSinPostRequestBody(sinPostRequestBody: SinPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSinPostRequestBody(writer: SerializationWriter, sinPostRequestBody: SinPostRequestBody | undefined = {} as SinPostRequestBody) : void {
+export function serializeSinPostRequestBody(writer: SerializationWriter, sinPostRequestBody: Partial<SinPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", sinPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(sinPostRequestBody.additionalData);
 }

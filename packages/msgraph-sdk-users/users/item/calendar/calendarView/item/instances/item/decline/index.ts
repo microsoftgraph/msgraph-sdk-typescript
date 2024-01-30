@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a declinePostRequestBody
  */
-export function createDeclinePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDeclinePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDeclinePostRequestBody;
 }
 export interface DeclinePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -58,7 +58,7 @@ export interface DeclineRequestBuilder extends BaseRequestBuilder<DeclineRequest
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDeclinePostRequestBody(declinePostRequestBody: DeclinePostRequestBody | undefined = {} as DeclinePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDeclinePostRequestBody(declinePostRequestBody: Partial<DeclinePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { declinePostRequestBody.backingStoreEnabled = true; },
         "comment": n => { declinePostRequestBody.comment = n.getStringValue(); },
@@ -70,7 +70,7 @@ export function deserializeIntoDeclinePostRequestBody(declinePostRequestBody: De
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDeclinePostRequestBody(writer: SerializationWriter, declinePostRequestBody: DeclinePostRequestBody | undefined = {} as DeclinePostRequestBody) : void {
+export function serializeDeclinePostRequestBody(writer: SerializationWriter, declinePostRequestBody: Partial<DeclinePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("Comment", declinePostRequestBody.comment);
     writer.writeObjectValue<TimeSlot>("ProposedNewTime", declinePostRequestBody.proposedNewTime, serializeTimeSlot);
     writer.writeBooleanValue("SendResponse", declinePostRequestBody.sendResponse);

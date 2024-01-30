@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a grantPostRequestBody
  */
-export function createGrantPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGrantPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGrantPostRequestBody;
 }
 /**
@@ -18,14 +18,14 @@ export function createGrantPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a grantPostResponse
  */
-export function createGrantPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGrantPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGrantPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGrantPostRequestBody(grantPostRequestBody: GrantPostRequestBody | undefined = {} as GrantPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGrantPostRequestBody(grantPostRequestBody: Partial<GrantPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { grantPostRequestBody.backingStoreEnabled = true; },
         "recipients": n => { grantPostRequestBody.recipients = n.getCollectionOfObjectValues<DriveRecipient>(createDriveRecipientFromDiscriminatorValue); },
@@ -36,7 +36,7 @@ export function deserializeIntoGrantPostRequestBody(grantPostRequestBody: GrantP
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGrantPostResponse(grantPostResponse: GrantPostResponse | undefined = {} as GrantPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGrantPostResponse(grantPostResponse: Partial<GrantPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(grantPostResponse),
         "value": n => { grantPostResponse.value = n.getCollectionOfObjectValues<Permission>(createPermissionFromDiscriminatorValue); },
@@ -90,7 +90,7 @@ export interface GrantRequestBuilder extends BaseRequestBuilder<GrantRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGrantPostRequestBody(writer: SerializationWriter, grantPostRequestBody: GrantPostRequestBody | undefined = {} as GrantPostRequestBody) : void {
+export function serializeGrantPostRequestBody(writer: SerializationWriter, grantPostRequestBody: Partial<GrantPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", grantPostRequestBody.recipients, serializeDriveRecipient);
     writer.writeCollectionOfPrimitiveValues<string>("roles", grantPostRequestBody.roles);
     writer.writeAdditionalData(grantPostRequestBody.additionalData);
@@ -99,7 +99,7 @@ export function serializeGrantPostRequestBody(writer: SerializationWriter, grant
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGrantPostResponse(writer: SerializationWriter, grantPostResponse: GrantPostResponse | undefined = {} as GrantPostResponse) : void {
+export function serializeGrantPostResponse(writer: SerializationWriter, grantPostResponse: Partial<GrantPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, grantPostResponse)
     writer.writeCollectionOfObjectValues<Permission>("value", grantPostResponse.value, serializePermission);
 }

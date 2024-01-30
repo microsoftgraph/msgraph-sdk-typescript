@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a imPowerPostRequestBody
  */
-export function createImPowerPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImPowerPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImPowerPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImPowerPostRequestBody(imPowerPostRequestBody: ImPowerPostRequestBody | undefined = {} as ImPowerPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImPowerPostRequestBody(imPowerPostRequestBody: Partial<ImPowerPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imPowerPostRequestBody.backingStoreEnabled = true; },
         "inumber": n => { imPowerPostRequestBody.inumber = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface ImPowerRequestBuilder extends BaseRequestBuilder<ImPowerRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImPowerPostRequestBody(writer: SerializationWriter, imPowerPostRequestBody: ImPowerPostRequestBody | undefined = {} as ImPowerPostRequestBody) : void {
+export function serializeImPowerPostRequestBody(writer: SerializationWriter, imPowerPostRequestBody: Partial<ImPowerPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("inumber", imPowerPostRequestBody.inumber, serializeJson);
     writer.writeObjectValue<Json>("number", imPowerPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(imPowerPostRequestBody.additionalData);

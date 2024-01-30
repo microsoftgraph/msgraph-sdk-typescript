@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a supportedTimeZonesWithTimeZoneStandardGetResponse
  */
-export function createSupportedTimeZonesWithTimeZoneStandardGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSupportedTimeZonesWithTimeZoneStandardGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSupportedTimeZonesWithTimeZoneStandardGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSupportedTimeZonesWithTimeZoneStandardGetResponse(supportedTimeZonesWithTimeZoneStandardGetResponse: SupportedTimeZonesWithTimeZoneStandardGetResponse | undefined = {} as SupportedTimeZonesWithTimeZoneStandardGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSupportedTimeZonesWithTimeZoneStandardGetResponse(supportedTimeZonesWithTimeZoneStandardGetResponse: Partial<SupportedTimeZonesWithTimeZoneStandardGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(supportedTimeZonesWithTimeZoneStandardGetResponse),
         "value": n => { supportedTimeZonesWithTimeZoneStandardGetResponse.value = n.getCollectionOfObjectValues<TimeZoneInformation>(createTimeZoneInformationFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoSupportedTimeZonesWithTimeZoneStandardGetResponse
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSupportedTimeZonesWithTimeZoneStandardGetResponse(writer: SerializationWriter, supportedTimeZonesWithTimeZoneStandardGetResponse: SupportedTimeZonesWithTimeZoneStandardGetResponse | undefined = {} as SupportedTimeZonesWithTimeZoneStandardGetResponse) : void {
+export function serializeSupportedTimeZonesWithTimeZoneStandardGetResponse(writer: SerializationWriter, supportedTimeZonesWithTimeZoneStandardGetResponse: Partial<SupportedTimeZonesWithTimeZoneStandardGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, supportedTimeZonesWithTimeZoneStandardGetResponse)
     writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesWithTimeZoneStandardGetResponse.value, serializeTimeZoneInformation);
 }

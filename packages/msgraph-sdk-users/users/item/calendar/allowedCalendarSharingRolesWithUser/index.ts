@@ -58,14 +58,14 @@ export interface AllowedCalendarSharingRolesWithUserRequestBuilderGetQueryParame
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a allowedCalendarSharingRolesWithUserGetResponse
  */
-export function createAllowedCalendarSharingRolesWithUserGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAllowedCalendarSharingRolesWithUserGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAllowedCalendarSharingRolesWithUserGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAllowedCalendarSharingRolesWithUserGetResponse(allowedCalendarSharingRolesWithUserGetResponse: AllowedCalendarSharingRolesWithUserGetResponse | undefined = {} as AllowedCalendarSharingRolesWithUserGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAllowedCalendarSharingRolesWithUserGetResponse(allowedCalendarSharingRolesWithUserGetResponse: Partial<AllowedCalendarSharingRolesWithUserGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(allowedCalendarSharingRolesWithUserGetResponse),
         "value": n => { allowedCalendarSharingRolesWithUserGetResponse.value = n.getCollectionOfEnumValues<CalendarRoleType>(CalendarRoleTypeObject); },
@@ -75,7 +75,7 @@ export function deserializeIntoAllowedCalendarSharingRolesWithUserGetResponse(al
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAllowedCalendarSharingRolesWithUserGetResponse(writer: SerializationWriter, allowedCalendarSharingRolesWithUserGetResponse: AllowedCalendarSharingRolesWithUserGetResponse | undefined = {} as AllowedCalendarSharingRolesWithUserGetResponse) : void {
+export function serializeAllowedCalendarSharingRolesWithUserGetResponse(writer: SerializationWriter, allowedCalendarSharingRolesWithUserGetResponse: Partial<AllowedCalendarSharingRolesWithUserGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, allowedCalendarSharingRolesWithUserGetResponse)
     if(allowedCalendarSharingRolesWithUserGetResponse.value)
     writer.writeEnumValue<CalendarRoleType>("value", ...allowedCalendarSharingRolesWithUserGetResponse.value);

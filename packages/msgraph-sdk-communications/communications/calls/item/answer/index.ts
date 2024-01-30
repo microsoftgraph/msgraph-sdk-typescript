@@ -59,14 +59,14 @@ export interface AnswerRequestBuilder extends BaseRequestBuilder<AnswerRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a answerPostRequestBody
  */
-export function createAnswerPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAnswerPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAnswerPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAnswerPostRequestBody(answerPostRequestBody: AnswerPostRequestBody | undefined = {} as AnswerPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAnswerPostRequestBody(answerPostRequestBody: Partial<AnswerPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "acceptedModalities": n => { answerPostRequestBody.acceptedModalities = n.getCollectionOfEnumValues<Modality>(ModalityObject); },
         "backingStoreEnabled": n => { answerPostRequestBody.backingStoreEnabled = true; },
@@ -80,7 +80,7 @@ export function deserializeIntoAnswerPostRequestBody(answerPostRequestBody: Answ
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAnswerPostRequestBody(writer: SerializationWriter, answerPostRequestBody: AnswerPostRequestBody | undefined = {} as AnswerPostRequestBody) : void {
+export function serializeAnswerPostRequestBody(writer: SerializationWriter, answerPostRequestBody: Partial<AnswerPostRequestBody> | undefined = {}) : void {
     if(answerPostRequestBody.acceptedModalities)
     writer.writeEnumValue<Modality>("acceptedModalities", ...answerPostRequestBody.acceptedModalities);
     writer.writeStringValue("callbackUri", answerPostRequestBody.callbackUri);

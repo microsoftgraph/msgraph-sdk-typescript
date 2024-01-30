@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getConfigurationSettingNonComplianceReportPostRequestBody
  */
-export function createGetConfigurationSettingNonComplianceReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetConfigurationSettingNonComplianceReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetConfigurationSettingNonComplianceReportPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetConfigurationSettingNonComplianceReportPostRequestBody(getConfigurationSettingNonComplianceReportPostRequestBody: GetConfigurationSettingNonComplianceReportPostRequestBody | undefined = {} as GetConfigurationSettingNonComplianceReportPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetConfigurationSettingNonComplianceReportPostRequestBody(getConfigurationSettingNonComplianceReportPostRequestBody: Partial<GetConfigurationSettingNonComplianceReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getConfigurationSettingNonComplianceReportPostRequestBody.backingStoreEnabled = true; },
         "filter": n => { getConfigurationSettingNonComplianceReportPostRequestBody.filter = n.getStringValue(); },
@@ -100,7 +100,7 @@ export interface GetConfigurationSettingNonComplianceReportRequestBuilder extend
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetConfigurationSettingNonComplianceReportPostRequestBody(writer: SerializationWriter, getConfigurationSettingNonComplianceReportPostRequestBody: GetConfigurationSettingNonComplianceReportPostRequestBody | undefined = {} as GetConfigurationSettingNonComplianceReportPostRequestBody) : void {
+export function serializeGetConfigurationSettingNonComplianceReportPostRequestBody(writer: SerializationWriter, getConfigurationSettingNonComplianceReportPostRequestBody: Partial<GetConfigurationSettingNonComplianceReportPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("filter", getConfigurationSettingNonComplianceReportPostRequestBody.filter);
     writer.writeCollectionOfPrimitiveValues<string>("groupBy", getConfigurationSettingNonComplianceReportPostRequestBody.groupBy);
     writer.writeStringValue("name", getConfigurationSettingNonComplianceReportPostRequestBody.name);

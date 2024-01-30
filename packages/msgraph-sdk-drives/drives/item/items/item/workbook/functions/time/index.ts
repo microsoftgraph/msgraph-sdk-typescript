@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a timePostRequestBody
  */
-export function createTimePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createTimePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTimePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoTimePostRequestBody(timePostRequestBody: TimePostRequestBody | undefined = {} as TimePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTimePostRequestBody(timePostRequestBody: Partial<TimePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { timePostRequestBody.backingStoreEnabled = true; },
         "hour": n => { timePostRequestBody.hour = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -29,7 +29,7 @@ export function deserializeIntoTimePostRequestBody(timePostRequestBody: TimePost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTimePostRequestBody(writer: SerializationWriter, timePostRequestBody: TimePostRequestBody | undefined = {} as TimePostRequestBody) : void {
+export function serializeTimePostRequestBody(writer: SerializationWriter, timePostRequestBody: Partial<TimePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("hour", timePostRequestBody.hour, serializeJson);
     writer.writeObjectValue<Json>("minute", timePostRequestBody.minute, serializeJson);
     writer.writeObjectValue<Json>("second", timePostRequestBody.second, serializeJson);

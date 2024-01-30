@@ -52,14 +52,14 @@ export interface AddFormulaLocalRequestBuilder extends BaseRequestBuilder<AddFor
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a addFormulaLocalPostRequestBody
  */
-export function createAddFormulaLocalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAddFormulaLocalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddFormulaLocalPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAddFormulaLocalPostRequestBody(addFormulaLocalPostRequestBody: AddFormulaLocalPostRequestBody | undefined = {} as AddFormulaLocalPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddFormulaLocalPostRequestBody(addFormulaLocalPostRequestBody: Partial<AddFormulaLocalPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addFormulaLocalPostRequestBody.backingStoreEnabled = true; },
         "comment": n => { addFormulaLocalPostRequestBody.comment = n.getStringValue(); },
@@ -71,7 +71,7 @@ export function deserializeIntoAddFormulaLocalPostRequestBody(addFormulaLocalPos
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddFormulaLocalPostRequestBody(writer: SerializationWriter, addFormulaLocalPostRequestBody: AddFormulaLocalPostRequestBody | undefined = {} as AddFormulaLocalPostRequestBody) : void {
+export function serializeAddFormulaLocalPostRequestBody(writer: SerializationWriter, addFormulaLocalPostRequestBody: Partial<AddFormulaLocalPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("comment", addFormulaLocalPostRequestBody.comment);
     writer.writeStringValue("formula", addFormulaLocalPostRequestBody.formula);
     writer.writeStringValue("name", addFormulaLocalPostRequestBody.name);

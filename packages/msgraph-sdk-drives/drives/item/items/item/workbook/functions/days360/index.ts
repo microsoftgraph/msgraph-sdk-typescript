@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a days360PostRequestBody
  */
-export function createDays360PostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDays360PostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDays360PostRequestBody;
 }
 export interface Days360PostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -58,7 +58,7 @@ export interface Days360RequestBuilder extends BaseRequestBuilder<Days360Request
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDays360PostRequestBody(days360PostRequestBody: Days360PostRequestBody | undefined = {} as Days360PostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDays360PostRequestBody(days360PostRequestBody: Partial<Days360PostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { days360PostRequestBody.backingStoreEnabled = true; },
         "endDate": n => { days360PostRequestBody.endDate = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export function deserializeIntoDays360PostRequestBody(days360PostRequestBody: Da
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDays360PostRequestBody(writer: SerializationWriter, days360PostRequestBody: Days360PostRequestBody | undefined = {} as Days360PostRequestBody) : void {
+export function serializeDays360PostRequestBody(writer: SerializationWriter, days360PostRequestBody: Partial<Days360PostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("endDate", days360PostRequestBody.endDate, serializeJson);
     writer.writeObjectValue<Json>("method", days360PostRequestBody.method, serializeJson);
     writer.writeObjectValue<Json>("startDate", days360PostRequestBody.startDate, serializeJson);

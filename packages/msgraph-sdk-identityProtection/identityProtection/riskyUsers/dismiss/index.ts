@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a dismissPostRequestBody
  */
-export function createDismissPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDismissPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDismissPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDismissPostRequestBody(dismissPostRequestBody: DismissPostRequestBody | undefined = {} as DismissPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDismissPostRequestBody(dismissPostRequestBody: Partial<DismissPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dismissPostRequestBody.backingStoreEnabled = true; },
         "userIds": n => { dismissPostRequestBody.userIds = n.getCollectionOfPrimitiveValues<string>(); },
@@ -59,7 +59,7 @@ export interface DismissRequestBuilder extends BaseRequestBuilder<DismissRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDismissPostRequestBody(writer: SerializationWriter, dismissPostRequestBody: DismissPostRequestBody | undefined = {} as DismissPostRequestBody) : void {
+export function serializeDismissPostRequestBody(writer: SerializationWriter, dismissPostRequestBody: Partial<DismissPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("userIds", dismissPostRequestBody.userIds);
     writer.writeAdditionalData(dismissPostRequestBody.additionalData);
 }

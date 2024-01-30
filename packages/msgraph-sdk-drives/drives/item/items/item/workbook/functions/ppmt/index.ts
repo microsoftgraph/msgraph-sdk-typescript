@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a ppmtPostRequestBody
  */
-export function createPpmtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPpmtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPpmtPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPpmtPostRequestBody(ppmtPostRequestBody: PpmtPostRequestBody | undefined = {} as PpmtPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPpmtPostRequestBody(ppmtPostRequestBody: Partial<PpmtPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ppmtPostRequestBody.backingStoreEnabled = true; },
         "fv": n => { ppmtPostRequestBody.fv = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -85,7 +85,7 @@ export interface PpmtRequestBuilder extends BaseRequestBuilder<PpmtRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePpmtPostRequestBody(writer: SerializationWriter, ppmtPostRequestBody: PpmtPostRequestBody | undefined = {} as PpmtPostRequestBody) : void {
+export function serializePpmtPostRequestBody(writer: SerializationWriter, ppmtPostRequestBody: Partial<PpmtPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("fv", ppmtPostRequestBody.fv, serializeJson);
     writer.writeObjectValue<Json>("nper", ppmtPostRequestBody.nper, serializeJson);
     writer.writeObjectValue<Json>("per", ppmtPostRequestBody.per, serializeJson);

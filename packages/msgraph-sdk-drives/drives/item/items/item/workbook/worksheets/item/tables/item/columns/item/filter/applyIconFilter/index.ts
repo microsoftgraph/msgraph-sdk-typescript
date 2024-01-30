@@ -42,14 +42,14 @@ export interface ApplyIconFilterRequestBuilder extends BaseRequestBuilder<ApplyI
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a applyIconFilterPostRequestBody
  */
-export function createApplyIconFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createApplyIconFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyIconFilterPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoApplyIconFilterPostRequestBody(applyIconFilterPostRequestBody: ApplyIconFilterPostRequestBody | undefined = {} as ApplyIconFilterPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoApplyIconFilterPostRequestBody(applyIconFilterPostRequestBody: Partial<ApplyIconFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyIconFilterPostRequestBody.backingStoreEnabled = true; },
         "icon": n => { applyIconFilterPostRequestBody.icon = n.getObjectValue<WorkbookIcon>(createWorkbookIconFromDiscriminatorValue); },
@@ -59,7 +59,7 @@ export function deserializeIntoApplyIconFilterPostRequestBody(applyIconFilterPos
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyIconFilterPostRequestBody(writer: SerializationWriter, applyIconFilterPostRequestBody: ApplyIconFilterPostRequestBody | undefined = {} as ApplyIconFilterPostRequestBody) : void {
+export function serializeApplyIconFilterPostRequestBody(writer: SerializationWriter, applyIconFilterPostRequestBody: Partial<ApplyIconFilterPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<WorkbookIcon>("icon", applyIconFilterPostRequestBody.icon, serializeWorkbookIcon);
     writer.writeAdditionalData(applyIconFilterPostRequestBody.additionalData);
 }

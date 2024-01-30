@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a validatePermissionPostRequestBody
  */
-export function createValidatePermissionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createValidatePermissionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoValidatePermissionPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoValidatePermissionPostRequestBody(validatePermissionPostRequestBody: ValidatePermissionPostRequestBody | undefined = {} as ValidatePermissionPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoValidatePermissionPostRequestBody(validatePermissionPostRequestBody: Partial<ValidatePermissionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { validatePermissionPostRequestBody.backingStoreEnabled = true; },
         "challengeToken": n => { validatePermissionPostRequestBody.challengeToken = n.getStringValue(); },
@@ -27,7 +27,7 @@ export function deserializeIntoValidatePermissionPostRequestBody(validatePermiss
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeValidatePermissionPostRequestBody(writer: SerializationWriter, validatePermissionPostRequestBody: ValidatePermissionPostRequestBody | undefined = {} as ValidatePermissionPostRequestBody) : void {
+export function serializeValidatePermissionPostRequestBody(writer: SerializationWriter, validatePermissionPostRequestBody: Partial<ValidatePermissionPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("challengeToken", validatePermissionPostRequestBody.challengeToken);
     writer.writeStringValue("password", validatePermissionPostRequestBody.password);
     writer.writeAdditionalData(validatePermissionPostRequestBody.additionalData);

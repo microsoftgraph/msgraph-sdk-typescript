@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a mirrPostRequestBody
  */
-export function createMirrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMirrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMirrPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMirrPostRequestBody(mirrPostRequestBody: MirrPostRequestBody | undefined = {} as MirrPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMirrPostRequestBody(mirrPostRequestBody: Partial<MirrPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { mirrPostRequestBody.backingStoreEnabled = true; },
         "financeRate": n => { mirrPostRequestBody.financeRate = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface MirrRequestBuilder extends BaseRequestBuilder<MirrRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMirrPostRequestBody(writer: SerializationWriter, mirrPostRequestBody: MirrPostRequestBody | undefined = {} as MirrPostRequestBody) : void {
+export function serializeMirrPostRequestBody(writer: SerializationWriter, mirrPostRequestBody: Partial<MirrPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("financeRate", mirrPostRequestBody.financeRate, serializeJson);
     writer.writeObjectValue<Json>("reinvestRate", mirrPostRequestBody.reinvestRate, serializeJson);
     writer.writeObjectValue<Json>("values", mirrPostRequestBody.values, serializeJson);

@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getManagedAppDiagnosticStatusesGetResponse
  */
-export function createGetManagedAppDiagnosticStatusesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetManagedAppDiagnosticStatusesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetManagedAppDiagnosticStatusesGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetManagedAppDiagnosticStatusesGetResponse(getManagedAppDiagnosticStatusesGetResponse: GetManagedAppDiagnosticStatusesGetResponse | undefined = {} as GetManagedAppDiagnosticStatusesGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetManagedAppDiagnosticStatusesGetResponse(getManagedAppDiagnosticStatusesGetResponse: Partial<GetManagedAppDiagnosticStatusesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getManagedAppDiagnosticStatusesGetResponse),
         "value": n => { getManagedAppDiagnosticStatusesGetResponse.value = n.getCollectionOfObjectValues<ManagedAppDiagnosticStatus>(createManagedAppDiagnosticStatusFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export interface GetManagedAppDiagnosticStatusesRequestBuilderGetQueryParameters
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetManagedAppDiagnosticStatusesGetResponse(writer: SerializationWriter, getManagedAppDiagnosticStatusesGetResponse: GetManagedAppDiagnosticStatusesGetResponse | undefined = {} as GetManagedAppDiagnosticStatusesGetResponse) : void {
+export function serializeGetManagedAppDiagnosticStatusesGetResponse(writer: SerializationWriter, getManagedAppDiagnosticStatusesGetResponse: Partial<GetManagedAppDiagnosticStatusesGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getManagedAppDiagnosticStatusesGetResponse)
     writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatus>("value", getManagedAppDiagnosticStatusesGetResponse.value, serializeManagedAppDiagnosticStatus);
 }

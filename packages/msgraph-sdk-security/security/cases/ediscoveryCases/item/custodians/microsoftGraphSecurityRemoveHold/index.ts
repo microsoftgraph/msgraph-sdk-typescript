@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a removeHoldPostRequestBody
  */
-export function createRemoveHoldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRemoveHoldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRemoveHoldPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRemoveHoldPostRequestBody(removeHoldPostRequestBody: RemoveHoldPostRequestBody | undefined = {} as RemoveHoldPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRemoveHoldPostRequestBody(removeHoldPostRequestBody: Partial<RemoveHoldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { removeHoldPostRequestBody.backingStoreEnabled = true; },
         "ids": n => { removeHoldPostRequestBody.ids = n.getCollectionOfPrimitiveValues<string>(); },
@@ -58,7 +58,7 @@ export interface RemoveHoldPostRequestBody extends AdditionalDataHolder, BackedM
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRemoveHoldPostRequestBody(writer: SerializationWriter, removeHoldPostRequestBody: RemoveHoldPostRequestBody | undefined = {} as RemoveHoldPostRequestBody) : void {
+export function serializeRemoveHoldPostRequestBody(writer: SerializationWriter, removeHoldPostRequestBody: Partial<RemoveHoldPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("ids", removeHoldPostRequestBody.ids);
     writer.writeAdditionalData(removeHoldPostRequestBody.additionalData);
 }

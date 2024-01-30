@@ -51,14 +51,14 @@ export interface Ceiling_MathRequestBuilder extends BaseRequestBuilder<Ceiling_M
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a ceiling_MathPostRequestBody
  */
-export function createCeiling_MathPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCeiling_MathPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCeiling_MathPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCeiling_MathPostRequestBody(ceiling_MathPostRequestBody: Ceiling_MathPostRequestBody | undefined = {} as Ceiling_MathPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCeiling_MathPostRequestBody(ceiling_MathPostRequestBody: Partial<Ceiling_MathPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ceiling_MathPostRequestBody.backingStoreEnabled = true; },
         "mode": n => { ceiling_MathPostRequestBody.mode = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export function deserializeIntoCeiling_MathPostRequestBody(ceiling_MathPostReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCeiling_MathPostRequestBody(writer: SerializationWriter, ceiling_MathPostRequestBody: Ceiling_MathPostRequestBody | undefined = {} as Ceiling_MathPostRequestBody) : void {
+export function serializeCeiling_MathPostRequestBody(writer: SerializationWriter, ceiling_MathPostRequestBody: Partial<Ceiling_MathPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("mode", ceiling_MathPostRequestBody.mode, serializeJson);
     writer.writeObjectValue<Json>("number", ceiling_MathPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("significance", ceiling_MathPostRequestBody.significance, serializeJson);

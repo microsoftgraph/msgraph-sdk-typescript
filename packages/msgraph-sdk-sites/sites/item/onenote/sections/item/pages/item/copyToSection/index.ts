@@ -56,14 +56,14 @@ export interface CopyToSectionRequestBuilder extends BaseRequestBuilder<CopyToSe
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a copyToSectionPostRequestBody
  */
-export function createCopyToSectionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCopyToSectionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopyToSectionPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCopyToSectionPostRequestBody(copyToSectionPostRequestBody: CopyToSectionPostRequestBody | undefined = {} as CopyToSectionPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCopyToSectionPostRequestBody(copyToSectionPostRequestBody: Partial<CopyToSectionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { copyToSectionPostRequestBody.backingStoreEnabled = true; },
         "groupId": n => { copyToSectionPostRequestBody.groupId = n.getStringValue(); },
@@ -76,7 +76,7 @@ export function deserializeIntoCopyToSectionPostRequestBody(copyToSectionPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCopyToSectionPostRequestBody(writer: SerializationWriter, copyToSectionPostRequestBody: CopyToSectionPostRequestBody | undefined = {} as CopyToSectionPostRequestBody) : void {
+export function serializeCopyToSectionPostRequestBody(writer: SerializationWriter, copyToSectionPostRequestBody: Partial<CopyToSectionPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("groupId", copyToSectionPostRequestBody.groupId);
     writer.writeStringValue("id", copyToSectionPostRequestBody.id);
     writer.writeStringValue("siteCollectionId", copyToSectionPostRequestBody.siteCollectionId);

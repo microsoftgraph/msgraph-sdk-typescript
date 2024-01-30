@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a randBetweenPostRequestBody
  */
-export function createRandBetweenPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRandBetweenPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRandBetweenPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRandBetweenPostRequestBody(randBetweenPostRequestBody: RandBetweenPostRequestBody | undefined = {} as RandBetweenPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRandBetweenPostRequestBody(randBetweenPostRequestBody: Partial<RandBetweenPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { randBetweenPostRequestBody.backingStoreEnabled = true; },
         "bottom": n => { randBetweenPostRequestBody.bottom = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface RandBetweenRequestBuilder extends BaseRequestBuilder<RandBetwee
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRandBetweenPostRequestBody(writer: SerializationWriter, randBetweenPostRequestBody: RandBetweenPostRequestBody | undefined = {} as RandBetweenPostRequestBody) : void {
+export function serializeRandBetweenPostRequestBody(writer: SerializationWriter, randBetweenPostRequestBody: Partial<RandBetweenPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("bottom", randBetweenPostRequestBody.bottom, serializeJson);
     writer.writeObjectValue<Json>("top", randBetweenPostRequestBody.top, serializeJson);
     writer.writeAdditionalData(randBetweenPostRequestBody.additionalData);

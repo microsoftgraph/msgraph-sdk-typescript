@@ -60,14 +60,14 @@ export interface AvailableProviderTypesRequestBuilderGetQueryParameters {
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a availableProviderTypesGetResponse
  */
-export function createAvailableProviderTypesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAvailableProviderTypesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAvailableProviderTypesGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAvailableProviderTypesGetResponse(availableProviderTypesGetResponse: AvailableProviderTypesGetResponse | undefined = {} as AvailableProviderTypesGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAvailableProviderTypesGetResponse(availableProviderTypesGetResponse: Partial<AvailableProviderTypesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(availableProviderTypesGetResponse),
         "value": n => { availableProviderTypesGetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
@@ -77,7 +77,7 @@ export function deserializeIntoAvailableProviderTypesGetResponse(availableProvid
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAvailableProviderTypesGetResponse(writer: SerializationWriter, availableProviderTypesGetResponse: AvailableProviderTypesGetResponse | undefined = {} as AvailableProviderTypesGetResponse) : void {
+export function serializeAvailableProviderTypesGetResponse(writer: SerializationWriter, availableProviderTypesGetResponse: Partial<AvailableProviderTypesGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, availableProviderTypesGetResponse)
     writer.writeCollectionOfPrimitiveValues<string>("value", availableProviderTypesGetResponse.value);
 }

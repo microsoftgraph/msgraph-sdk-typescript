@@ -238,11 +238,11 @@ export interface GroupItemRequestBuilder extends BaseRequestBuilder<GroupItemReq
      */
      get(requestConfiguration?: RequestConfiguration<GroupItemRequestBuilderGetQueryParameters> | undefined) : Promise<Group | undefined>;
     /**
-     * Add a member to a security or Microsoft 365 group through the members navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.
+     * Update the properties of a group object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Group
-     * @see {@link https://learn.microsoft.com/graph/api/group-post-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Group, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Group | undefined>;
     /**
@@ -258,7 +258,7 @@ export interface GroupItemRequestBuilder extends BaseRequestBuilder<GroupItemReq
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GroupItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Add a member to a security or Microsoft 365 group through the members navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.
+     * Update the properties of a group object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

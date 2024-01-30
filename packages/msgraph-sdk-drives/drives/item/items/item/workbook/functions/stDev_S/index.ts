@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a stDev_SPostRequestBody
  */
-export function createStDev_SPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createStDev_SPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoStDev_SPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoStDev_SPostRequestBody(stDev_SPostRequestBody: StDev_SPostRequestBody | undefined = {} as StDev_SPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoStDev_SPostRequestBody(stDev_SPostRequestBody: Partial<StDev_SPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { stDev_SPostRequestBody.backingStoreEnabled = true; },
         "values": n => { stDev_SPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoStDev_SPostRequestBody(stDev_SPostRequestBody: St
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeStDev_SPostRequestBody(writer: SerializationWriter, stDev_SPostRequestBody: StDev_SPostRequestBody | undefined = {} as StDev_SPostRequestBody) : void {
+export function serializeStDev_SPostRequestBody(writer: SerializationWriter, stDev_SPostRequestBody: Partial<StDev_SPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", stDev_SPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(stDev_SPostRequestBody.additionalData);
 }

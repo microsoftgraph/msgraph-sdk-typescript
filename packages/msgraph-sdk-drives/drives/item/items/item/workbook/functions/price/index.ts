@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a pricePostRequestBody
  */
-export function createPricePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPricePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPricePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPricePostRequestBody(pricePostRequestBody: PricePostRequestBody | undefined = {} as PricePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPricePostRequestBody(pricePostRequestBody: Partial<PricePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { pricePostRequestBody.backingStoreEnabled = true; },
         "basis": n => { pricePostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -90,7 +90,7 @@ export interface PriceRequestBuilder extends BaseRequestBuilder<PriceRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePricePostRequestBody(writer: SerializationWriter, pricePostRequestBody: PricePostRequestBody | undefined = {} as PricePostRequestBody) : void {
+export function serializePricePostRequestBody(writer: SerializationWriter, pricePostRequestBody: Partial<PricePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", pricePostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("frequency", pricePostRequestBody.frequency, serializeJson);
     writer.writeObjectValue<Json>("maturity", pricePostRequestBody.maturity, serializeJson);

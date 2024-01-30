@@ -37,6 +37,12 @@ export interface CalendarRequestBuilder extends BaseRequestBuilder<CalendarReque
      */
      allowedCalendarSharingRolesWithUser(user: string | undefined) : AllowedCalendarSharingRolesWithUserRequestBuilder;
     /**
+     * Delete a calendar other than the default calendar.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://learn.microsoft.com/graph/api/calendar-delete?view=graph-rest-1.0|Find more info here}
+     */
+     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
+    /**
      * Get the properties and relationships of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Calendar
@@ -51,6 +57,12 @@ export interface CalendarRequestBuilder extends BaseRequestBuilder<CalendarReque
      * @see {@link https://learn.microsoft.com/graph/api/calendar-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Calendar, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Calendar | undefined>;
+    /**
+     * Delete a calendar other than the default calendar.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Get the properties and relationships of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -112,6 +124,14 @@ export const CalendarRequestBuilderNavigationMetadata: Record<Exclude<keyof Cale
  * Metadata for all the requests in the request builder.
  */
 export const CalendarRequestBuilderRequestsMetadata: RequestsMetadata = {
+    delete: {
+        responseBodyContentType: "application/json",
+        errorMappings: {
+            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+        },
+        adapterMethodName: "sendNoResponseContentAsync",
+    },
     get: {
         responseBodyContentType: "application/json",
         errorMappings: {

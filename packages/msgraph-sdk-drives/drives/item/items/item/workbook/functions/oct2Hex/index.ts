@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a oct2HexPostRequestBody
  */
-export function createOct2HexPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createOct2HexPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOct2HexPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoOct2HexPostRequestBody(oct2HexPostRequestBody: Oct2HexPostRequestBody | undefined = {} as Oct2HexPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoOct2HexPostRequestBody(oct2HexPostRequestBody: Partial<Oct2HexPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { oct2HexPostRequestBody.backingStoreEnabled = true; },
         "number": n => { oct2HexPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface Oct2HexRequestBuilder extends BaseRequestBuilder<Oct2HexRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeOct2HexPostRequestBody(writer: SerializationWriter, oct2HexPostRequestBody: Oct2HexPostRequestBody | undefined = {} as Oct2HexPostRequestBody) : void {
+export function serializeOct2HexPostRequestBody(writer: SerializationWriter, oct2HexPostRequestBody: Partial<Oct2HexPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", oct2HexPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("places", oct2HexPostRequestBody.places, serializeJson);
     writer.writeAdditionalData(oct2HexPostRequestBody.additionalData);

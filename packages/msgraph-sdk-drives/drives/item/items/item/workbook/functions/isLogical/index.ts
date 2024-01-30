@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a isLogicalPostRequestBody
  */
-export function createIsLogicalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createIsLogicalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsLogicalPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoIsLogicalPostRequestBody(isLogicalPostRequestBody: IsLogicalPostRequestBody | undefined = {} as IsLogicalPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIsLogicalPostRequestBody(isLogicalPostRequestBody: Partial<IsLogicalPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isLogicalPostRequestBody.backingStoreEnabled = true; },
         "value": n => { isLogicalPostRequestBody.value = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface IsLogicalRequestBuilder extends BaseRequestBuilder<IsLogicalReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsLogicalPostRequestBody(writer: SerializationWriter, isLogicalPostRequestBody: IsLogicalPostRequestBody | undefined = {} as IsLogicalPostRequestBody) : void {
+export function serializeIsLogicalPostRequestBody(writer: SerializationWriter, isLogicalPostRequestBody: Partial<IsLogicalPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("value", isLogicalPostRequestBody.value, serializeJson);
     writer.writeAdditionalData(isLogicalPostRequestBody.additionalData);
 }

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a isErrPostRequestBody
  */
-export function createIsErrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createIsErrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsErrPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoIsErrPostRequestBody(isErrPostRequestBody: IsErrPostRequestBody | undefined = {} as IsErrPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIsErrPostRequestBody(isErrPostRequestBody: Partial<IsErrPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isErrPostRequestBody.backingStoreEnabled = true; },
         "value": n => { isErrPostRequestBody.value = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface IsErrRequestBuilder extends BaseRequestBuilder<IsErrRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsErrPostRequestBody(writer: SerializationWriter, isErrPostRequestBody: IsErrPostRequestBody | undefined = {} as IsErrPostRequestBody) : void {
+export function serializeIsErrPostRequestBody(writer: SerializationWriter, isErrPostRequestBody: Partial<IsErrPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("value", isErrPostRequestBody.value, serializeJson);
     writer.writeAdditionalData(isErrPostRequestBody.additionalData);
 }

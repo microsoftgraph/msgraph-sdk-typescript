@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a createLinkPostRequestBody
  */
-export function createCreateLinkPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCreateLinkPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateLinkPostRequestBody;
 }
 export interface CreateLinkPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -78,7 +78,7 @@ export interface CreateLinkRequestBuilder extends BaseRequestBuilder<CreateLinkR
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCreateLinkPostRequestBody(createLinkPostRequestBody: CreateLinkPostRequestBody | undefined = {} as CreateLinkPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCreateLinkPostRequestBody(createLinkPostRequestBody: Partial<CreateLinkPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createLinkPostRequestBody.backingStoreEnabled = true; },
         "expirationDateTime": n => { createLinkPostRequestBody.expirationDateTime = n.getDateValue(); },
@@ -95,7 +95,7 @@ export function deserializeIntoCreateLinkPostRequestBody(createLinkPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCreateLinkPostRequestBody(writer: SerializationWriter, createLinkPostRequestBody: CreateLinkPostRequestBody | undefined = {} as CreateLinkPostRequestBody) : void {
+export function serializeCreateLinkPostRequestBody(writer: SerializationWriter, createLinkPostRequestBody: Partial<CreateLinkPostRequestBody> | undefined = {}) : void {
     writer.writeDateValue("expirationDateTime", createLinkPostRequestBody.expirationDateTime);
     writer.writeStringValue("message", createLinkPostRequestBody.message);
     writer.writeStringValue("password", createLinkPostRequestBody.password);

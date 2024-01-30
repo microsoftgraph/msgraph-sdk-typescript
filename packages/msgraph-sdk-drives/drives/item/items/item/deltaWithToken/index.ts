@@ -10,7 +10,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a deltaWithTokenGetResponse
  */
-export function createDeltaWithTokenGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDeltaWithTokenGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDeltaWithTokenGetResponse;
 }
 export interface DeltaWithTokenGetResponse extends BaseDeltaFunctionResponse, Parsable {
@@ -73,7 +73,7 @@ export interface DeltaWithTokenRequestBuilderGetQueryParameters {
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDeltaWithTokenGetResponse(deltaWithTokenGetResponse: DeltaWithTokenGetResponse | undefined = {} as DeltaWithTokenGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDeltaWithTokenGetResponse(deltaWithTokenGetResponse: Partial<DeltaWithTokenGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseDeltaFunctionResponse(deltaWithTokenGetResponse),
         "value": n => { deltaWithTokenGetResponse.value = n.getCollectionOfObjectValues<DriveItem>(createDriveItemFromDiscriminatorValue); },
@@ -83,7 +83,7 @@ export function deserializeIntoDeltaWithTokenGetResponse(deltaWithTokenGetRespon
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDeltaWithTokenGetResponse(writer: SerializationWriter, deltaWithTokenGetResponse: DeltaWithTokenGetResponse | undefined = {} as DeltaWithTokenGetResponse) : void {
+export function serializeDeltaWithTokenGetResponse(writer: SerializationWriter, deltaWithTokenGetResponse: Partial<DeltaWithTokenGetResponse> | undefined = {}) : void {
     serializeBaseDeltaFunctionResponse(writer, deltaWithTokenGetResponse)
     writer.writeCollectionOfObjectValues<DriveItem>("value", deltaWithTokenGetResponse.value, serializeDriveItem);
 }

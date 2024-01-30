@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a yieldMatPostRequestBody
  */
-export function createYieldMatPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createYieldMatPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoYieldMatPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoYieldMatPostRequestBody(yieldMatPostRequestBody: YieldMatPostRequestBody | undefined = {} as YieldMatPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoYieldMatPostRequestBody(yieldMatPostRequestBody: Partial<YieldMatPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { yieldMatPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { yieldMatPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -32,7 +32,7 @@ export function deserializeIntoYieldMatPostRequestBody(yieldMatPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeYieldMatPostRequestBody(writer: SerializationWriter, yieldMatPostRequestBody: YieldMatPostRequestBody | undefined = {} as YieldMatPostRequestBody) : void {
+export function serializeYieldMatPostRequestBody(writer: SerializationWriter, yieldMatPostRequestBody: Partial<YieldMatPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", yieldMatPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("issue", yieldMatPostRequestBody.issue, serializeJson);
     writer.writeObjectValue<Json>("maturity", yieldMatPostRequestBody.maturity, serializeJson);

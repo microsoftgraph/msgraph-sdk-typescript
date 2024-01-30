@@ -57,7 +57,7 @@ export interface ArchiveRequestBuilder extends BaseRequestBuilder<ArchiveRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a archivePostRequestBody
  */
-export function createArchivePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createArchivePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoArchivePostRequestBody;
 }
 /**
@@ -65,14 +65,14 @@ export function createArchivePostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a archivePostResponse
  */
-export function createArchivePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createArchivePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoArchivePostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: ArchivePostRequestBody | undefined = {} as ArchivePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { archivePostRequestBody.backingStoreEnabled = true; },
         "messageIds": n => { archivePostRequestBody.messageIds = n.getCollectionOfPrimitiveValues<string>(); },
@@ -82,7 +82,7 @@ export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Ar
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoArchivePostResponse(archivePostResponse: ArchivePostResponse | undefined = {} as ArchivePostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoArchivePostResponse(archivePostResponse: Partial<ArchivePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { archivePostResponse.backingStoreEnabled = true; },
         "value": n => { archivePostResponse.value = n.getBooleanValue(); },
@@ -92,7 +92,7 @@ export function deserializeIntoArchivePostResponse(archivePostResponse: ArchiveP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeArchivePostRequestBody(writer: SerializationWriter, archivePostRequestBody: ArchivePostRequestBody | undefined = {} as ArchivePostRequestBody) : void {
+export function serializeArchivePostRequestBody(writer: SerializationWriter, archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("messageIds", archivePostRequestBody.messageIds);
     writer.writeAdditionalData(archivePostRequestBody.additionalData);
 }
@@ -100,7 +100,7 @@ export function serializeArchivePostRequestBody(writer: SerializationWriter, arc
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeArchivePostResponse(writer: SerializationWriter, archivePostResponse: ArchivePostResponse | undefined = {} as ArchivePostResponse) : void {
+export function serializeArchivePostResponse(writer: SerializationWriter, archivePostResponse: Partial<ArchivePostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", archivePostResponse.value);
     writer.writeAdditionalData(archivePostResponse.additionalData);
 }

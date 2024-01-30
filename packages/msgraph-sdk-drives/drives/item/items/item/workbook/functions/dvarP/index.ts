@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a dvarPPostRequestBody
  */
-export function createDvarPPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDvarPPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDvarPPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDvarPPostRequestBody(dvarPPostRequestBody: DvarPPostRequestBody | undefined = {} as DvarPPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDvarPPostRequestBody(dvarPPostRequestBody: Partial<DvarPPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dvarPPostRequestBody.backingStoreEnabled = true; },
         "criteria": n => { dvarPPostRequestBody.criteria = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface DvarPRequestBuilder extends BaseRequestBuilder<DvarPRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDvarPPostRequestBody(writer: SerializationWriter, dvarPPostRequestBody: DvarPPostRequestBody | undefined = {} as DvarPPostRequestBody) : void {
+export function serializeDvarPPostRequestBody(writer: SerializationWriter, dvarPPostRequestBody: Partial<DvarPPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("criteria", dvarPPostRequestBody.criteria, serializeJson);
     writer.writeObjectValue<Json>("database", dvarPPostRequestBody.database, serializeJson);
     writer.writeObjectValue<Json>("field", dvarPPostRequestBody.field, serializeJson);

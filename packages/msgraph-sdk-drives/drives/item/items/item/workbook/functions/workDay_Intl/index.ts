@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a workDay_IntlPostRequestBody
  */
-export function createWorkDay_IntlPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createWorkDay_IntlPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoWorkDay_IntlPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoWorkDay_IntlPostRequestBody(workDay_IntlPostRequestBody: WorkDay_IntlPostRequestBody | undefined = {} as WorkDay_IntlPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoWorkDay_IntlPostRequestBody(workDay_IntlPostRequestBody: Partial<WorkDay_IntlPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { workDay_IntlPostRequestBody.backingStoreEnabled = true; },
         "days": n => { workDay_IntlPostRequestBody.days = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -30,7 +30,7 @@ export function deserializeIntoWorkDay_IntlPostRequestBody(workDay_IntlPostReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeWorkDay_IntlPostRequestBody(writer: SerializationWriter, workDay_IntlPostRequestBody: WorkDay_IntlPostRequestBody | undefined = {} as WorkDay_IntlPostRequestBody) : void {
+export function serializeWorkDay_IntlPostRequestBody(writer: SerializationWriter, workDay_IntlPostRequestBody: Partial<WorkDay_IntlPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("days", workDay_IntlPostRequestBody.days, serializeJson);
     writer.writeObjectValue<Json>("holidays", workDay_IntlPostRequestBody.holidays, serializeJson);
     writer.writeObjectValue<Json>("startDate", workDay_IntlPostRequestBody.startDate, serializeJson);

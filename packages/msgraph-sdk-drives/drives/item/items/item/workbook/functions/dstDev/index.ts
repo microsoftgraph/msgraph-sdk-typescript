@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a dstDevPostRequestBody
  */
-export function createDstDevPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDstDevPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDstDevPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDstDevPostRequestBody(dstDevPostRequestBody: DstDevPostRequestBody | undefined = {} as DstDevPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDstDevPostRequestBody(dstDevPostRequestBody: Partial<DstDevPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dstDevPostRequestBody.backingStoreEnabled = true; },
         "criteria": n => { dstDevPostRequestBody.criteria = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface DstDevRequestBuilder extends BaseRequestBuilder<DstDevRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDstDevPostRequestBody(writer: SerializationWriter, dstDevPostRequestBody: DstDevPostRequestBody | undefined = {} as DstDevPostRequestBody) : void {
+export function serializeDstDevPostRequestBody(writer: SerializationWriter, dstDevPostRequestBody: Partial<DstDevPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("criteria", dstDevPostRequestBody.criteria, serializeJson);
     writer.writeObjectValue<Json>("database", dstDevPostRequestBody.database, serializeJson);
     writer.writeObjectValue<Json>("field", dstDevPostRequestBody.field, serializeJson);

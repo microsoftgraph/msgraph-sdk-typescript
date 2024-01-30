@@ -42,14 +42,14 @@ export interface CancelRequestBuilder extends BaseRequestBuilder<CancelRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a cancelPostRequestBody
  */
-export function createCancelPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCancelPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCancelPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCancelPostRequestBody(cancelPostRequestBody: CancelPostRequestBody | undefined = {} as CancelPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCancelPostRequestBody(cancelPostRequestBody: Partial<CancelPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cancelPostRequestBody.backingStoreEnabled = true; },
         "cancellationMessage": n => { cancelPostRequestBody.cancellationMessage = n.getStringValue(); },
@@ -59,7 +59,7 @@ export function deserializeIntoCancelPostRequestBody(cancelPostRequestBody: Canc
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCancelPostRequestBody(writer: SerializationWriter, cancelPostRequestBody: CancelPostRequestBody | undefined = {} as CancelPostRequestBody) : void {
+export function serializeCancelPostRequestBody(writer: SerializationWriter, cancelPostRequestBody: Partial<CancelPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("cancellationMessage", cancelPostRequestBody.cancellationMessage);
     writer.writeAdditionalData(cancelPostRequestBody.additionalData);
 }

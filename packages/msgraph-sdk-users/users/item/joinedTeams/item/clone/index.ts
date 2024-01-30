@@ -63,14 +63,14 @@ export interface CloneRequestBuilder extends BaseRequestBuilder<CloneRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a clonePostRequestBody
  */
-export function createClonePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createClonePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoClonePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoClonePostRequestBody(clonePostRequestBody: ClonePostRequestBody | undefined = {} as ClonePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoClonePostRequestBody(clonePostRequestBody: Partial<ClonePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { clonePostRequestBody.backingStoreEnabled = true; },
         "classification": n => { clonePostRequestBody.classification = n.getStringValue(); },
@@ -85,7 +85,7 @@ export function deserializeIntoClonePostRequestBody(clonePostRequestBody: CloneP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeClonePostRequestBody(writer: SerializationWriter, clonePostRequestBody: ClonePostRequestBody | undefined = {} as ClonePostRequestBody) : void {
+export function serializeClonePostRequestBody(writer: SerializationWriter, clonePostRequestBody: Partial<ClonePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("classification", clonePostRequestBody.classification);
     writer.writeStringValue("description", clonePostRequestBody.description);
     writer.writeStringValue("displayName", clonePostRequestBody.displayName);

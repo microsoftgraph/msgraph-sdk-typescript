@@ -42,14 +42,14 @@ export interface CommitRequestBuilder extends BaseRequestBuilder<CommitRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a commitPostRequestBody
  */
-export function createCommitPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCommitPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCommitPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCommitPostRequestBody(commitPostRequestBody: CommitPostRequestBody | undefined = {} as CommitPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCommitPostRequestBody(commitPostRequestBody: Partial<CommitPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { commitPostRequestBody.backingStoreEnabled = true; },
         "fileEncryptionInfo": n => { commitPostRequestBody.fileEncryptionInfo = n.getObjectValue<FileEncryptionInfo>(createFileEncryptionInfoFromDiscriminatorValue); },
@@ -59,7 +59,7 @@ export function deserializeIntoCommitPostRequestBody(commitPostRequestBody: Comm
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCommitPostRequestBody(writer: SerializationWriter, commitPostRequestBody: CommitPostRequestBody | undefined = {} as CommitPostRequestBody) : void {
+export function serializeCommitPostRequestBody(writer: SerializationWriter, commitPostRequestBody: Partial<CommitPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<FileEncryptionInfo>("fileEncryptionInfo", commitPostRequestBody.fileEncryptionInfo, serializeFileEncryptionInfo);
     writer.writeAdditionalData(commitPostRequestBody.additionalData);
 }

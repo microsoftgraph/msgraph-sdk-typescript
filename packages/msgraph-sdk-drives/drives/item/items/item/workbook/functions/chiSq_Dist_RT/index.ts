@@ -47,14 +47,14 @@ export interface ChiSq_Dist_RTRequestBuilder extends BaseRequestBuilder<ChiSq_Di
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a chiSq_Dist_RTPostRequestBody
  */
-export function createChiSq_Dist_RTPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createChiSq_Dist_RTPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoChiSq_Dist_RTPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoChiSq_Dist_RTPostRequestBody(chiSq_Dist_RTPostRequestBody: ChiSq_Dist_RTPostRequestBody | undefined = {} as ChiSq_Dist_RTPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoChiSq_Dist_RTPostRequestBody(chiSq_Dist_RTPostRequestBody: Partial<ChiSq_Dist_RTPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { chiSq_Dist_RTPostRequestBody.backingStoreEnabled = true; },
         "degFreedom": n => { chiSq_Dist_RTPostRequestBody.degFreedom = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoChiSq_Dist_RTPostRequestBody(chiSq_Dist_RTPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeChiSq_Dist_RTPostRequestBody(writer: SerializationWriter, chiSq_Dist_RTPostRequestBody: ChiSq_Dist_RTPostRequestBody | undefined = {} as ChiSq_Dist_RTPostRequestBody) : void {
+export function serializeChiSq_Dist_RTPostRequestBody(writer: SerializationWriter, chiSq_Dist_RTPostRequestBody: Partial<ChiSq_Dist_RTPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("degFreedom", chiSq_Dist_RTPostRequestBody.degFreedom, serializeJson);
     writer.writeObjectValue<Json>("x", chiSq_Dist_RTPostRequestBody.x, serializeJson);
     writer.writeAdditionalData(chiSq_Dist_RTPostRequestBody.additionalData);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a dollarDePostRequestBody
  */
-export function createDollarDePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDollarDePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDollarDePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDollarDePostRequestBody(dollarDePostRequestBody: DollarDePostRequestBody | undefined = {} as DollarDePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDollarDePostRequestBody(dollarDePostRequestBody: Partial<DollarDePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dollarDePostRequestBody.backingStoreEnabled = true; },
         "fraction": n => { dollarDePostRequestBody.fraction = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface DollarDeRequestBuilder extends BaseRequestBuilder<DollarDeReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDollarDePostRequestBody(writer: SerializationWriter, dollarDePostRequestBody: DollarDePostRequestBody | undefined = {} as DollarDePostRequestBody) : void {
+export function serializeDollarDePostRequestBody(writer: SerializationWriter, dollarDePostRequestBody: Partial<DollarDePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("fraction", dollarDePostRequestBody.fraction, serializeJson);
     writer.writeObjectValue<Json>("fractionalDollar", dollarDePostRequestBody.fractionalDollar, serializeJson);
     writer.writeAdditionalData(dollarDePostRequestBody.additionalData);

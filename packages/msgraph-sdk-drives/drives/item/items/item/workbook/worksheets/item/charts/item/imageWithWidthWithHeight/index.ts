@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a imageWithWidthWithHeightGetResponse
  */
-export function createImageWithWidthWithHeightGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImageWithWidthWithHeightGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImageWithWidthWithHeightGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImageWithWidthWithHeightGetResponse(imageWithWidthWithHeightGetResponse: ImageWithWidthWithHeightGetResponse | undefined = {} as ImageWithWidthWithHeightGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImageWithWidthWithHeightGetResponse(imageWithWidthWithHeightGetResponse: Partial<ImageWithWidthWithHeightGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imageWithWidthWithHeightGetResponse.backingStoreEnabled = true; },
         "value": n => { imageWithWidthWithHeightGetResponse.value = n.getStringValue(); },
@@ -57,7 +57,7 @@ export interface ImageWithWidthWithHeightRequestBuilder extends BaseRequestBuild
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImageWithWidthWithHeightGetResponse(writer: SerializationWriter, imageWithWidthWithHeightGetResponse: ImageWithWidthWithHeightGetResponse | undefined = {} as ImageWithWidthWithHeightGetResponse) : void {
+export function serializeImageWithWidthWithHeightGetResponse(writer: SerializationWriter, imageWithWidthWithHeightGetResponse: Partial<ImageWithWidthWithHeightGetResponse> | undefined = {}) : void {
     writer.writeStringValue("value", imageWithWidthWithHeightGetResponse.value);
     writer.writeAdditionalData(imageWithWidthWithHeightGetResponse.additionalData);
 }

@@ -46,10 +46,10 @@ export interface ManagedDeviceMobileAppConfigurationItemRequestBuilder extends B
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the managedDeviceMobileAppConfiguration object.
+     * Read properties and relationships of the iosMobileAppConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfiguration
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfiguration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined>;
     /**
@@ -67,7 +67,7 @@ export interface ManagedDeviceMobileAppConfigurationItemRequestBuilder extends B
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the managedDeviceMobileAppConfiguration object.
+     * Read properties and relationships of the iosMobileAppConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -81,7 +81,7 @@ export interface ManagedDeviceMobileAppConfigurationItemRequestBuilder extends B
      toPatchRequestInformation(body: ManagedDeviceMobileAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the managedDeviceMobileAppConfiguration object.
+ * Read properties and relationships of the iosMobileAppConfiguration object.
  */
 export interface ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters {
     /**

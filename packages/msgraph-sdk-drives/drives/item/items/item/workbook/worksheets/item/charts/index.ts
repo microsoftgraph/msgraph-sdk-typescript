@@ -6,8 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { AddRequestBuilderRequestsMetadata, AddRequestBuilderUriTemplate, type AddRequestBuilder } from './add/';
 import { CountRequestBuilderRequestsMetadata, CountRequestBuilderUriTemplate, type CountRequestBuilder } from './count/';
 import { type WorkbookChartItemRequestBuilder, WorkbookChartItemRequestBuilderNavigationMetadata, WorkbookChartItemRequestBuilderRequestsMetadata, WorkbookChartItemRequestBuilderUriTemplate } from './item/';
-import { ItemAtWithIndexRequestBuilderRequestsMetadata, ItemAtWithIndexRequestBuilderUriTemplate, type ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/';
-import { ItemWithNameRequestBuilderRequestsMetadata, ItemWithNameRequestBuilderUriTemplate, type ItemWithNameRequestBuilder } from './itemWithName/';
+import { ItemAtWithIndexRequestBuilderNavigationMetadata, ItemAtWithIndexRequestBuilderRequestsMetadata, ItemAtWithIndexRequestBuilderUriTemplate, type ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/';
+import { ItemWithNameRequestBuilderNavigationMetadata, ItemWithNameRequestBuilderRequestsMetadata, ItemWithNameRequestBuilderUriTemplate, type ItemWithNameRequestBuilder } from './itemWithName/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -132,10 +132,12 @@ export const ChartsRequestBuilderNavigationMetadata: Record<Exclude<keyof Charts
     itemAtWithIndex: {
         uriTemplate: ItemAtWithIndexRequestBuilderUriTemplate,
         requestsMetadata: ItemAtWithIndexRequestBuilderRequestsMetadata,
+        navigationMetadata: ItemAtWithIndexRequestBuilderNavigationMetadata,
     },
     itemWithName: {
         uriTemplate: ItemWithNameRequestBuilderUriTemplate,
         requestsMetadata: ItemWithNameRequestBuilderRequestsMetadata,
+        navigationMetadata: ItemWithNameRequestBuilderNavigationMetadata,
     },
     add: {
         uriTemplate: AddRequestBuilderUriTemplate,

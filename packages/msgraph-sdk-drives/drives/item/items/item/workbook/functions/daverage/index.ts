@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a daveragePostRequestBody
  */
-export function createDaveragePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDaveragePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDaveragePostRequestBody;
 }
 export interface DaveragePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -58,7 +58,7 @@ export interface DaverageRequestBuilder extends BaseRequestBuilder<DaverageReque
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDaveragePostRequestBody(daveragePostRequestBody: DaveragePostRequestBody | undefined = {} as DaveragePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDaveragePostRequestBody(daveragePostRequestBody: Partial<DaveragePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { daveragePostRequestBody.backingStoreEnabled = true; },
         "criteria": n => { daveragePostRequestBody.criteria = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export function deserializeIntoDaveragePostRequestBody(daveragePostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDaveragePostRequestBody(writer: SerializationWriter, daveragePostRequestBody: DaveragePostRequestBody | undefined = {} as DaveragePostRequestBody) : void {
+export function serializeDaveragePostRequestBody(writer: SerializationWriter, daveragePostRequestBody: Partial<DaveragePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("criteria", daveragePostRequestBody.criteria, serializeJson);
     writer.writeObjectValue<Json>("database", daveragePostRequestBody.database, serializeJson);
     writer.writeObjectValue<Json>("field", daveragePostRequestBody.field, serializeJson);

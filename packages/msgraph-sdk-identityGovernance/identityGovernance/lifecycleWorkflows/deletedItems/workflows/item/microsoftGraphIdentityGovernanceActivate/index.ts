@@ -24,14 +24,14 @@ export interface ActivatePostRequestBody extends AdditionalDataHolder, BackedMod
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a activatePostRequestBody
  */
-export function createActivatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createActivatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoActivatePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoActivatePostRequestBody(activatePostRequestBody: ActivatePostRequestBody | undefined = {} as ActivatePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoActivatePostRequestBody(activatePostRequestBody: Partial<ActivatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { activatePostRequestBody.backingStoreEnabled = true; },
         "subjects": n => { activatePostRequestBody.subjects = n.getCollectionOfObjectValues<User>(createUserFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface MicrosoftGraphIdentityGovernanceActivateRequestBuilder extends 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeActivatePostRequestBody(writer: SerializationWriter, activatePostRequestBody: ActivatePostRequestBody | undefined = {} as ActivatePostRequestBody) : void {
+export function serializeActivatePostRequestBody(writer: SerializationWriter, activatePostRequestBody: Partial<ActivatePostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<User>("subjects", activatePostRequestBody.subjects, serializeUser);
     writer.writeAdditionalData(activatePostRequestBody.additionalData);
 }

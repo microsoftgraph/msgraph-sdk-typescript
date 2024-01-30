@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a imSqrtPostRequestBody
  */
-export function createImSqrtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createImSqrtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImSqrtPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoImSqrtPostRequestBody(imSqrtPostRequestBody: ImSqrtPostRequestBody | undefined = {} as ImSqrtPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImSqrtPostRequestBody(imSqrtPostRequestBody: Partial<ImSqrtPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imSqrtPostRequestBody.backingStoreEnabled = true; },
         "inumber": n => { imSqrtPostRequestBody.inumber = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface ImSqrtRequestBuilder extends BaseRequestBuilder<ImSqrtRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImSqrtPostRequestBody(writer: SerializationWriter, imSqrtPostRequestBody: ImSqrtPostRequestBody | undefined = {} as ImSqrtPostRequestBody) : void {
+export function serializeImSqrtPostRequestBody(writer: SerializationWriter, imSqrtPostRequestBody: Partial<ImSqrtPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("inumber", imSqrtPostRequestBody.inumber, serializeJson);
     writer.writeAdditionalData(imSqrtPostRequestBody.additionalData);
 }

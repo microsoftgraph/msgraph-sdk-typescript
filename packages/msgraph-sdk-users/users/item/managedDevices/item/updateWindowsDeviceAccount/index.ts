@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a updateWindowsDeviceAccountPostRequestBody
  */
-export function createUpdateWindowsDeviceAccountPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createUpdateWindowsDeviceAccountPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUpdateWindowsDeviceAccountPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoUpdateWindowsDeviceAccountPostRequestBody(updateWindowsDeviceAccountPostRequestBody: UpdateWindowsDeviceAccountPostRequestBody | undefined = {} as UpdateWindowsDeviceAccountPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoUpdateWindowsDeviceAccountPostRequestBody(updateWindowsDeviceAccountPostRequestBody: Partial<UpdateWindowsDeviceAccountPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { updateWindowsDeviceAccountPostRequestBody.backingStoreEnabled = true; },
         "updateWindowsDeviceAccountActionParameter": n => { updateWindowsDeviceAccountPostRequestBody.updateWindowsDeviceAccountActionParameter = n.getObjectValue<UpdateWindowsDeviceAccountActionParameter>(createUpdateWindowsDeviceAccountActionParameterFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoUpdateWindowsDeviceAccountPostRequestBody(updateW
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUpdateWindowsDeviceAccountPostRequestBody(writer: SerializationWriter, updateWindowsDeviceAccountPostRequestBody: UpdateWindowsDeviceAccountPostRequestBody | undefined = {} as UpdateWindowsDeviceAccountPostRequestBody) : void {
+export function serializeUpdateWindowsDeviceAccountPostRequestBody(writer: SerializationWriter, updateWindowsDeviceAccountPostRequestBody: Partial<UpdateWindowsDeviceAccountPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<UpdateWindowsDeviceAccountActionParameter>("updateWindowsDeviceAccountActionParameter", updateWindowsDeviceAccountPostRequestBody.updateWindowsDeviceAccountActionParameter, serializeUpdateWindowsDeviceAccountActionParameter);
     writer.writeAdditionalData(updateWindowsDeviceAccountPostRequestBody.additionalData);
 }

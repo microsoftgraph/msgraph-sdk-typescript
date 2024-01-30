@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a weibull_DistPostRequestBody
  */
-export function createWeibull_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createWeibull_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoWeibull_DistPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoWeibull_DistPostRequestBody(weibull_DistPostRequestBody: Weibull_DistPostRequestBody | undefined = {} as Weibull_DistPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoWeibull_DistPostRequestBody(weibull_DistPostRequestBody: Partial<Weibull_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "alpha": n => { weibull_DistPostRequestBody.alpha = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { weibull_DistPostRequestBody.backingStoreEnabled = true; },
@@ -30,7 +30,7 @@ export function deserializeIntoWeibull_DistPostRequestBody(weibull_DistPostReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeWeibull_DistPostRequestBody(writer: SerializationWriter, weibull_DistPostRequestBody: Weibull_DistPostRequestBody | undefined = {} as Weibull_DistPostRequestBody) : void {
+export function serializeWeibull_DistPostRequestBody(writer: SerializationWriter, weibull_DistPostRequestBody: Partial<Weibull_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("alpha", weibull_DistPostRequestBody.alpha, serializeJson);
     writer.writeObjectValue<Json>("beta", weibull_DistPostRequestBody.beta, serializeJson);
     writer.writeObjectValue<Json>("cumulative", weibull_DistPostRequestBody.cumulative, serializeJson);

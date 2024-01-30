@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a phiPostRequestBody
  */
-export function createPhiPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPhiPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPhiPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPhiPostRequestBody(phiPostRequestBody: PhiPostRequestBody | undefined = {} as PhiPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPhiPostRequestBody(phiPostRequestBody: Partial<PhiPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { phiPostRequestBody.backingStoreEnabled = true; },
         "x": n => { phiPostRequestBody.x = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface PhiRequestBuilder extends BaseRequestBuilder<PhiRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePhiPostRequestBody(writer: SerializationWriter, phiPostRequestBody: PhiPostRequestBody | undefined = {} as PhiPostRequestBody) : void {
+export function serializePhiPostRequestBody(writer: SerializationWriter, phiPostRequestBody: Partial<PhiPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("x", phiPostRequestBody.x, serializeJson);
     writer.writeAdditionalData(phiPostRequestBody.additionalData);
 }

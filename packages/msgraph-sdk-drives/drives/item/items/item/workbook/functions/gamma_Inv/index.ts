@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a gamma_InvPostRequestBody
  */
-export function createGamma_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGamma_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGamma_InvPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGamma_InvPostRequestBody(gamma_InvPostRequestBody: Gamma_InvPostRequestBody | undefined = {} as Gamma_InvPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGamma_InvPostRequestBody(gamma_InvPostRequestBody: Partial<Gamma_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "alpha": n => { gamma_InvPostRequestBody.alpha = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { gamma_InvPostRequestBody.backingStoreEnabled = true; },
@@ -70,7 +70,7 @@ export interface Gamma_InvRequestBuilder extends BaseRequestBuilder<Gamma_InvReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGamma_InvPostRequestBody(writer: SerializationWriter, gamma_InvPostRequestBody: Gamma_InvPostRequestBody | undefined = {} as Gamma_InvPostRequestBody) : void {
+export function serializeGamma_InvPostRequestBody(writer: SerializationWriter, gamma_InvPostRequestBody: Partial<Gamma_InvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("alpha", gamma_InvPostRequestBody.alpha, serializeJson);
     writer.writeObjectValue<Json>("beta", gamma_InvPostRequestBody.beta, serializeJson);
     writer.writeObjectValue<Json>("probability", gamma_InvPostRequestBody.probability, serializeJson);

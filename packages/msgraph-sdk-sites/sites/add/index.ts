@@ -50,7 +50,7 @@ export interface AddRequestBuilder extends BaseRequestBuilder<AddRequestBuilder>
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a addPostRequestBody
  */
-export function createAddPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAddPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddPostRequestBody;
 }
 /**
@@ -58,14 +58,14 @@ export function createAddPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a addPostResponse
  */
-export function createAddPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAddPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAddPostRequestBody(addPostRequestBody: AddPostRequestBody | undefined = {} as AddPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddPostRequestBody(addPostRequestBody: Partial<AddPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addPostRequestBody.backingStoreEnabled = true; },
         "value": n => { addPostRequestBody.value = n.getCollectionOfObjectValues<Site>(createSiteFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export function deserializeIntoAddPostRequestBody(addPostRequestBody: AddPostReq
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAddPostResponse(addPostResponse: AddPostResponse | undefined = {} as AddPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddPostResponse(addPostResponse: Partial<AddPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(addPostResponse),
         "value": n => { addPostResponse.value = n.getCollectionOfObjectValues<Site>(createSiteFromDiscriminatorValue); },
@@ -85,7 +85,7 @@ export function deserializeIntoAddPostResponse(addPostResponse: AddPostResponse 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: AddPostRequestBody | undefined = {} as AddPostRequestBody) : void {
+export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: Partial<AddPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<Site>("value", addPostRequestBody.value, serializeSite);
     writer.writeAdditionalData(addPostRequestBody.additionalData);
 }
@@ -93,7 +93,7 @@ export function serializeAddPostRequestBody(writer: SerializationWriter, addPost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddPostResponse(writer: SerializationWriter, addPostResponse: AddPostResponse | undefined = {} as AddPostResponse) : void {
+export function serializeAddPostResponse(writer: SerializationWriter, addPostResponse: Partial<AddPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, addPostResponse)
     writer.writeCollectionOfObjectValues<Site>("value", addPostResponse.value, serializeSite);
 }

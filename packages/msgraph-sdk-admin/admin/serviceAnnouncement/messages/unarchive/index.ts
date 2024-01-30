@@ -9,7 +9,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a unarchivePostRequestBody
  */
-export function createUnarchivePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createUnarchivePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnarchivePostRequestBody;
 }
 /**
@@ -17,14 +17,14 @@ export function createUnarchivePostRequestBodyFromDiscriminatorValue(parseNode: 
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a unarchivePostResponse
  */
-export function createUnarchivePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createUnarchivePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnarchivePostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoUnarchivePostRequestBody(unarchivePostRequestBody: UnarchivePostRequestBody | undefined = {} as UnarchivePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoUnarchivePostRequestBody(unarchivePostRequestBody: Partial<UnarchivePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unarchivePostRequestBody.backingStoreEnabled = true; },
         "messageIds": n => { unarchivePostRequestBody.messageIds = n.getCollectionOfPrimitiveValues<string>(); },
@@ -34,7 +34,7 @@ export function deserializeIntoUnarchivePostRequestBody(unarchivePostRequestBody
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoUnarchivePostResponse(unarchivePostResponse: UnarchivePostResponse | undefined = {} as UnarchivePostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoUnarchivePostResponse(unarchivePostResponse: Partial<UnarchivePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unarchivePostResponse.backingStoreEnabled = true; },
         "value": n => { unarchivePostResponse.value = n.getBooleanValue(); },
@@ -44,7 +44,7 @@ export function deserializeIntoUnarchivePostResponse(unarchivePostResponse: Unar
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUnarchivePostRequestBody(writer: SerializationWriter, unarchivePostRequestBody: UnarchivePostRequestBody | undefined = {} as UnarchivePostRequestBody) : void {
+export function serializeUnarchivePostRequestBody(writer: SerializationWriter, unarchivePostRequestBody: Partial<UnarchivePostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("messageIds", unarchivePostRequestBody.messageIds);
     writer.writeAdditionalData(unarchivePostRequestBody.additionalData);
 }
@@ -52,7 +52,7 @@ export function serializeUnarchivePostRequestBody(writer: SerializationWriter, u
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUnarchivePostResponse(writer: SerializationWriter, unarchivePostResponse: UnarchivePostResponse | undefined = {} as UnarchivePostResponse) : void {
+export function serializeUnarchivePostResponse(writer: SerializationWriter, unarchivePostResponse: Partial<UnarchivePostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", unarchivePostResponse.value);
     writer.writeAdditionalData(unarchivePostResponse.additionalData);
 }

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a hypGeom_DistPostRequestBody
  */
-export function createHypGeom_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createHypGeom_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHypGeom_DistPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoHypGeom_DistPostRequestBody(hypGeom_DistPostRequestBody: HypGeom_DistPostRequestBody | undefined = {} as HypGeom_DistPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoHypGeom_DistPostRequestBody(hypGeom_DistPostRequestBody: Partial<HypGeom_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { hypGeom_DistPostRequestBody.backingStoreEnabled = true; },
         "cumulative": n => { hypGeom_DistPostRequestBody.cumulative = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -80,7 +80,7 @@ export interface HypGeom_DistRequestBuilder extends BaseRequestBuilder<HypGeom_D
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeHypGeom_DistPostRequestBody(writer: SerializationWriter, hypGeom_DistPostRequestBody: HypGeom_DistPostRequestBody | undefined = {} as HypGeom_DistPostRequestBody) : void {
+export function serializeHypGeom_DistPostRequestBody(writer: SerializationWriter, hypGeom_DistPostRequestBody: Partial<HypGeom_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("cumulative", hypGeom_DistPostRequestBody.cumulative, serializeJson);
     writer.writeObjectValue<Json>("numberPop", hypGeom_DistPostRequestBody.numberPop, serializeJson);
     writer.writeObjectValue<Json>("numberSample", hypGeom_DistPostRequestBody.numberSample, serializeJson);

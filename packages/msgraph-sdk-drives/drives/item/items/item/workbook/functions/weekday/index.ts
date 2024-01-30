@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a weekdayPostRequestBody
  */
-export function createWeekdayPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createWeekdayPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoWeekdayPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoWeekdayPostRequestBody(weekdayPostRequestBody: WeekdayPostRequestBody | undefined = {} as WeekdayPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoWeekdayPostRequestBody(weekdayPostRequestBody: Partial<WeekdayPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { weekdayPostRequestBody.backingStoreEnabled = true; },
         "returnType": n => { weekdayPostRequestBody.returnType = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -28,7 +28,7 @@ export function deserializeIntoWeekdayPostRequestBody(weekdayPostRequestBody: We
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeWeekdayPostRequestBody(writer: SerializationWriter, weekdayPostRequestBody: WeekdayPostRequestBody | undefined = {} as WeekdayPostRequestBody) : void {
+export function serializeWeekdayPostRequestBody(writer: SerializationWriter, weekdayPostRequestBody: Partial<WeekdayPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("returnType", weekdayPostRequestBody.returnType, serializeJson);
     writer.writeObjectValue<Json>("serialNumber", weekdayPostRequestBody.serialNumber, serializeJson);
     writer.writeAdditionalData(weekdayPostRequestBody.additionalData);

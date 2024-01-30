@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a cumIPmtPostRequestBody
  */
-export function createCumIPmtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCumIPmtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCumIPmtPostRequestBody;
 }
 export interface CumIPmtPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -70,7 +70,7 @@ export interface CumIPmtRequestBuilder extends BaseRequestBuilder<CumIPmtRequest
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCumIPmtPostRequestBody(cumIPmtPostRequestBody: CumIPmtPostRequestBody | undefined = {} as CumIPmtPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCumIPmtPostRequestBody(cumIPmtPostRequestBody: Partial<CumIPmtPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cumIPmtPostRequestBody.backingStoreEnabled = true; },
         "endPeriod": n => { cumIPmtPostRequestBody.endPeriod = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -85,7 +85,7 @@ export function deserializeIntoCumIPmtPostRequestBody(cumIPmtPostRequestBody: Cu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCumIPmtPostRequestBody(writer: SerializationWriter, cumIPmtPostRequestBody: CumIPmtPostRequestBody | undefined = {} as CumIPmtPostRequestBody) : void {
+export function serializeCumIPmtPostRequestBody(writer: SerializationWriter, cumIPmtPostRequestBody: Partial<CumIPmtPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("endPeriod", cumIPmtPostRequestBody.endPeriod, serializeJson);
     writer.writeObjectValue<Json>("nper", cumIPmtPostRequestBody.nper, serializeJson);
     writer.writeObjectValue<Json>("pv", cumIPmtPostRequestBody.pv, serializeJson);

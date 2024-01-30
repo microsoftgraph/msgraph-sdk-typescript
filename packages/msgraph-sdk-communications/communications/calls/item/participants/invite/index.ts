@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a invitePostRequestBody
  */
-export function createInvitePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createInvitePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoInvitePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoInvitePostRequestBody(invitePostRequestBody: InvitePostRequestBody | undefined = {} as InvitePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoInvitePostRequestBody(invitePostRequestBody: Partial<InvitePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { invitePostRequestBody.backingStoreEnabled = true; },
         "clientContext": n => { invitePostRequestBody.clientContext = n.getStringValue(); },
@@ -47,15 +47,15 @@ export interface InvitePostRequestBody extends AdditionalDataHolder, BackedModel
  */
 export interface InviteRequestBuilder extends BaseRequestBuilder<InviteRequestBuilder> {
     /**
-     * Invite participants to the active call. For more information about how to handle operations, see commsOperation.
+     * Delete a specific participant in a call. In some situations, it is appropriate for an application to remove a participant from an active call. This action can be done before or after the participant answers the call. When an active caller is removed, they are immediately dropped from the call with no pre- or post-removal notification. When an invited participant is removed, any outstanding add participant request is canceled. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of InviteParticipantsOperation
-     * @see {@link https://learn.microsoft.com/graph/api/participant-invite?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/participant-delete?view=graph-rest-1.0|Find more info here}
      */
      post(body: InvitePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<InviteParticipantsOperation | undefined>;
     /**
-     * Invite participants to the active call. For more information about how to handle operations, see commsOperation.
+     * Delete a specific participant in a call. In some situations, it is appropriate for an application to remove a participant from an active call. This action can be done before or after the participant answers the call. When an active caller is removed, they are immediately dropped from the call with no pre- or post-removal notification. When an invited participant is removed, any outstanding add participant request is canceled. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -66,7 +66,7 @@ export interface InviteRequestBuilder extends BaseRequestBuilder<InviteRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeInvitePostRequestBody(writer: SerializationWriter, invitePostRequestBody: InvitePostRequestBody | undefined = {} as InvitePostRequestBody) : void {
+export function serializeInvitePostRequestBody(writer: SerializationWriter, invitePostRequestBody: Partial<InvitePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("clientContext", invitePostRequestBody.clientContext);
     writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("participants", invitePostRequestBody.participants, serializeInvitationParticipantInfo);
     writer.writeAdditionalData(invitePostRequestBody.additionalData);

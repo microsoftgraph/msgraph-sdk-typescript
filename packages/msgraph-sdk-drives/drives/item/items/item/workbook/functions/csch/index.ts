@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a cschPostRequestBody
  */
-export function createCschPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCschPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCschPostRequestBody;
 }
 export interface CschPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -50,7 +50,7 @@ export interface CschRequestBuilder extends BaseRequestBuilder<CschRequestBuilde
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCschPostRequestBody(cschPostRequestBody: CschPostRequestBody | undefined = {} as CschPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCschPostRequestBody(cschPostRequestBody: Partial<CschPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cschPostRequestBody.backingStoreEnabled = true; },
         "number": n => { cschPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoCschPostRequestBody(cschPostRequestBody: CschPost
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCschPostRequestBody(writer: SerializationWriter, cschPostRequestBody: CschPostRequestBody | undefined = {} as CschPostRequestBody) : void {
+export function serializeCschPostRequestBody(writer: SerializationWriter, cschPostRequestBody: Partial<CschPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", cschPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(cschPostRequestBody.additionalData);
 }

@@ -41,14 +41,14 @@ export interface ApplyFontColorFilterRequestBuilder extends BaseRequestBuilder<A
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a applyFontColorFilterPostRequestBody
  */
-export function createApplyFontColorFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createApplyFontColorFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyFontColorFilterPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoApplyFontColorFilterPostRequestBody(applyFontColorFilterPostRequestBody: ApplyFontColorFilterPostRequestBody | undefined = {} as ApplyFontColorFilterPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoApplyFontColorFilterPostRequestBody(applyFontColorFilterPostRequestBody: Partial<ApplyFontColorFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyFontColorFilterPostRequestBody.backingStoreEnabled = true; },
         "color": n => { applyFontColorFilterPostRequestBody.color = n.getStringValue(); },
@@ -58,7 +58,7 @@ export function deserializeIntoApplyFontColorFilterPostRequestBody(applyFontColo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyFontColorFilterPostRequestBody(writer: SerializationWriter, applyFontColorFilterPostRequestBody: ApplyFontColorFilterPostRequestBody | undefined = {} as ApplyFontColorFilterPostRequestBody) : void {
+export function serializeApplyFontColorFilterPostRequestBody(writer: SerializationWriter, applyFontColorFilterPostRequestBody: Partial<ApplyFontColorFilterPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("color", applyFontColorFilterPostRequestBody.color);
     writer.writeAdditionalData(applyFontColorFilterPostRequestBody.additionalData);
 }

@@ -57,7 +57,7 @@ export interface AddGroupRequestBuilder extends BaseRequestBuilder<AddGroupReque
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a addGroupPostRequestBody
  */
-export function createAddGroupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAddGroupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddGroupPostRequestBody;
 }
 /**
@@ -65,14 +65,14 @@ export function createAddGroupPostRequestBodyFromDiscriminatorValue(parseNode: P
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a addGroupPostResponse
  */
-export function createAddGroupPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAddGroupPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddGroupPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAddGroupPostRequestBody(addGroupPostRequestBody: AddGroupPostRequestBody | undefined = {} as AddGroupPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddGroupPostRequestBody(addGroupPostRequestBody: Partial<AddGroupPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addGroupPostRequestBody.backingStoreEnabled = true; },
         "groupId": n => { addGroupPostRequestBody.groupId = n.getStringValue(); },
@@ -82,7 +82,7 @@ export function deserializeIntoAddGroupPostRequestBody(addGroupPostRequestBody: 
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAddGroupPostResponse(addGroupPostResponse: AddGroupPostResponse | undefined = {} as AddGroupPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddGroupPostResponse(addGroupPostResponse: Partial<AddGroupPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addGroupPostResponse.backingStoreEnabled = true; },
         "value": n => { addGroupPostResponse.value = n.getBooleanValue(); },
@@ -92,7 +92,7 @@ export function deserializeIntoAddGroupPostResponse(addGroupPostResponse: AddGro
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddGroupPostRequestBody(writer: SerializationWriter, addGroupPostRequestBody: AddGroupPostRequestBody | undefined = {} as AddGroupPostRequestBody) : void {
+export function serializeAddGroupPostRequestBody(writer: SerializationWriter, addGroupPostRequestBody: Partial<AddGroupPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("groupId", addGroupPostRequestBody.groupId);
     writer.writeAdditionalData(addGroupPostRequestBody.additionalData);
 }
@@ -100,7 +100,7 @@ export function serializeAddGroupPostRequestBody(writer: SerializationWriter, ad
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddGroupPostResponse(writer: SerializationWriter, addGroupPostResponse: AddGroupPostResponse | undefined = {} as AddGroupPostResponse) : void {
+export function serializeAddGroupPostResponse(writer: SerializationWriter, addGroupPostResponse: Partial<AddGroupPostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", addGroupPostResponse.value);
     writer.writeAdditionalData(addGroupPostResponse.additionalData);
 }

@@ -47,14 +47,14 @@ export interface BitxorRequestBuilder extends BaseRequestBuilder<BitxorRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a bitxorPostRequestBody
  */
-export function createBitxorPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createBitxorPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBitxorPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoBitxorPostRequestBody(bitxorPostRequestBody: BitxorPostRequestBody | undefined = {} as BitxorPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoBitxorPostRequestBody(bitxorPostRequestBody: Partial<BitxorPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { bitxorPostRequestBody.backingStoreEnabled = true; },
         "number1": n => { bitxorPostRequestBody.number1 = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoBitxorPostRequestBody(bitxorPostRequestBody: Bitx
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBitxorPostRequestBody(writer: SerializationWriter, bitxorPostRequestBody: BitxorPostRequestBody | undefined = {} as BitxorPostRequestBody) : void {
+export function serializeBitxorPostRequestBody(writer: SerializationWriter, bitxorPostRequestBody: Partial<BitxorPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number1", bitxorPostRequestBody.number1, serializeJson);
     writer.writeObjectValue<Json>("number2", bitxorPostRequestBody.number2, serializeJson);
     writer.writeAdditionalData(bitxorPostRequestBody.additionalData);

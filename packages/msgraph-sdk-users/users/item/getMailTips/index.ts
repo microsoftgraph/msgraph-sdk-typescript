@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getMailTipsPostRequestBody
  */
-export function createGetMailTipsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetMailTipsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetMailTipsPostRequestBody;
 }
 /**
@@ -18,14 +18,14 @@ export function createGetMailTipsPostRequestBodyFromDiscriminatorValue(parseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getMailTipsPostResponse
  */
-export function createGetMailTipsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetMailTipsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetMailTipsPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetMailTipsPostRequestBody(getMailTipsPostRequestBody: GetMailTipsPostRequestBody | undefined = {} as GetMailTipsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetMailTipsPostRequestBody(getMailTipsPostRequestBody: Partial<GetMailTipsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getMailTipsPostRequestBody.backingStoreEnabled = true; },
         "emailAddresses": n => { getMailTipsPostRequestBody.emailAddresses = n.getCollectionOfPrimitiveValues<string>(); },
@@ -36,7 +36,7 @@ export function deserializeIntoGetMailTipsPostRequestBody(getMailTipsPostRequest
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetMailTipsPostResponse(getMailTipsPostResponse: GetMailTipsPostResponse | undefined = {} as GetMailTipsPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetMailTipsPostResponse(getMailTipsPostResponse: Partial<GetMailTipsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getMailTipsPostResponse),
         "value": n => { getMailTipsPostResponse.value = n.getCollectionOfObjectValues<MailTips>(createMailTipsFromDiscriminatorValue); },
@@ -90,7 +90,7 @@ export interface GetMailTipsRequestBuilder extends BaseRequestBuilder<GetMailTip
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetMailTipsPostRequestBody(writer: SerializationWriter, getMailTipsPostRequestBody: GetMailTipsPostRequestBody | undefined = {} as GetMailTipsPostRequestBody) : void {
+export function serializeGetMailTipsPostRequestBody(writer: SerializationWriter, getMailTipsPostRequestBody: Partial<GetMailTipsPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("EmailAddresses", getMailTipsPostRequestBody.emailAddresses);
     writer.writeEnumValue<MailTipsType[]>("MailTipsOptions", getMailTipsPostRequestBody.mailTipsOptions);
     writer.writeAdditionalData(getMailTipsPostRequestBody.additionalData);
@@ -99,7 +99,7 @@ export function serializeGetMailTipsPostRequestBody(writer: SerializationWriter,
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetMailTipsPostResponse(writer: SerializationWriter, getMailTipsPostResponse: GetMailTipsPostResponse | undefined = {} as GetMailTipsPostResponse) : void {
+export function serializeGetMailTipsPostResponse(writer: SerializationWriter, getMailTipsPostResponse: Partial<GetMailTipsPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getMailTipsPostResponse)
     writer.writeCollectionOfObjectValues<MailTips>("value", getMailTipsPostResponse.value, serializeMailTips);
 }

@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getHistoricalReportPostRequestBody
  */
-export function createGetHistoricalReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetHistoricalReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetHistoricalReportPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetHistoricalReportPostRequestBody(getHistoricalReportPostRequestBody: GetHistoricalReportPostRequestBody | undefined = {} as GetHistoricalReportPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetHistoricalReportPostRequestBody(getHistoricalReportPostRequestBody: Partial<GetHistoricalReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getHistoricalReportPostRequestBody.backingStoreEnabled = true; },
         "filter": n => { getHistoricalReportPostRequestBody.filter = n.getStringValue(); },
@@ -95,7 +95,7 @@ export interface GetHistoricalReportRequestBuilder extends BaseRequestBuilder<Ge
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetHistoricalReportPostRequestBody(writer: SerializationWriter, getHistoricalReportPostRequestBody: GetHistoricalReportPostRequestBody | undefined = {} as GetHistoricalReportPostRequestBody) : void {
+export function serializeGetHistoricalReportPostRequestBody(writer: SerializationWriter, getHistoricalReportPostRequestBody: Partial<GetHistoricalReportPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("filter", getHistoricalReportPostRequestBody.filter);
     writer.writeCollectionOfPrimitiveValues<string>("groupBy", getHistoricalReportPostRequestBody.groupBy);
     writer.writeStringValue("name", getHistoricalReportPostRequestBody.name);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a f_Inv_RTPostRequestBody
  */
-export function createF_Inv_RTPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createF_Inv_RTPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoF_Inv_RTPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoF_Inv_RTPostRequestBody(f_Inv_RTPostRequestBody: F_Inv_RTPostRequestBody | undefined = {} as F_Inv_RTPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoF_Inv_RTPostRequestBody(f_Inv_RTPostRequestBody: Partial<F_Inv_RTPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { f_Inv_RTPostRequestBody.backingStoreEnabled = true; },
         "degFreedom1": n => { f_Inv_RTPostRequestBody.degFreedom1 = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface F_Inv_RTRequestBuilder extends BaseRequestBuilder<F_Inv_RTReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeF_Inv_RTPostRequestBody(writer: SerializationWriter, f_Inv_RTPostRequestBody: F_Inv_RTPostRequestBody | undefined = {} as F_Inv_RTPostRequestBody) : void {
+export function serializeF_Inv_RTPostRequestBody(writer: SerializationWriter, f_Inv_RTPostRequestBody: Partial<F_Inv_RTPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("degFreedom1", f_Inv_RTPostRequestBody.degFreedom1, serializeJson);
     writer.writeObjectValue<Json>("degFreedom2", f_Inv_RTPostRequestBody.degFreedom2, serializeJson);
     writer.writeObjectValue<Json>("probability", f_Inv_RTPostRequestBody.probability, serializeJson);

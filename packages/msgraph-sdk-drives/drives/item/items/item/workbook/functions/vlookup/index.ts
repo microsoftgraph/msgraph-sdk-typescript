@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a vlookupPostRequestBody
  */
-export function createVlookupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createVlookupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoVlookupPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoVlookupPostRequestBody(vlookupPostRequestBody: VlookupPostRequestBody | undefined = {} as VlookupPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoVlookupPostRequestBody(vlookupPostRequestBody: Partial<VlookupPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { vlookupPostRequestBody.backingStoreEnabled = true; },
         "colIndexNum": n => { vlookupPostRequestBody.colIndexNum = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -30,7 +30,7 @@ export function deserializeIntoVlookupPostRequestBody(vlookupPostRequestBody: Vl
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeVlookupPostRequestBody(writer: SerializationWriter, vlookupPostRequestBody: VlookupPostRequestBody | undefined = {} as VlookupPostRequestBody) : void {
+export function serializeVlookupPostRequestBody(writer: SerializationWriter, vlookupPostRequestBody: Partial<VlookupPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("colIndexNum", vlookupPostRequestBody.colIndexNum, serializeJson);
     writer.writeObjectValue<Json>("lookupValue", vlookupPostRequestBody.lookupValue, serializeJson);
     writer.writeObjectValue<Json>("rangeLookup", vlookupPostRequestBody.rangeLookup, serializeJson);

@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getStaffAvailabilityPostRequestBody
  */
-export function createGetStaffAvailabilityPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetStaffAvailabilityPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetStaffAvailabilityPostRequestBody;
 }
 /**
@@ -18,14 +18,14 @@ export function createGetStaffAvailabilityPostRequestBodyFromDiscriminatorValue(
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getStaffAvailabilityPostResponse
  */
-export function createGetStaffAvailabilityPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetStaffAvailabilityPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetStaffAvailabilityPostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetStaffAvailabilityPostRequestBody(getStaffAvailabilityPostRequestBody: GetStaffAvailabilityPostRequestBody | undefined = {} as GetStaffAvailabilityPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetStaffAvailabilityPostRequestBody(getStaffAvailabilityPostRequestBody: Partial<GetStaffAvailabilityPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getStaffAvailabilityPostRequestBody.backingStoreEnabled = true; },
         "endDateTime": n => { getStaffAvailabilityPostRequestBody.endDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
@@ -37,7 +37,7 @@ export function deserializeIntoGetStaffAvailabilityPostRequestBody(getStaffAvail
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetStaffAvailabilityPostResponse(getStaffAvailabilityPostResponse: GetStaffAvailabilityPostResponse | undefined = {} as GetStaffAvailabilityPostResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetStaffAvailabilityPostResponse(getStaffAvailabilityPostResponse: Partial<GetStaffAvailabilityPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getStaffAvailabilityPostResponse),
         "value": n => { getStaffAvailabilityPostResponse.value = n.getCollectionOfObjectValues<StaffAvailabilityItem>(createStaffAvailabilityItemFromDiscriminatorValue); },
@@ -95,7 +95,7 @@ export interface GetStaffAvailabilityRequestBuilder extends BaseRequestBuilder<G
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetStaffAvailabilityPostRequestBody(writer: SerializationWriter, getStaffAvailabilityPostRequestBody: GetStaffAvailabilityPostRequestBody | undefined = {} as GetStaffAvailabilityPostRequestBody) : void {
+export function serializeGetStaffAvailabilityPostRequestBody(writer: SerializationWriter, getStaffAvailabilityPostRequestBody: Partial<GetStaffAvailabilityPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<DateTimeTimeZone>("endDateTime", getStaffAvailabilityPostRequestBody.endDateTime, serializeDateTimeTimeZone);
     writer.writeCollectionOfPrimitiveValues<string>("staffIds", getStaffAvailabilityPostRequestBody.staffIds);
     writer.writeObjectValue<DateTimeTimeZone>("startDateTime", getStaffAvailabilityPostRequestBody.startDateTime, serializeDateTimeTimeZone);
@@ -105,7 +105,7 @@ export function serializeGetStaffAvailabilityPostRequestBody(writer: Serializati
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetStaffAvailabilityPostResponse(writer: SerializationWriter, getStaffAvailabilityPostResponse: GetStaffAvailabilityPostResponse | undefined = {} as GetStaffAvailabilityPostResponse) : void {
+export function serializeGetStaffAvailabilityPostResponse(writer: SerializationWriter, getStaffAvailabilityPostResponse: Partial<GetStaffAvailabilityPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getStaffAvailabilityPostResponse)
     writer.writeCollectionOfObjectValues<StaffAvailabilityItem>("value", getStaffAvailabilityPostResponse.value, serializeStaffAvailabilityItem);
 }

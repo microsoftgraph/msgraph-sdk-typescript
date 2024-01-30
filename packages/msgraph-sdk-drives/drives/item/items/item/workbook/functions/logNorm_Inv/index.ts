@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a logNorm_InvPostRequestBody
  */
-export function createLogNorm_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createLogNorm_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLogNorm_InvPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoLogNorm_InvPostRequestBody(logNorm_InvPostRequestBody: LogNorm_InvPostRequestBody | undefined = {} as LogNorm_InvPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoLogNorm_InvPostRequestBody(logNorm_InvPostRequestBody: Partial<LogNorm_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { logNorm_InvPostRequestBody.backingStoreEnabled = true; },
         "mean": n => { logNorm_InvPostRequestBody.mean = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export interface LogNorm_InvRequestBuilder extends BaseRequestBuilder<LogNorm_In
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLogNorm_InvPostRequestBody(writer: SerializationWriter, logNorm_InvPostRequestBody: LogNorm_InvPostRequestBody | undefined = {} as LogNorm_InvPostRequestBody) : void {
+export function serializeLogNorm_InvPostRequestBody(writer: SerializationWriter, logNorm_InvPostRequestBody: Partial<LogNorm_InvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("mean", logNorm_InvPostRequestBody.mean, serializeJson);
     writer.writeObjectValue<Json>("probability", logNorm_InvPostRequestBody.probability, serializeJson);
     writer.writeObjectValue<Json>("standardDev", logNorm_InvPostRequestBody.standardDev, serializeJson);

@@ -47,14 +47,14 @@ export interface CountIfRequestBuilder extends BaseRequestBuilder<CountIfRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a countIfPostRequestBody
  */
-export function createCountIfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCountIfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCountIfPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCountIfPostRequestBody(countIfPostRequestBody: CountIfPostRequestBody | undefined = {} as CountIfPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCountIfPostRequestBody(countIfPostRequestBody: Partial<CountIfPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { countIfPostRequestBody.backingStoreEnabled = true; },
         "criteria": n => { countIfPostRequestBody.criteria = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoCountIfPostRequestBody(countIfPostRequestBody: Co
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCountIfPostRequestBody(writer: SerializationWriter, countIfPostRequestBody: CountIfPostRequestBody | undefined = {} as CountIfPostRequestBody) : void {
+export function serializeCountIfPostRequestBody(writer: SerializationWriter, countIfPostRequestBody: Partial<CountIfPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("criteria", countIfPostRequestBody.criteria, serializeJson);
     writer.writeObjectValue<Json>("range", countIfPostRequestBody.range, serializeJson);
     writer.writeAdditionalData(countIfPostRequestBody.additionalData);

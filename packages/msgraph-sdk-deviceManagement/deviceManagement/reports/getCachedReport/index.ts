@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a getCachedReportPostRequestBody
  */
-export function createGetCachedReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGetCachedReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetCachedReportPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGetCachedReportPostRequestBody(getCachedReportPostRequestBody: GetCachedReportPostRequestBody | undefined = {} as GetCachedReportPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetCachedReportPostRequestBody(getCachedReportPostRequestBody: Partial<GetCachedReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getCachedReportPostRequestBody.backingStoreEnabled = true; },
         "groupBy": n => { getCachedReportPostRequestBody.groupBy = n.getCollectionOfPrimitiveValues<string>(); },
@@ -90,7 +90,7 @@ export interface GetCachedReportRequestBuilder extends BaseRequestBuilder<GetCac
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetCachedReportPostRequestBody(writer: SerializationWriter, getCachedReportPostRequestBody: GetCachedReportPostRequestBody | undefined = {} as GetCachedReportPostRequestBody) : void {
+export function serializeGetCachedReportPostRequestBody(writer: SerializationWriter, getCachedReportPostRequestBody: Partial<GetCachedReportPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("groupBy", getCachedReportPostRequestBody.groupBy);
     writer.writeStringValue("id", getCachedReportPostRequestBody.id);
     writer.writeCollectionOfPrimitiveValues<string>("orderBy", getCachedReportPostRequestBody.orderBy);

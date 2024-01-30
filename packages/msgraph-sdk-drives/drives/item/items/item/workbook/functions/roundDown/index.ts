@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a roundDownPostRequestBody
  */
-export function createRoundDownPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRoundDownPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRoundDownPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRoundDownPostRequestBody(roundDownPostRequestBody: RoundDownPostRequestBody | undefined = {} as RoundDownPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRoundDownPostRequestBody(roundDownPostRequestBody: Partial<RoundDownPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { roundDownPostRequestBody.backingStoreEnabled = true; },
         "number": n => { roundDownPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface RoundDownRequestBuilder extends BaseRequestBuilder<RoundDownReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRoundDownPostRequestBody(writer: SerializationWriter, roundDownPostRequestBody: RoundDownPostRequestBody | undefined = {} as RoundDownPostRequestBody) : void {
+export function serializeRoundDownPostRequestBody(writer: SerializationWriter, roundDownPostRequestBody: Partial<RoundDownPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", roundDownPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("numDigits", roundDownPostRequestBody.numDigits, serializeJson);
     writer.writeAdditionalData(roundDownPostRequestBody.additionalData);

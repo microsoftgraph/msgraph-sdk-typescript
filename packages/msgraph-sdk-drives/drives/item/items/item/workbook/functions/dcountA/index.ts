@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a dcountAPostRequestBody
  */
-export function createDcountAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createDcountAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDcountAPostRequestBody;
 }
 export interface DcountAPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -58,7 +58,7 @@ export interface DcountARequestBuilder extends BaseRequestBuilder<DcountARequest
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoDcountAPostRequestBody(dcountAPostRequestBody: DcountAPostRequestBody | undefined = {} as DcountAPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDcountAPostRequestBody(dcountAPostRequestBody: Partial<DcountAPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dcountAPostRequestBody.backingStoreEnabled = true; },
         "criteria": n => { dcountAPostRequestBody.criteria = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -70,7 +70,7 @@ export function deserializeIntoDcountAPostRequestBody(dcountAPostRequestBody: Dc
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDcountAPostRequestBody(writer: SerializationWriter, dcountAPostRequestBody: DcountAPostRequestBody | undefined = {} as DcountAPostRequestBody) : void {
+export function serializeDcountAPostRequestBody(writer: SerializationWriter, dcountAPostRequestBody: Partial<DcountAPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("criteria", dcountAPostRequestBody.criteria, serializeJson);
     writer.writeObjectValue<Json>("database", dcountAPostRequestBody.database, serializeJson);
     writer.writeObjectValue<Json>("field", dcountAPostRequestBody.field, serializeJson);

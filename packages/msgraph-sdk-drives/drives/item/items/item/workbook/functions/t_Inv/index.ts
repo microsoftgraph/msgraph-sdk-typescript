@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a t_InvPostRequestBody
  */
-export function createT_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createT_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoT_InvPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoT_InvPostRequestBody(t_InvPostRequestBody: T_InvPostRequestBody | undefined = {} as T_InvPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoT_InvPostRequestBody(t_InvPostRequestBody: Partial<T_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { t_InvPostRequestBody.backingStoreEnabled = true; },
         "degFreedom": n => { t_InvPostRequestBody.degFreedom = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -28,7 +28,7 @@ export function deserializeIntoT_InvPostRequestBody(t_InvPostRequestBody: T_InvP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeT_InvPostRequestBody(writer: SerializationWriter, t_InvPostRequestBody: T_InvPostRequestBody | undefined = {} as T_InvPostRequestBody) : void {
+export function serializeT_InvPostRequestBody(writer: SerializationWriter, t_InvPostRequestBody: Partial<T_InvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("degFreedom", t_InvPostRequestBody.degFreedom, serializeJson);
     writer.writeObjectValue<Json>("probability", t_InvPostRequestBody.probability, serializeJson);
     writer.writeAdditionalData(t_InvPostRequestBody.additionalData);

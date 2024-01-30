@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a gaussPostRequestBody
  */
-export function createGaussPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGaussPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGaussPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGaussPostRequestBody(gaussPostRequestBody: GaussPostRequestBody | undefined = {} as GaussPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGaussPostRequestBody(gaussPostRequestBody: Partial<GaussPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { gaussPostRequestBody.backingStoreEnabled = true; },
         "x": n => { gaussPostRequestBody.x = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface GaussRequestBuilder extends BaseRequestBuilder<GaussRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGaussPostRequestBody(writer: SerializationWriter, gaussPostRequestBody: GaussPostRequestBody | undefined = {} as GaussPostRequestBody) : void {
+export function serializeGaussPostRequestBody(writer: SerializationWriter, gaussPostRequestBody: Partial<GaussPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("x", gaussPostRequestBody.x, serializeJson);
     writer.writeAdditionalData(gaussPostRequestBody.additionalData);
 }

@@ -31,10 +31,10 @@ export interface AgreementItemRequestBuilder extends BaseRequestBuilder<Agreemen
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve all files related to an agreement. This includes the default file and all localized files.
+     * Retrieve the properties and relationships of an agreement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Agreement
-     * @see {@link https://learn.microsoft.com/graph/api/agreement-list-files?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/agreement-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AgreementItemRequestBuilderGetQueryParameters> | undefined) : Promise<Agreement | undefined>;
     /**
@@ -52,7 +52,7 @@ export interface AgreementItemRequestBuilder extends BaseRequestBuilder<Agreemen
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve all files related to an agreement. This includes the default file and all localized files.
+     * Retrieve the properties and relationships of an agreement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -66,7 +66,7 @@ export interface AgreementItemRequestBuilder extends BaseRequestBuilder<Agreemen
      toPatchRequestInformation(body: Agreement, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve all files related to an agreement. This includes the default file and all localized files.
+ * Retrieve the properties and relationships of an agreement object.
  */
 export interface AgreementItemRequestBuilderGetQueryParameters {
     /**

@@ -47,14 +47,14 @@ export interface CombinRequestBuilder extends BaseRequestBuilder<CombinRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a combinPostRequestBody
  */
-export function createCombinPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCombinPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCombinPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCombinPostRequestBody(combinPostRequestBody: CombinPostRequestBody | undefined = {} as CombinPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCombinPostRequestBody(combinPostRequestBody: Partial<CombinPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { combinPostRequestBody.backingStoreEnabled = true; },
         "number": n => { combinPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export function deserializeIntoCombinPostRequestBody(combinPostRequestBody: Comb
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCombinPostRequestBody(writer: SerializationWriter, combinPostRequestBody: CombinPostRequestBody | undefined = {} as CombinPostRequestBody) : void {
+export function serializeCombinPostRequestBody(writer: SerializationWriter, combinPostRequestBody: Partial<CombinPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", combinPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("numberChosen", combinPostRequestBody.numberChosen, serializeJson);
     writer.writeAdditionalData(combinPostRequestBody.additionalData);

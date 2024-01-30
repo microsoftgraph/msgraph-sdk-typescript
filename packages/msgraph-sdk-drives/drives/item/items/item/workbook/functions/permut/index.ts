@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a permutPostRequestBody
  */
-export function createPermutPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createPermutPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPermutPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoPermutPostRequestBody(permutPostRequestBody: PermutPostRequestBody | undefined = {} as PermutPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPermutPostRequestBody(permutPostRequestBody: Partial<PermutPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { permutPostRequestBody.backingStoreEnabled = true; },
         "number": n => { permutPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface PermutRequestBuilder extends BaseRequestBuilder<PermutRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePermutPostRequestBody(writer: SerializationWriter, permutPostRequestBody: PermutPostRequestBody | undefined = {} as PermutPostRequestBody) : void {
+export function serializePermutPostRequestBody(writer: SerializationWriter, permutPostRequestBody: Partial<PermutPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", permutPostRequestBody.number, serializeJson);
     writer.writeObjectValue<Json>("numberChosen", permutPostRequestBody.numberChosen, serializeJson);
     writer.writeAdditionalData(permutPostRequestBody.additionalData);

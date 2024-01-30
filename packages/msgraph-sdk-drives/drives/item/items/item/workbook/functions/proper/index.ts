@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a properPostRequestBody
  */
-export function createProperPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createProperPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProperPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoProperPostRequestBody(properPostRequestBody: ProperPostRequestBody | undefined = {} as ProperPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoProperPostRequestBody(properPostRequestBody: Partial<ProperPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { properPostRequestBody.backingStoreEnabled = true; },
         "text": n => { properPostRequestBody.text = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface ProperRequestBuilder extends BaseRequestBuilder<ProperRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeProperPostRequestBody(writer: SerializationWriter, properPostRequestBody: ProperPostRequestBody | undefined = {} as ProperPostRequestBody) : void {
+export function serializeProperPostRequestBody(writer: SerializationWriter, properPostRequestBody: Partial<ProperPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("text", properPostRequestBody.text, serializeJson);
     writer.writeAdditionalData(properPostRequestBody.additionalData);
 }

@@ -55,14 +55,14 @@ export interface CoupPcdRequestBuilder extends BaseRequestBuilder<CoupPcdRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a coupPcdPostRequestBody
  */
-export function createCoupPcdPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCoupPcdPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCoupPcdPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCoupPcdPostRequestBody(coupPcdPostRequestBody: CoupPcdPostRequestBody | undefined = {} as CoupPcdPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCoupPcdPostRequestBody(coupPcdPostRequestBody: Partial<CoupPcdPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { coupPcdPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { coupPcdPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export function deserializeIntoCoupPcdPostRequestBody(coupPcdPostRequestBody: Co
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCoupPcdPostRequestBody(writer: SerializationWriter, coupPcdPostRequestBody: CoupPcdPostRequestBody | undefined = {} as CoupPcdPostRequestBody) : void {
+export function serializeCoupPcdPostRequestBody(writer: SerializationWriter, coupPcdPostRequestBody: Partial<CoupPcdPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", coupPcdPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("frequency", coupPcdPostRequestBody.frequency, serializeJson);
     writer.writeObjectValue<Json>("maturity", coupPcdPostRequestBody.maturity, serializeJson);

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a hourPostRequestBody
  */
-export function createHourPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createHourPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHourPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoHourPostRequestBody(hourPostRequestBody: HourPostRequestBody | undefined = {} as HourPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoHourPostRequestBody(hourPostRequestBody: Partial<HourPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { hourPostRequestBody.backingStoreEnabled = true; },
         "serialNumber": n => { hourPostRequestBody.serialNumber = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface HourRequestBuilder extends BaseRequestBuilder<HourRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeHourPostRequestBody(writer: SerializationWriter, hourPostRequestBody: HourPostRequestBody | undefined = {} as HourPostRequestBody) : void {
+export function serializeHourPostRequestBody(writer: SerializationWriter, hourPostRequestBody: Partial<HourPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("serialNumber", hourPostRequestBody.serialNumber, serializeJson);
     writer.writeAdditionalData(hourPostRequestBody.additionalData);
 }

@@ -52,14 +52,14 @@ export interface AddRequestBuilder extends BaseRequestBuilder<AddRequestBuilder>
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a addPostRequestBody
  */
-export function createAddPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAddPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAddPostRequestBody(addPostRequestBody: AddPostRequestBody | undefined = {} as AddPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddPostRequestBody(addPostRequestBody: Partial<AddPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addPostRequestBody.backingStoreEnabled = true; },
         "seriesBy": n => { addPostRequestBody.seriesBy = n.getStringValue(); },
@@ -71,7 +71,7 @@ export function deserializeIntoAddPostRequestBody(addPostRequestBody: AddPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: AddPostRequestBody | undefined = {} as AddPostRequestBody) : void {
+export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: Partial<AddPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("seriesBy", addPostRequestBody.seriesBy);
     writer.writeObjectValue<Json>("sourceData", addPostRequestBody.sourceData, serializeJson);
     writer.writeStringValue("type", addPostRequestBody.type);

@@ -32,7 +32,7 @@ export interface WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilde
      */
      get(requestConfiguration?: RequestConfiguration<WorkbookChartSeriesItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartSeries | undefined>;
     /**
-     * Update the properties of chartseries object.
+     * Update the properties of chartSeries object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartSeries
@@ -52,7 +52,7 @@ export interface WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilde
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkbookChartSeriesItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of chartseries object.
+     * Update the properties of chartSeries object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

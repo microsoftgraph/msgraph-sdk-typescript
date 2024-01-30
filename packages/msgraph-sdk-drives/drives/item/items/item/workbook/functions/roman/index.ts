@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a romanPostRequestBody
  */
-export function createRomanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createRomanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRomanPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoRomanPostRequestBody(romanPostRequestBody: RomanPostRequestBody | undefined = {} as RomanPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRomanPostRequestBody(romanPostRequestBody: Partial<RomanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { romanPostRequestBody.backingStoreEnabled = true; },
         "form": n => { romanPostRequestBody.form = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface RomanRequestBuilder extends BaseRequestBuilder<RomanRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRomanPostRequestBody(writer: SerializationWriter, romanPostRequestBody: RomanPostRequestBody | undefined = {} as RomanPostRequestBody) : void {
+export function serializeRomanPostRequestBody(writer: SerializationWriter, romanPostRequestBody: Partial<RomanPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("form", romanPostRequestBody.form, serializeJson);
     writer.writeObjectValue<Json>("number", romanPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(romanPostRequestBody.additionalData);

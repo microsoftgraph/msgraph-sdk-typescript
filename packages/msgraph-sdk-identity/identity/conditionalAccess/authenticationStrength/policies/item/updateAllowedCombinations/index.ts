@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a updateAllowedCombinationsPostRequestBody
  */
-export function createUpdateAllowedCombinationsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createUpdateAllowedCombinationsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUpdateAllowedCombinationsPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoUpdateAllowedCombinationsPostRequestBody(updateAllowedCombinationsPostRequestBody: UpdateAllowedCombinationsPostRequestBody | undefined = {} as UpdateAllowedCombinationsPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoUpdateAllowedCombinationsPostRequestBody(updateAllowedCombinationsPostRequestBody: Partial<UpdateAllowedCombinationsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "allowedCombinations": n => { updateAllowedCombinationsPostRequestBody.allowedCombinations = n.getCollectionOfEnumValues<AuthenticationMethodModes>(AuthenticationMethodModesObject); },
         "backingStoreEnabled": n => { updateAllowedCombinationsPostRequestBody.backingStoreEnabled = true; },
@@ -27,7 +27,7 @@ export function deserializeIntoUpdateAllowedCombinationsPostRequestBody(updateAl
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUpdateAllowedCombinationsPostRequestBody(writer: SerializationWriter, updateAllowedCombinationsPostRequestBody: UpdateAllowedCombinationsPostRequestBody | undefined = {} as UpdateAllowedCombinationsPostRequestBody) : void {
+export function serializeUpdateAllowedCombinationsPostRequestBody(writer: SerializationWriter, updateAllowedCombinationsPostRequestBody: Partial<UpdateAllowedCombinationsPostRequestBody> | undefined = {}) : void {
     if(updateAllowedCombinationsPostRequestBody.allowedCombinations)
     writer.writeEnumValue<AuthenticationMethodModes>("allowedCombinations", ...updateAllowedCombinationsPostRequestBody.allowedCombinations);
     writer.writeAdditionalData(updateAllowedCombinationsPostRequestBody.additionalData);

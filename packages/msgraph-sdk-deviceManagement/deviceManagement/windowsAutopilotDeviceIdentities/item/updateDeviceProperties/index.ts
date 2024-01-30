@@ -9,14 +9,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a updateDevicePropertiesPostRequestBody
  */
-export function createUpdateDevicePropertiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createUpdateDevicePropertiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUpdateDevicePropertiesPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoUpdateDevicePropertiesPostRequestBody(updateDevicePropertiesPostRequestBody: UpdateDevicePropertiesPostRequestBody | undefined = {} as UpdateDevicePropertiesPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoUpdateDevicePropertiesPostRequestBody(updateDevicePropertiesPostRequestBody: Partial<UpdateDevicePropertiesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "addressableUserName": n => { updateDevicePropertiesPostRequestBody.addressableUserName = n.getStringValue(); },
         "backingStoreEnabled": n => { updateDevicePropertiesPostRequestBody.backingStoreEnabled = true; },
@@ -29,7 +29,7 @@ export function deserializeIntoUpdateDevicePropertiesPostRequestBody(updateDevic
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUpdateDevicePropertiesPostRequestBody(writer: SerializationWriter, updateDevicePropertiesPostRequestBody: UpdateDevicePropertiesPostRequestBody | undefined = {} as UpdateDevicePropertiesPostRequestBody) : void {
+export function serializeUpdateDevicePropertiesPostRequestBody(writer: SerializationWriter, updateDevicePropertiesPostRequestBody: Partial<UpdateDevicePropertiesPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("addressableUserName", updateDevicePropertiesPostRequestBody.addressableUserName);
     writer.writeStringValue("displayName", updateDevicePropertiesPostRequestBody.displayName);
     writer.writeStringValue("groupTag", updateDevicePropertiesPostRequestBody.groupTag);

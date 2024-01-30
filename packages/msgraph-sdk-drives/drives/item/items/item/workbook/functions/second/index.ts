@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a secondPostRequestBody
  */
-export function createSecondPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSecondPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSecondPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSecondPostRequestBody(secondPostRequestBody: SecondPostRequestBody | undefined = {} as SecondPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSecondPostRequestBody(secondPostRequestBody: Partial<SecondPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { secondPostRequestBody.backingStoreEnabled = true; },
         "serialNumber": n => { secondPostRequestBody.serialNumber = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface SecondRequestBuilder extends BaseRequestBuilder<SecondRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSecondPostRequestBody(writer: SerializationWriter, secondPostRequestBody: SecondPostRequestBody | undefined = {} as SecondPostRequestBody) : void {
+export function serializeSecondPostRequestBody(writer: SerializationWriter, secondPostRequestBody: Partial<SecondPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("serialNumber", secondPostRequestBody.serialNumber, serializeJson);
     writer.writeAdditionalData(secondPostRequestBody.additionalData);
 }

@@ -10,14 +10,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a summarizeDevicePerformanceDevicesWithSummarizeByGetResponse
  */
-export function createSummarizeDevicePerformanceDevicesWithSummarizeByGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createSummarizeDevicePerformanceDevicesWithSummarizeByGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse(summarizeDevicePerformanceDevicesWithSummarizeByGetResponse: SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse | undefined = {} as SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse(summarizeDevicePerformanceDevicesWithSummarizeByGetResponse: Partial<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(summarizeDevicePerformanceDevicesWithSummarizeByGetResponse),
         "value": n => { summarizeDevicePerformanceDevicesWithSummarizeByGetResponse.value = n.getCollectionOfObjectValues<UserExperienceAnalyticsDevicePerformance>(createUserExperienceAnalyticsDevicePerformanceFromDiscriminatorValue); },
@@ -27,7 +27,7 @@ export function deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByG
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse(writer: SerializationWriter, summarizeDevicePerformanceDevicesWithSummarizeByGetResponse: SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse | undefined = {} as SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse) : void {
+export function serializeSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse(writer: SerializationWriter, summarizeDevicePerformanceDevicesWithSummarizeByGetResponse: Partial<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, summarizeDevicePerformanceDevicesWithSummarizeByGetResponse)
     writer.writeCollectionOfObjectValues<UserExperienceAnalyticsDevicePerformance>("value", summarizeDevicePerformanceDevicesWithSummarizeByGetResponse.value, serializeUserExperienceAnalyticsDevicePerformance);
 }

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a geoMeanPostRequestBody
  */
-export function createGeoMeanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createGeoMeanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGeoMeanPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoGeoMeanPostRequestBody(geoMeanPostRequestBody: GeoMeanPostRequestBody | undefined = {} as GeoMeanPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGeoMeanPostRequestBody(geoMeanPostRequestBody: Partial<GeoMeanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { geoMeanPostRequestBody.backingStoreEnabled = true; },
         "values": n => { geoMeanPostRequestBody.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface GeoMeanRequestBuilder extends BaseRequestBuilder<GeoMeanRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGeoMeanPostRequestBody(writer: SerializationWriter, geoMeanPostRequestBody: GeoMeanPostRequestBody | undefined = {} as GeoMeanPostRequestBody) : void {
+export function serializeGeoMeanPostRequestBody(writer: SerializationWriter, geoMeanPostRequestBody: Partial<GeoMeanPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("values", geoMeanPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(geoMeanPostRequestBody.additionalData);
 }

@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a oddFYieldPostRequestBody
  */
-export function createOddFYieldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createOddFYieldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOddFYieldPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoOddFYieldPostRequestBody(oddFYieldPostRequestBody: OddFYieldPostRequestBody | undefined = {} as OddFYieldPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoOddFYieldPostRequestBody(oddFYieldPostRequestBody: Partial<OddFYieldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { oddFYieldPostRequestBody.backingStoreEnabled = true; },
         "basis": n => { oddFYieldPostRequestBody.basis = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -100,7 +100,7 @@ export interface OddFYieldRequestBuilder extends BaseRequestBuilder<OddFYieldReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeOddFYieldPostRequestBody(writer: SerializationWriter, oddFYieldPostRequestBody: OddFYieldPostRequestBody | undefined = {} as OddFYieldPostRequestBody) : void {
+export function serializeOddFYieldPostRequestBody(writer: SerializationWriter, oddFYieldPostRequestBody: Partial<OddFYieldPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("basis", oddFYieldPostRequestBody.basis, serializeJson);
     writer.writeObjectValue<Json>("firstCoupon", oddFYieldPostRequestBody.firstCoupon, serializeJson);
     writer.writeObjectValue<Json>("frequency", oddFYieldPostRequestBody.frequency, serializeJson);

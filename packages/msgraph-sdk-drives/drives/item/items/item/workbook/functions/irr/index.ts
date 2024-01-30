@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a irrPostRequestBody
  */
-export function createIrrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createIrrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIrrPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoIrrPostRequestBody(irrPostRequestBody: IrrPostRequestBody | undefined = {} as IrrPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIrrPostRequestBody(irrPostRequestBody: Partial<IrrPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { irrPostRequestBody.backingStoreEnabled = true; },
         "guess": n => { irrPostRequestBody.guess = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface IrrRequestBuilder extends BaseRequestBuilder<IrrRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIrrPostRequestBody(writer: SerializationWriter, irrPostRequestBody: IrrPostRequestBody | undefined = {} as IrrPostRequestBody) : void {
+export function serializeIrrPostRequestBody(writer: SerializationWriter, irrPostRequestBody: Partial<IrrPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("guess", irrPostRequestBody.guess, serializeJson);
     writer.writeObjectValue<Json>("values", irrPostRequestBody.values, serializeJson);
     writer.writeAdditionalData(irrPostRequestBody.additionalData);

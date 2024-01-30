@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a monthPostRequestBody
  */
-export function createMonthPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createMonthPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMonthPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoMonthPostRequestBody(monthPostRequestBody: MonthPostRequestBody | undefined = {} as MonthPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMonthPostRequestBody(monthPostRequestBody: Partial<MonthPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { monthPostRequestBody.backingStoreEnabled = true; },
         "serialNumber": n => { monthPostRequestBody.serialNumber = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface MonthRequestBuilder extends BaseRequestBuilder<MonthRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMonthPostRequestBody(writer: SerializationWriter, monthPostRequestBody: MonthPostRequestBody | undefined = {} as MonthPostRequestBody) : void {
+export function serializeMonthPostRequestBody(writer: SerializationWriter, monthPostRequestBody: Partial<MonthPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("serialNumber", monthPostRequestBody.serialNumber, serializeJson);
     writer.writeAdditionalData(monthPostRequestBody.additionalData);
 }

@@ -43,14 +43,14 @@ export interface AcquireAccessTokenRequestBuilder extends BaseRequestBuilder<Acq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a acquireAccessTokenPostRequestBody
  */
-export function createAcquireAccessTokenPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createAcquireAccessTokenPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAcquireAccessTokenPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoAcquireAccessTokenPostRequestBody(acquireAccessTokenPostRequestBody: AcquireAccessTokenPostRequestBody | undefined = {} as AcquireAccessTokenPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAcquireAccessTokenPostRequestBody(acquireAccessTokenPostRequestBody: Partial<AcquireAccessTokenPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { acquireAccessTokenPostRequestBody.backingStoreEnabled = true; },
         "credentials": n => { acquireAccessTokenPostRequestBody.credentials = n.getCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>(createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoAcquireAccessTokenPostRequestBody(acquireAccessTo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAcquireAccessTokenPostRequestBody(writer: SerializationWriter, acquireAccessTokenPostRequestBody: AcquireAccessTokenPostRequestBody | undefined = {} as AcquireAccessTokenPostRequestBody) : void {
+export function serializeAcquireAccessTokenPostRequestBody(writer: SerializationWriter, acquireAccessTokenPostRequestBody: Partial<AcquireAccessTokenPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("credentials", acquireAccessTokenPostRequestBody.credentials, serializeSynchronizationSecretKeyStringValuePair);
     writer.writeAdditionalData(acquireAccessTokenPostRequestBody.additionalData);
 }

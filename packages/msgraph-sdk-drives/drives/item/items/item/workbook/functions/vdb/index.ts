@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a vdbPostRequestBody
  */
-export function createVdbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createVdbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoVdbPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoVdbPostRequestBody(vdbPostRequestBody: VdbPostRequestBody | undefined = {} as VdbPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoVdbPostRequestBody(vdbPostRequestBody: Partial<VdbPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { vdbPostRequestBody.backingStoreEnabled = true; },
         "cost": n => { vdbPostRequestBody.cost = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -33,7 +33,7 @@ export function deserializeIntoVdbPostRequestBody(vdbPostRequestBody: VdbPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeVdbPostRequestBody(writer: SerializationWriter, vdbPostRequestBody: VdbPostRequestBody | undefined = {} as VdbPostRequestBody) : void {
+export function serializeVdbPostRequestBody(writer: SerializationWriter, vdbPostRequestBody: Partial<VdbPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("cost", vdbPostRequestBody.cost, serializeJson);
     writer.writeObjectValue<Json>("endPeriod", vdbPostRequestBody.endPeriod, serializeJson);
     writer.writeObjectValue<Json>("factor", vdbPostRequestBody.factor, serializeJson);

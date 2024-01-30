@@ -10,7 +10,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a cscPostRequestBody
  */
-export function createCscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createCscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCscPostRequestBody;
 }
 export interface CscPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -50,7 +50,7 @@ export interface CscRequestBuilder extends BaseRequestBuilder<CscRequestBuilder>
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoCscPostRequestBody(cscPostRequestBody: CscPostRequestBody | undefined = {} as CscPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCscPostRequestBody(cscPostRequestBody: Partial<CscPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cscPostRequestBody.backingStoreEnabled = true; },
         "number": n => { cscPostRequestBody.number = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export function deserializeIntoCscPostRequestBody(cscPostRequestBody: CscPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCscPostRequestBody(writer: SerializationWriter, cscPostRequestBody: CscPostRequestBody | undefined = {} as CscPostRequestBody) : void {
+export function serializeCscPostRequestBody(writer: SerializationWriter, cscPostRequestBody: Partial<CscPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("number", cscPostRequestBody.number, serializeJson);
     writer.writeAdditionalData(cscPostRequestBody.additionalData);
 }

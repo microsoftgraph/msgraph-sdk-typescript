@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a error_TypePostRequestBody
  */
-export function createError_TypePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createError_TypePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoError_TypePostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoError_TypePostRequestBody(error_TypePostRequestBody: Error_TypePostRequestBody | undefined = {} as Error_TypePostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoError_TypePostRequestBody(error_TypePostRequestBody: Partial<Error_TypePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { error_TypePostRequestBody.backingStoreEnabled = true; },
         "errorVal": n => { error_TypePostRequestBody.errorVal = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -60,7 +60,7 @@ export interface Error_TypeRequestBuilder extends BaseRequestBuilder<Error_TypeR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeError_TypePostRequestBody(writer: SerializationWriter, error_TypePostRequestBody: Error_TypePostRequestBody | undefined = {} as Error_TypePostRequestBody) : void {
+export function serializeError_TypePostRequestBody(writer: SerializationWriter, error_TypePostRequestBody: Partial<Error_TypePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("errorVal", error_TypePostRequestBody.errorVal, serializeJson);
     writer.writeAdditionalData(error_TypePostRequestBody.additionalData);
 }

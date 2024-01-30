@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a exactPostRequestBody
  */
-export function createExactPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createExactPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExactPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoExactPostRequestBody(exactPostRequestBody: ExactPostRequestBody | undefined = {} as ExactPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoExactPostRequestBody(exactPostRequestBody: Partial<ExactPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { exactPostRequestBody.backingStoreEnabled = true; },
         "text1": n => { exactPostRequestBody.text1 = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -65,7 +65,7 @@ export interface ExactRequestBuilder extends BaseRequestBuilder<ExactRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExactPostRequestBody(writer: SerializationWriter, exactPostRequestBody: ExactPostRequestBody | undefined = {} as ExactPostRequestBody) : void {
+export function serializeExactPostRequestBody(writer: SerializationWriter, exactPostRequestBody: Partial<ExactPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("text1", exactPostRequestBody.text1, serializeJson);
     writer.writeObjectValue<Json>("text2", exactPostRequestBody.text2, serializeJson);
     writer.writeAdditionalData(exactPostRequestBody.additionalData);

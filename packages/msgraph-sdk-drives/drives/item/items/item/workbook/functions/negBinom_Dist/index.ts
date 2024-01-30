@@ -10,14 +10,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a negBinom_DistPostRequestBody
  */
-export function createNegBinom_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+export function createNegBinom_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNegBinom_DistPostRequestBody;
 }
 /**
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
-export function deserializeIntoNegBinom_DistPostRequestBody(negBinom_DistPostRequestBody: NegBinom_DistPostRequestBody | undefined = {} as NegBinom_DistPostRequestBody) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoNegBinom_DistPostRequestBody(negBinom_DistPostRequestBody: Partial<NegBinom_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { negBinom_DistPostRequestBody.backingStoreEnabled = true; },
         "cumulative": n => { negBinom_DistPostRequestBody.cumulative = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
@@ -75,7 +75,7 @@ export interface NegBinom_DistRequestBuilder extends BaseRequestBuilder<NegBinom
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNegBinom_DistPostRequestBody(writer: SerializationWriter, negBinom_DistPostRequestBody: NegBinom_DistPostRequestBody | undefined = {} as NegBinom_DistPostRequestBody) : void {
+export function serializeNegBinom_DistPostRequestBody(writer: SerializationWriter, negBinom_DistPostRequestBody: Partial<NegBinom_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<Json>("cumulative", negBinom_DistPostRequestBody.cumulative, serializeJson);
     writer.writeObjectValue<Json>("numberF", negBinom_DistPostRequestBody.numberF, serializeJson);
     writer.writeObjectValue<Json>("numberS", negBinom_DistPostRequestBody.numberS, serializeJson);
