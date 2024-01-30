@@ -27,15 +27,15 @@
   },
   "dependencies": {
     "@azure/identity": "^4.0.1",
-    "@microsoft/kiota-abstractions": "^1.0.0-preview.38",
+    "@microsoft/kiota-abstractions": "^1.0.0-preview.39",
     "@microsoft/kiota-authentication-azure": "^1.0.0-preview.32",
     "@microsoft/kiota-http-fetchlibrary": "^1.0.0-preview.36",
-    "@microsoft/kiota-serialization-form": "^1.0.0-preview.27",
-    "@microsoft/kiota-serialization-json": "^1.0.0-preview.38",
-    "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.17",
-    "@microsoft/kiota-serialization-text": "^1.0.0-preview.35",
+    "@microsoft/kiota-serialization-form": "^1.0.0-preview.28",
+    "@microsoft/kiota-serialization-json": "^1.0.0-preview.39",
+    "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.18",
+    "@microsoft/kiota-serialization-text": "^1.0.0-preview.36",
     "@microsoft/msgraph-sdk": "^1.0.0-preview.10",
-    "@microsoft/msgraph-sdk-core": "^1.0.0-preview.1",
+    "@microsoft/msgraph-sdk-core": "^1.0.0-preview.2",
     "@microsoft/msgraph-sdk-users": "^1.0.0-preview.10",
     "guid-typescript": "^1.0.9",
     "tslib": "^2.6.2"
@@ -43,8 +43,8 @@
   "devDependencies": {
     "@types/chai": "^4.3.11",
     "@types/mocha": "^10.0.6",
-    "@types/node": "^20.11.5",
-    "chai": "^5.0.0",
+    "@types/node": "^20.11.10",
+    "chai": "^5.0.3",
     "mocha": "^10.2.0"
   }
 }

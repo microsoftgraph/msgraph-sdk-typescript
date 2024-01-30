@@ -7,6 +7,7 @@ import { FormParseNodeFactory, FormSerializationWriterFactory } from '@microsoft
 import { JsonParseNodeFactory, JsonSerializationWriterFactory } from '@microsoft/kiota-serialization-json';
 import { MultipartSerializationWriterFactory } from '@microsoft/kiota-serialization-multipart';
 import { TextParseNodeFactory, TextSerializationWriterFactory } from '@microsoft/kiota-serialization-text';
+import { UserItemRequestBuilder, UserItemRequestBuilderNavigationMetadata, UserItemRequestBuilderRequestsMetadata, UserItemRequestBuilderUriTemplate } from './users/item';
 
 /**
  * Instantiates a new UsersServiceClient and sets the default values.
@@ -25,6 +26,7 @@ export function createUsersServiceClient(requestAdapter: RequestAdapter) {
     }
     const pathParameters: Record<string, unknown> = {
         "baseurl": requestAdapter.baseUrl,
+        "user%2Did": "TokenToReplace",
     };
     return apiClientProxifier<UsersServiceClient>(requestAdapter, pathParameters, UsersServiceClientUriTemplate, UsersServiceClientNavigationMetadata, undefined);
 }
@@ -36,6 +38,10 @@ export interface UsersServiceClient extends BaseRequestBuilder<UsersServiceClien
      * Provides operations to manage the collection of user entities.
      */
     get users(): UsersRequestBuilder;
+    /**
+     * Provides operations to manage the currently signed-in user.
+     */
+    get me(): UserItemRequestBuilder;
 }
 /**
  * Metadata for all the navigation properties in the request builder.
@@ -45,6 +51,11 @@ export const UsersServiceClientNavigationMetadata: Record<Exclude<keyof UsersSer
         uriTemplate: UsersRequestBuilderUriTemplate,
         requestsMetadata: UsersRequestBuilderRequestsMetadata,
         navigationMetadata: UsersRequestBuilderNavigationMetadata,
+    },
+    me: {
+        uriTemplate: UserItemRequestBuilderUriTemplate,
+        requestsMetadata: UserItemRequestBuilderRequestsMetadata,
+        navigationMetadata: UserItemRequestBuilderNavigationMetadata,
     },
 };
 /**

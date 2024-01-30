@@ -1,6 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { UsersRequestBuilder } from "./users";
+import type { UserItemRequestBuilder } from "./users/item";
 import { UsersServiceClientNavigationMetadata } from "./usersServiceClient";
 
 declare module "@microsoft/msgraph-sdk" {
@@ -9,6 +10,10 @@ declare module "@microsoft/msgraph-sdk" {
      * Provides operations to manage the collection of user entities.
      */
     get users(): UsersRequestBuilder;
+    /**
+     * Provides operations to manage the currently signed-in user.
+     */
+    get me(): UserItemRequestBuilder;
   }
 }
 extendGraphServiceClient(UsersServiceClientNavigationMetadata);
