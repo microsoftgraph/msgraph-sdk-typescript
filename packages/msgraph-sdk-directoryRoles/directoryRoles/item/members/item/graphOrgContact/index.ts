@@ -60,6 +60,6 @@ export const GraphOrgContactRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const GraphOrgContactRequestBuilderUriTemplate = "{+baseurl}/directoryRoles/{directoryRole%2Did}/members/{directoryObject%2Did}/graph.orgContact{?%24select,%24expand}";
+export const GraphOrgContactRequestBuilderUriTemplate = "{+baseurl}/directoryRoles/{directoryRole%2Did}/members/{directoryObject%2Did}/graph.orgContact{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

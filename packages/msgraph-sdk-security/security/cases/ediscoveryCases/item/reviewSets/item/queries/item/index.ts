@@ -131,6 +131,6 @@ export const EdiscoveryReviewSetQueryItemRequestBuilderRequestsMetadata: Request
 /**
  * Uri template for the request builder.
  */
-export const EdiscoveryReviewSetQueryItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets/{ediscoveryReviewSet%2Did}/queries/{ediscoveryReviewSetQuery%2Did}{?%24select,%24expand}";
+export const EdiscoveryReviewSetQueryItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets/{ediscoveryReviewSet%2Did}/queries/{ediscoveryReviewSetQuery%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

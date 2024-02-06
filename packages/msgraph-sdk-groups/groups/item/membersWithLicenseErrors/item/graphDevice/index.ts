@@ -60,6 +60,6 @@ export const GraphDeviceRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const GraphDeviceRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/membersWithLicenseErrors/{directoryObject%2Did}/graph.device{?%24select,%24expand}";
+export const GraphDeviceRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/membersWithLicenseErrors/{directoryObject%2Did}/graph.device{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

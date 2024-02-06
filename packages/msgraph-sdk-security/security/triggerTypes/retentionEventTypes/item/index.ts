@@ -107,6 +107,6 @@ export const RetentionEventTypeItemRequestBuilderRequestsMetadata: RequestsMetad
 /**
  * Uri template for the request builder.
  */
-export const RetentionEventTypeItemRequestBuilderUriTemplate = "{+baseurl}/security/triggerTypes/retentionEventTypes/{retentionEventType%2Did}{?%24select,%24expand}";
+export const RetentionEventTypeItemRequestBuilderUriTemplate = "{+baseurl}/security/triggerTypes/retentionEventTypes/{retentionEventType%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -10,23 +10,11 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface GradingCategoryRequestBuilder extends BaseRequestBuilder<GradingCategoryRequestBuilder> {
     /**
-     * Remove a gradingCategory from an educationAssignment. Only teachers can perform this operation.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-delete-gradingcategory?view=graph-rest-1.0|Find more info here}
-     */
-     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
-    /**
      * When set, enables users to weight assignments differently when computing a class average grade.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationGradingCategory
      */
      get(requestConfiguration?: RequestConfiguration<GradingCategoryRequestBuilderGetQueryParameters> | undefined) : Promise<EducationGradingCategory | undefined>;
-    /**
-     * Remove a gradingCategory from an educationAssignment. Only teachers can perform this operation.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * When set, enables users to weight assignments differently when computing a class average grade.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -58,14 +46,6 @@ const GradingCategoryRequestBuilderGetQueryParametersMapper: Record<string, stri
  * Metadata for all the requests in the request builder.
  */
 export const GradingCategoryRequestBuilderRequestsMetadata: RequestsMetadata = {
-    delete: {
-        responseBodyContentType: "application/json",
-        errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-        },
-        adapterMethodName: "sendNoResponseContentAsync",
-    },
     get: {
         responseBodyContentType: "application/json",
         errorMappings: {
@@ -80,6 +60,6 @@ export const GradingCategoryRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const GradingCategoryRequestBuilderUriTemplate = "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/gradingCategory{?%24select,%24expand}";
+export const GradingCategoryRequestBuilderUriTemplate = "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/gradingCategory{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

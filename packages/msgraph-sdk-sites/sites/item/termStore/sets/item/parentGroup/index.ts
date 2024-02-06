@@ -120,6 +120,6 @@ export const ParentGroupRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ParentGroupRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore/sets/{set%2Did}/parentGroup{?%24select,%24expand}";
+export const ParentGroupRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore/sets/{set%2Did}/parentGroup{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

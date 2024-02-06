@@ -60,6 +60,6 @@ export const TargetScheduleRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TargetScheduleRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/assignmentScheduleRequests/{privilegedAccessGroupAssignmentScheduleRequest%2Did}/targetSchedule{?%24select,%24expand}";
+export const TargetScheduleRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/assignmentScheduleRequests/{privilegedAccessGroupAssignmentScheduleRequest%2Did}/targetSchedule{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -123,6 +123,6 @@ export const ClaimsMappingPolicyItemRequestBuilderRequestsMetadata: RequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const ClaimsMappingPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/claimsMappingPolicies/{claimsMappingPolicy%2Did}{?%24select,%24expand}";
+export const ClaimsMappingPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/claimsMappingPolicies/{claimsMappingPolicy%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

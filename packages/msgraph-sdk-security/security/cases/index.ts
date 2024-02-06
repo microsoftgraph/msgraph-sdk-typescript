@@ -120,6 +120,6 @@ export const CasesRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const CasesRequestBuilderUriTemplate = "{+baseurl}/security/cases{?%24select,%24expand}";
+export const CasesRequestBuilderUriTemplate = "{+baseurl}/security/cases{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -55,10 +55,10 @@ export interface ListItemRequestBuilder extends BaseRequestBuilder<ListItemReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Returns the metadata for a [list][].
+     * Get a list of rich long-running operations associated with a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of List
-     * @see {@link https://learn.microsoft.com/graph/api/list-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/list-list-operations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ListItemRequestBuilderGetQueryParameters> | undefined) : Promise<List | undefined>;
     /**
@@ -75,7 +75,7 @@ export interface ListItemRequestBuilder extends BaseRequestBuilder<ListItemReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Returns the metadata for a [list][].
+     * Get a list of rich long-running operations associated with a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +89,7 @@ export interface ListItemRequestBuilder extends BaseRequestBuilder<ListItemReque
      toPatchRequestInformation(body: List, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Returns the metadata for a [list][].
+ * Get a list of rich long-running operations associated with a list.
  */
 export interface ListItemRequestBuilderGetQueryParameters {
     /**
@@ -190,6 +190,6 @@ export const ListItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ListItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}{?%24select,%24expand}";
+export const ListItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

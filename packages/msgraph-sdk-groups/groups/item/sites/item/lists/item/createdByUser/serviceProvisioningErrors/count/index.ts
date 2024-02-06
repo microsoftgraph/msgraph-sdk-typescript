@@ -59,6 +59,6 @@ export const CountRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const CountRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/createdByUser/serviceProvisioningErrors/$count{?%24search,%24filter}";
+export const CountRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/createdByUser/serviceProvisioningErrors/$count{?%24filter,%24search}";
 /* tslint:enable */
 /* eslint-enable */

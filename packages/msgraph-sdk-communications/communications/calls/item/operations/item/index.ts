@@ -106,6 +106,6 @@ export const CommsOperationItemRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const CommsOperationItemRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/operations/{commsOperation%2Did}{?%24select,%24expand}";
+export const CommsOperationItemRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/operations/{commsOperation%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

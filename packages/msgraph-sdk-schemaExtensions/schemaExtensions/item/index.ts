@@ -108,6 +108,6 @@ export const SchemaExtensionItemRequestBuilderRequestsMetadata: RequestsMetadata
 /**
  * Uri template for the request builder.
  */
-export const SchemaExtensionItemRequestBuilderUriTemplate = "{+baseurl}/schemaExtensions/{schemaExtension%2Did}{?%24select,%24expand}";
+export const SchemaExtensionItemRequestBuilderUriTemplate = "{+baseurl}/schemaExtensions/{schemaExtension%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

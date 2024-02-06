@@ -176,6 +176,6 @@ export const DirectoryRolesRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const DirectoryRolesRequestBuilderUriTemplate = "{+baseurl}/directoryRoles{?%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const DirectoryRolesRequestBuilderUriTemplate = "{+baseurl}/directoryRoles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip}";
 /* tslint:enable */
 /* eslint-enable */

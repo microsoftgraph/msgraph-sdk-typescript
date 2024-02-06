@@ -84,6 +84,6 @@ export const LastModifiedByRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const LastModifiedByRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/lastModifiedBy{?%24select,%24expand}";
+export const LastModifiedByRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/lastModifiedBy{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

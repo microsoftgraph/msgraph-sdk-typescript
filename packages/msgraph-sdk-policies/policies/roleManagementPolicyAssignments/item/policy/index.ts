@@ -60,6 +60,6 @@ export const PolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const PolicyRequestBuilderUriTemplate = "{+baseurl}/policies/roleManagementPolicyAssignments/{unifiedRoleManagementPolicyAssignment%2Did}/policy{?%24select,%24expand}";
+export const PolicyRequestBuilderUriTemplate = "{+baseurl}/policies/roleManagementPolicyAssignments/{unifiedRoleManagementPolicyAssignment%2Did}/policy{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

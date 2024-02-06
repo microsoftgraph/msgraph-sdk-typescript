@@ -106,6 +106,6 @@ export const DelegatedPermissionClassificationItemRequestBuilderRequestsMetadata
 /**
  * Uri template for the request builder.
  */
-export const DelegatedPermissionClassificationItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/delegatedPermissionClassifications/{delegatedPermissionClassification%2Did}{?%24select,%24expand}";
+export const DelegatedPermissionClassificationItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/delegatedPermissionClassifications/{delegatedPermissionClassification%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

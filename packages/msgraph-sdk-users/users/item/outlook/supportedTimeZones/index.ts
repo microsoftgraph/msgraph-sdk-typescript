@@ -107,6 +107,6 @@ export const SupportedTimeZonesRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const SupportedTimeZonesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/supportedTimeZones(){?%24top,%24skip,%24search,%24filter,%24count}";
+export const SupportedTimeZonesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/supportedTimeZones(){?%24count,%24filter,%24search,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

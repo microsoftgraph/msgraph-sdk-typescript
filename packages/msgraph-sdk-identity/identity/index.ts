@@ -141,6 +141,6 @@ export const IdentityRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const IdentityRequestBuilderUriTemplate = "{+baseurl}/identity{?%24select,%24expand}";
+export const IdentityRequestBuilderUriTemplate = "{+baseurl}/identity{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

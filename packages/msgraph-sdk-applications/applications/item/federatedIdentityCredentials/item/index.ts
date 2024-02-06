@@ -108,6 +108,6 @@ export const FederatedIdentityCredentialItemRequestBuilderRequestsMetadata: Requ
 /**
  * Uri template for the request builder.
  */
-export const FederatedIdentityCredentialItemRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/federatedIdentityCredentials/{federatedIdentityCredential%2Did}{?%24select,%24expand}";
+export const FederatedIdentityCredentialItemRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/federatedIdentityCredentials/{federatedIdentityCredential%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

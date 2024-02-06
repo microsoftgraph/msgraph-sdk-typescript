@@ -61,6 +61,6 @@ export const LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderR
 /**
  * Uri template for the request builder.
  */
-export const LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/employeeExperience/learningCourseActivities(externalcourseActivityId='{externalcourseActivityId}'){?%24select,%24expand}";
+export const LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/employeeExperience/learningCourseActivities(externalcourseActivityId='{externalcourseActivityId}'){?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

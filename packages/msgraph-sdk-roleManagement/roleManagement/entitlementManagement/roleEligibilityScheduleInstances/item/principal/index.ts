@@ -60,6 +60,6 @@ export const PrincipalRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const PrincipalRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstance%2Did}/principal{?%24select,%24expand}";
+export const PrincipalRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstance%2Did}/principal{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

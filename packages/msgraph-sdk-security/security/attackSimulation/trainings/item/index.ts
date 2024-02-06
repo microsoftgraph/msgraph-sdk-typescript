@@ -120,6 +120,6 @@ export const TrainingItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TrainingItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/trainings/{training%2Did}{?%24select,%24expand}";
+export const TrainingItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/trainings/{training%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

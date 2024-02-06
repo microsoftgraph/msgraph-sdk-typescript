@@ -176,6 +176,6 @@ export const OrganizationalBrandingLocalizationItemRequestBuilderRequestsMetadat
 /**
  * Uri template for the request builder.
  */
-export const OrganizationalBrandingLocalizationItemRequestBuilderUriTemplate = "{+baseurl}/organization/{organization%2Did}/branding/localizations/{organizationalBrandingLocalization%2Did}{?%24select,%24expand}";
+export const OrganizationalBrandingLocalizationItemRequestBuilderUriTemplate = "{+baseurl}/organization/{organization%2Did}/branding/localizations/{organizationalBrandingLocalization%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

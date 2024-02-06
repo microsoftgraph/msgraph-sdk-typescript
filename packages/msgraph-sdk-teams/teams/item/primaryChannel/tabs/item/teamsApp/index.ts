@@ -60,6 +60,6 @@ export const TeamsAppRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TeamsAppRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/primaryChannel/tabs/{teamsTab%2Did}/teamsApp{?%24select,%24expand}";
+export const TeamsAppRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/primaryChannel/tabs/{teamsTab%2Did}/teamsApp{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

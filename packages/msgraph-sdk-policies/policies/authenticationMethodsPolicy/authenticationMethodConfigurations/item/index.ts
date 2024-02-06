@@ -105,6 +105,6 @@ export const AuthenticationMethodConfigurationItemRequestBuilderRequestsMetadata
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationMethodConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{authenticationMethodConfiguration%2Did}{?%24select,%24expand}";
+export const AuthenticationMethodConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{authenticationMethodConfiguration%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

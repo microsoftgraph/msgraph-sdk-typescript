@@ -143,6 +143,6 @@ export const BundlesRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const BundlesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/bundles{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const BundlesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/bundles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

@@ -105,6 +105,6 @@ export const EducationGradingCategoryItemRequestBuilderRequestsMetadata: Request
 /**
  * Uri template for the request builder.
  */
-export const EducationGradingCategoryItemRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings/gradingCategories/{educationGradingCategory%2Did}{?%24select,%24expand}";
+export const EducationGradingCategoryItemRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings/gradingCategories/{educationGradingCategory%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

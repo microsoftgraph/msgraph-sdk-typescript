@@ -105,6 +105,6 @@ export const UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestB
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsWorkFromAnywhereModelPerformance/{userExperienceAnalyticsWorkFromAnywhereModelPerformance%2Did}{?%24select,%24expand}";
+export const UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsWorkFromAnywhereModelPerformance/{userExperienceAnalyticsWorkFromAnywhereModelPerformance%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

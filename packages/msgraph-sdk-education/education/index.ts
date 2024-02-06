@@ -131,6 +131,6 @@ export const EducationRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const EducationRequestBuilderUriTemplate = "{+baseurl}/education{?%24select,%24expand}";
+export const EducationRequestBuilderUriTemplate = "{+baseurl}/education{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -60,6 +60,6 @@ export const GraphAdministrativeUnitRequestBuilderRequestsMetadata: RequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const GraphAdministrativeUnitRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/memberOf/{directoryObject%2Did}/graph.administrativeUnit{?%24select,%24expand}";
+export const GraphAdministrativeUnitRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/memberOf/{directoryObject%2Did}/graph.administrativeUnit{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

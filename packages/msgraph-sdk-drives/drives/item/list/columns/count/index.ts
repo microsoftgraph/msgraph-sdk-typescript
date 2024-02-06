@@ -59,6 +59,6 @@ export const CountRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const CountRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list/columns/$count{?%24search,%24filter}";
+export const CountRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list/columns/$count{?%24filter,%24search}";
 /* tslint:enable */
 /* eslint-enable */

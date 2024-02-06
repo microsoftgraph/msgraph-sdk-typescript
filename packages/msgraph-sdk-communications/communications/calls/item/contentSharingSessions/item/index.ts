@@ -106,6 +106,6 @@ export const ContentSharingSessionItemRequestBuilderRequestsMetadata: RequestsMe
 /**
  * Uri template for the request builder.
  */
-export const ContentSharingSessionItemRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/contentSharingSessions/{contentSharingSession%2Did}{?%24select,%24expand}";
+export const ContentSharingSessionItemRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/contentSharingSessions/{contentSharingSession%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -105,6 +105,6 @@ export const TargetedManagedAppPolicyAssignmentItemRequestBuilderRequestsMetadat
 /**
  * Uri template for the request builder.
  */
-export const TargetedManagedAppPolicyAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}/assignments/{targetedManagedAppPolicyAssignment%2Did}{?%24select,%24expand}";
+export const TargetedManagedAppPolicyAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}/assignments/{targetedManagedAppPolicyAssignment%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

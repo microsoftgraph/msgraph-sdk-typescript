@@ -199,6 +199,6 @@ export const SharedDriveItemItemRequestBuilderRequestsMetadata: RequestsMetadata
 /**
  * Uri template for the request builder.
  */
-export const SharedDriveItemItemRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}{?%24select,%24expand}";
+export const SharedDriveItemItemRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

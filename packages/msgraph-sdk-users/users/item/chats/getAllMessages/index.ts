@@ -55,6 +55,10 @@ export interface GetAllMessagesRequestBuilderGetQueryParameters {
      */
     count?: boolean;
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Filter items by property values
      */
     filter?: string;
@@ -96,6 +100,7 @@ export function serializeGetAllMessagesGetResponse(writer: SerializationWriter, 
  */
 const GetAllMessagesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "count": "%24count",
+    "expand": "%24expand",
     "filter": "%24filter",
     "orderby": "%24orderby",
     "search": "%24search",
@@ -121,6 +126,6 @@ export const GetAllMessagesRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const GetAllMessagesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/getAllMessages(){?model*,%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}";
+export const GetAllMessagesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/getAllMessages(){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top,model*}";
 /* tslint:enable */
 /* eslint-enable */

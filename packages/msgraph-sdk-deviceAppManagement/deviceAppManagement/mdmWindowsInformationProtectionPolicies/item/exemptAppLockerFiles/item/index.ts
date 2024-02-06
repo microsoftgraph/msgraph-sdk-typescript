@@ -105,6 +105,6 @@ export const WindowsInformationProtectionAppLockerFileItemRequestBuilderRequests
 /**
  * Uri template for the request builder.
  */
-export const WindowsInformationProtectionAppLockerFileItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies/{mdmWindowsInformationProtectionPolicy%2Did}/exemptAppLockerFiles/{windowsInformationProtectionAppLockerFile%2Did}{?%24select,%24expand}";
+export const WindowsInformationProtectionAppLockerFileItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies/{mdmWindowsInformationProtectionPolicy%2Did}/exemptAppLockerFiles/{windowsInformationProtectionAppLockerFile%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

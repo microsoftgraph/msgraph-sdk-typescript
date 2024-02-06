@@ -60,6 +60,6 @@ export const ArticleIndicatorItemRequestBuilderRequestsMetadata: RequestsMetadat
 /**
  * Uri template for the request builder.
  */
-export const ArticleIndicatorItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/articles/{article%2Did}/indicators/{articleIndicator%2Did}{?%24select,%24expand}";
+export const ArticleIndicatorItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/articles/{article%2Did}/indicators/{articleIndicator%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -84,6 +84,6 @@ export const CreatedByUserRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const CreatedByUserRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/createdByUser{?%24select,%24expand}";
+export const CreatedByUserRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/createdByUser{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

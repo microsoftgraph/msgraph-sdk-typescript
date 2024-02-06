@@ -149,6 +149,6 @@ export const ExternalConnectionItemRequestBuilderRequestsMetadata: RequestsMetad
 /**
  * Uri template for the request builder.
  */
-export const ExternalConnectionItemRequestBuilderUriTemplate = "{+baseurl}/connections/{externalConnection%2Did}{?%24select,%24expand}";
+export const ExternalConnectionItemRequestBuilderUriTemplate = "{+baseurl}/connections/{externalConnection%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

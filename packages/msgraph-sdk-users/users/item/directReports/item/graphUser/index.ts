@@ -60,6 +60,6 @@ export const GraphUserRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const GraphUserRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/directReports/{directoryObject%2Did}/graph.user{?%24select,%24expand}";
+export const GraphUserRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/directReports/{directoryObject%2Did}/graph.user{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -107,6 +107,6 @@ export const TeamworkTagMemberItemRequestBuilderRequestsMetadata: RequestsMetada
 /**
  * Uri template for the request builder.
  */
-export const TeamworkTagMemberItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/tags/{teamworkTag%2Did}/members/{teamworkTagMember%2Did}{?%24select,%24expand}";
+export const TeamworkTagMemberItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/tags/{teamworkTag%2Did}/members/{teamworkTagMember%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

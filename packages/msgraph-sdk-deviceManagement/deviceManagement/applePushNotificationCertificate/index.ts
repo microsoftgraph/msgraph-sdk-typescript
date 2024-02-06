@@ -121,6 +121,6 @@ export const ApplePushNotificationCertificateRequestBuilderRequestsMetadata: Req
 /**
  * Uri template for the request builder.
  */
-export const ApplePushNotificationCertificateRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/applePushNotificationCertificate{?%24select,%24expand}";
+export const ApplePushNotificationCertificateRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/applePushNotificationCertificate{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

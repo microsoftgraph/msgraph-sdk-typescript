@@ -60,6 +60,6 @@ export const MobileAppCategoryItemRequestBuilderRequestsMetadata: RequestsMetada
 /**
  * Uri template for the request builder.
  */
-export const MobileAppCategoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.windowsAppX/categories/{mobileAppCategory%2Did}{?%24select,%24expand}";
+export const MobileAppCategoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.windowsAppX/categories/{mobileAppCategory%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

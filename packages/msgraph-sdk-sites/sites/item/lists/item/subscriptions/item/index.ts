@@ -119,6 +119,6 @@ export const SubscriptionItemRequestBuilderRequestsMetadata: RequestsMetadata = 
 /**
  * Uri template for the request builder.
  */
-export const SubscriptionItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/subscriptions/{subscription%2Did}{?%24select,%24expand}";
+export const SubscriptionItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/subscriptions/{subscription%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

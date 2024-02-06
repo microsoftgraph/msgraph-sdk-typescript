@@ -107,6 +107,6 @@ export const DefaultAppManagementPolicyRequestBuilderRequestsMetadata: RequestsM
 /**
  * Uri template for the request builder.
  */
-export const DefaultAppManagementPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/defaultAppManagementPolicy{?%24select,%24expand}";
+export const DefaultAppManagementPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/defaultAppManagementPolicy{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

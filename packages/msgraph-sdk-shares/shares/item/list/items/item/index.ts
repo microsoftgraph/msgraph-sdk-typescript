@@ -211,6 +211,6 @@ export const ListItemItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ListItemItemRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}{?%24select,%24expand}";
+export const ListItemItemRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

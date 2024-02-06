@@ -87,6 +87,6 @@ export const AdministrativeUnitRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const AdministrativeUnitRequestBuilderUriTemplate = "{+baseurl}/education/schools/{educationSchool%2Did}/administrativeUnit{?%24select,%24expand}";
+export const AdministrativeUnitRequestBuilderUriTemplate = "{+baseurl}/education/schools/{educationSchool%2Did}/administrativeUnit{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

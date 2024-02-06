@@ -160,6 +160,6 @@ export const CalendarItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const CalendarItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}{?%24select,%24expand}";
+export const CalendarItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

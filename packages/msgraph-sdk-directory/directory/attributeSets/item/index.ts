@@ -107,6 +107,6 @@ export const AttributeSetItemRequestBuilderRequestsMetadata: RequestsMetadata = 
 /**
  * Uri template for the request builder.
  */
-export const AttributeSetItemRequestBuilderUriTemplate = "{+baseurl}/directory/attributeSets/{attributeSet%2Did}{?%24select,%24expand}";
+export const AttributeSetItemRequestBuilderUriTemplate = "{+baseurl}/directory/attributeSets/{attributeSet%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -106,6 +106,6 @@ export const SwapShiftsChangeRequestItemRequestBuilderRequestsMetadata: Requests
 /**
  * Uri template for the request builder.
  */
-export const SwapShiftsChangeRequestItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/swapShiftsChangeRequests/{swapShiftsChangeRequest%2Did}{?%24select,%24expand}";
+export const SwapShiftsChangeRequestItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/swapShiftsChangeRequests/{swapShiftsChangeRequest%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

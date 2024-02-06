@@ -111,6 +111,6 @@ export const RoleManagementRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const RoleManagementRequestBuilderUriTemplate = "{+baseurl}/roleManagement{?%24select,%24expand}";
+export const RoleManagementRequestBuilderUriTemplate = "{+baseurl}/roleManagement{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

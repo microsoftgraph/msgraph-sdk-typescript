@@ -86,6 +86,6 @@ export const MailboxSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const MailboxSettingsRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/createdByUser/mailboxSettings{?%24select,%24expand}";
+export const MailboxSettingsRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/createdByUser/mailboxSettings{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

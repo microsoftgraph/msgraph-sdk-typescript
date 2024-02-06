@@ -119,6 +119,6 @@ export const AccessReviewHistoryInstanceItemRequestBuilderRequestsMetadata: Requ
 /**
  * Uri template for the request builder.
  */
-export const AccessReviewHistoryInstanceItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}/instances/{accessReviewHistoryInstance%2Did}{?%24select,%24expand}";
+export const AccessReviewHistoryInstanceItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}/instances/{accessReviewHistoryInstance%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -95,6 +95,6 @@ export const GraphMacOSLobAppRequestBuilderRequestsMetadata: RequestsMetadata = 
 /**
  * Uri template for the request builder.
  */
-export const GraphMacOSLobAppRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.macOSLobApp{?%24select,%24expand}";
+export const GraphMacOSLobAppRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.macOSLobApp{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -120,6 +120,6 @@ export const UnifiedRbacResourceNamespaceItemRequestBuilderRequestsMetadata: Req
 /**
  * Uri template for the request builder.
  */
-export const UnifiedRbacResourceNamespaceItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/resourceNamespaces/{unifiedRbacResourceNamespace%2Did}{?%24select,%24expand}";
+export const UnifiedRbacResourceNamespaceItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/resourceNamespaces/{unifiedRbacResourceNamespace%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

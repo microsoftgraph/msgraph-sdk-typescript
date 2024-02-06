@@ -164,6 +164,6 @@ export const EdiscoveryNoncustodialDataSourceItemRequestBuilderRequestsMetadata:
 /**
  * Uri template for the request builder.
  */
-export const EdiscoveryNoncustodialDataSourceItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/noncustodialDataSources/{ediscoveryNoncustodialDataSource%2Did}{?%24select,%24expand}";
+export const EdiscoveryNoncustodialDataSourceItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/noncustodialDataSources/{ediscoveryNoncustodialDataSource%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

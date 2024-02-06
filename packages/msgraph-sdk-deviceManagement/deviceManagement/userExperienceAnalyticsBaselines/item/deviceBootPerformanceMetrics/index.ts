@@ -60,6 +60,6 @@ export const DeviceBootPerformanceMetricsRequestBuilderRequestsMetadata: Request
 /**
  * Uri template for the request builder.
  */
-export const DeviceBootPerformanceMetricsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}/deviceBootPerformanceMetrics{?%24select,%24expand}";
+export const DeviceBootPerformanceMetricsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}/deviceBootPerformanceMetrics{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -61,6 +61,6 @@ export const ManagerRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ManagerRequestBuilderUriTemplate = "{+baseurl}/contacts/{orgContact%2Did}/manager{?%24select,%24expand}";
+export const ManagerRequestBuilderUriTemplate = "{+baseurl}/contacts/{orgContact%2Did}/manager{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -120,6 +120,6 @@ export const AppConsentRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const AppConsentRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/appConsent{?%24select,%24expand}";
+export const AppConsentRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/appConsent{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

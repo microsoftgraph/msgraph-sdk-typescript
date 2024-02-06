@@ -133,6 +133,6 @@ export const TenantRelationshipsRequestBuilderRequestsMetadata: RequestsMetadata
 /**
  * Uri template for the request builder.
  */
-export const TenantRelationshipsRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships{?%24select,%24expand}";
+export const TenantRelationshipsRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -60,6 +60,6 @@ export const RoleDefinitionRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const RoleDefinitionRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstance%2Did}/roleDefinition{?%24select,%24expand}";
+export const RoleDefinitionRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstance%2Did}/roleDefinition{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -105,6 +105,6 @@ export const UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderReques
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceStartupProcesses/{userExperienceAnalyticsDeviceStartupProcess%2Did}{?%24select,%24expand}";
+export const UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceStartupProcesses/{userExperienceAnalyticsDeviceStartupProcess%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

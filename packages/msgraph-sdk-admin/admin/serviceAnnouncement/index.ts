@@ -140,6 +140,6 @@ export const ServiceAnnouncementRequestBuilderRequestsMetadata: RequestsMetadata
 /**
  * Uri template for the request builder.
  */
-export const ServiceAnnouncementRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement{?%24select,%24expand}";
+export const ServiceAnnouncementRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

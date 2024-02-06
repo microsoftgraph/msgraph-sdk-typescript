@@ -189,6 +189,6 @@ export const ListRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ListRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list{?%24select,%24expand}";
+export const ListRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

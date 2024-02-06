@@ -96,6 +96,6 @@ export const WorkflowVersionVersionNumberItemRequestBuilderRequestsMetadata: Req
 /**
  * Uri template for the request builder.
  */
-export const WorkflowVersionVersionNumberItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/versions/{workflowVersion%2DversionNumber}{?%24select,%24expand}";
+export const WorkflowVersionVersionNumberItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/versions/{workflowVersion%2DversionNumber}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

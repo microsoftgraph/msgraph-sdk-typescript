@@ -60,6 +60,6 @@ export const ChildHostRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ChildHostRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPairs/{hostPair%2Did}/childHost{?%24select,%24expand}";
+export const ChildHostRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPairs/{hostPair%2Did}/childHost{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

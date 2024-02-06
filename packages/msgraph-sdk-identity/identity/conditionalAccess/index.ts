@@ -160,6 +160,6 @@ export const ConditionalAccessRequestBuilderRequestsMetadata: RequestsMetadata =
 /**
  * Uri template for the request builder.
  */
-export const ConditionalAccessRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess{?%24select,%24expand}";
+export const ConditionalAccessRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -310,6 +310,6 @@ export const ApplicationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ApplicationItemRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}{?%24select,%24expand}";
+export const ApplicationItemRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

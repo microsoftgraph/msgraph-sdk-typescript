@@ -176,6 +176,6 @@ export const UsersRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const UsersRequestBuilderUriTemplate = "{+baseurl}/users{?%24top,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const UsersRequestBuilderUriTemplate = "{+baseurl}/users{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24top}";
 /* tslint:enable */
 /* eslint-enable */

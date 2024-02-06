@@ -107,6 +107,6 @@ export const LearningContentsWithExternalIdRequestBuilderRequestsMetadata: Reque
 /**
  * Uri template for the request builder.
  */
-export const LearningContentsWithExternalIdRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningContents(externalId='{externalId}'){?%24select,%24expand}";
+export const LearningContentsWithExternalIdRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningContents(externalId='{externalId}'){?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

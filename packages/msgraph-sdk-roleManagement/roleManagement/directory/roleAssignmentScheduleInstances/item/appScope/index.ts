@@ -60,6 +60,6 @@ export const AppScopeRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const AppScopeRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstance%2Did}/appScope{?%24select,%24expand}";
+export const AppScopeRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstance%2Did}/appScope{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

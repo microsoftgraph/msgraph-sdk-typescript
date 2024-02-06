@@ -88,6 +88,6 @@ export const PronounsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const PronounsRequestBuilderUriTemplate = "{+baseurl}/admin/people/pronouns{?%24select,%24expand}";
+export const PronounsRequestBuilderUriTemplate = "{+baseurl}/admin/people/pronouns{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

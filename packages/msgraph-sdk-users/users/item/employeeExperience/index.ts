@@ -131,6 +131,6 @@ export const EmployeeExperienceRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const EmployeeExperienceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/employeeExperience{?%24select,%24expand}";
+export const EmployeeExperienceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/employeeExperience{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

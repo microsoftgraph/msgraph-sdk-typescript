@@ -108,6 +108,6 @@ export const ResourceOperationItemRequestBuilderRequestsMetadata: RequestsMetada
 /**
  * Uri template for the request builder.
  */
-export const ResourceOperationItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/resourceOperations/{resourceOperation%2Did}{?%24select,%24expand}";
+export const ResourceOperationItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/resourceOperations/{resourceOperation%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -123,6 +123,6 @@ export const PlannerBucketItemRequestBuilderRequestsMetadata: RequestsMetadata =
 /**
  * Uri template for the request builder.
  */
-export const PlannerBucketItemRequestBuilderUriTemplate = "{+baseurl}/planner/buckets/{plannerBucket%2Did}{?%24select,%24expand}";
+export const PlannerBucketItemRequestBuilderUriTemplate = "{+baseurl}/planner/buckets/{plannerBucket%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

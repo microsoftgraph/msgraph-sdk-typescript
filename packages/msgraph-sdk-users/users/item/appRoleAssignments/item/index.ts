@@ -106,6 +106,6 @@ export const AppRoleAssignmentItemRequestBuilderRequestsMetadata: RequestsMetada
 /**
  * Uri template for the request builder.
  */
-export const AppRoleAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/appRoleAssignments/{appRoleAssignment%2Did}{?%24select,%24expand}";
+export const AppRoleAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/appRoleAssignments/{appRoleAssignment%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

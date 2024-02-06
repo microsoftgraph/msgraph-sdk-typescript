@@ -61,6 +61,6 @@ export const ManagedDeviceOverviewRequestBuilderRequestsMetadata: RequestsMetada
 /**
  * Uri template for the request builder.
  */
-export const ManagedDeviceOverviewRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDeviceOverview{?%24select,%24expand}";
+export const ManagedDeviceOverviewRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDeviceOverview{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

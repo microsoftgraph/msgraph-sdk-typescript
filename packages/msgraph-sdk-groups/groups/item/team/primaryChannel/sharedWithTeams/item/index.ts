@@ -131,6 +131,6 @@ export const SharedWithChannelTeamInfoItemRequestBuilderRequestsMetadata: Reques
 /**
  * Uri template for the request builder.
  */
-export const SharedWithChannelTeamInfoItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel/sharedWithTeams/{sharedWithChannelTeamInfo%2Did}{?%24select,%24expand}";
+export const SharedWithChannelTeamInfoItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel/sharedWithTeams/{sharedWithChannelTeamInfo%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

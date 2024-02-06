@@ -131,6 +131,6 @@ export const AdminRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const AdminRequestBuilderUriTemplate = "{+baseurl}/admin{?%24select,%24expand}";
+export const AdminRequestBuilderUriTemplate = "{+baseurl}/admin{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

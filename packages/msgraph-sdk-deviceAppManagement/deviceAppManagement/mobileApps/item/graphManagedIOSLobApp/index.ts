@@ -95,6 +95,6 @@ export const GraphManagedIOSLobAppRequestBuilderRequestsMetadata: RequestsMetada
 /**
  * Uri template for the request builder.
  */
-export const GraphManagedIOSLobAppRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.managedIOSLobApp{?%24select,%24expand}";
+export const GraphManagedIOSLobAppRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.managedIOSLobApp{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

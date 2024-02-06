@@ -85,6 +85,6 @@ export const GraphMicrosoftStoreForBusinessAppRequestBuilderRequestsMetadata: Re
 /**
  * Uri template for the request builder.
  */
-export const GraphMicrosoftStoreForBusinessAppRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.microsoftStoreForBusinessApp{?%24select,%24expand}";
+export const GraphMicrosoftStoreForBusinessAppRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.microsoftStoreForBusinessApp{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

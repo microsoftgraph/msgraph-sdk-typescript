@@ -15,9 +15,9 @@ export interface RoleDefinitionItemRequestBuilder extends BaseRequestBuilder<Rol
      */
     get roleAssignments(): RoleAssignmentsRequestBuilder;
     /**
-     * Deletes a roleDefinition.
+     * Deletes a deviceAndAppManagementRoleDefinition.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -28,15 +28,15 @@ export interface RoleDefinitionItemRequestBuilder extends BaseRequestBuilder<Rol
      */
      get(requestConfiguration?: RequestConfiguration<RoleDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<RoleDefinition | undefined>;
     /**
-     * Update the properties of a roleDefinition object.
+     * Update the properties of a deviceAndAppManagementRoleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RoleDefinition
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: RoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RoleDefinition | undefined>;
     /**
-     * Deletes a roleDefinition.
+     * Deletes a deviceAndAppManagementRoleDefinition.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -48,7 +48,7 @@ export interface RoleDefinitionItemRequestBuilder extends BaseRequestBuilder<Rol
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleDefinitionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a roleDefinition object.
+     * Update the properties of a deviceAndAppManagementRoleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -123,6 +123,6 @@ export const RoleDefinitionItemRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const RoleDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/roleDefinitions/{roleDefinition%2Did}{?%24select,%24expand}";
+export const RoleDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/roleDefinitions/{roleDefinition%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

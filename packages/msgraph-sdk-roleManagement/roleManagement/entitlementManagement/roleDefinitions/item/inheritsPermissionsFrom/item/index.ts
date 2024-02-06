@@ -105,6 +105,6 @@ export const UnifiedRoleDefinitionItemRequestBuilderRequestsMetadata: RequestsMe
 /**
  * Uri template for the request builder.
  */
-export const UnifiedRoleDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleDefinitions/{unifiedRoleDefinition%2Did}/inheritsPermissionsFrom/{unifiedRoleDefinition%2Did1}{?%24select,%24expand}";
+export const UnifiedRoleDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleDefinitions/{unifiedRoleDefinition%2Did}/inheritsPermissionsFrom/{unifiedRoleDefinition%2Did1}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

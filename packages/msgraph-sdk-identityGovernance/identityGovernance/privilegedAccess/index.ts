@@ -120,6 +120,6 @@ export const PrivilegedAccessRequestBuilderRequestsMetadata: RequestsMetadata = 
 /**
  * Uri template for the request builder.
  */
-export const PrivilegedAccessRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess{?%24select,%24expand}";
+export const PrivilegedAccessRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

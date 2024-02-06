@@ -120,6 +120,6 @@ export const UnifiedRoleManagementPolicyAssignmentItemRequestBuilderRequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const UnifiedRoleManagementPolicyAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/policies/roleManagementPolicyAssignments/{unifiedRoleManagementPolicyAssignment%2Did}{?%24select,%24expand}";
+export const UnifiedRoleManagementPolicyAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/policies/roleManagementPolicyAssignments/{unifiedRoleManagementPolicyAssignment%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

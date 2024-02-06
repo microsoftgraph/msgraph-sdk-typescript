@@ -107,6 +107,6 @@ export const DeviceCompliancePolicyDeviceStateSummaryRequestBuilderRequestsMetad
 /**
  * Uri template for the request builder.
  */
-export const DeviceCompliancePolicyDeviceStateSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicyDeviceStateSummary{?%24select,%24expand}";
+export const DeviceCompliancePolicyDeviceStateSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicyDeviceStateSummary{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

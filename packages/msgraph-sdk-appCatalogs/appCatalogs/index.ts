@@ -101,6 +101,6 @@ export const AppCatalogsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const AppCatalogsRequestBuilderUriTemplate = "{+baseurl}/appCatalogs{?%24select,%24expand}";
+export const AppCatalogsRequestBuilderUriTemplate = "{+baseurl}/appCatalogs{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

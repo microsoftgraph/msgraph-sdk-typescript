@@ -120,6 +120,6 @@ export const EdgeRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const EdgeRequestBuilderUriTemplate = "{+baseurl}/admin/edge{?%24select,%24expand}";
+export const EdgeRequestBuilderUriTemplate = "{+baseurl}/admin/edge{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -107,6 +107,6 @@ export const OnPremisesDirectorySynchronizationItemRequestBuilderRequestsMetadat
 /**
  * Uri template for the request builder.
  */
-export const OnPremisesDirectorySynchronizationItemRequestBuilderUriTemplate = "{+baseurl}/directory/onPremisesSynchronization/{onPremisesDirectorySynchronization%2Did}{?%24select,%24expand}";
+export const OnPremisesDirectorySynchronizationItemRequestBuilderUriTemplate = "{+baseurl}/directory/onPremisesSynchronization/{onPremisesDirectorySynchronization%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

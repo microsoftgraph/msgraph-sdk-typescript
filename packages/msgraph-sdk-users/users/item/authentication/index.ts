@@ -210,6 +210,6 @@ export const AuthenticationRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication{?%24select,%24expand}";
+export const AuthenticationRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

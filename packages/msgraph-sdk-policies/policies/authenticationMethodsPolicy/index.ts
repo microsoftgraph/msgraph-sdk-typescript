@@ -122,6 +122,6 @@ export const AuthenticationMethodsPolicyRequestBuilderRequestsMetadata: Requests
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationMethodsPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationMethodsPolicy{?%24select,%24expand}";
+export const AuthenticationMethodsPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationMethodsPolicy{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

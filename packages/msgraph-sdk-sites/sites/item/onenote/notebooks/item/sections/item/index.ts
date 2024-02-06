@@ -156,6 +156,6 @@ export const OnenoteSectionItemRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const OnenoteSectionItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/onenote/notebooks/{notebook%2Did}/sections/{onenoteSection%2Did}{?%24select,%24expand}";
+export const OnenoteSectionItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/onenote/notebooks/{notebook%2Did}/sections/{onenoteSection%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

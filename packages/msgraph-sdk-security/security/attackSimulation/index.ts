@@ -190,6 +190,6 @@ export const AttackSimulationRequestBuilderRequestsMetadata: RequestsMetadata = 
 /**
  * Uri template for the request builder.
  */
-export const AttackSimulationRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation{?%24select,%24expand}";
+export const AttackSimulationRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

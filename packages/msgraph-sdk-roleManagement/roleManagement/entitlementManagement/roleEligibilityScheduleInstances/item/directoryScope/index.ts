@@ -60,6 +60,6 @@ export const DirectoryScopeRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const DirectoryScopeRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstance%2Did}/directoryScope{?%24select,%24expand}";
+export const DirectoryScopeRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstance%2Did}/directoryScope{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

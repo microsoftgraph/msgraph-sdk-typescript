@@ -105,6 +105,6 @@ export const CertificateBasedAuthConfigurationItemRequestBuilderRequestsMetadata
 /**
  * Uri template for the request builder.
  */
-export const CertificateBasedAuthConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration%2Did}{?%24select,%24expand}";
+export const CertificateBasedAuthConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

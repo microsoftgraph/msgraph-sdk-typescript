@@ -139,6 +139,6 @@ export const WindowsAutopilotDeviceIdentityItemRequestBuilderRequestsMetadata: R
 /**
  * Uri template for the request builder.
  */
-export const WindowsAutopilotDeviceIdentityItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/windowsAutopilotDeviceIdentities/{windowsAutopilotDeviceIdentity%2Did}{?%24select,%24expand}";
+export const WindowsAutopilotDeviceIdentityItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/windowsAutopilotDeviceIdentities/{windowsAutopilotDeviceIdentity%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

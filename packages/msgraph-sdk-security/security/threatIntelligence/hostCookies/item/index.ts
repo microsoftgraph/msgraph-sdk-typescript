@@ -120,6 +120,6 @@ export const HostCookieItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const HostCookieItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostCookies/{hostCookie%2Did}{?%24select,%24expand}";
+export const HostCookieItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostCookies/{hostCookie%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

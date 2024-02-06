@@ -170,6 +170,6 @@ export const MeRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const MeRequestBuilderUriTemplate = "{+baseurl}/education/me{?%24select,%24expand}";
+export const MeRequestBuilderUriTemplate = "{+baseurl}/education/me{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

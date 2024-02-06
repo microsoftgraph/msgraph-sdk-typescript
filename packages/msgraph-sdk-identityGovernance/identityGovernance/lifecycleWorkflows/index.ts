@@ -169,6 +169,6 @@ export const LifecycleWorkflowsRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const LifecycleWorkflowsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows{?%24select,%24expand}";
+export const LifecycleWorkflowsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -148,6 +148,6 @@ export const PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderRe
 /**
  * Uri template for the request builder.
  */
-export const PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/eligibilityScheduleRequests/{privilegedAccessGroupEligibilityScheduleRequest%2Did}{?%24select,%24expand}";
+export const PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/eligibilityScheduleRequests/{privilegedAccessGroupEligibilityScheduleRequest%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

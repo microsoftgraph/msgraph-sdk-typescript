@@ -139,6 +139,6 @@ export const TeamworkRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TeamworkRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/teamwork{?%24select,%24expand}";
+export const TeamworkRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/teamwork{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

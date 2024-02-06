@@ -108,6 +108,6 @@ export const AuthenticationCombinationConfigurationItemRequestBuilderRequestsMet
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationCombinationConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}/combinationConfigurations/{authenticationCombinationConfiguration%2Did}{?%24select,%24expand}";
+export const AuthenticationCombinationConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}/combinationConfigurations/{authenticationCombinationConfiguration%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

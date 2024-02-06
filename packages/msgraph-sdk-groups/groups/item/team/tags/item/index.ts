@@ -123,6 +123,6 @@ export const TeamworkTagItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TeamworkTagItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/tags/{teamworkTag%2Did}{?%24select,%24expand}";
+export const TeamworkTagItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/tags/{teamworkTag%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

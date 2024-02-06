@@ -121,6 +121,6 @@ export const IntelligenceProfileItemRequestBuilderRequestsMetadata: RequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const IntelligenceProfileItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/intelProfiles/{intelligenceProfile%2Did}{?%24select,%24expand}";
+export const IntelligenceProfileItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/intelProfiles/{intelligenceProfile%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

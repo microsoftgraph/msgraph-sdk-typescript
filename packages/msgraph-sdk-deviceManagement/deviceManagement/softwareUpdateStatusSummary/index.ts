@@ -61,6 +61,6 @@ export const SoftwareUpdateStatusSummaryRequestBuilderRequestsMetadata: Requests
 /**
  * Uri template for the request builder.
  */
-export const SoftwareUpdateStatusSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/softwareUpdateStatusSummary{?%24select,%24expand}";
+export const SoftwareUpdateStatusSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/softwareUpdateStatusSummary{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

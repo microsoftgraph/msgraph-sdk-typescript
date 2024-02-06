@@ -15,24 +15,12 @@ export interface ManagerRequestBuilder extends BaseRequestBuilder<ManagerRequest
      */
     get ref(): RefRequestBuilder;
     /**
-     * Remove a user's manager.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/user-delete-manager?view=graph-rest-1.0|Find more info here}
-     */
-     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
-    /**
      * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryObject
      * @see {@link https://learn.microsoft.com/graph/api/user-list-manager?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagerRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObject | undefined>;
-    /**
-     * Remove a user's manager.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -73,14 +61,6 @@ export const ManagerRequestBuilderNavigationMetadata: Record<Exclude<keyof Manag
  * Metadata for all the requests in the request builder.
  */
 export const ManagerRequestBuilderRequestsMetadata: RequestsMetadata = {
-    delete: {
-        responseBodyContentType: "application/json",
-        errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-        },
-        adapterMethodName: "sendNoResponseContentAsync",
-    },
     get: {
         responseBodyContentType: "application/json",
         errorMappings: {
@@ -95,6 +75,6 @@ export const ManagerRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ManagerRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/manager{?%24select,%24expand}";
+export const ManagerRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/manager{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

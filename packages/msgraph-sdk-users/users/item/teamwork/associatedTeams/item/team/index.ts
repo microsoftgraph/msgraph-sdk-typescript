@@ -60,6 +60,6 @@ export const TeamRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TeamRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/teamwork/associatedTeams/{associatedTeamInfo%2Did}/team{?%24select,%24expand}";
+export const TeamRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/teamwork/associatedTeams/{associatedTeamInfo%2Did}/team{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

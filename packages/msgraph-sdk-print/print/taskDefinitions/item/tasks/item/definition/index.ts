@@ -60,6 +60,6 @@ export const DefinitionRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const DefinitionRequestBuilderUriTemplate = "{+baseurl}/print/taskDefinitions/{printTaskDefinition%2Did}/tasks/{printTask%2Did}/definition{?%24select,%24expand}";
+export const DefinitionRequestBuilderUriTemplate = "{+baseurl}/print/taskDefinitions/{printTaskDefinition%2Did}/tasks/{printTask%2Did}/definition{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

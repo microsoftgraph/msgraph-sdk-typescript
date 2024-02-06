@@ -60,6 +60,6 @@ export const GraphDirectoryRoleRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const GraphDirectoryRoleRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/memberOf/{directoryObject%2Did}/graph.directoryRole{?%24select,%24expand}";
+export const GraphDirectoryRoleRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/memberOf/{directoryObject%2Did}/graph.directoryRole{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

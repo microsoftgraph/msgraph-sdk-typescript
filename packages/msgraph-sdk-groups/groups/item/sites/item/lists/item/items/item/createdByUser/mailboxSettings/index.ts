@@ -86,6 +86,6 @@ export const MailboxSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const MailboxSettingsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}/createdByUser/mailboxSettings{?%24select,%24expand}";
+export const MailboxSettingsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}/createdByUser/mailboxSettings{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

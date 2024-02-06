@@ -75,6 +75,6 @@ export const GraphRoomListRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const GraphRoomListRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.roomList{?%24select,%24expand}";
+export const GraphRoomListRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.roomList{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

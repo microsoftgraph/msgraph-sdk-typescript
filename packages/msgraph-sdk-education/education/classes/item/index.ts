@@ -9,6 +9,7 @@ import { AssignmentsRequestBuilderNavigationMetadata, AssignmentsRequestBuilderR
 import { AssignmentSettingsRequestBuilderNavigationMetadata, AssignmentSettingsRequestBuilderRequestsMetadata, AssignmentSettingsRequestBuilderUriTemplate, type AssignmentSettingsRequestBuilder } from './assignmentSettings/';
 import { GroupRequestBuilderNavigationMetadata, GroupRequestBuilderRequestsMetadata, GroupRequestBuilderUriTemplate, type GroupRequestBuilder } from './group/';
 import { MembersRequestBuilderNavigationMetadata, MembersRequestBuilderRequestsMetadata, MembersRequestBuilderUriTemplate, type MembersRequestBuilder } from './members/';
+import { ModulesRequestBuilderNavigationMetadata, ModulesRequestBuilderRequestsMetadata, ModulesRequestBuilderUriTemplate, type ModulesRequestBuilder } from './modules/';
 import { SchoolsRequestBuilderNavigationMetadata, SchoolsRequestBuilderRequestsMetadata, SchoolsRequestBuilderUriTemplate, type SchoolsRequestBuilder } from './schools/';
 import { TeachersRequestBuilderNavigationMetadata, TeachersRequestBuilderRequestsMetadata, TeachersRequestBuilderUriTemplate, type TeachersRequestBuilder } from './teachers/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -41,6 +42,10 @@ export interface EducationClassItemRequestBuilder extends BaseRequestBuilder<Edu
      * Provides operations to manage the members property of the microsoft.graph.educationClass entity.
      */
     get members(): MembersRequestBuilder;
+    /**
+     * Provides operations to manage the modules property of the microsoft.graph.educationClass entity.
+     */
+    get modules(): ModulesRequestBuilder;
     /**
      * Provides operations to manage the schools property of the microsoft.graph.educationClass entity.
      */
@@ -143,6 +148,11 @@ export const EducationClassItemRequestBuilderNavigationMetadata: Record<Exclude<
         requestsMetadata: MembersRequestBuilderRequestsMetadata,
         navigationMetadata: MembersRequestBuilderNavigationMetadata,
     },
+    modules: {
+        uriTemplate: ModulesRequestBuilderUriTemplate,
+        requestsMetadata: ModulesRequestBuilderRequestsMetadata,
+        navigationMetadata: ModulesRequestBuilderNavigationMetadata,
+    },
     schools: {
         uriTemplate: SchoolsRequestBuilderUriTemplate,
         requestsMetadata: SchoolsRequestBuilderRequestsMetadata,
@@ -192,6 +202,6 @@ export const EducationClassItemRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const EducationClassItemRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}{?%24select,%24expand}";
+export const EducationClassItemRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

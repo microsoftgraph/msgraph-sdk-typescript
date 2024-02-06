@@ -105,6 +105,6 @@ export const UserExperienceAnalyticsMetricItemRequestBuilderRequestsMetadata: Re
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsMetricItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsAppHealthOverview/metricValues/{userExperienceAnalyticsMetric%2Did}{?%24select,%24expand}";
+export const UserExperienceAnalyticsMetricItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsAppHealthOverview/metricValues/{userExperienceAnalyticsMetric%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

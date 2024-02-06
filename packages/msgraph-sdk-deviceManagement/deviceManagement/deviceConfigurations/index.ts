@@ -22,28 +22,28 @@ export interface DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<D
      */
      byDeviceConfigurationId(deviceConfigurationId: string) : DeviceConfigurationItemRequestBuilder;
     /**
-     * List properties and relationships of the macOSCustomConfiguration objects.
+     * List properties and relationships of the androidWorkProfileCustomConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-macoscustomconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecustomconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfigurationCollectionResponse | undefined>;
     /**
-     * Create a new windows81GeneralConfiguration object.
+     * Create a new macOSGeneralDeviceConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfiguration
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows81generalconfiguration-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-macosgeneraldeviceconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfiguration | undefined>;
     /**
-     * List properties and relationships of the macOSCustomConfiguration objects.
+     * List properties and relationships of the androidWorkProfileCustomConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceConfigurationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new windows81GeneralConfiguration object.
+     * Create a new macOSGeneralDeviceConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -51,7 +51,7 @@ export interface DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<D
      toPostRequestInformation(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the macOSCustomConfiguration objects.
+ * List properties and relationships of the androidWorkProfileCustomConfiguration objects.
  */
 export interface DeviceConfigurationsRequestBuilderGetQueryParameters {
     /**
@@ -145,6 +145,6 @@ export const DeviceConfigurationsRequestBuilderRequestsMetadata: RequestsMetadat
 /**
  * Uri template for the request builder.
  */
-export const DeviceConfigurationsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const DeviceConfigurationsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

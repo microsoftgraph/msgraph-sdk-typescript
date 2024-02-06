@@ -130,6 +130,6 @@ export const WhoisRecordItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const WhoisRecordItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/whoisRecords/{whoisRecord%2Did}{?%24select,%24expand}";
+export const WhoisRecordItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/whoisRecords/{whoisRecord%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

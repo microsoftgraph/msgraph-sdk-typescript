@@ -75,6 +75,6 @@ export const BitlockerRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const BitlockerRequestBuilderUriTemplate = "{+baseurl}/informationProtection/bitlocker{?%24select,%24expand}";
+export const BitlockerRequestBuilderUriTemplate = "{+baseurl}/informationProtection/bitlocker{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

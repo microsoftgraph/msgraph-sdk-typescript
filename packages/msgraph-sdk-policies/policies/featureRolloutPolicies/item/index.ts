@@ -123,6 +123,6 @@ export const FeatureRolloutPolicyItemRequestBuilderRequestsMetadata: RequestsMet
 /**
  * Uri template for the request builder.
  */
-export const FeatureRolloutPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/featureRolloutPolicies/{featureRolloutPolicy%2Did}{?%24select,%24expand}";
+export const FeatureRolloutPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/featureRolloutPolicies/{featureRolloutPolicy%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

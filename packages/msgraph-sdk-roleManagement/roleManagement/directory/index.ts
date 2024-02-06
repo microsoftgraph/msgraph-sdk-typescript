@@ -200,6 +200,6 @@ export const DirectoryRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const DirectoryRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory{?%24select,%24expand}";
+export const DirectoryRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

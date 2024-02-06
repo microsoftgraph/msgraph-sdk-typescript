@@ -75,6 +75,6 @@ export const GroupRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const GroupRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/group{?%24select,%24expand}";
+export const GroupRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/group{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

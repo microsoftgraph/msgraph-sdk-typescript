@@ -108,6 +108,6 @@ export const AuditEventItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const AuditEventItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/auditEvents/{auditEvent%2Did}{?%24select,%24expand}";
+export const AuditEventItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/auditEvents/{auditEvent%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

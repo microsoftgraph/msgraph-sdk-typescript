@@ -81,6 +81,6 @@ export const SoftwareOathAuthenticationMethodItemRequestBuilderRequestsMetadata:
 /**
  * Uri template for the request builder.
  */
-export const SoftwareOathAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/softwareOathMethods/{softwareOathAuthenticationMethod%2Did}{?%24select,%24expand}";
+export const SoftwareOathAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/softwareOathMethods/{softwareOathAuthenticationMethod%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -108,6 +108,6 @@ export const TermsAndConditionsAssignmentItemRequestBuilderRequestsMetadata: Req
 /**
  * Uri template for the request builder.
  */
-export const TermsAndConditionsAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}/assignments/{termsAndConditionsAssignment%2Did}{?%24select,%24expand}";
+export const TermsAndConditionsAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}/assignments/{termsAndConditionsAssignment%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

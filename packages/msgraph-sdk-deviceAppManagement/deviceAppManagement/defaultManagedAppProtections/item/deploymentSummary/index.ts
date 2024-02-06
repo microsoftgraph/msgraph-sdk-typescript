@@ -105,6 +105,6 @@ export const DeploymentSummaryRequestBuilderRequestsMetadata: RequestsMetadata =
 /**
  * Uri template for the request builder.
  */
-export const DeploymentSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/defaultManagedAppProtections/{defaultManagedAppProtection%2Did}/deploymentSummary{?%24select,%24expand}";
+export const DeploymentSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/defaultManagedAppProtections/{defaultManagedAppProtection%2Did}/deploymentSummary{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -280,6 +280,6 @@ export const ThreatIntelligenceRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const ThreatIntelligenceRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence{?%24select,%24expand}";
+export const ThreatIntelligenceRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

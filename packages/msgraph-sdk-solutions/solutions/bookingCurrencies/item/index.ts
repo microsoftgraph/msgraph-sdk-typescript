@@ -106,6 +106,6 @@ export const BookingCurrencyItemRequestBuilderRequestsMetadata: RequestsMetadata
 /**
  * Uri template for the request builder.
  */
-export const BookingCurrencyItemRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingCurrencies/{bookingCurrency%2Did}{?%24select,%24expand}";
+export const BookingCurrencyItemRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingCurrencies/{bookingCurrency%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

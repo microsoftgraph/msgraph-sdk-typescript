@@ -197,6 +197,6 @@ export const PrimaryChannelRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const PrimaryChannelRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel{?%24select,%24expand}";
+export const PrimaryChannelRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */
