@@ -147,6 +147,6 @@ export const SchemaRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const SchemaRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/templates/{synchronizationTemplate%2Did}/schema{?%24select,%24expand}";
+export const SchemaRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/templates/{synchronizationTemplate%2Did}/schema{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -10,23 +10,11 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ChannelItemRequestBuilder extends BaseRequestBuilder<ChannelItemRequestBuilder> {
     /**
-     * Remove an incoming channel (a channel shared with a team) from a team.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/team-delete-incomingchannels?view=graph-rest-1.0|Find more info here}
-     */
-     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
-    /**
      * List of channels shared with the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Channel
      */
      get(requestConfiguration?: RequestConfiguration<ChannelItemRequestBuilderGetQueryParameters> | undefined) : Promise<Channel | undefined>;
-    /**
-     * Remove an incoming channel (a channel shared with a team) from a team.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * List of channels shared with the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -58,14 +46,6 @@ const ChannelItemRequestBuilderGetQueryParametersMapper: Record<string, string> 
  * Metadata for all the requests in the request builder.
  */
 export const ChannelItemRequestBuilderRequestsMetadata: RequestsMetadata = {
-    delete: {
-        responseBodyContentType: "application/json",
-        errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-        },
-        adapterMethodName: "sendNoResponseContentAsync",
-    },
     get: {
         responseBodyContentType: "application/json",
         errorMappings: {
@@ -80,6 +60,6 @@ export const ChannelItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ChannelItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/incomingChannels/{channel%2Did}{?%24select,%24expand}";
+export const ChannelItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/incomingChannels/{channel%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

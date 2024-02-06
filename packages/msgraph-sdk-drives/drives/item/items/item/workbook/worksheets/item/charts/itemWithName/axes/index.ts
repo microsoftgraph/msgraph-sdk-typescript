@@ -105,6 +105,6 @@ export const AxesRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const AxesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/item(name='{name}')/axes{?%24select,%24expand}";
+export const AxesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/item(name='{name}')/axes{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

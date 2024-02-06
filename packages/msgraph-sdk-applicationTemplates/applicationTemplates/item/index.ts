@@ -75,6 +75,6 @@ export const ApplicationTemplateItemRequestBuilderRequestsMetadata: RequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const ApplicationTemplateItemRequestBuilderUriTemplate = "{+baseurl}/applicationTemplates/{applicationTemplate%2Did}{?%24select,%24expand}";
+export const ApplicationTemplateItemRequestBuilderUriTemplate = "{+baseurl}/applicationTemplates/{applicationTemplate%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

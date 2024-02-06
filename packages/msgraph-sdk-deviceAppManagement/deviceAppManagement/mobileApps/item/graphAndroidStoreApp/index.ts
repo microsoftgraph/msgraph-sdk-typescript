@@ -85,6 +85,6 @@ export const GraphAndroidStoreAppRequestBuilderRequestsMetadata: RequestsMetadat
 /**
  * Uri template for the request builder.
  */
-export const GraphAndroidStoreAppRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.androidStoreApp{?%24select,%24expand}";
+export const GraphAndroidStoreAppRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.androidStoreApp{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

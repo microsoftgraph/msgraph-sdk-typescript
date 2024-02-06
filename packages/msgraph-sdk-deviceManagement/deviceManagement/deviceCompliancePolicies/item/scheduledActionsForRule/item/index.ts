@@ -123,6 +123,6 @@ export const DeviceComplianceScheduledActionForRuleItemRequestBuilderRequestsMet
 /**
  * Uri template for the request builder.
  */
-export const DeviceComplianceScheduledActionForRuleItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule/{deviceComplianceScheduledActionForRule%2Did}{?%24select,%24expand}";
+export const DeviceComplianceScheduledActionForRuleItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule/{deviceComplianceScheduledActionForRule%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

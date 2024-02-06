@@ -139,6 +139,6 @@ export const UserScopeTeamsAppInstallationItemRequestBuilderRequestsMetadata: Re
 /**
  * Uri template for the request builder.
  */
-export const UserScopeTeamsAppInstallationItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/teamwork/installedApps/{userScopeTeamsAppInstallation%2Did}{?%24select,%24expand}";
+export const UserScopeTeamsAppInstallationItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/teamwork/installedApps/{userScopeTeamsAppInstallation%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

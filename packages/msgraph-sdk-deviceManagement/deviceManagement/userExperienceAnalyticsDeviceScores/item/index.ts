@@ -105,6 +105,6 @@ export const UserExperienceAnalyticsDeviceScoresItemRequestBuilderRequestsMetada
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsDeviceScoresItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceScores/{userExperienceAnalyticsDeviceScores%2Did}{?%24select,%24expand}";
+export const UserExperienceAnalyticsDeviceScoresItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceScores/{userExperienceAnalyticsDeviceScores%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

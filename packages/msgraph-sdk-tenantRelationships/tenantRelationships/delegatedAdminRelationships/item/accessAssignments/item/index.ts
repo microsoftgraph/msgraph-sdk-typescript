@@ -108,6 +108,6 @@ export const DelegatedAdminAccessAssignmentItemRequestBuilderRequestsMetadata: R
 /**
  * Uri template for the request builder.
  */
-export const DelegatedAdminAccessAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/accessAssignments/{delegatedAdminAccessAssignment%2Did}{?%24select,%24expand}";
+export const DelegatedAdminAccessAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/accessAssignments/{delegatedAdminAccessAssignment%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

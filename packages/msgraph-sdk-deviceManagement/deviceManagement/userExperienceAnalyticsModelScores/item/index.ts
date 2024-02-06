@@ -105,6 +105,6 @@ export const UserExperienceAnalyticsModelScoresItemRequestBuilderRequestsMetadat
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsModelScoresItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsModelScores/{userExperienceAnalyticsModelScores%2Did}{?%24select,%24expand}";
+export const UserExperienceAnalyticsModelScoresItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsModelScores/{userExperienceAnalyticsModelScores%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

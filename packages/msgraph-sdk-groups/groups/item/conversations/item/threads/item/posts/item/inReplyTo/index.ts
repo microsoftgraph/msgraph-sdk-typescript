@@ -103,6 +103,6 @@ export const InReplyToRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const InReplyToRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/inReplyTo{?%24select,%24expand}";
+export const InReplyToRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/inReplyTo{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -60,6 +60,6 @@ export const TeamRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TeamRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/sharedWithTeams/{sharedWithChannelTeamInfo%2Did}/team{?%24select,%24expand}";
+export const TeamRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/sharedWithTeams/{sharedWithChannelTeamInfo%2Did}/team{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

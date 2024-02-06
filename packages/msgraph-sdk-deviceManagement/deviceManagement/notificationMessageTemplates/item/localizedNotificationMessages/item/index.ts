@@ -108,6 +108,6 @@ export const LocalizedNotificationMessageItemRequestBuilderRequestsMetadata: Req
 /**
  * Uri template for the request builder.
  */
-export const LocalizedNotificationMessageItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages/{localizedNotificationMessage%2Did}{?%24select,%24expand}";
+export const LocalizedNotificationMessageItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages/{localizedNotificationMessage%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

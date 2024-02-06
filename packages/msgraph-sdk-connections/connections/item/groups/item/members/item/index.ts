@@ -106,6 +106,6 @@ export const IdentityItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const IdentityItemRequestBuilderUriTemplate = "{+baseurl}/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}/members/{identity%2Did}{?%24select,%24expand}";
+export const IdentityItemRequestBuilderUriTemplate = "{+baseurl}/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}/members/{identity%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

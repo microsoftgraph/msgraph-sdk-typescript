@@ -139,6 +139,6 @@ export const SchedulingGroupsRequestBuilderRequestsMetadata: RequestsMetadata = 
 /**
  * Uri template for the request builder.
  */
-export const SchedulingGroupsRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/schedulingGroups{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select}";
+export const SchedulingGroupsRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/schedulingGroups{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

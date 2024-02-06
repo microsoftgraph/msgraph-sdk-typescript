@@ -108,6 +108,6 @@ export const EmailAuthenticationMethodItemRequestBuilderRequestsMetadata: Reques
 /**
  * Uri template for the request builder.
  */
-export const EmailAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/emailMethods/{emailAuthenticationMethod%2Did}{?%24select,%24expand}";
+export const EmailAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/emailMethods/{emailAuthenticationMethod%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

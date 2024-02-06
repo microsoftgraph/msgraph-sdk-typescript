@@ -13,7 +13,7 @@ export interface SeriesRequestBuilder extends BaseRequestBuilder<SeriesRequestBu
      * Retrieve a list of chartseries objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartSeriesCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/chart-list-series?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartseries-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SeriesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartSeriesCollectionResponse | undefined>;
     /**
@@ -118,6 +118,6 @@ export const SeriesRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const SeriesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/itemAt(index={index})/series{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const SeriesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/itemAt(index={index})/series{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

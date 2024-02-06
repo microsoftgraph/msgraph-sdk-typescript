@@ -60,6 +60,6 @@ export const LoginPageRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const LoginPageRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/loginPage{?%24select,%24expand}";
+export const LoginPageRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/loginPage{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

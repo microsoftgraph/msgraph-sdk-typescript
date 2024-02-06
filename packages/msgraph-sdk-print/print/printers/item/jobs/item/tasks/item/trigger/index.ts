@@ -60,6 +60,6 @@ export const TriggerRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TriggerRequestBuilderUriTemplate = "{+baseurl}/print/printers/{printer%2Did}/jobs/{printJob%2Did}/tasks/{printTask%2Did}/trigger{?%24select,%24expand}";
+export const TriggerRequestBuilderUriTemplate = "{+baseurl}/print/printers/{printer%2Did}/jobs/{printJob%2Did}/tasks/{printTask%2Did}/trigger{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

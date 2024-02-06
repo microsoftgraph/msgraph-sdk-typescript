@@ -138,6 +138,6 @@ export const AuthenticationStrengthPolicyItemRequestBuilderRequestsMetadata: Req
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationStrengthPolicyItemRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/authenticationStrength/policies/{authenticationStrengthPolicy%2Did}{?%24select,%24expand}";
+export const AuthenticationStrengthPolicyItemRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/authenticationStrength/policies/{authenticationStrengthPolicy%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

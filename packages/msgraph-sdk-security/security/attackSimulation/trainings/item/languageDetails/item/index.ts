@@ -105,6 +105,6 @@ export const TrainingLanguageDetailItemRequestBuilderRequestsMetadata: RequestsM
 /**
  * Uri template for the request builder.
  */
-export const TrainingLanguageDetailItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/trainings/{training%2Did}/languageDetails/{trainingLanguageDetail%2Did}{?%24select,%24expand}";
+export const TrainingLanguageDetailItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/trainings/{training%2Did}/languageDetails/{trainingLanguageDetail%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

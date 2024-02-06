@@ -106,6 +106,6 @@ export const LearningCourseActivityItemRequestBuilderRequestsMetadata: RequestsM
 /**
  * Uri template for the request builder.
  */
-export const LearningCourseActivityItemRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningCourseActivities/{learningCourseActivity%2Did}{?%24select,%24expand}";
+export const LearningCourseActivityItemRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningCourseActivities/{learningCourseActivity%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

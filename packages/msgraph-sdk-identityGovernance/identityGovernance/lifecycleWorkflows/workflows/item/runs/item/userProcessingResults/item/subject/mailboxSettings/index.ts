@@ -86,6 +86,6 @@ export const MailboxSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const MailboxSettingsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/runs/{run%2Did}/userProcessingResults/{userProcessingResult%2Did}/subject/mailboxSettings{?%24select,%24expand}";
+export const MailboxSettingsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/runs/{run%2Did}/userProcessingResults/{userProcessingResult%2Did}/subject/mailboxSettings{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -144,6 +144,6 @@ export const AppRoleAssignedToRequestBuilderRequestsMetadata: RequestsMetadata =
 /**
  * Uri template for the request builder.
  */
-export const AppRoleAssignedToRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/appRoleAssignedTo{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const AppRoleAssignedToRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/appRoleAssignedTo{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

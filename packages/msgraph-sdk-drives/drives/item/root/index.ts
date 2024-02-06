@@ -75,6 +75,6 @@ export const RootRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const RootRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/root{?%24select,%24expand}";
+export const RootRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/root{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -84,6 +84,6 @@ export const LastModifiedByUserRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const LastModifiedByUserRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/lastModifiedByUser{?%24select,%24expand}";
+export const LastModifiedByUserRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/lastModifiedByUser{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

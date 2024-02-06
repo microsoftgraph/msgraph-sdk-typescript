@@ -210,6 +210,6 @@ export const ScheduleRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ScheduleRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule{?%24select,%24expand}";
+export const ScheduleRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

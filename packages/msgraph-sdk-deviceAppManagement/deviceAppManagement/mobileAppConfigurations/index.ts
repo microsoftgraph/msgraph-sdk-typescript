@@ -22,10 +22,10 @@ export interface MobileAppConfigurationsRequestBuilder extends BaseRequestBuilde
      */
      byManagedDeviceMobileAppConfigurationId(managedDeviceMobileAppConfigurationId: string) : ManagedDeviceMobileAppConfigurationItemRequestBuilder;
     /**
-     * List properties and relationships of the iosMobileAppConfiguration objects.
+     * List properties and relationships of the managedDeviceMobileAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceMobileAppConfigurationCollectionResponse | undefined>;
     /**
@@ -37,7 +37,7 @@ export interface MobileAppConfigurationsRequestBuilder extends BaseRequestBuilde
      */
      post(body: ManagedDeviceMobileAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined>;
     /**
-     * List properties and relationships of the iosMobileAppConfiguration objects.
+     * List properties and relationships of the managedDeviceMobileAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -51,7 +51,7 @@ export interface MobileAppConfigurationsRequestBuilder extends BaseRequestBuilde
      toPostRequestInformation(body: ManagedDeviceMobileAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the iosMobileAppConfiguration objects.
+ * List properties and relationships of the managedDeviceMobileAppConfiguration objects.
  */
 export interface MobileAppConfigurationsRequestBuilderGetQueryParameters {
     /**
@@ -145,6 +145,6 @@ export const MobileAppConfigurationsRequestBuilderRequestsMetadata: RequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const MobileAppConfigurationsRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const MobileAppConfigurationsRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

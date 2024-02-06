@@ -121,6 +121,6 @@ export const FileRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const FileRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}/file{?%24select,%24expand}";
+export const FileRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}/file{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

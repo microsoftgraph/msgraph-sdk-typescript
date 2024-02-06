@@ -108,6 +108,6 @@ export const DeviceCategoryItemRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const DeviceCategoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCategories/{deviceCategory%2Did}{?%24select,%24expand}";
+export const DeviceCategoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCategories/{deviceCategory%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

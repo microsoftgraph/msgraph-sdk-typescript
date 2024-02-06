@@ -105,6 +105,6 @@ export const AccessPackageQuestionItemRequestBuilderRequestsMetadata: RequestsMe
 /**
  * Uri template for the request builder.
  */
-export const AccessPackageQuestionItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/questions/{accessPackageQuestion%2Did}{?%24select,%24expand}";
+export const AccessPackageQuestionItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/questions/{accessPackageQuestion%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -60,6 +60,6 @@ export const GraphApplicationRequestBuilderRequestsMetadata: RequestsMetadata = 
 /**
  * Uri template for the request builder.
  */
-export const GraphApplicationRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/membersWithLicenseErrors/{directoryObject%2Did}/graph.application{?%24select,%24expand}";
+export const GraphApplicationRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/membersWithLicenseErrors/{directoryObject%2Did}/graph.application{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

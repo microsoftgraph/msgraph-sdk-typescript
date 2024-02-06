@@ -107,6 +107,6 @@ export const DeviceConfigurationDeviceStateSummariesRequestBuilderRequestsMetada
 /**
  * Uri template for the request builder.
  */
-export const DeviceConfigurationDeviceStateSummariesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurationDeviceStateSummaries{?%24select,%24expand}";
+export const DeviceConfigurationDeviceStateSummariesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurationDeviceStateSummaries{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

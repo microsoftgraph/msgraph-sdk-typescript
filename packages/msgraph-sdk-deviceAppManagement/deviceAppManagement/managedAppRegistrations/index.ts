@@ -27,10 +27,10 @@ export interface ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilde
      */
      byManagedAppRegistrationId(managedAppRegistrationId: string) : ManagedAppRegistrationItemRequestBuilder;
     /**
-     * List properties and relationships of the androidManagedAppRegistration objects.
+     * List properties and relationships of the iosManagedAppRegistration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppRegistrationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappregistration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-iosmanagedappregistration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedAppRegistrationsRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedAppRegistrationCollectionResponse | undefined>;
     /**
@@ -42,7 +42,7 @@ export interface ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilde
      */
      post(body: ManagedAppRegistration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedAppRegistration | undefined>;
     /**
-     * List properties and relationships of the androidManagedAppRegistration objects.
+     * List properties and relationships of the iosManagedAppRegistration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -56,7 +56,7 @@ export interface ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilde
      toPostRequestInformation(body: ManagedAppRegistration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the androidManagedAppRegistration objects.
+ * List properties and relationships of the iosManagedAppRegistration objects.
  */
 export interface ManagedAppRegistrationsRequestBuilderGetQueryParameters {
     /**
@@ -154,6 +154,6 @@ export const ManagedAppRegistrationsRequestBuilderRequestsMetadata: RequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const ManagedAppRegistrationsRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppRegistrations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const ManagedAppRegistrationsRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppRegistrations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

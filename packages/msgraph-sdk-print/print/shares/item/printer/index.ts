@@ -60,6 +60,6 @@ export const PrinterRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const PrinterRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerShare%2Did}/printer{?%24select,%24expand}";
+export const PrinterRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerShare%2Did}/printer{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

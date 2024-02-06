@@ -107,6 +107,6 @@ export const AuthenticationFlowsPolicyRequestBuilderRequestsMetadata: RequestsMe
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationFlowsPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationFlowsPolicy{?%24select,%24expand}";
+export const AuthenticationFlowsPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationFlowsPolicy{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

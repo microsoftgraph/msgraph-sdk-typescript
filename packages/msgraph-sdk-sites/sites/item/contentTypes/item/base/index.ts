@@ -52,7 +52,7 @@ export const BaseRequestBuilderEscapedRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const BaseRequestBuilderEscapedUriTemplate = "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/base{?%24select,%24expand}";
+export const BaseRequestBuilderEscapedUriTemplate = "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/base{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

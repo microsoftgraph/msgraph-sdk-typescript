@@ -156,6 +156,6 @@ export const UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderRequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstance%2Did}{?%24select,%24expand}";
+export const UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstance%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

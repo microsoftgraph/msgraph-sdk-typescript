@@ -102,10 +102,10 @@ export interface MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsR
      */
      byMobileAppId(mobileAppId: string) : MobileAppItemRequestBuilder;
     /**
-     * List properties and relationships of the androidStoreApp objects.
+     * List properties and relationships of the windowsMobileMSI objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-androidstoreapp-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowsmobilemsi-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppsRequestBuilderGetQueryParameters> | undefined) : Promise<MobileAppCollectionResponse | undefined>;
     /**
@@ -117,7 +117,7 @@ export interface MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsR
      */
      post(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileApp | undefined>;
     /**
-     * List properties and relationships of the androidStoreApp objects.
+     * List properties and relationships of the windowsMobileMSI objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -131,7 +131,7 @@ export interface MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsR
      toPostRequestInformation(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the androidStoreApp objects.
+ * List properties and relationships of the windowsMobileMSI objects.
  */
 export interface MobileAppsRequestBuilderGetQueryParameters {
     /**
@@ -305,6 +305,6 @@ export const MobileAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const MobileAppsRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const MobileAppsRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

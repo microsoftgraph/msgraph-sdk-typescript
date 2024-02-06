@@ -107,6 +107,6 @@ export const LearningContentItemRequestBuilderRequestsMetadata: RequestsMetadata
 /**
  * Uri template for the request builder.
  */
-export const LearningContentItemRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningContents/{learningContent%2Did}{?%24select,%24expand}";
+export const LearningContentItemRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningContents/{learningContent%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

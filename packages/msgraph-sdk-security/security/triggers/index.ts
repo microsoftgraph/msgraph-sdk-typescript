@@ -120,6 +120,6 @@ export const TriggersRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TriggersRequestBuilderUriTemplate = "{+baseurl}/security/triggers{?%24select,%24expand}";
+export const TriggersRequestBuilderUriTemplate = "{+baseurl}/security/triggers{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

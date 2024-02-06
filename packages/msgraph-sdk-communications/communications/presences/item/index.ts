@@ -156,6 +156,6 @@ export const PresenceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const PresenceItemRequestBuilderUriTemplate = "{+baseurl}/communications/presences/{presence%2Did}{?%24select,%24expand}";
+export const PresenceItemRequestBuilderUriTemplate = "{+baseurl}/communications/presences/{presence%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

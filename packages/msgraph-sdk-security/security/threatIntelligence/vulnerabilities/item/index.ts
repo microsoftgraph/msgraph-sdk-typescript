@@ -131,6 +131,6 @@ export const VulnerabilityItemRequestBuilderRequestsMetadata: RequestsMetadata =
 /**
  * Uri template for the request builder.
  */
-export const VulnerabilityItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/vulnerabilities/{vulnerability%2Did}{?%24select,%24expand}";
+export const VulnerabilityItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/vulnerabilities/{vulnerability%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

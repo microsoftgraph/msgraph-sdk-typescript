@@ -108,6 +108,6 @@ export const DeviceConfigurationAssignmentItemRequestBuilderRequestsMetadata: Re
 /**
  * Uri template for the request builder.
  */
-export const DeviceConfigurationAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/assignments/{deviceConfigurationAssignment%2Did}{?%24select,%24expand}";
+export const DeviceConfigurationAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/assignments/{deviceConfigurationAssignment%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

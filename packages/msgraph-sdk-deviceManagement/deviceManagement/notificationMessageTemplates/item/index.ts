@@ -132,6 +132,6 @@ export const NotificationMessageTemplateItemRequestBuilderRequestsMetadata: Requ
 /**
  * Uri template for the request builder.
  */
-export const NotificationMessageTemplateItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}{?%24select,%24expand}";
+export const NotificationMessageTemplateItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -173,6 +173,6 @@ export const EducationUserItemRequestBuilderRequestsMetadata: RequestsMetadata =
 /**
  * Uri template for the request builder.
  */
-export const EducationUserItemRequestBuilderUriTemplate = "{+baseurl}/education/users/{educationUser%2Did}{?%24select,%24expand}";
+export const EducationUserItemRequestBuilderUriTemplate = "{+baseurl}/education/users/{educationUser%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

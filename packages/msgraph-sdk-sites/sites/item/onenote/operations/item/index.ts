@@ -106,6 +106,6 @@ export const OnenoteOperationItemRequestBuilderRequestsMetadata: RequestsMetadat
 /**
  * Uri template for the request builder.
  */
-export const OnenoteOperationItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/onenote/operations/{onenoteOperation%2Did}{?%24select,%24expand}";
+export const OnenoteOperationItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/onenote/operations/{onenoteOperation%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

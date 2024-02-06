@@ -122,6 +122,6 @@ export const IdentityApiConnectorItemRequestBuilderRequestsMetadata: RequestsMet
 /**
  * Uri template for the request builder.
  */
-export const IdentityApiConnectorItemRequestBuilderUriTemplate = "{+baseurl}/identity/apiConnectors/{identityApiConnector%2Did}{?%24select,%24expand}";
+export const IdentityApiConnectorItemRequestBuilderUriTemplate = "{+baseurl}/identity/apiConnectors/{identityApiConnector%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

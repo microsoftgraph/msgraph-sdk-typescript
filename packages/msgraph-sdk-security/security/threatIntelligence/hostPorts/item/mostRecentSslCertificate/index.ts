@@ -60,6 +60,6 @@ export const MostRecentSslCertificateRequestBuilderRequestsMetadata: RequestsMet
 /**
  * Uri template for the request builder.
  */
-export const MostRecentSslCertificateRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPorts/{hostPort%2Did}/mostRecentSslCertificate{?%24select,%24expand}";
+export const MostRecentSslCertificateRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPorts/{hostPort%2Did}/mostRecentSslCertificate{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

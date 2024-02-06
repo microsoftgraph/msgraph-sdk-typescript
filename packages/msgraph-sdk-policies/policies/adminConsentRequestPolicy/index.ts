@@ -107,6 +107,6 @@ export const AdminConsentRequestPolicyRequestBuilderRequestsMetadata: RequestsMe
 /**
  * Uri template for the request builder.
  */
-export const AdminConsentRequestPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/adminConsentRequestPolicy{?%24select,%24expand}";
+export const AdminConsentRequestPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/adminConsentRequestPolicy{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

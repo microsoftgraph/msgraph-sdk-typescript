@@ -10,10 +10,10 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface PointsRequestBuilder extends BaseRequestBuilder<PointsRequestBuilder> {
     /**
-     * Retrieve a list of chartpoint objects.
+     * Retrieve a list of chartpoints objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartPointCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/chartpoint-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartseries-list-points?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PointsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartPointCollectionResponse | undefined>;
     /**
@@ -25,7 +25,7 @@ export interface PointsRequestBuilder extends BaseRequestBuilder<PointsRequestBu
      */
      post(body: WorkbookChartPoint, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartPoint | undefined>;
     /**
-     * Retrieve a list of chartpoint objects.
+     * Retrieve a list of chartpoints objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -39,7 +39,7 @@ export interface PointsRequestBuilder extends BaseRequestBuilder<PointsRequestBu
      toPostRequestInformation(body: WorkbookChartPoint, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of chartpoint objects.
+ * Retrieve a list of chartpoints objects.
  */
 export interface PointsRequestBuilderGetQueryParameters {
     /**
@@ -118,6 +118,6 @@ export const PointsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const PointsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/series/itemAt(index={index})/points{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const PointsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/series/itemAt(index={index})/points{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

@@ -105,6 +105,6 @@ export const DomainDnsRecordItemRequestBuilderRequestsMetadata: RequestsMetadata
 /**
  * Uri template for the request builder.
  */
-export const DomainDnsRecordItemRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/serviceConfigurationRecords/{domainDnsRecord%2Did}{?%24select,%24expand}";
+export const DomainDnsRecordItemRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/serviceConfigurationRecords/{domainDnsRecord%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

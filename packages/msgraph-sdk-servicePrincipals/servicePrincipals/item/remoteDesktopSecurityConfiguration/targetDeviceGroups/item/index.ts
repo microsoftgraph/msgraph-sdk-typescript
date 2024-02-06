@@ -108,6 +108,6 @@ export const TargetDeviceGroupItemRequestBuilderRequestsMetadata: RequestsMetada
 /**
  * Uri template for the request builder.
  */
-export const TargetDeviceGroupItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/remoteDesktopSecurityConfiguration/targetDeviceGroups/{targetDeviceGroup%2Did}{?%24select,%24expand}";
+export const TargetDeviceGroupItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/remoteDesktopSecurityConfiguration/targetDeviceGroups/{targetDeviceGroup%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

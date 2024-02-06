@@ -107,6 +107,6 @@ export const AssignmentDefaultsRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const AssignmentDefaultsRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignmentDefaults{?%24select,%24expand}";
+export const AssignmentDefaultsRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignmentDefaults{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

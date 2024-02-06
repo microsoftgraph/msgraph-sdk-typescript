@@ -13,7 +13,7 @@ export interface ContentRequestBuilder extends BaseRequestBuilder<ContentRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
      */
-     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
+     get(requestConfiguration?: RequestConfiguration<ContentRequestBuilderGetQueryParameters> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
      * Update media content for the navigation property photo in users
      * @param body Binary request body
@@ -26,7 +26,7 @@ export interface ContentRequestBuilder extends BaseRequestBuilder<ContentRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-     toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
+     toGetRequestInformation(requestConfiguration?: RequestConfiguration<ContentRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update media content for the navigation property photo in users
      * @param body Binary request body
@@ -35,6 +35,21 @@ export interface ContentRequestBuilder extends BaseRequestBuilder<ContentRequest
      */
      toPutRequestInformation(body: ArrayBuffer | undefined, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Get media content for the navigation property photo from users
+ */
+export interface ContentRequestBuilderGetQueryParameters {
+    /**
+     * Format of the content
+     */
+    format?: string;
+}
+/**
+ * Mapper for query parameters from symbol name to serialization name represented as a constant.
+ */
+const ContentRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "format": "%24format",
+};
 /**
  * Metadata for all the requests in the request builder.
  */
@@ -47,6 +62,7 @@ export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
         },
         adapterMethodName: "sendPrimitiveAsync",
         responseBodyFactory:  "ArrayBuffer",
+        queryParametersMapper: ContentRequestBuilderGetQueryParametersMapper,
     },
     put: {
         responseBodyContentType: "application/json",
@@ -63,6 +79,6 @@ export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ContentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contacts/{contact%2Did}/photo/$value";
+export const ContentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contacts/{contact%2Did}/photo/$value{?%24format*}";
 /* tslint:enable */
 /* eslint-enable */

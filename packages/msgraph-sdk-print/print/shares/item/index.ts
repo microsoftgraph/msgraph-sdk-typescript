@@ -152,6 +152,6 @@ export const PrinterShareItemRequestBuilderRequestsMetadata: RequestsMetadata = 
 /**
  * Uri template for the request builder.
  */
-export const PrinterShareItemRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerShare%2Did}{?%24select,%24expand}";
+export const PrinterShareItemRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerShare%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

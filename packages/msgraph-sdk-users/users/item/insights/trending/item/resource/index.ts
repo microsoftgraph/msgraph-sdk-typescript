@@ -60,6 +60,6 @@ export const ResourceRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ResourceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/trending/{trending%2Did}/resource{?%24select,%24expand}";
+export const ResourceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/trending/{trending%2Did}/resource{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

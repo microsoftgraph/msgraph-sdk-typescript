@@ -626,8 +626,12 @@ export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode |
                     return deserializeIntoContainerRegistryEvidence;
                 case "#microsoft.graph.security.deviceEvidence":
                     return deserializeIntoDeviceEvidence;
+                case "#microsoft.graph.security.dnsEvidence":
+                    return deserializeIntoDnsEvidence;
                 case "#microsoft.graph.security.fileEvidence":
                     return deserializeIntoFileEvidence;
+                case "#microsoft.graph.security.fileHashEvidence":
+                    return deserializeIntoFileHashEvidence;
                 case "#microsoft.graph.security.gitHubOrganizationEvidence":
                     return deserializeIntoGitHubOrganizationEvidence;
                 case "#microsoft.graph.security.gitHubRepoEvidence":
@@ -1012,6 +1016,14 @@ export function createDictionaryFromDiscriminatorValue(parseNode: ParseNode | un
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns a dnsEvidence
+ */
+export function createDnsEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDnsEvidence;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns a ediscoveryAddToReviewSetOperation
  */
 export function createEdiscoveryAddToReviewSetOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
@@ -1232,6 +1244,14 @@ export function createFileDetailsFromDiscriminatorValue(parseNode: ParseNode | u
  */
 export function createFileEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFileEvidence;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns a fileHashEvidence
+ */
+export function createFileHashEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoFileHashEvidence;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -2670,6 +2690,19 @@ export function deserializeIntoDictionary(dictionary: Partial<Dictionary> | unde
  * The deserialization information for the current model
  * @returns a Record<string, (node: ParseNode) => void>
  */
+export function deserializeIntoDnsEvidence(dnsEvidence: Partial<DnsEvidence> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(dnsEvidence),
+        "dnsServerIp": n => { dnsEvidence.dnsServerIp = n.getObjectValue<IpEvidence>(createIpEvidenceFromDiscriminatorValue); },
+        "domainName": n => { dnsEvidence.domainName = n.getStringValue(); },
+        "hostIpAddress": n => { dnsEvidence.hostIpAddress = n.getObjectValue<IpEvidence>(createIpEvidenceFromDiscriminatorValue); },
+        "ipAddresses": n => { dnsEvidence.ipAddresses = n.getCollectionOfObjectValues<IpEvidence>(createIpEvidenceFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns a Record<string, (node: ParseNode) => void>
+ */
 export function deserializeIntoEdiscoveryAddToReviewSetOperation(ediscoveryAddToReviewSetOperation: Partial<EdiscoveryAddToReviewSetOperation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoCaseOperation(ediscoveryAddToReviewSetOperation),
@@ -3010,6 +3043,17 @@ export function deserializeIntoFileHash(fileHash: Partial<FileHash> | undefined 
         "backingStoreEnabled": n => { fileHash.backingStoreEnabled = true; },
         "@odata.type": n => { fileHash.odataType = n.getStringValue(); },
         "value": n => { fileHash.value = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns a Record<string, (node: ParseNode) => void>
+ */
+export function deserializeIntoFileHashEvidence(fileHashEvidence: Partial<FileHashEvidence> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(fileHashEvidence),
+        "algorithm": n => { fileHashEvidence.algorithm = n.getEnumValue<FileHashAlgorithm>(FileHashAlgorithmObject); },
+        "value": n => { fileHashEvidence.value = n.getStringValue(); },
     }
 }
 /**
@@ -4523,6 +4567,24 @@ export interface Dictionary extends AdditionalDataHolder, BackedModel, Parsable 
      */
     odataType?: string;
 }
+export interface DnsEvidence extends AlertEvidence, Parsable {
+    /**
+     * The dnsServerIp property
+     */
+    dnsServerIp?: IpEvidence;
+    /**
+     * The domainName property
+     */
+    domainName?: string;
+    /**
+     * The hostIpAddress property
+     */
+    hostIpAddress?: IpEvidence;
+    /**
+     * The ipAddresses property
+     */
+    ipAddresses?: IpEvidence[];
+}
 export interface EdiscoveryAddToReviewSetOperation extends CaseOperation, Parsable {
     /**
      * eDiscovery review set to which items matching source collection query gets added.
@@ -4977,6 +5039,16 @@ export interface FileHash extends AdditionalDataHolder, BackedModel, Parsable {
     value?: string;
 }
 export type FileHashAlgorithm = (typeof FileHashAlgorithmObject)[keyof typeof FileHashAlgorithmObject];
+export interface FileHashEvidence extends AlertEvidence, Parsable {
+    /**
+     * The algorithm property
+     */
+    algorithm?: FileHashAlgorithm;
+    /**
+     * The value property
+     */
+    value?: string;
+}
 export interface FormattedContent extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -6958,6 +7030,17 @@ export function serializeDictionary(writer: SerializationWriter, dictionary: Par
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+export function serializeDnsEvidence(writer: SerializationWriter, dnsEvidence: Partial<DnsEvidence> | undefined = {}) : void {
+    serializeAlertEvidence(writer, dnsEvidence)
+    writer.writeObjectValue<IpEvidence>("dnsServerIp", dnsEvidence.dnsServerIp, serializeIpEvidence);
+    writer.writeStringValue("domainName", dnsEvidence.domainName);
+    writer.writeObjectValue<IpEvidence>("hostIpAddress", dnsEvidence.hostIpAddress, serializeIpEvidence);
+    writer.writeCollectionOfObjectValues<IpEvidence>("ipAddresses", dnsEvidence.ipAddresses, serializeIpEvidence);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
 export function serializeEdiscoveryAddToReviewSetOperation(writer: SerializationWriter, ediscoveryAddToReviewSetOperation: Partial<EdiscoveryAddToReviewSetOperation> | undefined = {}) : void {
     serializeCaseOperation(writer, ediscoveryAddToReviewSetOperation)
     writer.writeObjectValue<EdiscoveryReviewSet>("reviewSet", ediscoveryAddToReviewSetOperation.reviewSet, serializeEdiscoveryReviewSet);
@@ -7241,6 +7324,15 @@ export function serializeFileHash(writer: SerializationWriter, fileHash: Partial
     writer.writeStringValue("@odata.type", fileHash.odataType);
     writer.writeStringValue("value", fileHash.value);
     writer.writeAdditionalData(fileHash.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+export function serializeFileHashEvidence(writer: SerializationWriter, fileHashEvidence: Partial<FileHashEvidence> | undefined = {}) : void {
+    serializeAlertEvidence(writer, fileHashEvidence)
+    writer.writeEnumValue<FileHashAlgorithm>("algorithm", fileHashEvidence.algorithm);
+    writer.writeStringValue("value", fileHashEvidence.value);
 }
 /**
  * Serializes information the current object

@@ -105,6 +105,6 @@ export const ResourceSpecificPermissionGrantItemRequestBuilderRequestsMetadata: 
 /**
  * Uri template for the request builder.
  */
-export const ResourceSpecificPermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/permissionGrants/{resourceSpecificPermissionGrant%2Did}{?%24select,%24expand}";
+export const ResourceSpecificPermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/permissionGrants/{resourceSpecificPermissionGrant%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

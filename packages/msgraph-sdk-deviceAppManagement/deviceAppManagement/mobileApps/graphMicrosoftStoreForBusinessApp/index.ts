@@ -104,6 +104,6 @@ export const GraphMicrosoftStoreForBusinessAppRequestBuilderRequestsMetadata: Re
 /**
  * Uri template for the request builder.
  */
-export const GraphMicrosoftStoreForBusinessAppRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/graph.microsoftStoreForBusinessApp{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const GraphMicrosoftStoreForBusinessAppRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/graph.microsoftStoreForBusinessApp{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

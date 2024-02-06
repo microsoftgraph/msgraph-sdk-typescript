@@ -105,6 +105,6 @@ export const AgreementFileVersionItemRequestBuilderRequestsMetadata: RequestsMet
 /**
  * Uri template for the request builder.
  */
-export const AgreementFileVersionItemRequestBuilderUriTemplate = "{+baseurl}/agreements/{agreement%2Did}/files/{agreementFileLocalization%2Did}/versions/{agreementFileVersion%2Did}{?%24select,%24expand}";
+export const AgreementFileVersionItemRequestBuilderUriTemplate = "{+baseurl}/agreements/{agreement%2Did}/files/{agreementFileLocalization%2Did}/versions/{agreementFileVersion%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -74,6 +74,6 @@ export const DriveItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const DriveItemRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}/driveItem{?%24select,%24expand}";
+export const DriveItemRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}/driveItem{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

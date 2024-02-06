@@ -7,6 +7,8 @@ import { AttendanceReportsRequestBuilderNavigationMetadata, AttendanceReportsReq
 import { AttendeeReportRequestBuilderRequestsMetadata, AttendeeReportRequestBuilderUriTemplate, type AttendeeReportRequestBuilder } from './attendeeReport/';
 import { GetVirtualAppointmentJoinWebUrlRequestBuilderRequestsMetadata, GetVirtualAppointmentJoinWebUrlRequestBuilderUriTemplate, type GetVirtualAppointmentJoinWebUrlRequestBuilder } from './getVirtualAppointmentJoinWebUrl/';
 import { RecordingsRequestBuilderNavigationMetadata, RecordingsRequestBuilderRequestsMetadata, RecordingsRequestBuilderUriTemplate, type RecordingsRequestBuilder } from './recordings/';
+import { SendVirtualAppointmentReminderSmsRequestBuilderRequestsMetadata, SendVirtualAppointmentReminderSmsRequestBuilderUriTemplate, type SendVirtualAppointmentReminderSmsRequestBuilder } from './sendVirtualAppointmentReminderSms/';
+import { SendVirtualAppointmentSmsRequestBuilderRequestsMetadata, SendVirtualAppointmentSmsRequestBuilderUriTemplate, type SendVirtualAppointmentSmsRequestBuilder } from './sendVirtualAppointmentSms/';
 import { TranscriptsRequestBuilderNavigationMetadata, TranscriptsRequestBuilderRequestsMetadata, TranscriptsRequestBuilderUriTemplate, type TranscriptsRequestBuilder } from './transcripts/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -30,6 +32,14 @@ export interface OnlineMeetingItemRequestBuilder extends BaseRequestBuilder<Onli
      * Provides operations to manage the recordings property of the microsoft.graph.onlineMeeting entity.
      */
     get recordings(): RecordingsRequestBuilder;
+    /**
+     * Provides operations to call the sendVirtualAppointmentReminderSms method.
+     */
+    get sendVirtualAppointmentReminderSms(): SendVirtualAppointmentReminderSmsRequestBuilder;
+    /**
+     * Provides operations to call the sendVirtualAppointmentSms method.
+     */
+    get sendVirtualAppointmentSms(): SendVirtualAppointmentSmsRequestBuilder;
     /**
      * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
      */
@@ -114,6 +124,14 @@ export const OnlineMeetingItemRequestBuilderNavigationMetadata: Record<Exclude<k
         requestsMetadata: RecordingsRequestBuilderRequestsMetadata,
         navigationMetadata: RecordingsRequestBuilderNavigationMetadata,
     },
+    sendVirtualAppointmentReminderSms: {
+        uriTemplate: SendVirtualAppointmentReminderSmsRequestBuilderUriTemplate,
+        requestsMetadata: SendVirtualAppointmentReminderSmsRequestBuilderRequestsMetadata,
+    },
+    sendVirtualAppointmentSms: {
+        uriTemplate: SendVirtualAppointmentSmsRequestBuilderUriTemplate,
+        requestsMetadata: SendVirtualAppointmentSmsRequestBuilderRequestsMetadata,
+    },
     transcripts: {
         uriTemplate: TranscriptsRequestBuilderUriTemplate,
         requestsMetadata: TranscriptsRequestBuilderRequestsMetadata,
@@ -158,6 +176,6 @@ export const OnlineMeetingItemRequestBuilderRequestsMetadata: RequestsMetadata =
 /**
  * Uri template for the request builder.
  */
-export const OnlineMeetingItemRequestBuilderUriTemplate = "{+baseurl}/communications/onlineMeetings/{onlineMeeting%2Did}{?%24select,%24expand}";
+export const OnlineMeetingItemRequestBuilderUriTemplate = "{+baseurl}/communications/onlineMeetings/{onlineMeeting%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

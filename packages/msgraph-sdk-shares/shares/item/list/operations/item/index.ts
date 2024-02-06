@@ -105,6 +105,6 @@ export const RichLongRunningOperationItemRequestBuilderRequestsMetadata: Request
 /**
  * Uri template for the request builder.
  */
-export const RichLongRunningOperationItemRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list/operations/{richLongRunningOperation%2Did}{?%24select,%24expand}";
+export const RichLongRunningOperationItemRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list/operations/{richLongRunningOperation%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

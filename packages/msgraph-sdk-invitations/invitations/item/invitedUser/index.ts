@@ -84,6 +84,6 @@ export const InvitedUserRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const InvitedUserRequestBuilderUriTemplate = "{+baseurl}/invitations/{invitation%2Did}/invitedUser{?%24select,%24expand}";
+export const InvitedUserRequestBuilderUriTemplate = "{+baseurl}/invitations/{invitation%2Did}/invitedUser{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

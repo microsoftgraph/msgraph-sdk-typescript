@@ -106,6 +106,6 @@ export const DelegatedAdminRelationshipOperationItemRequestBuilderRequestsMetada
 /**
  * Uri template for the request builder.
  */
-export const DelegatedAdminRelationshipOperationItemRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/operations/{delegatedAdminRelationshipOperation%2Did}{?%24select,%24expand}";
+export const DelegatedAdminRelationshipOperationItemRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/operations/{delegatedAdminRelationshipOperation%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

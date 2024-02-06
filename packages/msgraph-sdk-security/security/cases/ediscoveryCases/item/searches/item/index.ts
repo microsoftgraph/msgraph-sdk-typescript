@@ -179,6 +179,6 @@ export const EdiscoverySearchItemRequestBuilderRequestsMetadata: RequestsMetadat
 /**
  * Uri template for the request builder.
  */
-export const EdiscoverySearchItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}{?%24select,%24expand}";
+export const EdiscoverySearchItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -369,7 +369,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
     /**
      * Deletes a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -380,10 +380,10 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
      exportDeviceAndAppManagementDataWithSkipWithTop(skip: number | undefined, top: number | undefined) : ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder;
     /**
-     * Read properties and relationships of the user object.
+     * Retrieve the properties and relationships of user object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of User
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserItemRequestBuilderGetQueryParameters> | undefined) : Promise<User | undefined>;
     /**
@@ -391,7 +391,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of User
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: User, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<User | undefined>;
     /**
@@ -408,7 +408,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the user object.
+     * Retrieve the properties and relationships of user object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -422,7 +422,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      toPatchRequestInformation(body: User, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the user object.
+ * Retrieve the properties and relationships of user object.
  */
 export interface UserItemRequestBuilderGetQueryParameters {
     /**
@@ -824,6 +824,6 @@ export const UserItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const UserItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}{?%24select,%24expand}";
+export const UserItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

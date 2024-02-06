@@ -142,6 +142,6 @@ export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const RefRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/connectedOrganizations/{connectedOrganization%2Did}/internalSponsors/$ref{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%40id*}";
+export const RefRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/connectedOrganizations/{connectedOrganization%2Did}/internalSponsors/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

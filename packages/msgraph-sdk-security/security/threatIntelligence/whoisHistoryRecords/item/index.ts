@@ -119,6 +119,6 @@ export const WhoisHistoryRecordItemRequestBuilderRequestsMetadata: RequestsMetad
 /**
  * Uri template for the request builder.
  */
-export const WhoisHistoryRecordItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/whoisHistoryRecords/{whoisHistoryRecord%2Did}{?%24select,%24expand}";
+export const WhoisHistoryRecordItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/whoisHistoryRecords/{whoisHistoryRecord%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

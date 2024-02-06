@@ -60,6 +60,6 @@ export const ResourcePerformanceMetricsRequestBuilderRequestsMetadata: RequestsM
 /**
  * Uri template for the request builder.
  */
-export const ResourcePerformanceMetricsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}/resourcePerformanceMetrics{?%24select,%24expand}";
+export const ResourcePerformanceMetricsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}/resourcePerformanceMetrics{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

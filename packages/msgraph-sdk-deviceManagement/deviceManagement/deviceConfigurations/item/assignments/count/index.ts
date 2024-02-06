@@ -59,6 +59,6 @@ export const CountRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const CountRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/assignments/$count{?%24search,%24filter}";
+export const CountRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/assignments/$count{?%24filter,%24search}";
 /* tslint:enable */
 /* eslint-enable */

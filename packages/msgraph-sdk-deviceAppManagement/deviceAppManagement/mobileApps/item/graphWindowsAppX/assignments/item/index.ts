@@ -108,6 +108,6 @@ export const MobileAppAssignmentItemRequestBuilderRequestsMetadata: RequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const MobileAppAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.windowsAppX/assignments/{mobileAppAssignment%2Did}{?%24select,%24expand}";
+export const MobileAppAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.windowsAppX/assignments/{mobileAppAssignment%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

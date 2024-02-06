@@ -111,6 +111,6 @@ export const AuthoredNoteItemRequestBuilderRequestsMetadata: RequestsMetadata = 
 /**
  * Uri template for the request builder.
  */
-export const AuthoredNoteItemRequestBuilderUriTemplate = "{+baseurl}/privacy/subjectRightsRequests/{subjectRightsRequest%2Did}/notes/{authoredNote%2Did}{?%24select,%24expand}";
+export const AuthoredNoteItemRequestBuilderUriTemplate = "{+baseurl}/privacy/subjectRightsRequests/{subjectRightsRequest%2Did}/notes/{authoredNote%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -80,6 +80,6 @@ export const AttachmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const AttachmentItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/events/{event%2Did}/attachments/{attachment%2Did}{?%24select,%24expand}";
+export const AttachmentItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/events/{event%2Did}/attachments/{attachment%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -142,6 +142,6 @@ export const AndroidManagedAppProtectionItemRequestBuilderRequestsMetadata: Requ
 /**
  * Uri template for the request builder.
  */
-export const AndroidManagedAppProtectionItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/androidManagedAppProtections/{androidManagedAppProtection%2Did}{?%24select,%24expand}";
+export const AndroidManagedAppProtectionItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/androidManagedAppProtections/{androidManagedAppProtection%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

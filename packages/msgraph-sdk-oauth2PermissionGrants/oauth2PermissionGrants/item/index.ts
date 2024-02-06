@@ -108,6 +108,6 @@ export const OAuth2PermissionGrantItemRequestBuilderRequestsMetadata: RequestsMe
 /**
  * Uri template for the request builder.
  */
-export const OAuth2PermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}{?%24select,%24expand}";
+export const OAuth2PermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

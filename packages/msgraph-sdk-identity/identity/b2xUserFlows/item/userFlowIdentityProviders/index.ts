@@ -125,6 +125,6 @@ export const UserFlowIdentityProvidersRequestBuilderRequestsMetadata: RequestsMe
 /**
  * Uri template for the request builder.
  */
-export const UserFlowIdentityProvidersRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userFlowIdentityProviders{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const UserFlowIdentityProvidersRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userFlowIdentityProviders{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

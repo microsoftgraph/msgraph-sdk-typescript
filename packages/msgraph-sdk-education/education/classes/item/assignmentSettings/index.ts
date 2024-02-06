@@ -121,6 +121,6 @@ export const AssignmentSettingsRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const AssignmentSettingsRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings{?%24select,%24expand}";
+export const AssignmentSettingsRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

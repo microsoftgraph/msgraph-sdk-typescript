@@ -107,6 +107,6 @@ export const TeamsAppSettingsRequestBuilderRequestsMetadata: RequestsMetadata = 
 /**
  * Uri template for the request builder.
  */
-export const TeamsAppSettingsRequestBuilderUriTemplate = "{+baseurl}/teamwork/teamsAppSettings{?%24select,%24expand}";
+export const TeamsAppSettingsRequestBuilderUriTemplate = "{+baseurl}/teamwork/teamsAppSettings{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

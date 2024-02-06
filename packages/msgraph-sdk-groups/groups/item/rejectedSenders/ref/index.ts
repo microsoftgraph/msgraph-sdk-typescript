@@ -137,6 +137,6 @@ export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const RefRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/rejectedSenders/$ref{?%24top,%24skip,%24filter,%24count,%24orderby,%40id*}";
+export const RefRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/rejectedSenders/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

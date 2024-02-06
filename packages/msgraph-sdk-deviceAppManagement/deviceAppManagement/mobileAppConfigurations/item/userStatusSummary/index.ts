@@ -107,6 +107,6 @@ export const UserStatusSummaryRequestBuilderRequestsMetadata: RequestsMetadata =
 /**
  * Uri template for the request builder.
  */
-export const UserStatusSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/userStatusSummary{?%24select,%24expand}";
+export const UserStatusSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/userStatusSummary{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

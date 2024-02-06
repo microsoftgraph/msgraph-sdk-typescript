@@ -106,6 +106,6 @@ export const SignInItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const SignInItemRequestBuilderUriTemplate = "{+baseurl}/auditLogs/signIns/{signIn%2Did}{?%24select,%24expand}";
+export const SignInItemRequestBuilderUriTemplate = "{+baseurl}/auditLogs/signIns/{signIn%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

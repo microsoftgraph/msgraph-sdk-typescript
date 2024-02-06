@@ -116,6 +116,6 @@ export const RelatedHostsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const RelatedHostsRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/sslCertificates/{sslCertificate%2Did}/relatedHosts{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const RelatedHostsRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/sslCertificates/{sslCertificate%2Did}/relatedHosts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

@@ -121,6 +121,6 @@ export const AuditLogsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const AuditLogsRequestBuilderUriTemplate = "{+baseurl}/auditLogs{?%24select,%24expand}";
+export const AuditLogsRequestBuilderUriTemplate = "{+baseurl}/auditLogs{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

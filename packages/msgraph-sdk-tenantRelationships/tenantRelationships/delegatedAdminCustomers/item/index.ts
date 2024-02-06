@@ -121,6 +121,6 @@ export const DelegatedAdminCustomerItemRequestBuilderRequestsMetadata: RequestsM
 /**
  * Uri template for the request builder.
  */
-export const DelegatedAdminCustomerItemRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}{?%24select,%24expand}";
+export const DelegatedAdminCustomerItemRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

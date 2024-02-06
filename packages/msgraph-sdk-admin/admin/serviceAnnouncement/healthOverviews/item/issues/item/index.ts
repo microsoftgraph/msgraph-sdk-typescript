@@ -119,6 +119,6 @@ export const ServiceHealthIssueItemRequestBuilderRequestsMetadata: RequestsMetad
 /**
  * Uri template for the request builder.
  */
-export const ServiceHealthIssueItemRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/healthOverviews/{serviceHealth%2Did}/issues/{serviceHealthIssue%2Did}{?%24select,%24expand}";
+export const ServiceHealthIssueItemRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/healthOverviews/{serviceHealth%2Did}/issues/{serviceHealthIssue%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

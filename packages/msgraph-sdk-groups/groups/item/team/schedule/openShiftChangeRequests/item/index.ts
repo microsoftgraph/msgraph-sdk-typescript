@@ -106,6 +106,6 @@ export const OpenShiftChangeRequestItemRequestBuilderRequestsMetadata: RequestsM
 /**
  * Uri template for the request builder.
  */
-export const OpenShiftChangeRequestItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests/{openShiftChangeRequest%2Did}{?%24select,%24expand}";
+export const OpenShiftChangeRequestItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests/{openShiftChangeRequest%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

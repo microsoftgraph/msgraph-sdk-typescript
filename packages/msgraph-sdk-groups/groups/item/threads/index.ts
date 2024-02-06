@@ -135,6 +135,6 @@ export const ThreadsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ThreadsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/threads{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}";
+export const ThreadsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/threads{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

@@ -143,6 +143,6 @@ export const MdmWindowsInformationProtectionPolicyItemRequestBuilderRequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const MdmWindowsInformationProtectionPolicyItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies/{mdmWindowsInformationProtectionPolicy%2Did}{?%24select,%24expand}";
+export const MdmWindowsInformationProtectionPolicyItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies/{mdmWindowsInformationProtectionPolicy%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

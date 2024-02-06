@@ -95,6 +95,6 @@ export const GraphWin32LobAppRequestBuilderRequestsMetadata: RequestsMetadata = 
 /**
  * Uri template for the request builder.
  */
-export const GraphWin32LobAppRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.win32LobApp{?%24select,%24expand}";
+export const GraphWin32LobAppRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.win32LobApp{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

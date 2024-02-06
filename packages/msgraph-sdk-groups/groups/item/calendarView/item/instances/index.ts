@@ -125,6 +125,6 @@ export const InstancesRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const InstancesRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendarView/{event%2Did}/instances{?startDateTime*,endDateTime*,%24top,%24skip,%24filter,%24count,%24orderby,%24select}";
+export const InstancesRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendarView/{event%2Did}/instances?endDateTime={endDateTime}&startDateTime={startDateTime}{&%24count,%24filter,%24orderby,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

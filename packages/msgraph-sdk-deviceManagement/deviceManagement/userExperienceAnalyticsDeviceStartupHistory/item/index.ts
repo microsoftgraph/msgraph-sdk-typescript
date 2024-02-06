@@ -105,6 +105,6 @@ export const UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilderReques
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceStartupHistory/{userExperienceAnalyticsDeviceStartupHistory%2Did}{?%24select,%24expand}";
+export const UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceStartupHistory/{userExperienceAnalyticsDeviceStartupHistory%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -22,28 +22,28 @@ export interface DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuild
      */
      byDeviceCompliancePolicyId(deviceCompliancePolicyId: string) : DeviceCompliancePolicyItemRequestBuilder;
     /**
-     * List properties and relationships of the androidWorkProfileCompliancePolicy objects.
+     * List properties and relationships of the windows81CompliancePolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicyCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows81compliancepolicy-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceCompliancePoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCompliancePolicyCollectionResponse | undefined>;
     /**
-     * Create a new windows10CompliancePolicy object.
+     * Create a new androidCompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicy
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10compliancepolicy-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidcompliancepolicy-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceCompliancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCompliancePolicy | undefined>;
     /**
-     * List properties and relationships of the androidWorkProfileCompliancePolicy objects.
+     * List properties and relationships of the windows81CompliancePolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceCompliancePoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new windows10CompliancePolicy object.
+     * Create a new androidCompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -51,7 +51,7 @@ export interface DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuild
      toPostRequestInformation(body: DeviceCompliancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the androidWorkProfileCompliancePolicy objects.
+ * List properties and relationships of the windows81CompliancePolicy objects.
  */
 export interface DeviceCompliancePoliciesRequestBuilderGetQueryParameters {
     /**
@@ -145,6 +145,6 @@ export const DeviceCompliancePoliciesRequestBuilderRequestsMetadata: RequestsMet
 /**
  * Uri template for the request builder.
  */
-export const DeviceCompliancePoliciesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const DeviceCompliancePoliciesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

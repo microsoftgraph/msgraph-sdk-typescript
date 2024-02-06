@@ -106,6 +106,6 @@ export const FieldsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const FieldsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}/fields{?%24select,%24expand}";
+export const FieldsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}/fields{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

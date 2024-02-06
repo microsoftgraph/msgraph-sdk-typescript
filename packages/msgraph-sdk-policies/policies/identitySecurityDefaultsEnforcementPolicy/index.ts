@@ -107,6 +107,6 @@ export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderRequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/identitySecurityDefaultsEnforcementPolicy{?%24select,%24expand}";
+export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/identitySecurityDefaultsEnforcementPolicy{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

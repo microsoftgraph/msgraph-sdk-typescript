@@ -105,6 +105,6 @@ export const OnenoteRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const OnenoteRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/getByPath(path='{path}')/onenote{?%24select,%24expand}";
+export const OnenoteRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/getByPath(path='{path}')/onenote{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

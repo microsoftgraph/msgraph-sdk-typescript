@@ -60,10 +60,10 @@ export interface OrganizationItemRequestBuilder extends BaseRequestBuilder<Organ
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the organization object.
+     * Get the properties and relationships of the currently authenticated organization. Since the organization resource supports extensions, you can also use the GET operation to get custom properties and extension data in an organization instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Organization
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-organization-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/organization-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OrganizationItemRequestBuilderGetQueryParameters> | undefined) : Promise<Organization | undefined>;
     /**
@@ -81,7 +81,7 @@ export interface OrganizationItemRequestBuilder extends BaseRequestBuilder<Organ
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the organization object.
+     * Get the properties and relationships of the currently authenticated organization. Since the organization resource supports extensions, you can also use the GET operation to get custom properties and extension data in an organization instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +95,7 @@ export interface OrganizationItemRequestBuilder extends BaseRequestBuilder<Organ
      toPatchRequestInformation(body: Organization, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the organization object.
+ * Get the properties and relationships of the currently authenticated organization. Since the organization resource supports extensions, you can also use the GET operation to get custom properties and extension data in an organization instance.
  */
 export interface OrganizationItemRequestBuilderGetQueryParameters {
     /**
@@ -196,6 +196,6 @@ export const OrganizationItemRequestBuilderRequestsMetadata: RequestsMetadata = 
 /**
  * Uri template for the request builder.
  */
-export const OrganizationItemRequestBuilderUriTemplate = "{+baseurl}/organization/{organization%2Did}{?%24select,%24expand}";
+export const OrganizationItemRequestBuilderUriTemplate = "{+baseurl}/organization/{organization%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -105,6 +105,6 @@ export const ColumnLinkItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ColumnLinkItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/columnLinks/{columnLink%2Did}{?%24select,%24expand}";
+export const ColumnLinkItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/columnLinks/{columnLink%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -139,6 +139,6 @@ export const TeamsAppInstallationItemRequestBuilderRequestsMetadata: RequestsMet
 /**
  * Uri template for the request builder.
  */
-export const TeamsAppInstallationItemRequestBuilderUriTemplate = "{+baseurl}/chats/{chat%2Did}/installedApps/{teamsAppInstallation%2Did}{?%24select,%24expand}";
+export const TeamsAppInstallationItemRequestBuilderUriTemplate = "{+baseurl}/chats/{chat%2Did}/installedApps/{teamsAppInstallation%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

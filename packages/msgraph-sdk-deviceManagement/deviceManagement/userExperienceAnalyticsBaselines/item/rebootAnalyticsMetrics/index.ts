@@ -60,6 +60,6 @@ export const RebootAnalyticsMetricsRequestBuilderRequestsMetadata: RequestsMetad
 /**
  * Uri template for the request builder.
  */
-export const RebootAnalyticsMetricsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}/rebootAnalyticsMetrics{?%24select,%24expand}";
+export const RebootAnalyticsMetricsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}/rebootAnalyticsMetrics{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

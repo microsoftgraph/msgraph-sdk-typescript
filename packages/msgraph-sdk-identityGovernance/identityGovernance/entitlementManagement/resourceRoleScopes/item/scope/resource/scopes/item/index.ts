@@ -105,6 +105,6 @@ export const AccessPackageResourceScopeItemRequestBuilderRequestsMetadata: Reque
 /**
  * Uri template for the request builder.
  */
-export const AccessPackageResourceScopeItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceRoleScopes/{accessPackageResourceRoleScope%2Did}/scope/resource/scopes/{accessPackageResourceScope%2Did}{?%24select,%24expand}";
+export const AccessPackageResourceScopeItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceRoleScopes/{accessPackageResourceRoleScope%2Did}/scope/resource/scopes/{accessPackageResourceScope%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

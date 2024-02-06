@@ -85,6 +85,6 @@ export const UserRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const UserRequestBuilderUriTemplate = "{+baseurl}/education/me/user{?%24select,%24expand}";
+export const UserRequestBuilderUriTemplate = "{+baseurl}/education/me/user{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

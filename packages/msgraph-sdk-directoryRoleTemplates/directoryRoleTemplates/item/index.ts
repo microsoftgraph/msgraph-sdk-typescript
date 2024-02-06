@@ -156,6 +156,6 @@ export const DirectoryRoleTemplateItemRequestBuilderRequestsMetadata: RequestsMe
 /**
  * Uri template for the request builder.
  */
-export const DirectoryRoleTemplateItemRequestBuilderUriTemplate = "{+baseurl}/directoryRoleTemplates/{directoryRoleTemplate%2Did}{?%24select,%24expand}";
+export const DirectoryRoleTemplateItemRequestBuilderUriTemplate = "{+baseurl}/directoryRoleTemplates/{directoryRoleTemplate%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

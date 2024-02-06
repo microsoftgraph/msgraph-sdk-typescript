@@ -60,6 +60,6 @@ export const GraphEndpointRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const GraphEndpointRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/ownedDevices/{directoryObject%2Did}/graph.endpoint{?%24select,%24expand}";
+export const GraphEndpointRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/ownedDevices/{directoryObject%2Did}/graph.endpoint{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

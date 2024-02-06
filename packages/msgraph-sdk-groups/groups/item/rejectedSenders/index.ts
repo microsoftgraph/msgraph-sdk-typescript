@@ -116,6 +116,6 @@ export const RejectedSendersRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const RejectedSendersRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/rejectedSenders{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}";
+export const RejectedSendersRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/rejectedSenders{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

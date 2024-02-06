@@ -121,6 +121,6 @@ export const WorkbookChartPointItemRequestBuilderRequestsMetadata: RequestsMetad
 /**
  * Uri template for the request builder.
  */
-export const WorkbookChartPointItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/series/{workbookChartSeries%2Did}/points/{workbookChartPoint%2Did}{?%24select,%24expand}";
+export const WorkbookChartPointItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/series/{workbookChartSeries%2Did}/points/{workbookChartPoint%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

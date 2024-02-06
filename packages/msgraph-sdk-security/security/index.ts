@@ -210,6 +210,6 @@ export const SecurityRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const SecurityRequestBuilderUriTemplate = "{+baseurl}/security{?%24select,%24expand}";
+export const SecurityRequestBuilderUriTemplate = "{+baseurl}/security{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -106,6 +106,6 @@ export const RichLongRunningOperationItemRequestBuilderRequestsMetadata: Request
 /**
  * Uri template for the request builder.
  */
-export const RichLongRunningOperationItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/operations/{richLongRunningOperation%2Did}{?%24select,%24expand}";
+export const RichLongRunningOperationItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/operations/{richLongRunningOperation%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

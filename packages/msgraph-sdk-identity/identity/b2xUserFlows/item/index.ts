@@ -162,6 +162,6 @@ export const B2xIdentityUserFlowItemRequestBuilderRequestsMetadata: RequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const B2xIdentityUserFlowItemRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}{?%24select,%24expand}";
+export const B2xIdentityUserFlowItemRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

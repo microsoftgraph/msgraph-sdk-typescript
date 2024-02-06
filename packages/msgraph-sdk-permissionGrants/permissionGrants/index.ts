@@ -155,6 +155,6 @@ export const PermissionGrantsRequestBuilderRequestsMetadata: RequestsMetadata = 
 /**
  * Uri template for the request builder.
  */
-export const PermissionGrantsRequestBuilderUriTemplate = "{+baseurl}/permissionGrants{?%24search,%24filter,%24orderby,%24select,%24expand}";
+export const PermissionGrantsRequestBuilderUriTemplate = "{+baseurl}/permissionGrants{?%24expand,%24filter,%24orderby,%24search,%24select}";
 /* tslint:enable */
 /* eslint-enable */

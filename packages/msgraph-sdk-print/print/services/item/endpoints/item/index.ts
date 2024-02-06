@@ -106,6 +106,6 @@ export const PrintServiceEndpointItemRequestBuilderRequestsMetadata: RequestsMet
 /**
  * Uri template for the request builder.
  */
-export const PrintServiceEndpointItemRequestBuilderUriTemplate = "{+baseurl}/print/services/{printService%2Did}/endpoints/{printServiceEndpoint%2Did}{?%24select,%24expand}";
+export const PrintServiceEndpointItemRequestBuilderUriTemplate = "{+baseurl}/print/services/{printService%2Did}/endpoints/{printServiceEndpoint%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

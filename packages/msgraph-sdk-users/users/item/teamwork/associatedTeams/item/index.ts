@@ -119,6 +119,6 @@ export const AssociatedTeamInfoItemRequestBuilderRequestsMetadata: RequestsMetad
 /**
  * Uri template for the request builder.
  */
-export const AssociatedTeamInfoItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/teamwork/associatedTeams/{associatedTeamInfo%2Did}{?%24select,%24expand}";
+export const AssociatedTeamInfoItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/teamwork/associatedTeams/{associatedTeamInfo%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

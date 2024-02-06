@@ -108,6 +108,6 @@ export const BrowserSiteItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const BrowserSiteItemRequestBuilderUriTemplate = "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sites/{browserSite%2Did}{?%24select,%24expand}";
+export const BrowserSiteItemRequestBuilderUriTemplate = "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sites/{browserSite%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

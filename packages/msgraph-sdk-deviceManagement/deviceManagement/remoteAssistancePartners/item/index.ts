@@ -131,6 +131,6 @@ export const RemoteAssistancePartnerItemRequestBuilderRequestsMetadata: Requests
 /**
  * Uri template for the request builder.
  */
-export const RemoteAssistancePartnerItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/remoteAssistancePartners/{remoteAssistancePartner%2Did}{?%24select,%24expand}";
+export const RemoteAssistancePartnerItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/remoteAssistancePartners/{remoteAssistancePartner%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

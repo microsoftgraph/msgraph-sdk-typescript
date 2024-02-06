@@ -286,6 +286,6 @@ export const TeamItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TeamItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}{?%24select,%24expand}";
+export const TeamItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

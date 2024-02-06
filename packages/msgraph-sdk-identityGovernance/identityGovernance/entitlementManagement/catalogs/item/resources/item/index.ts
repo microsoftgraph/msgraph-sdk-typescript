@@ -139,6 +139,6 @@ export const AccessPackageResourceItemRequestBuilderRequestsMetadata: RequestsMe
 /**
  * Uri template for the request builder.
  */
-export const AccessPackageResourceItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/catalogs/{accessPackageCatalog%2Did}/resources/{accessPackageResource%2Did}{?%24select,%24expand}";
+export const AccessPackageResourceItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/catalogs/{accessPackageCatalog%2Did}/resources/{accessPackageResource%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

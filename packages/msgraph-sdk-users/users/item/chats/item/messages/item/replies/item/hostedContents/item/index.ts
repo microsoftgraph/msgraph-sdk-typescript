@@ -120,6 +120,6 @@ export const ChatMessageHostedContentItemRequestBuilderRequestsMetadata: Request
 /**
  * Uri template for the request builder.
  */
-export const ChatMessageHostedContentItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/hostedContents/{chatMessageHostedContent%2Did}{?%24select,%24expand}";
+export const ChatMessageHostedContentItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/hostedContents/{chatMessageHostedContent%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

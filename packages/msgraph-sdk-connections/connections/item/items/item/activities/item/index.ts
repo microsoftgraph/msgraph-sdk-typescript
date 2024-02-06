@@ -119,6 +119,6 @@ export const ExternalActivityItemRequestBuilderRequestsMetadata: RequestsMetadat
 /**
  * Uri template for the request builder.
  */
-export const ExternalActivityItemRequestBuilderUriTemplate = "{+baseurl}/connections/{externalConnection%2Did}/items/{externalItem%2Did}/activities/{externalActivity%2Did}{?%24select,%24expand}";
+export const ExternalActivityItemRequestBuilderUriTemplate = "{+baseurl}/connections/{externalConnection%2Did}/items/{externalItem%2Did}/activities/{externalActivity%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

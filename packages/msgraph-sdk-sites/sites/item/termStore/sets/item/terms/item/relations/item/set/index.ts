@@ -60,6 +60,6 @@ export const SetRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const SetRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore/sets/{set%2Did}/terms/{term%2Did}/relations/{relation%2Did}/set{?%24select,%24expand}";
+export const SetRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore/sets/{set%2Did}/terms/{term%2Did}/relations/{relation%2Did}/set{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

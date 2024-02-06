@@ -147,6 +147,6 @@ export const UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderRequestsMet
 /**
  * Uri template for the request builder.
  */
-export const UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstance%2Did}{?%24select,%24expand}";
+export const UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstance%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

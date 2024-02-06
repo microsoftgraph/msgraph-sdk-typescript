@@ -96,7 +96,7 @@ export interface DeviceAppManagementRequestBuilder extends BaseRequestBuilder<De
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceAppManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-deviceappmanagement-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-unlock-deviceappmanagement-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceAppManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceAppManagement | undefined>;
     /**
@@ -242,6 +242,6 @@ export const DeviceAppManagementRequestBuilderRequestsMetadata: RequestsMetadata
 /**
  * Uri template for the request builder.
  */
-export const DeviceAppManagementRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement{?%24select,%24expand}";
+export const DeviceAppManagementRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

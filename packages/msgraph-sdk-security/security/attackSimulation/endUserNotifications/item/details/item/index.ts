@@ -105,6 +105,6 @@ export const EndUserNotificationDetailItemRequestBuilderRequestsMetadata: Reques
 /**
  * Uri template for the request builder.
  */
-export const EndUserNotificationDetailItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/endUserNotifications/{endUserNotification%2Did}/details/{endUserNotificationDetail%2Did}{?%24select,%24expand}";
+export const EndUserNotificationDetailItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/endUserNotifications/{endUserNotification%2Did}/details/{endUserNotificationDetail%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

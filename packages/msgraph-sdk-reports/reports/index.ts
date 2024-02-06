@@ -109,6 +109,7 @@ import { ManagedDeviceEnrollmentTopFailuresRequestBuilderRequestsMetadata, Manag
 import { ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilderRequestsMetadata, ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilderUriTemplate, type ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder } from './managedDeviceEnrollmentTopFailuresWithPeriod/';
 import { MonthlyPrintUsageByPrinterRequestBuilderNavigationMetadata, MonthlyPrintUsageByPrinterRequestBuilderRequestsMetadata, MonthlyPrintUsageByPrinterRequestBuilderUriTemplate, type MonthlyPrintUsageByPrinterRequestBuilder } from './monthlyPrintUsageByPrinter/';
 import { MonthlyPrintUsageByUserRequestBuilderNavigationMetadata, MonthlyPrintUsageByUserRequestBuilderRequestsMetadata, MonthlyPrintUsageByUserRequestBuilderUriTemplate, type MonthlyPrintUsageByUserRequestBuilder } from './monthlyPrintUsageByUser/';
+import { PartnersRequestBuilderNavigationMetadata, PartnersRequestBuilderRequestsMetadata, PartnersRequestBuilderUriTemplate, type PartnersRequestBuilder } from './partners/';
 import { SecurityRequestBuilderNavigationMetadata, SecurityRequestBuilderRequestsMetadata, SecurityRequestBuilderUriTemplate, type SecurityRequestBuilder } from './security/';
 import { type BaseRequestBuilder, type DateOnly, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -164,6 +165,10 @@ export interface ReportsRequestBuilder extends BaseRequestBuilder<ReportsRequest
      * Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
      */
     get monthlyPrintUsageByUser(): MonthlyPrintUsageByUserRequestBuilder;
+    /**
+     * Provides operations to manage the partners property of the microsoft.graph.reportRoot entity.
+     */
+    get partners(): PartnersRequestBuilder;
     /**
      * Provides operations to manage the security property of the microsoft.graph.reportRoot entity.
      */
@@ -1223,6 +1228,11 @@ export const ReportsRequestBuilderNavigationMetadata: Record<Exclude<keyof Repor
         requestsMetadata: MonthlyPrintUsageByUserRequestBuilderRequestsMetadata,
         navigationMetadata: MonthlyPrintUsageByUserRequestBuilderNavigationMetadata,
     },
+    partners: {
+        uriTemplate: PartnersRequestBuilderUriTemplate,
+        requestsMetadata: PartnersRequestBuilderRequestsMetadata,
+        navigationMetadata: PartnersRequestBuilderNavigationMetadata,
+    },
     security: {
         uriTemplate: SecurityRequestBuilderUriTemplate,
         requestsMetadata: SecurityRequestBuilderRequestsMetadata,
@@ -1259,6 +1269,6 @@ export const ReportsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ReportsRequestBuilderUriTemplate = "{+baseurl}/reports{?%24select,%24expand}";
+export const ReportsRequestBuilderUriTemplate = "{+baseurl}/reports{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

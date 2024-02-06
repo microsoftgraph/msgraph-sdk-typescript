@@ -130,6 +130,6 @@ export const TermsOfUseRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TermsOfUseRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/termsOfUse{?%24select,%24expand}";
+export const TermsOfUseRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/termsOfUse{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -109,6 +109,6 @@ export const AvailableProviderTypesRequestBuilderRequestsMetadata: RequestsMetad
 /**
  * Uri template for the request builder.
  */
-export const AvailableProviderTypesRequestBuilderUriTemplate = "{+baseurl}/identityProviders/availableProviderTypes(){?%24top,%24skip,%24search,%24filter,%24count}";
+export const AvailableProviderTypesRequestBuilderUriTemplate = "{+baseurl}/identityProviders/availableProviderTypes(){?%24count,%24filter,%24search,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

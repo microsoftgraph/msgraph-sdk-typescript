@@ -107,6 +107,6 @@ export const ScopedRoleMembershipItemRequestBuilderRequestsMetadata: RequestsMet
 /**
  * Uri template for the request builder.
  */
-export const ScopedRoleMembershipItemRequestBuilderUriTemplate = "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/scopedRoleMembers/{scopedRoleMembership%2Did}{?%24select,%24expand}";
+export const ScopedRoleMembershipItemRequestBuilderUriTemplate = "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/scopedRoleMembers/{scopedRoleMembership%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

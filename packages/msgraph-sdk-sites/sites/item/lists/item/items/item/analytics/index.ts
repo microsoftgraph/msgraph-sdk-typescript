@@ -60,6 +60,6 @@ export const AnalyticsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const AnalyticsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}/analytics{?%24select,%24expand}";
+export const AnalyticsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}/analytics{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -109,6 +109,6 @@ export const SubscribedSkusRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const SubscribedSkusRequestBuilderUriTemplate = "{+baseurl}/subscribedSkus{?%24search,%24orderby,%24select}";
+export const SubscribedSkusRequestBuilderUriTemplate = "{+baseurl}/subscribedSkus{?%24orderby,%24search,%24select}";
 /* tslint:enable */
 /* eslint-enable */

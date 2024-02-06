@@ -60,6 +60,6 @@ export const HostRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const HostRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostCookies/{hostCookie%2Did}/host{?%24select,%24expand}";
+export const HostRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostCookies/{hostCookie%2Did}/host{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -120,6 +120,6 @@ export const SessionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const SessionItemRequestBuilderUriTemplate = "{+baseurl}/communications/callRecords/{callRecord%2Did}/sessions/{session%2Did}{?%24select,%24expand}";
+export const SessionItemRequestBuilderUriTemplate = "{+baseurl}/communications/callRecords/{callRecord%2Did}/sessions/{session%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

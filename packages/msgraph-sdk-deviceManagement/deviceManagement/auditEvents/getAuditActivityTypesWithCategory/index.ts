@@ -107,6 +107,6 @@ export const GetAuditActivityTypesWithCategoryRequestBuilderRequestsMetadata: Re
 /**
  * Uri template for the request builder.
  */
-export const GetAuditActivityTypesWithCategoryRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/auditEvents/getAuditActivityTypes(category='{category}'){?%24top,%24skip,%24search,%24filter,%24count}";
+export const GetAuditActivityTypesWithCategoryRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/auditEvents/getAuditActivityTypes(category='{category}'){?%24count,%24filter,%24search,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

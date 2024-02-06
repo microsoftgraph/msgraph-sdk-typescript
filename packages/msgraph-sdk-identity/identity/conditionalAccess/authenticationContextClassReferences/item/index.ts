@@ -108,6 +108,6 @@ export const AuthenticationContextClassReferenceItemRequestBuilderRequestsMetada
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationContextClassReferenceItemRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/authenticationContextClassReferences/{authenticationContextClassReference%2Did}{?%24select,%24expand}";
+export const AuthenticationContextClassReferenceItemRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/authenticationContextClassReferences/{authenticationContextClassReference%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

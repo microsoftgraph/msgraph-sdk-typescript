@@ -85,6 +85,6 @@ export const PeopleRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const PeopleRequestBuilderUriTemplate = "{+baseurl}/admin/people{?%24select,%24expand}";
+export const PeopleRequestBuilderUriTemplate = "{+baseurl}/admin/people{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

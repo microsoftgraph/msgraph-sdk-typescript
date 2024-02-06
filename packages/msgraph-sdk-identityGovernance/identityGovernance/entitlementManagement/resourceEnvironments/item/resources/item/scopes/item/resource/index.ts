@@ -129,6 +129,6 @@ export const ResourceRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ResourceRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceEnvironments/{accessPackageResourceEnvironment%2Did}/resources/{accessPackageResource%2Did}/scopes/{accessPackageResourceScope%2Did}/resource{?%24select,%24expand}";
+export const ResourceRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceEnvironments/{accessPackageResourceEnvironment%2Did}/resources/{accessPackageResource%2Did}/scopes/{accessPackageResourceScope%2Did}/resource{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

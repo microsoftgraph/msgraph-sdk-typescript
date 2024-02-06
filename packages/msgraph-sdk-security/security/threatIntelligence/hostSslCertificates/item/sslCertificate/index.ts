@@ -60,6 +60,6 @@ export const SslCertificateRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const SslCertificateRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostSslCertificates/{hostSslCertificate%2Did}/sslCertificate{?%24select,%24expand}";
+export const SslCertificateRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostSslCertificates/{hostSslCertificate%2Did}/sslCertificate{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

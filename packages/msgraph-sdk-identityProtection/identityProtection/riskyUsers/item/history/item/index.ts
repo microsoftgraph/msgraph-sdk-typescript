@@ -105,6 +105,6 @@ export const RiskyUserHistoryItemItemRequestBuilderRequestsMetadata: RequestsMet
 /**
  * Uri template for the request builder.
  */
-export const RiskyUserHistoryItemItemRequestBuilderUriTemplate = "{+baseurl}/identityProtection/riskyUsers/{riskyUser%2Did}/history/{riskyUserHistoryItem%2Did}{?%24select,%24expand}";
+export const RiskyUserHistoryItemItemRequestBuilderUriTemplate = "{+baseurl}/identityProtection/riskyUsers/{riskyUser%2Did}/history/{riskyUserHistoryItem%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -101,6 +101,6 @@ export const PrivacyRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const PrivacyRequestBuilderUriTemplate = "{+baseurl}/privacy{?%24select,%24expand}";
+export const PrivacyRequestBuilderUriTemplate = "{+baseurl}/privacy{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -60,6 +60,6 @@ export const BaseItemItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const BaseItemItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/items/{baseItem%2Did}{?%24select,%24expand}";
+export const BaseItemItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/items/{baseItem%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

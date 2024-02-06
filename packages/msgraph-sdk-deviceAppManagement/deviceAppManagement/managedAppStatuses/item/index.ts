@@ -106,6 +106,6 @@ export const ManagedAppStatusItemRequestBuilderRequestsMetadata: RequestsMetadat
 /**
  * Uri template for the request builder.
  */
-export const ManagedAppStatusItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppStatuses/{managedAppStatus%2Did}{?%24select,%24expand}";
+export const ManagedAppStatusItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppStatuses/{managedAppStatus%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

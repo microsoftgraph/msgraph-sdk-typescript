@@ -107,6 +107,6 @@ export const GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderRequest
 /**
  * Uri template for the request builder.
  */
-export const GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/notebooks/getRecentNotebooks(includePersonalNotebooks={includePersonalNotebooks}){?%24top,%24skip,%24search,%24filter,%24count}";
+export const GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/notebooks/getRecentNotebooks(includePersonalNotebooks={includePersonalNotebooks}){?%24count,%24filter,%24search,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

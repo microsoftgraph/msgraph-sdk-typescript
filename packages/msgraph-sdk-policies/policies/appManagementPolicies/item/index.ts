@@ -123,6 +123,6 @@ export const AppManagementPolicyItemRequestBuilderRequestsMetadata: RequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const AppManagementPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/appManagementPolicies/{appManagementPolicy%2Did}{?%24select,%24expand}";
+export const AppManagementPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/appManagementPolicies/{appManagementPolicy%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

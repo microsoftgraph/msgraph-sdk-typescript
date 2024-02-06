@@ -60,6 +60,6 @@ export const SiteRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const SiteRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/site{?%24select,%24expand}";
+export const SiteRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/site{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

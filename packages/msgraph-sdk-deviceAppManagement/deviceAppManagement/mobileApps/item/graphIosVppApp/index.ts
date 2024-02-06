@@ -85,6 +85,6 @@ export const GraphIosVppAppRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const GraphIosVppAppRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.iosVppApp{?%24select,%24expand}";
+export const GraphIosVppAppRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.iosVppApp{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

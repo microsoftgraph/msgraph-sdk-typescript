@@ -105,6 +105,6 @@ export const VirtualEndpointRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const VirtualEndpointRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint{?%24select,%24expand}";
+export const VirtualEndpointRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

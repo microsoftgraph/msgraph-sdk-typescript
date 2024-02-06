@@ -106,6 +106,6 @@ export const ReputationRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ReputationRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/reputation{?%24select,%24expand}";
+export const ReputationRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/reputation{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

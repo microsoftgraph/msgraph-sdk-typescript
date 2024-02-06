@@ -143,6 +143,6 @@ export const HostSslCertificatesRequestBuilderRequestsMetadata: RequestsMetadata
 /**
  * Uri template for the request builder.
  */
-export const HostSslCertificatesRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostSslCertificates{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const HostSslCertificatesRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostSslCertificates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

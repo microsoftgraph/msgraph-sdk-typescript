@@ -107,6 +107,6 @@ export const EducationOutcomeItemRequestBuilderRequestsMetadata: RequestsMetadat
 /**
  * Uri template for the request builder.
  */
-export const EducationOutcomeItemRequestBuilderUriTemplate = "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/submissions/{educationSubmission%2Did}/outcomes/{educationOutcome%2Did}{?%24select,%24expand}";
+export const EducationOutcomeItemRequestBuilderUriTemplate = "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/submissions/{educationSubmission%2Did}/outcomes/{educationOutcome%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

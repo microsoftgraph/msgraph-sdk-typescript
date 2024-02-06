@@ -10,9 +10,9 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder<ManagedEBookAssignmentItemRequestBuilder> {
     /**
-     * Deletes a iosVppEBookAssignment.
+     * Deletes a managedEBookAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebookassignment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebookassignment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -31,7 +31,7 @@ export interface ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBui
      */
      patch(body: ManagedEBookAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedEBookAssignment | undefined>;
     /**
-     * Deletes a iosVppEBookAssignment.
+     * Deletes a managedEBookAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -108,6 +108,6 @@ export const ManagedEBookAssignmentItemRequestBuilderRequestsMetadata: RequestsM
 /**
  * Uri template for the request builder.
  */
-export const ManagedEBookAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}/assignments/{managedEBookAssignment%2Did}{?%24select,%24expand}";
+export const ManagedEBookAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}/assignments/{managedEBookAssignment%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -95,6 +95,6 @@ export const GraphWindowsMobileMSIRequestBuilderRequestsMetadata: RequestsMetada
 /**
  * Uri template for the request builder.
  */
-export const GraphWindowsMobileMSIRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.windowsMobileMSI{?%24select,%24expand}";
+export const GraphWindowsMobileMSIRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.windowsMobileMSI{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

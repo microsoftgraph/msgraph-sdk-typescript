@@ -133,6 +133,6 @@ export const DeviceLocalCredentialsRequestBuilderRequestsMetadata: RequestsMetad
 /**
  * Uri template for the request builder.
  */
-export const DeviceLocalCredentialsRequestBuilderUriTemplate = "{+baseurl}/directory/deviceLocalCredentials{?%24top,%24search,%24filter,%24count,%24orderby,%24select}";
+export const DeviceLocalCredentialsRequestBuilderUriTemplate = "{+baseurl}/directory/deviceLocalCredentials{?%24count,%24filter,%24orderby,%24search,%24select,%24top}";
 /* tslint:enable */
 /* eslint-enable */

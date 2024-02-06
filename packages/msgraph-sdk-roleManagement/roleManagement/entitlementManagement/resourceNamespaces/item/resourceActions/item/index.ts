@@ -105,6 +105,6 @@ export const UnifiedRbacResourceActionItemRequestBuilderRequestsMetadata: Reques
 /**
  * Uri template for the request builder.
  */
-export const UnifiedRbacResourceActionItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/resourceNamespaces/{unifiedRbacResourceNamespace%2Did}/resourceActions/{unifiedRbacResourceAction%2Did}{?%24select,%24expand}";
+export const UnifiedRbacResourceActionItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/resourceNamespaces/{unifiedRbacResourceNamespace%2Did}/resourceActions/{unifiedRbacResourceAction%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

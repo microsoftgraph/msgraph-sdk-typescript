@@ -22,10 +22,10 @@ export interface ManagedAppPoliciesRequestBuilder extends BaseRequestBuilder<Man
      */
      byManagedAppPolicyId(managedAppPolicyId: string) : ManagedAppPolicyItemRequestBuilder;
     /**
-     * List properties and relationships of the managedAppProtection objects.
+     * List properties and relationships of the managedAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppPolicyCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappprotection-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedAppPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedAppPolicyCollectionResponse | undefined>;
     /**
@@ -36,7 +36,7 @@ export interface ManagedAppPoliciesRequestBuilder extends BaseRequestBuilder<Man
      */
      post(body: ManagedAppPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedAppPolicy | undefined>;
     /**
-     * List properties and relationships of the managedAppProtection objects.
+     * List properties and relationships of the managedAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -50,7 +50,7 @@ export interface ManagedAppPoliciesRequestBuilder extends BaseRequestBuilder<Man
      toPostRequestInformation(body: ManagedAppPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the managedAppProtection objects.
+ * List properties and relationships of the managedAppConfiguration objects.
  */
 export interface ManagedAppPoliciesRequestBuilderGetQueryParameters {
     /**
@@ -144,6 +144,6 @@ export const ManagedAppPoliciesRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const ManagedAppPoliciesRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const ManagedAppPoliciesRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

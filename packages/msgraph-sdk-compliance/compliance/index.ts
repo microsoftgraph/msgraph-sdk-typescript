@@ -86,6 +86,6 @@ export const ComplianceRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ComplianceRequestBuilderUriTemplate = "{+baseurl}/compliance{?%24select,%24expand}";
+export const ComplianceRequestBuilderUriTemplate = "{+baseurl}/compliance{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

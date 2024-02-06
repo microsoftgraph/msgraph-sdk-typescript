@@ -60,6 +60,6 @@ export const ParentHostRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ParentHostRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/passiveDnsRecords/{passiveDnsRecord%2Did}/parentHost{?%24select,%24expand}";
+export const ParentHostRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/passiveDnsRecords/{passiveDnsRecord%2Did}/parentHost{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

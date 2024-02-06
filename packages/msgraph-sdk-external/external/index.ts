@@ -101,6 +101,6 @@ export const ExternalRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ExternalRequestBuilderUriTemplate = "{+baseurl}/external{?%24select,%24expand}";
+export const ExternalRequestBuilderUriTemplate = "{+baseurl}/external{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

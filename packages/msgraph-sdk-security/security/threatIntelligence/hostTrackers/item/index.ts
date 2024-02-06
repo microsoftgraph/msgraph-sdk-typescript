@@ -120,6 +120,6 @@ export const HostTrackerItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const HostTrackerItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostTrackers/{hostTracker%2Did}{?%24select,%24expand}";
+export const HostTrackerItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostTrackers/{hostTracker%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

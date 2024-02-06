@@ -60,6 +60,6 @@ export const LastSevenDaysRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const LastSevenDaysRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics/lastSevenDays{?%24select,%24expand}";
+export const LastSevenDaysRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics/lastSevenDays{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -60,6 +60,6 @@ export const WorksheetRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const WorksheetRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/names/{workbookNamedItem%2Did}/worksheet{?%24select,%24expand}";
+export const WorksheetRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/names/{workbookNamedItem%2Did}/worksheet{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

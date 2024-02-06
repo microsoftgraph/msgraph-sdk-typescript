@@ -108,6 +108,6 @@ export const DeviceComplianceSettingStateItemRequestBuilderRequestsMetadata: Req
 /**
  * Uri template for the request builder.
  */
-export const DeviceComplianceSettingStateItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicySettingStateSummaries/{deviceCompliancePolicySettingStateSummary%2Did}/deviceComplianceSettingStates/{deviceComplianceSettingState%2Did}{?%24select,%24expand}";
+export const DeviceComplianceSettingStateItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicySettingStateSummaries/{deviceCompliancePolicySettingStateSummary%2Did}/deviceComplianceSettingStates/{deviceComplianceSettingState%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

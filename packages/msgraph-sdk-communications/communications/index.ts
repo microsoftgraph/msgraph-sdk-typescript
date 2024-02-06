@@ -140,6 +140,6 @@ export const CommunicationsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const CommunicationsRequestBuilderUriTemplate = "{+baseurl}/communications{?%24select,%24expand}";
+export const CommunicationsRequestBuilderUriTemplate = "{+baseurl}/communications{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

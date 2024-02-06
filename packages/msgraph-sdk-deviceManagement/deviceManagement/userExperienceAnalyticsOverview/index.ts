@@ -105,6 +105,6 @@ export const UserExperienceAnalyticsOverviewRequestBuilderRequestsMetadata: Requ
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsOverviewRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsOverview{?%24select,%24expand}";
+export const UserExperienceAnalyticsOverviewRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsOverview{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

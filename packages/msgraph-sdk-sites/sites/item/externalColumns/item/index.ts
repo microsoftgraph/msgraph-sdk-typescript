@@ -60,6 +60,6 @@ export const ColumnDefinitionItemRequestBuilderRequestsMetadata: RequestsMetadat
 /**
  * Uri template for the request builder.
  */
-export const ColumnDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/externalColumns/{columnDefinition%2Did}{?%24select,%24expand}";
+export const ColumnDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/externalColumns/{columnDefinition%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

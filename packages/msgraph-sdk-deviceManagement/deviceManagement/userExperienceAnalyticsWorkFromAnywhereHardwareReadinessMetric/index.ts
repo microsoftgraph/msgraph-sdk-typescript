@@ -105,6 +105,6 @@ export const UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricReque
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric{?%24select,%24expand}";
+export const UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

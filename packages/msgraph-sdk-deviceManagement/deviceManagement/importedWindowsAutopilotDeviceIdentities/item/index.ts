@@ -107,6 +107,6 @@ export const ImportedWindowsAutopilotDeviceIdentityItemRequestBuilderRequestsMet
 /**
  * Uri template for the request builder.
  */
-export const ImportedWindowsAutopilotDeviceIdentityItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/importedWindowsAutopilotDeviceIdentities/{importedWindowsAutopilotDeviceIdentity%2Did}{?%24select,%24expand}";
+export const ImportedWindowsAutopilotDeviceIdentityItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/importedWindowsAutopilotDeviceIdentities/{importedWindowsAutopilotDeviceIdentity%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

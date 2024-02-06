@@ -108,6 +108,6 @@ export const EducationRubricItemRequestBuilderRequestsMetadata: RequestsMetadata
 /**
  * Uri template for the request builder.
  */
-export const EducationRubricItemRequestBuilderUriTemplate = "{+baseurl}/education/users/{educationUser%2Did}/rubrics/{educationRubric%2Did}{?%24select,%24expand}";
+export const EducationRubricItemRequestBuilderUriTemplate = "{+baseurl}/education/users/{educationUser%2Did}/rubrics/{educationRubric%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

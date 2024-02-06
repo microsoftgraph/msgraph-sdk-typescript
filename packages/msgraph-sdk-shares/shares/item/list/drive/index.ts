@@ -60,6 +60,6 @@ export const DriveRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const DriveRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list/drive{?%24select,%24expand}";
+export const DriveRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list/drive{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

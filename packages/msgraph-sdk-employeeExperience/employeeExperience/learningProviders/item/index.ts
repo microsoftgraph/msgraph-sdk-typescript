@@ -155,6 +155,6 @@ export const LearningProviderItemRequestBuilderRequestsMetadata: RequestsMetadat
 /**
  * Uri template for the request builder.
  */
-export const LearningProviderItemRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}{?%24select,%24expand}";
+export const LearningProviderItemRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

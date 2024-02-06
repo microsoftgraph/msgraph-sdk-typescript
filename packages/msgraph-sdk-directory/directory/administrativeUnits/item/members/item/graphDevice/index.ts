@@ -60,6 +60,6 @@ export const GraphDeviceRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const GraphDeviceRequestBuilderUriTemplate = "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/members/{directoryObject%2Did}/graph.device{?%24select,%24expand}";
+export const GraphDeviceRequestBuilderUriTemplate = "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/members/{directoryObject%2Did}/graph.device{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

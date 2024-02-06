@@ -108,6 +108,6 @@ export const InternalDomainFederationItemRequestBuilderRequestsMetadata: Request
 /**
  * Uri template for the request builder.
  */
-export const InternalDomainFederationItemRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/federationConfiguration/{internalDomainFederation%2Did}{?%24select,%24expand}";
+export const InternalDomainFederationItemRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/federationConfiguration/{internalDomainFederation%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

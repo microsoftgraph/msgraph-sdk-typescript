@@ -129,6 +129,6 @@ export const TermItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TermItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore/groups/{group%2Did}/sets/{set%2Did}/terms/{term%2Did}/children/{term%2Did1}{?%24select,%24expand}";
+export const TermItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore/groups/{group%2Did}/sets/{set%2Did}/terms/{term%2Did}/children/{term%2Did1}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

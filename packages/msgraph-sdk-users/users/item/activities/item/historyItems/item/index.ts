@@ -26,11 +26,11 @@ export interface ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilde
      */
      get(requestConfiguration?: RequestConfiguration<ActivityHistoryItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<ActivityHistoryItem | undefined>;
     /**
-     * Create a new or replace an existing history item for an existing user activity.
+     * Delete an existing history item for an existing user activity.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ActivityHistoryItem
-     * @see {@link https://learn.microsoft.com/graph/api/projectrome-put-historyitem?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/projectrome-delete-historyitem?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ActivityHistoryItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ActivityHistoryItem | undefined>;
     /**
@@ -46,7 +46,7 @@ export interface ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilde
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ActivityHistoryItemItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new or replace an existing history item for an existing user activity.
+     * Delete an existing history item for an existing user activity.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -120,6 +120,6 @@ export const ActivityHistoryItemItemRequestBuilderRequestsMetadata: RequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const ActivityHistoryItemItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/activities/{userActivity%2Did}/historyItems/{activityHistoryItem%2Did}{?%24select,%24expand}";
+export const ActivityHistoryItemItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/activities/{userActivity%2Did}/historyItems/{activityHistoryItem%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

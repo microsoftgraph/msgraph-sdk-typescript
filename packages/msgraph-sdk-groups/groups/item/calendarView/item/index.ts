@@ -170,6 +170,6 @@ export const EventItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const EventItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendarView/{event%2Did}{?startDateTime*,endDateTime*,%24select}";
+export const EventItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendarView/{event%2Did}?endDateTime={endDateTime}&startDateTime={startDateTime}{&%24select}";
 /* tslint:enable */
 /* eslint-enable */

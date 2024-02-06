@@ -123,6 +123,6 @@ export const RemoteDesktopSecurityConfigurationRequestBuilderRequestsMetadata: R
 /**
  * Uri template for the request builder.
  */
-export const RemoteDesktopSecurityConfigurationRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/remoteDesktopSecurityConfiguration{?%24select,%24expand}";
+export const RemoteDesktopSecurityConfigurationRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/remoteDesktopSecurityConfiguration{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

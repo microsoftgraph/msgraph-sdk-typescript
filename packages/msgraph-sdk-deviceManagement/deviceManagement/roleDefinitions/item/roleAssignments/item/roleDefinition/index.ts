@@ -60,6 +60,6 @@ export const RoleDefinitionRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const RoleDefinitionRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/roleDefinitions/{roleDefinition%2Did}/roleAssignments/{roleAssignment%2Did}/roleDefinition{?%24select,%24expand}";
+export const RoleDefinitionRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/roleDefinitions/{roleDefinition%2Did}/roleAssignments/{roleAssignment%2Did}/roleDefinition{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

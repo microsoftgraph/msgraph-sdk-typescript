@@ -107,6 +107,6 @@ export const BucketTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMetada
 /**
  * Uri template for the request builder.
  */
-export const BucketTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/planner/buckets/{plannerBucket%2Did}/tasks/{plannerTask%2Did}/bucketTaskBoardFormat{?%24select,%24expand}";
+export const BucketTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/planner/buckets/{plannerBucket%2Did}/tasks/{plannerTask%2Did}/bucketTaskBoardFormat{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

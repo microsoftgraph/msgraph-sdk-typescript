@@ -60,6 +60,6 @@ export const CreatedOnBehalfOfRequestBuilderRequestsMetadata: RequestsMetadata =
 /**
  * Uri template for the request builder.
  */
-export const CreatedOnBehalfOfRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/createdOnBehalfOf{?%24select,%24expand}";
+export const CreatedOnBehalfOfRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/createdOnBehalfOf{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -134,6 +134,6 @@ export const CalendarPermissionsRequestBuilderRequestsMetadata: RequestsMetadata
 /**
  * Uri template for the request builder.
  */
-export const CalendarPermissionsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendar/calendarPermissions{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}";
+export const CalendarPermissionsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendar/calendarPermissions{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

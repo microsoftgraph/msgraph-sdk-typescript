@@ -139,6 +139,6 @@ export const PrivilegedAccessGroupAssignmentScheduleItemRequestBuilderRequestsMe
 /**
  * Uri template for the request builder.
  */
-export const PrivilegedAccessGroupAssignmentScheduleItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/assignmentSchedules/{privilegedAccessGroupAssignmentSchedule%2Did}{?%24select,%24expand}";
+export const PrivilegedAccessGroupAssignmentScheduleItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/assignmentSchedules/{privilegedAccessGroupAssignmentSchedule%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

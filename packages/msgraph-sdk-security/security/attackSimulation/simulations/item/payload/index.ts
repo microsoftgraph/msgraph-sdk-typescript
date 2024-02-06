@@ -60,6 +60,6 @@ export const PayloadRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const PayloadRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/payload{?%24select,%24expand}";
+export const PayloadRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/payload{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

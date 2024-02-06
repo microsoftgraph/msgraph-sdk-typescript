@@ -276,6 +276,6 @@ export const PoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const PoliciesRequestBuilderUriTemplate = "{+baseurl}/policies{?%24select,%24expand}";
+export const PoliciesRequestBuilderUriTemplate = "{+baseurl}/policies{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

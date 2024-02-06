@@ -153,6 +153,6 @@ export const ChatsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ChatsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+export const ChatsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

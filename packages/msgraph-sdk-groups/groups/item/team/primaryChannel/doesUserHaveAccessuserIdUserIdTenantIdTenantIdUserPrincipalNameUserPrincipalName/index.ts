@@ -95,6 +95,6 @@ export const DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUser
 /**
  * Uri template for the request builder.
  */
-export const DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel/doesUserHaveAccess(userId='@userId',tenantId='@tenantId',userPrincipalName='@userPrincipalName'){?userId*,tenantId*,userPrincipalName*}";
+export const DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel/doesUserHaveAccess(userId='@userId',tenantId='@tenantId',userPrincipalName='@userPrincipalName'){?tenantId*,userId*,userPrincipalName*}";
 /* tslint:enable */
 /* eslint-enable */

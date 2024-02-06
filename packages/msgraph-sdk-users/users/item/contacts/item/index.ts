@@ -133,6 +133,6 @@ export const ContactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const ContactItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contacts/{contact%2Did}{?%24select,%24expand}";
+export const ContactItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contacts/{contact%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

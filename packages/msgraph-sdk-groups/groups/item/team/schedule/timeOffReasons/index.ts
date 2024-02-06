@@ -139,6 +139,6 @@ export const TimeOffReasonsRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TimeOffReasonsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/timeOffReasons{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select}";
+export const TimeOffReasonsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/timeOffReasons{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

@@ -130,6 +130,6 @@ export const VirtualEventWebinarItemRequestBuilderRequestsMetadata: RequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const VirtualEventWebinarItemRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}{?%24select,%24expand}";
+export const VirtualEventWebinarItemRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

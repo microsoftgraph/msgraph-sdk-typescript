@@ -74,6 +74,6 @@ export const DriveItemItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const DriveItemItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/bundles/{driveItem%2Did}{?%24select,%24expand}";
+export const DriveItemItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/bundles/{driveItem%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -122,6 +122,6 @@ export const TeamsTabItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TeamsTabItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/tabs/{teamsTab%2Did}{?%24select,%24expand}";
+export const TeamsTabItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/tabs/{teamsTab%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

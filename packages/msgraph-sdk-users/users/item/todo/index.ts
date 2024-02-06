@@ -120,6 +120,6 @@ export const TodoRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const TodoRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo{?%24select,%24expand}";
+export const TodoRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

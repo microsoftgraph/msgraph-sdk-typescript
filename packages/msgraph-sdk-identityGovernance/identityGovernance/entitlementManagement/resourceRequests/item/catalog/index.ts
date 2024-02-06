@@ -160,6 +160,6 @@ export const CatalogRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const CatalogRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceRequests/{accessPackageResourceRequest%2Did}/catalog{?%24select,%24expand}";
+export const CatalogRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceRequests/{accessPackageResourceRequest%2Did}/catalog{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

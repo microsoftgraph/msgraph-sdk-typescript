@@ -70,9 +70,9 @@ export interface MessageItemRequestBuilder extends BaseRequestBuilder<MessageIte
      */
     get send(): SendRequestBuilder;
     /**
-     * Delete a message in the specified user's mailbox, or delete a relationship of the message.
+     * Delete eventMessage.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/message-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/eventmessage-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -91,7 +91,7 @@ export interface MessageItemRequestBuilder extends BaseRequestBuilder<MessageIte
      */
      patch(body: Message, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Message | undefined>;
     /**
-     * Delete a message in the specified user's mailbox, or delete a relationship of the message.
+     * Delete eventMessage.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -227,6 +227,6 @@ export const MessageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
 /**
  * Uri template for the request builder.
  */
-export const MessageItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/messages/{message%2Did}{?includeHiddenMessages*,%24select,%24expand}";
+export const MessageItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/messages/{message%2Did}{?%24expand,%24select,includeHiddenMessages*}";
 /* tslint:enable */
 /* eslint-enable */

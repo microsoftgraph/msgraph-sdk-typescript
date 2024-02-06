@@ -55,6 +55,10 @@ export interface GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderGetQueryParam
      */
     count?: boolean;
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Filter items by property values
      */
     filter?: string;
@@ -92,6 +96,7 @@ export function serializeGetByUserIdAndRoleWithUserIdWithRoleGetResponse(writer:
  */
 const GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "count": "%24count",
+    "expand": "%24expand",
     "filter": "%24filter",
     "orderby": "%24orderby",
     "search": "%24search",
@@ -117,6 +122,6 @@ export const GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderRequestsMetadata:
 /**
  * Uri template for the request builder.
  */
-export const GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/getByUserIdAndRole(userId='{userId}',role='{role}'){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}";
+export const GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/getByUserIdAndRole(userId='{userId}',role='{role}'){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

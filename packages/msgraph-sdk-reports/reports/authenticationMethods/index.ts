@@ -162,6 +162,6 @@ export const AuthenticationMethodsRequestBuilderRequestsMetadata: RequestsMetada
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationMethodsRequestBuilderUriTemplate = "{+baseurl}/reports/authenticationMethods{?%24select,%24expand}";
+export const AuthenticationMethodsRequestBuilderUriTemplate = "{+baseurl}/reports/authenticationMethods{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -108,6 +108,6 @@ export const ManagedAppOperationItemRequestBuilderRequestsMetadata: RequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const ManagedAppOperationItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}/operations/{managedAppOperation%2Did}{?%24select,%24expand}";
+export const ManagedAppOperationItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}/operations/{managedAppOperation%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -105,6 +105,6 @@ export const AgreementAcceptanceItemRequestBuilderRequestsMetadata: RequestsMeta
 /**
  * Uri template for the request builder.
  */
-export const AgreementAcceptanceItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}/acceptances/{agreementAcceptance%2Did}{?%24select,%24expand}";
+export const AgreementAcceptanceItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}/acceptances/{agreementAcceptance%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

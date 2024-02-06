@@ -55,40 +55,40 @@ export interface DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBui
      */
     get userStatusOverview(): UserStatusOverviewRequestBuilder;
     /**
-     * Deletes a androidCompliancePolicy.
+     * Deletes a windows81CompliancePolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidcompliancepolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows81compliancepolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the deviceCompliancePolicy object.
+     * Read properties and relationships of the androidWorkProfileCompliancePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicy
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCompliancePolicy | undefined>;
     /**
-     * Update the properties of a macOSCompliancePolicy object.
+     * Update the properties of a windows81CompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicy
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-macoscompliancepolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows81compliancepolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceCompliancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCompliancePolicy | undefined>;
     /**
-     * Deletes a androidCompliancePolicy.
+     * Deletes a windows81CompliancePolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the deviceCompliancePolicy object.
+     * Read properties and relationships of the androidWorkProfileCompliancePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a macOSCompliancePolicy object.
+     * Update the properties of a windows81CompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -96,7 +96,7 @@ export interface DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBui
      toPatchRequestInformation(body: DeviceCompliancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the deviceCompliancePolicy object.
+ * Read properties and relationships of the androidWorkProfileCompliancePolicy object.
  */
 export interface DeviceCompliancePolicyItemRequestBuilderGetQueryParameters {
     /**
@@ -199,6 +199,6 @@ export const DeviceCompliancePolicyItemRequestBuilderRequestsMetadata: RequestsM
 /**
  * Uri template for the request builder.
  */
-export const DeviceCompliancePolicyItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}{?%24select,%24expand}";
+export const DeviceCompliancePolicyItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -108,6 +108,6 @@ export const IosUpdateDeviceStatusItemRequestBuilderRequestsMetadata: RequestsMe
 /**
  * Uri template for the request builder.
  */
-export const IosUpdateDeviceStatusItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/iosUpdateStatuses/{iosUpdateDeviceStatus%2Did}{?%24select,%24expand}";
+export const IosUpdateDeviceStatusItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/iosUpdateStatuses/{iosUpdateDeviceStatus%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

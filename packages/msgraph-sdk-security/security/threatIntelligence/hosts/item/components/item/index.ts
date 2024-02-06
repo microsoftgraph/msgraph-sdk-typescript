@@ -60,6 +60,6 @@ export const HostComponentItemRequestBuilderRequestsMetadata: RequestsMetadata =
 /**
  * Uri template for the request builder.
  */
-export const HostComponentItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/components/{hostComponent%2Did}{?%24select,%24expand}";
+export const HostComponentItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/components/{hostComponent%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -106,6 +106,6 @@ export const AttackSimulationOperationItemRequestBuilderRequestsMetadata: Reques
 /**
  * Uri template for the request builder.
  */
-export const AttackSimulationOperationItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/operations/{attackSimulationOperation%2Did}{?%24select,%24expand}";
+export const AttackSimulationOperationItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/operations/{attackSimulationOperation%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

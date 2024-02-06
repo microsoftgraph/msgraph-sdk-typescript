@@ -60,6 +60,6 @@ export const TeamsAppDefinitionRequestBuilderRequestsMetadata: RequestsMetadata 
 /**
  * Uri template for the request builder.
  */
-export const TeamsAppDefinitionRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/installedApps/{teamsAppInstallation%2Did}/teamsAppDefinition{?%24select,%24expand}";
+export const TeamsAppDefinitionRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/installedApps/{teamsAppInstallation%2Did}/teamsAppDefinition{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */
