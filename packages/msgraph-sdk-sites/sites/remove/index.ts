@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a removePostRequestBody
+ * @returns {RemovePostRequestBody}
  */
 export function createRemovePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRemovePostRequestBody;
@@ -16,14 +16,14 @@ export function createRemovePostRequestBodyFromDiscriminatorValue(parseNode: Par
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a removePostResponse
+ * @returns {RemovePostResponse}
  */
 export function createRemovePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRemovePostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoRemovePostRequestBody(removePostRequestBody: Partial<RemovePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -33,7 +33,7 @@ export function deserializeIntoRemovePostRequestBody(removePostRequestBody: Part
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoRemovePostResponse(removePostResponse: Partial<RemovePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -69,7 +69,8 @@ export interface RemoveRequestBuilder extends BaseRequestBuilder<RemoveRequestBu
      * Unfollow a user's site or multiple sites.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of RemovePostResponse
+     * @returns {Promise<RemovePostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/site-unfollow?view=graph-rest-1.0|Find more info here}
      */
      post(body: RemovePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RemovePostResponse | undefined>;
@@ -77,7 +78,7 @@ export interface RemoveRequestBuilder extends BaseRequestBuilder<RemoveRequestBu
      * Unfollow a user's site or multiple sites.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: RemovePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -98,14 +99,18 @@ export function serializeRemovePostResponse(writer: SerializationWriter, removeP
     writer.writeCollectionOfObjectValues<Site>("value", removePostResponse.value, serializeSite);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const RemoveRequestBuilderUriTemplate = "{+baseurl}/sites/remove";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const RemoveRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: RemoveRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createRemovePostResponseFromDiscriminatorValue,
@@ -114,9 +119,5 @@ export const RemoveRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const RemoveRequestBuilderUriTemplate = "{+baseurl}/sites/remove";
 /* tslint:enable */
 /* eslint-enable */

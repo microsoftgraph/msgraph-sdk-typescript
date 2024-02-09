@@ -11,33 +11,34 @@ export interface GetM365AppUserDetailWithDateRequestBuilder extends BaseRequestB
     /**
      * Invoke function getM365AppUserDetail
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ArrayBuffer
+     * @returns {Promise<ArrayBuffer>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
      * Invoke function getM365AppUserDetail
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const GetM365AppUserDetailWithDateRequestBuilderUriTemplate = "{+baseurl}/reports/getM365AppUserDetail(date={date})";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const GetM365AppUserDetailWithDateRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GetM365AppUserDetailWithDateRequestBuilderUriTemplate,
         responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendPrimitiveAsync",
         responseBodyFactory:  "ArrayBuffer",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetM365AppUserDetailWithDateRequestBuilderUriTemplate = "{+baseurl}/reports/getM365AppUserDetail(date={date})";
 /* tslint:enable */
 /* eslint-enable */

@@ -12,38 +12,41 @@ export interface DelegatedAdminServiceManagementDetailItemRequestBuilder extends
     /**
      * Delete navigation property serviceManagementDetails for tenantRelationships
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Contains the management details of a service in the customer tenant that's managed by delegated administration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DelegatedAdminServiceManagementDetail
+     * @returns {Promise<DelegatedAdminServiceManagementDetail>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<DelegatedAdminServiceManagementDetailItemRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedAdminServiceManagementDetail | undefined>;
     /**
      * Update the navigation property serviceManagementDetails in tenantRelationships
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DelegatedAdminServiceManagementDetail
+     * @returns {Promise<DelegatedAdminServiceManagementDetail>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: DelegatedAdminServiceManagementDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DelegatedAdminServiceManagementDetail | undefined>;
     /**
      * Delete navigation property serviceManagementDetails for tenantRelationships
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Contains the management details of a service in the customer tenant that's managed by delegated administration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DelegatedAdminServiceManagementDetailItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property serviceManagementDetails in tenantRelationships
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: DelegatedAdminServiceManagementDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -61,6 +64,10 @@ export interface DelegatedAdminServiceManagementDetailItemRequestBuilderGetQuery
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const DelegatedAdminServiceManagementDetailItemRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}/serviceManagementDetails/{delegatedAdminServiceManagementDetail%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const DelegatedAdminServiceManagementDetailItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -72,28 +79,28 @@ const DelegatedAdminServiceManagementDetailItemRequestBuilderGetQueryParametersM
  */
 export const DelegatedAdminServiceManagementDetailItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: DelegatedAdminServiceManagementDetailItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: DelegatedAdminServiceManagementDetailItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDelegatedAdminServiceManagementDetailFromDiscriminatorValue,
         queryParametersMapper: DelegatedAdminServiceManagementDetailItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: DelegatedAdminServiceManagementDetailItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDelegatedAdminServiceManagementDetailFromDiscriminatorValue,
@@ -102,9 +109,5 @@ export const DelegatedAdminServiceManagementDetailItemRequestBuilderRequestsMeta
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const DelegatedAdminServiceManagementDetailItemRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}/serviceManagementDetails/{delegatedAdminServiceManagementDetail%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

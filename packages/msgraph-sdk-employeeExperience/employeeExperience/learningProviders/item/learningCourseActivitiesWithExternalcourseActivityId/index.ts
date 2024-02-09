@@ -12,40 +12,43 @@ export interface LearningCourseActivitiesWithExternalcourseActivityIdRequestBuil
     /**
      * Delete a learningCourseActivity object using the course activity ID of either an assignment or a self-initiated activity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/learningcourseactivity-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Get learningCourseActivities from employeeExperience
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of LearningCourseActivity
+     * @returns {Promise<LearningCourseActivity>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderGetQueryParameters> | undefined) : Promise<LearningCourseActivity | undefined>;
     /**
      * Update the properties of a learningCourseActivity object. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of LearningCourseActivity
+     * @returns {Promise<LearningCourseActivity>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/learningcourseactivity-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: LearningCourseActivity, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LearningCourseActivity | undefined>;
     /**
      * Delete a learningCourseActivity object using the course activity ID of either an assignment or a self-initiated activity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Get learningCourseActivities from employeeExperience
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the properties of a learningCourseActivity object. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: LearningCourseActivity, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -63,6 +66,10 @@ export interface LearningCourseActivitiesWithExternalcourseActivityIdRequestBuil
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningCourseActivities(externalcourseActivityId='{externalcourseActivityId}'){?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -74,28 +81,28 @@ const LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderGetQuery
  */
 export const LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createLearningCourseActivityFromDiscriminatorValue,
         queryParametersMapper: LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createLearningCourseActivityFromDiscriminatorValue,
@@ -104,9 +111,5 @@ export const LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderR
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningCourseActivities(externalcourseActivityId='{externalcourseActivityId}'){?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -12,12 +12,14 @@ export interface DataPolicyOperationItemRequestBuilder extends BaseRequestBuilde
     /**
      * Delete entity from dataPolicyOperations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Retrieve the properties of a dataPolicyOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DataPolicyOperation
+     * @returns {Promise<DataPolicyOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/datapolicyoperation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DataPolicyOperationItemRequestBuilderGetQueryParameters> | undefined) : Promise<DataPolicyOperation | undefined>;
@@ -25,26 +27,27 @@ export interface DataPolicyOperationItemRequestBuilder extends BaseRequestBuilde
      * Update entity in dataPolicyOperations
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DataPolicyOperation
+     * @returns {Promise<DataPolicyOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: DataPolicyOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DataPolicyOperation | undefined>;
     /**
      * Delete entity from dataPolicyOperations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Retrieve the properties of a dataPolicyOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DataPolicyOperationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update entity in dataPolicyOperations
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: DataPolicyOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -62,6 +65,10 @@ export interface DataPolicyOperationItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const DataPolicyOperationItemRequestBuilderUriTemplate = "{+baseurl}/dataPolicyOperations/{dataPolicyOperation%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const DataPolicyOperationItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -73,28 +80,28 @@ const DataPolicyOperationItemRequestBuilderGetQueryParametersMapper: Record<stri
  */
 export const DataPolicyOperationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: DataPolicyOperationItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: DataPolicyOperationItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDataPolicyOperationFromDiscriminatorValue,
         queryParametersMapper: DataPolicyOperationItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: DataPolicyOperationItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDataPolicyOperationFromDiscriminatorValue,
@@ -103,9 +110,5 @@ export const DataPolicyOperationItemRequestBuilderRequestsMetadata: RequestsMeta
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const DataPolicyOperationItemRequestBuilderUriTemplate = "{+baseurl}/dataPolicyOperations/{dataPolicyOperation%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

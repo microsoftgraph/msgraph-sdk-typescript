@@ -12,13 +12,14 @@ export interface HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestB
     /**
      * Get homeRealmDiscoveryPolicies from applications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of HomeRealmDiscoveryPolicy
+     * @returns {Promise<HomeRealmDiscoveryPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<HomeRealmDiscoveryPolicy | undefined>;
     /**
      * Get homeRealmDiscoveryPolicies from applications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const HomeRealmDiscoveryPolicyItemRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/homeRealmDiscoveryPolicies/{homeRealmDiscoveryPolicy%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParametersMapper: Record
  */
 export const HomeRealmDiscoveryPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: HomeRealmDiscoveryPolicyItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createHomeRealmDiscoveryPolicyFromDiscriminatorValue,
         queryParametersMapper: HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const HomeRealmDiscoveryPolicyItemRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/homeRealmDiscoveryPolicies/{homeRealmDiscoveryPolicy%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

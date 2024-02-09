@@ -12,7 +12,8 @@ export interface MailboxSettingsRequestBuilder extends BaseRequestBuilder<Mailbo
     /**
      * Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of MailboxSettings
+     * @returns {Promise<MailboxSettings>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
      get(requestConfiguration?: RequestConfiguration<MailboxSettingsRequestBuilderGetQueryParameters> | undefined) : Promise<MailboxSettings | undefined>;
@@ -20,14 +21,15 @@ export interface MailboxSettingsRequestBuilder extends BaseRequestBuilder<Mailbo
      * Update property mailboxSettings value.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of MailboxSettings
+     * @returns {Promise<MailboxSettings>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
      patch(body: MailboxSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MailboxSettings | undefined>;
     /**
      * Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MailboxSettingsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
@@ -35,7 +37,7 @@ export interface MailboxSettingsRequestBuilder extends BaseRequestBuilder<Mailbo
      * Update property mailboxSettings value.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
      toPatchRequestInformation(body: MailboxSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
@@ -54,6 +56,10 @@ export interface MailboxSettingsRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const MailboxSettingsRequestBuilderUriTemplate = "{+baseurl}/privacy/subjectRightsRequests/{subjectRightsRequest%2Did}/approvers/{user%2Did}/mailboxSettings{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const MailboxSettingsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -65,20 +71,20 @@ const MailboxSettingsRequestBuilderGetQueryParametersMapper: Record<string, stri
  */
 export const MailboxSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: MailboxSettingsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createMailboxSettingsFromDiscriminatorValue,
         queryParametersMapper: MailboxSettingsRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: MailboxSettingsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createMailboxSettingsFromDiscriminatorValue,
@@ -87,9 +93,5 @@ export const MailboxSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const MailboxSettingsRequestBuilderUriTemplate = "{+baseurl}/privacy/subjectRightsRequests/{subjectRightsRequest%2Did}/approvers/{user%2Did}/mailboxSettings{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -35,7 +35,8 @@ export interface AddKeyRequestBuilder extends BaseRequestBuilder<AddKeyRequestBu
      * Add a key credential to an application. This method, along with removeKey can be used by an application to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.  Applications that don’t have any existing valid certificates (no certificates have been added yet, or all certificates have expired), won’t be able to use this service action. You can use the Update application operation to perform an update instead.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of KeyCredential
+     * @returns {Promise<KeyCredential>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/application-addkey?view=graph-rest-1.0|Find more info here}
      */
      post(body: AddKeyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<KeyCredential | undefined>;
@@ -43,21 +44,21 @@ export interface AddKeyRequestBuilder extends BaseRequestBuilder<AddKeyRequestBu
      * Add a key credential to an application. This method, along with removeKey can be used by an application to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.  Applications that don’t have any existing valid certificates (no certificates have been added yet, or all certificates have expired), won’t be able to use this service action. You can use the Update application operation to perform an update instead.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: AddKeyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a addKeyPostRequestBody
+ * @returns {AddKeyPostRequestBody}
  */
 export function createAddKeyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddKeyPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoAddKeyPostRequestBody(addKeyPostRequestBody: Partial<AddKeyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -78,14 +79,18 @@ export function serializeAddKeyPostRequestBody(writer: SerializationWriter, addK
     writer.writeAdditionalData(addKeyPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AddKeyRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/addKey";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const AddKeyRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: AddKeyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createKeyCredentialFromDiscriminatorValue,
@@ -94,9 +99,5 @@ export const AddKeyRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AddKeyRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/addKey";
 /* tslint:enable */
 /* eslint-enable */

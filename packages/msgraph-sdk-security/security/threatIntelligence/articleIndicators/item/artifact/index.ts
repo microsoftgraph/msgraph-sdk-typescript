@@ -12,13 +12,14 @@ export interface ArtifactRequestBuilder extends BaseRequestBuilder<ArtifactReque
     /**
      * The artifact related to this indicator.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Artifact
+     * @returns {Promise<Artifact>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ArtifactRequestBuilderGetQueryParameters> | undefined) : Promise<Artifact | undefined>;
     /**
      * The artifact related to this indicator.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ArtifactRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface ArtifactRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ArtifactRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/articleIndicators/{articleIndicator%2Did}/artifact{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ArtifactRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const ArtifactRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const ArtifactRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ArtifactRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createArtifactFromDiscriminatorValue,
         queryParametersMapper: ArtifactRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ArtifactRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/articleIndicators/{articleIndicator%2Did}/artifact{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

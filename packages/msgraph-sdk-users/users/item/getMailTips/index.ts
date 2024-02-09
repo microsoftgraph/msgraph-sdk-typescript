@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getMailTipsPostRequestBody
+ * @returns {GetMailTipsPostRequestBody}
  */
 export function createGetMailTipsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetMailTipsPostRequestBody;
@@ -16,14 +16,14 @@ export function createGetMailTipsPostRequestBodyFromDiscriminatorValue(parseNode
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getMailTipsPostResponse
+ * @returns {GetMailTipsPostResponse}
  */
 export function createGetMailTipsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetMailTipsPostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetMailTipsPostRequestBody(getMailTipsPostRequestBody: Partial<GetMailTipsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -34,7 +34,7 @@ export function deserializeIntoGetMailTipsPostRequestBody(getMailTipsPostRequest
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetMailTipsPostResponse(getMailTipsPostResponse: Partial<GetMailTipsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -74,7 +74,8 @@ export interface GetMailTipsRequestBuilder extends BaseRequestBuilder<GetMailTip
      * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a POST call to the getMailTips action, you can request specific types of MailTips tobe returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetMailTipsPostResponse
+     * @returns {Promise<GetMailTipsPostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/user-getmailtips?view=graph-rest-1.0|Find more info here}
      */
      post(body: GetMailTipsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetMailTipsPostResponse | undefined>;
@@ -82,7 +83,7 @@ export interface GetMailTipsRequestBuilder extends BaseRequestBuilder<GetMailTip
      * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a POST call to the getMailTips action, you can request specific types of MailTips tobe returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: GetMailTipsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -104,14 +105,18 @@ export function serializeGetMailTipsPostResponse(writer: SerializationWriter, ge
     writer.writeCollectionOfObjectValues<MailTips>("value", getMailTipsPostResponse.value, serializeMailTips);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetMailTipsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/getMailTips";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const GetMailTipsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: GetMailTipsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGetMailTipsPostResponseFromDiscriminatorValue,
@@ -120,9 +125,5 @@ export const GetMailTipsRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetMailTipsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/getMailTips";
 /* tslint:enable */
 /* eslint-enable */

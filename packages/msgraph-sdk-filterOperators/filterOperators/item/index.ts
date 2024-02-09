@@ -12,38 +12,41 @@ export interface FilterOperatorSchemaItemRequestBuilder extends BaseRequestBuild
     /**
      * Delete entity from filterOperators
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Get entity from filterOperators by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of FilterOperatorSchema
+     * @returns {Promise<FilterOperatorSchema>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<FilterOperatorSchemaItemRequestBuilderGetQueryParameters> | undefined) : Promise<FilterOperatorSchema | undefined>;
     /**
      * Update entity in filterOperators
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of FilterOperatorSchema
+     * @returns {Promise<FilterOperatorSchema>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: FilterOperatorSchema, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<FilterOperatorSchema | undefined>;
     /**
      * Delete entity from filterOperators
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Get entity from filterOperators by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FilterOperatorSchemaItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update entity in filterOperators
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: FilterOperatorSchema, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -61,6 +64,10 @@ export interface FilterOperatorSchemaItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const FilterOperatorSchemaItemRequestBuilderUriTemplate = "{+baseurl}/filterOperators/{filterOperatorSchema%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const FilterOperatorSchemaItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -72,28 +79,28 @@ const FilterOperatorSchemaItemRequestBuilderGetQueryParametersMapper: Record<str
  */
 export const FilterOperatorSchemaItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: FilterOperatorSchemaItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: FilterOperatorSchemaItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createFilterOperatorSchemaFromDiscriminatorValue,
         queryParametersMapper: FilterOperatorSchemaItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: FilterOperatorSchemaItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createFilterOperatorSchemaFromDiscriminatorValue,
@@ -102,9 +109,5 @@ export const FilterOperatorSchemaItemRequestBuilderRequestsMetadata: RequestsMet
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const FilterOperatorSchemaItemRequestBuilderUriTemplate = "{+baseurl}/filterOperators/{filterOperatorSchema%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

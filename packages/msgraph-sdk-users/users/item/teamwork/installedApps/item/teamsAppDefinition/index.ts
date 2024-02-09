@@ -12,13 +12,14 @@ export interface TeamsAppDefinitionRequestBuilder extends BaseRequestBuilder<Tea
     /**
      * The details of this version of the app.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TeamsAppDefinition
+     * @returns {Promise<TeamsAppDefinition>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<TeamsAppDefinitionRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsAppDefinition | undefined>;
     /**
      * The details of this version of the app.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeamsAppDefinitionRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface TeamsAppDefinitionRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const TeamsAppDefinitionRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/teamwork/installedApps/{userScopeTeamsAppInstallation%2Did}/teamsAppDefinition{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const TeamsAppDefinitionRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const TeamsAppDefinitionRequestBuilderGetQueryParametersMapper: Record<string, s
  */
 export const TeamsAppDefinitionRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: TeamsAppDefinitionRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTeamsAppDefinitionFromDiscriminatorValue,
         queryParametersMapper: TeamsAppDefinitionRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TeamsAppDefinitionRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/teamwork/installedApps/{userScopeTeamsAppInstallation%2Did}/teamsAppDefinition{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

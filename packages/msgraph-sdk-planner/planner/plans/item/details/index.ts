@@ -12,12 +12,14 @@ export interface DetailsRequestBuilder extends BaseRequestBuilder<DetailsRequest
     /**
      * Delete navigation property details for planner
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Retrieve the properties and relationships of a plannerPlanDetails object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of PlannerPlanDetails
+     * @returns {Promise<PlannerPlanDetails>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/plannerplandetails-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DetailsRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerPlanDetails | undefined>;
@@ -25,27 +27,28 @@ export interface DetailsRequestBuilder extends BaseRequestBuilder<DetailsRequest
      * Update the navigation property details in planner
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of PlannerPlanDetails
+     * @returns {Promise<PlannerPlanDetails>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/plannerplandetails-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PlannerPlanDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerPlanDetails | undefined>;
     /**
      * Delete navigation property details for planner
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Retrieve the properties and relationships of a plannerPlanDetails object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DetailsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property details in planner
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: PlannerPlanDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -63,6 +66,10 @@ export interface DetailsRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const DetailsRequestBuilderUriTemplate = "{+baseurl}/planner/plans/{plannerPlan%2Did}/details{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const DetailsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -74,28 +81,28 @@ const DetailsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const DetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: DetailsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: DetailsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPlannerPlanDetailsFromDiscriminatorValue,
         queryParametersMapper: DetailsRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: DetailsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPlannerPlanDetailsFromDiscriminatorValue,
@@ -104,9 +111,5 @@ export const DetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const DetailsRequestBuilderUriTemplate = "{+baseurl}/planner/plans/{plannerPlan%2Did}/details{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

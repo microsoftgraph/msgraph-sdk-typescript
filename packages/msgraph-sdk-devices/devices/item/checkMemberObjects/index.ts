@@ -33,21 +33,22 @@ export interface CheckMemberObjectsRequestBuilder extends BaseRequestBuilder<Che
      * Invoke action checkMemberObjects
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of CheckMemberObjectsPostResponse
+     * @returns {Promise<CheckMemberObjectsPostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: CheckMemberObjectsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CheckMemberObjectsPostResponse | undefined>;
     /**
      * Invoke action checkMemberObjects
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: CheckMemberObjectsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a checkMemberObjectsPostRequestBody
+ * @returns {CheckMemberObjectsPostRequestBody}
  */
 export function createCheckMemberObjectsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCheckMemberObjectsPostRequestBody;
@@ -55,14 +56,14 @@ export function createCheckMemberObjectsPostRequestBodyFromDiscriminatorValue(pa
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a checkMemberObjectsPostResponse
+ * @returns {CheckMemberObjectsPostResponse}
  */
 export function createCheckMemberObjectsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCheckMemberObjectsPostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCheckMemberObjectsPostRequestBody(checkMemberObjectsPostRequestBody: Partial<CheckMemberObjectsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -72,7 +73,7 @@ export function deserializeIntoCheckMemberObjectsPostRequestBody(checkMemberObje
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCheckMemberObjectsPostResponse(checkMemberObjectsPostResponse: Partial<CheckMemberObjectsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -97,14 +98,18 @@ export function serializeCheckMemberObjectsPostResponse(writer: SerializationWri
     writer.writeCollectionOfPrimitiveValues<string>("value", checkMemberObjectsPostResponse.value);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CheckMemberObjectsRequestBuilderUriTemplate = "{+baseurl}/devices/{device%2Did}/checkMemberObjects";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const CheckMemberObjectsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: CheckMemberObjectsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createCheckMemberObjectsPostResponseFromDiscriminatorValue,
@@ -113,9 +118,5 @@ export const CheckMemberObjectsRequestBuilderRequestsMetadata: RequestsMetadata 
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CheckMemberObjectsRequestBuilderUriTemplate = "{+baseurl}/devices/{device%2Did}/checkMemberObjects";
 /* tslint:enable */
 /* eslint-enable */

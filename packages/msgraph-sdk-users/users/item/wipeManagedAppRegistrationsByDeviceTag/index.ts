@@ -7,14 +7,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a wipeManagedAppRegistrationsByDeviceTagPostRequestBody
+ * @returns {WipeManagedAppRegistrationsByDeviceTagPostRequestBody}
  */
 export function createWipeManagedAppRegistrationsByDeviceTagPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoWipeManagedAppRegistrationsByDeviceTagPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoWipeManagedAppRegistrationsByDeviceTagPostRequestBody(wipeManagedAppRegistrationsByDeviceTagPostRequestBody: Partial<WipeManagedAppRegistrationsByDeviceTagPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -52,6 +52,7 @@ export interface WipeManagedAppRegistrationsByDeviceTagRequestBuilder extends Ba
      * Issues a wipe operation on an app registration with specified device tag.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-wipemanagedappregistrationsbydevicetag?view=graph-rest-1.0|Find more info here}
      */
      post(body: WipeManagedAppRegistrationsByDeviceTagPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
@@ -59,19 +60,23 @@ export interface WipeManagedAppRegistrationsByDeviceTagRequestBuilder extends Ba
      * Issues a wipe operation on an app registration with specified device tag.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: WipeManagedAppRegistrationsByDeviceTagPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const WipeManagedAppRegistrationsByDeviceTagRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/wipeManagedAppRegistrationsByDeviceTag";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const WipeManagedAppRegistrationsByDeviceTagRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: WipeManagedAppRegistrationsByDeviceTagRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
         requestBodyContentType: "application/json",
@@ -79,9 +84,5 @@ export const WipeManagedAppRegistrationsByDeviceTagRequestBuilderRequestsMetadat
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const WipeManagedAppRegistrationsByDeviceTagRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/wipeManagedAppRegistrationsByDeviceTag";
 /* tslint:enable */
 /* eslint-enable */

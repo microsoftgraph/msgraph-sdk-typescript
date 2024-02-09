@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a logTeleconferenceDeviceQualityPostRequestBody
+ * @returns {LogTeleconferenceDeviceQualityPostRequestBody}
  */
 export function createLogTeleconferenceDeviceQualityPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLogTeleconferenceDeviceQualityPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoLogTeleconferenceDeviceQualityPostRequestBody(logTeleconferenceDeviceQualityPostRequestBody: Partial<LogTeleconferenceDeviceQualityPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -45,6 +45,7 @@ export interface LogTeleconferenceDeviceQualityRequestBuilder extends BaseReques
      * Log video teleconferencing device quality data. The Cloud Video Interop (CVI) bot represents video teleconferencing (VTC) devices and acts as a back-to-back agent for a VTC device in a conference call. Because a CVI bot is in the middle of the VTC and Microsoft Teams infrastructure as a VTC proxy, it has two media legs. One media leg is between the CVI bot and Teams infrastructure, such as Teams conference server or a Teams client. The other media leg is between the CVI bot and the VTC device.  The third-party partners own the VTC media leg and the Teams infrastructure cannot access the quality data of the third-party call leg.  This method is only for the CVI partners to provide their media quality data.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/call-logteleconferencedevicequality?view=graph-rest-1.0|Find more info here}
      */
      post(body: LogTeleconferenceDeviceQualityPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
@@ -52,7 +53,7 @@ export interface LogTeleconferenceDeviceQualityRequestBuilder extends BaseReques
      * Log video teleconferencing device quality data. The Cloud Video Interop (CVI) bot represents video teleconferencing (VTC) devices and acts as a back-to-back agent for a VTC device in a conference call. Because a CVI bot is in the middle of the VTC and Microsoft Teams infrastructure as a VTC proxy, it has two media legs. One media leg is between the CVI bot and Teams infrastructure, such as Teams conference server or a Teams client. The other media leg is between the CVI bot and the VTC device.  The third-party partners own the VTC media leg and the Teams infrastructure cannot access the quality data of the third-party call leg.  This method is only for the CVI partners to provide their media quality data.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: LogTeleconferenceDeviceQualityPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -65,14 +66,18 @@ export function serializeLogTeleconferenceDeviceQualityPostRequestBody(writer: S
     writer.writeAdditionalData(logTeleconferenceDeviceQualityPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const LogTeleconferenceDeviceQualityRequestBuilderUriTemplate = "{+baseurl}/communications/calls/logTeleconferenceDeviceQuality";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const LogTeleconferenceDeviceQualityRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: LogTeleconferenceDeviceQualityRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
         requestBodyContentType: "application/json",
@@ -80,9 +85,5 @@ export const LogTeleconferenceDeviceQualityRequestBuilderRequestsMetadata: Reque
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const LogTeleconferenceDeviceQualityRequestBuilderUriTemplate = "{+baseurl}/communications/calls/logTeleconferenceDeviceQuality";
 /* tslint:enable */
 /* eslint-enable */

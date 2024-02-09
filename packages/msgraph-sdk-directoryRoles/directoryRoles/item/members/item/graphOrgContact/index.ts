@@ -12,13 +12,14 @@ export interface GraphOrgContactRequestBuilder extends BaseRequestBuilder<GraphO
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.orgContact
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of OrgContact
+     * @returns {Promise<OrgContact>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GraphOrgContactRequestBuilderGetQueryParameters> | undefined) : Promise<OrgContact | undefined>;
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.orgContact
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphOrgContactRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface GraphOrgContactRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GraphOrgContactRequestBuilderUriTemplate = "{+baseurl}/directoryRoles/{directoryRole%2Did}/members/{directoryObject%2Did}/graph.orgContact{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const GraphOrgContactRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const GraphOrgContactRequestBuilderGetQueryParametersMapper: Record<string, stri
  */
 export const GraphOrgContactRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GraphOrgContactRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createOrgContactFromDiscriminatorValue,
         queryParametersMapper: GraphOrgContactRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GraphOrgContactRequestBuilderUriTemplate = "{+baseurl}/directoryRoles/{directoryRole%2Did}/members/{directoryObject%2Did}/graph.orgContact{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

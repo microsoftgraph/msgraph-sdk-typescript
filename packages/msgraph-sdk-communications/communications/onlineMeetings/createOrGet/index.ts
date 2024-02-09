@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a createOrGetPostRequestBody
+ * @returns {CreateOrGetPostRequestBody}
  */
 export function createCreateOrGetPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateOrGetPostRequestBody;
@@ -55,7 +55,8 @@ export interface CreateOrGetRequestBuilder extends BaseRequestBuilder<CreateOrGe
      * Create an onlineMeeting object with a custom specified external ID. If the external ID already exists, this API will return the onlineMeeting object with that external ID. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of OnlineMeeting
+     * @returns {Promise<OnlineMeeting>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-1.0|Find more info here}
      */
      post(body: CreateOrGetPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OnlineMeeting | undefined>;
@@ -63,13 +64,13 @@ export interface CreateOrGetRequestBuilder extends BaseRequestBuilder<CreateOrGe
      * Create an onlineMeeting object with a custom specified external ID. If the external ID already exists, this API will return the onlineMeeting object with that external ID. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: CreateOrGetPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCreateOrGetPostRequestBody(createOrGetPostRequestBody: Partial<CreateOrGetPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -96,14 +97,18 @@ export function serializeCreateOrGetPostRequestBody(writer: SerializationWriter,
     writer.writeAdditionalData(createOrGetPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CreateOrGetRequestBuilderUriTemplate = "{+baseurl}/communications/onlineMeetings/createOrGet";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const CreateOrGetRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: CreateOrGetRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createOnlineMeetingFromDiscriminatorValue,
@@ -112,9 +117,5 @@ export const CreateOrGetRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CreateOrGetRequestBuilderUriTemplate = "{+baseurl}/communications/onlineMeetings/createOrGet";
 /* tslint:enable */
 /* eslint-enable */

@@ -7,14 +7,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a exportPersonalDataPostRequestBody
+ * @returns {ExportPersonalDataPostRequestBody}
  */
 export function createExportPersonalDataPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExportPersonalDataPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoExportPersonalDataPostRequestBody(exportPersonalDataPostRequestBody: Partial<ExportPersonalDataPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -44,6 +44,7 @@ export interface ExportPersonalDataRequestBuilder extends BaseRequestBuilder<Exp
      * Submit a data policy operation request from a company administrator or an application to export an organizational user's data. This data includes the user's data stored in OneDrive and their activity reports. For more guidance about exporting data while complying with regulations, see Data Subject Requests and the GDPR and CCPA.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/user-exportpersonaldata?view=graph-rest-1.0|Find more info here}
      */
      post(body: ExportPersonalDataPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
@@ -51,7 +52,7 @@ export interface ExportPersonalDataRequestBuilder extends BaseRequestBuilder<Exp
      * Submit a data policy operation request from a company administrator or an application to export an organizational user's data. This data includes the user's data stored in OneDrive and their activity reports. For more guidance about exporting data while complying with regulations, see Data Subject Requests and the GDPR and CCPA.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: ExportPersonalDataPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -64,14 +65,18 @@ export function serializeExportPersonalDataPostRequestBody(writer: Serialization
     writer.writeAdditionalData(exportPersonalDataPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ExportPersonalDataRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/exportPersonalData";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const ExportPersonalDataRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: ExportPersonalDataRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
         requestBodyContentType: "application/json",
@@ -79,9 +84,5 @@ export const ExportPersonalDataRequestBuilderRequestsMetadata: RequestsMetadata 
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ExportPersonalDataRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/exportPersonalData";
 /* tslint:enable */
 /* eslint-enable */

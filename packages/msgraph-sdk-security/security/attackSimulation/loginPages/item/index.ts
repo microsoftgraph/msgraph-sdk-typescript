@@ -12,38 +12,41 @@ export interface LoginPageItemRequestBuilder extends BaseRequestBuilder<LoginPag
     /**
      * Delete navigation property loginPages for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Represents an attack simulation training login page.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of LoginPage
+     * @returns {Promise<LoginPage>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<LoginPageItemRequestBuilderGetQueryParameters> | undefined) : Promise<LoginPage | undefined>;
     /**
      * Update the navigation property loginPages in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of LoginPage
+     * @returns {Promise<LoginPage>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: LoginPage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LoginPage | undefined>;
     /**
      * Delete navigation property loginPages for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Represents an attack simulation training login page.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LoginPageItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property loginPages in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: LoginPage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -61,6 +64,10 @@ export interface LoginPageItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const LoginPageItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/loginPages/{loginPage%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const LoginPageItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -72,28 +79,28 @@ const LoginPageItemRequestBuilderGetQueryParametersMapper: Record<string, string
  */
 export const LoginPageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: LoginPageItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: LoginPageItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createLoginPageFromDiscriminatorValue,
         queryParametersMapper: LoginPageItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: LoginPageItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createLoginPageFromDiscriminatorValue,
@@ -102,9 +109,5 @@ export const LoginPageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const LoginPageItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/loginPages/{loginPage%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

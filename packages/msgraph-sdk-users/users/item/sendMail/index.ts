@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a sendMailPostRequestBody
+ * @returns {SendMailPostRequestBody}
  */
 export function createSendMailPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSendMailPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoSendMailPostRequestBody(sendMailPostRequestBody: Partial<SendMailPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -50,6 +50,7 @@ export interface SendMailRequestBuilder extends BaseRequestBuilder<SendMailReque
      * Send the message specified in the request body using either JSON or MIME format. When using JSON format, you can include a file attachment in the same sendMail action call. When using MIME format: This method saves the message in the Sent Items folder. Alternatively, create a draft message to send later. To learn more about the steps involved in the backend before a mail is delivered to recipients, see here.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/user-sendmail?view=graph-rest-1.0|Find more info here}
      */
      post(body: SendMailPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
@@ -57,7 +58,7 @@ export interface SendMailRequestBuilder extends BaseRequestBuilder<SendMailReque
      * Send the message specified in the request body using either JSON or MIME format. When using JSON format, you can include a file attachment in the same sendMail action call. When using MIME format: This method saves the message in the Sent Items folder. Alternatively, create a draft message to send later. To learn more about the steps involved in the backend before a mail is delivered to recipients, see here.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: SendMailPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -71,14 +72,18 @@ export function serializeSendMailPostRequestBody(writer: SerializationWriter, se
     writer.writeAdditionalData(sendMailPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const SendMailRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/sendMail";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const SendMailRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: SendMailRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
         requestBodyContentType: "application/json",
@@ -86,9 +91,5 @@ export const SendMailRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SendMailRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/sendMail";
 /* tslint:enable */
 /* eslint-enable */

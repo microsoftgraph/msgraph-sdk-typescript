@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a rank_EqPostRequestBody
+ * @returns {Rank_EqPostRequestBody}
  */
 export function createRank_EqPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRank_EqPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoRank_EqPostRequestBody(rank_EqPostRequestBody: Partial<Rank_EqPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -55,14 +55,15 @@ export interface Rank_EqRequestBuilder extends BaseRequestBuilder<Rank_EqRequest
      * Invoke action rank_Eq
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookFunctionResult
+     * @returns {Promise<WorkbookFunctionResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: Rank_EqPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookFunctionResult | undefined>;
     /**
      * Invoke action rank_Eq
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: Rank_EqPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -77,14 +78,18 @@ export function serializeRank_EqPostRequestBody(writer: SerializationWriter, ran
     writer.writeAdditionalData(rank_EqPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const Rank_EqRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/rank_Eq";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const Rank_EqRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: Rank_EqRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
@@ -93,9 +98,5 @@ export const Rank_EqRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const Rank_EqRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/rank_Eq";
 /* tslint:enable */
 /* eslint-enable */

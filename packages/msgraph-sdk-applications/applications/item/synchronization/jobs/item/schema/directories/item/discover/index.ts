@@ -12,34 +12,35 @@ export interface DiscoverRequestBuilder extends BaseRequestBuilder<DiscoverReque
     /**
      * Discover the latest schema definition for provisioning to an application. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DirectoryDefinition
+     * @returns {Promise<DirectoryDefinition>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-directorydefinition-discover?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DirectoryDefinition | undefined>;
     /**
      * Discover the latest schema definition for provisioning to an application. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const DiscoverRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema/directories/{directoryDefinition%2Did}/discover";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const DiscoverRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: DiscoverRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDirectoryDefinitionFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const DiscoverRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema/directories/{directoryDefinition%2Did}/discover";
 /* tslint:enable */
 /* eslint-enable */

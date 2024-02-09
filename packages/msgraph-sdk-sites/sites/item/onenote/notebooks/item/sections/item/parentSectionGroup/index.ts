@@ -12,13 +12,14 @@ export interface ParentSectionGroupRequestBuilder extends BaseRequestBuilder<Par
     /**
      * The section group that contains the section.  Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SectionGroup
+     * @returns {Promise<SectionGroup>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ParentSectionGroupRequestBuilderGetQueryParameters> | undefined) : Promise<SectionGroup | undefined>;
     /**
      * The section group that contains the section.  Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ParentSectionGroupRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface ParentSectionGroupRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ParentSectionGroupRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/onenote/notebooks/{notebook%2Did}/sections/{onenoteSection%2Did}/parentSectionGroup{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ParentSectionGroupRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const ParentSectionGroupRequestBuilderGetQueryParametersMapper: Record<string, s
  */
 export const ParentSectionGroupRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ParentSectionGroupRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createSectionGroupFromDiscriminatorValue,
         queryParametersMapper: ParentSectionGroupRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ParentSectionGroupRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/onenote/notebooks/{notebook%2Did}/sections/{onenoteSection%2Did}/parentSectionGroup{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

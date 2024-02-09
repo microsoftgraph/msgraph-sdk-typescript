@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a mutePostRequestBody
+ * @returns {MutePostRequestBody}
  */
 export function createMutePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMutePostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoMutePostRequestBody(mutePostRequestBody: Partial<MutePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -45,7 +45,8 @@ export interface MuteRequestBuilder extends BaseRequestBuilder<MuteRequestBuilde
      * Mute a specific participant in the call. This is a server mute, meaning that the server will drop all audio packets for this participant, even if the participant continues to stream audio. For more information about how to handle mute operations, see muteParticipantOperation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of MuteParticipantOperation
+     * @returns {Promise<MuteParticipantOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/participant-mute?view=graph-rest-1.0|Find more info here}
      */
      post(body: MutePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MuteParticipantOperation | undefined>;
@@ -53,7 +54,7 @@ export interface MuteRequestBuilder extends BaseRequestBuilder<MuteRequestBuilde
      * Mute a specific participant in the call. This is a server mute, meaning that the server will drop all audio packets for this participant, even if the participant continues to stream audio. For more information about how to handle mute operations, see muteParticipantOperation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: MutePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -66,14 +67,18 @@ export function serializeMutePostRequestBody(writer: SerializationWriter, mutePo
     writer.writeAdditionalData(mutePostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const MuteRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/participants/{participant%2Did}/mute";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const MuteRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: MuteRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createMuteParticipantOperationFromDiscriminatorValue,
@@ -82,9 +87,5 @@ export const MuteRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const MuteRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/participants/{participant%2Did}/mute";
 /* tslint:enable */
 /* eslint-enable */

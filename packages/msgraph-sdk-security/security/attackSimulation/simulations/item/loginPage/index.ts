@@ -12,13 +12,14 @@ export interface LoginPageRequestBuilder extends BaseRequestBuilder<LoginPageReq
     /**
      * The login page associated with a simulation during its creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of LoginPage
+     * @returns {Promise<LoginPage>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<LoginPageRequestBuilderGetQueryParameters> | undefined) : Promise<LoginPage | undefined>;
     /**
      * The login page associated with a simulation during its creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LoginPageRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface LoginPageRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const LoginPageRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/loginPage{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const LoginPageRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const LoginPageRequestBuilderGetQueryParametersMapper: Record<string, string> = 
  */
 export const LoginPageRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: LoginPageRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createLoginPageFromDiscriminatorValue,
         queryParametersMapper: LoginPageRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const LoginPageRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/loginPage{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

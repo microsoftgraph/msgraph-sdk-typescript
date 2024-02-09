@@ -12,33 +12,34 @@ export interface TableRowOperationResultWithKeyRequestBuilder extends BaseReques
     /**
      * Invoke function tableRowOperationResult
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookTableRow
+     * @returns {Promise<WorkbookTableRow>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTableRow | undefined>;
     /**
      * Invoke function tableRowOperationResult
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const TableRowOperationResultWithKeyRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tableRowOperationResult(key='{key}')";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const TableRowOperationResultWithKeyRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: TableRowOperationResultWithKeyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookTableRowFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TableRowOperationResultWithKeyRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tableRowOperationResult(key='{key}')";
 /* tslint:enable */
 /* eslint-enable */

@@ -7,7 +7,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a createDownloadUrlPostResponse
+ * @returns {CreateDownloadUrlPostResponse}
  */
 export function createCreateDownloadUrlPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateDownloadUrlPostResponse;
@@ -33,19 +33,20 @@ export interface CreateDownloadUrlRequestBuilder extends BaseRequestBuilder<Crea
     /**
      * Invoke action createDownloadUrl
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of CreateDownloadUrlPostResponse
+     * @returns {Promise<CreateDownloadUrlPostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CreateDownloadUrlPostResponse | undefined>;
     /**
      * Invoke action createDownloadUrl
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCreateDownloadUrlPostResponse(createDownloadUrlPostResponse: Partial<CreateDownloadUrlPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -62,22 +63,22 @@ export function serializeCreateDownloadUrlPostResponse(writer: SerializationWrit
     writer.writeAdditionalData(createDownloadUrlPostResponse.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CreateDownloadUrlRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/logCollectionRequests/{deviceLogCollectionResponse%2Did}/createDownloadUrl";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const CreateDownloadUrlRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: CreateDownloadUrlRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createCreateDownloadUrlPostResponseFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CreateDownloadUrlRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/logCollectionRequests/{deviceLogCollectionResponse%2Did}/createDownloadUrl";
 /* tslint:enable */
 /* eslint-enable */

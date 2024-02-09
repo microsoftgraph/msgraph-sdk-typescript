@@ -12,13 +12,14 @@ export interface TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilde
     /**
      * The tokenIssuancePolicies assigned to this service principal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TokenIssuancePolicy
+     * @returns {Promise<TokenIssuancePolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<TokenIssuancePolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<TokenIssuancePolicy | undefined>;
     /**
      * The tokenIssuancePolicies assigned to this service principal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TokenIssuancePolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface TokenIssuancePolicyItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const TokenIssuancePolicyItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const TokenIssuancePolicyItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const TokenIssuancePolicyItemRequestBuilderGetQueryParametersMapper: Record<stri
  */
 export const TokenIssuancePolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: TokenIssuancePolicyItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTokenIssuancePolicyFromDiscriminatorValue,
         queryParametersMapper: TokenIssuancePolicyItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TokenIssuancePolicyItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

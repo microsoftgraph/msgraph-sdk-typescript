@@ -11,32 +11,33 @@ export interface UnsetVerifiedPublisherRequestBuilder extends BaseRequestBuilder
     /**
      * Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/application-unsetverifiedpublisher?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const UnsetVerifiedPublisherRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/unsetVerifiedPublisher";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const UnsetVerifiedPublisherRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: UnsetVerifiedPublisherRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const UnsetVerifiedPublisherRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/unsetVerifiedPublisher";
 /* tslint:enable */
 /* eslint-enable */

@@ -7,14 +7,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a setMobileDeviceManagementAuthorityPostResponse
+ * @returns {SetMobileDeviceManagementAuthorityPostResponse}
  */
 export function createSetMobileDeviceManagementAuthorityPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetMobileDeviceManagementAuthorityPostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoSetMobileDeviceManagementAuthorityPostResponse(setMobileDeviceManagementAuthorityPostResponse: Partial<SetMobileDeviceManagementAuthorityPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -51,34 +51,35 @@ export interface SetMobileDeviceManagementAuthorityRequestBuilder extends BaseRe
     /**
      * Set mobile device management authority
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SetMobileDeviceManagementAuthorityPostResponse
+     * @returns {Promise<SetMobileDeviceManagementAuthorityPostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-organization-setmobiledevicemanagementauthority?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SetMobileDeviceManagementAuthorityPostResponse | undefined>;
     /**
      * Set mobile device management authority
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const SetMobileDeviceManagementAuthorityRequestBuilderUriTemplate = "{+baseurl}/organization/{organization%2Did}/setMobileDeviceManagementAuthority";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const SetMobileDeviceManagementAuthorityRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: SetMobileDeviceManagementAuthorityRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createSetMobileDeviceManagementAuthorityPostResponseFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SetMobileDeviceManagementAuthorityRequestBuilderUriTemplate = "{+baseurl}/organization/{organization%2Did}/setMobileDeviceManagementAuthority";
 /* tslint:enable */
 /* eslint-enable */

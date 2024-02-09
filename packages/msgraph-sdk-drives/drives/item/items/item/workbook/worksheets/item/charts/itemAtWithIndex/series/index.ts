@@ -12,29 +12,31 @@ export interface SeriesRequestBuilder extends BaseRequestBuilder<SeriesRequestBu
     /**
      * Retrieve a list of chartseries objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookChartSeriesCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/chartseries-list?view=graph-rest-1.0|Find more info here}
+     * @returns {Promise<WorkbookChartSeriesCollectionResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/chart-list-series?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SeriesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartSeriesCollectionResponse | undefined>;
     /**
      * Use this API to create a new ChartSeries.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookChartSeries
+     * @returns {Promise<WorkbookChartSeries>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/chart-post-series?view=graph-rest-1.0|Find more info here}
      */
      post(body: WorkbookChartSeries, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartSeries | undefined>;
     /**
      * Retrieve a list of chartseries objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SeriesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Use this API to create a new ChartSeries.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: WorkbookChartSeries, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -76,6 +78,10 @@ export interface SeriesRequestBuilderGetQueryParameters {
     top?: number;
 }
 /**
+ * Uri template for the request builder.
+ */
+export const SeriesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/itemAt(index={index})/series{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const SeriesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -93,20 +99,20 @@ const SeriesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const SeriesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: SeriesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookChartSeriesCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SeriesRequestBuilderGetQueryParametersMapper,
     },
     post: {
+        uriTemplate: SeriesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookChartSeriesFromDiscriminatorValue,
@@ -115,9 +121,5 @@ export const SeriesRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SeriesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/itemAt(index={index})/series{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

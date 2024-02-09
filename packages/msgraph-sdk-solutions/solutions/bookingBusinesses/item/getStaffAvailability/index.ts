@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getStaffAvailabilityPostRequestBody
+ * @returns {GetStaffAvailabilityPostRequestBody}
  */
 export function createGetStaffAvailabilityPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetStaffAvailabilityPostRequestBody;
@@ -16,14 +16,14 @@ export function createGetStaffAvailabilityPostRequestBodyFromDiscriminatorValue(
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getStaffAvailabilityPostResponse
+ * @returns {GetStaffAvailabilityPostResponse}
  */
 export function createGetStaffAvailabilityPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetStaffAvailabilityPostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetStaffAvailabilityPostRequestBody(getStaffAvailabilityPostRequestBody: Partial<GetStaffAvailabilityPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -35,7 +35,7 @@ export function deserializeIntoGetStaffAvailabilityPostRequestBody(getStaffAvail
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetStaffAvailabilityPostResponse(getStaffAvailabilityPostResponse: Partial<GetStaffAvailabilityPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -79,7 +79,8 @@ export interface GetStaffAvailabilityRequestBuilder extends BaseRequestBuilder<G
      * Get the availability information of staff members of a Microsoft Bookings calendar.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetStaffAvailabilityPostResponse
+     * @returns {Promise<GetStaffAvailabilityPostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-getstaffavailability?view=graph-rest-1.0|Find more info here}
      */
      post(body: GetStaffAvailabilityPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetStaffAvailabilityPostResponse | undefined>;
@@ -87,7 +88,7 @@ export interface GetStaffAvailabilityRequestBuilder extends BaseRequestBuilder<G
      * Get the availability information of staff members of a Microsoft Bookings calendar.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: GetStaffAvailabilityPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -110,14 +111,18 @@ export function serializeGetStaffAvailabilityPostResponse(writer: SerializationW
     writer.writeCollectionOfObjectValues<StaffAvailabilityItem>("value", getStaffAvailabilityPostResponse.value, serializeStaffAvailabilityItem);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetStaffAvailabilityRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/getStaffAvailability";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const GetStaffAvailabilityRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: GetStaffAvailabilityRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGetStaffAvailabilityPostResponseFromDiscriminatorValue,
@@ -126,9 +131,5 @@ export const GetStaffAvailabilityRequestBuilderRequestsMetadata: RequestsMetadat
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetStaffAvailabilityRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/getStaffAvailability";
 /* tslint:enable */
 /* eslint-enable */

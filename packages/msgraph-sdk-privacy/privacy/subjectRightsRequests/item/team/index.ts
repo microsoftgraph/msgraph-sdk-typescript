@@ -12,14 +12,15 @@ export interface TeamRequestBuilder extends BaseRequestBuilder<TeamRequestBuilde
     /**
      * Information about the Microsoft Teams team that was created for the request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Team
+     * @returns {Promise<Team>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
      get(requestConfiguration?: RequestConfiguration<TeamRequestBuilderGetQueryParameters> | undefined) : Promise<Team | undefined>;
     /**
      * Information about the Microsoft Teams team that was created for the request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeamRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
@@ -38,6 +39,10 @@ export interface TeamRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const TeamRequestBuilderUriTemplate = "{+baseurl}/privacy/subjectRightsRequests/{subjectRightsRequest%2Did}/team{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const TeamRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -49,19 +54,15 @@ const TeamRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const TeamRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: TeamRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTeamFromDiscriminatorValue,
         queryParametersMapper: TeamRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TeamRequestBuilderUriTemplate = "{+baseurl}/privacy/subjectRightsRequests/{subjectRightsRequest%2Did}/team{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

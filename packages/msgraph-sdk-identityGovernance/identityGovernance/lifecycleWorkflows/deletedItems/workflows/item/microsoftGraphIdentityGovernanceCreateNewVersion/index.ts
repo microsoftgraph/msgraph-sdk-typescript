@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a createNewVersionPostRequestBody
+ * @returns {CreateNewVersionPostRequestBody}
  */
 export function createCreateNewVersionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateNewVersionPostRequestBody;
@@ -29,7 +29,7 @@ export interface CreateNewVersionPostRequestBody extends AdditionalDataHolder, B
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCreateNewVersionPostRequestBody(createNewVersionPostRequestBody: Partial<CreateNewVersionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -45,7 +45,8 @@ export interface MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder 
      * Create a new version of the workflow object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Workflow
+     * @returns {Promise<Workflow>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-createnewversion?view=graph-rest-1.0|Find more info here}
      */
      post(body: CreateNewVersionPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Workflow | undefined>;
@@ -53,7 +54,7 @@ export interface MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder 
      * Create a new version of the workflow object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: CreateNewVersionPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -66,14 +67,18 @@ export function serializeCreateNewVersionPostRequestBody(writer: SerializationWr
     writer.writeAdditionalData(createNewVersionPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/microsoft.graph.identityGovernance.createNewVersion";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkflowFromDiscriminatorValue,
@@ -82,9 +87,5 @@ export const MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderReque
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/microsoft.graph.identityGovernance.createNewVersion";
 /* tslint:enable */
 /* eslint-enable */

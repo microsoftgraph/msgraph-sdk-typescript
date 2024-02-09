@@ -12,13 +12,14 @@ export interface GraphDirectoryRoleRequestBuilder extends BaseRequestBuilder<Gra
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.directoryRole
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DirectoryRole
+     * @returns {Promise<DirectoryRole>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GraphDirectoryRoleRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryRole | undefined>;
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.directoryRole
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphDirectoryRoleRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface GraphDirectoryRoleRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GraphDirectoryRoleRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/memberOf/{directoryObject%2Did}/graph.directoryRole{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const GraphDirectoryRoleRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const GraphDirectoryRoleRequestBuilderGetQueryParametersMapper: Record<string, s
  */
 export const GraphDirectoryRoleRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GraphDirectoryRoleRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDirectoryRoleFromDiscriminatorValue,
         queryParametersMapper: GraphDirectoryRoleRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GraphDirectoryRoleRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/memberOf/{directoryObject%2Did}/graph.directoryRole{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

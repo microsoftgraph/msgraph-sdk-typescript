@@ -40,7 +40,8 @@ export interface ArchiveRequestBuilder extends BaseRequestBuilder<ArchiveRequest
      * Archive a list of serviceUpdateMessages for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ArchivePostResponse
+     * @returns {Promise<ArchivePostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-archive?view=graph-rest-1.0|Find more info here}
      */
      post(body: ArchivePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArchivePostResponse | undefined>;
@@ -48,14 +49,14 @@ export interface ArchiveRequestBuilder extends BaseRequestBuilder<ArchiveRequest
      * Archive a list of serviceUpdateMessages for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: ArchivePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a archivePostRequestBody
+ * @returns {ArchivePostRequestBody}
  */
 export function createArchivePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoArchivePostRequestBody;
@@ -63,14 +64,14 @@ export function createArchivePostRequestBodyFromDiscriminatorValue(parseNode: Pa
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a archivePostResponse
+ * @returns {ArchivePostResponse}
  */
 export function createArchivePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoArchivePostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -80,7 +81,7 @@ export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Pa
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoArchivePostResponse(archivePostResponse: Partial<ArchivePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -105,14 +106,18 @@ export function serializeArchivePostResponse(writer: SerializationWriter, archiv
     writer.writeAdditionalData(archivePostResponse.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ArchiveRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/archive";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const ArchiveRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: ArchiveRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createArchivePostResponseFromDiscriminatorValue,
@@ -121,9 +126,5 @@ export const ArchiveRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ArchiveRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/archive";
 /* tslint:enable */
 /* eslint-enable */

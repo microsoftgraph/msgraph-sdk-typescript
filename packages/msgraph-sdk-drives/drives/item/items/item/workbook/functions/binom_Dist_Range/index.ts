@@ -39,28 +39,29 @@ export interface Binom_Dist_RangeRequestBuilder extends BaseRequestBuilder<Binom
      * Invoke action binom_Dist_Range
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookFunctionResult
+     * @returns {Promise<WorkbookFunctionResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: Binom_Dist_RangePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookFunctionResult | undefined>;
     /**
      * Invoke action binom_Dist_Range
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: Binom_Dist_RangePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a binom_Dist_RangePostRequestBody
+ * @returns {Binom_Dist_RangePostRequestBody}
  */
 export function createBinom_Dist_RangePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBinom_Dist_RangePostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoBinom_Dist_RangePostRequestBody(binom_Dist_RangePostRequestBody: Partial<Binom_Dist_RangePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -83,14 +84,18 @@ export function serializeBinom_Dist_RangePostRequestBody(writer: SerializationWr
     writer.writeAdditionalData(binom_Dist_RangePostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const Binom_Dist_RangeRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/binom_Dist_Range";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const Binom_Dist_RangeRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: Binom_Dist_RangeRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
@@ -99,9 +104,5 @@ export const Binom_Dist_RangeRequestBuilderRequestsMetadata: RequestsMetadata = 
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const Binom_Dist_RangeRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/binom_Dist_Range";
 /* tslint:enable */
 /* eslint-enable */

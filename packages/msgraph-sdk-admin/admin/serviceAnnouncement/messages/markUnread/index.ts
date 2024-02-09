@@ -7,7 +7,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a markUnreadPostRequestBody
+ * @returns {MarkUnreadPostRequestBody}
  */
 export function createMarkUnreadPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMarkUnreadPostRequestBody;
@@ -15,14 +15,14 @@ export function createMarkUnreadPostRequestBodyFromDiscriminatorValue(parseNode:
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a markUnreadPostResponse
+ * @returns {MarkUnreadPostResponse}
  */
 export function createMarkUnreadPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMarkUnreadPostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoMarkUnreadPostRequestBody(markUnreadPostRequestBody: Partial<MarkUnreadPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -32,7 +32,7 @@ export function deserializeIntoMarkUnreadPostRequestBody(markUnreadPostRequestBo
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoMarkUnreadPostResponse(markUnreadPostResponse: Partial<MarkUnreadPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -76,7 +76,8 @@ export interface MarkUnreadRequestBuilder extends BaseRequestBuilder<MarkUnreadR
      * Mark a list of serviceUpdateMessages as unread for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of MarkUnreadPostResponse
+     * @returns {Promise<MarkUnreadPostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-markunread?view=graph-rest-1.0|Find more info here}
      */
      post(body: MarkUnreadPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MarkUnreadPostResponse | undefined>;
@@ -84,7 +85,7 @@ export interface MarkUnreadRequestBuilder extends BaseRequestBuilder<MarkUnreadR
      * Mark a list of serviceUpdateMessages as unread for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: MarkUnreadPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -105,14 +106,18 @@ export function serializeMarkUnreadPostResponse(writer: SerializationWriter, mar
     writer.writeAdditionalData(markUnreadPostResponse.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const MarkUnreadRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/markUnread";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const MarkUnreadRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: MarkUnreadRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createMarkUnreadPostResponseFromDiscriminatorValue,
@@ -121,9 +126,5 @@ export const MarkUnreadRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const MarkUnreadRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/markUnread";
 /* tslint:enable */
 /* eslint-enable */

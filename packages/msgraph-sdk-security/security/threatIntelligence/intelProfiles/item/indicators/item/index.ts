@@ -12,13 +12,14 @@ export interface IntelligenceProfileIndicatorItemRequestBuilder extends BaseRequ
     /**
      * Includes an assemblage of high-fidelity network indicators of compromise.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of IntelligenceProfileIndicator
+     * @returns {Promise<IntelligenceProfileIndicator>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<IntelligenceProfileIndicatorItemRequestBuilderGetQueryParameters> | undefined) : Promise<IntelligenceProfileIndicator | undefined>;
     /**
      * Includes an assemblage of high-fidelity network indicators of compromise.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IntelligenceProfileIndicatorItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface IntelligenceProfileIndicatorItemRequestBuilderGetQueryParameter
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const IntelligenceProfileIndicatorItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/intelProfiles/{intelligenceProfile%2Did}/indicators/{intelligenceProfileIndicator%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const IntelligenceProfileIndicatorItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const IntelligenceProfileIndicatorItemRequestBuilderGetQueryParametersMapper: Re
  */
 export const IntelligenceProfileIndicatorItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: IntelligenceProfileIndicatorItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createIntelligenceProfileIndicatorFromDiscriminatorValue,
         queryParametersMapper: IntelligenceProfileIndicatorItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const IntelligenceProfileIndicatorItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/intelProfiles/{intelligenceProfile%2Did}/indicators/{intelligenceProfileIndicator%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

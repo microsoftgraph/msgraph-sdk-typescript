@@ -12,14 +12,15 @@ export interface PasswordAuthenticationMethodItemRequestBuilder extends BaseRequ
     /**
      * Retrieve a password that's registered to a user, represented by a passwordAuthenticationMethod object. For security, the password itself will never be returned in the object and the password property is always null.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of PasswordAuthenticationMethod
+     * @returns {Promise<PasswordAuthenticationMethod>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/passwordauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : Promise<PasswordAuthenticationMethod | undefined>;
     /**
      * Retrieve a password that's registered to a user, represented by a passwordAuthenticationMethod object. For security, the password itself will never be returned in the object and the password property is always null.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -37,6 +38,10 @@ export interface PasswordAuthenticationMethodItemRequestBuilderGetQueryParameter
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const PasswordAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/passwordMethods/{passwordAuthenticationMethod%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const PasswordAuthenticationMethodItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -48,19 +53,15 @@ const PasswordAuthenticationMethodItemRequestBuilderGetQueryParametersMapper: Re
  */
 export const PasswordAuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: PasswordAuthenticationMethodItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPasswordAuthenticationMethodFromDiscriminatorValue,
         queryParametersMapper: PasswordAuthenticationMethodItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const PasswordAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/passwordMethods/{passwordAuthenticationMethod%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

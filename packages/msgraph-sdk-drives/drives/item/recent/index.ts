@@ -8,14 +8,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a recentGetResponse
+ * @returns {RecentGetResponse}
  */
 export function createRecentGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRecentGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoRecentGetResponse(recentGetResponse: Partial<RecentGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -36,13 +36,14 @@ export interface RecentRequestBuilder extends BaseRequestBuilder<RecentRequestBu
     /**
      * Invoke function recent
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of RecentGetResponse
+     * @returns {Promise<RecentGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<RecentRequestBuilderGetQueryParameters> | undefined) : Promise<RecentGetResponse | undefined>;
     /**
      * Invoke function recent
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RecentRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -92,6 +93,10 @@ export function serializeRecentGetResponse(writer: SerializationWriter, recentGe
     writer.writeCollectionOfObjectValues<DriveItem>("value", recentGetResponse.value, serializeDriveItem);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const RecentRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/recent(){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const RecentRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -109,19 +114,15 @@ const RecentRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const RecentRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: RecentRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createRecentGetResponseFromDiscriminatorValue,
         queryParametersMapper: RecentRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const RecentRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/recent(){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

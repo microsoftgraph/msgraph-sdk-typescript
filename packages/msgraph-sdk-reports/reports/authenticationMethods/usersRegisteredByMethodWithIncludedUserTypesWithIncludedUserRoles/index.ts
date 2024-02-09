@@ -12,33 +12,34 @@ export interface UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRol
     /**
      * Invoke function usersRegisteredByMethod
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of UserRegistrationMethodSummary
+     * @returns {Promise<UserRegistrationMethodSummary>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserRegistrationMethodSummary | undefined>;
     /**
      * Invoke function usersRegisteredByMethod
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilderUriTemplate = "{+baseurl}/reports/authenticationMethods/usersRegisteredByMethod(includedUserTypes='{includedUserTypes}',includedUserRoles='{includedUserRoles}')";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createUserRegistrationMethodSummaryFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilderUriTemplate = "{+baseurl}/reports/authenticationMethods/usersRegisteredByMethod(includedUserTypes='{includedUserTypes}',includedUserRoles='{includedUserRoles}')";
 /* tslint:enable */
 /* eslint-enable */

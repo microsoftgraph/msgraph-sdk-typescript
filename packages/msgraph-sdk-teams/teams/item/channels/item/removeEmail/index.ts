@@ -11,32 +11,33 @@ export interface RemoveEmailRequestBuilder extends BaseRequestBuilder<RemoveEmai
     /**
      * Remove the email address of a channel. You can remove an email address only if it was provisioned using the provisionEmail method or through the Microsoft Teams client.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/channel-removeemail?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Remove the email address of a channel. You can remove an email address only if it was provisioned using the provisionEmail method or through the Microsoft Teams client.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const RemoveEmailRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/channels/{channel%2Did}/removeEmail";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const RemoveEmailRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: RemoveEmailRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const RemoveEmailRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/channels/{channel%2Did}/removeEmail";
 /* tslint:enable */
 /* eslint-enable */

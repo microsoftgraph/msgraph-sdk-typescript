@@ -12,13 +12,14 @@ export interface MobileAppCategoryItemRequestBuilder extends BaseRequestBuilder<
     /**
      * The list of categories for this app.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of MobileAppCategory
+     * @returns {Promise<MobileAppCategory>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppCategoryItemRequestBuilderGetQueryParameters> | undefined) : Promise<MobileAppCategory | undefined>;
     /**
      * The list of categories for this app.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileAppCategoryItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface MobileAppCategoryItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const MobileAppCategoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.managedAndroidLobApp/categories/{mobileAppCategory%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const MobileAppCategoryItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const MobileAppCategoryItemRequestBuilderGetQueryParametersMapper: Record<string
  */
 export const MobileAppCategoryItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: MobileAppCategoryItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createMobileAppCategoryFromDiscriminatorValue,
         queryParametersMapper: MobileAppCategoryItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const MobileAppCategoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.managedAndroidLobApp/categories/{mobileAppCategory%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

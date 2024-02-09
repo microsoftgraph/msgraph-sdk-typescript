@@ -12,14 +12,15 @@ export interface WhoisRequestBuilder extends BaseRequestBuilder<WhoisRequestBuil
     /**
      * Get the specified whoisRecord resource.  Specify the desired whoisRecord in one of the following two ways:- Identify a host and get its current whoisRecord. - Specify an id value to get the corresponding whoisRecord.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WhoisRecord
+     * @returns {Promise<WhoisRecord>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/security-whoisrecord-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WhoisRequestBuilderGetQueryParameters> | undefined) : Promise<WhoisRecord | undefined>;
     /**
      * Get the specified whoisRecord resource.  Specify the desired whoisRecord in one of the following two ways:- Identify a host and get its current whoisRecord. - Specify an id value to get the corresponding whoisRecord.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WhoisRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -37,6 +38,10 @@ export interface WhoisRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const WhoisRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/whois{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const WhoisRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -48,19 +53,15 @@ const WhoisRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const WhoisRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: WhoisRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWhoisRecordFromDiscriminatorValue,
         queryParametersMapper: WhoisRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const WhoisRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/whois{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

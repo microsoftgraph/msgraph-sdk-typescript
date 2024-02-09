@@ -11,32 +11,33 @@ export interface SubscribeByMailRequestBuilder extends BaseRequestBuilder<Subscr
     /**
      * Calling this method will enable the current user to receive email notifications for this group, about new posts, events, and files in that group. Supported for Microsoft 365 groups only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/group-subscribebymail?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Calling this method will enable the current user to receive email notifications for this group, about new posts, events, and files in that group. Supported for Microsoft 365 groups only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const SubscribeByMailRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/subscribeByMail";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const SubscribeByMailRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: SubscribeByMailRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SubscribeByMailRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/subscribeByMail";
 /* tslint:enable */
 /* eslint-enable */

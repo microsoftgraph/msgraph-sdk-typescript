@@ -12,34 +12,35 @@ export interface TotalRowRangeRequestBuilder extends BaseRequestBuilder<TotalRow
     /**
      * Gets the range object associated with totals row of the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookRange
+     * @returns {Promise<WorkbookRange>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/table-totalrowrange?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookRange | undefined>;
     /**
      * Gets the range object associated with totals row of the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const TotalRowRangeRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/itemAt(index={index})/totalRowRange()";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const TotalRowRangeRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: TotalRowRangeRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookRangeFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TotalRowRangeRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/itemAt(index={index})/totalRowRange()";
 /* tslint:enable */
 /* eslint-enable */

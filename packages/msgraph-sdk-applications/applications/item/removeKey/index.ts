@@ -8,14 +8,14 @@ import { type Guid } from 'guid-typescript';
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a removeKeyPostRequestBody
+ * @returns {RemoveKeyPostRequestBody}
  */
 export function createRemoveKeyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRemoveKeyPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoRemoveKeyPostRequestBody(removeKeyPostRequestBody: Partial<RemoveKeyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -50,6 +50,7 @@ export interface RemoveKeyRequestBuilder extends BaseRequestBuilder<RemoveKeyReq
      * Remove a key credential from an application. This method along with addKey can be used by an application to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/application-removekey?view=graph-rest-1.0|Find more info here}
      */
      post(body: RemoveKeyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
@@ -57,7 +58,7 @@ export interface RemoveKeyRequestBuilder extends BaseRequestBuilder<RemoveKeyReq
      * Remove a key credential from an application. This method along with addKey can be used by an application to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: RemoveKeyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -71,14 +72,18 @@ export function serializeRemoveKeyPostRequestBody(writer: SerializationWriter, r
     writer.writeAdditionalData(removeKeyPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const RemoveKeyRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/removeKey";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const RemoveKeyRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: RemoveKeyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
         requestBodyContentType: "application/json",
@@ -86,9 +91,5 @@ export const RemoveKeyRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const RemoveKeyRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/removeKey";
 /* tslint:enable */
 /* eslint-enable */

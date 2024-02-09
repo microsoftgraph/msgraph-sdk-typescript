@@ -12,13 +12,14 @@ export interface AssignmentPolicyRequestBuilder extends BaseRequestBuilder<Assig
     /**
      * Read-only. Supports $filter (eq) on the id property and $expand query parameters.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AccessPackageAssignmentPolicy
+     * @returns {Promise<AccessPackageAssignmentPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentPolicyRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageAssignmentPolicy | undefined>;
     /**
      * Read-only. Supports $filter (eq) on the id property and $expand query parameters.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentPolicyRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface AssignmentPolicyRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AssignmentPolicyRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignments/{accessPackageAssignment%2Did}/assignmentPolicy{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AssignmentPolicyRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const AssignmentPolicyRequestBuilderGetQueryParametersMapper: Record<string, str
  */
 export const AssignmentPolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: AssignmentPolicyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAccessPackageAssignmentPolicyFromDiscriminatorValue,
         queryParametersMapper: AssignmentPolicyRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AssignmentPolicyRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignments/{accessPackageAssignment%2Did}/assignmentPolicy{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

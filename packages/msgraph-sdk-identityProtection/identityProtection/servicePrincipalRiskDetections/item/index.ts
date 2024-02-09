@@ -12,12 +12,14 @@ export interface ServicePrincipalRiskDetectionItemRequestBuilder extends BaseReq
     /**
      * Delete navigation property servicePrincipalRiskDetections for identityProtection
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Read the properties and relationships of a servicePrincipalRiskDetection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ServicePrincipalRiskDetection
+     * @returns {Promise<ServicePrincipalRiskDetection>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipalriskdetection-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ServicePrincipalRiskDetectionItemRequestBuilderGetQueryParameters> | undefined) : Promise<ServicePrincipalRiskDetection | undefined>;
@@ -25,26 +27,27 @@ export interface ServicePrincipalRiskDetectionItemRequestBuilder extends BaseReq
      * Update the navigation property servicePrincipalRiskDetections in identityProtection
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ServicePrincipalRiskDetection
+     * @returns {Promise<ServicePrincipalRiskDetection>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: ServicePrincipalRiskDetection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ServicePrincipalRiskDetection | undefined>;
     /**
      * Delete navigation property servicePrincipalRiskDetections for identityProtection
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Read the properties and relationships of a servicePrincipalRiskDetection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ServicePrincipalRiskDetectionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property servicePrincipalRiskDetections in identityProtection
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: ServicePrincipalRiskDetection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -62,6 +65,10 @@ export interface ServicePrincipalRiskDetectionItemRequestBuilderGetQueryParamete
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ServicePrincipalRiskDetectionItemRequestBuilderUriTemplate = "{+baseurl}/identityProtection/servicePrincipalRiskDetections/{servicePrincipalRiskDetection%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ServicePrincipalRiskDetectionItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -73,28 +80,28 @@ const ServicePrincipalRiskDetectionItemRequestBuilderGetQueryParametersMapper: R
  */
 export const ServicePrincipalRiskDetectionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: ServicePrincipalRiskDetectionItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: ServicePrincipalRiskDetectionItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createServicePrincipalRiskDetectionFromDiscriminatorValue,
         queryParametersMapper: ServicePrincipalRiskDetectionItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: ServicePrincipalRiskDetectionItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createServicePrincipalRiskDetectionFromDiscriminatorValue,
@@ -103,9 +110,5 @@ export const ServicePrincipalRiskDetectionItemRequestBuilderRequestsMetadata: Re
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ServicePrincipalRiskDetectionItemRequestBuilderUriTemplate = "{+baseurl}/identityProtection/servicePrincipalRiskDetections/{servicePrincipalRiskDetection%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

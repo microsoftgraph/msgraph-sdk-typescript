@@ -12,13 +12,14 @@ export interface HostPairItemRequestBuilder extends BaseRequestBuilder<HostPairI
     /**
      * The hostPairs that are associated with this host, where this host is either the parentHost or childHost.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of HostPair
+     * @returns {Promise<HostPair>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<HostPairItemRequestBuilderGetQueryParameters> | undefined) : Promise<HostPair | undefined>;
     /**
      * The hostPairs that are associated with this host, where this host is either the parentHost or childHost.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<HostPairItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface HostPairItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const HostPairItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/hostPairs/{hostPair%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const HostPairItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const HostPairItemRequestBuilderGetQueryParametersMapper: Record<string, string>
  */
 export const HostPairItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: HostPairItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createHostPairFromDiscriminatorValue,
         queryParametersMapper: HostPairItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const HostPairItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/hostPairs/{hostPair%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

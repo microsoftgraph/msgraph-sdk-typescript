@@ -12,12 +12,14 @@ export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends
     /**
      * Delete navigation property identitySecurityDefaultsEnforcementPolicy for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of IdentitySecurityDefaultsEnforcementPolicy
+     * @returns {Promise<IdentitySecurityDefaultsEnforcementPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/identitysecuritydefaultsenforcementpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters> | undefined) : Promise<IdentitySecurityDefaultsEnforcementPolicy | undefined>;
@@ -25,27 +27,28 @@ export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends
      * Update the properties of an identitySecurityDefaultsEnforcementPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of IdentitySecurityDefaultsEnforcementPolicy
+     * @returns {Promise<IdentitySecurityDefaultsEnforcementPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/identitysecuritydefaultsenforcementpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: IdentitySecurityDefaultsEnforcementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IdentitySecurityDefaultsEnforcementPolicy | undefined>;
     /**
      * Delete navigation property identitySecurityDefaultsEnforcementPolicy for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the properties of an identitySecurityDefaultsEnforcementPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: IdentitySecurityDefaultsEnforcementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -63,6 +66,10 @@ export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQuery
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/identitySecurityDefaultsEnforcementPolicy{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -74,28 +81,28 @@ const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParametersM
  */
 export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue,
         queryParametersMapper: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue,
@@ -104,9 +111,5 @@ export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderRequestsMeta
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/identitySecurityDefaultsEnforcementPolicy{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

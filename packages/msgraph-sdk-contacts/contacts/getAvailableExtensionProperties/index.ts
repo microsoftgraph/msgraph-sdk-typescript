@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getAvailableExtensionPropertiesPostRequestBody
+ * @returns {GetAvailableExtensionPropertiesPostRequestBody}
  */
 export function createGetAvailableExtensionPropertiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAvailableExtensionPropertiesPostRequestBody;
@@ -16,14 +16,14 @@ export function createGetAvailableExtensionPropertiesPostRequestBodyFromDiscrimi
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getAvailableExtensionPropertiesPostResponse
+ * @returns {GetAvailableExtensionPropertiesPostResponse}
  */
 export function createGetAvailableExtensionPropertiesPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAvailableExtensionPropertiesPostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetAvailableExtensionPropertiesPostRequestBody(getAvailableExtensionPropertiesPostRequestBody: Partial<GetAvailableExtensionPropertiesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -33,7 +33,7 @@ export function deserializeIntoGetAvailableExtensionPropertiesPostRequestBody(ge
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetAvailableExtensionPropertiesPostResponse(getAvailableExtensionPropertiesPostResponse: Partial<GetAvailableExtensionPropertiesPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -69,7 +69,8 @@ export interface GetAvailableExtensionPropertiesRequestBuilder extends BaseReque
      * Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetAvailableExtensionPropertiesPostResponse
+     * @returns {Promise<GetAvailableExtensionPropertiesPostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getavailableextensionproperties?view=graph-rest-1.0|Find more info here}
      */
      post(body: GetAvailableExtensionPropertiesPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetAvailableExtensionPropertiesPostResponse | undefined>;
@@ -77,7 +78,7 @@ export interface GetAvailableExtensionPropertiesRequestBuilder extends BaseReque
      * Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: GetAvailableExtensionPropertiesPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -98,14 +99,18 @@ export function serializeGetAvailableExtensionPropertiesPostResponse(writer: Ser
     writer.writeCollectionOfObjectValues<ExtensionProperty>("value", getAvailableExtensionPropertiesPostResponse.value, serializeExtensionProperty);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetAvailableExtensionPropertiesRequestBuilderUriTemplate = "{+baseurl}/contacts/getAvailableExtensionProperties";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const GetAvailableExtensionPropertiesRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: GetAvailableExtensionPropertiesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGetAvailableExtensionPropertiesPostResponseFromDiscriminatorValue,
@@ -114,9 +119,5 @@ export const GetAvailableExtensionPropertiesRequestBuilderRequestsMetadata: Requ
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetAvailableExtensionPropertiesRequestBuilderUriTemplate = "{+baseurl}/contacts/getAvailableExtensionProperties";
 /* tslint:enable */
 /* eslint-enable */

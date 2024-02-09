@@ -12,27 +12,29 @@ export interface TermStoresRequestBuilder extends BaseRequestBuilder<TermStoresR
     /**
      * The collection of termStores under this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of StoreCollectionResponse
+     * @returns {Promise<StoreCollectionResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<TermStoresRequestBuilderGetQueryParameters> | undefined) : Promise<StoreCollectionResponse | undefined>;
     /**
      * Create new navigation property to termStores for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Store
+     * @returns {Promise<Store>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: Store, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Store | undefined>;
     /**
      * The collection of termStores under this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TermStoresRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Create new navigation property to termStores for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: Store, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -74,6 +76,10 @@ export interface TermStoresRequestBuilderGetQueryParameters {
     top?: number;
 }
 /**
+ * Uri template for the request builder.
+ */
+export const TermStoresRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/termStores{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const TermStoresRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -91,20 +97,20 @@ const TermStoresRequestBuilderGetQueryParametersMapper: Record<string, string> =
  */
 export const TermStoresRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: TermStoresRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createStoreCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TermStoresRequestBuilderGetQueryParametersMapper,
     },
     post: {
+        uriTemplate: TermStoresRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createStoreFromDiscriminatorValue,
@@ -113,9 +119,5 @@ export const TermStoresRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TermStoresRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/termStores{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

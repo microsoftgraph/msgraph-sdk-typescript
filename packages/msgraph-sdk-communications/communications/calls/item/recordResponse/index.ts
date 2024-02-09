@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a recordResponsePostRequestBody
+ * @returns {RecordResponsePostRequestBody}
  */
 export function createRecordResponsePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRecordResponsePostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoRecordResponsePostRequestBody(recordResponsePostRequestBody: Partial<RecordResponsePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -80,7 +80,8 @@ export interface RecordResponseRequestBuilder extends BaseRequestBuilder<RecordR
      * Records a short audio response from the caller.A bot can utilize this to capture a voice response from a caller after they are prompted for a response. For further information on how to handle operations, please review commsOperation This action is not intended to record the entire call. The maximum length of recording is 2 minutes. The recording is not saved permanently by the Cloud Communications Platform and is discarded shortly after the call ends. The bot must download the recording promptly after the recording operation finishes by using the recordingLocation value that's given in the completed notification.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of RecordOperation
+     * @returns {Promise<RecordOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/call-record?view=graph-rest-1.0|Find more info here}
      */
      post(body: RecordResponsePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RecordOperation | undefined>;
@@ -88,7 +89,7 @@ export interface RecordResponseRequestBuilder extends BaseRequestBuilder<RecordR
      * Records a short audio response from the caller.A bot can utilize this to capture a voice response from a caller after they are prompted for a response. For further information on how to handle operations, please review commsOperation This action is not intended to record the entire call. The maximum length of recording is 2 minutes. The recording is not saved permanently by the Cloud Communications Platform and is discarded shortly after the call ends. The bot must download the recording promptly after the recording operation finishes by using the recordingLocation value that's given in the completed notification.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: RecordResponsePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -108,14 +109,18 @@ export function serializeRecordResponsePostRequestBody(writer: SerializationWrit
     writer.writeAdditionalData(recordResponsePostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const RecordResponseRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/recordResponse";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const RecordResponseRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: RecordResponseRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createRecordOperationFromDiscriminatorValue,
@@ -124,9 +129,5 @@ export const RecordResponseRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const RecordResponseRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/recordResponse";
 /* tslint:enable */
 /* eslint-enable */
