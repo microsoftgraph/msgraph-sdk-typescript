@@ -12,38 +12,41 @@ export interface UserExperienceAnalyticsMetricItemRequestBuilder extends BaseReq
     /**
      * Delete navigation property metricValues for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * The metric values for the user experience analytics category. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of UserExperienceAnalyticsMetric
+     * @returns {Promise<UserExperienceAnalyticsMetric>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<UserExperienceAnalyticsMetricItemRequestBuilderGetQueryParameters> | undefined) : Promise<UserExperienceAnalyticsMetric | undefined>;
     /**
      * Update the navigation property metricValues in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of UserExperienceAnalyticsMetric
+     * @returns {Promise<UserExperienceAnalyticsMetric>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: UserExperienceAnalyticsMetric, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserExperienceAnalyticsMetric | undefined>;
     /**
      * Delete navigation property metricValues for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * The metric values for the user experience analytics category. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserExperienceAnalyticsMetricItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property metricValues in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: UserExperienceAnalyticsMetric, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -61,6 +64,10 @@ export interface UserExperienceAnalyticsMetricItemRequestBuilderGetQueryParamete
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const UserExperienceAnalyticsMetricItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsCategories/{userExperienceAnalyticsCategory%2Did}/metricValues/{userExperienceAnalyticsMetric%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const UserExperienceAnalyticsMetricItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -72,28 +79,28 @@ const UserExperienceAnalyticsMetricItemRequestBuilderGetQueryParametersMapper: R
  */
 export const UserExperienceAnalyticsMetricItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: UserExperienceAnalyticsMetricItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: UserExperienceAnalyticsMetricItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createUserExperienceAnalyticsMetricFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsMetricItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: UserExperienceAnalyticsMetricItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createUserExperienceAnalyticsMetricFromDiscriminatorValue,
@@ -102,9 +109,5 @@ export const UserExperienceAnalyticsMetricItemRequestBuilderRequestsMetadata: Re
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const UserExperienceAnalyticsMetricItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsCategories/{userExperienceAnalyticsCategory%2Did}/metricValues/{userExperienceAnalyticsMetric%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

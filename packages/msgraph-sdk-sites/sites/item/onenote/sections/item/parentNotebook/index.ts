@@ -12,13 +12,14 @@ export interface ParentNotebookRequestBuilder extends BaseRequestBuilder<ParentN
     /**
      * The notebook that contains the section.  Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Notebook
+     * @returns {Promise<Notebook>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ParentNotebookRequestBuilderGetQueryParameters> | undefined) : Promise<Notebook | undefined>;
     /**
      * The notebook that contains the section.  Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ParentNotebookRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface ParentNotebookRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ParentNotebookRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/onenote/sections/{onenoteSection%2Did}/parentNotebook{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ParentNotebookRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const ParentNotebookRequestBuilderGetQueryParametersMapper: Record<string, strin
  */
 export const ParentNotebookRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ParentNotebookRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createNotebookFromDiscriminatorValue,
         queryParametersMapper: ParentNotebookRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ParentNotebookRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/onenote/sections/{onenoteSection%2Did}/parentNotebook{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

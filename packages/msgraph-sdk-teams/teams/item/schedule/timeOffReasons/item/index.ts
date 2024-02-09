@@ -12,13 +12,15 @@ export interface TimeOffReasonItemRequestBuilder extends BaseRequestBuilder<Time
     /**
      * Mark a timeOffReason as inactive by setting the isActive property. Every team must include at least one timeoff reason. This method doesn't remove the specified timeOffReason instance. timeOffItem instances that have been assigned this reason remain assigned to this reason.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/timeoffreason-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Retrieve the properties and relationships of a timeOffReason object by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TimeOffReason
+     * @returns {Promise<TimeOffReason>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/timeoffreason-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TimeOffReasonItemRequestBuilderGetQueryParameters> | undefined) : Promise<TimeOffReason | undefined>;
@@ -26,27 +28,28 @@ export interface TimeOffReasonItemRequestBuilder extends BaseRequestBuilder<Time
      * Replace an existing timeOffReason. If the specified timeOffReason doesn't exist, this method returns 404 Not found.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TimeOffReason
+     * @returns {Promise<TimeOffReason>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/timeoffreason-put?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TimeOffReason, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TimeOffReason | undefined>;
     /**
      * Mark a timeOffReason as inactive by setting the isActive property. Every team must include at least one timeoff reason. This method doesn't remove the specified timeOffReason instance. timeOffItem instances that have been assigned this reason remain assigned to this reason.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Retrieve the properties and relationships of a timeOffReason object by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TimeOffReasonItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Replace an existing timeOffReason. If the specified timeOffReason doesn't exist, this method returns 404 Not found.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: TimeOffReason, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -60,6 +63,10 @@ export interface TimeOffReasonItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const TimeOffReasonItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/timeOffReasons/{timeOffReason%2Did}{?%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const TimeOffReasonItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -70,28 +77,28 @@ const TimeOffReasonItemRequestBuilderGetQueryParametersMapper: Record<string, st
  */
 export const TimeOffReasonItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: TimeOffReasonItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: TimeOffReasonItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTimeOffReasonFromDiscriminatorValue,
         queryParametersMapper: TimeOffReasonItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: TimeOffReasonItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTimeOffReasonFromDiscriminatorValue,
@@ -100,9 +107,5 @@ export const TimeOffReasonItemRequestBuilderRequestsMetadata: RequestsMetadata =
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TimeOffReasonItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/timeOffReasons/{timeOffReason%2Did}{?%24select}";
 /* tslint:enable */
 /* eslint-enable */

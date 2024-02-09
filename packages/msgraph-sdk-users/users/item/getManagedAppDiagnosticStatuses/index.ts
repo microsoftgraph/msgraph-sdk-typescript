@@ -8,14 +8,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getManagedAppDiagnosticStatusesGetResponse
+ * @returns {GetManagedAppDiagnosticStatusesGetResponse}
  */
 export function createGetManagedAppDiagnosticStatusesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetManagedAppDiagnosticStatusesGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetManagedAppDiagnosticStatusesGetResponse(getManagedAppDiagnosticStatusesGetResponse: Partial<GetManagedAppDiagnosticStatusesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -36,13 +36,14 @@ export interface GetManagedAppDiagnosticStatusesRequestBuilder extends BaseReque
     /**
      * Gets diagnostics validation status for a given user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetManagedAppDiagnosticStatusesGetResponse
+     * @returns {Promise<GetManagedAppDiagnosticStatusesGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GetManagedAppDiagnosticStatusesRequestBuilderGetQueryParameters> | undefined) : Promise<GetManagedAppDiagnosticStatusesGetResponse | undefined>;
     /**
      * Gets diagnostics validation status for a given user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetManagedAppDiagnosticStatusesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -80,6 +81,10 @@ export function serializeGetManagedAppDiagnosticStatusesGetResponse(writer: Seri
     writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatus>("value", getManagedAppDiagnosticStatusesGetResponse.value, serializeManagedAppDiagnosticStatus);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetManagedAppDiagnosticStatusesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/getManagedAppDiagnosticStatuses(){?%24count,%24filter,%24search,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const GetManagedAppDiagnosticStatusesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -94,19 +99,15 @@ const GetManagedAppDiagnosticStatusesRequestBuilderGetQueryParametersMapper: Rec
  */
 export const GetManagedAppDiagnosticStatusesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GetManagedAppDiagnosticStatusesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGetManagedAppDiagnosticStatusesGetResponseFromDiscriminatorValue,
         queryParametersMapper: GetManagedAppDiagnosticStatusesRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetManagedAppDiagnosticStatusesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/getManagedAppDiagnosticStatuses(){?%24count,%24filter,%24search,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

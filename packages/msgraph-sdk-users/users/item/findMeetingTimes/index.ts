@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a findMeetingTimesPostRequestBody
+ * @returns {FindMeetingTimesPostRequestBody}
  */
 export function createFindMeetingTimesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFindMeetingTimesPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoFindMeetingTimesPostRequestBody(findMeetingTimesPostRequestBody: Partial<FindMeetingTimesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -80,7 +80,8 @@ export interface FindMeetingTimesRequestBuilder extends BaseRequestBuilder<FindM
      * Suggest meeting times and locations based on organizer and attendee availability, and time or location constraints specified as parameters. If findMeetingTimes cannot return any meeting suggestions, the response would indicate a reason in the emptySuggestionsReason property. Based on this value, you can better adjust the parameters and call findMeetingTimes again. The algorithm used to suggest meeting times and locations undergoes fine-tuning from time to time. In scenarios like test environments where the input parameters and calendar data remain static, expect that the suggested results may differ over time.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of MeetingTimeSuggestionsResult
+     * @returns {Promise<MeetingTimeSuggestionsResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/user-findmeetingtimes?view=graph-rest-1.0|Find more info here}
      */
      post(body: FindMeetingTimesPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MeetingTimeSuggestionsResult | undefined>;
@@ -88,7 +89,7 @@ export interface FindMeetingTimesRequestBuilder extends BaseRequestBuilder<FindM
      * Suggest meeting times and locations based on organizer and attendee availability, and time or location constraints specified as parameters. If findMeetingTimes cannot return any meeting suggestions, the response would indicate a reason in the emptySuggestionsReason property. Based on this value, you can better adjust the parameters and call findMeetingTimes again. The algorithm used to suggest meeting times and locations undergoes fine-tuning from time to time. In scenarios like test environments where the input parameters and calendar data remain static, expect that the suggested results may differ over time.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: FindMeetingTimesPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -108,14 +109,18 @@ export function serializeFindMeetingTimesPostRequestBody(writer: SerializationWr
     writer.writeAdditionalData(findMeetingTimesPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const FindMeetingTimesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/findMeetingTimes";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const FindMeetingTimesRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: FindMeetingTimesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createMeetingTimeSuggestionsResultFromDiscriminatorValue,
@@ -124,9 +129,5 @@ export const FindMeetingTimesRequestBuilderRequestsMetadata: RequestsMetadata = 
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const FindMeetingTimesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/findMeetingTimes";
 /* tslint:enable */
 /* eslint-enable */

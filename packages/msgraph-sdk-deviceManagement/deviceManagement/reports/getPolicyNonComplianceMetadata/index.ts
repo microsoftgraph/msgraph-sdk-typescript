@@ -7,14 +7,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getPolicyNonComplianceMetadataPostRequestBody
+ * @returns {GetPolicyNonComplianceMetadataPostRequestBody}
  */
 export function createGetPolicyNonComplianceMetadataPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetPolicyNonComplianceMetadataPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetPolicyNonComplianceMetadataPostRequestBody(getPolicyNonComplianceMetadataPostRequestBody: Partial<GetPolicyNonComplianceMetadataPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -84,7 +84,8 @@ export interface GetPolicyNonComplianceMetadataRequestBuilder extends BaseReques
      * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ArrayBuffer
+     * @returns {Promise<ArrayBuffer>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getpolicynoncompliancemetadata?view=graph-rest-1.0|Find more info here}
      */
      post(body: GetPolicyNonComplianceMetadataPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
@@ -92,7 +93,7 @@ export interface GetPolicyNonComplianceMetadataRequestBuilder extends BaseReques
      * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: GetPolicyNonComplianceMetadataPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -113,14 +114,18 @@ export function serializeGetPolicyNonComplianceMetadataPostRequestBody(writer: S
     writer.writeAdditionalData(getPolicyNonComplianceMetadataPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetPolicyNonComplianceMetadataRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/reports/getPolicyNonComplianceMetadata";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const GetPolicyNonComplianceMetadataRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: GetPolicyNonComplianceMetadataRequestBuilderUriTemplate,
         responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendPrimitiveAsync",
         responseBodyFactory:  "ArrayBuffer",
@@ -129,9 +134,5 @@ export const GetPolicyNonComplianceMetadataRequestBuilderRequestsMetadata: Reque
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetPolicyNonComplianceMetadataRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/reports/getPolicyNonComplianceMetadata";
 /* tslint:enable */
 /* eslint-enable */

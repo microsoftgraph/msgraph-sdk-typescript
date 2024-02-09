@@ -12,7 +12,8 @@ export interface ColumnsRequestBuilder extends BaseRequestBuilder<ColumnsRequest
     /**
      * Retrieve a list of tablecolumn objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookTableColumnCollectionResponse
+     * @returns {Promise<WorkbookTableColumnCollectionResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/table-list-columns?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ColumnsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookTableColumnCollectionResponse | undefined>;
@@ -20,21 +21,22 @@ export interface ColumnsRequestBuilder extends BaseRequestBuilder<ColumnsRequest
      * Use this API to create a new TableColumn.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookTableColumn
+     * @returns {Promise<WorkbookTableColumn>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/table-post-columns?view=graph-rest-1.0|Find more info here}
      */
      post(body: WorkbookTableColumn, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTableColumn | undefined>;
     /**
      * Retrieve a list of tablecolumn objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ColumnsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Use this API to create a new TableColumn.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: WorkbookTableColumn, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -76,6 +78,10 @@ export interface ColumnsRequestBuilderGetQueryParameters {
     top?: number;
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ColumnsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/itemAt(index={index})/columns{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ColumnsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -93,20 +99,20 @@ const ColumnsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const ColumnsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ColumnsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookTableColumnCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ColumnsRequestBuilderGetQueryParametersMapper,
     },
     post: {
+        uriTemplate: ColumnsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookTableColumnFromDiscriminatorValue,
@@ -115,9 +121,5 @@ export const ColumnsRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ColumnsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/itemAt(index={index})/columns{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

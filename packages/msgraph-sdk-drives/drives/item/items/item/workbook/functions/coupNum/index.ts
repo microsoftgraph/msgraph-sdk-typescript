@@ -39,28 +39,29 @@ export interface CoupNumRequestBuilder extends BaseRequestBuilder<CoupNumRequest
      * Invoke action coupNum
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookFunctionResult
+     * @returns {Promise<WorkbookFunctionResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: CoupNumPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookFunctionResult | undefined>;
     /**
      * Invoke action coupNum
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: CoupNumPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a coupNumPostRequestBody
+ * @returns {CoupNumPostRequestBody}
  */
 export function createCoupNumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCoupNumPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCoupNumPostRequestBody(coupNumPostRequestBody: Partial<CoupNumPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -83,14 +84,18 @@ export function serializeCoupNumPostRequestBody(writer: SerializationWriter, cou
     writer.writeAdditionalData(coupNumPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CoupNumRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/coupNum";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const CoupNumRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: CoupNumRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
@@ -99,9 +104,5 @@ export const CoupNumRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CoupNumRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/coupNum";
 /* tslint:enable */
 /* eslint-enable */

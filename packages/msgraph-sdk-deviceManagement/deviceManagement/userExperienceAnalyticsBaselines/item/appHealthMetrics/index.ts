@@ -12,13 +12,14 @@ export interface AppHealthMetricsRequestBuilder extends BaseRequestBuilder<AppHe
     /**
      * The scores and insights for the application health metrics.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of UserExperienceAnalyticsCategory
+     * @returns {Promise<UserExperienceAnalyticsCategory>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<AppHealthMetricsRequestBuilderGetQueryParameters> | undefined) : Promise<UserExperienceAnalyticsCategory | undefined>;
     /**
      * The scores and insights for the application health metrics.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppHealthMetricsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface AppHealthMetricsRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AppHealthMetricsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}/appHealthMetrics{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AppHealthMetricsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const AppHealthMetricsRequestBuilderGetQueryParametersMapper: Record<string, str
  */
 export const AppHealthMetricsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: AppHealthMetricsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createUserExperienceAnalyticsCategoryFromDiscriminatorValue,
         queryParametersMapper: AppHealthMetricsRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AppHealthMetricsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}/appHealthMetrics{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

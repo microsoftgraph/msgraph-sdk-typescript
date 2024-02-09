@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a edatePostRequestBody
+ * @returns {EdatePostRequestBody}
  */
 export function createEdatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoEdatePostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoEdatePostRequestBody(edatePostRequestBody: Partial<EdatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -50,14 +50,15 @@ export interface EdateRequestBuilder extends BaseRequestBuilder<EdateRequestBuil
      * Invoke action edate
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookFunctionResult
+     * @returns {Promise<WorkbookFunctionResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: EdatePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookFunctionResult | undefined>;
     /**
      * Invoke action edate
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: EdatePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -71,14 +72,18 @@ export function serializeEdatePostRequestBody(writer: SerializationWriter, edate
     writer.writeAdditionalData(edatePostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const EdateRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/edate";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const EdateRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: EdateRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
@@ -87,9 +92,5 @@ export const EdateRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const EdateRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/edate";
 /* tslint:enable */
 /* eslint-enable */

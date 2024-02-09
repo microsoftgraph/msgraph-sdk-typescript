@@ -9,14 +9,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse
+ * @returns {GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse}
  */
 export function createGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse(getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse: Partial<GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -37,13 +37,14 @@ export interface MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeW
     /**
      * Invoke function getDirectRoutingCalls
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse
+     * @returns {Promise<GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse | undefined>;
     /**
      * Invoke function getDirectRoutingCalls
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -81,6 +82,10 @@ export function serializeGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetR
     writer.writeCollectionOfObjectValues<DirectRoutingLogRow>("value", getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse.value, serializeDirectRoutingLogRow);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderUriTemplate = "{+baseurl}/communications/callRecords/microsoft.graph.callRecords.getDirectRoutingCalls(fromDateTime={fromDateTime},toDateTime={toDateTime}){?%24count,%24filter,%24search,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -95,19 +100,15 @@ const MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTi
  */
 export const MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponseFromDiscriminatorValue,
         queryParametersMapper: MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderUriTemplate = "{+baseurl}/communications/callRecords/microsoft.graph.callRecords.getDirectRoutingCalls(fromDateTime={fromDateTime},toDateTime={toDateTime}){?%24count,%24filter,%24search,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

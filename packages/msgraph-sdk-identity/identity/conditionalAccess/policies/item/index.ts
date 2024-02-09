@@ -12,13 +12,15 @@ export interface ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBu
     /**
      * Delete a conditionalAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/conditionalaccesspolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Retrieve the properties and relationships of a conditionalAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ConditionalAccessPolicy
+     * @returns {Promise<ConditionalAccessPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/conditionalaccesspolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConditionalAccessPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<ConditionalAccessPolicy | undefined>;
@@ -26,27 +28,28 @@ export interface ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBu
      * Update the properties of a conditionalAccessPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ConditionalAccessPolicy
+     * @returns {Promise<ConditionalAccessPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/conditionalaccesspolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ConditionalAccessPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConditionalAccessPolicy | undefined>;
     /**
      * Delete a conditionalAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Retrieve the properties and relationships of a conditionalAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConditionalAccessPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the properties of a conditionalAccessPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: ConditionalAccessPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -64,6 +67,10 @@ export interface ConditionalAccessPolicyItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ConditionalAccessPolicyItemRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/policies/{conditionalAccessPolicy%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ConditionalAccessPolicyItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -75,28 +82,28 @@ const ConditionalAccessPolicyItemRequestBuilderGetQueryParametersMapper: Record<
  */
 export const ConditionalAccessPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: ConditionalAccessPolicyItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: ConditionalAccessPolicyItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createConditionalAccessPolicyFromDiscriminatorValue,
         queryParametersMapper: ConditionalAccessPolicyItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: ConditionalAccessPolicyItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createConditionalAccessPolicyFromDiscriminatorValue,
@@ -105,9 +112,5 @@ export const ConditionalAccessPolicyItemRequestBuilderRequestsMetadata: Requests
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ConditionalAccessPolicyItemRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/policies/{conditionalAccessPolicy%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

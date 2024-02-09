@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a createPostRequestBody
+ * @returns {CreatePostRequestBody}
  */
 export function createCreatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreatePostRequestBody;
@@ -59,6 +59,7 @@ export interface CreateRequestBuilder extends BaseRequestBuilder<CreateRequestBu
      * Create (register) a printer with the Universal Print service. This is a long-running operation and as such, it returns a printerCreateOperation that can be used to track and verify the registration of the printer. For help creating the required Certificate Signing Request (CSR) for creating printer, see the CSR generation code sample.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/printer-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: CreatePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
@@ -66,13 +67,13 @@ export interface CreateRequestBuilder extends BaseRequestBuilder<CreateRequestBu
      * Create (register) a printer with the Universal Print service. This is a long-running operation and as such, it returns a printerCreateOperation that can be used to track and verify the registration of the printer. For help creating the required Certificate Signing Request (CSR) for creating printer, see the CSR generation code sample.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: CreatePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCreatePostRequestBody(createPostRequestBody: Partial<CreatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -101,14 +102,18 @@ export function serializeCreatePostRequestBody(writer: SerializationWriter, crea
     writer.writeAdditionalData(createPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CreateRequestBuilderUriTemplate = "{+baseurl}/print/printers/create";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const CreateRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: CreateRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
         requestBodyContentType: "application/json",
@@ -116,9 +121,5 @@ export const CreateRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CreateRequestBuilderUriTemplate = "{+baseurl}/print/printers/create";
 /* tslint:enable */
 /* eslint-enable */

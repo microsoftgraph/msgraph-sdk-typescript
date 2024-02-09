@@ -7,14 +7,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a imageWithWidthWithHeightGetResponse
+ * @returns {ImageWithWidthWithHeightGetResponse}
  */
 export function createImageWithWidthWithHeightGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImageWithWidthWithHeightGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoImageWithWidthWithHeightGetResponse(imageWithWidthWithHeightGetResponse: Partial<ImageWithWidthWithHeightGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -43,13 +43,14 @@ export interface ImageWithWidthWithHeightRequestBuilder extends BaseRequestBuild
     /**
      * Invoke function image
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ImageWithWidthWithHeightGetResponse
+     * @returns {Promise<ImageWithWidthWithHeightGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ImageWithWidthWithHeightGetResponse | undefined>;
     /**
      * Invoke function image
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -62,22 +63,22 @@ export function serializeImageWithWidthWithHeightGetResponse(writer: Serializati
     writer.writeAdditionalData(imageWithWidthWithHeightGetResponse.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ImageWithWidthWithHeightRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/itemAt(index={index})/image(width={width},height={height})";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const ImageWithWidthWithHeightRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ImageWithWidthWithHeightRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createImageWithWidthWithHeightGetResponseFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ImageWithWidthWithHeightRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/itemAt(index={index})/image(width={width},height={height})";
 /* tslint:enable */
 /* eslint-enable */

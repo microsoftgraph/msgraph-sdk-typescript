@@ -11,32 +11,33 @@ export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder>
     /**
      * Revoke the specified user's access to submit print jobs to the associated printerShare.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/printershare-delete-alloweduser?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Revoke the specified user's access to submit print jobs to the associated printerShare.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const RefRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerShare%2Did}/allowedUsers/{user%2Did}/$ref";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: RefRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const RefRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerShare%2Did}/allowedUsers/{user%2Did}/$ref";
 /* tslint:enable */
 /* eslint-enable */

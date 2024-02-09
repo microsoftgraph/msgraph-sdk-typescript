@@ -12,13 +12,14 @@ export interface PayloadRequestBuilder extends BaseRequestBuilder<PayloadRequest
     /**
      * The payload associated with a simulation during its creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Payload
+     * @returns {Promise<Payload>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<PayloadRequestBuilderGetQueryParameters> | undefined) : Promise<Payload | undefined>;
     /**
      * The payload associated with a simulation during its creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PayloadRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface PayloadRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const PayloadRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/payload{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const PayloadRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const PayloadRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const PayloadRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: PayloadRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPayloadFromDiscriminatorValue,
         queryParametersMapper: PayloadRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const PayloadRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/payload{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

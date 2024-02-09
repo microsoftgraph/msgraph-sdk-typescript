@@ -12,13 +12,14 @@ export interface GradingCategoryRequestBuilder extends BaseRequestBuilder<Gradin
     /**
      * When set, enables users to weight assignments differently when computing a class average grade.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of EducationGradingCategory
+     * @returns {Promise<EducationGradingCategory>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GradingCategoryRequestBuilderGetQueryParameters> | undefined) : Promise<EducationGradingCategory | undefined>;
     /**
      * When set, enables users to weight assignments differently when computing a class average grade.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GradingCategoryRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface GradingCategoryRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GradingCategoryRequestBuilderUriTemplate = "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/gradingCategory{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const GradingCategoryRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const GradingCategoryRequestBuilderGetQueryParametersMapper: Record<string, stri
  */
 export const GradingCategoryRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GradingCategoryRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createEducationGradingCategoryFromDiscriminatorValue,
         queryParametersMapper: GradingCategoryRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GradingCategoryRequestBuilderUriTemplate = "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/gradingCategory{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

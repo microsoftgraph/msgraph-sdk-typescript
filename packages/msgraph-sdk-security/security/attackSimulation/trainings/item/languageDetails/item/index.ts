@@ -12,38 +12,41 @@ export interface TrainingLanguageDetailItemRequestBuilder extends BaseRequestBui
     /**
      * Delete navigation property languageDetails for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Language specific details on a training.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TrainingLanguageDetail
+     * @returns {Promise<TrainingLanguageDetail>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<TrainingLanguageDetailItemRequestBuilderGetQueryParameters> | undefined) : Promise<TrainingLanguageDetail | undefined>;
     /**
      * Update the navigation property languageDetails in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TrainingLanguageDetail
+     * @returns {Promise<TrainingLanguageDetail>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: TrainingLanguageDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TrainingLanguageDetail | undefined>;
     /**
      * Delete navigation property languageDetails for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Language specific details on a training.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TrainingLanguageDetailItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property languageDetails in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: TrainingLanguageDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -61,6 +64,10 @@ export interface TrainingLanguageDetailItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const TrainingLanguageDetailItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/trainings/{training%2Did}/languageDetails/{trainingLanguageDetail%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const TrainingLanguageDetailItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -72,28 +79,28 @@ const TrainingLanguageDetailItemRequestBuilderGetQueryParametersMapper: Record<s
  */
 export const TrainingLanguageDetailItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: TrainingLanguageDetailItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: TrainingLanguageDetailItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTrainingLanguageDetailFromDiscriminatorValue,
         queryParametersMapper: TrainingLanguageDetailItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: TrainingLanguageDetailItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTrainingLanguageDetailFromDiscriminatorValue,
@@ -102,9 +109,5 @@ export const TrainingLanguageDetailItemRequestBuilderRequestsMetadata: RequestsM
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TrainingLanguageDetailItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/trainings/{training%2Did}/languageDetails/{trainingLanguageDetail%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

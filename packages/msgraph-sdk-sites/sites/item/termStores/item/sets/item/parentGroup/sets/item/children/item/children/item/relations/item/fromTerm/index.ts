@@ -12,13 +12,14 @@ export interface FromTermRequestBuilder extends BaseRequestBuilder<FromTermReque
     /**
      * The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Term
+     * @returns {Promise<Term>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<FromTermRequestBuilderGetQueryParameters> | undefined) : Promise<Term | undefined>;
     /**
      * The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FromTermRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface FromTermRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const FromTermRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/sets/{set%2Did}/parentGroup/sets/{set%2Did1}/children/{term%2Did}/children/{term%2Did1}/relations/{relation%2Did}/fromTerm{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const FromTermRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const FromTermRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const FromTermRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: FromTermRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTermFromDiscriminatorValue,
         queryParametersMapper: FromTermRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const FromTermRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/sets/{set%2Did}/parentGroup/sets/{set%2Did1}/children/{term%2Did}/children/{term%2Did1}/relations/{relation%2Did}/fromTerm{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

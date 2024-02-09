@@ -12,13 +12,14 @@ export interface GraphDeviceRequestBuilder extends BaseRequestBuilder<GraphDevic
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.device
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Device
+     * @returns {Promise<Device>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GraphDeviceRequestBuilderGetQueryParameters> | undefined) : Promise<Device | undefined>;
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.device
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphDeviceRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface GraphDeviceRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GraphDeviceRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/membersWithLicenseErrors/{directoryObject%2Did}/graph.device{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const GraphDeviceRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const GraphDeviceRequestBuilderGetQueryParametersMapper: Record<string, string> 
  */
 export const GraphDeviceRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GraphDeviceRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDeviceFromDiscriminatorValue,
         queryParametersMapper: GraphDeviceRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GraphDeviceRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/membersWithLicenseErrors/{directoryObject%2Did}/graph.device{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

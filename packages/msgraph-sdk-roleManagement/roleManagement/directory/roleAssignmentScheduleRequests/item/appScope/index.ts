@@ -12,13 +12,14 @@ export interface AppScopeRequestBuilder extends BaseRequestBuilder<AppScopeReque
     /**
      * Read-only property with details of the app-specific scope when the assignment is scoped to an app. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AppScope
+     * @returns {Promise<AppScope>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<AppScopeRequestBuilderGetQueryParameters> | undefined) : Promise<AppScope | undefined>;
     /**
      * Read-only property with details of the app-specific scope when the assignment is scoped to an app. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppScopeRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface AppScopeRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AppScopeRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignmentScheduleRequests/{unifiedRoleAssignmentScheduleRequest%2Did}/appScope{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AppScopeRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const AppScopeRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const AppScopeRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: AppScopeRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAppScopeFromDiscriminatorValue,
         queryParametersMapper: AppScopeRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AppScopeRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignmentScheduleRequests/{unifiedRoleAssignmentScheduleRequest%2Did}/appScope{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -12,7 +12,8 @@ export interface ListsRequestBuilder extends BaseRequestBuilder<ListsRequestBuil
     /**
      * Get the collection of [lists][] for a [site][]. Lists with the [system][] facet are hidden by default.To list them, include system in your $select statement.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ListCollectionResponse
+     * @returns {Promise<ListCollectionResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/list-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ListsRequestBuilderGetQueryParameters> | undefined) : Promise<ListCollectionResponse | undefined>;
@@ -20,21 +21,22 @@ export interface ListsRequestBuilder extends BaseRequestBuilder<ListsRequestBuil
      * Create a new [list][] in a [site][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of List
+     * @returns {Promise<List>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/list-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: List, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<List | undefined>;
     /**
      * Get the collection of [lists][] for a [site][]. Lists with the [system][] facet are hidden by default.To list them, include system in your $select statement.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ListsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Create a new [list][] in a [site][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: List, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -76,6 +78,10 @@ export interface ListsRequestBuilderGetQueryParameters {
     top?: number;
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ListsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/getByPath(path='{path}')/lists{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ListsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -93,20 +99,20 @@ const ListsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const ListsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ListsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createListCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ListsRequestBuilderGetQueryParametersMapper,
     },
     post: {
+        uriTemplate: ListsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createListFromDiscriminatorValue,
@@ -115,9 +121,5 @@ export const ListsRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ListsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/getByPath(path='{path}')/lists{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

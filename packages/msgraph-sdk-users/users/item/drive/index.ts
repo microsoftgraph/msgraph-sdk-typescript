@@ -12,14 +12,15 @@ export interface DriveRequestBuilder extends BaseRequestBuilder<DriveRequestBuil
     /**
      * Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Drive
+     * @returns {Promise<Drive>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/drive-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DriveRequestBuilderGetQueryParameters> | undefined) : Promise<Drive | undefined>;
     /**
      * Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DriveRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -37,6 +38,10 @@ export interface DriveRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const DriveRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/drive{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const DriveRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -48,19 +53,15 @@ const DriveRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const DriveRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: DriveRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDriveFromDiscriminatorValue,
         queryParametersMapper: DriveRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const DriveRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/drive{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

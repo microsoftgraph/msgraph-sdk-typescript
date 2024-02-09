@@ -12,13 +12,14 @@ export interface TargetScheduleRequestBuilder extends BaseRequestBuilder<TargetS
     /**
      * Schedule created by this request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of PrivilegedAccessGroupEligibilitySchedule
+     * @returns {Promise<PrivilegedAccessGroupEligibilitySchedule>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<TargetScheduleRequestBuilderGetQueryParameters> | undefined) : Promise<PrivilegedAccessGroupEligibilitySchedule | undefined>;
     /**
      * Schedule created by this request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TargetScheduleRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface TargetScheduleRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const TargetScheduleRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/eligibilityScheduleRequests/{privilegedAccessGroupEligibilityScheduleRequest%2Did}/targetSchedule{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const TargetScheduleRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const TargetScheduleRequestBuilderGetQueryParametersMapper: Record<string, strin
  */
 export const TargetScheduleRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: TargetScheduleRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPrivilegedAccessGroupEligibilityScheduleFromDiscriminatorValue,
         queryParametersMapper: TargetScheduleRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TargetScheduleRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/eligibilityScheduleRequests/{privilegedAccessGroupEligibilityScheduleRequest%2Did}/targetSchedule{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

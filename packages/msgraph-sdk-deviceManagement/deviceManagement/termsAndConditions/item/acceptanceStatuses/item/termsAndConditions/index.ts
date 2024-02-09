@@ -12,13 +12,14 @@ export interface TermsAndConditionsRequestBuilder extends BaseRequestBuilder<Ter
     /**
      * Navigation link to the terms and conditions that are assigned.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TermsAndConditions
+     * @returns {Promise<TermsAndConditions>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<TermsAndConditionsRequestBuilderGetQueryParameters> | undefined) : Promise<TermsAndConditions | undefined>;
     /**
      * Navigation link to the terms and conditions that are assigned.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TermsAndConditionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface TermsAndConditionsRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const TermsAndConditionsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}/acceptanceStatuses/{termsAndConditionsAcceptanceStatus%2Did}/termsAndConditions{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const TermsAndConditionsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const TermsAndConditionsRequestBuilderGetQueryParametersMapper: Record<string, s
  */
 export const TermsAndConditionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: TermsAndConditionsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTermsAndConditionsFromDiscriminatorValue,
         queryParametersMapper: TermsAndConditionsRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TermsAndConditionsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}/acceptanceStatuses/{termsAndConditionsAcceptanceStatus%2Did}/termsAndConditions{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

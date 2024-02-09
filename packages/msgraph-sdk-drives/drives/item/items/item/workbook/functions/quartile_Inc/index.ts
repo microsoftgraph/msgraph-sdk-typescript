@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a quartile_IncPostRequestBody
+ * @returns {Quartile_IncPostRequestBody}
  */
 export function createQuartile_IncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoQuartile_IncPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoQuartile_IncPostRequestBody(quartile_IncPostRequestBody: Partial<Quartile_IncPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -50,14 +50,15 @@ export interface Quartile_IncRequestBuilder extends BaseRequestBuilder<Quartile_
      * Invoke action quartile_Inc
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookFunctionResult
+     * @returns {Promise<WorkbookFunctionResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: Quartile_IncPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookFunctionResult | undefined>;
     /**
      * Invoke action quartile_Inc
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: Quartile_IncPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -71,14 +72,18 @@ export function serializeQuartile_IncPostRequestBody(writer: SerializationWriter
     writer.writeAdditionalData(quartile_IncPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const Quartile_IncRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/quartile_Inc";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const Quartile_IncRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: Quartile_IncRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
@@ -87,9 +92,5 @@ export const Quartile_IncRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const Quartile_IncRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/quartile_Inc";
 /* tslint:enable */
 /* eslint-enable */

@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a parseExpressionPostRequestBody
+ * @returns {ParseExpressionPostRequestBody}
  */
 export function createParseExpressionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoParseExpressionPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoParseExpressionPostRequestBody(parseExpressionPostRequestBody: Partial<ParseExpressionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -55,7 +55,8 @@ export interface ParseExpressionRequestBuilder extends BaseRequestBuilder<ParseE
      * Parse a given string expression into an attributeMappingSource object. For more information about expressions, see Writing Expressions for Attribute Mappings in Microsoft Entra ID.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ParseExpressionResponse
+     * @returns {Promise<ParseExpressionResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-parseexpression?view=graph-rest-1.0|Find more info here}
      */
      post(body: ParseExpressionPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ParseExpressionResponse | undefined>;
@@ -63,7 +64,7 @@ export interface ParseExpressionRequestBuilder extends BaseRequestBuilder<ParseE
      * Parse a given string expression into an attributeMappingSource object. For more information about expressions, see Writing Expressions for Attribute Mappings in Microsoft Entra ID.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: ParseExpressionPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -78,14 +79,18 @@ export function serializeParseExpressionPostRequestBody(writer: SerializationWri
     writer.writeAdditionalData(parseExpressionPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ParseExpressionRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema/parseExpression";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const ParseExpressionRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: ParseExpressionRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createParseExpressionResponseFromDiscriminatorValue,
@@ -94,9 +99,5 @@ export const ParseExpressionRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ParseExpressionRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema/parseExpression";
 /* tslint:enable */
 /* eslint-enable */

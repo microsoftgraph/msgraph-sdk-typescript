@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a translateExchangeIdsPostRequestBody
+ * @returns {TranslateExchangeIdsPostRequestBody}
  */
 export function createTranslateExchangeIdsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTranslateExchangeIdsPostRequestBody;
@@ -16,14 +16,14 @@ export function createTranslateExchangeIdsPostRequestBodyFromDiscriminatorValue(
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a translateExchangeIdsPostResponse
+ * @returns {TranslateExchangeIdsPostResponse}
  */
 export function createTranslateExchangeIdsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTranslateExchangeIdsPostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoTranslateExchangeIdsPostRequestBody(translateExchangeIdsPostRequestBody: Partial<TranslateExchangeIdsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -35,7 +35,7 @@ export function deserializeIntoTranslateExchangeIdsPostRequestBody(translateExch
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoTranslateExchangeIdsPostResponse(translateExchangeIdsPostResponse: Partial<TranslateExchangeIdsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -97,7 +97,8 @@ export interface TranslateExchangeIdsRequestBuilder extends BaseRequestBuilder<T
      * Translate identifiers of Outlook-related resources between formats.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TranslateExchangeIdsPostResponse
+     * @returns {Promise<TranslateExchangeIdsPostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/user-translateexchangeids?view=graph-rest-1.0|Find more info here}
      */
      post(body: TranslateExchangeIdsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TranslateExchangeIdsPostResponse | undefined>;
@@ -105,19 +106,23 @@ export interface TranslateExchangeIdsRequestBuilder extends BaseRequestBuilder<T
      * Translate identifiers of Outlook-related resources between formats.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: TranslateExchangeIdsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const TranslateExchangeIdsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/translateExchangeIds";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const TranslateExchangeIdsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: TranslateExchangeIdsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTranslateExchangeIdsPostResponseFromDiscriminatorValue,
@@ -126,9 +131,5 @@ export const TranslateExchangeIdsRequestBuilderRequestsMetadata: RequestsMetadat
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TranslateExchangeIdsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/translateExchangeIds";
 /* tslint:enable */
 /* eslint-enable */

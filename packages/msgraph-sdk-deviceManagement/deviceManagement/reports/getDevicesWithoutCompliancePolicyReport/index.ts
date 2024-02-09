@@ -7,14 +7,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getDevicesWithoutCompliancePolicyReportPostRequestBody
+ * @returns {GetDevicesWithoutCompliancePolicyReportPostRequestBody}
  */
 export function createGetDevicesWithoutCompliancePolicyReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetDevicesWithoutCompliancePolicyReportPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetDevicesWithoutCompliancePolicyReportPostRequestBody(getDevicesWithoutCompliancePolicyReportPostRequestBody: Partial<GetDevicesWithoutCompliancePolicyReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -84,7 +84,8 @@ export interface GetDevicesWithoutCompliancePolicyReportRequestBuilder extends B
      * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ArrayBuffer
+     * @returns {Promise<ArrayBuffer>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getdeviceswithoutcompliancepolicyreport?view=graph-rest-1.0|Find more info here}
      */
      post(body: GetDevicesWithoutCompliancePolicyReportPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
@@ -92,7 +93,7 @@ export interface GetDevicesWithoutCompliancePolicyReportRequestBuilder extends B
      * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: GetDevicesWithoutCompliancePolicyReportPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -113,14 +114,18 @@ export function serializeGetDevicesWithoutCompliancePolicyReportPostRequestBody(
     writer.writeAdditionalData(getDevicesWithoutCompliancePolicyReportPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetDevicesWithoutCompliancePolicyReportRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/reports/getDevicesWithoutCompliancePolicyReport";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const GetDevicesWithoutCompliancePolicyReportRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: GetDevicesWithoutCompliancePolicyReportRequestBuilderUriTemplate,
         responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendPrimitiveAsync",
         responseBodyFactory:  "ArrayBuffer",
@@ -129,9 +134,5 @@ export const GetDevicesWithoutCompliancePolicyReportRequestBuilderRequestsMetada
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetDevicesWithoutCompliancePolicyReportRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/reports/getDevicesWithoutCompliancePolicyReport";
 /* tslint:enable */
 /* eslint-enable */

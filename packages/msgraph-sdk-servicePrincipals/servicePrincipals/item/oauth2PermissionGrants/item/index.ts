@@ -12,13 +12,14 @@ export interface OAuth2PermissionGrantItemRequestBuilder extends BaseRequestBuil
     /**
      * Delegated permission grants authorizing this service principal to access an API on behalf of a signed-in user. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of OAuth2PermissionGrant
+     * @returns {Promise<OAuth2PermissionGrant>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<OAuth2PermissionGrantItemRequestBuilderGetQueryParameters> | undefined) : Promise<OAuth2PermissionGrant | undefined>;
     /**
      * Delegated permission grants authorizing this service principal to access an API on behalf of a signed-in user. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OAuth2PermissionGrantItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface OAuth2PermissionGrantItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const OAuth2PermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const OAuth2PermissionGrantItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const OAuth2PermissionGrantItemRequestBuilderGetQueryParametersMapper: Record<st
  */
 export const OAuth2PermissionGrantItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: OAuth2PermissionGrantItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createOAuth2PermissionGrantFromDiscriminatorValue,
         queryParametersMapper: OAuth2PermissionGrantItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const OAuth2PermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

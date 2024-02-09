@@ -12,14 +12,15 @@ export interface LastEstimateStatisticsOperationRequestBuilder extends BaseReque
     /**
      * Get the last  ediscoveryEstimateOperation objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of EdiscoveryEstimateOperation
+     * @returns {Promise<EdiscoveryEstimateOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-list-lastestimatestatisticsoperation?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LastEstimateStatisticsOperationRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryEstimateOperation | undefined>;
     /**
      * Get the last  ediscoveryEstimateOperation objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LastEstimateStatisticsOperationRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -37,6 +38,10 @@ export interface LastEstimateStatisticsOperationRequestBuilderGetQueryParameters
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const LastEstimateStatisticsOperationRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}/lastEstimateStatisticsOperation{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const LastEstimateStatisticsOperationRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -48,19 +53,15 @@ const LastEstimateStatisticsOperationRequestBuilderGetQueryParametersMapper: Rec
  */
 export const LastEstimateStatisticsOperationRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: LastEstimateStatisticsOperationRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createEdiscoveryEstimateOperationFromDiscriminatorValue,
         queryParametersMapper: LastEstimateStatisticsOperationRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const LastEstimateStatisticsOperationRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}/lastEstimateStatisticsOperation{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

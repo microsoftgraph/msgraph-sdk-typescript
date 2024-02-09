@@ -12,7 +12,8 @@ export interface ContentTypesRequestBuilder extends BaseRequestBuilder<ContentTy
     /**
      * Get the collection of [contentType][contentType] resources in a [site][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ContentTypeCollectionResponse
+     * @returns {Promise<ContentTypeCollectionResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/site-list-contenttypes?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ContentTypesRequestBuilderGetQueryParameters> | undefined) : Promise<ContentTypeCollectionResponse | undefined>;
@@ -20,21 +21,22 @@ export interface ContentTypesRequestBuilder extends BaseRequestBuilder<ContentTy
      * Create a new [contentType][] in a [site][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ContentType
+     * @returns {Promise<ContentType>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/site-post-contenttypes?view=graph-rest-1.0|Find more info here}
      */
      post(body: ContentType, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ContentType | undefined>;
     /**
      * Get the collection of [contentType][contentType] resources in a [site][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ContentTypesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Create a new [contentType][] in a [site][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: ContentType, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -76,6 +78,10 @@ export interface ContentTypesRequestBuilderGetQueryParameters {
     top?: number;
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ContentTypesRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/contentTypes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ContentTypesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -93,20 +99,20 @@ const ContentTypesRequestBuilderGetQueryParametersMapper: Record<string, string>
  */
 export const ContentTypesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ContentTypesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createContentTypeCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ContentTypesRequestBuilderGetQueryParametersMapper,
     },
     post: {
+        uriTemplate: ContentTypesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createContentTypeFromDiscriminatorValue,
@@ -115,9 +121,5 @@ export const ContentTypesRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ContentTypesRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/contentTypes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

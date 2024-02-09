@@ -7,7 +7,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a favoritePostRequestBody
+ * @returns {FavoritePostRequestBody}
  */
 export function createFavoritePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFavoritePostRequestBody;
@@ -15,14 +15,14 @@ export function createFavoritePostRequestBodyFromDiscriminatorValue(parseNode: P
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a favoritePostResponse
+ * @returns {FavoritePostResponse}
  */
 export function createFavoritePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFavoritePostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoFavoritePostRequestBody(favoritePostRequestBody: Partial<FavoritePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -32,7 +32,7 @@ export function deserializeIntoFavoritePostRequestBody(favoritePostRequestBody: 
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoFavoritePostResponse(favoritePostResponse: Partial<FavoritePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -76,7 +76,8 @@ export interface FavoriteRequestBuilder extends BaseRequestBuilder<FavoriteReque
      * Change the status of a list of serviceUpdateMessages to favorite for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of FavoritePostResponse
+     * @returns {Promise<FavoritePostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-favorite?view=graph-rest-1.0|Find more info here}
      */
      post(body: FavoritePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<FavoritePostResponse | undefined>;
@@ -84,7 +85,7 @@ export interface FavoriteRequestBuilder extends BaseRequestBuilder<FavoriteReque
      * Change the status of a list of serviceUpdateMessages to favorite for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: FavoritePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -105,14 +106,18 @@ export function serializeFavoritePostResponse(writer: SerializationWriter, favor
     writer.writeAdditionalData(favoritePostResponse.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const FavoriteRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/favorite";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const FavoriteRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: FavoriteRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createFavoritePostResponseFromDiscriminatorValue,
@@ -121,9 +126,5 @@ export const FavoriteRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const FavoriteRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/favorite";
 /* tslint:enable */
 /* eslint-enable */

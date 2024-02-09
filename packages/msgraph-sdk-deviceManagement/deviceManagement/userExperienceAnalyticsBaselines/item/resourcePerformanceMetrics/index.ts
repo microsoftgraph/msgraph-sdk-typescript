@@ -12,13 +12,14 @@ export interface ResourcePerformanceMetricsRequestBuilder extends BaseRequestBui
     /**
      * The scores and insights for the resource performance metrics.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of UserExperienceAnalyticsCategory
+     * @returns {Promise<UserExperienceAnalyticsCategory>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ResourcePerformanceMetricsRequestBuilderGetQueryParameters> | undefined) : Promise<UserExperienceAnalyticsCategory | undefined>;
     /**
      * The scores and insights for the resource performance metrics.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ResourcePerformanceMetricsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface ResourcePerformanceMetricsRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ResourcePerformanceMetricsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}/resourcePerformanceMetrics{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ResourcePerformanceMetricsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const ResourcePerformanceMetricsRequestBuilderGetQueryParametersMapper: Record<s
  */
 export const ResourcePerformanceMetricsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ResourcePerformanceMetricsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createUserExperienceAnalyticsCategoryFromDiscriminatorValue,
         queryParametersMapper: ResourcePerformanceMetricsRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ResourcePerformanceMetricsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}/resourcePerformanceMetrics{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

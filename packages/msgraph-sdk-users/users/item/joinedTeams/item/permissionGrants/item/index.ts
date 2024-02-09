@@ -12,38 +12,41 @@ export interface ResourceSpecificPermissionGrantItemRequestBuilder extends BaseR
     /**
      * Delete navigation property permissionGrants for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * A collection of permissions granted to apps to access the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ResourceSpecificPermissionGrant
+     * @returns {Promise<ResourceSpecificPermissionGrant>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParameters> | undefined) : Promise<ResourceSpecificPermissionGrant | undefined>;
     /**
      * Update the navigation property permissionGrants in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ResourceSpecificPermissionGrant
+     * @returns {Promise<ResourceSpecificPermissionGrant>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: ResourceSpecificPermissionGrant, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ResourceSpecificPermissionGrant | undefined>;
     /**
      * Delete navigation property permissionGrants for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * A collection of permissions granted to apps to access the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property permissionGrants in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: ResourceSpecificPermissionGrant, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -61,6 +64,10 @@ export interface ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParame
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ResourceSpecificPermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/permissionGrants/{resourceSpecificPermissionGrant%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -72,28 +79,28 @@ const ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParametersMapper:
  */
 export const ResourceSpecificPermissionGrantItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: ResourceSpecificPermissionGrantItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: ResourceSpecificPermissionGrantItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createResourceSpecificPermissionGrantFromDiscriminatorValue,
         queryParametersMapper: ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: ResourceSpecificPermissionGrantItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createResourceSpecificPermissionGrantFromDiscriminatorValue,
@@ -102,9 +109,5 @@ export const ResourceSpecificPermissionGrantItemRequestBuilderRequestsMetadata: 
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ResourceSpecificPermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/permissionGrants/{resourceSpecificPermissionGrant%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

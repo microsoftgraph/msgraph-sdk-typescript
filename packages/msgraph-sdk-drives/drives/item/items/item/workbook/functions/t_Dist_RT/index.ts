@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a t_Dist_RTPostRequestBody
+ * @returns {T_Dist_RTPostRequestBody}
  */
 export function createT_Dist_RTPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoT_Dist_RTPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoT_Dist_RTPostRequestBody(t_Dist_RTPostRequestBody: Partial<T_Dist_RTPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -59,26 +59,31 @@ export interface T_Dist_RTRequestBuilder extends BaseRequestBuilder<T_Dist_RTReq
      * Invoke action t_Dist_RT
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookFunctionResult
+     * @returns {Promise<WorkbookFunctionResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: T_Dist_RTPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookFunctionResult | undefined>;
     /**
      * Invoke action t_Dist_RT
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: T_Dist_RTPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const T_Dist_RTRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/t_Dist_RT";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const T_Dist_RTRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: T_Dist_RTRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
@@ -87,9 +92,5 @@ export const T_Dist_RTRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const T_Dist_RTRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/t_Dist_RT";
 /* tslint:enable */
 /* eslint-enable */

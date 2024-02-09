@@ -7,7 +7,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a deleteUserFromSharedAppleDevicePostRequestBody
+ * @returns {DeleteUserFromSharedAppleDevicePostRequestBody}
  */
 export function createDeleteUserFromSharedAppleDevicePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDeleteUserFromSharedAppleDevicePostRequestBody;
@@ -34,6 +34,7 @@ export interface DeleteUserFromSharedAppleDeviceRequestBuilder extends BaseReque
      * Delete user from shared Apple device
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-deleteuserfromsharedappledevice?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeleteUserFromSharedAppleDevicePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
@@ -41,13 +42,13 @@ export interface DeleteUserFromSharedAppleDeviceRequestBuilder extends BaseReque
      * Delete user from shared Apple device
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: DeleteUserFromSharedAppleDevicePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoDeleteUserFromSharedAppleDevicePostRequestBody(deleteUserFromSharedAppleDevicePostRequestBody: Partial<DeleteUserFromSharedAppleDevicePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -64,14 +65,18 @@ export function serializeDeleteUserFromSharedAppleDevicePostRequestBody(writer: 
     writer.writeAdditionalData(deleteUserFromSharedAppleDevicePostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const DeleteUserFromSharedAppleDeviceRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/deleteUserFromSharedAppleDevice";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const DeleteUserFromSharedAppleDeviceRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: DeleteUserFromSharedAppleDeviceRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
         requestBodyContentType: "application/json",
@@ -79,9 +84,5 @@ export const DeleteUserFromSharedAppleDeviceRequestBuilderRequestsMetadata: Requ
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const DeleteUserFromSharedAppleDeviceRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/deleteUserFromSharedAppleDevice";
 /* tslint:enable */
 /* eslint-enable */

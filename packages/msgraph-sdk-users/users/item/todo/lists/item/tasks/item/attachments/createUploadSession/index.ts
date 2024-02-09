@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a createUploadSessionPostRequestBody
+ * @returns {CreateUploadSessionPostRequestBody}
  */
 export function createCreateUploadSessionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateUploadSessionPostRequestBody;
@@ -35,7 +35,8 @@ export interface CreateUploadSessionRequestBuilder extends BaseRequestBuilder<Cr
      * Create an upload session to iteratively upload ranges of a file as an attachment to a todoTask. As part of the response, this action returns an upload URL that you can use in subsequent sequential PUT queries. The request headers for each PUT operation let you specify the exact range of bytes to be uploaded. This allows the transfer to be resumed, in case the network connection is dropped during the upload. The following are the steps to attach a file to a Microsoft To Do task using an upload session: For an example that describes the end-to-end attachment process, see attach files to a To Do task.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of UploadSession
+     * @returns {Promise<UploadSession>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/taskfileattachment-createuploadsession?view=graph-rest-1.0|Find more info here}
      */
      post(body: CreateUploadSessionPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UploadSession | undefined>;
@@ -43,13 +44,13 @@ export interface CreateUploadSessionRequestBuilder extends BaseRequestBuilder<Cr
      * Create an upload session to iteratively upload ranges of a file as an attachment to a todoTask. As part of the response, this action returns an upload URL that you can use in subsequent sequential PUT queries. The request headers for each PUT operation let you specify the exact range of bytes to be uploaded. This allows the transfer to be resumed, in case the network connection is dropped during the upload. The following are the steps to attach a file to a Microsoft To Do task using an upload session: For an example that describes the end-to-end attachment process, see attach files to a To Do task.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: CreateUploadSessionPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCreateUploadSessionPostRequestBody(createUploadSessionPostRequestBody: Partial<CreateUploadSessionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -66,14 +67,18 @@ export function serializeCreateUploadSessionPostRequestBody(writer: Serializatio
     writer.writeAdditionalData(createUploadSessionPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CreateUploadSessionRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments/createUploadSession";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const CreateUploadSessionRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: CreateUploadSessionRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createUploadSessionFromDiscriminatorValue,
@@ -82,9 +87,5 @@ export const CreateUploadSessionRequestBuilderRequestsMetadata: RequestsMetadata
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CreateUploadSessionRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments/createUploadSession";
 /* tslint:enable */
 /* eslint-enable */

@@ -12,13 +12,15 @@ export interface TimeOffRequestItemRequestBuilder extends BaseRequestBuilder<Tim
     /**
      * Delete a timeOffRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/timeoffrequest-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Retrieve the properties and relationships of a timeoffrequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TimeOffRequest
+     * @returns {Promise<TimeOffRequest>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/timeoffrequest-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TimeOffRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<TimeOffRequest | undefined>;
@@ -26,26 +28,27 @@ export interface TimeOffRequestItemRequestBuilder extends BaseRequestBuilder<Tim
      * Update the navigation property timeOffRequests in teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TimeOffRequest
+     * @returns {Promise<TimeOffRequest>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: TimeOffRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TimeOffRequest | undefined>;
     /**
      * Delete a timeOffRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Retrieve the properties and relationships of a timeoffrequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TimeOffRequestItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property timeOffRequests in teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: TimeOffRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -59,6 +62,10 @@ export interface TimeOffRequestItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const TimeOffRequestItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/timeOffRequests/{timeOffRequest%2Did}{?%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const TimeOffRequestItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -69,28 +76,28 @@ const TimeOffRequestItemRequestBuilderGetQueryParametersMapper: Record<string, s
  */
 export const TimeOffRequestItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: TimeOffRequestItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: TimeOffRequestItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTimeOffRequestFromDiscriminatorValue,
         queryParametersMapper: TimeOffRequestItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: TimeOffRequestItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTimeOffRequestFromDiscriminatorValue,
@@ -99,9 +106,5 @@ export const TimeOffRequestItemRequestBuilderRequestsMetadata: RequestsMetadata 
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TimeOffRequestItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/timeOffRequests/{timeOffRequest%2Did}{?%24select}";
 /* tslint:enable */
 /* eslint-enable */

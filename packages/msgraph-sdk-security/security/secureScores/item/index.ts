@@ -12,12 +12,14 @@ export interface SecureScoreItemRequestBuilder extends BaseRequestBuilder<Secure
     /**
      * Delete navigation property secureScores for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Retrieve the properties and relationships of a secureScore object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SecureScore
+     * @returns {Promise<SecureScore>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/securescore-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SecureScoreItemRequestBuilderGetQueryParameters> | undefined) : Promise<SecureScore | undefined>;
@@ -25,26 +27,27 @@ export interface SecureScoreItemRequestBuilder extends BaseRequestBuilder<Secure
      * Update the navigation property secureScores in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SecureScore
+     * @returns {Promise<SecureScore>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: SecureScore, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SecureScore | undefined>;
     /**
      * Delete navigation property secureScores for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Retrieve the properties and relationships of a secureScore object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SecureScoreItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property secureScores in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: SecureScore, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -62,6 +65,10 @@ export interface SecureScoreItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const SecureScoreItemRequestBuilderUriTemplate = "{+baseurl}/security/secureScores/{secureScore%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const SecureScoreItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -73,28 +80,28 @@ const SecureScoreItemRequestBuilderGetQueryParametersMapper: Record<string, stri
  */
 export const SecureScoreItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: SecureScoreItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: SecureScoreItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createSecureScoreFromDiscriminatorValue,
         queryParametersMapper: SecureScoreItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: SecureScoreItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createSecureScoreFromDiscriminatorValue,
@@ -103,9 +110,5 @@ export const SecureScoreItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SecureScoreItemRequestBuilderUriTemplate = "{+baseurl}/security/secureScores/{secureScore%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

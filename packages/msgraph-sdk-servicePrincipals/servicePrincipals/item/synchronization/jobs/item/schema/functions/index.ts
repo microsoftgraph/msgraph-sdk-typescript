@@ -8,14 +8,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a functionsGetResponse
+ * @returns {FunctionsGetResponse}
  */
 export function createFunctionsGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFunctionsGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoFunctionsGetResponse(functionsGetResponse: Partial<FunctionsGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -36,13 +36,14 @@ export interface FunctionsRequestBuilder extends BaseRequestBuilder<FunctionsReq
     /**
      * Invoke function functions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of FunctionsGetResponse
+     * @returns {Promise<FunctionsGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<FunctionsRequestBuilderGetQueryParameters> | undefined) : Promise<FunctionsGetResponse | undefined>;
     /**
      * Invoke function functions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FunctionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -92,6 +93,10 @@ export function serializeFunctionsGetResponse(writer: SerializationWriter, funct
     writer.writeCollectionOfObjectValues<AttributeMappingFunctionSchema>("value", functionsGetResponse.value, serializeAttributeMappingFunctionSchema);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const FunctionsRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema/functions(){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const FunctionsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -109,19 +114,15 @@ const FunctionsRequestBuilderGetQueryParametersMapper: Record<string, string> = 
  */
 export const FunctionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: FunctionsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createFunctionsGetResponseFromDiscriminatorValue,
         queryParametersMapper: FunctionsRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const FunctionsRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema/functions(){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

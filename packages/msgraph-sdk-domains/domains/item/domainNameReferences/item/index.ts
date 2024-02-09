@@ -12,13 +12,14 @@ export interface DirectoryObjectItemRequestBuilder extends BaseRequestBuilder<Di
     /**
      * The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DirectoryObject
+     * @returns {Promise<DirectoryObject>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<DirectoryObjectItemRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObject | undefined>;
     /**
      * The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DirectoryObjectItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface DirectoryObjectItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const DirectoryObjectItemRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/domainNameReferences/{directoryObject%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const DirectoryObjectItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const DirectoryObjectItemRequestBuilderGetQueryParametersMapper: Record<string, 
  */
 export const DirectoryObjectItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: DirectoryObjectItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDirectoryObjectFromDiscriminatorValue,
         queryParametersMapper: DirectoryObjectItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const DirectoryObjectItemRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/domainNameReferences/{directoryObject%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

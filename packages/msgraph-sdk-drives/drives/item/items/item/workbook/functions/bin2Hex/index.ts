@@ -31,28 +31,29 @@ export interface Bin2HexRequestBuilder extends BaseRequestBuilder<Bin2HexRequest
      * Invoke action bin2Hex
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookFunctionResult
+     * @returns {Promise<WorkbookFunctionResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: Bin2HexPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookFunctionResult | undefined>;
     /**
      * Invoke action bin2Hex
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: Bin2HexPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a bin2HexPostRequestBody
+ * @returns {Bin2HexPostRequestBody}
  */
 export function createBin2HexPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBin2HexPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoBin2HexPostRequestBody(bin2HexPostRequestBody: Partial<Bin2HexPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -71,14 +72,18 @@ export function serializeBin2HexPostRequestBody(writer: SerializationWriter, bin
     writer.writeAdditionalData(bin2HexPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const Bin2HexRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/bin2Hex";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const Bin2HexRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: Bin2HexRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
@@ -87,9 +92,5 @@ export const Bin2HexRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const Bin2HexRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/bin2Hex";
 /* tslint:enable */
 /* eslint-enable */

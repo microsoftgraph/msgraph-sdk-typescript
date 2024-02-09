@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a queryPostRequestBody
+ * @returns {QueryPostRequestBody}
  */
 export function createQueryPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoQueryPostRequestBody;
@@ -16,14 +16,14 @@ export function createQueryPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a queryPostResponse
+ * @returns {QueryPostResponse}
  */
 export function createQueryPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoQueryPostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoQueryPostRequestBody(queryPostRequestBody: Partial<QueryPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -33,7 +33,7 @@ export function deserializeIntoQueryPostRequestBody(queryPostRequestBody: Partia
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoQueryPostResponse(queryPostResponse: Partial<QueryPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -69,7 +69,8 @@ export interface QueryRequestBuilder extends BaseRequestBuilder<QueryRequestBuil
      * Runs the query specified in the request body. Search results are provided in the response.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of QueryPostResponse
+     * @returns {Promise<QueryPostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/search-query?view=graph-rest-1.0|Find more info here}
      */
      post(body: QueryPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<QueryPostResponse | undefined>;
@@ -77,7 +78,7 @@ export interface QueryRequestBuilder extends BaseRequestBuilder<QueryRequestBuil
      * Runs the query specified in the request body. Search results are provided in the response.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: QueryPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -98,14 +99,18 @@ export function serializeQueryPostResponse(writer: SerializationWriter, queryPos
     writer.writeCollectionOfObjectValues<SearchResponse>("value", queryPostResponse.value, serializeSearchResponse);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const QueryRequestBuilderUriTemplate = "{+baseurl}/search/query";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const QueryRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: QueryRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createQueryPostResponseFromDiscriminatorValue,
@@ -114,9 +119,5 @@ export const QueryRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const QueryRequestBuilderUriTemplate = "{+baseurl}/search/query";
 /* tslint:enable */
 /* eslint-enable */

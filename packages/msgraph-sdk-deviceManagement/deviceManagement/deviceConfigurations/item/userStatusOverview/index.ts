@@ -12,12 +12,14 @@ export interface UserStatusOverviewRequestBuilder extends BaseRequestBuilder<Use
     /**
      * Delete navigation property userStatusOverview for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Read properties and relationships of the deviceConfigurationUserOverview object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DeviceConfigurationUserOverview
+     * @returns {Promise<DeviceConfigurationUserOverview>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuseroverview-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserStatusOverviewRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfigurationUserOverview | undefined>;
@@ -25,27 +27,28 @@ export interface UserStatusOverviewRequestBuilder extends BaseRequestBuilder<Use
      * Update the properties of a deviceConfigurationUserOverview object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DeviceConfigurationUserOverview
+     * @returns {Promise<DeviceConfigurationUserOverview>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuseroverview-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceConfigurationUserOverview, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfigurationUserOverview | undefined>;
     /**
      * Delete navigation property userStatusOverview for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Read properties and relationships of the deviceConfigurationUserOverview object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserStatusOverviewRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the properties of a deviceConfigurationUserOverview object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: DeviceConfigurationUserOverview, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -63,6 +66,10 @@ export interface UserStatusOverviewRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const UserStatusOverviewRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/userStatusOverview{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const UserStatusOverviewRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -74,28 +81,28 @@ const UserStatusOverviewRequestBuilderGetQueryParametersMapper: Record<string, s
  */
 export const UserStatusOverviewRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: UserStatusOverviewRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: UserStatusOverviewRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDeviceConfigurationUserOverviewFromDiscriminatorValue,
         queryParametersMapper: UserStatusOverviewRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: UserStatusOverviewRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDeviceConfigurationUserOverviewFromDiscriminatorValue,
@@ -104,9 +111,5 @@ export const UserStatusOverviewRequestBuilderRequestsMetadata: RequestsMetadata 
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const UserStatusOverviewRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/userStatusOverview{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -12,13 +12,14 @@ export interface BaseRequestBuilderEscaped extends BaseRequestBuilder<BaseReques
     /**
      * Parent contentType from which this content type is derived.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ContentType
+     * @returns {Promise<ContentType>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<BaseRequestBuilderGetQueryParameters> | undefined) : Promise<ContentType | undefined>;
     /**
      * Parent contentType from which this content type is derived.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BaseRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,23 +37,23 @@ export interface BaseRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const BaseRequestBuilderEscapedUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/contentTypes/{contentType%2Did}/base{?%24expand,%24select}";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const BaseRequestBuilderEscapedRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: BaseRequestBuilderEscapedUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createContentTypeFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const BaseRequestBuilderEscapedUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/contentTypes/{contentType%2Did}/base{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

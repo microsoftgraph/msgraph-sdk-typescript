@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a norm_DistPostRequestBody
+ * @returns {Norm_DistPostRequestBody}
  */
 export function createNorm_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNorm_DistPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoNorm_DistPostRequestBody(norm_DistPostRequestBody: Partial<Norm_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -60,14 +60,15 @@ export interface Norm_DistRequestBuilder extends BaseRequestBuilder<Norm_DistReq
      * Invoke action norm_Dist
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookFunctionResult
+     * @returns {Promise<WorkbookFunctionResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: Norm_DistPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookFunctionResult | undefined>;
     /**
      * Invoke action norm_Dist
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: Norm_DistPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -83,14 +84,18 @@ export function serializeNorm_DistPostRequestBody(writer: SerializationWriter, n
     writer.writeAdditionalData(norm_DistPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const Norm_DistRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/norm_Dist";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const Norm_DistRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: Norm_DistRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
@@ -99,9 +104,5 @@ export const Norm_DistRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const Norm_DistRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/norm_Dist";
 /* tslint:enable */
 /* eslint-enable */

@@ -12,12 +12,14 @@ export interface ProgressTaskBoardFormatRequestBuilder extends BaseRequestBuilde
     /**
      * Delete navigation property progressTaskBoardFormat for planner
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Retrieve the properties and relationships of plannerProgressTaskBoardTaskFormat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of PlannerProgressTaskBoardTaskFormat
+     * @returns {Promise<PlannerProgressTaskBoardTaskFormat>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/plannerprogresstaskboardtaskformat-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ProgressTaskBoardFormatRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerProgressTaskBoardTaskFormat | undefined>;
@@ -25,27 +27,28 @@ export interface ProgressTaskBoardFormatRequestBuilder extends BaseRequestBuilde
      * Update the navigation property progressTaskBoardFormat in planner
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of PlannerProgressTaskBoardTaskFormat
+     * @returns {Promise<PlannerProgressTaskBoardTaskFormat>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/plannerprogresstaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PlannerProgressTaskBoardTaskFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerProgressTaskBoardTaskFormat | undefined>;
     /**
      * Delete navigation property progressTaskBoardFormat for planner
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Retrieve the properties and relationships of plannerProgressTaskBoardTaskFormat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ProgressTaskBoardFormatRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property progressTaskBoardFormat in planner
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: PlannerProgressTaskBoardTaskFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -63,6 +66,10 @@ export interface ProgressTaskBoardFormatRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ProgressTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/planner/plans/{plannerPlan%2Did}/buckets/{plannerBucket%2Did}/tasks/{plannerTask%2Did}/progressTaskBoardFormat{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ProgressTaskBoardFormatRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -74,28 +81,28 @@ const ProgressTaskBoardFormatRequestBuilderGetQueryParametersMapper: Record<stri
  */
 export const ProgressTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: ProgressTaskBoardFormatRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: ProgressTaskBoardFormatRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue,
         queryParametersMapper: ProgressTaskBoardFormatRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: ProgressTaskBoardFormatRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue,
@@ -104,9 +111,5 @@ export const ProgressTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMeta
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ProgressTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/planner/plans/{plannerPlan%2Did}/buckets/{plannerBucket%2Did}/tasks/{plannerTask%2Did}/progressTaskBoardFormat{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

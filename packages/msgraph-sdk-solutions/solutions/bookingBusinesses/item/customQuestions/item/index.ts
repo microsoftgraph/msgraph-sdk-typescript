@@ -12,13 +12,15 @@ export interface BookingCustomQuestionItemRequestBuilder extends BaseRequestBuil
     /**
      * Delete a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/bookingcustomquestion-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Read the properties and relationships of a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of BookingCustomQuestion
+     * @returns {Promise<BookingCustomQuestion>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/bookingcustomquestion-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BookingCustomQuestionItemRequestBuilderGetQueryParameters> | undefined) : Promise<BookingCustomQuestion | undefined>;
@@ -26,27 +28,28 @@ export interface BookingCustomQuestionItemRequestBuilder extends BaseRequestBuil
      * Update the properties of a bookingCustomQuestion object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of BookingCustomQuestion
+     * @returns {Promise<BookingCustomQuestion>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/bookingcustomquestion-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: BookingCustomQuestion, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingCustomQuestion | undefined>;
     /**
      * Delete a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Read the properties and relationships of a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BookingCustomQuestionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the properties of a bookingCustomQuestion object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: BookingCustomQuestion, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -64,6 +67,10 @@ export interface BookingCustomQuestionItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const BookingCustomQuestionItemRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customQuestions/{bookingCustomQuestion%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const BookingCustomQuestionItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -75,28 +82,28 @@ const BookingCustomQuestionItemRequestBuilderGetQueryParametersMapper: Record<st
  */
 export const BookingCustomQuestionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: BookingCustomQuestionItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: BookingCustomQuestionItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createBookingCustomQuestionFromDiscriminatorValue,
         queryParametersMapper: BookingCustomQuestionItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: BookingCustomQuestionItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createBookingCustomQuestionFromDiscriminatorValue,
@@ -105,9 +112,5 @@ export const BookingCustomQuestionItemRequestBuilderRequestsMetadata: RequestsMe
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const BookingCustomQuestionItemRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customQuestions/{bookingCustomQuestion%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

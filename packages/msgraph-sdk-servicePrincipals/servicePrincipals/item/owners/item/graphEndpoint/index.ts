@@ -12,13 +12,14 @@ export interface GraphEndpointRequestBuilder extends BaseRequestBuilder<GraphEnd
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.endpoint
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Endpoint
+     * @returns {Promise<Endpoint>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GraphEndpointRequestBuilderGetQueryParameters> | undefined) : Promise<Endpoint | undefined>;
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.endpoint
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphEndpointRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface GraphEndpointRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GraphEndpointRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/owners/{directoryObject%2Did}/graph.endpoint{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const GraphEndpointRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const GraphEndpointRequestBuilderGetQueryParametersMapper: Record<string, string
  */
 export const GraphEndpointRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GraphEndpointRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createEndpointFromDiscriminatorValue,
         queryParametersMapper: GraphEndpointRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GraphEndpointRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/owners/{directoryObject%2Did}/graph.endpoint{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

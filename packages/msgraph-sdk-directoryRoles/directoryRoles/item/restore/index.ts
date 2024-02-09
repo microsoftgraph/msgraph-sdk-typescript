@@ -12,34 +12,35 @@ export interface RestoreRequestBuilder extends BaseRequestBuilder<RestoreRequest
     /**
      * Restore a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. If an item was accidentally deleted, you can fully restore the item. However, security groups cannot be restored. Also, restoring an application doesn't restore the associated service principal automatically. You must call this API to explicitly restore the deleted service principal. A recently deleted item remains available for up to 30 days. After 30 days, the item is permanently deleted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DirectoryObject
+     * @returns {Promise<DirectoryObject>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/directory-deleteditems-restore?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DirectoryObject | undefined>;
     /**
      * Restore a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. If an item was accidentally deleted, you can fully restore the item. However, security groups cannot be restored. Also, restoring an application doesn't restore the associated service principal automatically. You must call this API to explicitly restore the deleted service principal. A recently deleted item remains available for up to 30 days. After 30 days, the item is permanently deleted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const RestoreRequestBuilderUriTemplate = "{+baseurl}/directoryRoles/{directoryRole%2Did}/restore";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const RestoreRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: RestoreRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDirectoryObjectFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const RestoreRequestBuilderUriTemplate = "{+baseurl}/directoryRoles/{directoryRole%2Did}/restore";
 /* tslint:enable */
 /* eslint-enable */

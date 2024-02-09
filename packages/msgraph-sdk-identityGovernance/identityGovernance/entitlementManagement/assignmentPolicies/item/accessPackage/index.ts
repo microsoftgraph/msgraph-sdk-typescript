@@ -12,13 +12,14 @@ export interface AccessPackageRequestBuilder extends BaseRequestBuilder<AccessPa
     /**
      * Access package containing this policy. Read-only.  Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AccessPackage
+     * @returns {Promise<AccessPackage>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<AccessPackageRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackage | undefined>;
     /**
      * Access package containing this policy. Read-only.  Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AccessPackageRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface AccessPackageRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AccessPackageRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/accessPackage{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AccessPackageRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const AccessPackageRequestBuilderGetQueryParametersMapper: Record<string, string
  */
 export const AccessPackageRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: AccessPackageRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAccessPackageFromDiscriminatorValue,
         queryParametersMapper: AccessPackageRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AccessPackageRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/accessPackage{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

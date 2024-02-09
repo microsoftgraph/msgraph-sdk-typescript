@@ -12,13 +12,14 @@ export interface ChildHostRequestBuilder extends BaseRequestBuilder<ChildHostReq
     /**
      * Host reached via the parentHost.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Host
+     * @returns {Promise<Host>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ChildHostRequestBuilderGetQueryParameters> | undefined) : Promise<Host | undefined>;
     /**
      * Host reached via the parentHost.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ChildHostRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface ChildHostRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ChildHostRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPairs/{hostPair%2Did}/childHost{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ChildHostRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const ChildHostRequestBuilderGetQueryParametersMapper: Record<string, string> = 
  */
 export const ChildHostRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ChildHostRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createHostFromDiscriminatorValue,
         queryParametersMapper: ChildHostRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ChildHostRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPairs/{hostPair%2Did}/childHost{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

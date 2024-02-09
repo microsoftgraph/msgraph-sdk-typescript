@@ -12,38 +12,41 @@ export interface TeamsTemplateItemRequestBuilder extends BaseRequestBuilder<Team
     /**
      * Delete entity from teamsTemplates
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Get entity from teamsTemplates by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TeamsTemplate
+     * @returns {Promise<TeamsTemplate>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<TeamsTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsTemplate | undefined>;
     /**
      * Update entity in teamsTemplates
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TeamsTemplate
+     * @returns {Promise<TeamsTemplate>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: TeamsTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamsTemplate | undefined>;
     /**
      * Delete entity from teamsTemplates
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Get entity from teamsTemplates by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeamsTemplateItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update entity in teamsTemplates
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: TeamsTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -61,6 +64,10 @@ export interface TeamsTemplateItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const TeamsTemplateItemRequestBuilderUriTemplate = "{+baseurl}/teamsTemplates/{teamsTemplate%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const TeamsTemplateItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -72,28 +79,28 @@ const TeamsTemplateItemRequestBuilderGetQueryParametersMapper: Record<string, st
  */
 export const TeamsTemplateItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: TeamsTemplateItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: TeamsTemplateItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTeamsTemplateFromDiscriminatorValue,
         queryParametersMapper: TeamsTemplateItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: TeamsTemplateItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTeamsTemplateFromDiscriminatorValue,
@@ -102,9 +109,5 @@ export const TeamsTemplateItemRequestBuilderRequestsMetadata: RequestsMetadata =
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TeamsTemplateItemRequestBuilderUriTemplate = "{+baseurl}/teamsTemplates/{teamsTemplate%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

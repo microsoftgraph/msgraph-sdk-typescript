@@ -12,12 +12,14 @@ export interface AuthorizationPolicyRequestBuilder extends BaseRequestBuilder<Au
     /**
      * Delete navigation property authorizationPolicy for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Retrieve the properties of an authorizationPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AuthorizationPolicy
+     * @returns {Promise<AuthorizationPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/authorizationpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuthorizationPolicyRequestBuilderGetQueryParameters> | undefined) : Promise<AuthorizationPolicy | undefined>;
@@ -25,27 +27,28 @@ export interface AuthorizationPolicyRequestBuilder extends BaseRequestBuilder<Au
      * Update the properties of an authorizationPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AuthorizationPolicy
+     * @returns {Promise<AuthorizationPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/authorizationpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AuthorizationPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthorizationPolicy | undefined>;
     /**
      * Delete navigation property authorizationPolicy for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Retrieve the properties of an authorizationPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuthorizationPolicyRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the properties of an authorizationPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: AuthorizationPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -63,6 +66,10 @@ export interface AuthorizationPolicyRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AuthorizationPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/authorizationPolicy{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AuthorizationPolicyRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -74,28 +81,28 @@ const AuthorizationPolicyRequestBuilderGetQueryParametersMapper: Record<string, 
  */
 export const AuthorizationPolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: AuthorizationPolicyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: AuthorizationPolicyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAuthorizationPolicyFromDiscriminatorValue,
         queryParametersMapper: AuthorizationPolicyRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: AuthorizationPolicyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAuthorizationPolicyFromDiscriminatorValue,
@@ -104,9 +111,5 @@ export const AuthorizationPolicyRequestBuilderRequestsMetadata: RequestsMetadata
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AuthorizationPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/authorizationPolicy{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

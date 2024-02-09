@@ -12,27 +12,29 @@ export interface ComplianceRequestBuilder extends BaseRequestBuilder<ComplianceR
     /**
      * Get compliance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Compliance
+     * @returns {Promise<Compliance>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ComplianceRequestBuilderGetQueryParameters> | undefined) : Promise<Compliance | undefined>;
     /**
      * Update compliance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Compliance
+     * @returns {Promise<Compliance>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: Compliance, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Compliance | undefined>;
     /**
      * Get compliance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ComplianceRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update compliance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: Compliance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -50,6 +52,10 @@ export interface ComplianceRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ComplianceRequestBuilderUriTemplate = "{+baseurl}/compliance{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ComplianceRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -61,20 +67,20 @@ const ComplianceRequestBuilderGetQueryParametersMapper: Record<string, string> =
  */
 export const ComplianceRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ComplianceRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createComplianceFromDiscriminatorValue,
         queryParametersMapper: ComplianceRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: ComplianceRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createComplianceFromDiscriminatorValue,
@@ -83,9 +89,5 @@ export const ComplianceRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ComplianceRequestBuilderUriTemplate = "{+baseurl}/compliance{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

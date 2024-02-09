@@ -12,25 +12,27 @@ export interface AttachmentItemRequestBuilder extends BaseRequestBuilder<Attachm
     /**
      * Delete an attachment from a user calendar event, mail message, or group post.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/attachment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Attachment
+     * @returns {Promise<Attachment>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<AttachmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<Attachment | undefined>;
     /**
      * Delete an attachment from a user calendar event, mail message, or group post.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AttachmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -48,6 +50,10 @@ export interface AttachmentItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AttachmentItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendarView/{event%2Did}/attachments/{attachment%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AttachmentItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -59,27 +65,23 @@ const AttachmentItemRequestBuilderGetQueryParametersMapper: Record<string, strin
  */
 export const AttachmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: AttachmentItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: AttachmentItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAttachmentFromDiscriminatorValue,
         queryParametersMapper: AttachmentItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AttachmentItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendarView/{event%2Did}/attachments/{attachment%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

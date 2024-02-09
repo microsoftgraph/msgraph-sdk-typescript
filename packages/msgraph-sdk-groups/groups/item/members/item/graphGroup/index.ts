@@ -12,13 +12,14 @@ export interface GraphGroupRequestBuilder extends BaseRequestBuilder<GraphGroupR
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.group
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Group
+     * @returns {Promise<Group>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GraphGroupRequestBuilderGetQueryParameters> | undefined) : Promise<Group | undefined>;
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.group
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphGroupRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface GraphGroupRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GraphGroupRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/members/{directoryObject%2Did}/graph.group{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const GraphGroupRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const GraphGroupRequestBuilderGetQueryParametersMapper: Record<string, string> =
  */
 export const GraphGroupRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GraphGroupRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGroupFromDiscriminatorValue,
         queryParametersMapper: GraphGroupRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GraphGroupRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/members/{directoryObject%2Did}/graph.group{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

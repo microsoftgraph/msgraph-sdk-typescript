@@ -12,12 +12,14 @@ export interface AttackSimulationOperationItemRequestBuilder extends BaseRequest
     /**
      * Delete navigation property operations for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Get an attack simulation operation to track a long-running operation request for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AttackSimulationOperation
+     * @returns {Promise<AttackSimulationOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/attacksimulationoperation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AttackSimulationOperationItemRequestBuilderGetQueryParameters> | undefined) : Promise<AttackSimulationOperation | undefined>;
@@ -25,26 +27,27 @@ export interface AttackSimulationOperationItemRequestBuilder extends BaseRequest
      * Update the navigation property operations in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AttackSimulationOperation
+     * @returns {Promise<AttackSimulationOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: AttackSimulationOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AttackSimulationOperation | undefined>;
     /**
      * Delete navigation property operations for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Get an attack simulation operation to track a long-running operation request for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AttackSimulationOperationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property operations in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: AttackSimulationOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -62,6 +65,10 @@ export interface AttackSimulationOperationItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AttackSimulationOperationItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/operations/{attackSimulationOperation%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AttackSimulationOperationItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -73,28 +80,28 @@ const AttackSimulationOperationItemRequestBuilderGetQueryParametersMapper: Recor
  */
 export const AttackSimulationOperationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: AttackSimulationOperationItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: AttackSimulationOperationItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAttackSimulationOperationFromDiscriminatorValue,
         queryParametersMapper: AttackSimulationOperationItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: AttackSimulationOperationItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAttackSimulationOperationFromDiscriminatorValue,
@@ -103,9 +110,5 @@ export const AttackSimulationOperationItemRequestBuilderRequestsMetadata: Reques
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AttackSimulationOperationItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/operations/{attackSimulationOperation%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

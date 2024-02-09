@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a playPromptPostRequestBody
+ * @returns {PlayPromptPostRequestBody}
  */
 export function createPlayPromptPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPlayPromptPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoPlayPromptPostRequestBody(playPromptPostRequestBody: Partial<PlayPromptPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -50,7 +50,8 @@ export interface PlayPromptRequestBuilder extends BaseRequestBuilder<PlayPromptR
      * Play a prompt in the call. For more information about how to handle operations, see commsOperation
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of PlayPromptOperation
+     * @returns {Promise<PlayPromptOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/call-playprompt?view=graph-rest-1.0|Find more info here}
      */
      post(body: PlayPromptPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlayPromptOperation | undefined>;
@@ -58,7 +59,7 @@ export interface PlayPromptRequestBuilder extends BaseRequestBuilder<PlayPromptR
      * Play a prompt in the call. For more information about how to handle operations, see commsOperation
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: PlayPromptPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -72,14 +73,18 @@ export function serializePlayPromptPostRequestBody(writer: SerializationWriter, 
     writer.writeAdditionalData(playPromptPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const PlayPromptRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/playPrompt";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const PlayPromptRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: PlayPromptRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPlayPromptOperationFromDiscriminatorValue,
@@ -88,9 +93,5 @@ export const PlayPromptRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const PlayPromptRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/playPrompt";
 /* tslint:enable */
 /* eslint-enable */

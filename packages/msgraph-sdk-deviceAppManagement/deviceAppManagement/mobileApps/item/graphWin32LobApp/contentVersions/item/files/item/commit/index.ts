@@ -27,27 +27,28 @@ export interface CommitRequestBuilder extends BaseRequestBuilder<CommitRequestBu
      * Commits a file of a given app.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: CommitPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Commits a file of a given app.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: CommitPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a commitPostRequestBody
+ * @returns {CommitPostRequestBody}
  */
 export function createCommitPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCommitPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCommitPostRequestBody(commitPostRequestBody: Partial<CommitPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -64,14 +65,18 @@ export function serializeCommitPostRequestBody(writer: SerializationWriter, comm
     writer.writeAdditionalData(commitPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CommitRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.win32LobApp/contentVersions/{mobileAppContent%2Did}/files/{mobileAppContentFile%2Did}/commit";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const CommitRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: CommitRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
         requestBodyContentType: "application/json",
@@ -79,9 +84,5 @@ export const CommitRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CommitRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.win32LobApp/contentVersions/{mobileAppContent%2Did}/files/{mobileAppContentFile%2Did}/commit";
 /* tslint:enable */
 /* eslint-enable */

@@ -89,7 +89,7 @@ export type ConnectionState = (typeof ConnectionStateObject)[keyof typeof Connec
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a acl
+ * @returns {Acl}
  */
 export function createAclFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAcl;
@@ -97,7 +97,7 @@ export function createAclFromDiscriminatorValue(parseNode: ParseNode | undefined
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a activitySettings
+ * @returns {ActivitySettings}
  */
 export function createActivitySettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoActivitySettings;
@@ -105,7 +105,7 @@ export function createActivitySettingsFromDiscriminatorValue(parseNode: ParseNod
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a configuration
+ * @returns {Configuration}
  */
 export function createConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConfiguration;
@@ -113,7 +113,7 @@ export function createConfigurationFromDiscriminatorValue(parseNode: ParseNode |
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a connectionOperationCollectionResponse
+ * @returns {ConnectionOperationCollectionResponse}
  */
 export function createConnectionOperationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConnectionOperationCollectionResponse;
@@ -121,7 +121,7 @@ export function createConnectionOperationCollectionResponseFromDiscriminatorValu
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a connectionOperation
+ * @returns {ConnectionOperation}
  */
 export function createConnectionOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConnectionOperation;
@@ -129,7 +129,7 @@ export function createConnectionOperationFromDiscriminatorValue(parseNode: Parse
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a displayTemplate
+ * @returns {DisplayTemplate}
  */
 export function createDisplayTemplateFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDisplayTemplate;
@@ -137,7 +137,7 @@ export function createDisplayTemplateFromDiscriminatorValue(parseNode: ParseNode
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a externalActivityCollectionResponse
+ * @returns {ExternalActivityCollectionResponse}
  */
 export function createExternalActivityCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalActivityCollectionResponse;
@@ -145,7 +145,7 @@ export function createExternalActivityCollectionResponseFromDiscriminatorValue(p
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a externalActivity
+ * @returns {ExternalActivity}
  */
 export function createExternalActivityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
@@ -164,7 +164,7 @@ export function createExternalActivityFromDiscriminatorValue(parseNode: ParseNod
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a externalActivityResult
+ * @returns {ExternalActivityResult}
  */
 export function createExternalActivityResultFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalActivityResult;
@@ -172,7 +172,7 @@ export function createExternalActivityResultFromDiscriminatorValue(parseNode: Pa
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a externalConnectionCollectionResponse
+ * @returns {ExternalConnectionCollectionResponse}
  */
 export function createExternalConnectionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalConnectionCollectionResponse;
@@ -180,7 +180,7 @@ export function createExternalConnectionCollectionResponseFromDiscriminatorValue
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a externalConnection
+ * @returns {ExternalConnection}
  */
 export function createExternalConnectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalConnection;
@@ -188,7 +188,7 @@ export function createExternalConnectionFromDiscriminatorValue(parseNode: ParseN
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a external
+ * @returns {External}
  */
 export function createExternalFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternal;
@@ -196,7 +196,7 @@ export function createExternalFromDiscriminatorValue(parseNode: ParseNode | unde
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a externalGroupCollectionResponse
+ * @returns {ExternalGroupCollectionResponse}
  */
 export function createExternalGroupCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalGroupCollectionResponse;
@@ -204,7 +204,7 @@ export function createExternalGroupCollectionResponseFromDiscriminatorValue(pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a externalGroup
+ * @returns {ExternalGroup}
  */
 export function createExternalGroupFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalGroup;
@@ -212,7 +212,7 @@ export function createExternalGroupFromDiscriminatorValue(parseNode: ParseNode |
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a externalItemCollectionResponse
+ * @returns {ExternalItemCollectionResponse}
  */
 export function createExternalItemCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalItemCollectionResponse;
@@ -220,7 +220,7 @@ export function createExternalItemCollectionResponseFromDiscriminatorValue(parse
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a externalItemContent
+ * @returns {ExternalItemContent}
  */
 export function createExternalItemContentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalItemContent;
@@ -228,7 +228,7 @@ export function createExternalItemContentFromDiscriminatorValue(parseNode: Parse
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a externalItem
+ * @returns {ExternalItem}
  */
 export function createExternalItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalItem;
@@ -236,7 +236,7 @@ export function createExternalItemFromDiscriminatorValue(parseNode: ParseNode | 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a identityCollectionResponse
+ * @returns {IdentityCollectionResponse}
  */
 export function createIdentityCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIdentityCollectionResponse;
@@ -244,7 +244,7 @@ export function createIdentityCollectionResponseFromDiscriminatorValue(parseNode
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a identity
+ * @returns {Identity}
  */
 export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIdentity;
@@ -252,7 +252,7 @@ export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | unde
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a itemIdResolver
+ * @returns {ItemIdResolver}
  */
 export function createItemIdResolverFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoItemIdResolver;
@@ -260,7 +260,7 @@ export function createItemIdResolverFromDiscriminatorValue(parseNode: ParseNode 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a properties
+ * @returns {Properties}
  */
 export function createPropertiesFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProperties;
@@ -268,7 +268,7 @@ export function createPropertiesFromDiscriminatorValue(parseNode: ParseNode | un
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a property
+ * @returns {Property}
  */
 export function createPropertyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProperty;
@@ -276,7 +276,7 @@ export function createPropertyFromDiscriminatorValue(parseNode: ParseNode | unde
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a propertyRule
+ * @returns {PropertyRule}
  */
 export function createPropertyRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPropertyRule;
@@ -284,7 +284,7 @@ export function createPropertyRuleFromDiscriminatorValue(parseNode: ParseNode | 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a schema
+ * @returns {Schema}
  */
 export function createSchemaFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSchema;
@@ -292,7 +292,7 @@ export function createSchemaFromDiscriminatorValue(parseNode: ParseNode | undefi
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a searchSettings
+ * @returns {SearchSettings}
  */
 export function createSearchSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSearchSettings;
@@ -300,7 +300,7 @@ export function createSearchSettingsFromDiscriminatorValue(parseNode: ParseNode 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a urlMatchInfo
+ * @returns {UrlMatchInfo}
  */
 export function createUrlMatchInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUrlMatchInfo;
@@ -308,7 +308,7 @@ export function createUrlMatchInfoFromDiscriminatorValue(parseNode: ParseNode | 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a urlToItemResolverBase
+ * @returns {UrlToItemResolverBase}
  */
 export function createUrlToItemResolverBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
@@ -326,7 +326,7 @@ export function createUrlToItemResolverBaseFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoAcl(acl: Partial<Acl> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -339,7 +339,7 @@ export function deserializeIntoAcl(acl: Partial<Acl> | undefined = {}) : Record<
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoActivitySettings(activitySettings: Partial<ActivitySettings> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -350,7 +350,7 @@ export function deserializeIntoActivitySettings(activitySettings: Partial<Activi
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoConfiguration(configuration: Partial<Configuration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -361,7 +361,7 @@ export function deserializeIntoConfiguration(configuration: Partial<Configuratio
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoConnectionOperation(connectionOperation: Partial<ConnectionOperation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -372,7 +372,7 @@ export function deserializeIntoConnectionOperation(connectionOperation: Partial<
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoConnectionOperationCollectionResponse(connectionOperationCollectionResponse: Partial<ConnectionOperationCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -382,7 +382,7 @@ export function deserializeIntoConnectionOperationCollectionResponse(connectionO
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoDisplayTemplate(displayTemplate: Partial<DisplayTemplate> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -396,7 +396,7 @@ export function deserializeIntoDisplayTemplate(displayTemplate: Partial<DisplayT
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoExternal(external: Partial<External> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -407,7 +407,7 @@ export function deserializeIntoExternal(external: Partial<External> | undefined 
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoExternalActivity(externalActivity: Partial<ExternalActivity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -419,7 +419,7 @@ export function deserializeIntoExternalActivity(externalActivity: Partial<Extern
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoExternalActivityCollectionResponse(externalActivityCollectionResponse: Partial<ExternalActivityCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -429,7 +429,7 @@ export function deserializeIntoExternalActivityCollectionResponse(externalActivi
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoExternalActivityResult(externalActivityResult: Partial<ExternalActivityResult> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -439,7 +439,7 @@ export function deserializeIntoExternalActivityResult(externalActivityResult: Pa
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoExternalConnection(externalConnection: Partial<ExternalConnection> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -459,7 +459,7 @@ export function deserializeIntoExternalConnection(externalConnection: Partial<Ex
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoExternalConnectionCollectionResponse(externalConnectionCollectionResponse: Partial<ExternalConnectionCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -469,7 +469,7 @@ export function deserializeIntoExternalConnectionCollectionResponse(externalConn
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoExternalGroup(externalGroup: Partial<ExternalGroup> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -481,7 +481,7 @@ export function deserializeIntoExternalGroup(externalGroup: Partial<ExternalGrou
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoExternalGroupCollectionResponse(externalGroupCollectionResponse: Partial<ExternalGroupCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -491,7 +491,7 @@ export function deserializeIntoExternalGroupCollectionResponse(externalGroupColl
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoExternalItem(externalItem: Partial<ExternalItem> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -504,7 +504,7 @@ export function deserializeIntoExternalItem(externalItem: Partial<ExternalItem> 
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoExternalItemCollectionResponse(externalItemCollectionResponse: Partial<ExternalItemCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -514,7 +514,7 @@ export function deserializeIntoExternalItemCollectionResponse(externalItemCollec
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoExternalItemContent(externalItemContent: Partial<ExternalItemContent> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -526,7 +526,7 @@ export function deserializeIntoExternalItemContent(externalItemContent: Partial<
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoIdentity(identity: Partial<Identity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -536,7 +536,7 @@ export function deserializeIntoIdentity(identity: Partial<Identity> | undefined 
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoIdentityCollectionResponse(identityCollectionResponse: Partial<IdentityCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -546,7 +546,7 @@ export function deserializeIntoIdentityCollectionResponse(identityCollectionResp
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoItemIdResolver(itemIdResolver: Partial<ItemIdResolver> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -557,7 +557,7 @@ export function deserializeIntoItemIdResolver(itemIdResolver: Partial<ItemIdReso
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoProperties(properties: Partial<Properties> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -567,7 +567,7 @@ export function deserializeIntoProperties(properties: Partial<Properties> | unde
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoProperty(property: Partial<Property> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -585,7 +585,7 @@ export function deserializeIntoProperty(property: Partial<Property> | undefined 
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoPropertyRule(propertyRule: Partial<PropertyRule> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -599,7 +599,7 @@ export function deserializeIntoPropertyRule(propertyRule: Partial<PropertyRule> 
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoSchema(schema: Partial<Schema> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -610,7 +610,7 @@ export function deserializeIntoSchema(schema: Partial<Schema> | undefined = {}) 
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoSearchSettings(searchSettings: Partial<SearchSettings> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -621,7 +621,7 @@ export function deserializeIntoSearchSettings(searchSettings: Partial<SearchSett
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoUrlMatchInfo(urlMatchInfo: Partial<UrlMatchInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -633,7 +633,7 @@ export function deserializeIntoUrlMatchInfo(urlMatchInfo: Partial<UrlMatchInfo> 
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoUrlToItemResolverBase(urlToItemResolverBase: Partial<UrlToItemResolverBase> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {

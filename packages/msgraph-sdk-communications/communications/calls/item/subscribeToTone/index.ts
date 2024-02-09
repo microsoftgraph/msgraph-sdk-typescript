@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a subscribeToTonePostRequestBody
+ * @returns {SubscribeToTonePostRequestBody}
  */
 export function createSubscribeToTonePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSubscribeToTonePostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoSubscribeToTonePostRequestBody(subscribeToTonePostRequestBody: Partial<SubscribeToTonePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -53,7 +53,8 @@ export interface SubscribeToToneRequestBuilder extends BaseRequestBuilder<Subscr
      * Subscribe to DTMF (dual-tone multi-frequency signaling) which allows you to be notified when the user presses keys on a 'dialpad'.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SubscribeToToneOperation
+     * @returns {Promise<SubscribeToToneOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/call-subscribetotone?view=graph-rest-1.0|Find more info here}
      */
      post(body: SubscribeToTonePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SubscribeToToneOperation | undefined>;
@@ -61,19 +62,23 @@ export interface SubscribeToToneRequestBuilder extends BaseRequestBuilder<Subscr
      * Subscribe to DTMF (dual-tone multi-frequency signaling) which allows you to be notified when the user presses keys on a 'dialpad'.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: SubscribeToTonePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const SubscribeToToneRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/subscribeToTone";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const SubscribeToToneRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: SubscribeToToneRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createSubscribeToToneOperationFromDiscriminatorValue,
@@ -82,9 +87,5 @@ export const SubscribeToToneRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SubscribeToToneRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/subscribeToTone";
 /* tslint:enable */
 /* eslint-enable */

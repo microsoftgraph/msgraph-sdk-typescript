@@ -7,14 +7,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getVirtualAppointmentJoinWebUrlGetResponse
+ * @returns {GetVirtualAppointmentJoinWebUrlGetResponse}
  */
 export function createGetVirtualAppointmentJoinWebUrlGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetVirtualAppointmentJoinWebUrlGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetVirtualAppointmentJoinWebUrlGetResponse(getVirtualAppointmentJoinWebUrlGetResponse: Partial<GetVirtualAppointmentJoinWebUrlGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -43,13 +43,14 @@ export interface GetVirtualAppointmentJoinWebUrlRequestBuilder extends BaseReque
     /**
      * Invoke function getVirtualAppointmentJoinWebUrl
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetVirtualAppointmentJoinWebUrlGetResponse
+     * @returns {Promise<GetVirtualAppointmentJoinWebUrlGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetVirtualAppointmentJoinWebUrlGetResponse | undefined>;
     /**
      * Invoke function getVirtualAppointmentJoinWebUrl
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -62,22 +63,22 @@ export function serializeGetVirtualAppointmentJoinWebUrlGetResponse(writer: Seri
     writer.writeAdditionalData(getVirtualAppointmentJoinWebUrlGetResponse.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetVirtualAppointmentJoinWebUrlRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/getVirtualAppointmentJoinWebUrl()";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const GetVirtualAppointmentJoinWebUrlRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GetVirtualAppointmentJoinWebUrlRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGetVirtualAppointmentJoinWebUrlGetResponseFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetVirtualAppointmentJoinWebUrlRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/getVirtualAppointmentJoinWebUrl()";
 /* tslint:enable */
 /* eslint-enable */

@@ -12,13 +12,15 @@ export interface BookingCustomerBaseItemRequestBuilder extends BaseRequestBuilde
     /**
      * Delete the specified bookingCustomer object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/bookingcustomer-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Get the properties and relationships of a bookingCustomer object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of BookingCustomerBase
+     * @returns {Promise<BookingCustomerBase>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/bookingcustomer-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BookingCustomerBaseItemRequestBuilderGetQueryParameters> | undefined) : Promise<BookingCustomerBase | undefined>;
@@ -26,27 +28,28 @@ export interface BookingCustomerBaseItemRequestBuilder extends BaseRequestBuilde
      * Update the properties of a bookingCustomer object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of BookingCustomerBase
+     * @returns {Promise<BookingCustomerBase>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/bookingcustomer-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: BookingCustomerBase, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingCustomerBase | undefined>;
     /**
      * Delete the specified bookingCustomer object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Get the properties and relationships of a bookingCustomer object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BookingCustomerBaseItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the properties of a bookingCustomer object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: BookingCustomerBase, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -64,6 +67,10 @@ export interface BookingCustomerBaseItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const BookingCustomerBaseItemRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customers/{bookingCustomerBase%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const BookingCustomerBaseItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -75,28 +82,28 @@ const BookingCustomerBaseItemRequestBuilderGetQueryParametersMapper: Record<stri
  */
 export const BookingCustomerBaseItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: BookingCustomerBaseItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: BookingCustomerBaseItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createBookingCustomerBaseFromDiscriminatorValue,
         queryParametersMapper: BookingCustomerBaseItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: BookingCustomerBaseItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createBookingCustomerBaseFromDiscriminatorValue,
@@ -105,9 +112,5 @@ export const BookingCustomerBaseItemRequestBuilderRequestsMetadata: RequestsMeta
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const BookingCustomerBaseItemRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customers/{bookingCustomerBase%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

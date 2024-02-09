@@ -12,38 +12,41 @@ export interface ProvisioningObjectSummaryItemRequestBuilder extends BaseRequest
     /**
      * Delete navigation property provisioning for auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Get provisioning from auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ProvisioningObjectSummary
+     * @returns {Promise<ProvisioningObjectSummary>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ProvisioningObjectSummaryItemRequestBuilderGetQueryParameters> | undefined) : Promise<ProvisioningObjectSummary | undefined>;
     /**
      * Update the navigation property provisioning in auditLogs
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ProvisioningObjectSummary
+     * @returns {Promise<ProvisioningObjectSummary>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: ProvisioningObjectSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ProvisioningObjectSummary | undefined>;
     /**
      * Delete navigation property provisioning for auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Get provisioning from auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ProvisioningObjectSummaryItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property provisioning in auditLogs
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: ProvisioningObjectSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -61,6 +64,10 @@ export interface ProvisioningObjectSummaryItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ProvisioningObjectSummaryItemRequestBuilderUriTemplate = "{+baseurl}/auditLogs/provisioning/{provisioningObjectSummary%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ProvisioningObjectSummaryItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -72,28 +79,28 @@ const ProvisioningObjectSummaryItemRequestBuilderGetQueryParametersMapper: Recor
  */
 export const ProvisioningObjectSummaryItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: ProvisioningObjectSummaryItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: ProvisioningObjectSummaryItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createProvisioningObjectSummaryFromDiscriminatorValue,
         queryParametersMapper: ProvisioningObjectSummaryItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: ProvisioningObjectSummaryItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createProvisioningObjectSummaryFromDiscriminatorValue,
@@ -102,9 +109,5 @@ export const ProvisioningObjectSummaryItemRequestBuilderRequestsMetadata: Reques
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ProvisioningObjectSummaryItemRequestBuilderUriTemplate = "{+baseurl}/auditLogs/provisioning/{provisioningObjectSummary%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

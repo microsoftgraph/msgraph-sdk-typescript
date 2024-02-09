@@ -12,13 +12,14 @@ export interface AppManagementPolicyItemRequestBuilder extends BaseRequestBuilde
     /**
      * The appManagementPolicy applied to this application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AppManagementPolicy
+     * @returns {Promise<AppManagementPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<AppManagementPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<AppManagementPolicy | undefined>;
     /**
      * The appManagementPolicy applied to this application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppManagementPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface AppManagementPolicyItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AppManagementPolicyItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/appManagementPolicies/{appManagementPolicy%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AppManagementPolicyItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const AppManagementPolicyItemRequestBuilderGetQueryParametersMapper: Record<stri
  */
 export const AppManagementPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: AppManagementPolicyItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAppManagementPolicyFromDiscriminatorValue,
         queryParametersMapper: AppManagementPolicyItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AppManagementPolicyItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/appManagementPolicies/{appManagementPolicy%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

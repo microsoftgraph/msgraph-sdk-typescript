@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a hideForUserPostRequestBody
+ * @returns {HideForUserPostRequestBody}
  */
 export function createHideForUserPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHideForUserPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoHideForUserPostRequestBody(hideForUserPostRequestBody: Partial<HideForUserPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -45,6 +45,7 @@ export interface HideForUserRequestBuilder extends BaseRequestBuilder<HideForUse
      * Hide a chat for a user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/chat-hideforuser?view=graph-rest-1.0|Find more info here}
      */
      post(body: HideForUserPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
@@ -52,7 +53,7 @@ export interface HideForUserRequestBuilder extends BaseRequestBuilder<HideForUse
      * Hide a chat for a user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: HideForUserPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -65,14 +66,18 @@ export function serializeHideForUserPostRequestBody(writer: SerializationWriter,
     writer.writeAdditionalData(hideForUserPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const HideForUserRequestBuilderUriTemplate = "{+baseurl}/chats/{chat%2Did}/hideForUser";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const HideForUserRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: HideForUserRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
         requestBodyContentType: "application/json",
@@ -80,9 +85,5 @@ export const HideForUserRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const HideForUserRequestBuilderUriTemplate = "{+baseurl}/chats/{chat%2Did}/hideForUser";
 /* tslint:enable */
 /* eslint-enable */

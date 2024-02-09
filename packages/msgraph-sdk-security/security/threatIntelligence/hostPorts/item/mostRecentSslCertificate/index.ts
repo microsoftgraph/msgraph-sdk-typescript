@@ -12,13 +12,14 @@ export interface MostRecentSslCertificateRequestBuilder extends BaseRequestBuild
     /**
      * The most recent sslCertificate used to communicate on the port.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SslCertificate
+     * @returns {Promise<SslCertificate>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<MostRecentSslCertificateRequestBuilderGetQueryParameters> | undefined) : Promise<SslCertificate | undefined>;
     /**
      * The most recent sslCertificate used to communicate on the port.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MostRecentSslCertificateRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface MostRecentSslCertificateRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const MostRecentSslCertificateRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPorts/{hostPort%2Did}/mostRecentSslCertificate{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const MostRecentSslCertificateRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const MostRecentSslCertificateRequestBuilderGetQueryParametersMapper: Record<str
  */
 export const MostRecentSslCertificateRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: MostRecentSslCertificateRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createSslCertificateFromDiscriminatorValue,
         queryParametersMapper: MostRecentSslCertificateRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const MostRecentSslCertificateRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPorts/{hostPort%2Did}/mostRecentSslCertificate{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -27,7 +27,8 @@ export interface AddLargeGalleryViewRequestBuilder extends BaseRequestBuilder<Ad
      * Add the large gallery view to a call.  For details about how to identify a large gallery view participant in a roster so that you can retrieve the relevant data to subscribe to the video feed, see Identify large gallery view participants in a roster.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AddLargeGalleryViewOperation
+     * @returns {Promise<AddLargeGalleryViewOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/call-addlargegalleryview?view=graph-rest-1.0|Find more info here}
      */
      post(body: AddLargeGalleryViewPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AddLargeGalleryViewOperation | undefined>;
@@ -35,21 +36,21 @@ export interface AddLargeGalleryViewRequestBuilder extends BaseRequestBuilder<Ad
      * Add the large gallery view to a call.  For details about how to identify a large gallery view participant in a roster so that you can retrieve the relevant data to subscribe to the video feed, see Identify large gallery view participants in a roster.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: AddLargeGalleryViewPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a addLargeGalleryViewPostRequestBody
+ * @returns {AddLargeGalleryViewPostRequestBody}
  */
 export function createAddLargeGalleryViewPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddLargeGalleryViewPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoAddLargeGalleryViewPostRequestBody(addLargeGalleryViewPostRequestBody: Partial<AddLargeGalleryViewPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -66,14 +67,18 @@ export function serializeAddLargeGalleryViewPostRequestBody(writer: Serializatio
     writer.writeAdditionalData(addLargeGalleryViewPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AddLargeGalleryViewRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/addLargeGalleryView";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const AddLargeGalleryViewRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: AddLargeGalleryViewRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAddLargeGalleryViewOperationFromDiscriminatorValue,
@@ -82,9 +87,5 @@ export const AddLargeGalleryViewRequestBuilderRequestsMetadata: RequestsMetadata
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AddLargeGalleryViewRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/addLargeGalleryView";
 /* tslint:enable */
 /* eslint-enable */

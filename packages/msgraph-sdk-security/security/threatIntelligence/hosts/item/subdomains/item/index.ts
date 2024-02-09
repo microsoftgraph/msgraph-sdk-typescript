@@ -12,13 +12,14 @@ export interface SubdomainItemRequestBuilder extends BaseRequestBuilder<Subdomai
     /**
      * The subdomains that are associated with this host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Subdomain
+     * @returns {Promise<Subdomain>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<SubdomainItemRequestBuilderGetQueryParameters> | undefined) : Promise<Subdomain | undefined>;
     /**
      * The subdomains that are associated with this host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SubdomainItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface SubdomainItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const SubdomainItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/subdomains/{subdomain%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const SubdomainItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const SubdomainItemRequestBuilderGetQueryParametersMapper: Record<string, string
  */
 export const SubdomainItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: SubdomainItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createSubdomainFromDiscriminatorValue,
         queryParametersMapper: SubdomainItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SubdomainItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/subdomains/{subdomain%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

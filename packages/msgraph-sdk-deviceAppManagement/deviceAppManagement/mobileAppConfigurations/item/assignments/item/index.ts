@@ -12,13 +12,15 @@ export interface ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder
     /**
      * Deletes a managedDeviceMobileAppConfigurationAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Read properties and relationships of the managedDeviceMobileAppConfigurationAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ManagedDeviceMobileAppConfigurationAssignment
+     * @returns {Promise<ManagedDeviceMobileAppConfigurationAssignment>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceMobileAppConfigurationAssignment | undefined>;
@@ -26,27 +28,28 @@ export interface ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder
      * Update the properties of a managedDeviceMobileAppConfigurationAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ManagedDeviceMobileAppConfigurationAssignment
+     * @returns {Promise<ManagedDeviceMobileAppConfigurationAssignment>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ManagedDeviceMobileAppConfigurationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDeviceMobileAppConfigurationAssignment | undefined>;
     /**
      * Deletes a managedDeviceMobileAppConfigurationAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Read properties and relationships of the managedDeviceMobileAppConfigurationAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the properties of a managedDeviceMobileAppConfigurationAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: ManagedDeviceMobileAppConfigurationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -64,6 +67,10 @@ export interface ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/assignments/{managedDeviceMobileAppConfigurationAssignment%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -75,28 +82,28 @@ const ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryPar
  */
 export const ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue,
         queryParametersMapper: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue,
@@ -105,9 +112,5 @@ export const ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderRequ
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/assignments/{managedDeviceMobileAppConfigurationAssignment%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

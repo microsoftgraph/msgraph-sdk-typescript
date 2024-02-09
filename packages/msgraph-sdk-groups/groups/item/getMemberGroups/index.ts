@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getMemberGroupsPostRequestBody
+ * @returns {GetMemberGroupsPostRequestBody}
  */
 export function createGetMemberGroupsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetMemberGroupsPostRequestBody;
@@ -16,14 +16,14 @@ export function createGetMemberGroupsPostRequestBodyFromDiscriminatorValue(parse
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getMemberGroupsPostResponse
+ * @returns {GetMemberGroupsPostResponse}
  */
 export function createGetMemberGroupsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetMemberGroupsPostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetMemberGroupsPostRequestBody(getMemberGroupsPostRequestBody: Partial<GetMemberGroupsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -33,7 +33,7 @@ export function deserializeIntoGetMemberGroupsPostRequestBody(getMemberGroupsPos
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetMemberGroupsPostResponse(getMemberGroupsPostResponse: Partial<GetMemberGroupsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -69,7 +69,8 @@ export interface GetMemberGroupsRequestBuilder extends BaseRequestBuilder<GetMem
      * Return all the group IDs for the groups that the specified user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. This API returns up to 11,000 group IDs. If more than 11,000 results are available, it returns a 400 Bad Request error with the Directory_ResultSizeLimitExceeded error code. As a workaround, use the List group transitive memberOf API.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetMemberGroupsPostResponse
+     * @returns {Promise<GetMemberGroupsPostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0|Find more info here}
      */
      post(body: GetMemberGroupsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetMemberGroupsPostResponse | undefined>;
@@ -77,7 +78,7 @@ export interface GetMemberGroupsRequestBuilder extends BaseRequestBuilder<GetMem
      * Return all the group IDs for the groups that the specified user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. This API returns up to 11,000 group IDs. If more than 11,000 results are available, it returns a 400 Bad Request error with the Directory_ResultSizeLimitExceeded error code. As a workaround, use the List group transitive memberOf API.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: GetMemberGroupsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -98,14 +99,18 @@ export function serializeGetMemberGroupsPostResponse(writer: SerializationWriter
     writer.writeCollectionOfPrimitiveValues<string>("value", getMemberGroupsPostResponse.value);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetMemberGroupsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/getMemberGroups";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const GetMemberGroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: GetMemberGroupsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGetMemberGroupsPostResponseFromDiscriminatorValue,
@@ -114,9 +119,5 @@ export const GetMemberGroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetMemberGroupsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/getMemberGroups";
 /* tslint:enable */
 /* eslint-enable */

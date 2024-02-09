@@ -12,13 +12,14 @@ export interface PassiveDnsRecordItemRequestBuilder extends BaseRequestBuilder<P
     /**
      * Reverse passive DNS retrieval about this host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of PassiveDnsRecord
+     * @returns {Promise<PassiveDnsRecord>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<PassiveDnsRecordItemRequestBuilderGetQueryParameters> | undefined) : Promise<PassiveDnsRecord | undefined>;
     /**
      * Reverse passive DNS retrieval about this host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PassiveDnsRecordItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface PassiveDnsRecordItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const PassiveDnsRecordItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/passiveDnsReverse/{passiveDnsRecord%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const PassiveDnsRecordItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const PassiveDnsRecordItemRequestBuilderGetQueryParametersMapper: Record<string,
  */
 export const PassiveDnsRecordItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: PassiveDnsRecordItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPassiveDnsRecordFromDiscriminatorValue,
         queryParametersMapper: PassiveDnsRecordItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const PassiveDnsRecordItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/passiveDnsReverse/{passiveDnsRecord%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

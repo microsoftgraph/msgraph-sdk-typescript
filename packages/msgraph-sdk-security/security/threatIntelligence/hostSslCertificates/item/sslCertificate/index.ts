@@ -12,13 +12,14 @@ export interface SslCertificateRequestBuilder extends BaseRequestBuilder<SslCert
     /**
      * The sslCertificate for this hostSslCertificate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SslCertificate
+     * @returns {Promise<SslCertificate>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<SslCertificateRequestBuilderGetQueryParameters> | undefined) : Promise<SslCertificate | undefined>;
     /**
      * The sslCertificate for this hostSslCertificate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SslCertificateRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface SslCertificateRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const SslCertificateRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostSslCertificates/{hostSslCertificate%2Did}/sslCertificate{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const SslCertificateRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const SslCertificateRequestBuilderGetQueryParametersMapper: Record<string, strin
  */
 export const SslCertificateRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: SslCertificateRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createSslCertificateFromDiscriminatorValue,
         queryParametersMapper: SslCertificateRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SslCertificateRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostSslCertificates/{hostSslCertificate%2Did}/sslCertificate{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

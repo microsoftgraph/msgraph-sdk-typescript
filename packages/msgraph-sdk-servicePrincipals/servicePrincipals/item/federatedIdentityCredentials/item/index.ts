@@ -12,38 +12,41 @@ export interface FederatedIdentityCredentialItemRequestBuilder extends BaseReque
     /**
      * Delete navigation property federatedIdentityCredentials for servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of FederatedIdentityCredential
+     * @returns {Promise<FederatedIdentityCredential>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<FederatedIdentityCredentialItemRequestBuilderGetQueryParameters> | undefined) : Promise<FederatedIdentityCredential | undefined>;
     /**
      * Update the navigation property federatedIdentityCredentials in servicePrincipals
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of FederatedIdentityCredential
+     * @returns {Promise<FederatedIdentityCredential>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: FederatedIdentityCredential, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<FederatedIdentityCredential | undefined>;
     /**
      * Delete navigation property federatedIdentityCredentials for servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FederatedIdentityCredentialItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property federatedIdentityCredentials in servicePrincipals
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: FederatedIdentityCredential, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -61,6 +64,10 @@ export interface FederatedIdentityCredentialItemRequestBuilderGetQueryParameters
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const FederatedIdentityCredentialItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/federatedIdentityCredentials/{federatedIdentityCredential%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const FederatedIdentityCredentialItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -72,28 +79,28 @@ const FederatedIdentityCredentialItemRequestBuilderGetQueryParametersMapper: Rec
  */
 export const FederatedIdentityCredentialItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: FederatedIdentityCredentialItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: FederatedIdentityCredentialItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createFederatedIdentityCredentialFromDiscriminatorValue,
         queryParametersMapper: FederatedIdentityCredentialItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: FederatedIdentityCredentialItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createFederatedIdentityCredentialFromDiscriminatorValue,
@@ -102,9 +109,5 @@ export const FederatedIdentityCredentialItemRequestBuilderRequestsMetadata: Requ
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const FederatedIdentityCredentialItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/federatedIdentityCredentials/{federatedIdentityCredential%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

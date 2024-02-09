@@ -7,14 +7,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a setUserPreferredPresencePostRequestBody
+ * @returns {SetUserPreferredPresencePostRequestBody}
  */
 export function createSetUserPreferredPresencePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetUserPreferredPresencePostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoSetUserPreferredPresencePostRequestBody(setUserPreferredPresencePostRequestBody: Partial<SetUserPreferredPresencePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -64,6 +64,7 @@ export interface SetUserPreferredPresenceRequestBuilder extends BaseRequestBuild
      * Set the preferred availability and activity status for a user. If the preferred presence of a user is set, the user's presence shows as the preferred status. Preferred presence takes effect only when at least one presence session exists for the user. Otherwise, the user's presence shows as Offline. A presence session is created as a result of a successful setPresence operation, or if the user is signed in on a Microsoft Teams client. For more details, see presence sessions and time-out and expiration.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/presence-setuserpreferredpresence?view=graph-rest-1.0|Find more info here}
      */
      post(body: SetUserPreferredPresencePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
@@ -71,19 +72,23 @@ export interface SetUserPreferredPresenceRequestBuilder extends BaseRequestBuild
      * Set the preferred availability and activity status for a user. If the preferred presence of a user is set, the user's presence shows as the preferred status. Preferred presence takes effect only when at least one presence session exists for the user. Otherwise, the user's presence shows as Offline. A presence session is created as a result of a successful setPresence operation, or if the user is signed in on a Microsoft Teams client. For more details, see presence sessions and time-out and expiration.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: SetUserPreferredPresencePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const SetUserPreferredPresenceRequestBuilderUriTemplate = "{+baseurl}/communications/presences/{presence%2Did}/setUserPreferredPresence";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const SetUserPreferredPresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: SetUserPreferredPresenceRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
         requestBodyContentType: "application/json",
@@ -91,9 +96,5 @@ export const SetUserPreferredPresenceRequestBuilderRequestsMetadata: RequestsMet
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SetUserPreferredPresenceRequestBuilderUriTemplate = "{+baseurl}/communications/presences/{presence%2Did}/setUserPreferredPresence";
 /* tslint:enable */
 /* eslint-enable */

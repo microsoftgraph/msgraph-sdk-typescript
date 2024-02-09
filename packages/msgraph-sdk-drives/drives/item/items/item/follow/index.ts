@@ -12,34 +12,35 @@ export interface FollowRequestBuilder extends BaseRequestBuilder<FollowRequestBu
     /**
      * Follow a driveItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DriveItem
+     * @returns {Promise<DriveItem>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/driveitem-follow?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DriveItem | undefined>;
     /**
      * Follow a driveItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const FollowRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/follow";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const FollowRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: FollowRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDriveItemFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const FollowRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/follow";
 /* tslint:enable */
 /* eslint-enable */

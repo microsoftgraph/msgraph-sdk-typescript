@@ -12,12 +12,14 @@ export interface DefaultAppManagementPolicyRequestBuilder extends BaseRequestBui
     /**
      * Delete navigation property defaultAppManagementPolicy for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Read the properties of a tenantAppManagementPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TenantAppManagementPolicy
+     * @returns {Promise<TenantAppManagementPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/tenantappmanagementpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DefaultAppManagementPolicyRequestBuilderGetQueryParameters> | undefined) : Promise<TenantAppManagementPolicy | undefined>;
@@ -25,27 +27,28 @@ export interface DefaultAppManagementPolicyRequestBuilder extends BaseRequestBui
      * Update the properties of a tenantAppManagementPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TenantAppManagementPolicy
+     * @returns {Promise<TenantAppManagementPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/tenantappmanagementpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TenantAppManagementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TenantAppManagementPolicy | undefined>;
     /**
      * Delete navigation property defaultAppManagementPolicy for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Read the properties of a tenantAppManagementPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DefaultAppManagementPolicyRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the properties of a tenantAppManagementPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: TenantAppManagementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -63,6 +66,10 @@ export interface DefaultAppManagementPolicyRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const DefaultAppManagementPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/defaultAppManagementPolicy{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const DefaultAppManagementPolicyRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -74,28 +81,28 @@ const DefaultAppManagementPolicyRequestBuilderGetQueryParametersMapper: Record<s
  */
 export const DefaultAppManagementPolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: DefaultAppManagementPolicyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: DefaultAppManagementPolicyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTenantAppManagementPolicyFromDiscriminatorValue,
         queryParametersMapper: DefaultAppManagementPolicyRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: DefaultAppManagementPolicyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTenantAppManagementPolicyFromDiscriminatorValue,
@@ -104,9 +111,5 @@ export const DefaultAppManagementPolicyRequestBuilderRequestsMetadata: RequestsM
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const DefaultAppManagementPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/defaultAppManagementPolicy{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

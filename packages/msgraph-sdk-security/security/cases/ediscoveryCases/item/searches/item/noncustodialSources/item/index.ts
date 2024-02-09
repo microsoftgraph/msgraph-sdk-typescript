@@ -12,13 +12,14 @@ export interface EdiscoveryNoncustodialDataSourceItemRequestBuilder extends Base
     /**
      * noncustodialDataSource sources that are included in the eDiscovery search
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of EdiscoveryNoncustodialDataSource
+     * @returns {Promise<EdiscoveryNoncustodialDataSource>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryNoncustodialDataSource | undefined>;
     /**
      * noncustodialDataSource sources that are included in the eDiscovery search
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParam
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const EdiscoveryNoncustodialDataSourceItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}/noncustodialSources/{ediscoveryNoncustodialDataSource%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParametersMapper
  */
 export const EdiscoveryNoncustodialDataSourceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: EdiscoveryNoncustodialDataSourceItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue,
         queryParametersMapper: EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const EdiscoveryNoncustodialDataSourceItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}/noncustodialSources/{ediscoveryNoncustodialDataSource%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

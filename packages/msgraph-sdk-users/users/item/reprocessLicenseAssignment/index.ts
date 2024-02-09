@@ -12,34 +12,35 @@ export interface ReprocessLicenseAssignmentRequestBuilder extends BaseRequestBui
     /**
      * Reprocess all group-based license assignments for the user. To learn more about group-based licensing, see What is group-based licensing in Microsoft Entra ID. Also see Identify and resolve license assignment problems for a group in Microsoft Entra ID for more details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of User
+     * @returns {Promise<User>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/user-reprocesslicenseassignment?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<User | undefined>;
     /**
      * Reprocess all group-based license assignments for the user. To learn more about group-based licensing, see What is group-based licensing in Microsoft Entra ID. Also see Identify and resolve license assignment problems for a group in Microsoft Entra ID for more details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const ReprocessLicenseAssignmentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/reprocessLicenseAssignment";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const ReprocessLicenseAssignmentRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: ReprocessLicenseAssignmentRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createUserFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ReprocessLicenseAssignmentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/reprocessLicenseAssignment";
 /* tslint:enable */
 /* eslint-enable */

@@ -7,14 +7,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a promotePostResponse
+ * @returns {PromotePostResponse}
  */
 export function createPromotePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPromotePostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoPromotePostResponse(promotePostResponse: Partial<PromotePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -43,14 +43,15 @@ export interface PromoteRequestBuilder extends BaseRequestBuilder<PromoteRequest
     /**
      * Promote a verified subdomain to the root domain. A verified domain has its isVerified property set to true.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of PromotePostResponse
+     * @returns {Promise<PromotePostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/domain-promote?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PromotePostResponse | undefined>;
     /**
      * Promote a verified subdomain to the root domain. A verified domain has its isVerified property set to true.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -63,22 +64,22 @@ export function serializePromotePostResponse(writer: SerializationWriter, promot
     writer.writeAdditionalData(promotePostResponse.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const PromoteRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/promote";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const PromoteRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: PromoteRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPromotePostResponseFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const PromoteRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/promote";
 /* tslint:enable */
 /* eslint-enable */

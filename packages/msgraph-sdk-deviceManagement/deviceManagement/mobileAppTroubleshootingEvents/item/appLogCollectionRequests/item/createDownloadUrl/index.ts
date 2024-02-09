@@ -12,34 +12,35 @@ export interface CreateDownloadUrlRequestBuilder extends BaseRequestBuilder<Crea
     /**
      * Not yet documented
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AppLogCollectionDownloadDetails
+     * @returns {Promise<AppLogCollectionDownloadDetails>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applogcollectionrequest-createdownloadurl?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AppLogCollectionDownloadDetails | undefined>;
     /**
      * Not yet documented
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const CreateDownloadUrlRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}/appLogCollectionRequests/{appLogCollectionRequest%2Did}/createDownloadUrl";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const CreateDownloadUrlRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: CreateDownloadUrlRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAppLogCollectionDownloadDetailsFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CreateDownloadUrlRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}/appLogCollectionRequests/{appLogCollectionRequest%2Did}/createDownloadUrl";
 /* tslint:enable */
 /* eslint-enable */

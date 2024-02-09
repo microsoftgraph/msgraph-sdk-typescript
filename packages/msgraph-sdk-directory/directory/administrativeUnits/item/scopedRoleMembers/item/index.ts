@@ -12,13 +12,15 @@ export interface ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuild
     /**
      * Remove a Microsoft Entra role assignment with administrative unit scope.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-delete-scopedrolemembers?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Get a Microsoft Entra role assignment with administrative unit scope.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ScopedRoleMembership
+     * @returns {Promise<ScopedRoleMembership>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-get-scopedrolemembers?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ScopedRoleMembershipItemRequestBuilderGetQueryParameters> | undefined) : Promise<ScopedRoleMembership | undefined>;
@@ -26,26 +28,27 @@ export interface ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuild
      * Update the navigation property scopedRoleMembers in directory
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ScopedRoleMembership
+     * @returns {Promise<ScopedRoleMembership>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: ScopedRoleMembership, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ScopedRoleMembership | undefined>;
     /**
      * Remove a Microsoft Entra role assignment with administrative unit scope.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Get a Microsoft Entra role assignment with administrative unit scope.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ScopedRoleMembershipItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property scopedRoleMembers in directory
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: ScopedRoleMembership, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -63,6 +66,10 @@ export interface ScopedRoleMembershipItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ScopedRoleMembershipItemRequestBuilderUriTemplate = "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/scopedRoleMembers/{scopedRoleMembership%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ScopedRoleMembershipItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -74,28 +81,28 @@ const ScopedRoleMembershipItemRequestBuilderGetQueryParametersMapper: Record<str
  */
 export const ScopedRoleMembershipItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: ScopedRoleMembershipItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: ScopedRoleMembershipItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createScopedRoleMembershipFromDiscriminatorValue,
         queryParametersMapper: ScopedRoleMembershipItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: ScopedRoleMembershipItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createScopedRoleMembershipFromDiscriminatorValue,
@@ -104,9 +111,5 @@ export const ScopedRoleMembershipItemRequestBuilderRequestsMetadata: RequestsMet
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ScopedRoleMembershipItemRequestBuilderUriTemplate = "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/scopedRoleMembers/{scopedRoleMembership%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -12,13 +12,14 @@ export interface UserProcessingResultItemRequestBuilder extends BaseRequestBuild
     /**
      * The unique identifier of the Microsoft Entra identity that last modified the workflow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of UserProcessingResult
+     * @returns {Promise<UserProcessingResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<UserProcessingResultItemRequestBuilderGetQueryParameters> | undefined) : Promise<UserProcessingResult | undefined>;
     /**
      * The unique identifier of the Microsoft Entra identity that last modified the workflow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserProcessingResultItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface UserProcessingResultItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const UserProcessingResultItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/executionScope/{userProcessingResult%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const UserProcessingResultItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const UserProcessingResultItemRequestBuilderGetQueryParametersMapper: Record<str
  */
 export const UserProcessingResultItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: UserProcessingResultItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createUserProcessingResultFromDiscriminatorValue,
         queryParametersMapper: UserProcessingResultItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const UserProcessingResultItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/executionScope/{userProcessingResult%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

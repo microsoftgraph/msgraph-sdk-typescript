@@ -8,14 +8,14 @@ import { type Guid } from 'guid-typescript';
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a validatePropertiesPostRequestBody
+ * @returns {ValidatePropertiesPostRequestBody}
  */
 export function createValidatePropertiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoValidatePropertiesPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoValidatePropertiesPostRequestBody(validatePropertiesPostRequestBody: Partial<ValidatePropertiesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -65,6 +65,7 @@ export interface ValidatePropertiesRequestBuilder extends BaseRequestBuilder<Val
      * Validate that a Microsoft 365 group's display name or mail nickname complies with naming policies. Clients can use this API to determine whether a display name or mail nickname is valid before trying to update a Microsoft 365 group. To validate the properties before creating a group, use the directoryobject:validateProperties function. The following policy validations are performed for the display name and mail nickname properties: This API only returns the first validation failure that is encountered. If the properties fail multiple validations, only the first validation failure is returned. However, you can validate both the mail nickname and the display name and receive a collection of validation errors if you are only validating the prefix and suffix naming policy. To learn more about configuring naming policies, see Configure naming policy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/group-validateproperties?view=graph-rest-1.0|Find more info here}
      */
      post(body: ValidatePropertiesPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
@@ -72,19 +73,23 @@ export interface ValidatePropertiesRequestBuilder extends BaseRequestBuilder<Val
      * Validate that a Microsoft 365 group's display name or mail nickname complies with naming policies. Clients can use this API to determine whether a display name or mail nickname is valid before trying to update a Microsoft 365 group. To validate the properties before creating a group, use the directoryobject:validateProperties function. The following policy validations are performed for the display name and mail nickname properties: This API only returns the first validation failure that is encountered. If the properties fail multiple validations, only the first validation failure is returned. However, you can validate both the mail nickname and the display name and receive a collection of validation errors if you are only validating the prefix and suffix naming policy. To learn more about configuring naming policies, see Configure naming policy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: ValidatePropertiesPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const ValidatePropertiesRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/validateProperties";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const ValidatePropertiesRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: ValidatePropertiesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
         requestBodyContentType: "application/json",
@@ -92,9 +97,5 @@ export const ValidatePropertiesRequestBuilderRequestsMetadata: RequestsMetadata 
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ValidatePropertiesRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/validateProperties";
 /* tslint:enable */
 /* eslint-enable */

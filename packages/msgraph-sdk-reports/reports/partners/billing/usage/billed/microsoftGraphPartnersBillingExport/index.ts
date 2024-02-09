@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a exportPostRequestBody
+ * @returns {ExportPostRequestBody}
  */
 export function createExportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExportPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoExportPostRequestBody(exportPostRequestBody: Partial<ExportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -50,7 +50,8 @@ export interface MicrosoftGraphPartnersBillingExportRequestBuilder extends BaseR
      * Export the billed Azure usage data.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Operation
+     * @returns {Promise<Operation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/partners-billing-billedusage-export?view=graph-rest-1.0|Find more info here}
      */
      post(body: ExportPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Operation | undefined>;
@@ -58,7 +59,7 @@ export interface MicrosoftGraphPartnersBillingExportRequestBuilder extends BaseR
      * Export the billed Azure usage data.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: ExportPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -72,14 +73,18 @@ export function serializeExportPostRequestBody(writer: SerializationWriter, expo
     writer.writeAdditionalData(exportPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const MicrosoftGraphPartnersBillingExportRequestBuilderUriTemplate = "{+baseurl}/reports/partners/billing/usage/billed/microsoft.graph.partners.billing.export";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const MicrosoftGraphPartnersBillingExportRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: MicrosoftGraphPartnersBillingExportRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createOperationFromDiscriminatorValue,
@@ -88,9 +93,5 @@ export const MicrosoftGraphPartnersBillingExportRequestBuilderRequestsMetadata: 
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const MicrosoftGraphPartnersBillingExportRequestBuilderUriTemplate = "{+baseurl}/reports/partners/billing/usage/billed/microsoft.graph.partners.billing.export";
 /* tslint:enable */
 /* eslint-enable */

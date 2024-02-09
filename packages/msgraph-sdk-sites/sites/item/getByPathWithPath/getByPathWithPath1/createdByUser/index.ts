@@ -12,13 +12,14 @@ export interface CreatedByUserRequestBuilder extends BaseRequestBuilder<CreatedB
     /**
      * Identity of the user who created the item. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of User
+     * @returns {Promise<User>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<CreatedByUserRequestBuilderGetQueryParameters> | undefined) : Promise<User | undefined>;
     /**
      * Identity of the user who created the item. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CreatedByUserRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface CreatedByUserRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CreatedByUserRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/createdByUser{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const CreatedByUserRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const CreatedByUserRequestBuilderGetQueryParametersMapper: Record<string, string
  */
 export const CreatedByUserRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: CreatedByUserRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createUserFromDiscriminatorValue,
         queryParametersMapper: CreatedByUserRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CreatedByUserRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/createdByUser{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -12,39 +12,42 @@ export interface DelegatedPermissionClassificationItemRequestBuilder extends Bas
     /**
      * Deletes a delegatedPermissionClassification which had previously been set for a delegated permission.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-delete-delegatedpermissionclassifications?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Get delegatedPermissionClassifications from servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DelegatedPermissionClassification
+     * @returns {Promise<DelegatedPermissionClassification>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<DelegatedPermissionClassificationItemRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedPermissionClassification | undefined>;
     /**
      * Update the navigation property delegatedPermissionClassifications in servicePrincipals
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DelegatedPermissionClassification
+     * @returns {Promise<DelegatedPermissionClassification>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: DelegatedPermissionClassification, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DelegatedPermissionClassification | undefined>;
     /**
      * Deletes a delegatedPermissionClassification which had previously been set for a delegated permission.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Get delegatedPermissionClassifications from servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DelegatedPermissionClassificationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property delegatedPermissionClassifications in servicePrincipals
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: DelegatedPermissionClassification, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -62,6 +65,10 @@ export interface DelegatedPermissionClassificationItemRequestBuilderGetQueryPara
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const DelegatedPermissionClassificationItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/delegatedPermissionClassifications/{delegatedPermissionClassification%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const DelegatedPermissionClassificationItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -73,28 +80,28 @@ const DelegatedPermissionClassificationItemRequestBuilderGetQueryParametersMappe
  */
 export const DelegatedPermissionClassificationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: DelegatedPermissionClassificationItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: DelegatedPermissionClassificationItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDelegatedPermissionClassificationFromDiscriminatorValue,
         queryParametersMapper: DelegatedPermissionClassificationItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: DelegatedPermissionClassificationItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDelegatedPermissionClassificationFromDiscriminatorValue,
@@ -103,9 +110,5 @@ export const DelegatedPermissionClassificationItemRequestBuilderRequestsMetadata
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const DelegatedPermissionClassificationItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/delegatedPermissionClassifications/{delegatedPermissionClassification%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

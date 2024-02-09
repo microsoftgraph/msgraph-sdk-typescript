@@ -43,28 +43,29 @@ export interface Beta_InvRequestBuilder extends BaseRequestBuilder<Beta_InvReque
      * Invoke action beta_Inv
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookFunctionResult
+     * @returns {Promise<WorkbookFunctionResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: Beta_InvPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookFunctionResult | undefined>;
     /**
      * Invoke action beta_Inv
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: Beta_InvPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a beta_InvPostRequestBody
+ * @returns {Beta_InvPostRequestBody}
  */
 export function createBeta_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBeta_InvPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoBeta_InvPostRequestBody(beta_InvPostRequestBody: Partial<Beta_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -89,14 +90,18 @@ export function serializeBeta_InvPostRequestBody(writer: SerializationWriter, be
     writer.writeAdditionalData(beta_InvPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const Beta_InvRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/beta_Inv";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const Beta_InvRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: Beta_InvRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
@@ -105,9 +110,5 @@ export const Beta_InvRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const Beta_InvRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/beta_Inv";
 /* tslint:enable */
 /* eslint-enable */

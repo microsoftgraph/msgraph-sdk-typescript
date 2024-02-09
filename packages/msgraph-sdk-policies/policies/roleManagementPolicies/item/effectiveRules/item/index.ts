@@ -12,38 +12,41 @@ export interface UnifiedRoleManagementPolicyRuleItemRequestBuilder extends BaseR
     /**
      * Delete navigation property effectiveRules for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of UnifiedRoleManagementPolicyRule
+     * @returns {Promise<UnifiedRoleManagementPolicyRule>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<UnifiedRoleManagementPolicyRuleItemRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleManagementPolicyRule | undefined>;
     /**
      * Update the navigation property effectiveRules in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of UnifiedRoleManagementPolicyRule
+     * @returns {Promise<UnifiedRoleManagementPolicyRule>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: UnifiedRoleManagementPolicyRule, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleManagementPolicyRule | undefined>;
     /**
      * Delete navigation property effectiveRules for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UnifiedRoleManagementPolicyRuleItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property effectiveRules in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: UnifiedRoleManagementPolicyRule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -61,6 +64,10 @@ export interface UnifiedRoleManagementPolicyRuleItemRequestBuilderGetQueryParame
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const UnifiedRoleManagementPolicyRuleItemRequestBuilderUriTemplate = "{+baseurl}/policies/roleManagementPolicies/{unifiedRoleManagementPolicy%2Did}/effectiveRules/{unifiedRoleManagementPolicyRule%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const UnifiedRoleManagementPolicyRuleItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -72,28 +79,28 @@ const UnifiedRoleManagementPolicyRuleItemRequestBuilderGetQueryParametersMapper:
  */
 export const UnifiedRoleManagementPolicyRuleItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: UnifiedRoleManagementPolicyRuleItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: UnifiedRoleManagementPolicyRuleItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue,
         queryParametersMapper: UnifiedRoleManagementPolicyRuleItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: UnifiedRoleManagementPolicyRuleItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue,
@@ -102,9 +109,5 @@ export const UnifiedRoleManagementPolicyRuleItemRequestBuilderRequestsMetadata: 
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const UnifiedRoleManagementPolicyRuleItemRequestBuilderUriTemplate = "{+baseurl}/policies/roleManagementPolicies/{unifiedRoleManagementPolicy%2Did}/effectiveRules/{unifiedRoleManagementPolicyRule%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

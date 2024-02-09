@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a cumPrincPostRequestBody
+ * @returns {CumPrincPostRequestBody}
  */
 export function createCumPrincPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCumPrincPostRequestBody;
@@ -55,20 +55,21 @@ export interface CumPrincRequestBuilder extends BaseRequestBuilder<CumPrincReque
      * Invoke action cumPrinc
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookFunctionResult
+     * @returns {Promise<WorkbookFunctionResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: CumPrincPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookFunctionResult | undefined>;
     /**
      * Invoke action cumPrinc
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: CumPrincPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCumPrincPostRequestBody(cumPrincPostRequestBody: Partial<CumPrincPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -95,14 +96,18 @@ export function serializeCumPrincPostRequestBody(writer: SerializationWriter, cu
     writer.writeAdditionalData(cumPrincPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CumPrincRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/cumPrinc";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const CumPrincRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: CumPrincRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
@@ -111,9 +116,5 @@ export const CumPrincRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CumPrincRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/cumPrinc";
 /* tslint:enable */
 /* eslint-enable */

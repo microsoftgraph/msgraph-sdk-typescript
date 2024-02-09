@@ -12,13 +12,14 @@ export interface PersonItemRequestBuilder extends BaseRequestBuilder<PersonItemR
     /**
      * People that are relevant to the user. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Person
+     * @returns {Promise<Person>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<PersonItemRequestBuilderGetQueryParameters> | undefined) : Promise<Person | undefined>;
     /**
      * People that are relevant to the user. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PersonItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -32,6 +33,10 @@ export interface PersonItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const PersonItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/people/{person%2Did}{?%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const PersonItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -42,19 +47,15 @@ const PersonItemRequestBuilderGetQueryParametersMapper: Record<string, string> =
  */
 export const PersonItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: PersonItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPersonFromDiscriminatorValue,
         queryParametersMapper: PersonItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const PersonItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/people/{person%2Did}{?%24select}";
 /* tslint:enable */
 /* eslint-enable */

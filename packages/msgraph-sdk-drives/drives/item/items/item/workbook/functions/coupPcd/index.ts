@@ -39,28 +39,29 @@ export interface CoupPcdRequestBuilder extends BaseRequestBuilder<CoupPcdRequest
      * Invoke action coupPcd
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookFunctionResult
+     * @returns {Promise<WorkbookFunctionResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: CoupPcdPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookFunctionResult | undefined>;
     /**
      * Invoke action coupPcd
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: CoupPcdPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a coupPcdPostRequestBody
+ * @returns {CoupPcdPostRequestBody}
  */
 export function createCoupPcdPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCoupPcdPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCoupPcdPostRequestBody(coupPcdPostRequestBody: Partial<CoupPcdPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -83,14 +84,18 @@ export function serializeCoupPcdPostRequestBody(writer: SerializationWriter, cou
     writer.writeAdditionalData(coupPcdPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CoupPcdRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/coupPcd";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const CoupPcdRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: CoupPcdRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
@@ -99,9 +104,5 @@ export const CoupPcdRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CoupPcdRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/coupPcd";
 /* tslint:enable */
 /* eslint-enable */

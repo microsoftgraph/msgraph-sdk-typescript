@@ -11,33 +11,34 @@ export interface GetSharePointActivityUserCountsWithPeriodRequestBuilder extends
     /**
      * Invoke function getSharePointActivityUserCounts
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ArrayBuffer
+     * @returns {Promise<ArrayBuffer>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
      * Invoke function getSharePointActivityUserCounts
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const GetSharePointActivityUserCountsWithPeriodRequestBuilderUriTemplate = "{+baseurl}/reports/getSharePointActivityUserCounts(period='{period}')";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const GetSharePointActivityUserCountsWithPeriodRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GetSharePointActivityUserCountsWithPeriodRequestBuilderUriTemplate,
         responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendPrimitiveAsync",
         responseBodyFactory:  "ArrayBuffer",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetSharePointActivityUserCountsWithPeriodRequestBuilderUriTemplate = "{+baseurl}/reports/getSharePointActivityUserCounts(period='{period}')";
 /* tslint:enable */
 /* eslint-enable */

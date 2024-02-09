@@ -12,38 +12,41 @@ export interface ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBu
     /**
      * Delete navigation property conditionalAccessPolicies for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * The custom rules that define an access scenario.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ConditionalAccessPolicy
+     * @returns {Promise<ConditionalAccessPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ConditionalAccessPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<ConditionalAccessPolicy | undefined>;
     /**
      * Update the navigation property conditionalAccessPolicies in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ConditionalAccessPolicy
+     * @returns {Promise<ConditionalAccessPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: ConditionalAccessPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConditionalAccessPolicy | undefined>;
     /**
      * Delete navigation property conditionalAccessPolicies for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * The custom rules that define an access scenario.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConditionalAccessPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property conditionalAccessPolicies in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: ConditionalAccessPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -61,6 +64,10 @@ export interface ConditionalAccessPolicyItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ConditionalAccessPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/conditionalAccessPolicies/{conditionalAccessPolicy%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ConditionalAccessPolicyItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -72,28 +79,28 @@ const ConditionalAccessPolicyItemRequestBuilderGetQueryParametersMapper: Record<
  */
 export const ConditionalAccessPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: ConditionalAccessPolicyItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: ConditionalAccessPolicyItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createConditionalAccessPolicyFromDiscriminatorValue,
         queryParametersMapper: ConditionalAccessPolicyItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: ConditionalAccessPolicyItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createConditionalAccessPolicyFromDiscriminatorValue,
@@ -102,9 +109,5 @@ export const ConditionalAccessPolicyItemRequestBuilderRequestsMetadata: Requests
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ConditionalAccessPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/conditionalAccessPolicies/{conditionalAccessPolicy%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

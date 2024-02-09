@@ -12,13 +12,14 @@ export interface EducationSchoolItemRequestBuilder extends BaseRequestBuilder<Ed
     /**
      * All schools that this class is associated with. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of EducationSchool
+     * @returns {Promise<EducationSchool>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<EducationSchoolItemRequestBuilderGetQueryParameters> | undefined) : Promise<EducationSchool | undefined>;
     /**
      * All schools that this class is associated with. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EducationSchoolItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface EducationSchoolItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const EducationSchoolItemRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/schools/{educationSchool%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const EducationSchoolItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const EducationSchoolItemRequestBuilderGetQueryParametersMapper: Record<string, 
  */
 export const EducationSchoolItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: EducationSchoolItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createEducationSchoolFromDiscriminatorValue,
         queryParametersMapper: EducationSchoolItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const EducationSchoolItemRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/schools/{educationSchool%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

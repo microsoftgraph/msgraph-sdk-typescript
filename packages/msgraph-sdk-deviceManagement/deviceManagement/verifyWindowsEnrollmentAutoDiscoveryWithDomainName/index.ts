@@ -7,14 +7,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse
+ * @returns {VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse}
  */
 export function createVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse(verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse: Partial<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -51,33 +51,34 @@ export interface VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilde
     /**
      * Invoke function verifyWindowsEnrollmentAutoDiscovery
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse
+     * @returns {Promise<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse | undefined>;
     /**
      * Invoke function verifyWindowsEnrollmentAutoDiscovery
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/verifyWindowsEnrollmentAutoDiscovery(domainName='{domainName}')";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponseFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/verifyWindowsEnrollmentAutoDiscovery(domainName='{domainName}')";
 /* tslint:enable */
 /* eslint-enable */

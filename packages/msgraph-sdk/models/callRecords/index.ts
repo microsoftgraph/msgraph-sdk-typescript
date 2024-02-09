@@ -76,7 +76,7 @@ export interface ClientUserAgent extends Parsable, UserAgent {
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a callRecordCollectionResponse
+ * @returns {CallRecordCollectionResponse}
  */
 export function createCallRecordCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCallRecordCollectionResponse;
@@ -84,7 +84,7 @@ export function createCallRecordCollectionResponseFromDiscriminatorValue(parseNo
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a callRecord
+ * @returns {CallRecord}
  */
 export function createCallRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCallRecord;
@@ -92,7 +92,7 @@ export function createCallRecordFromDiscriminatorValue(parseNode: ParseNode | un
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a clientUserAgent
+ * @returns {ClientUserAgent}
  */
 export function createClientUserAgentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoClientUserAgent;
@@ -100,7 +100,7 @@ export function createClientUserAgentFromDiscriminatorValue(parseNode: ParseNode
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a deviceInfo
+ * @returns {DeviceInfo}
  */
 export function createDeviceInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDeviceInfo;
@@ -108,7 +108,7 @@ export function createDeviceInfoFromDiscriminatorValue(parseNode: ParseNode | un
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a directRoutingLogRow
+ * @returns {DirectRoutingLogRow}
  */
 export function createDirectRoutingLogRowFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDirectRoutingLogRow;
@@ -116,7 +116,7 @@ export function createDirectRoutingLogRowFromDiscriminatorValue(parseNode: Parse
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a endpoint
+ * @returns {Endpoint}
  */
 export function createEndpointFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
@@ -137,7 +137,7 @@ export function createEndpointFromDiscriminatorValue(parseNode: ParseNode | unde
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a failureInfo
+ * @returns {FailureInfo}
  */
 export function createFailureInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFailureInfo;
@@ -145,7 +145,7 @@ export function createFailureInfoFromDiscriminatorValue(parseNode: ParseNode | u
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a feedbackTokenSet
+ * @returns {FeedbackTokenSet}
  */
 export function createFeedbackTokenSetFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFeedbackTokenSet;
@@ -153,7 +153,7 @@ export function createFeedbackTokenSetFromDiscriminatorValue(parseNode: ParseNod
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a media
+ * @returns {Media}
  */
 export function createMediaFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMedia;
@@ -161,7 +161,7 @@ export function createMediaFromDiscriminatorValue(parseNode: ParseNode | undefin
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a mediaStream
+ * @returns {MediaStream}
  */
 export function createMediaStreamFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMediaStream;
@@ -169,7 +169,7 @@ export function createMediaStreamFromDiscriminatorValue(parseNode: ParseNode | u
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a networkInfo
+ * @returns {NetworkInfo}
  */
 export function createNetworkInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNetworkInfo;
@@ -177,7 +177,7 @@ export function createNetworkInfoFromDiscriminatorValue(parseNode: ParseNode | u
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a participantEndpoint
+ * @returns {ParticipantEndpoint}
  */
 export function createParticipantEndpointFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoParticipantEndpoint;
@@ -185,7 +185,7 @@ export function createParticipantEndpointFromDiscriminatorValue(parseNode: Parse
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a pstnCallLogRow
+ * @returns {PstnCallLogRow}
  */
 export function createPstnCallLogRowFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPstnCallLogRow;
@@ -193,7 +193,7 @@ export function createPstnCallLogRowFromDiscriminatorValue(parseNode: ParseNode 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a segmentCollectionResponse
+ * @returns {SegmentCollectionResponse}
  */
 export function createSegmentCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSegmentCollectionResponse;
@@ -201,7 +201,7 @@ export function createSegmentCollectionResponseFromDiscriminatorValue(parseNode:
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a segment
+ * @returns {Segment}
  */
 export function createSegmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSegment;
@@ -209,7 +209,7 @@ export function createSegmentFromDiscriminatorValue(parseNode: ParseNode | undef
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a serviceEndpoint
+ * @returns {ServiceEndpoint}
  */
 export function createServiceEndpointFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoServiceEndpoint;
@@ -217,7 +217,7 @@ export function createServiceEndpointFromDiscriminatorValue(parseNode: ParseNode
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a serviceUserAgent
+ * @returns {ServiceUserAgent}
  */
 export function createServiceUserAgentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoServiceUserAgent;
@@ -225,7 +225,7 @@ export function createServiceUserAgentFromDiscriminatorValue(parseNode: ParseNod
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a sessionCollectionResponse
+ * @returns {SessionCollectionResponse}
  */
 export function createSessionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSessionCollectionResponse;
@@ -233,7 +233,7 @@ export function createSessionCollectionResponseFromDiscriminatorValue(parseNode:
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a session
+ * @returns {Session}
  */
 export function createSessionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSession;
@@ -241,7 +241,7 @@ export function createSessionFromDiscriminatorValue(parseNode: ParseNode | undef
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a traceRouteHop
+ * @returns {TraceRouteHop}
  */
 export function createTraceRouteHopFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTraceRouteHop;
@@ -249,7 +249,7 @@ export function createTraceRouteHopFromDiscriminatorValue(parseNode: ParseNode |
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a userAgent
+ * @returns {UserAgent}
  */
 export function createUserAgentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
@@ -270,14 +270,14 @@ export function createUserAgentFromDiscriminatorValue(parseNode: ParseNode | und
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a userFeedback
+ * @returns {UserFeedback}
  */
 export function createUserFeedbackFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUserFeedback;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCallRecord(callRecord: Partial<CallRecord> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -296,7 +296,7 @@ export function deserializeIntoCallRecord(callRecord: Partial<CallRecord> | unde
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCallRecordCollectionResponse(callRecordCollectionResponse: Partial<CallRecordCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -306,7 +306,7 @@ export function deserializeIntoCallRecordCollectionResponse(callRecordCollection
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoClientUserAgent(clientUserAgent: Partial<ClientUserAgent> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -319,7 +319,7 @@ export function deserializeIntoClientUserAgent(clientUserAgent: Partial<ClientUs
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoDeviceInfo(deviceInfo: Partial<DeviceInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -350,7 +350,7 @@ export function deserializeIntoDeviceInfo(deviceInfo: Partial<DeviceInfo> | unde
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoDirectRoutingLogRow(directRoutingLogRow: Partial<DirectRoutingLogRow> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -381,7 +381,7 @@ export function deserializeIntoDirectRoutingLogRow(directRoutingLogRow: Partial<
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoEndpoint(endpoint: Partial<Endpoint> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -392,7 +392,7 @@ export function deserializeIntoEndpoint(endpoint: Partial<Endpoint> | undefined 
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoFailureInfo(failureInfo: Partial<FailureInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -404,7 +404,7 @@ export function deserializeIntoFailureInfo(failureInfo: Partial<FailureInfo> | u
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoFeedbackTokenSet(feedbackTokenSet: Partial<FeedbackTokenSet> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -414,7 +414,7 @@ export function deserializeIntoFeedbackTokenSet(feedbackTokenSet: Partial<Feedba
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoMedia(media: Partial<Media> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -430,7 +430,7 @@ export function deserializeIntoMedia(media: Partial<Media> | undefined = {}) : R
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoMediaStream(mediaStream: Partial<MediaStream> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -470,7 +470,7 @@ export function deserializeIntoMediaStream(mediaStream: Partial<MediaStream> | u
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoNetworkInfo(networkInfo: Partial<NetworkInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -506,7 +506,7 @@ export function deserializeIntoNetworkInfo(networkInfo: Partial<NetworkInfo> | u
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoParticipantEndpoint(participantEndpoint: Partial<ParticipantEndpoint> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -521,7 +521,7 @@ export function deserializeIntoParticipantEndpoint(participantEndpoint: Partial<
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoPstnCallLogRow(pstnCallLogRow: Partial<PstnCallLogRow> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -554,7 +554,7 @@ export function deserializeIntoPstnCallLogRow(pstnCallLogRow: Partial<PstnCallLo
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoSegment(segment: Partial<Segment> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -569,7 +569,7 @@ export function deserializeIntoSegment(segment: Partial<Segment> | undefined = {
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoSegmentCollectionResponse(segmentCollectionResponse: Partial<SegmentCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -579,7 +579,7 @@ export function deserializeIntoSegmentCollectionResponse(segmentCollectionRespon
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoServiceEndpoint(serviceEndpoint: Partial<ServiceEndpoint> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -588,7 +588,7 @@ export function deserializeIntoServiceEndpoint(serviceEndpoint: Partial<ServiceE
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoServiceUserAgent(serviceUserAgent: Partial<ServiceUserAgent> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -598,7 +598,7 @@ export function deserializeIntoServiceUserAgent(serviceUserAgent: Partial<Servic
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoSession(session: Partial<Session> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -615,7 +615,7 @@ export function deserializeIntoSession(session: Partial<Session> | undefined = {
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoSessionCollectionResponse(sessionCollectionResponse: Partial<SessionCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -625,7 +625,7 @@ export function deserializeIntoSessionCollectionResponse(sessionCollectionRespon
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoTraceRouteHop(traceRouteHop: Partial<TraceRouteHop> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -638,7 +638,7 @@ export function deserializeIntoTraceRouteHop(traceRouteHop: Partial<TraceRouteHo
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoUserAgent(userAgent: Partial<UserAgent> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -650,7 +650,7 @@ export function deserializeIntoUserAgent(userAgent: Partial<UserAgent> | undefin
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoUserFeedback(userFeedback: Partial<UserFeedback> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {

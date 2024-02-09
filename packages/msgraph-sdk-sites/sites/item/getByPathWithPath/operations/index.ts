@@ -12,7 +12,8 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
     /**
      * Get a list of rich long-running operations associated with a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of RichLongRunningOperationCollectionResponse
+     * @returns {Promise<RichLongRunningOperationCollectionResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/site-list-operations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OperationsRequestBuilderGetQueryParameters> | undefined) : Promise<RichLongRunningOperationCollectionResponse | undefined>;
@@ -20,20 +21,21 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      * Create new navigation property to operations for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of RichLongRunningOperation
+     * @returns {Promise<RichLongRunningOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: RichLongRunningOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RichLongRunningOperation | undefined>;
     /**
      * Get a list of rich long-running operations associated with a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OperationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Create new navigation property to operations for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: RichLongRunningOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -75,6 +77,10 @@ export interface OperationsRequestBuilderGetQueryParameters {
     top?: number;
 }
 /**
+ * Uri template for the request builder.
+ */
+export const OperationsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/operations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const OperationsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -92,20 +98,20 @@ const OperationsRequestBuilderGetQueryParametersMapper: Record<string, string> =
  */
 export const OperationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: OperationsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createRichLongRunningOperationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: OperationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
+        uriTemplate: OperationsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createRichLongRunningOperationFromDiscriminatorValue,
@@ -114,9 +120,5 @@ export const OperationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const OperationsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/operations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

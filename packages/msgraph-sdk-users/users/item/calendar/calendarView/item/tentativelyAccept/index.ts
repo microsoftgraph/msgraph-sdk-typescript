@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a tentativelyAcceptPostRequestBody
+ * @returns {TentativelyAcceptPostRequestBody}
  */
 export function createTentativelyAcceptPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTentativelyAcceptPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoTentativelyAcceptPostRequestBody(tentativelyAcceptPostRequestBody: Partial<TentativelyAcceptPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -65,6 +65,7 @@ export interface TentativelyAcceptRequestBuilder extends BaseRequestBuilder<Tent
      * Tentatively accept the specified event in a user calendar. If the event allows proposals for new times, on responding tentative to the event, an invitee can choose to suggest an alternative time by including the proposedNewTime parameter. For more information on how to propose a time, and how to receive and accept a new time proposal, see Propose new meeting times.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/event-tentativelyaccept?view=graph-rest-1.0|Find more info here}
      */
      post(body: TentativelyAcceptPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
@@ -72,19 +73,23 @@ export interface TentativelyAcceptRequestBuilder extends BaseRequestBuilder<Tent
      * Tentatively accept the specified event in a user calendar. If the event allows proposals for new times, on responding tentative to the event, an invitee can choose to suggest an alternative time by including the proposedNewTime parameter. For more information on how to propose a time, and how to receive and accept a new time proposal, see Propose new meeting times.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: TentativelyAcceptPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const TentativelyAcceptRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendar/calendarView/{event%2Did}/tentativelyAccept";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const TentativelyAcceptRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: TentativelyAcceptRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
         requestBodyContentType: "application/json",
@@ -92,9 +97,5 @@ export const TentativelyAcceptRequestBuilderRequestsMetadata: RequestsMetadata =
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TentativelyAcceptRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendar/calendarView/{event%2Did}/tentativelyAccept";
 /* tslint:enable */
 /* eslint-enable */

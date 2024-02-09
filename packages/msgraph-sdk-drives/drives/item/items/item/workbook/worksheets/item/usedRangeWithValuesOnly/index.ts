@@ -12,33 +12,34 @@ export interface UsedRangeWithValuesOnlyRequestBuilder extends BaseRequestBuilde
     /**
      * Invoke function usedRange
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookRange
+     * @returns {Promise<WorkbookRange>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookRange | undefined>;
     /**
      * Invoke function usedRange
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const UsedRangeWithValuesOnlyRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/usedRange(valuesOnly={valuesOnly})";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const UsedRangeWithValuesOnlyRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: UsedRangeWithValuesOnlyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookRangeFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const UsedRangeWithValuesOnlyRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/usedRange(valuesOnly={valuesOnly})";
 /* tslint:enable */
 /* eslint-enable */

@@ -12,13 +12,14 @@ export interface GraphAdministrativeUnitRequestBuilder extends BaseRequestBuilde
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.administrativeUnit
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AdministrativeUnit
+     * @returns {Promise<AdministrativeUnit>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GraphAdministrativeUnitRequestBuilderGetQueryParameters> | undefined) : Promise<AdministrativeUnit | undefined>;
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.administrativeUnit
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphAdministrativeUnitRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface GraphAdministrativeUnitRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GraphAdministrativeUnitRequestBuilderUriTemplate = "{+baseurl}/contacts/{orgContact%2Did}/transitiveMemberOf/{directoryObject%2Did}/graph.administrativeUnit{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const GraphAdministrativeUnitRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const GraphAdministrativeUnitRequestBuilderGetQueryParametersMapper: Record<stri
  */
 export const GraphAdministrativeUnitRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GraphAdministrativeUnitRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAdministrativeUnitFromDiscriminatorValue,
         queryParametersMapper: GraphAdministrativeUnitRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GraphAdministrativeUnitRequestBuilderUriTemplate = "{+baseurl}/contacts/{orgContact%2Did}/transitiveMemberOf/{directoryObject%2Did}/graph.administrativeUnit{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

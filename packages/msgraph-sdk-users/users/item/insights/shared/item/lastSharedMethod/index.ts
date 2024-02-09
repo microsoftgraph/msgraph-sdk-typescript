@@ -12,13 +12,14 @@ export interface LastSharedMethodRequestBuilder extends BaseRequestBuilder<LastS
     /**
      * Get lastSharedMethod from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Entity
+     * @returns {Promise<Entity>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<LastSharedMethodRequestBuilderGetQueryParameters> | undefined) : Promise<Entity | undefined>;
     /**
      * Get lastSharedMethod from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LastSharedMethodRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface LastSharedMethodRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const LastSharedMethodRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/shared/{sharedInsight%2Did}/lastSharedMethod{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const LastSharedMethodRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const LastSharedMethodRequestBuilderGetQueryParametersMapper: Record<string, str
  */
 export const LastSharedMethodRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: LastSharedMethodRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createEntityFromDiscriminatorValue,
         queryParametersMapper: LastSharedMethodRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const LastSharedMethodRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/shared/{sharedInsight%2Did}/lastSharedMethod{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

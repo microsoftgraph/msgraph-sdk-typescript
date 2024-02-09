@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a dec2HexPostRequestBody
+ * @returns {Dec2HexPostRequestBody}
  */
 export function createDec2HexPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDec2HexPostRequestBody;
@@ -39,20 +39,21 @@ export interface Dec2HexRequestBuilder extends BaseRequestBuilder<Dec2HexRequest
      * Invoke action dec2Hex
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookFunctionResult
+     * @returns {Promise<WorkbookFunctionResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: Dec2HexPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookFunctionResult | undefined>;
     /**
      * Invoke action dec2Hex
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: Dec2HexPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoDec2HexPostRequestBody(dec2HexPostRequestBody: Partial<Dec2HexPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -71,14 +72,18 @@ export function serializeDec2HexPostRequestBody(writer: SerializationWriter, dec
     writer.writeAdditionalData(dec2HexPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const Dec2HexRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/dec2Hex";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const Dec2HexRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: Dec2HexRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
@@ -87,9 +92,5 @@ export const Dec2HexRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const Dec2HexRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/dec2Hex";
 /* tslint:enable */
 /* eslint-enable */

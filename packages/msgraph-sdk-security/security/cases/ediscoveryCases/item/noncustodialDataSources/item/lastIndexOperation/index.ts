@@ -12,13 +12,14 @@ export interface LastIndexOperationRequestBuilder extends BaseRequestBuilder<Las
     /**
      * Operation entity that represents the latest indexing for the noncustodial data source.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of EdiscoveryIndexOperation
+     * @returns {Promise<EdiscoveryIndexOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<LastIndexOperationRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryIndexOperation | undefined>;
     /**
      * Operation entity that represents the latest indexing for the noncustodial data source.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LastIndexOperationRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface LastIndexOperationRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const LastIndexOperationRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/noncustodialDataSources/{ediscoveryNoncustodialDataSource%2Did}/lastIndexOperation{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const LastIndexOperationRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const LastIndexOperationRequestBuilderGetQueryParametersMapper: Record<string, s
  */
 export const LastIndexOperationRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: LastIndexOperationRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createEdiscoveryIndexOperationFromDiscriminatorValue,
         queryParametersMapper: LastIndexOperationRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const LastIndexOperationRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/noncustodialDataSources/{ediscoveryNoncustodialDataSource%2Did}/lastIndexOperation{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

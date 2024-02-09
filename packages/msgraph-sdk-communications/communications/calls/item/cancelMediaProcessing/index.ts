@@ -27,7 +27,8 @@ export interface CancelMediaProcessingRequestBuilder extends BaseRequestBuilder<
      * Cancels processing for any in-progress media operations. Media operations refer to the IVR operations playPrompt and recordResponse, which are by default queued to process in order. The cancelMediaProcessing method cancels any operation that is in-process as well as operations that are queued. For example, this method can be used to clean up the IVR operation queue for a new media operation. However, it will not cancel a subscribeToTone operation because it operates independent of any operation queue.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of CancelMediaProcessingOperation
+     * @returns {Promise<CancelMediaProcessingOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/call-cancelmediaprocessing?view=graph-rest-1.0|Find more info here}
      */
      post(body: CancelMediaProcessingPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CancelMediaProcessingOperation | undefined>;
@@ -35,21 +36,21 @@ export interface CancelMediaProcessingRequestBuilder extends BaseRequestBuilder<
      * Cancels processing for any in-progress media operations. Media operations refer to the IVR operations playPrompt and recordResponse, which are by default queued to process in order. The cancelMediaProcessing method cancels any operation that is in-process as well as operations that are queued. For example, this method can be used to clean up the IVR operation queue for a new media operation. However, it will not cancel a subscribeToTone operation because it operates independent of any operation queue.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: CancelMediaProcessingPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a cancelMediaProcessingPostRequestBody
+ * @returns {CancelMediaProcessingPostRequestBody}
  */
 export function createCancelMediaProcessingPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCancelMediaProcessingPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCancelMediaProcessingPostRequestBody(cancelMediaProcessingPostRequestBody: Partial<CancelMediaProcessingPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -66,14 +67,18 @@ export function serializeCancelMediaProcessingPostRequestBody(writer: Serializat
     writer.writeAdditionalData(cancelMediaProcessingPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CancelMediaProcessingRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/cancelMediaProcessing";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const CancelMediaProcessingRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: CancelMediaProcessingRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createCancelMediaProcessingOperationFromDiscriminatorValue,
@@ -82,9 +87,5 @@ export const CancelMediaProcessingRequestBuilderRequestsMetadata: RequestsMetada
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CancelMediaProcessingRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/cancelMediaProcessing";
 /* tslint:enable */
 /* eslint-enable */

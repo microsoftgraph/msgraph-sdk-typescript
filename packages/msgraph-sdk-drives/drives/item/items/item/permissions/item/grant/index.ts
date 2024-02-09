@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a grantPostRequestBody
+ * @returns {GrantPostRequestBody}
  */
 export function createGrantPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGrantPostRequestBody;
@@ -16,14 +16,14 @@ export function createGrantPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a grantPostResponse
+ * @returns {GrantPostResponse}
  */
 export function createGrantPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGrantPostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGrantPostRequestBody(grantPostRequestBody: Partial<GrantPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -34,7 +34,7 @@ export function deserializeIntoGrantPostRequestBody(grantPostRequestBody: Partia
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGrantPostResponse(grantPostResponse: Partial<GrantPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -74,7 +74,8 @@ export interface GrantRequestBuilder extends BaseRequestBuilder<GrantRequestBuil
      * Grant users access to a link represented by a [permission][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GrantPostResponse
+     * @returns {Promise<GrantPostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/permission-grant?view=graph-rest-1.0|Find more info here}
      */
      post(body: GrantPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GrantPostResponse | undefined>;
@@ -82,7 +83,7 @@ export interface GrantRequestBuilder extends BaseRequestBuilder<GrantRequestBuil
      * Grant users access to a link represented by a [permission][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: GrantPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -104,14 +105,18 @@ export function serializeGrantPostResponse(writer: SerializationWriter, grantPos
     writer.writeCollectionOfObjectValues<Permission>("value", grantPostResponse.value, serializePermission);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GrantRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/permissions/{permission%2Did}/grant";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const GrantRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: GrantRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGrantPostResponseFromDiscriminatorValue,
@@ -120,9 +125,5 @@ export const GrantRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GrantRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/permissions/{permission%2Did}/grant";
 /* tslint:enable */
 /* eslint-enable */

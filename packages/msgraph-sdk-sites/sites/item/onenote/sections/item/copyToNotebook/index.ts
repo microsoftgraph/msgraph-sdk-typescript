@@ -43,7 +43,8 @@ export interface CopyToNotebookRequestBuilder extends BaseRequestBuilder<CopyToN
      * For Copy operations, you follow an asynchronous calling pattern:  First call the Copy action, and then poll the operation endpoint for the result.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of OnenoteOperation
+     * @returns {Promise<OnenoteOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/section-copytonotebook?view=graph-rest-1.0|Find more info here}
      */
      post(body: CopyToNotebookPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OnenoteOperation | undefined>;
@@ -51,21 +52,21 @@ export interface CopyToNotebookRequestBuilder extends BaseRequestBuilder<CopyToN
      * For Copy operations, you follow an asynchronous calling pattern:  First call the Copy action, and then poll the operation endpoint for the result.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: CopyToNotebookPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a copyToNotebookPostRequestBody
+ * @returns {CopyToNotebookPostRequestBody}
  */
 export function createCopyToNotebookPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopyToNotebookPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCopyToNotebookPostRequestBody(copyToNotebookPostRequestBody: Partial<CopyToNotebookPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -90,14 +91,18 @@ export function serializeCopyToNotebookPostRequestBody(writer: SerializationWrit
     writer.writeAdditionalData(copyToNotebookPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CopyToNotebookRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/onenote/sections/{onenoteSection%2Did}/copyToNotebook";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const CopyToNotebookRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: CopyToNotebookRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createOnenoteOperationFromDiscriminatorValue,
@@ -106,9 +111,5 @@ export const CopyToNotebookRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CopyToNotebookRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/onenote/sections/{onenoteSection%2Did}/copyToNotebook";
 /* tslint:enable */
 /* eslint-enable */

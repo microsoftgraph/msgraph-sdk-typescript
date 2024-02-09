@@ -12,12 +12,14 @@ export interface AuthenticationFlowsPolicyRequestBuilder extends BaseRequestBuil
     /**
      * Delete navigation property authenticationFlowsPolicy for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Read the properties and relationships of an authenticationFlowsPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AuthenticationFlowsPolicy
+     * @returns {Promise<AuthenticationFlowsPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/authenticationflowspolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuthenticationFlowsPolicyRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationFlowsPolicy | undefined>;
@@ -25,27 +27,28 @@ export interface AuthenticationFlowsPolicyRequestBuilder extends BaseRequestBuil
      * Update the selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AuthenticationFlowsPolicy
+     * @returns {Promise<AuthenticationFlowsPolicy>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/authenticationflowspolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AuthenticationFlowsPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationFlowsPolicy | undefined>;
     /**
      * Delete navigation property authenticationFlowsPolicy for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Read the properties and relationships of an authenticationFlowsPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuthenticationFlowsPolicyRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: AuthenticationFlowsPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -63,6 +66,10 @@ export interface AuthenticationFlowsPolicyRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AuthenticationFlowsPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationFlowsPolicy{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AuthenticationFlowsPolicyRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -74,28 +81,28 @@ const AuthenticationFlowsPolicyRequestBuilderGetQueryParametersMapper: Record<st
  */
 export const AuthenticationFlowsPolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: AuthenticationFlowsPolicyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: AuthenticationFlowsPolicyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAuthenticationFlowsPolicyFromDiscriminatorValue,
         queryParametersMapper: AuthenticationFlowsPolicyRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: AuthenticationFlowsPolicyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAuthenticationFlowsPolicyFromDiscriminatorValue,
@@ -104,9 +111,5 @@ export const AuthenticationFlowsPolicyRequestBuilderRequestsMetadata: RequestsMe
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AuthenticationFlowsPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationFlowsPolicy{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

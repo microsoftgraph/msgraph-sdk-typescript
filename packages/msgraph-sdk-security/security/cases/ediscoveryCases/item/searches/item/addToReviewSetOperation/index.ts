@@ -12,13 +12,14 @@ export interface AddToReviewSetOperationRequestBuilder extends BaseRequestBuilde
     /**
      * Adds the results of the eDiscovery search to the specified reviewSet.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of EdiscoveryAddToReviewSetOperation
+     * @returns {Promise<EdiscoveryAddToReviewSetOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<AddToReviewSetOperationRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryAddToReviewSetOperation | undefined>;
     /**
      * Adds the results of the eDiscovery search to the specified reviewSet.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AddToReviewSetOperationRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface AddToReviewSetOperationRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AddToReviewSetOperationRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}/addToReviewSetOperation{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AddToReviewSetOperationRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const AddToReviewSetOperationRequestBuilderGetQueryParametersMapper: Record<stri
  */
 export const AddToReviewSetOperationRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: AddToReviewSetOperationRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createEdiscoveryAddToReviewSetOperationFromDiscriminatorValue,
         queryParametersMapper: AddToReviewSetOperationRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AddToReviewSetOperationRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}/addToReviewSetOperation{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */
