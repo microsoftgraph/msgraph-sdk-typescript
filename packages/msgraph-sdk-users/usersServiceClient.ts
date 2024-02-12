@@ -7,7 +7,7 @@ import { FormParseNodeFactory, FormSerializationWriterFactory } from '@microsoft
 import { JsonParseNodeFactory, JsonSerializationWriterFactory } from '@microsoft/kiota-serialization-json';
 import { MultipartSerializationWriterFactory } from '@microsoft/kiota-serialization-multipart';
 import { TextParseNodeFactory, TextSerializationWriterFactory } from '@microsoft/kiota-serialization-text';
-import { UserItemRequestBuilder, UserItemRequestBuilderNavigationMetadata, UserItemRequestBuilderRequestsMetadata, UserItemRequestBuilderUriTemplate } from './users/item';
+import { UserItemRequestBuilder, UserItemRequestBuilderNavigationMetadata, UserItemRequestBuilderRequestsMetadata } from './users/item';
 
 /**
  * Instantiates a new UsersServiceClient and sets the default values.
@@ -52,7 +52,6 @@ export const UsersServiceClientNavigationMetadata: Record<Exclude<keyof UsersSer
         navigationMetadata: UsersRequestBuilderNavigationMetadata,
     },
     me: {
-        uriTemplate: UserItemRequestBuilderUriTemplate,
         requestsMetadata: UserItemRequestBuilderRequestsMetadata,
         navigationMetadata: UserItemRequestBuilderNavigationMetadata,
     },
