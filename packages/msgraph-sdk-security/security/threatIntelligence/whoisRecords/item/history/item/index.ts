@@ -12,13 +12,14 @@ export interface WhoisHistoryRecordItemRequestBuilder extends BaseRequestBuilder
     /**
      * The collection of historical records associated to this WHOIS object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WhoisHistoryRecord
+     * @returns {Promise<WhoisHistoryRecord>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<WhoisHistoryRecordItemRequestBuilderGetQueryParameters> | undefined) : Promise<WhoisHistoryRecord | undefined>;
     /**
      * The collection of historical records associated to this WHOIS object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WhoisHistoryRecordItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface WhoisHistoryRecordItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const WhoisHistoryRecordItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/whoisRecords/{whoisRecord%2Did}/history/{whoisHistoryRecord%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const WhoisHistoryRecordItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const WhoisHistoryRecordItemRequestBuilderGetQueryParametersMapper: Record<strin
  */
 export const WhoisHistoryRecordItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: WhoisHistoryRecordItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWhoisHistoryRecordFromDiscriminatorValue,
         queryParametersMapper: WhoisHistoryRecordItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const WhoisHistoryRecordItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/whoisRecords/{whoisRecord%2Did}/history/{whoisHistoryRecord%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getNotebookFromWebUrlPostRequestBody
+ * @returns {GetNotebookFromWebUrlPostRequestBody}
  */
 export function createGetNotebookFromWebUrlPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetNotebookFromWebUrlPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetNotebookFromWebUrlPostRequestBody(getNotebookFromWebUrlPostRequestBody: Partial<GetNotebookFromWebUrlPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -45,7 +45,8 @@ export interface GetNotebookFromWebUrlRequestBuilder extends BaseRequestBuilder<
      * Retrieve the properties and relationships of a notebook object by using its URL path. The location can be user notebooks on Microsoft 365, group notebooks, or SharePoint site-hosted team notebooks on Microsoft 365.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of CopyNotebookModel
+     * @returns {Promise<CopyNotebookModel>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/notebook-getnotebookfromweburl?view=graph-rest-1.0|Find more info here}
      */
      post(body: GetNotebookFromWebUrlPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CopyNotebookModel | undefined>;
@@ -53,7 +54,7 @@ export interface GetNotebookFromWebUrlRequestBuilder extends BaseRequestBuilder<
      * Retrieve the properties and relationships of a notebook object by using its URL path. The location can be user notebooks on Microsoft 365, group notebooks, or SharePoint site-hosted team notebooks on Microsoft 365.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: GetNotebookFromWebUrlPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -66,14 +67,18 @@ export function serializeGetNotebookFromWebUrlPostRequestBody(writer: Serializat
     writer.writeAdditionalData(getNotebookFromWebUrlPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetNotebookFromWebUrlRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/onenote/notebooks/getNotebookFromWebUrl";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const GetNotebookFromWebUrlRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: GetNotebookFromWebUrlRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createCopyNotebookModelFromDiscriminatorValue,
@@ -82,9 +87,5 @@ export const GetNotebookFromWebUrlRequestBuilderRequestsMetadata: RequestsMetada
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetNotebookFromWebUrlRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/onenote/notebooks/getNotebookFromWebUrl";
 /* tslint:enable */
 /* eslint-enable */

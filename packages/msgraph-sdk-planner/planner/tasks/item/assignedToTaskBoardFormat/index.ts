@@ -12,12 +12,14 @@ export interface AssignedToTaskBoardFormatRequestBuilder extends BaseRequestBuil
     /**
      * Delete navigation property assignedToTaskBoardFormat for planner
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Retrieve the properties and relationships of a plannerAssignedToTaskBoardTaskFormat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of PlannerAssignedToTaskBoardTaskFormat
+     * @returns {Promise<PlannerAssignedToTaskBoardTaskFormat>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AssignedToTaskBoardFormatRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerAssignedToTaskBoardTaskFormat | undefined>;
@@ -25,27 +27,28 @@ export interface AssignedToTaskBoardFormatRequestBuilder extends BaseRequestBuil
      * Update the navigation property assignedToTaskBoardFormat in planner
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of PlannerAssignedToTaskBoardTaskFormat
+     * @returns {Promise<PlannerAssignedToTaskBoardTaskFormat>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PlannerAssignedToTaskBoardTaskFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerAssignedToTaskBoardTaskFormat | undefined>;
     /**
      * Delete navigation property assignedToTaskBoardFormat for planner
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Retrieve the properties and relationships of a plannerAssignedToTaskBoardTaskFormat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignedToTaskBoardFormatRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property assignedToTaskBoardFormat in planner
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: PlannerAssignedToTaskBoardTaskFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -63,6 +66,10 @@ export interface AssignedToTaskBoardFormatRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AssignedToTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/planner/tasks/{plannerTask%2Did}/assignedToTaskBoardFormat{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AssignedToTaskBoardFormatRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -74,28 +81,28 @@ const AssignedToTaskBoardFormatRequestBuilderGetQueryParametersMapper: Record<st
  */
 export const AssignedToTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: AssignedToTaskBoardFormatRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: AssignedToTaskBoardFormatRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue,
         queryParametersMapper: AssignedToTaskBoardFormatRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: AssignedToTaskBoardFormatRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue,
@@ -104,9 +111,5 @@ export const AssignedToTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMe
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AssignedToTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/planner/tasks/{plannerTask%2Did}/assignedToTaskBoardFormat{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

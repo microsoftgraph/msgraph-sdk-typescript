@@ -8,14 +8,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a sharedWithMeGetResponse
+ * @returns {SharedWithMeGetResponse}
  */
 export function createSharedWithMeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSharedWithMeGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoSharedWithMeGetResponse(sharedWithMeGetResponse: Partial<SharedWithMeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -44,13 +44,14 @@ export interface SharedWithMeRequestBuilder extends BaseRequestBuilder<SharedWit
     /**
      * Invoke function sharedWithMe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SharedWithMeGetResponse
+     * @returns {Promise<SharedWithMeGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<SharedWithMeRequestBuilderGetQueryParameters> | undefined) : Promise<SharedWithMeGetResponse | undefined>;
     /**
      * Invoke function sharedWithMe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SharedWithMeRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -92,6 +93,10 @@ export interface SharedWithMeRequestBuilderGetQueryParameters {
     top?: number;
 }
 /**
+ * Uri template for the request builder.
+ */
+export const SharedWithMeRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/sharedWithMe(){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const SharedWithMeRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -109,19 +114,15 @@ const SharedWithMeRequestBuilderGetQueryParametersMapper: Record<string, string>
  */
 export const SharedWithMeRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: SharedWithMeRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createSharedWithMeGetResponseFromDiscriminatorValue,
         queryParametersMapper: SharedWithMeRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SharedWithMeRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/sharedWithMe(){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

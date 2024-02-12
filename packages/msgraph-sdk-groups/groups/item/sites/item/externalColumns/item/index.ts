@@ -12,13 +12,14 @@ export interface ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder<C
     /**
      * Get externalColumns from groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ColumnDefinition
+     * @returns {Promise<ColumnDefinition>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ColumnDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<ColumnDefinition | undefined>;
     /**
      * Get externalColumns from groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ColumnDefinitionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface ColumnDefinitionItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ColumnDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/externalColumns/{columnDefinition%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ColumnDefinitionItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const ColumnDefinitionItemRequestBuilderGetQueryParametersMapper: Record<string,
  */
 export const ColumnDefinitionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ColumnDefinitionItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createColumnDefinitionFromDiscriminatorValue,
         queryParametersMapper: ColumnDefinitionItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ColumnDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/externalColumns/{columnDefinition%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

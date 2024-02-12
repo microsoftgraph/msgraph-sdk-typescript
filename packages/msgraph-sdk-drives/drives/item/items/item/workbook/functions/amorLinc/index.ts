@@ -51,28 +51,29 @@ export interface AmorLincRequestBuilder extends BaseRequestBuilder<AmorLincReque
      * Invoke action amorLinc
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookFunctionResult
+     * @returns {Promise<WorkbookFunctionResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: AmorLincPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookFunctionResult | undefined>;
     /**
      * Invoke action amorLinc
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: AmorLincPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a amorLincPostRequestBody
+ * @returns {AmorLincPostRequestBody}
  */
 export function createAmorLincPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAmorLincPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoAmorLincPostRequestBody(amorLincPostRequestBody: Partial<AmorLincPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -101,14 +102,18 @@ export function serializeAmorLincPostRequestBody(writer: SerializationWriter, am
     writer.writeAdditionalData(amorLincPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AmorLincRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/amorLinc";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const AmorLincRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: AmorLincRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
@@ -117,9 +122,5 @@ export const AmorLincRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AmorLincRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/amorLinc";
 /* tslint:enable */
 /* eslint-enable */

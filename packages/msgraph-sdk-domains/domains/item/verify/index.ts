@@ -12,34 +12,35 @@ export interface VerifyRequestBuilder extends BaseRequestBuilder<VerifyRequestBu
     /**
      * Validates the ownership of the domain.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Domain
+     * @returns {Promise<Domain>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/domain-verify?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Domain | undefined>;
     /**
      * Validates the ownership of the domain.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const VerifyRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/verify";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const VerifyRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: VerifyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDomainFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const VerifyRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/verify";
 /* tslint:enable */
 /* eslint-enable */

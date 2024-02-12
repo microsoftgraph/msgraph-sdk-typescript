@@ -8,14 +8,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a summarizeDevicePerformanceDevicesWithSummarizeByGetResponse
+ * @returns {SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse}
  */
 export function createSummarizeDevicePerformanceDevicesWithSummarizeByGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse(summarizeDevicePerformanceDevicesWithSummarizeByGetResponse: Partial<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -44,13 +44,14 @@ export interface SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder 
     /**
      * Invoke function summarizeDevicePerformanceDevices
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse
+     * @returns {Promise<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters> | undefined) : Promise<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse | undefined>;
     /**
      * Invoke function summarizeDevicePerformanceDevices
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -92,6 +93,10 @@ export interface SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderG
     top?: number;
 }
 /**
+ * Uri template for the request builder.
+ */
+export const SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDevicePerformance/summarizeDevicePerformanceDevices(summarizeBy='{summarizeBy}'){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -109,19 +114,15 @@ const SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryPara
  */
 export const SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createSummarizeDevicePerformanceDevicesWithSummarizeByGetResponseFromDiscriminatorValue,
         queryParametersMapper: SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDevicePerformance/summarizeDevicePerformanceDevices(summarizeBy='{summarizeBy}'){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

@@ -8,14 +8,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getAllMessagesGetResponse
+ * @returns {GetAllMessagesGetResponse}
  */
 export function createGetAllMessagesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAllMessagesGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetAllMessagesGetResponse(getAllMessagesGetResponse: Partial<GetAllMessagesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -36,13 +36,14 @@ export interface GetAllMessagesRequestBuilder extends BaseRequestBuilder<GetAllM
     /**
      * Invoke function getAllMessages
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetAllMessagesGetResponse
+     * @returns {Promise<GetAllMessagesGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GetAllMessagesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllMessagesGetResponse | undefined>;
     /**
      * Invoke function getAllMessages
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetAllMessagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -96,6 +97,10 @@ export function serializeGetAllMessagesGetResponse(writer: SerializationWriter, 
     writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllMessagesGetResponse.value, serializeChatMessage);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetAllMessagesRequestBuilderUriTemplate = "{+baseurl}/teams/getAllMessages(){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top,model*}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const GetAllMessagesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -113,19 +118,15 @@ const GetAllMessagesRequestBuilderGetQueryParametersMapper: Record<string, strin
  */
 export const GetAllMessagesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GetAllMessagesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGetAllMessagesGetResponseFromDiscriminatorValue,
         queryParametersMapper: GetAllMessagesRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetAllMessagesRequestBuilderUriTemplate = "{+baseurl}/teams/getAllMessages(){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top,model*}";
 /* tslint:enable */
 /* eslint-enable */

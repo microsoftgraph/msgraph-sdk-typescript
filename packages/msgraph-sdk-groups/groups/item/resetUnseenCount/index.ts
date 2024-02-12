@@ -11,32 +11,33 @@ export interface ResetUnseenCountRequestBuilder extends BaseRequestBuilder<Reset
     /**
      * Reset the unseenCount of all the posts that the current user hasn't seen since their last visit. Supported for Microsoft 365 groups only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/group-resetunseencount?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Reset the unseenCount of all the posts that the current user hasn't seen since their last visit. Supported for Microsoft 365 groups only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const ResetUnseenCountRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/resetUnseenCount";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const ResetUnseenCountRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: ResetUnseenCountRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ResetUnseenCountRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/resetUnseenCount";
 /* tslint:enable */
 /* eslint-enable */

@@ -12,13 +12,14 @@ export interface ResourceRequestBuilder extends BaseRequestBuilder<ResourceReque
     /**
      * Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Entity
+     * @returns {Promise<Entity>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ResourceRequestBuilderGetQueryParameters> | undefined) : Promise<Entity | undefined>;
     /**
      * Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ResourceRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface ResourceRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ResourceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/used/{usedInsight%2Did}/resource{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ResourceRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const ResourceRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const ResourceRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ResourceRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createEntityFromDiscriminatorValue,
         queryParametersMapper: ResourceRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ResourceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/used/{usedInsight%2Did}/resource{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

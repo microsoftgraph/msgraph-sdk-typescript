@@ -12,14 +12,15 @@ export interface ManagerRequestBuilder extends BaseRequestBuilder<ManagerRequest
     /**
      * Get this organizational contact's manager.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DirectoryObject
+     * @returns {Promise<DirectoryObject>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/orgcontact-get-manager?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagerRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObject | undefined>;
     /**
      * Get this organizational contact's manager.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagerRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -37,6 +38,10 @@ export interface ManagerRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ManagerRequestBuilderUriTemplate = "{+baseurl}/contacts/{orgContact%2Did}/manager{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ManagerRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -48,19 +53,15 @@ const ManagerRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const ManagerRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ManagerRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDirectoryObjectFromDiscriminatorValue,
         queryParametersMapper: ManagerRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ManagerRequestBuilderUriTemplate = "{+baseurl}/contacts/{orgContact%2Did}/manager{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

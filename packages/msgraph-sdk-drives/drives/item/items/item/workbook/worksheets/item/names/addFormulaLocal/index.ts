@@ -35,7 +35,8 @@ export interface AddFormulaLocalRequestBuilder extends BaseRequestBuilder<AddFor
      * Adds a new name to the collection of the given scope using the user's locale for the formula.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookNamedItem
+     * @returns {Promise<WorkbookNamedItem>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/nameditem-addformulalocal?view=graph-rest-1.0|Find more info here}
      */
      post(body: AddFormulaLocalPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookNamedItem | undefined>;
@@ -43,21 +44,21 @@ export interface AddFormulaLocalRequestBuilder extends BaseRequestBuilder<AddFor
      * Adds a new name to the collection of the given scope using the user's locale for the formula.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: AddFormulaLocalPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a addFormulaLocalPostRequestBody
+ * @returns {AddFormulaLocalPostRequestBody}
  */
 export function createAddFormulaLocalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddFormulaLocalPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoAddFormulaLocalPostRequestBody(addFormulaLocalPostRequestBody: Partial<AddFormulaLocalPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -78,14 +79,18 @@ export function serializeAddFormulaLocalPostRequestBody(writer: SerializationWri
     writer.writeAdditionalData(addFormulaLocalPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AddFormulaLocalRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/names/addFormulaLocal";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const AddFormulaLocalRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: AddFormulaLocalRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookNamedItemFromDiscriminatorValue,
@@ -94,9 +99,5 @@ export const AddFormulaLocalRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AddFormulaLocalRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/names/addFormulaLocal";
 /* tslint:enable */
 /* eslint-enable */

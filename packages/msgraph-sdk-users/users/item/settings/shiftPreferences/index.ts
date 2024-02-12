@@ -12,12 +12,14 @@ export interface ShiftPreferencesRequestBuilder extends BaseRequestBuilder<Shift
     /**
      * Delete navigation property shiftPreferences for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Retrieve the properties and relationships of a shiftPreferences object by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ShiftPreferences
+     * @returns {Promise<ShiftPreferences>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/shiftpreferences-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ShiftPreferencesRequestBuilderGetQueryParameters> | undefined) : Promise<ShiftPreferences | undefined>;
@@ -25,27 +27,28 @@ export interface ShiftPreferencesRequestBuilder extends BaseRequestBuilder<Shift
      * Update the properties and relationships of a shiftPreferences object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ShiftPreferences
+     * @returns {Promise<ShiftPreferences>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/shiftpreferences-put?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ShiftPreferences, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ShiftPreferences | undefined>;
     /**
      * Delete navigation property shiftPreferences for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Retrieve the properties and relationships of a shiftPreferences object by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ShiftPreferencesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the properties and relationships of a shiftPreferences object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: ShiftPreferences, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -63,6 +66,10 @@ export interface ShiftPreferencesRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ShiftPreferencesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/shiftPreferences{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ShiftPreferencesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -74,28 +81,28 @@ const ShiftPreferencesRequestBuilderGetQueryParametersMapper: Record<string, str
  */
 export const ShiftPreferencesRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: ShiftPreferencesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: ShiftPreferencesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createShiftPreferencesFromDiscriminatorValue,
         queryParametersMapper: ShiftPreferencesRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: ShiftPreferencesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createShiftPreferencesFromDiscriminatorValue,
@@ -104,9 +111,5 @@ export const ShiftPreferencesRequestBuilderRequestsMetadata: RequestsMetadata = 
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ShiftPreferencesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/shiftPreferences{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

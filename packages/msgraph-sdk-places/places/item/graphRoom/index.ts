@@ -12,13 +12,14 @@ export interface GraphRoomRequestBuilder extends BaseRequestBuilder<GraphRoomReq
     /**
      * Get the item of type microsoft.graph.place as microsoft.graph.room
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Room
+     * @returns {Promise<Room>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GraphRoomRequestBuilderGetQueryParameters> | undefined) : Promise<Room | undefined>;
     /**
      * Get the item of type microsoft.graph.place as microsoft.graph.room
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphRoomRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface GraphRoomRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GraphRoomRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.room{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const GraphRoomRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const GraphRoomRequestBuilderGetQueryParametersMapper: Record<string, string> = 
  */
 export const GraphRoomRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GraphRoomRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createRoomFromDiscriminatorValue,
         queryParametersMapper: GraphRoomRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GraphRoomRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.room{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -11,14 +11,15 @@ export interface CountRequestBuilder extends BaseRequestBuilder<CountRequestBuil
     /**
      * Get the number of the resource
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Integer
+     * @returns {Promise<number>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
      get(requestConfiguration?: RequestConfiguration<CountRequestBuilderGetQueryParameters> | undefined) : Promise<number | undefined>;
     /**
      * Get the number of the resource
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CountRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
@@ -37,6 +38,10 @@ export interface CountRequestBuilderGetQueryParameters {
     search?: string;
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CountRequestBuilderUriTemplate = "{+baseurl}/privacy/subjectRightsRequests/$count{?%24filter,%24search}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const CountRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -48,19 +53,15 @@ const CountRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const CountRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: CountRequestBuilderUriTemplate,
         responseBodyContentType: "text/plain;q=0.9",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendPrimitiveAsync",
         responseBodyFactory:  "number",
         queryParametersMapper: CountRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CountRequestBuilderUriTemplate = "{+baseurl}/privacy/subjectRightsRequests/$count{?%24filter,%24search}";
 /* tslint:enable */
 /* eslint-enable */

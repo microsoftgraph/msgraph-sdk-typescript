@@ -12,13 +12,14 @@ export interface PrinterRequestBuilder extends BaseRequestBuilder<PrinterRequest
     /**
      * The printer that this printer share is related to.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Printer
+     * @returns {Promise<Printer>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<PrinterRequestBuilderGetQueryParameters> | undefined) : Promise<Printer | undefined>;
     /**
      * The printer that this printer share is related to.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PrinterRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface PrinterRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const PrinterRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerShare%2Did}/printer{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const PrinterRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const PrinterRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const PrinterRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: PrinterRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPrinterFromDiscriminatorValue,
         queryParametersMapper: PrinterRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const PrinterRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerShare%2Did}/printer{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -12,13 +12,14 @@ export interface CalendarRequestBuilder extends BaseRequestBuilder<CalendarReque
     /**
      * The calendar that contains the event. Navigation property. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Calendar
+     * @returns {Promise<Calendar>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<CalendarRequestBuilderGetQueryParameters> | undefined) : Promise<Calendar | undefined>;
     /**
      * The calendar that contains the event. Navigation property. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CalendarRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -32,6 +33,10 @@ export interface CalendarRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CalendarRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendarView/{event%2Did}/instances/{event%2Did1}/calendar{?%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const CalendarRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -42,19 +47,15 @@ const CalendarRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const CalendarRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: CalendarRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createCalendarFromDiscriminatorValue,
         queryParametersMapper: CalendarRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CalendarRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendarView/{event%2Did}/instances/{event%2Did1}/calendar{?%24select}";
 /* tslint:enable */
 /* eslint-enable */

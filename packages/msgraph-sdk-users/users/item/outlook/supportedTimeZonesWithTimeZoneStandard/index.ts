@@ -8,14 +8,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a supportedTimeZonesWithTimeZoneStandardGetResponse
+ * @returns {SupportedTimeZonesWithTimeZoneStandardGetResponse}
  */
 export function createSupportedTimeZonesWithTimeZoneStandardGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSupportedTimeZonesWithTimeZoneStandardGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoSupportedTimeZonesWithTimeZoneStandardGetResponse(supportedTimeZonesWithTimeZoneStandardGetResponse: Partial<SupportedTimeZonesWithTimeZoneStandardGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -44,13 +44,14 @@ export interface SupportedTimeZonesWithTimeZoneStandardRequestBuilder extends Ba
     /**
      * Invoke function supportedTimeZones
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SupportedTimeZonesWithTimeZoneStandardGetResponse
+     * @returns {Promise<SupportedTimeZonesWithTimeZoneStandardGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParameters> | undefined) : Promise<SupportedTimeZonesWithTimeZoneStandardGetResponse | undefined>;
     /**
      * Invoke function supportedTimeZones
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -80,6 +81,10 @@ export interface SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryPar
     top?: number;
 }
 /**
+ * Uri template for the request builder.
+ */
+export const SupportedTimeZonesWithTimeZoneStandardRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/supportedTimeZones(TimeZoneStandard='{TimeZoneStandard}'){?%24count,%24filter,%24search,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -94,19 +99,15 @@ const SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParametersMapp
  */
 export const SupportedTimeZonesWithTimeZoneStandardRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: SupportedTimeZonesWithTimeZoneStandardRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createSupportedTimeZonesWithTimeZoneStandardGetResponseFromDiscriminatorValue,
         queryParametersMapper: SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SupportedTimeZonesWithTimeZoneStandardRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/supportedTimeZones(TimeZoneStandard='{TimeZoneStandard}'){?%24count,%24filter,%24search,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

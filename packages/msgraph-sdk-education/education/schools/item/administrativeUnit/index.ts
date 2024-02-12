@@ -12,7 +12,8 @@ export interface AdministrativeUnitRequestBuilder extends BaseRequestBuilder<Adm
     /**
      * Get a list of administrativeUnits associated with an educationSchool object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AdministrativeUnit
+     * @returns {Promise<AdministrativeUnit>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/educationschool-list-administrativeunit?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AdministrativeUnitRequestBuilderGetQueryParameters> | undefined) : Promise<AdministrativeUnit | undefined>;
@@ -20,20 +21,21 @@ export interface AdministrativeUnitRequestBuilder extends BaseRequestBuilder<Adm
      * Update the navigation property administrativeUnit in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AdministrativeUnit
+     * @returns {Promise<AdministrativeUnit>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: AdministrativeUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AdministrativeUnit | undefined>;
     /**
      * Get a list of administrativeUnits associated with an educationSchool object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AdministrativeUnitRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property administrativeUnit in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: AdministrativeUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -51,6 +53,10 @@ export interface AdministrativeUnitRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AdministrativeUnitRequestBuilderUriTemplate = "{+baseurl}/education/schools/{educationSchool%2Did}/administrativeUnit{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AdministrativeUnitRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -62,20 +68,20 @@ const AdministrativeUnitRequestBuilderGetQueryParametersMapper: Record<string, s
  */
 export const AdministrativeUnitRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: AdministrativeUnitRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAdministrativeUnitFromDiscriminatorValue,
         queryParametersMapper: AdministrativeUnitRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: AdministrativeUnitRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAdministrativeUnitFromDiscriminatorValue,
@@ -84,9 +90,5 @@ export const AdministrativeUnitRequestBuilderRequestsMetadata: RequestsMetadata 
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AdministrativeUnitRequestBuilderUriTemplate = "{+baseurl}/education/schools/{educationSchool%2Did}/administrativeUnit{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

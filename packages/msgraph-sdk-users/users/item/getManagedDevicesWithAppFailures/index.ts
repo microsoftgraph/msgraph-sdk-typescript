@@ -8,14 +8,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getManagedDevicesWithAppFailuresGetResponse
+ * @returns {GetManagedDevicesWithAppFailuresGetResponse}
  */
 export function createGetManagedDevicesWithAppFailuresGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetManagedDevicesWithAppFailuresGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetManagedDevicesWithAppFailuresGetResponse(getManagedDevicesWithAppFailuresGetResponse: Partial<GetManagedDevicesWithAppFailuresGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -36,13 +36,14 @@ export interface GetManagedDevicesWithAppFailuresRequestBuilder extends BaseRequ
     /**
      * Retrieves the list of devices with failed apps
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetManagedDevicesWithAppFailuresGetResponse
+     * @returns {Promise<GetManagedDevicesWithAppFailuresGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters> | undefined) : Promise<GetManagedDevicesWithAppFailuresGetResponse | undefined>;
     /**
      * Retrieves the list of devices with failed apps
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -80,6 +81,10 @@ export function serializeGetManagedDevicesWithAppFailuresGetResponse(writer: Ser
     writer.writeCollectionOfPrimitiveValues<string>("value", getManagedDevicesWithAppFailuresGetResponse.value);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetManagedDevicesWithAppFailuresRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/getManagedDevicesWithAppFailures(){?%24count,%24filter,%24search,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -94,19 +99,15 @@ const GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParametersMapper: Re
  */
 export const GetManagedDevicesWithAppFailuresRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GetManagedDevicesWithAppFailuresRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGetManagedDevicesWithAppFailuresGetResponseFromDiscriminatorValue,
         queryParametersMapper: GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetManagedDevicesWithAppFailuresRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/getManagedDevicesWithAppFailures(){?%24count,%24filter,%24search,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

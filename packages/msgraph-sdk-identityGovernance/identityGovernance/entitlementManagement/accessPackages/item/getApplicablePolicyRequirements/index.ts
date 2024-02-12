@@ -8,14 +8,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getApplicablePolicyRequirementsPostResponse
+ * @returns {GetApplicablePolicyRequirementsPostResponse}
  */
 export function createGetApplicablePolicyRequirementsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetApplicablePolicyRequirementsPostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetApplicablePolicyRequirementsPostResponse(getApplicablePolicyRequirementsPostResponse: Partial<GetApplicablePolicyRequirementsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -36,14 +36,15 @@ export interface GetApplicablePolicyRequirementsRequestBuilder extends BaseReque
     /**
      * In Microsoft Entra entitlement management, this action retrieves a list of accessPackageAssignmentRequestRequirements objects that the currently signed-in user can use to create an accessPackageAssignmentRequest.  Each requirement object corresponds to an access package assignment policy that the currently signed-in user is allowed to request an assignment for.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetApplicablePolicyRequirementsPostResponse
+     * @returns {Promise<GetApplicablePolicyRequirementsPostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/accesspackage-getapplicablepolicyrequirements?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetApplicablePolicyRequirementsPostResponse | undefined>;
     /**
      * In Microsoft Entra entitlement management, this action retrieves a list of accessPackageAssignmentRequestRequirements objects that the currently signed-in user can use to create an accessPackageAssignmentRequest.  Each requirement object corresponds to an access package assignment policy that the currently signed-in user is allowed to request an assignment for.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -56,22 +57,22 @@ export function serializeGetApplicablePolicyRequirementsPostResponse(writer: Ser
     writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestRequirements>("value", getApplicablePolicyRequirementsPostResponse.value, serializeAccessPackageAssignmentRequestRequirements);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetApplicablePolicyRequirementsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/getApplicablePolicyRequirements";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const GetApplicablePolicyRequirementsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: GetApplicablePolicyRequirementsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGetApplicablePolicyRequirementsPostResponseFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetApplicablePolicyRequirementsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/getApplicablePolicyRequirements";
 /* tslint:enable */
 /* eslint-enable */

@@ -12,33 +12,34 @@ export interface ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder exte
     /**
      * Invoke function managedDeviceEnrollmentTopFailures
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of Report
+     * @returns {Promise<Report>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Report | undefined>;
     /**
      * Invoke function managedDeviceEnrollmentTopFailures
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilderUriTemplate = "{+baseurl}/reports/managedDeviceEnrollmentTopFailures(period='{period}')";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createReportFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilderUriTemplate = "{+baseurl}/reports/managedDeviceEnrollmentTopFailures(period='{period}')";
 /* tslint:enable */
 /* eslint-enable */

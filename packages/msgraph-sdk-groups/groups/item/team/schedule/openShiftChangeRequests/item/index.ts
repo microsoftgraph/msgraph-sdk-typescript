@@ -12,12 +12,14 @@ export interface OpenShiftChangeRequestItemRequestBuilder extends BaseRequestBui
     /**
      * Delete navigation property openShiftChangeRequests for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Retrieve the properties and relationships of an openShiftChangeRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of OpenShiftChangeRequest
+     * @returns {Promise<OpenShiftChangeRequest>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/openshiftchangerequest-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OpenShiftChangeRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<OpenShiftChangeRequest | undefined>;
@@ -25,26 +27,27 @@ export interface OpenShiftChangeRequestItemRequestBuilder extends BaseRequestBui
      * Update the navigation property openShiftChangeRequests in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of OpenShiftChangeRequest
+     * @returns {Promise<OpenShiftChangeRequest>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: OpenShiftChangeRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OpenShiftChangeRequest | undefined>;
     /**
      * Delete navigation property openShiftChangeRequests for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Retrieve the properties and relationships of an openShiftChangeRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OpenShiftChangeRequestItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update the navigation property openShiftChangeRequests in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPatchRequestInformation(body: OpenShiftChangeRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -62,6 +65,10 @@ export interface OpenShiftChangeRequestItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const OpenShiftChangeRequestItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests/{openShiftChangeRequest%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const OpenShiftChangeRequestItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -73,28 +80,28 @@ const OpenShiftChangeRequestItemRequestBuilderGetQueryParametersMapper: Record<s
  */
 export const OpenShiftChangeRequestItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
+        uriTemplate: OpenShiftChangeRequestItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
     },
     get: {
+        uriTemplate: OpenShiftChangeRequestItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createOpenShiftChangeRequestFromDiscriminatorValue,
         queryParametersMapper: OpenShiftChangeRequestItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
+        uriTemplate: OpenShiftChangeRequestItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createOpenShiftChangeRequestFromDiscriminatorValue,
@@ -103,9 +110,5 @@ export const OpenShiftChangeRequestItemRequestBuilderRequestsMetadata: RequestsM
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const OpenShiftChangeRequestItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests/{openShiftChangeRequest%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

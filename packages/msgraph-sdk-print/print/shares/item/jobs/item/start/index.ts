@@ -12,34 +12,35 @@ export interface StartRequestBuilder extends BaseRequestBuilder<StartRequestBuil
     /**
      * Submits the print job to the associated printer or printerShare. It will be printed after any existing pending jobs are completed, aborted, or canceled.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of PrintJobStatus
+     * @returns {Promise<PrintJobStatus>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/printjob-start?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintJobStatus | undefined>;
     /**
      * Submits the print job to the associated printer or printerShare. It will be printed after any existing pending jobs are completed, aborted, or canceled.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const StartRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerShare%2Did}/jobs/{printJob%2Did}/start";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const StartRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: StartRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createPrintJobStatusFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const StartRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerShare%2Did}/jobs/{printJob%2Did}/start";
 /* tslint:enable */
 /* eslint-enable */

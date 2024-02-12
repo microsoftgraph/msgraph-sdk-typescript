@@ -12,13 +12,14 @@ export interface GraphAppRoleAssignmentRequestBuilder extends BaseRequestBuilder
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.appRoleAssignment
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AppRoleAssignment
+     * @returns {Promise<AppRoleAssignment>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GraphAppRoleAssignmentRequestBuilderGetQueryParameters> | undefined) : Promise<AppRoleAssignment | undefined>;
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.appRoleAssignment
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphAppRoleAssignmentRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface GraphAppRoleAssignmentRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GraphAppRoleAssignmentRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/owners/{directoryObject%2Did}/graph.appRoleAssignment{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const GraphAppRoleAssignmentRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const GraphAppRoleAssignmentRequestBuilderGetQueryParametersMapper: Record<strin
  */
 export const GraphAppRoleAssignmentRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GraphAppRoleAssignmentRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAppRoleAssignmentFromDiscriminatorValue,
         queryParametersMapper: GraphAppRoleAssignmentRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GraphAppRoleAssignmentRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/owners/{directoryObject%2Did}/graph.appRoleAssignment{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

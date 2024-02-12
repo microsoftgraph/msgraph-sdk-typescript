@@ -12,13 +12,14 @@ export interface ArticleIndicatorItemRequestBuilder extends BaseRequestBuilder<A
     /**
      * Indicators related to this article.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ArticleIndicator
+     * @returns {Promise<ArticleIndicator>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ArticleIndicatorItemRequestBuilderGetQueryParameters> | undefined) : Promise<ArticleIndicator | undefined>;
     /**
      * Indicators related to this article.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ArticleIndicatorItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface ArticleIndicatorItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ArticleIndicatorItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/articles/{article%2Did}/indicators/{articleIndicator%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ArticleIndicatorItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const ArticleIndicatorItemRequestBuilderGetQueryParametersMapper: Record<string,
  */
 export const ArticleIndicatorItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: ArticleIndicatorItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createArticleIndicatorFromDiscriminatorValue,
         queryParametersMapper: ArticleIndicatorItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ArticleIndicatorItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/articles/{article%2Did}/indicators/{articleIndicator%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

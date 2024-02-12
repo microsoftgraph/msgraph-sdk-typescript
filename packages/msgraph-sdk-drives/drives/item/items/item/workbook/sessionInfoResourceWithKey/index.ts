@@ -12,33 +12,34 @@ export interface SessionInfoResourceWithKeyRequestBuilder extends BaseRequestBui
     /**
      * Invoke function sessionInfoResource
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookSessionInfo
+     * @returns {Promise<WorkbookSessionInfo>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookSessionInfo | undefined>;
     /**
      * Invoke function sessionInfoResource
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const SessionInfoResourceWithKeyRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/sessionInfoResource(key='{key}')";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const SessionInfoResourceWithKeyRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: SessionInfoResourceWithKeyRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookSessionInfoFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SessionInfoResourceWithKeyRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/sessionInfoResource(key='{key}')";
 /* tslint:enable */
 /* eslint-enable */

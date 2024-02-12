@@ -12,33 +12,34 @@ export interface UsageRequestBuilder extends BaseRequestBuilder<UsageRequestBuil
     /**
      * Invoke function usage
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AuthenticationStrengthUsage
+     * @returns {Promise<AuthenticationStrengthUsage>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationStrengthUsage | undefined>;
     /**
      * Invoke function usage
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
+/**
+ * Uri template for the request builder.
+ */
+export const UsageRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}/usage()";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const UsageRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: UsageRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAuthenticationStrengthUsageFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const UsageRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}/usage()";
 /* tslint:enable */
 /* eslint-enable */

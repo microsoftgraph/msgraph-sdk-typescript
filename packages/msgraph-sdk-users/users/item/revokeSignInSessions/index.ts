@@ -7,14 +7,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a revokeSignInSessionsPostResponse
+ * @returns {RevokeSignInSessionsPostResponse}
  */
 export function createRevokeSignInSessionsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRevokeSignInSessionsPostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoRevokeSignInSessionsPostResponse(revokeSignInSessionsPostResponse: Partial<RevokeSignInSessionsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -43,14 +43,15 @@ export interface RevokeSignInSessionsRequestBuilder extends BaseRequestBuilder<R
     /**
      * Invalidates all the refresh tokens issued to applications for a user (as well as session cookies in a user's browser), by resetting the signInSessionsValidFromDateTime user property to the current date-time. Typically, this operation is performed (by the user or an administrator) if the user has a lost or stolen device. This operation prevents access to the organization's data through applications on the device by requiring the user to sign in again to all applications that they have previously consented to, independent of device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of RevokeSignInSessionsPostResponse
+     * @returns {Promise<RevokeSignInSessionsPostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/user-revokesigninsessions?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RevokeSignInSessionsPostResponse | undefined>;
     /**
      * Invalidates all the refresh tokens issued to applications for a user (as well as session cookies in a user's browser), by resetting the signInSessionsValidFromDateTime user property to the current date-time. Typically, this operation is performed (by the user or an administrator) if the user has a lost or stolen device. This operation prevents access to the organization's data through applications on the device by requiring the user to sign in again to all applications that they have previously consented to, independent of device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -63,22 +64,22 @@ export function serializeRevokeSignInSessionsPostResponse(writer: SerializationW
     writer.writeAdditionalData(revokeSignInSessionsPostResponse.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const RevokeSignInSessionsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/revokeSignInSessions";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const RevokeSignInSessionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: RevokeSignInSessionsRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createRevokeSignInSessionsPostResponseFromDiscriminatorValue,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const RevokeSignInSessionsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/revokeSignInSessions";
 /* tslint:enable */
 /* eslint-enable */

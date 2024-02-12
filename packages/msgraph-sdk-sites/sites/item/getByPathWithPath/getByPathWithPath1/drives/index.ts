@@ -12,13 +12,14 @@ export interface DrivesRequestBuilder extends BaseRequestBuilder<DrivesRequestBu
     /**
      * The collection of drives (document libraries) under this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DriveCollectionResponse
+     * @returns {Promise<DriveCollectionResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<DrivesRequestBuilderGetQueryParameters> | undefined) : Promise<DriveCollectionResponse | undefined>;
     /**
      * The collection of drives (document libraries) under this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DrivesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -60,6 +61,10 @@ export interface DrivesRequestBuilderGetQueryParameters {
     top?: number;
 }
 /**
+ * Uri template for the request builder.
+ */
+export const DrivesRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/drives{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const DrivesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -77,19 +82,15 @@ const DrivesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const DrivesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: DrivesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createDriveCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DrivesRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const DrivesRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/getByPath(path='{path1}')/drives{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

@@ -8,14 +8,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getAttackSimulationRepeatOffendersGetResponse
+ * @returns {GetAttackSimulationRepeatOffendersGetResponse}
  */
 export function createGetAttackSimulationRepeatOffendersGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAttackSimulationRepeatOffendersGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetAttackSimulationRepeatOffendersGetResponse(getAttackSimulationRepeatOffendersGetResponse: Partial<GetAttackSimulationRepeatOffendersGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -36,13 +36,14 @@ export interface GetAttackSimulationRepeatOffendersRequestBuilder extends BaseRe
     /**
      * Invoke function getAttackSimulationRepeatOffenders
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetAttackSimulationRepeatOffendersGetResponse
+     * @returns {Promise<GetAttackSimulationRepeatOffendersGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters> | undefined) : Promise<GetAttackSimulationRepeatOffendersGetResponse | undefined>;
     /**
      * Invoke function getAttackSimulationRepeatOffenders
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -80,6 +81,10 @@ export function serializeGetAttackSimulationRepeatOffendersGetResponse(writer: S
     writer.writeCollectionOfObjectValues<AttackSimulationRepeatOffender>("value", getAttackSimulationRepeatOffendersGetResponse.value, serializeAttackSimulationRepeatOffender);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetAttackSimulationRepeatOffendersRequestBuilderUriTemplate = "{+baseurl}/reports/security/getAttackSimulationRepeatOffenders(){?%24count,%24filter,%24search,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -94,19 +99,15 @@ const GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParametersMapper: 
  */
 export const GetAttackSimulationRepeatOffendersRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GetAttackSimulationRepeatOffendersRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGetAttackSimulationRepeatOffendersGetResponseFromDiscriminatorValue,
         queryParametersMapper: GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetAttackSimulationRepeatOffendersRequestBuilderUriTemplate = "{+baseurl}/reports/security/getAttackSimulationRepeatOffenders(){?%24count,%24filter,%24search,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

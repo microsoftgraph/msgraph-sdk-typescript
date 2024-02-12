@@ -12,13 +12,14 @@ export interface RetentionEventTypeRequestBuilder extends BaseRequestBuilder<Ret
     /**
      * Specifies the event that will start the retention period for labels that use this event type when an event is created.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of RetentionEventType
+     * @returns {Promise<RetentionEventType>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<RetentionEventTypeRequestBuilderGetQueryParameters> | undefined) : Promise<RetentionEventType | undefined>;
     /**
      * Specifies the event that will start the retention period for labels that use this event type when an event is created.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RetentionEventTypeRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface RetentionEventTypeRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const RetentionEventTypeRequestBuilderUriTemplate = "{+baseurl}/security/triggers/retentionEvents/{retentionEvent%2Did}/retentionEventType{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const RetentionEventTypeRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const RetentionEventTypeRequestBuilderGetQueryParametersMapper: Record<string, s
  */
 export const RetentionEventTypeRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: RetentionEventTypeRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createRetentionEventTypeFromDiscriminatorValue,
         queryParametersMapper: RetentionEventTypeRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const RetentionEventTypeRequestBuilderUriTemplate = "{+baseurl}/security/triggers/retentionEvents/{retentionEvent%2Did}/retentionEventType{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a instantiatePostRequestBody
+ * @returns {InstantiatePostRequestBody}
  */
 export function createInstantiatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoInstantiatePostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoInstantiatePostRequestBody(instantiatePostRequestBody: Partial<InstantiatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -45,7 +45,8 @@ export interface InstantiateRequestBuilder extends BaseRequestBuilder<Instantiat
      * Add an instance of an application from the Microsoft Entra application gallery into your directory. You can also use this API to instantiate non-gallery apps. Use the following ID for the applicationTemplate object: 8adf8e6e-67b2-4cf2-a259-e3dc5476c621.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ApplicationServicePrincipal
+     * @returns {Promise<ApplicationServicePrincipal>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-1.0|Find more info here}
      */
      post(body: InstantiatePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ApplicationServicePrincipal | undefined>;
@@ -53,7 +54,7 @@ export interface InstantiateRequestBuilder extends BaseRequestBuilder<Instantiat
      * Add an instance of an application from the Microsoft Entra application gallery into your directory. You can also use this API to instantiate non-gallery apps. Use the following ID for the applicationTemplate object: 8adf8e6e-67b2-4cf2-a259-e3dc5476c621.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: InstantiatePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -66,14 +67,18 @@ export function serializeInstantiatePostRequestBody(writer: SerializationWriter,
     writer.writeAdditionalData(instantiatePostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const InstantiateRequestBuilderUriTemplate = "{+baseurl}/applicationTemplates/{applicationTemplate%2Did}/instantiate";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const InstantiateRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: InstantiateRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createApplicationServicePrincipalFromDiscriminatorValue,
@@ -82,9 +87,5 @@ export const InstantiateRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const InstantiateRequestBuilderUriTemplate = "{+baseurl}/applicationTemplates/{applicationTemplate%2Did}/instantiate";
 /* tslint:enable */
 /* eslint-enable */

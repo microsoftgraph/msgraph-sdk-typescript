@@ -12,13 +12,14 @@ export interface TeamsAppRequestBuilder extends BaseRequestBuilder<TeamsAppReque
     /**
      * The application that is linked to the tab. This can't be changed after tab creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TeamsApp
+     * @returns {Promise<TeamsApp>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<TeamsAppRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsApp | undefined>;
     /**
      * The application that is linked to the tab. This can't be changed after tab creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeamsAppRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface TeamsAppRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const TeamsAppRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel/tabs/{teamsTab%2Did}/teamsApp{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const TeamsAppRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const TeamsAppRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const TeamsAppRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: TeamsAppRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTeamsAppFromDiscriminatorValue,
         queryParametersMapper: TeamsAppRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TeamsAppRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel/tabs/{teamsTab%2Did}/teamsApp{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

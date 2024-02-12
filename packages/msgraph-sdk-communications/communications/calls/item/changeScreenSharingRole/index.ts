@@ -27,6 +27,7 @@ export interface ChangeScreenSharingRoleRequestBuilder extends BaseRequestBuilde
      * Allow applications to share screen content with the participants of a group call.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/call-changescreensharingrole?view=graph-rest-1.0|Find more info here}
      */
      post(body: ChangeScreenSharingRolePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
@@ -34,21 +35,21 @@ export interface ChangeScreenSharingRoleRequestBuilder extends BaseRequestBuilde
      * Allow applications to share screen content with the participants of a group call.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: ChangeScreenSharingRolePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a changeScreenSharingRolePostRequestBody
+ * @returns {ChangeScreenSharingRolePostRequestBody}
  */
 export function createChangeScreenSharingRolePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoChangeScreenSharingRolePostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoChangeScreenSharingRolePostRequestBody(changeScreenSharingRolePostRequestBody: Partial<ChangeScreenSharingRolePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -65,14 +66,18 @@ export function serializeChangeScreenSharingRolePostRequestBody(writer: Serializ
     writer.writeAdditionalData(changeScreenSharingRolePostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const ChangeScreenSharingRoleRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/changeScreenSharingRole";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const ChangeScreenSharingRoleRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: ChangeScreenSharingRoleRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContentAsync",
         requestBodyContentType: "application/json",
@@ -80,9 +85,5 @@ export const ChangeScreenSharingRoleRequestBuilderRequestsMetadata: RequestsMeta
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const ChangeScreenSharingRoleRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/changeScreenSharingRole";
 /* tslint:enable */
 /* eslint-enable */

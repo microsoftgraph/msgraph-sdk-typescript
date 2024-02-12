@@ -18,14 +18,15 @@ export interface AvailableProviderTypesRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke function availableProviderTypes
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AvailableProviderTypesGetResponse
+     * @returns {Promise<AvailableProviderTypesGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
      get(requestConfiguration?: RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters> | undefined) : Promise<AvailableProviderTypesGetResponse | undefined>;
     /**
      * Invoke function availableProviderTypes
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
@@ -58,14 +59,14 @@ export interface AvailableProviderTypesRequestBuilderGetQueryParameters {
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a availableProviderTypesGetResponse
+ * @returns {AvailableProviderTypesGetResponse}
  */
 export function createAvailableProviderTypesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAvailableProviderTypesGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoAvailableProviderTypesGetResponse(availableProviderTypesGetResponse: Partial<AvailableProviderTypesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -82,6 +83,10 @@ export function serializeAvailableProviderTypesGetResponse(writer: Serialization
     writer.writeCollectionOfPrimitiveValues<string>("value", availableProviderTypesGetResponse.value);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AvailableProviderTypesRequestBuilderUriTemplate = "{+baseurl}/identityProviders/availableProviderTypes(){?%24count,%24filter,%24search,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AvailableProviderTypesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -96,19 +101,15 @@ const AvailableProviderTypesRequestBuilderGetQueryParametersMapper: Record<strin
  */
 export const AvailableProviderTypesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: AvailableProviderTypesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAvailableProviderTypesGetResponseFromDiscriminatorValue,
         queryParametersMapper: AvailableProviderTypesRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AvailableProviderTypesRequestBuilderUriTemplate = "{+baseurl}/identityProviders/availableProviderTypes(){?%24count,%24filter,%24search,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

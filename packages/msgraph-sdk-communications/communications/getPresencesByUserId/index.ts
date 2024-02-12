@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getPresencesByUserIdPostRequestBody
+ * @returns {GetPresencesByUserIdPostRequestBody}
  */
 export function createGetPresencesByUserIdPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetPresencesByUserIdPostRequestBody;
@@ -16,14 +16,14 @@ export function createGetPresencesByUserIdPostRequestBodyFromDiscriminatorValue(
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getPresencesByUserIdPostResponse
+ * @returns {GetPresencesByUserIdPostResponse}
  */
 export function createGetPresencesByUserIdPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetPresencesByUserIdPostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetPresencesByUserIdPostRequestBody(getPresencesByUserIdPostRequestBody: Partial<GetPresencesByUserIdPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -33,7 +33,7 @@ export function deserializeIntoGetPresencesByUserIdPostRequestBody(getPresencesB
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetPresencesByUserIdPostResponse(getPresencesByUserIdPostResponse: Partial<GetPresencesByUserIdPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -69,7 +69,8 @@ export interface GetPresencesByUserIdRequestBuilder extends BaseRequestBuilder<G
      * Get the presence information for multiple users.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetPresencesByUserIdPostResponse
+     * @returns {Promise<GetPresencesByUserIdPostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-1.0|Find more info here}
      */
      post(body: GetPresencesByUserIdPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetPresencesByUserIdPostResponse | undefined>;
@@ -77,7 +78,7 @@ export interface GetPresencesByUserIdRequestBuilder extends BaseRequestBuilder<G
      * Get the presence information for multiple users.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: GetPresencesByUserIdPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -98,14 +99,18 @@ export function serializeGetPresencesByUserIdPostResponse(writer: SerializationW
     writer.writeCollectionOfObjectValues<Presence>("value", getPresencesByUserIdPostResponse.value, serializePresence);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetPresencesByUserIdRequestBuilderUriTemplate = "{+baseurl}/communications/getPresencesByUserId";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const GetPresencesByUserIdRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: GetPresencesByUserIdRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGetPresencesByUserIdPostResponseFromDiscriminatorValue,
@@ -114,9 +119,5 @@ export const GetPresencesByUserIdRequestBuilderRequestsMetadata: RequestsMetadat
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetPresencesByUserIdRequestBuilderUriTemplate = "{+baseurl}/communications/getPresencesByUserId";
 /* tslint:enable */
 /* eslint-enable */

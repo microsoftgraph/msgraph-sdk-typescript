@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a invitePostRequestBody
+ * @returns {InvitePostRequestBody}
  */
 export function createInvitePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoInvitePostRequestBody;
@@ -16,14 +16,14 @@ export function createInvitePostRequestBodyFromDiscriminatorValue(parseNode: Par
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a invitePostResponse
+ * @returns {InvitePostResponse}
  */
 export function createInvitePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoInvitePostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoInvitePostRequestBody(invitePostRequestBody: Partial<InvitePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -40,7 +40,7 @@ export function deserializeIntoInvitePostRequestBody(invitePostRequestBody: Part
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoInvitePostResponse(invitePostResponse: Partial<InvitePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -104,7 +104,8 @@ export interface InviteRequestBuilder extends BaseRequestBuilder<InviteRequestBu
      * Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends them an email with a [sharing link][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of InvitePostResponse
+     * @returns {Promise<InvitePostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/driveitem-invite?view=graph-rest-1.0|Find more info here}
      */
      post(body: InvitePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<InvitePostResponse | undefined>;
@@ -112,7 +113,7 @@ export interface InviteRequestBuilder extends BaseRequestBuilder<InviteRequestBu
      * Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends them an email with a [sharing link][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: InvitePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -140,14 +141,18 @@ export function serializeInvitePostResponse(writer: SerializationWriter, inviteP
     writer.writeCollectionOfObjectValues<Permission>("value", invitePostResponse.value, serializePermission);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const InviteRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/invite";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const InviteRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: InviteRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createInvitePostResponseFromDiscriminatorValue,
@@ -156,9 +161,5 @@ export const InviteRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const InviteRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/invite";
 /* tslint:enable */
 /* eslint-enable */

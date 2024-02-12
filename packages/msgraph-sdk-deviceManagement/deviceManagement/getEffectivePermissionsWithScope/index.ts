@@ -8,14 +8,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getEffectivePermissionsWithScopeGetResponse
+ * @returns {GetEffectivePermissionsWithScopeGetResponse}
  */
 export function createGetEffectivePermissionsWithScopeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetEffectivePermissionsWithScopeGetResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetEffectivePermissionsWithScopeGetResponse(getEffectivePermissionsWithScopeGetResponse: Partial<GetEffectivePermissionsWithScopeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -36,13 +36,14 @@ export interface GetEffectivePermissionsWithScopeRequestBuilder extends BaseRequ
     /**
      * Retrieves the effective permissions of the currently authenticated user
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetEffectivePermissionsWithScopeGetResponse
+     * @returns {Promise<GetEffectivePermissionsWithScopeGetResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GetEffectivePermissionsWithScopeRequestBuilderGetQueryParameters> | undefined) : Promise<GetEffectivePermissionsWithScopeGetResponse | undefined>;
     /**
      * Retrieves the effective permissions of the currently authenticated user
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetEffectivePermissionsWithScopeRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -80,6 +81,10 @@ export function serializeGetEffectivePermissionsWithScopeGetResponse(writer: Ser
     writer.writeCollectionOfObjectValues<RolePermission>("value", getEffectivePermissionsWithScopeGetResponse.value, serializeRolePermission);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetEffectivePermissionsWithScopeRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/getEffectivePermissions(scope='{scope}'){?%24count,%24filter,%24search,%24skip,%24top}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const GetEffectivePermissionsWithScopeRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -94,19 +99,15 @@ const GetEffectivePermissionsWithScopeRequestBuilderGetQueryParametersMapper: Re
  */
 export const GetEffectivePermissionsWithScopeRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: GetEffectivePermissionsWithScopeRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGetEffectivePermissionsWithScopeGetResponseFromDiscriminatorValue,
         queryParametersMapper: GetEffectivePermissionsWithScopeRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetEffectivePermissionsWithScopeRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/getEffectivePermissions(scope='{scope}'){?%24count,%24filter,%24search,%24skip,%24top}";
 /* tslint:enable */
 /* eslint-enable */

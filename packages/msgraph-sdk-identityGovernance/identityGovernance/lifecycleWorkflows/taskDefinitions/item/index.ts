@@ -12,14 +12,15 @@ export interface TaskDefinitionItemRequestBuilder extends BaseRequestBuilder<Tas
     /**
      * Read the details of a built-in workflow task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TaskDefinition
+     * @returns {Promise<TaskDefinition>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-taskdefinition-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TaskDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<TaskDefinition | undefined>;
     /**
      * Read the details of a built-in workflow task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskDefinitionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -37,6 +38,10 @@ export interface TaskDefinitionItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const TaskDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/taskDefinitions/{taskDefinition%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const TaskDefinitionItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -48,19 +53,15 @@ const TaskDefinitionItemRequestBuilderGetQueryParametersMapper: Record<string, s
  */
 export const TaskDefinitionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: TaskDefinitionItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createTaskDefinitionFromDiscriminatorValue,
         queryParametersMapper: TaskDefinitionItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const TaskDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/taskDefinitions/{taskDefinition%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

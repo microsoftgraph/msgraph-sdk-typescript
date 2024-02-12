@@ -39,28 +39,29 @@ export interface CoupDaysRequestBuilder extends BaseRequestBuilder<CoupDaysReque
      * Invoke action coupDays
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of WorkbookFunctionResult
+     * @returns {Promise<WorkbookFunctionResult>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: CoupDaysPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookFunctionResult | undefined>;
     /**
      * Invoke action coupDays
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: CoupDaysPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a coupDaysPostRequestBody
+ * @returns {CoupDaysPostRequestBody}
  */
 export function createCoupDaysPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCoupDaysPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoCoupDaysPostRequestBody(coupDaysPostRequestBody: Partial<CoupDaysPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -83,14 +84,18 @@ export function serializeCoupDaysPostRequestBody(writer: SerializationWriter, co
     writer.writeAdditionalData(coupDaysPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const CoupDaysRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/coupDays";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const CoupDaysRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: CoupDaysRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
@@ -99,9 +104,5 @@ export const CoupDaysRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const CoupDaysRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions/coupDays";
 /* tslint:enable */
 /* eslint-enable */

@@ -8,7 +8,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getSchedulePostRequestBody
+ * @returns {GetSchedulePostRequestBody}
  */
 export function createGetSchedulePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetSchedulePostRequestBody;
@@ -16,14 +16,14 @@ export function createGetSchedulePostRequestBodyFromDiscriminatorValue(parseNode
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a getSchedulePostResponse
+ * @returns {GetSchedulePostResponse}
  */
 export function createGetSchedulePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetSchedulePostResponse;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetSchedulePostRequestBody(getSchedulePostRequestBody: Partial<GetSchedulePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -36,7 +36,7 @@ export function deserializeIntoGetSchedulePostRequestBody(getSchedulePostRequest
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoGetSchedulePostResponse(getSchedulePostResponse: Partial<GetSchedulePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -84,7 +84,8 @@ export interface GetScheduleRequestBuilder extends BaseRequestBuilder<GetSchedul
      * Get the free/busy availability information for a collection of users, distributions lists, or resources (rooms or equipment) for a specified time period.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetSchedulePostResponse
+     * @returns {Promise<GetSchedulePostResponse>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/calendar-getschedule?view=graph-rest-1.0|Find more info here}
      */
      post(body: GetSchedulePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetSchedulePostResponse | undefined>;
@@ -92,7 +93,7 @@ export interface GetScheduleRequestBuilder extends BaseRequestBuilder<GetSchedul
      * Get the free/busy availability information for a collection of users, distributions lists, or resources (rooms or equipment) for a specified time period.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: GetSchedulePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -116,14 +117,18 @@ export function serializeGetSchedulePostResponse(writer: SerializationWriter, ge
     writer.writeCollectionOfObjectValues<ScheduleInformation>("value", getSchedulePostResponse.value, serializeScheduleInformation);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const GetScheduleRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}/getSchedule";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const GetScheduleRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: GetScheduleRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createGetSchedulePostResponseFromDiscriminatorValue,
@@ -132,9 +137,5 @@ export const GetScheduleRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const GetScheduleRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}/getSchedule";
 /* tslint:enable */
 /* eslint-enable */

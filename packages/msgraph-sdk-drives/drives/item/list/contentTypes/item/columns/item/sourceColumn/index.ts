@@ -12,13 +12,14 @@ export interface SourceColumnRequestBuilder extends BaseRequestBuilder<SourceCol
     /**
      * The source column for the content type column.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ColumnDefinition
+     * @returns {Promise<ColumnDefinition>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<SourceColumnRequestBuilderGetQueryParameters> | undefined) : Promise<ColumnDefinition | undefined>;
     /**
      * The source column for the content type column.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SourceColumnRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface SourceColumnRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const SourceColumnRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}/sourceColumn{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const SourceColumnRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const SourceColumnRequestBuilderGetQueryParametersMapper: Record<string, string>
  */
 export const SourceColumnRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: SourceColumnRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createColumnDefinitionFromDiscriminatorValue,
         queryParametersMapper: SourceColumnRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SourceColumnRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}/sourceColumn{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

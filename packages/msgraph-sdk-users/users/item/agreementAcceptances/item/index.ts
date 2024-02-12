@@ -12,13 +12,14 @@ export interface AgreementAcceptanceItemRequestBuilder extends BaseRequestBuilde
     /**
      * The user's terms of use acceptance statuses. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of AgreementAcceptance
+     * @returns {Promise<AgreementAcceptance>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<AgreementAcceptanceItemRequestBuilderGetQueryParameters> | undefined) : Promise<AgreementAcceptance | undefined>;
     /**
      * The user's terms of use acceptance statuses. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AgreementAcceptanceItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
@@ -36,6 +37,10 @@ export interface AgreementAcceptanceItemRequestBuilderGetQueryParameters {
     select?: string[];
 }
 /**
+ * Uri template for the request builder.
+ */
+export const AgreementAcceptanceItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/agreementAcceptances/{agreementAcceptance%2Did}{?%24expand,%24select}";
+/**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AgreementAcceptanceItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
@@ -47,19 +52,15 @@ const AgreementAcceptanceItemRequestBuilderGetQueryParametersMapper: Record<stri
  */
 export const AgreementAcceptanceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
+        uriTemplate: AgreementAcceptanceItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createAgreementAcceptanceFromDiscriminatorValue,
         queryParametersMapper: AgreementAcceptanceItemRequestBuilderGetQueryParametersMapper,
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const AgreementAcceptanceItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/agreementAcceptances/{agreementAcceptance%2Did}{?%24expand,%24select}";
 /* tslint:enable */
 /* eslint-enable */

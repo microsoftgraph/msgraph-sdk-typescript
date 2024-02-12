@@ -8,14 +8,14 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns a sendDtmfTonesPostRequestBody
+ * @returns {SendDtmfTonesPostRequestBody}
  */
 export function createSendDtmfTonesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSendDtmfTonesPostRequestBody;
 }
 /**
  * The deserialization information for the current model
- * @returns a Record<string, (node: ParseNode) => void>
+ * @returns {Record<string, (node: ParseNode) => void>}
  */
 export function deserializeIntoSendDtmfTonesPostRequestBody(sendDtmfTonesPostRequestBody: Partial<SendDtmfTonesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
@@ -55,14 +55,15 @@ export interface SendDtmfTonesRequestBuilder extends BaseRequestBuilder<SendDtmf
      * Invoke action sendDtmfTones
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SendDtmfTonesOperation
+     * @returns {Promise<SendDtmfTonesOperation>}
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      post(body: SendDtmfTonesPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SendDtmfTonesOperation | undefined>;
     /**
      * Invoke action sendDtmfTones
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
+     * @returns {RequestInformation}
      */
      toPostRequestInformation(body: SendDtmfTonesPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
@@ -78,14 +79,18 @@ export function serializeSendDtmfTonesPostRequestBody(writer: SerializationWrite
     writer.writeAdditionalData(sendDtmfTonesPostRequestBody.additionalData);
 }
 /**
+ * Uri template for the request builder.
+ */
+export const SendDtmfTonesRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/sendDtmfTones";
+/**
  * Metadata for all the requests in the request builder.
  */
 export const SendDtmfTonesRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
+        uriTemplate: SendDtmfTonesRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
-            _4XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-            _5XX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendAsync",
         responseBodyFactory:  createSendDtmfTonesOperationFromDiscriminatorValue,
@@ -94,9 +99,5 @@ export const SendDtmfTonesRequestBuilderRequestsMetadata: RequestsMetadata = {
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
-/**
- * Uri template for the request builder.
- */
-export const SendDtmfTonesRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/sendDtmfTones";
 /* tslint:enable */
 /* eslint-enable */
