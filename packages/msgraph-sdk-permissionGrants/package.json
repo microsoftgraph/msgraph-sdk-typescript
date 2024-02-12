@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-permissiongrants",
-  "version": "1.0.0-preview.13",
+  "version": "1.0.0-preview.14",
   "description": "PermissionGrants fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
@@ -37,7 +37,7 @@
     "@microsoft/kiota-serialization-json": "^1.0.0-preview.39",
     "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.18",
     "@microsoft/kiota-serialization-text": "^1.0.0-preview.36",
-    "@microsoft/msgraph-sdk": "^1.0.0-preview.13",
+    "@microsoft/msgraph-sdk": "^1.0.0-preview.14",
     "guid-typescript": "^1.0.9",
     "tslib": "^2.6.2"
   },
