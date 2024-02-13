@@ -10,18 +10,18 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder<ManagedEBookAssignmentItemRequestBuilder> {
     /**
-     * Deletes a managedEBookAssignment.
+     * Deletes a iosVppEBookAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebookassignment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebookassignment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the managedEBookAssignment object.
+     * Read properties and relationships of the iosVppEBookAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedEBookAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebookassignment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebookassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedEBookAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedEBookAssignment | undefined>;
     /**
@@ -34,13 +34,13 @@ export interface ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBui
      */
      patch(body: ManagedEBookAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedEBookAssignment | undefined>;
     /**
-     * Deletes a managedEBookAssignment.
+     * Deletes a iosVppEBookAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the managedEBookAssignment object.
+     * Read properties and relationships of the iosVppEBookAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +54,7 @@ export interface ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBui
      toPatchRequestInformation(body: ManagedEBookAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the managedEBookAssignment object.
+ * Read properties and relationships of the iosVppEBookAssignment object.
  */
 export interface ManagedEBookAssignmentItemRequestBuilderGetQueryParameters {
     /**
