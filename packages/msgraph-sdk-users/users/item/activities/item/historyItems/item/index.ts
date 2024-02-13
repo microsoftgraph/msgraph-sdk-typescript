@@ -28,12 +28,12 @@ export interface ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilde
      */
      get(requestConfiguration?: RequestConfiguration<ActivityHistoryItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<ActivityHistoryItem | undefined>;
     /**
-     * Delete an existing history item for an existing user activity.
+     * Create a new or replace an existing history item for an existing user activity.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ActivityHistoryItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/projectrome-delete-historyitem?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/projectrome-put-historyitem?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ActivityHistoryItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ActivityHistoryItem | undefined>;
     /**
@@ -49,7 +49,7 @@ export interface ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilde
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ActivityHistoryItemItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Delete an existing history item for an existing user activity.
+     * Create a new or replace an existing history item for an existing user activity.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

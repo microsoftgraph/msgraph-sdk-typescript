@@ -22,11 +22,11 @@ export interface MobileAppConfigurationsRequestBuilder extends BaseRequestBuilde
      */
      byManagedDeviceMobileAppConfigurationId(managedDeviceMobileAppConfigurationId: string) : ManagedDeviceMobileAppConfigurationItemRequestBuilder;
     /**
-     * List properties and relationships of the iosMobileAppConfiguration objects.
+     * List properties and relationships of the managedDeviceMobileAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfigurationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceMobileAppConfigurationCollectionResponse | undefined>;
     /**
@@ -39,7 +39,7 @@ export interface MobileAppConfigurationsRequestBuilder extends BaseRequestBuilde
      */
      post(body: ManagedDeviceMobileAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined>;
     /**
-     * List properties and relationships of the iosMobileAppConfiguration objects.
+     * List properties and relationships of the managedDeviceMobileAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -53,7 +53,7 @@ export interface MobileAppConfigurationsRequestBuilder extends BaseRequestBuilde
      toPostRequestInformation(body: ManagedDeviceMobileAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the iosMobileAppConfiguration objects.
+ * List properties and relationships of the managedDeviceMobileAppConfiguration objects.
  */
 export interface MobileAppConfigurationsRequestBuilderGetQueryParameters {
     /**
