@@ -44,7 +44,7 @@ export interface CalendarRequestBuilder extends BaseRequestBuilder<CalendarReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the properties and relationships of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
+     * Get the properties and relationships of a calendar object. The calendar can be one for a user,or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Calendar>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -52,7 +52,7 @@ export interface CalendarRequestBuilder extends BaseRequestBuilder<CalendarReque
      */
      get(requestConfiguration?: RequestConfiguration<CalendarRequestBuilderGetQueryParameters> | undefined) : Promise<Calendar | undefined>;
     /**
-     * Update the properties of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group.
+     * Update the properties of a calendar object. The calendar can be one for a user,or the default calendar of a Microsoft 365 group.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Calendar>}
@@ -67,13 +67,13 @@ export interface CalendarRequestBuilder extends BaseRequestBuilder<CalendarReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the properties and relationships of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
+     * Get the properties and relationships of a calendar object. The calendar can be one for a user,or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CalendarRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group.
+     * Update the properties of a calendar object. The calendar can be one for a user,or the default calendar of a Microsoft 365 group.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -81,7 +81,7 @@ export interface CalendarRequestBuilder extends BaseRequestBuilder<CalendarReque
      toPatchRequestInformation(body: Calendar, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the properties and relationships of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
+ * Get the properties and relationships of a calendar object. The calendar can be one for a user,or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
  */
 export interface CalendarRequestBuilderGetQueryParameters {
     /**
