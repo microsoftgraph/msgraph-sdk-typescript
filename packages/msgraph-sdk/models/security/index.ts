@@ -5686,7 +5686,7 @@ export interface Incident extends Entity, Parsable {
      */
     customTags?: string[];
     /**
-     * The description property
+     * A rich text string describing the incident
      */
     description?: string;
     /**
@@ -5722,7 +5722,7 @@ export interface Incident extends Entity, Parsable {
      */
     status?: IncidentStatus;
     /**
-     * The systemTags property
+     * The system tags associated with the incident
      */
     systemTags?: string[];
     /**

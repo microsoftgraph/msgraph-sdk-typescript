@@ -65,6 +65,13 @@ export interface DirectoryObjectItemRequestBuilder extends BaseRequestBuilder<Di
      */
     get restore(): RestoreRequestBuilder;
     /**
+     * Delete navigation property deletedItems for directory
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/directory-deleteditems-delete?view=graph-rest-1.0|Find more info here}
+     */
+     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
+    /**
      * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObject>}
@@ -72,6 +79,12 @@ export interface DirectoryObjectItemRequestBuilder extends BaseRequestBuilder<Di
      * @see {@link https://learn.microsoft.com/graph/api/directory-deleteditems-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DirectoryObjectItemRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObject | undefined>;
+    /**
+     * Delete navigation property deletedItems for directory
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns {RequestInformation}
+     */
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -145,6 +158,14 @@ export const DirectoryObjectItemRequestBuilderNavigationMetadata: Record<Exclude
  * Metadata for all the requests in the request builder.
  */
 export const DirectoryObjectItemRequestBuilderRequestsMetadata: RequestsMetadata = {
+    delete: {
+        uriTemplate: DirectoryObjectItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
+        errorMappings: {
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+        },
+        adapterMethodName: "sendNoResponseContentAsync",
+    },
     get: {
         uriTemplate: DirectoryObjectItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",

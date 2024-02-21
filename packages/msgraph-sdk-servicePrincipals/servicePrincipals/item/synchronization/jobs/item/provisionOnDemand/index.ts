@@ -42,7 +42,7 @@ export interface ProvisionOnDemandPostRequestBody extends AdditionalDataHolder, 
  */
 export interface ProvisionOnDemandRequestBuilder extends BaseRequestBuilder<ProvisionOnDemandRequestBuilder> {
     /**
-     * Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds. 
+     * Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<StringKeyStringValuePair>}
@@ -51,7 +51,7 @@ export interface ProvisionOnDemandRequestBuilder extends BaseRequestBuilder<Prov
      */
      post(body: ProvisionOnDemandPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<StringKeyStringValuePair | undefined>;
     /**
-     * Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds. 
+     * Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

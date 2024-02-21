@@ -22,7 +22,7 @@ export interface CalendarsRequestBuilder extends BaseRequestBuilder<CalendarsReq
      */
      byCalendarId(calendarId: string) : CalendarItemRequestBuilder;
     /**
-     * Get all the user's calendars (/calendars navigation property), get the calendars from the default calendar group or from a specific calendar group. 
+     * Get all the user's calendars (/calendars navigation property), get the calendars from the default calendar group or from a specific calendar group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CalendarCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -39,7 +39,7 @@ export interface CalendarsRequestBuilder extends BaseRequestBuilder<CalendarsReq
      */
      post(body: Calendar, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Calendar | undefined>;
     /**
-     * Get all the user's calendars (/calendars navigation property), get the calendars from the default calendar group or from a specific calendar group. 
+     * Get all the user's calendars (/calendars navigation property), get the calendars from the default calendar group or from a specific calendar group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -53,7 +53,7 @@ export interface CalendarsRequestBuilder extends BaseRequestBuilder<CalendarsReq
      toPostRequestInformation(body: Calendar, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get all the user's calendars (/calendars navigation property), get the calendars from the default calendar group or from a specific calendar group. 
+ * Get all the user's calendars (/calendars navigation property), get the calendars from the default calendar group or from a specific calendar group.
  */
 export interface CalendarsRequestBuilderGetQueryParameters {
     /**
