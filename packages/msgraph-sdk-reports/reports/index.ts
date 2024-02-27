@@ -49,6 +49,7 @@ import { GetOneDriveUsageAccountDetailWithPeriodRequestBuilderRequestsMetadata, 
 import { GetOneDriveUsageFileCountsWithPeriodRequestBuilderRequestsMetadata, type GetOneDriveUsageFileCountsWithPeriodRequestBuilder } from './getOneDriveUsageFileCountsWithPeriod/';
 import { GetOneDriveUsageStorageWithPeriodRequestBuilderRequestsMetadata, type GetOneDriveUsageStorageWithPeriodRequestBuilder } from './getOneDriveUsageStorageWithPeriod/';
 import { GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata, type GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder } from './getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime/';
+import { GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderRequestsMetadata, type GetRelyingPartyDetailedSummaryWithPeriodRequestBuilder } from './getRelyingPartyDetailedSummaryWithPeriod/';
 import { GetSharePointActivityFileCountsWithPeriodRequestBuilderRequestsMetadata, type GetSharePointActivityFileCountsWithPeriodRequestBuilder } from './getSharePointActivityFileCountsWithPeriod/';
 import { GetSharePointActivityPagesWithPeriodRequestBuilderRequestsMetadata, type GetSharePointActivityPagesWithPeriodRequestBuilder } from './getSharePointActivityPagesWithPeriod/';
 import { GetSharePointActivityUserCountsWithPeriodRequestBuilderRequestsMetadata, type GetSharePointActivityUserCountsWithPeriodRequestBuilder } from './getSharePointActivityUserCountsWithPeriod/';
@@ -413,6 +414,12 @@ export interface ReportsRequestBuilder extends BaseRequestBuilder<ReportsRequest
      * @returns {GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder}
      */
      getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime(endDateTime: Date | undefined, printerId: string | undefined, startDateTime: Date | undefined) : GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder;
+    /**
+     * Provides operations to call the getRelyingPartyDetailedSummary method.
+     * @param period Usage: period='{period}'
+     * @returns {GetRelyingPartyDetailedSummaryWithPeriodRequestBuilder}
+     */
+     getRelyingPartyDetailedSummaryWithPeriod(period: string | undefined) : GetRelyingPartyDetailedSummaryWithPeriodRequestBuilder;
     /**
      * Provides operations to call the getSharePointActivityFileCounts method.
      * @param period Usage: period='{period}'
@@ -918,6 +925,9 @@ export const ReportsRequestBuilderNavigationMetadata: Record<Exclude<keyof Repor
     },
     getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime: {
         requestsMetadata: GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata,
+    },
+    getRelyingPartyDetailedSummaryWithPeriod: {
+        requestsMetadata: GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderRequestsMetadata,
     },
     getSharePointActivityFileCountsWithPeriod: {
         requestsMetadata: GetSharePointActivityFileCountsWithPeriodRequestBuilderRequestsMetadata,

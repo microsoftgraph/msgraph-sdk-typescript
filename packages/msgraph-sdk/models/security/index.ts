@@ -11,11 +11,11 @@ export interface Alert extends Entity, Parsable {
      */
     actorDisplayName?: string;
     /**
-     * The alertPolicyId property
+     * The ID of the policy that generated the alert, and populated when there is a specific policy that generated the alert, whether configured by a customer or a built-in policy.
      */
     alertPolicyId?: string;
     /**
-     * URL for the alert page in the Microsoft 365 Defender portal.
+     * The alertWebUrl property
      */
     alertWebUrl?: string;
     /**
@@ -43,7 +43,7 @@ export interface Alert extends Entity, Parsable {
      */
     description?: string;
     /**
-     * Detection technology or sensor that identified the notable component or activity. Possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement.
+     * Detection technology or sensor that identified the notable component or activity. Possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl.
      */
     detectionSource?: DetectionSource;
     /**
@@ -110,6 +110,10 @@ export interface Alert extends Entity, Parsable {
      * The status property
      */
     status?: AlertStatus;
+    /**
+     * The system tags associated with the alert.
+     */
+    systemTags?: string[];
     /**
      * The Microsoft Entra tenant the alert was created in.
      */
@@ -2291,6 +2295,7 @@ export function deserializeIntoAlert(alert: Partial<Alert> | undefined = {}) : R
         "serviceSource": n => { alert.serviceSource = n.getEnumValue<ServiceSource>(ServiceSourceObject); },
         "severity": n => { alert.severity = n.getEnumValue<AlertSeverity>(AlertSeverityObject); },
         "status": n => { alert.status = n.getEnumValue<AlertStatus>(AlertStatusObject); },
+        "systemTags": n => { alert.systemTags = n.getCollectionOfPrimitiveValues<string>(); },
         "tenantId": n => { alert.tenantId = n.getStringValue(); },
         "threatDisplayName": n => { alert.threatDisplayName = n.getStringValue(); },
         "threatFamilyName": n => { alert.threatFamilyName = n.getStringValue(); },
@@ -5686,7 +5691,7 @@ export interface Incident extends Entity, Parsable {
      */
     customTags?: string[];
     /**
-     * A rich text string describing the incident
+     * Description of the incident.
      */
     description?: string;
     /**
@@ -5702,7 +5707,7 @@ export interface Incident extends Entity, Parsable {
      */
     incidentWebUrl?: string;
     /**
-     * The lastModifiedBy property
+     * The identity that last modified the incident.
      */
     lastModifiedBy?: string;
     /**
@@ -5710,7 +5715,7 @@ export interface Incident extends Entity, Parsable {
      */
     lastUpdateDateTime?: Date;
     /**
-     * Only populated in case an incident is grouped together with another incident, as part of the logic that processes incidents. In such a case, the status property is redirected.
+     * Only populated in case an incident is grouped with another incident, as part of the logic that processes incidents. In such a case, the status property is redirected.
      */
     redirectIncidentId?: string;
     /**
@@ -5722,7 +5727,7 @@ export interface Incident extends Entity, Parsable {
      */
     status?: IncidentStatus;
     /**
-     * The system tags associated with the incident
+     * The system tags associated with the incident.
      */
     systemTags?: string[];
     /**
@@ -6689,6 +6694,7 @@ export function serializeAlert(writer: SerializationWriter, alert: Partial<Alert
     writer.writeEnumValue<ServiceSource>("serviceSource", alert.serviceSource);
     writer.writeEnumValue<AlertSeverity>("severity", alert.severity);
     writer.writeEnumValue<AlertStatus>("status", alert.status);
+    writer.writeCollectionOfPrimitiveValues<string>("systemTags", alert.systemTags);
     writer.writeStringValue("tenantId", alert.tenantId);
     writer.writeStringValue("threatDisplayName", alert.threatDisplayName);
     writer.writeStringValue("threatFamilyName", alert.threatFamilyName);

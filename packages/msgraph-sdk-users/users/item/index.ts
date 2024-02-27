@@ -16,6 +16,7 @@ import { ChangePasswordRequestBuilderRequestsMetadata, type ChangePasswordReques
 import { ChatsRequestBuilderNavigationMetadata, ChatsRequestBuilderRequestsMetadata, type ChatsRequestBuilder } from './chats/';
 import { CheckMemberGroupsRequestBuilderRequestsMetadata, type CheckMemberGroupsRequestBuilder } from './checkMemberGroups/';
 import { CheckMemberObjectsRequestBuilderRequestsMetadata, type CheckMemberObjectsRequestBuilder } from './checkMemberObjects/';
+import { CloudClipboardRequestBuilderNavigationMetadata, CloudClipboardRequestBuilderRequestsMetadata, type CloudClipboardRequestBuilder } from './cloudClipboard/';
 import { ContactFoldersRequestBuilderNavigationMetadata, ContactFoldersRequestBuilderRequestsMetadata, type ContactFoldersRequestBuilder } from './contactFolders/';
 import { ContactsRequestBuilderNavigationMetadata, ContactsRequestBuilderRequestsMetadata, type ContactsRequestBuilder } from './contacts/';
 import { CreatedObjectsRequestBuilderNavigationMetadata, CreatedObjectsRequestBuilderRequestsMetadata, type CreatedObjectsRequestBuilder } from './createdObjects/';
@@ -134,6 +135,10 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      * Provides operations to call the checkMemberObjects method.
      */
     get checkMemberObjects(): CheckMemberObjectsRequestBuilder;
+    /**
+     * Provides operations to manage the cloudClipboard property of the microsoft.graph.user entity.
+     */
+    get cloudClipboard(): CloudClipboardRequestBuilder;
     /**
      * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.
      */
@@ -367,10 +372,10 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
     get wipeManagedAppRegistrationsByDeviceTag(): WipeManagedAppRegistrationsByDeviceTagRequestBuilder;
     /**
-     * Deletes a user.
+     * Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -389,12 +394,12 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
      get(requestConfiguration?: RequestConfiguration<UserItemRequestBuilderGetQueryParameters> | undefined) : Promise<User | undefined>;
     /**
-     * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
+     * Update the properties of a user object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<User>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: User, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<User | undefined>;
     /**
@@ -405,7 +410,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
      reminderViewWithStartDateTimeWithEndDateTime(endDateTime: string | undefined, startDateTime: string | undefined) : ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder;
     /**
-     * Deletes a user.
+     * Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -417,7 +422,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
+     * Update the properties of a user object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -505,6 +510,10 @@ export const UserItemRequestBuilderNavigationMetadata: Record<Exclude<keyof User
     },
     checkMemberObjects: {
         requestsMetadata: CheckMemberObjectsRequestBuilderRequestsMetadata,
+    },
+    cloudClipboard: {
+        requestsMetadata: CloudClipboardRequestBuilderRequestsMetadata,
+        navigationMetadata: CloudClipboardRequestBuilderNavigationMetadata,
     },
     contactFolders: {
         requestsMetadata: ContactFoldersRequestBuilderRequestsMetadata,

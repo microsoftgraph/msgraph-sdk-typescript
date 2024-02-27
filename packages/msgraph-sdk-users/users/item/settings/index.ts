@@ -4,6 +4,7 @@
 import { createUserSettingsFromDiscriminatorValue, serializeUserSettings, type UserSettings } from '@microsoft/msgraph-sdk/models/';
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { ShiftPreferencesRequestBuilderRequestsMetadata, type ShiftPreferencesRequestBuilder } from './shiftPreferences/';
+import { type WindowsRequestBuilder, WindowsRequestBuilderNavigationMetadata, WindowsRequestBuilderRequestsMetadata } from './windows/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -14,6 +15,10 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      * Provides operations to manage the shiftPreferences property of the microsoft.graph.userSettings entity.
      */
     get shiftPreferences(): ShiftPreferencesRequestBuilder;
+    /**
+     * Provides operations to manage the windows property of the microsoft.graph.userSettings entity.
+     */
+    get windows(): WindowsRequestBuilder;
     /**
      * Delete navigation property settings for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -87,6 +92,10 @@ const SettingsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const SettingsRequestBuilderNavigationMetadata: Record<Exclude<keyof SettingsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     shiftPreferences: {
         requestsMetadata: ShiftPreferencesRequestBuilderRequestsMetadata,
+    },
+    windows: {
+        requestsMetadata: WindowsRequestBuilderRequestsMetadata,
+        navigationMetadata: WindowsRequestBuilderNavigationMetadata,
     },
 };
 /**
