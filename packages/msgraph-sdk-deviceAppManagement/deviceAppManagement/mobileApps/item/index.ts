@@ -105,43 +105,43 @@ export interface MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAp
      */
     get graphWindowsWebApp(): GraphWindowsWebAppRequestBuilder;
     /**
-     * Deletes a managedIOSLobApp.
+     * Deletes a iosStoreApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-managedioslobapp-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosstoreapp-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the macOSMicrosoftEdgeApp object.
+     * Read properties and relationships of the managedAndroidStoreApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-macosmicrosoftedgeapp-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-managedandroidstoreapp-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppItemRequestBuilderGetQueryParameters> | undefined) : Promise<MobileApp | undefined>;
     /**
-     * Update the properties of a iosStoreApp object.
+     * Update the properties of a windowsMobileMSI object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosstoreapp-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowsmobilemsi-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileApp | undefined>;
     /**
-     * Deletes a managedIOSLobApp.
+     * Deletes a iosStoreApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the macOSMicrosoftEdgeApp object.
+     * Read properties and relationships of the managedAndroidStoreApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileAppItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a iosStoreApp object.
+     * Update the properties of a windowsMobileMSI object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -149,7 +149,7 @@ export interface MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAp
      toPatchRequestInformation(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the macOSMicrosoftEdgeApp object.
+ * Read properties and relationships of the managedAndroidStoreApp object.
  */
 export interface MobileAppItemRequestBuilderGetQueryParameters {
     /**

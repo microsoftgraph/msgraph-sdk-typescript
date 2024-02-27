@@ -47,14 +47,15 @@ export interface SendVirtualAppointmentReminderSmsPostRequestBody extends Additi
  */
 export interface SendVirtualAppointmentReminderSmsRequestBuilder extends BaseRequestBuilder<SendVirtualAppointmentReminderSmsRequestBuilder> {
     /**
-     * Invoke action sendVirtualAppointmentReminderSms
+     * Send an SMS reminder to external attendees for a Teams virtual appointment. This feature requires Teams premium and attendees must have a valid United States phone number to receive SMS notifications.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualappointment-sendvirtualappointmentremindersms?view=graph-rest-1.0|Find more info here}
      */
      post(body: SendVirtualAppointmentReminderSmsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Invoke action sendVirtualAppointmentReminderSms
+     * Send an SMS reminder to external attendees for a Teams virtual appointment. This feature requires Teams premium and attendees must have a valid United States phone number to receive SMS notifications.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

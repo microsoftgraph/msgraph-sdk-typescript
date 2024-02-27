@@ -27,7 +27,7 @@ export interface RepliesRequestBuilder extends BaseRequestBuilder<RepliesRequest
      */
      byChatMessageId1(chatMessageId1: string) : ChatMessageItemRequestBuilder;
     /**
-     * List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, simply call get channel message.
+     * List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, call get channel message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ChatMessageCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -35,22 +35,22 @@ export interface RepliesRequestBuilder extends BaseRequestBuilder<RepliesRequest
      */
      get(requestConfiguration?: RequestConfiguration<RepliesRequestBuilderGetQueryParameters> | undefined) : Promise<ChatMessageCollectionResponse | undefined>;
     /**
-     * Send a new reply to a chatMessage in a specified channel.
+     * Create a new reply to a chatMessage in a specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ChatMessage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0|Find more info here}
      */
      post(body: ChatMessage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ChatMessage | undefined>;
     /**
-     * List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, simply call get channel message.
+     * List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, call get channel message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RepliesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Send a new reply to a chatMessage in a specified channel.
+     * Create a new reply to a chatMessage in a specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +58,7 @@ export interface RepliesRequestBuilder extends BaseRequestBuilder<RepliesRequest
      toPostRequestInformation(body: ChatMessage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, simply call get channel message.
+ * List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, call get channel message.
  */
 export interface RepliesRequestBuilderGetQueryParameters {
     /**

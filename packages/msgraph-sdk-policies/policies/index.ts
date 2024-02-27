@@ -14,6 +14,7 @@ import { ClaimsMappingPoliciesRequestBuilderNavigationMetadata, ClaimsMappingPol
 import { ConditionalAccessPoliciesRequestBuilderNavigationMetadata, ConditionalAccessPoliciesRequestBuilderRequestsMetadata, type ConditionalAccessPoliciesRequestBuilder } from './conditionalAccessPolicies/';
 import { CrossTenantAccessPolicyRequestBuilderNavigationMetadata, CrossTenantAccessPolicyRequestBuilderRequestsMetadata, type CrossTenantAccessPolicyRequestBuilder } from './crossTenantAccessPolicy/';
 import { DefaultAppManagementPolicyRequestBuilderRequestsMetadata, type DefaultAppManagementPolicyRequestBuilder } from './defaultAppManagementPolicy/';
+import { DeviceRegistrationPolicyRequestBuilderRequestsMetadata, type DeviceRegistrationPolicyRequestBuilder } from './deviceRegistrationPolicy/';
 import { FeatureRolloutPoliciesRequestBuilderNavigationMetadata, FeatureRolloutPoliciesRequestBuilderRequestsMetadata, type FeatureRolloutPoliciesRequestBuilder } from './featureRolloutPolicies/';
 import { HomeRealmDiscoveryPoliciesRequestBuilderNavigationMetadata, HomeRealmDiscoveryPoliciesRequestBuilderRequestsMetadata, type HomeRealmDiscoveryPoliciesRequestBuilder } from './homeRealmDiscoveryPolicies/';
 import { IdentitySecurityDefaultsEnforcementPolicyRequestBuilderRequestsMetadata, type IdentitySecurityDefaultsEnforcementPolicyRequestBuilder } from './identitySecurityDefaultsEnforcementPolicy/';
@@ -72,6 +73,10 @@ export interface PoliciesRequestBuilder extends BaseRequestBuilder<PoliciesReque
      * Provides operations to manage the defaultAppManagementPolicy property of the microsoft.graph.policyRoot entity.
      */
     get defaultAppManagementPolicy(): DefaultAppManagementPolicyRequestBuilder;
+    /**
+     * Provides operations to manage the deviceRegistrationPolicy property of the microsoft.graph.policyRoot entity.
+     */
+    get deviceRegistrationPolicy(): DeviceRegistrationPolicyRequestBuilder;
     /**
      * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
      */
@@ -200,6 +205,9 @@ export const PoliciesRequestBuilderNavigationMetadata: Record<Exclude<keyof Poli
     },
     defaultAppManagementPolicy: {
         requestsMetadata: DefaultAppManagementPolicyRequestBuilderRequestsMetadata,
+    },
+    deviceRegistrationPolicy: {
+        requestsMetadata: DeviceRegistrationPolicyRequestBuilderRequestsMetadata,
     },
     featureRolloutPolicies: {
         requestsMetadata: FeatureRolloutPoliciesRequestBuilderRequestsMetadata,
