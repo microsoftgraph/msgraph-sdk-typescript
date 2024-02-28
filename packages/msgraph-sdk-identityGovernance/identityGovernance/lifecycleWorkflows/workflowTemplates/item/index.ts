@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { TasksRequestBuilderNavigationMetadata, TasksRequestBuilderRequestsMetadata, type TasksRequestBuilder } from './tasks/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
  */
@@ -36,16 +38,34 @@ export interface WorkflowTemplateItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const WorkflowTemplateItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflowTemplates/{workflowTemplate%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Tasks: "tasks",
+} as const;
+/**
+ * Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Category: "category",
+    Description: "description",
+    DisplayName: "displayName",
+    ExecutionConditions: "executionConditions",
+    Tasks: "tasks",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -72,7 +92,7 @@ export const WorkflowTemplateItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkflowTemplateFromDiscriminatorValue,
         queryParametersMapper: WorkflowTemplateItemRequestBuilderGetQueryParametersMapper,
     },

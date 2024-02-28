@@ -47,7 +47,7 @@ export interface AllowedMembersRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -55,7 +55,7 @@ export interface AllowedMembersRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -63,7 +63,7 @@ export interface AllowedMembersRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -73,6 +73,9 @@ export interface AllowedMembersRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -112,10 +115,38 @@ export const AllowedMembersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConversationMemberCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AllowedMembersRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the allowedMembers property of the microsoft.graph.sharedWithChannelTeamInfo entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the allowedMembers property of the microsoft.graph.sharedWithChannelTeamInfo entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    Roles: "roles",
+    RolesDesc: "roles desc",
+    VisibleHistoryStartDateTime: "visibleHistoryStartDateTime",
+    VisibleHistoryStartDateTimeDesc: "visibleHistoryStartDateTime desc",
+} as const;
+/**
+ * Provides operations to manage the allowedMembers property of the microsoft.graph.sharedWithChannelTeamInfo entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DisplayName: "displayName",
+    Roles: "roles",
+    VisibleHistoryStartDateTime: "visibleHistoryStartDateTime",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

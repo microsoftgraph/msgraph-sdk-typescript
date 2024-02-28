@@ -122,7 +122,7 @@ export const FindMeetingTimesRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMeetingTimeSuggestionsResultFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeFindMeetingTimesPostRequestBody,

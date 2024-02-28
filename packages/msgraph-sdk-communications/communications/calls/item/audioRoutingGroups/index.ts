@@ -63,7 +63,7 @@ export interface AudioRoutingGroupsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface AudioRoutingGroupsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface AudioRoutingGroupsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface AudioRoutingGroupsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -128,7 +131,7 @@ export const AudioRoutingGroupsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAudioRoutingGroupCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AudioRoutingGroupsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,12 +141,40 @@ export const AudioRoutingGroupsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAudioRoutingGroupFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAudioRoutingGroup,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Receivers: "receivers",
+    ReceiversDesc: "receivers desc",
+    RoutingMode: "routingMode",
+    RoutingModeDesc: "routingMode desc",
+    Sources: "sources",
+    SourcesDesc: "sources desc",
+} as const;
+/**
+ * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Receivers: "receivers",
+    RoutingMode: "routingMode",
+    Sources: "sources",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

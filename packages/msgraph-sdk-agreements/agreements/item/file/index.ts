@@ -63,12 +63,14 @@ export interface FileRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -99,7 +101,7 @@ export const FileRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: FileRequestBuilderUriTemplate,
@@ -107,7 +109,7 @@ export const FileRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFileFromDiscriminatorValue,
         queryParametersMapper: FileRequestBuilderGetQueryParametersMapper,
     },
@@ -117,12 +119,33 @@ export const FileRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFileFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAgreementFile,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the file property of the microsoft.graph.agreement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Localizations: "localizations",
+} as const;
+/**
+ * Provides operations to manage the file property of the microsoft.graph.agreement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    DisplayName: "displayName",
+    FileData: "fileData",
+    FileName: "fileName",
+    IsDefault: "isDefault",
+    IsMajorVersion: "isMajorVersion",
+    Language: "language",
+    Localizations: "localizations",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

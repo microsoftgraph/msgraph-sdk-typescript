@@ -62,12 +62,14 @@ export interface ExternalActivityItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -97,7 +99,7 @@ export const ExternalActivityItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ExternalActivityItemRequestBuilderUriTemplate,
@@ -105,7 +107,7 @@ export const ExternalActivityItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExternalActivityFromDiscriminatorValue,
         queryParametersMapper: ExternalActivityItemRequestBuilderGetQueryParametersMapper,
     },
@@ -115,12 +117,28 @@ export const ExternalActivityItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExternalActivityFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeExternalActivity,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    PerformedBy: "performedBy",
+} as const;
+/**
+ * Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    StartDateTime: "startDateTime",
+    Type: "type",
+    PerformedBy: "performedBy",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -6,6 +6,8 @@ import { createWhoisHistoryRecordFromDiscriminatorValue, serializeWhoisHistoryRe
 import { HostRequestBuilderRequestsMetadata, type HostRequestBuilder } from './host/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the whoisHistoryRecords property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -62,16 +64,47 @@ export interface WhoisHistoryRecordItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const WhoisHistoryRecordItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/whoisHistoryRecords/{whoisHistoryRecord%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the whoisHistoryRecords property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Host: "host",
+} as const;
+/**
+ * Provides operations to manage the whoisHistoryRecords property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Abuse: "abuse",
+    Admin: "admin",
+    Billing: "billing",
+    DomainStatus: "domainStatus",
+    ExpirationDateTime: "expirationDateTime",
+    FirstSeenDateTime: "firstSeenDateTime",
+    LastSeenDateTime: "lastSeenDateTime",
+    LastUpdateDateTime: "lastUpdateDateTime",
+    Nameservers: "nameservers",
+    Noc: "noc",
+    RawWhoisText: "rawWhoisText",
+    Registrant: "registrant",
+    Registrar: "registrar",
+    RegistrationDateTime: "registrationDateTime",
+    Technical: "technical",
+    WhoisServer: "whoisServer",
+    Zone: "zone",
+    Host: "host",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -97,7 +130,7 @@ export const WhoisHistoryRecordItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: WhoisHistoryRecordItemRequestBuilderUriTemplate,
@@ -105,7 +138,7 @@ export const WhoisHistoryRecordItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWhoisHistoryRecordFromDiscriminatorValue,
         queryParametersMapper: WhoisHistoryRecordItemRequestBuilderGetQueryParametersMapper,
     },
@@ -115,7 +148,7 @@ export const WhoisHistoryRecordItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWhoisHistoryRecordFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWhoisHistoryRecord,

@@ -12,6 +12,8 @@ import { SquareLogoRequestBuilderRequestsMetadata, type SquareLogoRequestBuilder
 import { SquareLogoDarkRequestBuilderRequestsMetadata, type SquareLogoDarkRequestBuilder } from './squareLogoDark/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
  */
@@ -95,16 +97,58 @@ export interface OrganizationalBrandingLocalizationItemRequestBuilderGetQueryPar
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const OrganizationalBrandingLocalizationItemRequestBuilderUriTemplate = "{+baseurl}/organization/{organization%2Did}/branding/localizations/{organizationalBrandingLocalization%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    BackgroundColor: "backgroundColor",
+    BackgroundImage: "backgroundImage",
+    BackgroundImageRelativeUrl: "backgroundImageRelativeUrl",
+    BannerLogo: "bannerLogo",
+    BannerLogoRelativeUrl: "bannerLogoRelativeUrl",
+    CdnList: "cdnList",
+    CustomAccountResetCredentialsUrl: "customAccountResetCredentialsUrl",
+    CustomCannotAccessYourAccountText: "customCannotAccessYourAccountText",
+    CustomCannotAccessYourAccountUrl: "customCannotAccessYourAccountUrl",
+    CustomCSS: "customCSS",
+    CustomCSSRelativeUrl: "customCSSRelativeUrl",
+    CustomForgotMyPasswordText: "customForgotMyPasswordText",
+    CustomPrivacyAndCookiesText: "customPrivacyAndCookiesText",
+    CustomPrivacyAndCookiesUrl: "customPrivacyAndCookiesUrl",
+    CustomResetItNowText: "customResetItNowText",
+    CustomTermsOfUseText: "customTermsOfUseText",
+    CustomTermsOfUseUrl: "customTermsOfUseUrl",
+    Favicon: "favicon",
+    FaviconRelativeUrl: "faviconRelativeUrl",
+    HeaderBackgroundColor: "headerBackgroundColor",
+    HeaderLogo: "headerLogo",
+    HeaderLogoRelativeUrl: "headerLogoRelativeUrl",
+    LoginPageLayoutConfiguration: "loginPageLayoutConfiguration",
+    LoginPageTextVisibilitySettings: "loginPageTextVisibilitySettings",
+    SignInPageText: "signInPageText",
+    SquareLogo: "squareLogo",
+    SquareLogoDark: "squareLogoDark",
+    SquareLogoDarkRelativeUrl: "squareLogoDarkRelativeUrl",
+    SquareLogoRelativeUrl: "squareLogoRelativeUrl",
+    UsernameHintText: "usernameHintText",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -148,7 +192,7 @@ export const OrganizationalBrandingLocalizationItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OrganizationalBrandingLocalizationItemRequestBuilderUriTemplate,
@@ -156,7 +200,7 @@ export const OrganizationalBrandingLocalizationItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrganizationalBrandingLocalizationFromDiscriminatorValue,
         queryParametersMapper: OrganizationalBrandingLocalizationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -166,7 +210,7 @@ export const OrganizationalBrandingLocalizationItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrganizationalBrandingLocalizationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOrganizationalBrandingLocalization,

@@ -56,11 +56,11 @@ export interface AcceptedSendersRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -70,6 +70,8 @@ export interface AcceptedSendersRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -110,10 +112,26 @@ export const AcceptedSendersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryObjectCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AcceptedSendersRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the acceptedSenders property of the microsoft.graph.group entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DeletedDateTime: "deletedDateTime",
+    DeletedDateTimeDesc: "deletedDateTime desc",
+} as const;
+/**
+ * Provides operations to manage the acceptedSenders property of the microsoft.graph.group entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

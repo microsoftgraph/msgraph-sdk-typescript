@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { PlannerTaskItemRequestBuilderNavigationMetadata, PlannerTaskItemRequestBuilderRequestsMetadata, type PlannerTaskItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.plannerPlan entity.
  */
@@ -62,7 +65,7 @@ export interface TasksRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface TasksRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface TasksRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,96 @@ export interface TasksRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const TasksRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/planner/plans/{plannerPlan%2Did}/tasks{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the tasks property of the microsoft.graph.plannerPlan entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AssignedToTaskBoardFormat: "assignedToTaskBoardFormat",
+    BucketTaskBoardFormat: "bucketTaskBoardFormat",
+    Details: "details",
+    ProgressTaskBoardFormat: "progressTaskBoardFormat",
+} as const;
+/**
+ * Provides operations to manage the tasks property of the microsoft.graph.plannerPlan entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ActiveChecklistItemCount: "activeChecklistItemCount",
+    ActiveChecklistItemCountDesc: "activeChecklistItemCount desc",
+    AppliedCategories: "appliedCategories",
+    AppliedCategoriesDesc: "appliedCategories desc",
+    AssigneePriority: "assigneePriority",
+    AssigneePriorityDesc: "assigneePriority desc",
+    Assignments: "assignments",
+    AssignmentsDesc: "assignments desc",
+    BucketId: "bucketId",
+    BucketIdDesc: "bucketId desc",
+    ChecklistItemCount: "checklistItemCount",
+    ChecklistItemCountDesc: "checklistItemCount desc",
+    CompletedBy: "completedBy",
+    CompletedByDesc: "completedBy desc",
+    CompletedDateTime: "completedDateTime",
+    CompletedDateTimeDesc: "completedDateTime desc",
+    ConversationThreadId: "conversationThreadId",
+    ConversationThreadIdDesc: "conversationThreadId desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DueDateTime: "dueDateTime",
+    DueDateTimeDesc: "dueDateTime desc",
+    HasDescription: "hasDescription",
+    HasDescriptionDesc: "hasDescription desc",
+    OrderHint: "orderHint",
+    OrderHintDesc: "orderHint desc",
+    PercentComplete: "percentComplete",
+    PercentCompleteDesc: "percentComplete desc",
+    PlanId: "planId",
+    PlanIdDesc: "planId desc",
+    PreviewType: "previewType",
+    PreviewTypeDesc: "previewType desc",
+    Priority: "priority",
+    PriorityDesc: "priority desc",
+    ReferenceCount: "referenceCount",
+    ReferenceCountDesc: "referenceCount desc",
+    StartDateTime: "startDateTime",
+    StartDateTimeDesc: "startDateTime desc",
+    Title: "title",
+    TitleDesc: "title desc",
+} as const;
+/**
+ * Provides operations to manage the tasks property of the microsoft.graph.plannerPlan entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActiveChecklistItemCount: "activeChecklistItemCount",
+    AppliedCategories: "appliedCategories",
+    AssigneePriority: "assigneePriority",
+    Assignments: "assignments",
+    BucketId: "bucketId",
+    ChecklistItemCount: "checklistItemCount",
+    CompletedBy: "completedBy",
+    CompletedDateTime: "completedDateTime",
+    ConversationThreadId: "conversationThreadId",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    DueDateTime: "dueDateTime",
+    HasDescription: "hasDescription",
+    OrderHint: "orderHint",
+    PercentComplete: "percentComplete",
+    PlanId: "planId",
+    PreviewType: "previewType",
+    Priority: "priority",
+    ReferenceCount: "referenceCount",
+    StartDateTime: "startDateTime",
+    Title: "title",
+    AssignedToTaskBoardFormat: "assignedToTaskBoardFormat",
+    BucketTaskBoardFormat: "bucketTaskBoardFormat",
+    Details: "details",
+    ProgressTaskBoardFormat: "progressTaskBoardFormat",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +221,7 @@ export const TasksRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerTaskCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TasksRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +231,7 @@ export const TasksRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerTaskFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePlannerTask,

@@ -60,12 +60,14 @@ export interface FederatedIdentityCredentialItemRequestBuilderGetQueryParameters
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -87,7 +89,7 @@ export const FederatedIdentityCredentialItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: FederatedIdentityCredentialItemRequestBuilderUriTemplate,
@@ -95,7 +97,7 @@ export const FederatedIdentityCredentialItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFederatedIdentityCredentialFromDiscriminatorValue,
         queryParametersMapper: FederatedIdentityCredentialItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,12 +107,29 @@ export const FederatedIdentityCredentialItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFederatedIdentityCredentialFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeFederatedIdentityCredential,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Audiences: "audiences",
+    Description: "description",
+    Issuer: "issuer",
+    Name: "name",
+    Subject: "subject",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -8,6 +8,9 @@ import { SynchronizationJobItemRequestBuilderNavigationMetadata, Synchronization
 import { type ValidateCredentialsRequestBuilder, ValidateCredentialsRequestBuilderRequestsMetadata } from './validateCredentials/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
  */
@@ -68,7 +71,7 @@ export interface JobsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -76,7 +79,7 @@ export interface JobsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -84,7 +87,7 @@ export interface JobsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -98,6 +101,41 @@ export interface JobsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const JobsRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    BulkUpload: "bulkUpload",
+    Schema: "schema",
+} as const;
+/**
+ * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Schedule: "schedule",
+    ScheduleDesc: "schedule desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    SynchronizationJobSettings: "synchronizationJobSettings",
+    SynchronizationJobSettingsDesc: "synchronizationJobSettings desc",
+    TemplateId: "templateId",
+    TemplateIdDesc: "templateId desc",
+} as const;
+/**
+ * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Schedule: "schedule",
+    Status: "status",
+    SynchronizationJobSettings: "synchronizationJobSettings",
+    TemplateId: "templateId",
+    BulkUpload: "bulkUpload",
+    Schema: "schema",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -137,7 +175,7 @@ export const JobsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSynchronizationJobCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: JobsRequestBuilderGetQueryParametersMapper,
     },
@@ -147,7 +185,7 @@ export const JobsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSynchronizationJobFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSynchronizationJob,

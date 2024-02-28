@@ -63,12 +63,14 @@ export interface AssignmentSettingsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -99,7 +101,7 @@ export const AssignmentSettingsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AssignmentSettingsRequestBuilderUriTemplate,
@@ -107,7 +109,7 @@ export const AssignmentSettingsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationAssignmentSettingsFromDiscriminatorValue,
         queryParametersMapper: AssignmentSettingsRequestBuilderGetQueryParametersMapper,
     },
@@ -117,12 +119,27 @@ export const AssignmentSettingsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationAssignmentSettingsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEducationAssignmentSettings,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the assignmentSettings property of the microsoft.graph.educationClass entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    GradingCategories: "gradingCategories",
+} as const;
+/**
+ * Provides operations to manage the assignmentSettings property of the microsoft.graph.educationClass entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    SubmissionAnimationDisabled: "submissionAnimationDisabled",
+    GradingCategories: "gradingCategories",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

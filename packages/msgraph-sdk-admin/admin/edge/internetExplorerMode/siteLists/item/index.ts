@@ -75,12 +75,14 @@ export interface BrowserSiteListItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -118,7 +120,7 @@ export const BrowserSiteListItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: BrowserSiteListItemRequestBuilderUriTemplate,
@@ -126,7 +128,7 @@ export const BrowserSiteListItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBrowserSiteListFromDiscriminatorValue,
         queryParametersMapper: BrowserSiteListItemRequestBuilderGetQueryParametersMapper,
     },
@@ -136,12 +138,36 @@ export const BrowserSiteListItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBrowserSiteListFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBrowserSiteList,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    SharedCookies: "sharedCookies",
+    Sites: "sites",
+} as const;
+/**
+ * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    PublishedBy: "publishedBy",
+    PublishedDateTime: "publishedDateTime",
+    Revision: "revision",
+    Status: "status",
+    SharedCookies: "sharedCookies",
+    Sites: "sites",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

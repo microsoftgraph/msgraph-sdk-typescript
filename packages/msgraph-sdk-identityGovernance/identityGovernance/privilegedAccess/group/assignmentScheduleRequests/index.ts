@@ -70,7 +70,7 @@ export interface AssignmentScheduleRequestsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -78,7 +78,7 @@ export interface AssignmentScheduleRequestsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -86,7 +86,7 @@ export interface AssignmentScheduleRequestsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -96,6 +96,9 @@ export interface AssignmentScheduleRequestsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -139,7 +142,7 @@ export const AssignmentScheduleRequestsRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AssignmentScheduleRequestsRequestBuilderGetQueryParametersMapper,
     },
@@ -149,12 +152,84 @@ export const AssignmentScheduleRequestsRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupAssignmentScheduleRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrivilegedAccessGroupAssignmentScheduleRequest,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the assignmentScheduleRequests property of the microsoft.graph.privilegedAccessGroup entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ActivatedUsing: "activatedUsing",
+    Group: "group",
+    Principal: "principal",
+    TargetSchedule: "targetSchedule",
+} as const;
+/**
+ * Provides operations to manage the assignmentScheduleRequests property of the microsoft.graph.privilegedAccessGroup entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ApprovalId: "approvalId",
+    ApprovalIdDesc: "approvalId desc",
+    CompletedDateTime: "completedDateTime",
+    CompletedDateTimeDesc: "completedDateTime desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    CustomData: "customData",
+    CustomDataDesc: "customData desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    Action: "action",
+    ActionDesc: "action desc",
+    IsValidationOnly: "isValidationOnly",
+    IsValidationOnlyDesc: "isValidationOnly desc",
+    Justification: "justification",
+    JustificationDesc: "justification desc",
+    ScheduleInfo: "scheduleInfo",
+    ScheduleInfoDesc: "scheduleInfo desc",
+    TicketInfo: "ticketInfo",
+    TicketInfoDesc: "ticketInfo desc",
+    AccessId: "accessId",
+    AccessIdDesc: "accessId desc",
+    GroupId: "groupId",
+    GroupIdDesc: "groupId desc",
+    PrincipalId: "principalId",
+    PrincipalIdDesc: "principalId desc",
+    TargetScheduleId: "targetScheduleId",
+    TargetScheduleIdDesc: "targetScheduleId desc",
+} as const;
+/**
+ * Provides operations to manage the assignmentScheduleRequests property of the microsoft.graph.privilegedAccessGroup entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ApprovalId: "approvalId",
+    CompletedDateTime: "completedDateTime",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    CustomData: "customData",
+    Status: "status",
+    Action: "action",
+    IsValidationOnly: "isValidationOnly",
+    Justification: "justification",
+    ScheduleInfo: "scheduleInfo",
+    TicketInfo: "ticketInfo",
+    AccessId: "accessId",
+    GroupId: "groupId",
+    PrincipalId: "principalId",
+    TargetScheduleId: "targetScheduleId",
+    ActivatedUsing: "activatedUsing",
+    Group: "group",
+    Principal: "principal",
+    TargetSchedule: "targetSchedule",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

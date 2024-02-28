@@ -6,6 +6,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { OverridesRequestBuilderNavigationMetadata, OverridesRequestBuilderRequestsMetadata, type OverridesRequestBuilder } from './overrides/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the inferenceClassification property of the microsoft.graph.user entity.
  */
@@ -50,12 +51,19 @@ export interface InferenceClassificationRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const InferenceClassificationRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/inferenceClassification{?%24select}";
+/**
+ * Provides operations to manage the inferenceClassification property of the microsoft.graph.user entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Overrides: "overrides",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -81,7 +89,7 @@ export const InferenceClassificationRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInferenceClassificationFromDiscriminatorValue,
         queryParametersMapper: InferenceClassificationRequestBuilderGetQueryParametersMapper,
     },
@@ -91,7 +99,7 @@ export const InferenceClassificationRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInferenceClassificationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeInferenceClassification,

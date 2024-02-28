@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { ManagedEBookItemRequestBuilderNavigationMetadata, ManagedEBookItemRequestBuilderRequestsMetadata, type ManagedEBookItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.
  */
@@ -22,11 +25,11 @@ export interface ManagedEBooksRequestBuilder extends BaseRequestBuilder<ManagedE
      */
      byManagedEBookId(managedEBookId: string) : ManagedEBookItemRequestBuilder;
     /**
-     * List properties and relationships of the iosVppEBook objects.
+     * List properties and relationships of the managedEBook objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedEBookCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebook-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebook-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedEBooksRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedEBookCollectionResponse | undefined>;
     /**
@@ -39,7 +42,7 @@ export interface ManagedEBooksRequestBuilder extends BaseRequestBuilder<ManagedE
      */
      post(body: ManagedEBook, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedEBook | undefined>;
     /**
-     * List properties and relationships of the iosVppEBook objects.
+     * List properties and relationships of the managedEBook objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -53,7 +56,7 @@ export interface ManagedEBooksRequestBuilder extends BaseRequestBuilder<ManagedE
      toPostRequestInformation(body: ManagedEBook, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the iosVppEBook objects.
+ * List properties and relationships of the managedEBook objects.
  */
 export interface ManagedEBooksRequestBuilderGetQueryParameters {
     /**
@@ -63,7 +66,7 @@ export interface ManagedEBooksRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface ManagedEBooksRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface ManagedEBooksRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,60 @@ export interface ManagedEBooksRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const ManagedEBooksRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedEBooks{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Assignments: "assignments",
+    DeviceStates: "deviceStates",
+    InstallSummary: "installSummary",
+    UserStateSummary: "userStateSummary",
+} as const;
+/**
+ * Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    InformationUrl: "informationUrl",
+    InformationUrlDesc: "informationUrl desc",
+    LargeCover: "largeCover",
+    LargeCoverDesc: "largeCover desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    PrivacyInformationUrl: "privacyInformationUrl",
+    PrivacyInformationUrlDesc: "privacyInformationUrl desc",
+    PublishedDateTime: "publishedDateTime",
+    PublishedDateTimeDesc: "publishedDateTime desc",
+    Publisher: "publisher",
+    PublisherDesc: "publisher desc",
+} as const;
+/**
+ * Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    InformationUrl: "informationUrl",
+    LargeCover: "largeCover",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    PrivacyInformationUrl: "privacyInformationUrl",
+    PublishedDateTime: "publishedDateTime",
+    Publisher: "publisher",
+    Assignments: "assignments",
+    DeviceStates: "deviceStates",
+    InstallSummary: "installSummary",
+    UserStateSummary: "userStateSummary",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +186,7 @@ export const ManagedEBooksRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedEBookCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ManagedEBooksRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +196,7 @@ export const ManagedEBooksRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedEBookFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeManagedEBook,

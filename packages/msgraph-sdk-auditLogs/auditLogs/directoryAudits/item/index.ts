@@ -58,12 +58,14 @@ export interface DirectoryAuditItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -85,7 +87,7 @@ export const DirectoryAuditItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DirectoryAuditItemRequestBuilderUriTemplate,
@@ -93,7 +95,7 @@ export const DirectoryAuditItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryAuditFromDiscriminatorValue,
         queryParametersMapper: DirectoryAuditItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,12 +105,35 @@ export const DirectoryAuditItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryAuditFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDirectoryAudit,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActivityDateTime: "activityDateTime",
+    ActivityDisplayName: "activityDisplayName",
+    AdditionalDetails: "additionalDetails",
+    Category: "category",
+    CorrelationId: "correlationId",
+    InitiatedBy: "initiatedBy",
+    LoggedByService: "loggedByService",
+    OperationType: "operationType",
+    Result: "result",
+    ResultReason: "resultReason",
+    TargetResources: "targetResources",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

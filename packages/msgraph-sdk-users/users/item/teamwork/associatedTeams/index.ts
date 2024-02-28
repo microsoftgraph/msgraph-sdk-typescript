@@ -62,7 +62,7 @@ export interface AssociatedTeamsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +70,7 @@ export interface AssociatedTeamsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +78,7 @@ export interface AssociatedTeamsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -88,6 +88,9 @@ export interface AssociatedTeamsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -128,7 +131,7 @@ export const AssociatedTeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAssociatedTeamInfoCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AssociatedTeamsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,12 +141,39 @@ export const AssociatedTeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAssociatedTeamInfoFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAssociatedTeamInfo,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Team: "team",
+} as const;
+/**
+ * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    TenantId: "tenantId",
+    TenantIdDesc: "tenantId desc",
+} as const;
+/**
+ * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DisplayName: "displayName",
+    TenantId: "tenantId",
+    Team: "team",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

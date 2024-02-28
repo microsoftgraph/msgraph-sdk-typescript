@@ -8,6 +8,8 @@ import { RelationsRequestBuilderNavigationMetadata, RelationsRequestBuilderReque
 import { SetRequestBuilderRequestsMetadata, type SetRequestBuilder } from './set/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the terms property of the microsoft.graph.termStore.set entity.
  */
@@ -75,16 +77,39 @@ export interface TermItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const TermItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore/groups/{group%2Did}/sets/{set%2Did}/terms/{term%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the terms property of the microsoft.graph.termStore.set entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Children: "children",
+    Relations: "relations",
+    Set: "set",
+} as const;
+/**
+ * Provides operations to manage the terms property of the microsoft.graph.termStore.set entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Descriptions: "descriptions",
+    Labels: "labels",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Properties: "properties",
+    Children: "children",
+    Relations: "relations",
+    Set: "set",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -118,7 +143,7 @@ export const TermItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TermItemRequestBuilderUriTemplate,
@@ -126,7 +151,7 @@ export const TermItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTermFromDiscriminatorValue,
         queryParametersMapper: TermItemRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +161,7 @@ export const TermItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTermFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTerm,

@@ -60,12 +60,14 @@ export interface AudioRoutingGroupItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -87,7 +89,7 @@ export const AudioRoutingGroupItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AudioRoutingGroupItemRequestBuilderUriTemplate,
@@ -95,7 +97,7 @@ export const AudioRoutingGroupItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAudioRoutingGroupFromDiscriminatorValue,
         queryParametersMapper: AudioRoutingGroupItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,12 +107,27 @@ export const AudioRoutingGroupItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAudioRoutingGroupFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAudioRoutingGroup,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Receivers: "receivers",
+    RoutingMode: "routingMode",
+    Sources: "sources",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

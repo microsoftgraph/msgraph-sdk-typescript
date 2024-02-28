@@ -30,6 +30,9 @@ export function deserializeIntoAsHierarchyGetResponse(asHierarchyGetResponse: Pa
         "value": n => { asHierarchyGetResponse.value = n.getCollectionOfObjectValues<EdiscoveryReviewTag>(createEdiscoveryReviewTagFromDiscriminatorValue); },
     }
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to call the asHierarchy method.
  */
@@ -59,7 +62,7 @@ export interface MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParamete
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -67,7 +70,7 @@ export interface MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParamete
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -75,7 +78,7 @@ export interface MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParamete
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -97,6 +100,44 @@ export function serializeAsHierarchyGetResponse(writer: SerializationWriter, asH
  * Uri template for the request builder.
  */
 export const MicrosoftGraphSecurityAsHierarchyRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/tags/microsoft.graph.security.asHierarchy(){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to call the asHierarchy method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ChildTags: "childTags",
+    Parent: "parent",
+} as const;
+/**
+ * Provides operations to call the asHierarchy method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    ChildSelectability: "childSelectability",
+    ChildSelectabilityDesc: "childSelectability desc",
+} as const;
+/**
+ * Provides operations to call the asHierarchy method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    ChildSelectability: "childSelectability",
+    ChildTags: "childTags",
+    Parent: "parent",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -120,7 +161,7 @@ export const MicrosoftGraphSecurityAsHierarchyRequestBuilderRequestsMetadata: Re
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAsHierarchyGetResponseFromDiscriminatorValue,
         queryParametersMapper: MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParametersMapper,
     },

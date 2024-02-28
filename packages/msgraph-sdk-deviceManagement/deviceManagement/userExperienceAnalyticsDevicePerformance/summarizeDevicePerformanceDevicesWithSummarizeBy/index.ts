@@ -23,6 +23,9 @@ export function deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByG
         "value": n => { summarizeDevicePerformanceDevicesWithSummarizeByGetResponse.value = n.getCollectionOfObjectValues<UserExperienceAnalyticsDevicePerformance>(createUserExperienceAnalyticsDevicePerformanceFromDiscriminatorValue); },
     }
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -66,7 +69,7 @@ export interface SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderG
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -74,7 +77,7 @@ export interface SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderG
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -82,7 +85,7 @@ export interface SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderG
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -96,6 +99,85 @@ export interface SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderG
  * Uri template for the request builder.
  */
 export const SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDevicePerformance/summarizeDevicePerformanceDevices(summarizeBy='{summarizeBy}'){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to call the summarizeDevicePerformanceDevices method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to call the summarizeDevicePerformanceDevices method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AverageBlueScreens: "averageBlueScreens",
+    AverageBlueScreensDesc: "averageBlueScreens desc",
+    AverageRestarts: "averageRestarts",
+    AverageRestartsDesc: "averageRestarts desc",
+    BlueScreenCount: "blueScreenCount",
+    BlueScreenCountDesc: "blueScreenCount desc",
+    BootScore: "bootScore",
+    BootScoreDesc: "bootScore desc",
+    CoreBootTimeInMs: "coreBootTimeInMs",
+    CoreBootTimeInMsDesc: "coreBootTimeInMs desc",
+    CoreLoginTimeInMs: "coreLoginTimeInMs",
+    CoreLoginTimeInMsDesc: "coreLoginTimeInMs desc",
+    DeviceCount: "deviceCount",
+    DeviceCountDesc: "deviceCount desc",
+    DeviceName: "deviceName",
+    DeviceNameDesc: "deviceName desc",
+    DiskType: "diskType",
+    DiskTypeDesc: "diskType desc",
+    GroupPolicyBootTimeInMs: "groupPolicyBootTimeInMs",
+    GroupPolicyBootTimeInMsDesc: "groupPolicyBootTimeInMs desc",
+    GroupPolicyLoginTimeInMs: "groupPolicyLoginTimeInMs",
+    GroupPolicyLoginTimeInMsDesc: "groupPolicyLoginTimeInMs desc",
+    HealthStatus: "healthStatus",
+    HealthStatusDesc: "healthStatus desc",
+    LoginScore: "loginScore",
+    LoginScoreDesc: "loginScore desc",
+    Manufacturer: "manufacturer",
+    ManufacturerDesc: "manufacturer desc",
+    Model: "model",
+    ModelDesc: "model desc",
+    ModelStartupPerformanceScore: "modelStartupPerformanceScore",
+    ModelStartupPerformanceScoreDesc: "modelStartupPerformanceScore desc",
+    OperatingSystemVersion: "operatingSystemVersion",
+    OperatingSystemVersionDesc: "operatingSystemVersion desc",
+    ResponsiveDesktopTimeInMs: "responsiveDesktopTimeInMs",
+    ResponsiveDesktopTimeInMsDesc: "responsiveDesktopTimeInMs desc",
+    RestartCount: "restartCount",
+    RestartCountDesc: "restartCount desc",
+    StartupPerformanceScore: "startupPerformanceScore",
+    StartupPerformanceScoreDesc: "startupPerformanceScore desc",
+} as const;
+/**
+ * Provides operations to call the summarizeDevicePerformanceDevices method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AverageBlueScreens: "averageBlueScreens",
+    AverageRestarts: "averageRestarts",
+    BlueScreenCount: "blueScreenCount",
+    BootScore: "bootScore",
+    CoreBootTimeInMs: "coreBootTimeInMs",
+    CoreLoginTimeInMs: "coreLoginTimeInMs",
+    DeviceCount: "deviceCount",
+    DeviceName: "deviceName",
+    DiskType: "diskType",
+    GroupPolicyBootTimeInMs: "groupPolicyBootTimeInMs",
+    GroupPolicyLoginTimeInMs: "groupPolicyLoginTimeInMs",
+    HealthStatus: "healthStatus",
+    LoginScore: "loginScore",
+    Manufacturer: "manufacturer",
+    Model: "model",
+    ModelStartupPerformanceScore: "modelStartupPerformanceScore",
+    OperatingSystemVersion: "operatingSystemVersion",
+    ResponsiveDesktopTimeInMs: "responsiveDesktopTimeInMs",
+    RestartCount: "restartCount",
+    StartupPerformanceScore: "startupPerformanceScore",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -119,7 +201,7 @@ export const SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderReque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSummarizeDevicePerformanceDevicesWithSummarizeByGetResponseFromDiscriminatorValue,
         queryParametersMapper: SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParametersMapper,
     },

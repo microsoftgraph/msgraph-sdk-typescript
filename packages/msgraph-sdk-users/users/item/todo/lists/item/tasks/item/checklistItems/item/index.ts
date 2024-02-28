@@ -60,12 +60,14 @@ export interface ChecklistItemItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -87,7 +89,7 @@ export const ChecklistItemItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ChecklistItemItemRequestBuilderUriTemplate,
@@ -95,7 +97,7 @@ export const ChecklistItemItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChecklistItemFromDiscriminatorValue,
         queryParametersMapper: ChecklistItemItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,12 +107,28 @@ export const ChecklistItemItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChecklistItemFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeChecklistItem,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CheckedDateTime: "checkedDateTime",
+    CreatedDateTime: "createdDateTime",
+    DisplayName: "displayName",
+    IsChecked: "isChecked",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

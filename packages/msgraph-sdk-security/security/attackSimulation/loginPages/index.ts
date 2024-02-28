@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { LoginPageItemRequestBuilderRequestsMetadata, type LoginPageItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the loginPages property of the microsoft.graph.attackSimulationRoot entity.
  */
@@ -62,7 +65,7 @@ export interface LoginPagesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface LoginPagesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface LoginPagesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,55 @@ export interface LoginPagesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const LoginPagesRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/loginPages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the loginPages property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the loginPages property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Content: "content",
+    ContentDesc: "content desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    Language: "language",
+    LanguageDesc: "language desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Source: "source",
+    SourceDesc: "source desc",
+    Status: "status",
+    StatusDesc: "status desc",
+} as const;
+/**
+ * Provides operations to manage the loginPages property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Content: "content",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    Language: "language",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Source: "source",
+    Status: "status",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +179,7 @@ export const LoginPagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLoginPageCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: LoginPagesRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +189,7 @@ export const LoginPagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLoginPageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLoginPage,

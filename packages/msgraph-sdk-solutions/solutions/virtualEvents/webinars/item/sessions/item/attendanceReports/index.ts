@@ -61,7 +61,7 @@ export interface AttendanceReportsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +69,7 @@ export interface AttendanceReportsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +77,7 @@ export interface AttendanceReportsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -87,6 +87,9 @@ export interface AttendanceReportsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -127,7 +130,7 @@ export const AttendanceReportsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMeetingAttendanceReportCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AttendanceReportsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,12 +140,42 @@ export const AttendanceReportsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMeetingAttendanceReportFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMeetingAttendanceReport,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeetingBase entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AttendanceRecords: "attendanceRecords",
+} as const;
+/**
+ * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeetingBase entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    MeetingEndDateTime: "meetingEndDateTime",
+    MeetingEndDateTimeDesc: "meetingEndDateTime desc",
+    MeetingStartDateTime: "meetingStartDateTime",
+    MeetingStartDateTimeDesc: "meetingStartDateTime desc",
+    TotalParticipantCount: "totalParticipantCount",
+    TotalParticipantCountDesc: "totalParticipantCount desc",
+} as const;
+/**
+ * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeetingBase entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    MeetingEndDateTime: "meetingEndDateTime",
+    MeetingStartDateTime: "meetingStartDateTime",
+    TotalParticipantCount: "totalParticipantCount",
+    AttendanceRecords: "attendanceRecords",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

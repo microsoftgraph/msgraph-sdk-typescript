@@ -57,12 +57,14 @@ export interface CertificateBasedAuthConfigurationItemRequestBuilderGetQueryPara
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -84,7 +86,7 @@ export const CertificateBasedAuthConfigurationItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CertificateBasedAuthConfigurationItemRequestBuilderUriTemplate,
@@ -92,7 +94,7 @@ export const CertificateBasedAuthConfigurationItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCertificateBasedAuthConfigurationFromDiscriminatorValue,
         queryParametersMapper: CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,12 +104,25 @@ export const CertificateBasedAuthConfigurationItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCertificateBasedAuthConfigurationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCertificateBasedAuthConfiguration,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the collection of certificateBasedAuthConfiguration entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the collection of certificateBasedAuthConfiguration entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CertificateAuthorities: "certificateAuthorities",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { DeviceLogCollectionResponseItemRequestBuilderNavigationMetadata, DeviceLogCollectionResponseItemRequestBuilderRequestsMetadata, type DeviceLogCollectionResponseItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
  */
@@ -61,7 +64,7 @@ export interface LogCollectionRequestsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface LogCollectionRequestsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface LogCollectionRequestsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,49 @@ export interface LogCollectionRequestsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const LogCollectionRequestsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/logCollectionRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    EnrolledByUser: "enrolledByUser",
+    EnrolledByUserDesc: "enrolledByUser desc",
+    ExpirationDateTimeUTC: "expirationDateTimeUTC",
+    ExpirationDateTimeUTCDesc: "expirationDateTimeUTC desc",
+    InitiatedByUserPrincipalName: "initiatedByUserPrincipalName",
+    InitiatedByUserPrincipalNameDesc: "initiatedByUserPrincipalName desc",
+    ManagedDeviceId: "managedDeviceId",
+    ManagedDeviceIdDesc: "managedDeviceId desc",
+    ReceivedDateTimeUTC: "receivedDateTimeUTC",
+    ReceivedDateTimeUTCDesc: "receivedDateTimeUTC desc",
+    RequestedDateTimeUTC: "requestedDateTimeUTC",
+    RequestedDateTimeUTCDesc: "requestedDateTimeUTC desc",
+    SizeInKB: "sizeInKB",
+    SizeInKBDesc: "sizeInKB desc",
+    Status: "status",
+    StatusDesc: "status desc",
+} as const;
+/**
+ * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    EnrolledByUser: "enrolledByUser",
+    ExpirationDateTimeUTC: "expirationDateTimeUTC",
+    InitiatedByUserPrincipalName: "initiatedByUserPrincipalName",
+    ManagedDeviceId: "managedDeviceId",
+    ReceivedDateTimeUTC: "receivedDateTimeUTC",
+    RequestedDateTimeUTC: "requestedDateTimeUTC",
+    SizeInKB: "sizeInKB",
+    Status: "status",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +173,7 @@ export const LogCollectionRequestsRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceLogCollectionResponseCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: LogCollectionRequestsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +183,7 @@ export const LogCollectionRequestsRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceLogCollectionResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceLogCollectionResponse,

@@ -11,6 +11,8 @@ import { SharesRequestBuilderNavigationMetadata, SharesRequestBuilderRequestsMet
 import { TaskDefinitionsRequestBuilderNavigationMetadata, TaskDefinitionsRequestBuilderRequestsMetadata, type TaskDefinitionsRequestBuilder } from './taskDefinitions/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the print singleton.
  */
@@ -75,16 +77,40 @@ export interface PrintRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const PrintRequestBuilderUriTemplate = "{+baseurl}/print{?%24expand,%24select}";
+/**
+ * Provides operations to manage the print singleton.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Connectors: "connectors",
+    Operations: "operations",
+    Printers: "printers",
+    Services: "services",
+    Shares: "shares",
+    TaskDefinitions: "taskDefinitions",
+} as const;
+/**
+ * Provides operations to manage the print singleton.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Settings: "settings",
+    Connectors: "connectors",
+    Operations: "operations",
+    Printers: "printers",
+    Services: "services",
+    Shares: "shares",
+    TaskDefinitions: "taskDefinitions",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -131,7 +157,7 @@ export const PrintRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintFromDiscriminatorValue,
         queryParametersMapper: PrintRequestBuilderGetQueryParametersMapper,
     },
@@ -141,7 +167,7 @@ export const PrintRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrint,

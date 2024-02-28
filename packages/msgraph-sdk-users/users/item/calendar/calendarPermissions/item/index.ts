@@ -60,8 +60,9 @@ export interface CalendarPermissionItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -82,7 +83,7 @@ export const CalendarPermissionItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CalendarPermissionItemRequestBuilderUriTemplate,
@@ -90,7 +91,7 @@ export const CalendarPermissionItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCalendarPermissionFromDiscriminatorValue,
         queryParametersMapper: CalendarPermissionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -100,12 +101,23 @@ export const CalendarPermissionItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCalendarPermissionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCalendarPermission,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AllowedRoles: "allowedRoles",
+    EmailAddress: "emailAddress",
+    IsInsideOrganization: "isInsideOrganization",
+    IsRemovable: "isRemovable",
+    Role: "role",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

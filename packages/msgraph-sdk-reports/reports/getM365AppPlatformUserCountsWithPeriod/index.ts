@@ -36,7 +36,7 @@ export const GetM365AppPlatformUserCountsWithPeriodRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendPrimitiveAsync",
+        adapterMethodName: "sendPrimitive",
         responseBodyFactory:  "ArrayBuffer",
     },
 };

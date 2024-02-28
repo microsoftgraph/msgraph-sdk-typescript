@@ -63,7 +63,7 @@ export interface DeviceCompliancePolicySettingStateSummariesRequestBuilderGetQue
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface DeviceCompliancePolicySettingStateSummariesRequestBuilderGetQue
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface DeviceCompliancePolicySettingStateSummariesRequestBuilderGetQue
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface DeviceCompliancePolicySettingStateSummariesRequestBuilderGetQue
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -129,7 +132,7 @@ export const DeviceCompliancePolicySettingStateSummariesRequestBuilderRequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceCompliancePolicySettingStateSummaryCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DeviceCompliancePolicySettingStateSummariesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,12 +142,63 @@ export const DeviceCompliancePolicySettingStateSummariesRequestBuilderRequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceCompliancePolicySettingStateSummaryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceCompliancePolicySettingStateSummary,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    DeviceComplianceSettingStates: "deviceComplianceSettingStates",
+} as const;
+/**
+ * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CompliantDeviceCount: "compliantDeviceCount",
+    CompliantDeviceCountDesc: "compliantDeviceCount desc",
+    ConflictDeviceCount: "conflictDeviceCount",
+    ConflictDeviceCountDesc: "conflictDeviceCount desc",
+    ErrorDeviceCount: "errorDeviceCount",
+    ErrorDeviceCountDesc: "errorDeviceCount desc",
+    NonCompliantDeviceCount: "nonCompliantDeviceCount",
+    NonCompliantDeviceCountDesc: "nonCompliantDeviceCount desc",
+    NotApplicableDeviceCount: "notApplicableDeviceCount",
+    NotApplicableDeviceCountDesc: "notApplicableDeviceCount desc",
+    PlatformType: "platformType",
+    PlatformTypeDesc: "platformType desc",
+    RemediatedDeviceCount: "remediatedDeviceCount",
+    RemediatedDeviceCountDesc: "remediatedDeviceCount desc",
+    Setting: "setting",
+    SettingDesc: "setting desc",
+    SettingName: "settingName",
+    SettingNameDesc: "settingName desc",
+    UnknownDeviceCount: "unknownDeviceCount",
+    UnknownDeviceCountDesc: "unknownDeviceCount desc",
+} as const;
+/**
+ * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CompliantDeviceCount: "compliantDeviceCount",
+    ConflictDeviceCount: "conflictDeviceCount",
+    ErrorDeviceCount: "errorDeviceCount",
+    NonCompliantDeviceCount: "nonCompliantDeviceCount",
+    NotApplicableDeviceCount: "notApplicableDeviceCount",
+    PlatformType: "platformType",
+    RemediatedDeviceCount: "remediatedDeviceCount",
+    Setting: "setting",
+    SettingName: "settingName",
+    UnknownDeviceCount: "unknownDeviceCount",
+    DeviceComplianceSettingStates: "deviceComplianceSettingStates",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

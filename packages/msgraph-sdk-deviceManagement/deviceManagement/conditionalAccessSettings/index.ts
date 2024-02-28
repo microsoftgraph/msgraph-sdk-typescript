@@ -59,12 +59,14 @@ export interface ConditionalAccessSettingsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -86,7 +88,7 @@ export const ConditionalAccessSettingsRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ConditionalAccessSettingsRequestBuilderUriTemplate,
@@ -94,7 +96,7 @@ export const ConditionalAccessSettingsRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnPremisesConditionalAccessSettingsFromDiscriminatorValue,
         queryParametersMapper: ConditionalAccessSettingsRequestBuilderGetQueryParametersMapper,
     },
@@ -104,12 +106,28 @@ export const ConditionalAccessSettingsRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnPremisesConditionalAccessSettingsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOnPremisesConditionalAccessSettings,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the conditionalAccessSettings property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the conditionalAccessSettings property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Enabled: "enabled",
+    ExcludedGroups: "excludedGroups",
+    IncludedGroups: "includedGroups",
+    OverrideDefaultRule: "overrideDefaultRule",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -13,6 +13,9 @@ import { type UnarchiveRequestBuilder, UnarchiveRequestBuilderRequestsMetadata }
 import { type UnfavoriteRequestBuilder, UnfavoriteRequestBuilderRequestsMetadata } from './unfavorite/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
  */
@@ -92,7 +95,7 @@ export interface MessagesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -100,7 +103,7 @@ export interface MessagesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -108,7 +111,7 @@ export interface MessagesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -122,6 +125,72 @@ export interface MessagesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const MessagesRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Attachments: "attachments",
+} as const;
+/**
+ * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Details: "details",
+    DetailsDesc: "details desc",
+    EndDateTime: "endDateTime",
+    EndDateTimeDesc: "endDateTime desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    StartDateTime: "startDateTime",
+    StartDateTimeDesc: "startDateTime desc",
+    Title: "title",
+    TitleDesc: "title desc",
+    ActionRequiredByDateTime: "actionRequiredByDateTime",
+    ActionRequiredByDateTimeDesc: "actionRequiredByDateTime desc",
+    AttachmentsArchive: "attachmentsArchive",
+    AttachmentsArchiveDesc: "attachmentsArchive desc",
+    Body: "body",
+    BodyDesc: "body desc",
+    Category: "category",
+    CategoryDesc: "category desc",
+    HasAttachments: "hasAttachments",
+    HasAttachmentsDesc: "hasAttachments desc",
+    IsMajorChange: "isMajorChange",
+    IsMajorChangeDesc: "isMajorChange desc",
+    Services: "services",
+    ServicesDesc: "services desc",
+    Severity: "severity",
+    SeverityDesc: "severity desc",
+    Tags: "tags",
+    TagsDesc: "tags desc",
+    ViewPoint: "viewPoint",
+    ViewPointDesc: "viewPoint desc",
+} as const;
+/**
+ * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Details: "details",
+    EndDateTime: "endDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    StartDateTime: "startDateTime",
+    Title: "title",
+    ActionRequiredByDateTime: "actionRequiredByDateTime",
+    AttachmentsArchive: "attachmentsArchive",
+    Body: "body",
+    Category: "category",
+    HasAttachments: "hasAttachments",
+    IsMajorChange: "isMajorChange",
+    Services: "services",
+    Severity: "severity",
+    Tags: "tags",
+    ViewPoint: "viewPoint",
+    Attachments: "attachments",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -176,7 +245,7 @@ export const MessagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServiceUpdateMessageCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MessagesRequestBuilderGetQueryParametersMapper,
     },
@@ -186,7 +255,7 @@ export const MessagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServiceUpdateMessageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeServiceUpdateMessage,

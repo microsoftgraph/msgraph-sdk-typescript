@@ -5,6 +5,8 @@ import { createUserExperienceAnalyticsDeviceStartupProcessFromDiscriminatorValue
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcesses property of the microsoft.graph.deviceManagement entity.
  */
@@ -57,16 +59,33 @@ export interface UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderGe
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceStartupProcesses/{userExperienceAnalyticsDeviceStartupProcess%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcesses property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcesses property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ManagedDeviceId: "managedDeviceId",
+    ProcessName: "processName",
+    ProductName: "productName",
+    Publisher: "publisher",
+    StartupImpactInMs: "startupImpactInMs",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -84,7 +103,7 @@ export const UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderReques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderUriTemplate,
@@ -92,7 +111,7 @@ export const UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderReques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsDeviceStartupProcessFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +121,7 @@ export const UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderReques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsDeviceStartupProcessFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsDeviceStartupProcess,

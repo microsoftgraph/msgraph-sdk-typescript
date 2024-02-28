@@ -62,7 +62,7 @@ export interface DelegatedAdminCustomersRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +70,7 @@ export interface DelegatedAdminCustomersRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +78,7 @@ export interface DelegatedAdminCustomersRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -88,6 +88,9 @@ export interface DelegatedAdminCustomersRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -128,7 +131,7 @@ export const DelegatedAdminCustomersRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminCustomerCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DelegatedAdminCustomersRequestBuilderGetQueryParametersMapper,
     },
@@ -138,12 +141,39 @@ export const DelegatedAdminCustomersRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminCustomerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDelegatedAdminCustomer,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ServiceManagementDetails: "serviceManagementDetails",
+} as const;
+/**
+ * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    TenantId: "tenantId",
+    TenantIdDesc: "tenantId desc",
+} as const;
+/**
+ * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DisplayName: "displayName",
+    TenantId: "tenantId",
+    ServiceManagementDetails: "serviceManagementDetails",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { LearningCourseActivityItemRequestBuilderRequestsMetadata, type LearningCourseActivityItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
  */
@@ -61,7 +64,7 @@ export interface LearningCourseActivitiesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface LearningCourseActivitiesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface LearningCourseActivitiesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,46 @@ export interface LearningCourseActivitiesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const LearningCourseActivitiesRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningCourseActivities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CompletedDateTime: "completedDateTime",
+    CompletedDateTimeDesc: "completedDateTime desc",
+    CompletionPercentage: "completionPercentage",
+    CompletionPercentageDesc: "completionPercentage desc",
+    ExternalcourseActivityId: "externalcourseActivityId",
+    ExternalcourseActivityIdDesc: "externalcourseActivityId desc",
+    LearnerUserId: "learnerUserId",
+    LearnerUserIdDesc: "learnerUserId desc",
+    LearningContentId: "learningContentId",
+    LearningContentIdDesc: "learningContentId desc",
+    LearningProviderId: "learningProviderId",
+    LearningProviderIdDesc: "learningProviderId desc",
+    Status: "status",
+    StatusDesc: "status desc",
+} as const;
+/**
+ * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CompletedDateTime: "completedDateTime",
+    CompletionPercentage: "completionPercentage",
+    ExternalcourseActivityId: "externalcourseActivityId",
+    LearnerUserId: "learnerUserId",
+    LearningContentId: "learningContentId",
+    LearningProviderId: "learningProviderId",
+    Status: "status",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +169,7 @@ export const LearningCourseActivitiesRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLearningCourseActivityCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: LearningCourseActivitiesRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +179,7 @@ export const LearningCourseActivitiesRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLearningCourseActivityFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLearningCourseActivity,

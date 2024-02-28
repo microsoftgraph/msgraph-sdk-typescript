@@ -5,6 +5,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { createEdiscoveryReviewTagFromDiscriminatorValue, type EdiscoveryReviewTag } from '@microsoft/msgraph-sdk/models/security/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the parent property of the microsoft.graph.security.ediscoveryReviewTag entity.
  */
@@ -30,16 +32,37 @@ export interface ParentRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const ParentRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/tags/{ediscoveryReviewTag%2Did}/parent{?%24expand,%24select}";
+/**
+ * Provides operations to manage the parent property of the microsoft.graph.security.ediscoveryReviewTag entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ChildTags: "childTags",
+    Parent: "parent",
+} as const;
+/**
+ * Provides operations to manage the parent property of the microsoft.graph.security.ediscoveryReviewTag entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    ChildSelectability: "childSelectability",
+    ChildTags: "childTags",
+    Parent: "parent",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +80,7 @@ export const ParentRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryReviewTagFromDiscriminatorValue,
         queryParametersMapper: ParentRequestBuilderGetQueryParametersMapper,
     },

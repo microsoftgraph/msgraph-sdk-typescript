@@ -5,6 +5,8 @@ import { createSchemaExtensionFromDiscriminatorValue, serializeSchemaExtension, 
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the collection of schemaExtension entities.
  */
@@ -60,16 +62,33 @@ export interface SchemaExtensionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SchemaExtensionItemRequestBuilderUriTemplate = "{+baseurl}/schemaExtensions/{schemaExtension%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the collection of schemaExtension entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the collection of schemaExtension entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Description: "description",
+    Owner: "owner",
+    Properties: "properties",
+    Status: "status",
+    TargetTypes: "targetTypes",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -87,7 +106,7 @@ export const SchemaExtensionItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SchemaExtensionItemRequestBuilderUriTemplate,
@@ -95,7 +114,7 @@ export const SchemaExtensionItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSchemaExtensionFromDiscriminatorValue,
         queryParametersMapper: SchemaExtensionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +124,7 @@ export const SchemaExtensionItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSchemaExtensionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSchemaExtension,

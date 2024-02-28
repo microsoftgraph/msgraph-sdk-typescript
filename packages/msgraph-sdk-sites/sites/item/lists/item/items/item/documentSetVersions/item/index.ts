@@ -69,12 +69,14 @@ export interface DocumentSetVersionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -107,7 +109,7 @@ export const DocumentSetVersionItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DocumentSetVersionItemRequestBuilderUriTemplate,
@@ -115,7 +117,7 @@ export const DocumentSetVersionItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDocumentSetVersionFromDiscriminatorValue,
         queryParametersMapper: DocumentSetVersionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -125,12 +127,34 @@ export const DocumentSetVersionItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDocumentSetVersionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDocumentSetVersion,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Fields: "fields",
+} as const;
+/**
+ * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Publication: "publication",
+    Comment: "comment",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Items: "items",
+    ShouldCaptureMinorVersion: "shouldCaptureMinorVersion",
+    Fields: "fields",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

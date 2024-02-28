@@ -49,7 +49,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -57,7 +57,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -65,7 +65,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -85,6 +85,9 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaG
         "value": n => { deltaGetResponse.value = n.getCollectionOfObjectValues<MailFolder>(createMailFolderFromDiscriminatorValue); },
     }
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -120,10 +123,57 @@ export const DeltaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeltaGetResponseFromDiscriminatorValue,
         queryParametersMapper: DeltaRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ChildFolders: "childFolders",
+    MessageRules: "messageRules",
+    Messages: "messages",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ChildFolderCount: "childFolderCount",
+    ChildFolderCountDesc: "childFolderCount desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    IsHidden: "isHidden",
+    IsHiddenDesc: "isHidden desc",
+    ParentFolderId: "parentFolderId",
+    ParentFolderIdDesc: "parentFolderId desc",
+    TotalItemCount: "totalItemCount",
+    TotalItemCountDesc: "totalItemCount desc",
+    UnreadItemCount: "unreadItemCount",
+    UnreadItemCountDesc: "unreadItemCount desc",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ChildFolderCount: "childFolderCount",
+    DisplayName: "displayName",
+    IsHidden: "isHidden",
+    ParentFolderId: "parentFolderId",
+    TotalItemCount: "totalItemCount",
+    UnreadItemCount: "unreadItemCount",
+    ChildFolders: "childFolders",
+    MessageRules: "messageRules",
+    Messages: "messages",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { EducationModuleItemRequestBuilderNavigationMetadata, EducationModuleItemRequestBuilderRequestsMetadata, type EducationModuleItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the modules property of the microsoft.graph.educationClass entity.
  */
@@ -63,7 +66,7 @@ export interface ModulesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface ModulesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface ModulesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,54 @@ export interface ModulesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const ModulesRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/modules{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the modules property of the microsoft.graph.educationClass entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Resources: "resources",
+} as const;
+/**
+ * Provides operations to manage the modules property of the microsoft.graph.educationClass entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    IsPinned: "isPinned",
+    IsPinnedDesc: "isPinned desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    ResourcesFolderUrl: "resourcesFolderUrl",
+    ResourcesFolderUrlDesc: "resourcesFolderUrl desc",
+    Status: "status",
+    StatusDesc: "status desc",
+} as const;
+/**
+ * Provides operations to manage the modules property of the microsoft.graph.educationClass entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    IsPinned: "isPinned",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    ResourcesFolderUrl: "resourcesFolderUrl",
+    Status: "status",
+    Resources: "resources",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +180,7 @@ export const ModulesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationModuleCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ModulesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +190,7 @@ export const ModulesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationModuleFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEducationModule,

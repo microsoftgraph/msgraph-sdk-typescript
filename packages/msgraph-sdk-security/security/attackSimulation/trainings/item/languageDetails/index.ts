@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { TrainingLanguageDetailItemRequestBuilderRequestsMetadata, type TrainingLanguageDetailItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the languageDetails property of the microsoft.graph.training entity.
  */
@@ -61,7 +64,7 @@ export interface LanguageDetailsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface LanguageDetailsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface LanguageDetailsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,52 @@ export interface LanguageDetailsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const LanguageDetailsRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/trainings/{training%2Did}/languageDetails{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the languageDetails property of the microsoft.graph.training entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the languageDetails property of the microsoft.graph.training entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Content: "content",
+    ContentDesc: "content desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    IsDefaultLangauge: "isDefaultLangauge",
+    IsDefaultLangaugeDesc: "isDefaultLangauge desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Locale: "locale",
+    LocaleDesc: "locale desc",
+} as const;
+/**
+ * Provides operations to manage the languageDetails property of the microsoft.graph.training entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Content: "content",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    IsDefaultLangauge: "isDefaultLangauge",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Locale: "locale",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +175,7 @@ export const LanguageDetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTrainingLanguageDetailCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: LanguageDetailsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +185,7 @@ export const LanguageDetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTrainingLanguageDetailFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTrainingLanguageDetail,

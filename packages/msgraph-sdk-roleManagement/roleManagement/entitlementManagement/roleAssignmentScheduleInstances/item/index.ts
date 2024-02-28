@@ -10,6 +10,8 @@ import { PrincipalRequestBuilderRequestsMetadata, type PrincipalRequestBuilder }
 import { RoleDefinitionRequestBuilderRequestsMetadata, type RoleDefinitionRequestBuilder } from './roleDefinition/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the roleAssignmentScheduleInstances property of the microsoft.graph.rbacApplication entity.
  */
@@ -83,16 +85,48 @@ export interface UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetQuery
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstance%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the roleAssignmentScheduleInstances property of the microsoft.graph.rbacApplication entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AppScope: "appScope",
+    DirectoryScope: "directoryScope",
+    Principal: "principal",
+    RoleDefinition: "roleDefinition",
+    ActivatedUsing: "activatedUsing",
+} as const;
+/**
+ * Provides operations to manage the roleAssignmentScheduleInstances property of the microsoft.graph.rbacApplication entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AppScopeId: "appScopeId",
+    DirectoryScopeId: "directoryScopeId",
+    PrincipalId: "principalId",
+    RoleDefinitionId: "roleDefinitionId",
+    AssignmentType: "assignmentType",
+    EndDateTime: "endDateTime",
+    MemberType: "memberType",
+    RoleAssignmentOriginId: "roleAssignmentOriginId",
+    RoleAssignmentScheduleId: "roleAssignmentScheduleId",
+    StartDateTime: "startDateTime",
+    AppScope: "appScope",
+    DirectoryScope: "directoryScope",
+    Principal: "principal",
+    RoleDefinition: "roleDefinition",
+    ActivatedUsing: "activatedUsing",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -130,7 +164,7 @@ export const UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderUriTemplate,
@@ -138,7 +172,7 @@ export const UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue,
         queryParametersMapper: UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetQueryParametersMapper,
     },
@@ -148,7 +182,7 @@ export const UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUnifiedRoleAssignmentScheduleInstance,

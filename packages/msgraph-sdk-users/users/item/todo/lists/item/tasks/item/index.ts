@@ -10,6 +10,8 @@ import { ExtensionsRequestBuilderNavigationMetadata, ExtensionsRequestBuilderReq
 import { LinkedResourcesRequestBuilderNavigationMetadata, LinkedResourcesRequestBuilderRequestsMetadata, type LinkedResourcesRequestBuilder } from './linkedResources/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
  */
@@ -85,16 +87,53 @@ export interface TodoTaskItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const TodoTaskItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Attachments: "attachments",
+    AttachmentSessions: "attachmentSessions",
+    ChecklistItems: "checklistItems",
+    Extensions: "extensions",
+    LinkedResources: "linkedResources",
+} as const;
+/**
+ * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Body: "body",
+    BodyLastModifiedDateTime: "bodyLastModifiedDateTime",
+    Categories: "categories",
+    CompletedDateTime: "completedDateTime",
+    CreatedDateTime: "createdDateTime",
+    DueDateTime: "dueDateTime",
+    HasAttachments: "hasAttachments",
+    Importance: "importance",
+    IsReminderOn: "isReminderOn",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Recurrence: "recurrence",
+    ReminderDateTime: "reminderDateTime",
+    StartDateTime: "startDateTime",
+    Status: "status",
+    Title: "title",
+    Attachments: "attachments",
+    AttachmentSessions: "attachmentSessions",
+    ChecklistItems: "checklistItems",
+    Extensions: "extensions",
+    LinkedResources: "linkedResources",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -137,7 +176,7 @@ export const TodoTaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TodoTaskItemRequestBuilderUriTemplate,
@@ -145,7 +184,7 @@ export const TodoTaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTodoTaskFromDiscriminatorValue,
         queryParametersMapper: TodoTaskItemRequestBuilderGetQueryParametersMapper,
     },
@@ -155,7 +194,7 @@ export const TodoTaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTodoTaskFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTodoTask,

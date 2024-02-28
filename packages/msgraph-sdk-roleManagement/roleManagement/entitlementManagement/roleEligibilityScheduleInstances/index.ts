@@ -8,6 +8,9 @@ import { FilterByCurrentUserWithOnRequestBuilderRequestsMetadata, type FilterByC
 import { type UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder, UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderNavigationMetadata, UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderRequestsMetadata } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.
  */
@@ -69,7 +72,7 @@ export interface RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameter
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -77,7 +80,7 @@ export interface RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameter
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -85,7 +88,7 @@ export interface RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameter
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -99,6 +102,57 @@ export interface RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameter
  * Uri template for the request builder.
  */
 export const RoleEligibilityScheduleInstancesRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleEligibilityScheduleInstances{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AppScope: "appScope",
+    DirectoryScope: "directoryScope",
+    Principal: "principal",
+    RoleDefinition: "roleDefinition",
+} as const;
+/**
+ * Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AppScopeId: "appScopeId",
+    AppScopeIdDesc: "appScopeId desc",
+    DirectoryScopeId: "directoryScopeId",
+    DirectoryScopeIdDesc: "directoryScopeId desc",
+    PrincipalId: "principalId",
+    PrincipalIdDesc: "principalId desc",
+    RoleDefinitionId: "roleDefinitionId",
+    RoleDefinitionIdDesc: "roleDefinitionId desc",
+    EndDateTime: "endDateTime",
+    EndDateTimeDesc: "endDateTime desc",
+    MemberType: "memberType",
+    MemberTypeDesc: "memberType desc",
+    RoleEligibilityScheduleId: "roleEligibilityScheduleId",
+    RoleEligibilityScheduleIdDesc: "roleEligibilityScheduleId desc",
+    StartDateTime: "startDateTime",
+    StartDateTimeDesc: "startDateTime desc",
+} as const;
+/**
+ * Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AppScopeId: "appScopeId",
+    DirectoryScopeId: "directoryScopeId",
+    PrincipalId: "principalId",
+    RoleDefinitionId: "roleDefinitionId",
+    EndDateTime: "endDateTime",
+    MemberType: "memberType",
+    RoleEligibilityScheduleId: "roleEligibilityScheduleId",
+    StartDateTime: "startDateTime",
+    AppScope: "appScope",
+    DirectoryScope: "directoryScope",
+    Principal: "principal",
+    RoleDefinition: "roleDefinition",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -138,7 +192,7 @@ export const RoleEligibilityScheduleInstancesRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleEligibilityScheduleInstanceCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RoleEligibilityScheduleInstancesRequestBuilderGetQueryParametersMapper,
     },
@@ -148,7 +202,7 @@ export const RoleEligibilityScheduleInstancesRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUnifiedRoleEligibilityScheduleInstance,

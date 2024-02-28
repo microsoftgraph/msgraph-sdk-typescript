@@ -70,7 +70,7 @@ export interface DefinitionsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -78,7 +78,7 @@ export interface DefinitionsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -86,7 +86,7 @@ export interface DefinitionsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -96,6 +96,9 @@ export interface DefinitionsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -139,7 +142,7 @@ export const DefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewScheduleDefinitionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DefinitionsRequestBuilderGetQueryParametersMapper,
     },
@@ -149,12 +152,75 @@ export const DefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewScheduleDefinitionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAccessReviewScheduleDefinition,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Instances: "instances",
+} as const;
+/**
+ * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AdditionalNotificationRecipients: "additionalNotificationRecipients",
+    AdditionalNotificationRecipientsDesc: "additionalNotificationRecipients desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DescriptionForAdmins: "descriptionForAdmins",
+    DescriptionForAdminsDesc: "descriptionForAdmins desc",
+    DescriptionForReviewers: "descriptionForReviewers",
+    DescriptionForReviewersDesc: "descriptionForReviewers desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    FallbackReviewers: "fallbackReviewers",
+    FallbackReviewersDesc: "fallbackReviewers desc",
+    InstanceEnumerationScope: "instanceEnumerationScope",
+    InstanceEnumerationScopeDesc: "instanceEnumerationScope desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Reviewers: "reviewers",
+    ReviewersDesc: "reviewers desc",
+    Scope: "scope",
+    ScopeDesc: "scope desc",
+    Settings: "settings",
+    SettingsDesc: "settings desc",
+    StageSettings: "stageSettings",
+    StageSettingsDesc: "stageSettings desc",
+    Status: "status",
+    StatusDesc: "status desc",
+} as const;
+/**
+ * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AdditionalNotificationRecipients: "additionalNotificationRecipients",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    DescriptionForAdmins: "descriptionForAdmins",
+    DescriptionForReviewers: "descriptionForReviewers",
+    DisplayName: "displayName",
+    FallbackReviewers: "fallbackReviewers",
+    InstanceEnumerationScope: "instanceEnumerationScope",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Reviewers: "reviewers",
+    Scope: "scope",
+    Settings: "settings",
+    StageSettings: "stageSettings",
+    Status: "status",
+    Instances: "instances",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

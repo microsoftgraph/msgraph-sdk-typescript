@@ -65,12 +65,14 @@ export interface DeviceManagementExchangeConnectorItemRequestBuilderGetQueryPara
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -100,7 +102,7 @@ export const DeviceManagementExchangeConnectorItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DeviceManagementExchangeConnectorItemRequestBuilderUriTemplate,
@@ -108,7 +110,7 @@ export const DeviceManagementExchangeConnectorItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceManagementExchangeConnectorFromDiscriminatorValue,
         queryParametersMapper: DeviceManagementExchangeConnectorItemRequestBuilderGetQueryParametersMapper,
     },
@@ -118,12 +120,33 @@ export const DeviceManagementExchangeConnectorItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceManagementExchangeConnectorFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceManagementExchangeConnector,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ConnectorServerName: "connectorServerName",
+    ExchangeAlias: "exchangeAlias",
+    ExchangeConnectorType: "exchangeConnectorType",
+    ExchangeOrganization: "exchangeOrganization",
+    LastSyncDateTime: "lastSyncDateTime",
+    PrimarySmtpAddress: "primarySmtpAddress",
+    ServerName: "serverName",
+    Status: "status",
+    Version: "version",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { type WindowsSettingItemRequestBuilder, WindowsSettingItemRequestBuilderNavigationMetadata, WindowsSettingItemRequestBuilderRequestsMetadata } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the windows property of the microsoft.graph.userSettings entity.
  */
@@ -61,7 +64,7 @@ export interface WindowsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface WindowsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface WindowsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,36 @@ export interface WindowsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const WindowsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/windows{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the windows property of the microsoft.graph.userSettings entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Instances: "instances",
+} as const;
+/**
+ * Provides operations to manage the windows property of the microsoft.graph.userSettings entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    PayloadType: "payloadType",
+    PayloadTypeDesc: "payloadType desc",
+    SettingType: "settingType",
+    SettingTypeDesc: "settingType desc",
+    WindowsDeviceId: "windowsDeviceId",
+    WindowsDeviceIdDesc: "windowsDeviceId desc",
+} as const;
+/**
+ * Provides operations to manage the windows property of the microsoft.graph.userSettings entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    PayloadType: "payloadType",
+    SettingType: "settingType",
+    WindowsDeviceId: "windowsDeviceId",
+    Instances: "instances",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +160,7 @@ export const WindowsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsSettingCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: WindowsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +170,7 @@ export const WindowsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsSettingFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWindowsSetting,

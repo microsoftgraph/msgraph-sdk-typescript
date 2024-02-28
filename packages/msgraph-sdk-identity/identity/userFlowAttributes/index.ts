@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { IdentityUserFlowAttributeItemRequestBuilderRequestsMetadata, type IdentityUserFlowAttributeItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
  */
@@ -63,7 +66,7 @@ export interface UserFlowAttributesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface UserFlowAttributesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface UserFlowAttributesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,37 @@ export interface UserFlowAttributesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const UserFlowAttributesRequestBuilderUriTemplate = "{+baseurl}/identity/userFlowAttributes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DataType: "dataType",
+    DataTypeDesc: "dataType desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    UserFlowAttributeType: "userFlowAttributeType",
+    UserFlowAttributeTypeDesc: "userFlowAttributeType desc",
+} as const;
+/**
+ * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DataType: "dataType",
+    Description: "description",
+    DisplayName: "displayName",
+    UserFlowAttributeType: "userFlowAttributeType",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +162,7 @@ export const UserFlowAttributesRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityUserFlowAttributeCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UserFlowAttributesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +172,7 @@ export const UserFlowAttributesRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityUserFlowAttributeFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIdentityUserFlowAttribute,

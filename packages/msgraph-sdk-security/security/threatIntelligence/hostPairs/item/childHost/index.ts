@@ -30,12 +30,14 @@ export interface ChildHostRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -57,10 +59,50 @@ export const ChildHostRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostFromDiscriminatorValue,
         queryParametersMapper: ChildHostRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the childHost property of the microsoft.graph.security.hostPair entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ChildHostPairs: "childHostPairs",
+    Components: "components",
+    Cookies: "cookies",
+    HostPairs: "hostPairs",
+    ParentHostPairs: "parentHostPairs",
+    PassiveDns: "passiveDns",
+    PassiveDnsReverse: "passiveDnsReverse",
+    Ports: "ports",
+    Reputation: "reputation",
+    SslCertificates: "sslCertificates",
+    Subdomains: "subdomains",
+    Trackers: "trackers",
+    Whois: "whois",
+} as const;
+/**
+ * Provides operations to manage the childHost property of the microsoft.graph.security.hostPair entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    FirstSeenDateTime: "firstSeenDateTime",
+    LastSeenDateTime: "lastSeenDateTime",
+    ChildHostPairs: "childHostPairs",
+    Components: "components",
+    Cookies: "cookies",
+    HostPairs: "hostPairs",
+    ParentHostPairs: "parentHostPairs",
+    PassiveDns: "passiveDns",
+    PassiveDnsReverse: "passiveDnsReverse",
+    Ports: "ports",
+    Reputation: "reputation",
+    SslCertificates: "sslCertificates",
+    Subdomains: "subdomains",
+    Trackers: "trackers",
+    Whois: "whois",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

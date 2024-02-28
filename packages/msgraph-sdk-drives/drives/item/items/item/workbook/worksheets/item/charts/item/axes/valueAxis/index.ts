@@ -9,6 +9,8 @@ import { MinorGridlinesRequestBuilderNavigationMetadata, MinorGridlinesRequestBu
 import { TitleRequestBuilderNavigationMetadata, TitleRequestBuilderRequestsMetadata, type TitleRequestBuilder } from './title/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the valueAxis property of the microsoft.graph.workbookChartAxes entity.
  */
@@ -79,16 +81,40 @@ export interface ValueAxisRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const ValueAxisRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/axes/valueAxis{?%24expand,%24select}";
+/**
+ * Provides operations to manage the valueAxis property of the microsoft.graph.workbookChartAxes entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Format: "format",
+    MajorGridlines: "majorGridlines",
+    MinorGridlines: "minorGridlines",
+    Title: "title",
+} as const;
+/**
+ * Provides operations to manage the valueAxis property of the microsoft.graph.workbookChartAxes entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    MajorUnit: "majorUnit",
+    Maximum: "maximum",
+    Minimum: "minimum",
+    MinorUnit: "minorUnit",
+    Format: "format",
+    MajorGridlines: "majorGridlines",
+    MinorGridlines: "minorGridlines",
+    Title: "title",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +153,7 @@ export const ValueAxisRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ValueAxisRequestBuilderUriTemplate,
@@ -135,7 +161,7 @@ export const ValueAxisRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartAxisFromDiscriminatorValue,
         queryParametersMapper: ValueAxisRequestBuilderGetQueryParametersMapper,
     },
@@ -145,7 +171,7 @@ export const ValueAxisRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartAxisFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbookChartAxis,

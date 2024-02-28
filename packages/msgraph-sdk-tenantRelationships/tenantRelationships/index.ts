@@ -9,6 +9,8 @@ import { FindTenantInformationByDomainNameWithDomainNameRequestBuilderRequestsMe
 import { FindTenantInformationByTenantIdWithTenantIdRequestBuilderRequestsMetadata, type FindTenantInformationByTenantIdWithTenantIdRequestBuilder } from './findTenantInformationByTenantIdWithTenantId/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the tenantRelationship singleton.
  */
@@ -69,16 +71,31 @@ export interface TenantRelationshipsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const TenantRelationshipsRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships{?%24expand,%24select}";
+/**
+ * Provides operations to manage the tenantRelationship singleton.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    DelegatedAdminCustomers: "delegatedAdminCustomers",
+    DelegatedAdminRelationships: "delegatedAdminRelationships",
+} as const;
+/**
+ * Provides operations to manage the tenantRelationship singleton.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    DelegatedAdminCustomers: "delegatedAdminCustomers",
+    DelegatedAdminRelationships: "delegatedAdminRelationships",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +132,7 @@ export const TenantRelationshipsRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTenantRelationshipFromDiscriminatorValue,
         queryParametersMapper: TenantRelationshipsRequestBuilderGetQueryParametersMapper,
     },
@@ -125,7 +142,7 @@ export const TenantRelationshipsRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTenantRelationshipFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTenantRelationship,

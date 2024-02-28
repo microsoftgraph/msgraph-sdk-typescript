@@ -5,6 +5,8 @@ import { createUnifiedRoleAssignmentScheduleFromDiscriminatorValue, type Unified
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the targetSchedule property of the microsoft.graph.unifiedRoleAssignmentScheduleRequest entity.
  */
@@ -30,16 +32,49 @@ export interface TargetScheduleRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const TargetScheduleRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignmentScheduleRequests/{unifiedRoleAssignmentScheduleRequest%2Did}/targetSchedule{?%24expand,%24select}";
+/**
+ * Provides operations to manage the targetSchedule property of the microsoft.graph.unifiedRoleAssignmentScheduleRequest entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AppScope: "appScope",
+    DirectoryScope: "directoryScope",
+    Principal: "principal",
+    RoleDefinition: "roleDefinition",
+    ActivatedUsing: "activatedUsing",
+} as const;
+/**
+ * Provides operations to manage the targetSchedule property of the microsoft.graph.unifiedRoleAssignmentScheduleRequest entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AppScopeId: "appScopeId",
+    CreatedDateTime: "createdDateTime",
+    CreatedUsing: "createdUsing",
+    DirectoryScopeId: "directoryScopeId",
+    ModifiedDateTime: "modifiedDateTime",
+    PrincipalId: "principalId",
+    RoleDefinitionId: "roleDefinitionId",
+    Status: "status",
+    AssignmentType: "assignmentType",
+    MemberType: "memberType",
+    ScheduleInfo: "scheduleInfo",
+    AppScope: "appScope",
+    DirectoryScope: "directoryScope",
+    Principal: "principal",
+    RoleDefinition: "roleDefinition",
+    ActivatedUsing: "activatedUsing",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +92,7 @@ export const TargetScheduleRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleAssignmentScheduleFromDiscriminatorValue,
         queryParametersMapper: TargetScheduleRequestBuilderGetQueryParametersMapper,
     },

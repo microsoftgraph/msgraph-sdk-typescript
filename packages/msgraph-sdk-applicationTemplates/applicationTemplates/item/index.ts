@@ -36,12 +36,14 @@ export interface ApplicationTemplateItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -71,10 +73,30 @@ export const ApplicationTemplateItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createApplicationTemplateFromDiscriminatorValue,
         queryParametersMapper: ApplicationTemplateItemRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the collection of applicationTemplate entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the collection of applicationTemplate entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Categories: "categories",
+    Description: "description",
+    DisplayName: "displayName",
+    HomePageUrl: "homePageUrl",
+    LogoUrl: "logoUrl",
+    Publisher: "publisher",
+    SupportedProvisioningTypes: "supportedProvisioningTypes",
+    SupportedSingleSignOnModes: "supportedSingleSignOnModes",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

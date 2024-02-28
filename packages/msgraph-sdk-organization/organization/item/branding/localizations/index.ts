@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { OrganizationalBrandingLocalizationItemRequestBuilderNavigationMetadata, OrganizationalBrandingLocalizationItemRequestBuilderRequestsMetadata, type OrganizationalBrandingLocalizationItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
  */
@@ -63,7 +66,7 @@ export interface LocalizationsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface LocalizationsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface LocalizationsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,115 @@ export interface LocalizationsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const LocalizationsRequestBuilderUriTemplate = "{+baseurl}/organization/{organization%2Did}/branding/localizations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    BackgroundColor: "backgroundColor",
+    BackgroundColorDesc: "backgroundColor desc",
+    BackgroundImage: "backgroundImage",
+    BackgroundImageDesc: "backgroundImage desc",
+    BackgroundImageRelativeUrl: "backgroundImageRelativeUrl",
+    BackgroundImageRelativeUrlDesc: "backgroundImageRelativeUrl desc",
+    BannerLogo: "bannerLogo",
+    BannerLogoDesc: "bannerLogo desc",
+    BannerLogoRelativeUrl: "bannerLogoRelativeUrl",
+    BannerLogoRelativeUrlDesc: "bannerLogoRelativeUrl desc",
+    CdnList: "cdnList",
+    CdnListDesc: "cdnList desc",
+    CustomAccountResetCredentialsUrl: "customAccountResetCredentialsUrl",
+    CustomAccountResetCredentialsUrlDesc: "customAccountResetCredentialsUrl desc",
+    CustomCannotAccessYourAccountText: "customCannotAccessYourAccountText",
+    CustomCannotAccessYourAccountTextDesc: "customCannotAccessYourAccountText desc",
+    CustomCannotAccessYourAccountUrl: "customCannotAccessYourAccountUrl",
+    CustomCannotAccessYourAccountUrlDesc: "customCannotAccessYourAccountUrl desc",
+    CustomCSS: "customCSS",
+    CustomCSSDesc: "customCSS desc",
+    CustomCSSRelativeUrl: "customCSSRelativeUrl",
+    CustomCSSRelativeUrlDesc: "customCSSRelativeUrl desc",
+    CustomForgotMyPasswordText: "customForgotMyPasswordText",
+    CustomForgotMyPasswordTextDesc: "customForgotMyPasswordText desc",
+    CustomPrivacyAndCookiesText: "customPrivacyAndCookiesText",
+    CustomPrivacyAndCookiesTextDesc: "customPrivacyAndCookiesText desc",
+    CustomPrivacyAndCookiesUrl: "customPrivacyAndCookiesUrl",
+    CustomPrivacyAndCookiesUrlDesc: "customPrivacyAndCookiesUrl desc",
+    CustomResetItNowText: "customResetItNowText",
+    CustomResetItNowTextDesc: "customResetItNowText desc",
+    CustomTermsOfUseText: "customTermsOfUseText",
+    CustomTermsOfUseTextDesc: "customTermsOfUseText desc",
+    CustomTermsOfUseUrl: "customTermsOfUseUrl",
+    CustomTermsOfUseUrlDesc: "customTermsOfUseUrl desc",
+    Favicon: "favicon",
+    FaviconDesc: "favicon desc",
+    FaviconRelativeUrl: "faviconRelativeUrl",
+    FaviconRelativeUrlDesc: "faviconRelativeUrl desc",
+    HeaderBackgroundColor: "headerBackgroundColor",
+    HeaderBackgroundColorDesc: "headerBackgroundColor desc",
+    HeaderLogo: "headerLogo",
+    HeaderLogoDesc: "headerLogo desc",
+    HeaderLogoRelativeUrl: "headerLogoRelativeUrl",
+    HeaderLogoRelativeUrlDesc: "headerLogoRelativeUrl desc",
+    LoginPageLayoutConfiguration: "loginPageLayoutConfiguration",
+    LoginPageLayoutConfigurationDesc: "loginPageLayoutConfiguration desc",
+    LoginPageTextVisibilitySettings: "loginPageTextVisibilitySettings",
+    LoginPageTextVisibilitySettingsDesc: "loginPageTextVisibilitySettings desc",
+    SignInPageText: "signInPageText",
+    SignInPageTextDesc: "signInPageText desc",
+    SquareLogo: "squareLogo",
+    SquareLogoDesc: "squareLogo desc",
+    SquareLogoDark: "squareLogoDark",
+    SquareLogoDarkDesc: "squareLogoDark desc",
+    SquareLogoDarkRelativeUrl: "squareLogoDarkRelativeUrl",
+    SquareLogoDarkRelativeUrlDesc: "squareLogoDarkRelativeUrl desc",
+    SquareLogoRelativeUrl: "squareLogoRelativeUrl",
+    SquareLogoRelativeUrlDesc: "squareLogoRelativeUrl desc",
+    UsernameHintText: "usernameHintText",
+    UsernameHintTextDesc: "usernameHintText desc",
+} as const;
+/**
+ * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    BackgroundColor: "backgroundColor",
+    BackgroundImage: "backgroundImage",
+    BackgroundImageRelativeUrl: "backgroundImageRelativeUrl",
+    BannerLogo: "bannerLogo",
+    BannerLogoRelativeUrl: "bannerLogoRelativeUrl",
+    CdnList: "cdnList",
+    CustomAccountResetCredentialsUrl: "customAccountResetCredentialsUrl",
+    CustomCannotAccessYourAccountText: "customCannotAccessYourAccountText",
+    CustomCannotAccessYourAccountUrl: "customCannotAccessYourAccountUrl",
+    CustomCSS: "customCSS",
+    CustomCSSRelativeUrl: "customCSSRelativeUrl",
+    CustomForgotMyPasswordText: "customForgotMyPasswordText",
+    CustomPrivacyAndCookiesText: "customPrivacyAndCookiesText",
+    CustomPrivacyAndCookiesUrl: "customPrivacyAndCookiesUrl",
+    CustomResetItNowText: "customResetItNowText",
+    CustomTermsOfUseText: "customTermsOfUseText",
+    CustomTermsOfUseUrl: "customTermsOfUseUrl",
+    Favicon: "favicon",
+    FaviconRelativeUrl: "faviconRelativeUrl",
+    HeaderBackgroundColor: "headerBackgroundColor",
+    HeaderLogo: "headerLogo",
+    HeaderLogoRelativeUrl: "headerLogoRelativeUrl",
+    LoginPageLayoutConfiguration: "loginPageLayoutConfiguration",
+    LoginPageTextVisibilitySettings: "loginPageTextVisibilitySettings",
+    SignInPageText: "signInPageText",
+    SquareLogo: "squareLogo",
+    SquareLogoDark: "squareLogoDark",
+    SquareLogoDarkRelativeUrl: "squareLogoDarkRelativeUrl",
+    SquareLogoRelativeUrl: "squareLogoRelativeUrl",
+    UsernameHintText: "usernameHintText",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +241,7 @@ export const LocalizationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrganizationalBrandingLocalizationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: LocalizationsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +251,7 @@ export const LocalizationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrganizationalBrandingLocalizationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOrganizationalBrandingLocalization,

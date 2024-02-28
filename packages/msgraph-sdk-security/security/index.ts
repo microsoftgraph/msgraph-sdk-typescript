@@ -17,6 +17,8 @@ import { TriggersRequestBuilderNavigationMetadata, TriggersRequestBuilderRequest
 import { TriggerTypesRequestBuilderNavigationMetadata, TriggerTypesRequestBuilderRequestsMetadata, type TriggerTypesRequestBuilder } from './triggerTypes/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the security singleton.
  */
@@ -105,16 +107,50 @@ export interface SecurityRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SecurityRequestBuilderUriTemplate = "{+baseurl}/security{?%24expand,%24select}";
+/**
+ * Provides operations to manage the security singleton.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Alerts: "alerts",
+    Alerts_v2: "alerts_v2",
+    AttackSimulation: "attackSimulation",
+    Cases: "cases",
+    Incidents: "incidents",
+    SecureScoreControlProfiles: "secureScoreControlProfiles",
+    SecureScores: "secureScores",
+    SubjectRightsRequests: "subjectRightsRequests",
+    ThreatIntelligence: "threatIntelligence",
+    Triggers: "triggers",
+    TriggerTypes: "triggerTypes",
+} as const;
+/**
+ * Provides operations to manage the security singleton.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Alerts: "alerts",
+    Alerts_v2: "alerts_v2",
+    AttackSimulation: "attackSimulation",
+    Cases: "cases",
+    Incidents: "incidents",
+    SecureScoreControlProfiles: "secureScoreControlProfiles",
+    SecureScores: "secureScores",
+    SubjectRightsRequests: "subjectRightsRequests",
+    ThreatIntelligence: "threatIntelligence",
+    Triggers: "triggers",
+    TriggerTypes: "triggerTypes",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -184,7 +220,7 @@ export const SecurityRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecurityFromDiscriminatorValue,
         queryParametersMapper: SecurityRequestBuilderGetQueryParametersMapper,
     },
@@ -194,7 +230,7 @@ export const SecurityRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecurityFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSecurity,

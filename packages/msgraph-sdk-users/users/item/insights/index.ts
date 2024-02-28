@@ -8,6 +8,8 @@ import { TrendingRequestBuilderNavigationMetadata, TrendingRequestBuilderRequest
 import { type UsedRequestBuilder, UsedRequestBuilderNavigationMetadata, UsedRequestBuilderRequestsMetadata } from './used/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the insights property of the microsoft.graph.user entity.
  */
@@ -72,16 +74,34 @@ export interface InsightsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const InsightsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights{?%24expand,%24select}";
+/**
+ * Provides operations to manage the insights property of the microsoft.graph.user entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Shared: "shared",
+    Trending: "trending",
+    Used: "used",
+} as const;
+/**
+ * Provides operations to manage the insights property of the microsoft.graph.user entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Shared: "shared",
+    Trending: "trending",
+    Used: "used",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -116,7 +136,7 @@ export const InsightsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: InsightsRequestBuilderUriTemplate,
@@ -124,7 +144,7 @@ export const InsightsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOfficeGraphInsightsFromDiscriminatorValue,
         queryParametersMapper: InsightsRequestBuilderGetQueryParametersMapper,
     },
@@ -134,7 +154,7 @@ export const InsightsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOfficeGraphInsightsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOfficeGraphInsights,

@@ -30,12 +30,14 @@ export interface EducationClassItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -57,10 +59,52 @@ export const EducationClassItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationClassFromDiscriminatorValue,
         queryParametersMapper: EducationClassItemRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AssignmentCategories: "assignmentCategories",
+    AssignmentDefaults: "assignmentDefaults",
+    Assignments: "assignments",
+    AssignmentSettings: "assignmentSettings",
+    Group: "group",
+    Members: "members",
+    Modules: "modules",
+    Schools: "schools",
+    Teachers: "teachers",
+} as const;
+/**
+ * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ClassCode: "classCode",
+    Course: "course",
+    CreatedBy: "createdBy",
+    Description: "description",
+    DisplayName: "displayName",
+    ExternalId: "externalId",
+    ExternalName: "externalName",
+    ExternalSource: "externalSource",
+    ExternalSourceDetail: "externalSourceDetail",
+    Grade: "grade",
+    MailNickname: "mailNickname",
+    Term: "term",
+    AssignmentCategories: "assignmentCategories",
+    AssignmentDefaults: "assignmentDefaults",
+    Assignments: "assignments",
+    AssignmentSettings: "assignmentSettings",
+    Group: "group",
+    Members: "members",
+    Modules: "modules",
+    Schools: "schools",
+    Teachers: "teachers",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -67,11 +67,11 @@ export interface CalendarGroupsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -81,6 +81,8 @@ export interface CalendarGroupsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -119,7 +121,7 @@ export const CalendarGroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCalendarGroupCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: CalendarGroupsRequestBuilderGetQueryParametersMapper,
     },
@@ -129,12 +131,35 @@ export const CalendarGroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCalendarGroupFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCalendarGroup,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ChangeKey: "changeKey",
+    ChangeKeyDesc: "changeKey desc",
+    ClassId: "classId",
+    ClassIdDesc: "classId desc",
+    Name: "name",
+    NameDesc: "name desc",
+} as const;
+/**
+ * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ChangeKey: "changeKey",
+    ClassId: "classId",
+    Name: "name",
+    Calendars: "calendars",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

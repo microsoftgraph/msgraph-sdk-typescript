@@ -11,6 +11,9 @@ import { SiteItemRequestBuilderNavigationMetadata, SiteItemRequestBuilderRequest
 import { RemoveRequestBuilderRequestsMetadata, type RemoveRequestBuilder } from './remove/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the sites property of the microsoft.graph.group entity.
  */
@@ -66,7 +69,7 @@ export interface SitesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -74,7 +77,7 @@ export interface SitesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -82,7 +85,7 @@ export interface SitesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -96,6 +99,102 @@ export interface SitesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SitesRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the sites property of the microsoft.graph.group entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    CreatedByUser: "createdByUser",
+    LastModifiedByUser: "lastModifiedByUser",
+    Analytics: "analytics",
+    Columns: "columns",
+    ContentTypes: "contentTypes",
+    Drive: "drive",
+    Drives: "drives",
+    ExternalColumns: "externalColumns",
+    Items: "items",
+    Lists: "lists",
+    Onenote: "onenote",
+    Operations: "operations",
+    Permissions: "permissions",
+    Sites: "sites",
+    TermStore: "termStore",
+    TermStores: "termStores",
+} as const;
+/**
+ * Provides operations to manage the sites property of the microsoft.graph.group entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    ETag: "eTag",
+    ETagDesc: "eTag desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Name: "name",
+    NameDesc: "name desc",
+    ParentReference: "parentReference",
+    ParentReferenceDesc: "parentReference desc",
+    WebUrl: "webUrl",
+    WebUrlDesc: "webUrl desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    ErrorEscaped: "error",
+    ErrorDesc: "error desc",
+    IsPersonalSite: "isPersonalSite",
+    IsPersonalSiteDesc: "isPersonalSite desc",
+    Root: "root",
+    RootDesc: "root desc",
+    SharepointIds: "sharepointIds",
+    SharepointIdsDesc: "sharepointIds desc",
+    SiteCollection: "siteCollection",
+    SiteCollectionDesc: "siteCollection desc",
+} as const;
+/**
+ * Provides operations to manage the sites property of the microsoft.graph.group entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    ETag: "eTag",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Name: "name",
+    ParentReference: "parentReference",
+    WebUrl: "webUrl",
+    DisplayName: "displayName",
+    ErrorEscaped: "error",
+    IsPersonalSite: "isPersonalSite",
+    Root: "root",
+    SharepointIds: "sharepointIds",
+    SiteCollection: "siteCollection",
+    CreatedByUser: "createdByUser",
+    LastModifiedByUser: "lastModifiedByUser",
+    Analytics: "analytics",
+    Columns: "columns",
+    ContentTypes: "contentTypes",
+    Drive: "drive",
+    Drives: "drives",
+    ExternalColumns: "externalColumns",
+    Items: "items",
+    Lists: "lists",
+    Onenote: "onenote",
+    Operations: "operations",
+    Permissions: "permissions",
+    Sites: "sites",
+    TermStore: "termStore",
+    TermStores: "termStores",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -144,7 +243,7 @@ export const SitesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSiteCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SitesRequestBuilderGetQueryParametersMapper,
     },

@@ -9,6 +9,8 @@ import { PrincipalRequestBuilderRequestsMetadata, type PrincipalRequestBuilder }
 import { TargetScheduleRequestBuilderRequestsMetadata, type TargetScheduleRequestBuilder } from './targetSchedule/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the eligibilityScheduleRequests property of the microsoft.graph.privilegedAccessGroup entity.
  */
@@ -78,16 +80,49 @@ export interface PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuild
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/eligibilityScheduleRequests/{privilegedAccessGroupEligibilityScheduleRequest%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the eligibilityScheduleRequests property of the microsoft.graph.privilegedAccessGroup entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Group: "group",
+    Principal: "principal",
+    TargetSchedule: "targetSchedule",
+} as const;
+/**
+ * Provides operations to manage the eligibilityScheduleRequests property of the microsoft.graph.privilegedAccessGroup entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ApprovalId: "approvalId",
+    CompletedDateTime: "completedDateTime",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    CustomData: "customData",
+    Status: "status",
+    Action: "action",
+    IsValidationOnly: "isValidationOnly",
+    Justification: "justification",
+    ScheduleInfo: "scheduleInfo",
+    TicketInfo: "ticketInfo",
+    AccessId: "accessId",
+    GroupId: "groupId",
+    PrincipalId: "principalId",
+    TargetScheduleId: "targetScheduleId",
+    Group: "group",
+    Principal: "principal",
+    TargetSchedule: "targetSchedule",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -123,7 +158,7 @@ export const PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderRe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderUriTemplate,
@@ -131,7 +166,7 @@ export const PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderRe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupEligibilityScheduleRequestFromDiscriminatorValue,
         queryParametersMapper: PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderGetQueryParametersMapper,
     },
@@ -141,7 +176,7 @@ export const PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderRe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupEligibilityScheduleRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrivilegedAccessGroupEligibilityScheduleRequest,

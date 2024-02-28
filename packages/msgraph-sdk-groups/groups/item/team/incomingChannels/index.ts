@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { ChannelItemRequestBuilderRequestsMetadata, type ChannelItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.
  */
@@ -47,7 +50,7 @@ export interface IncomingChannelsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -55,7 +58,7 @@ export interface IncomingChannelsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -63,7 +66,7 @@ export interface IncomingChannelsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -77,6 +80,62 @@ export interface IncomingChannelsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const IncomingChannelsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/incomingChannels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    FilesFolder: "filesFolder",
+    Members: "members",
+    Messages: "messages",
+    SharedWithTeams: "sharedWithTeams",
+    Tabs: "tabs",
+} as const;
+/**
+ * Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    Email: "email",
+    EmailDesc: "email desc",
+    IsFavoriteByDefault: "isFavoriteByDefault",
+    IsFavoriteByDefaultDesc: "isFavoriteByDefault desc",
+    MembershipType: "membershipType",
+    MembershipTypeDesc: "membershipType desc",
+    Summary: "summary",
+    SummaryDesc: "summary desc",
+    TenantId: "tenantId",
+    TenantIdDesc: "tenantId desc",
+    WebUrl: "webUrl",
+    WebUrlDesc: "webUrl desc",
+} as const;
+/**
+ * Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    Email: "email",
+    IsFavoriteByDefault: "isFavoriteByDefault",
+    MembershipType: "membershipType",
+    Summary: "summary",
+    TenantId: "tenantId",
+    WebUrl: "webUrl",
+    FilesFolder: "filesFolder",
+    Members: "members",
+    Messages: "messages",
+    SharedWithTeams: "sharedWithTeams",
+    Tabs: "tabs",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -112,7 +171,7 @@ export const IncomingChannelsRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChannelCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: IncomingChannelsRequestBuilderGetQueryParametersMapper,
     },

@@ -5,6 +5,8 @@ import { createColumnDefinitionFromDiscriminatorValue, type ColumnDefinition } f
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity.
  */
@@ -30,16 +32,61 @@ export interface SourceColumnRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SourceColumnRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}/sourceColumn{?%24expand,%24select}";
+/**
+ * Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    SourceColumn: "sourceColumn",
+} as const;
+/**
+ * Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Boolean: "boolean",
+    Calculated: "calculated",
+    Choice: "choice",
+    ColumnGroup: "columnGroup",
+    ContentApprovalStatus: "contentApprovalStatus",
+    Currency: "currency",
+    DateTime: "dateTime",
+    DefaultValue: "defaultValue",
+    Description: "description",
+    DisplayName: "displayName",
+    EnforceUniqueValues: "enforceUniqueValues",
+    Geolocation: "geolocation",
+    Hidden: "hidden",
+    HyperlinkOrPicture: "hyperlinkOrPicture",
+    Indexed: "indexed",
+    IsDeletable: "isDeletable",
+    IsReorderable: "isReorderable",
+    IsSealed: "isSealed",
+    Lookup: "lookup",
+    Name: "name",
+    Number: "number",
+    PersonOrGroup: "personOrGroup",
+    PropagateChanges: "propagateChanges",
+    ReadOnly: "readOnly",
+    Required: "required",
+    SourceContentType: "sourceContentType",
+    Term: "term",
+    Text: "text",
+    Thumbnail: "thumbnail",
+    Type: "type",
+    Validation: "validation",
+    SourceColumn: "sourceColumn",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +104,7 @@ export const SourceColumnRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createColumnDefinitionFromDiscriminatorValue,
         queryParametersMapper: SourceColumnRequestBuilderGetQueryParametersMapper,
     },

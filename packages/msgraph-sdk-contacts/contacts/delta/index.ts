@@ -48,7 +48,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -56,7 +56,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -64,7 +64,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -84,6 +84,9 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaG
         "value": n => { deltaGetResponse.value = n.getCollectionOfObjectValues<OrgContact>(createOrgContactFromDiscriminatorValue); },
     }
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -119,10 +122,85 @@ export const DeltaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeltaGetResponseFromDiscriminatorValue,
         queryParametersMapper: DeltaRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    DirectReports: "directReports",
+    Manager: "manager",
+    MemberOf: "memberOf",
+    TransitiveMemberOf: "transitiveMemberOf",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DeletedDateTime: "deletedDateTime",
+    DeletedDateTimeDesc: "deletedDateTime desc",
+    Addresses: "addresses",
+    AddressesDesc: "addresses desc",
+    CompanyName: "companyName",
+    CompanyNameDesc: "companyName desc",
+    Department: "department",
+    DepartmentDesc: "department desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    GivenName: "givenName",
+    GivenNameDesc: "givenName desc",
+    JobTitle: "jobTitle",
+    JobTitleDesc: "jobTitle desc",
+    Mail: "mail",
+    MailDesc: "mail desc",
+    MailNickname: "mailNickname",
+    MailNicknameDesc: "mailNickname desc",
+    OnPremisesLastSyncDateTime: "onPremisesLastSyncDateTime",
+    OnPremisesLastSyncDateTimeDesc: "onPremisesLastSyncDateTime desc",
+    OnPremisesProvisioningErrors: "onPremisesProvisioningErrors",
+    OnPremisesProvisioningErrorsDesc: "onPremisesProvisioningErrors desc",
+    OnPremisesSyncEnabled: "onPremisesSyncEnabled",
+    OnPremisesSyncEnabledDesc: "onPremisesSyncEnabled desc",
+    Phones: "phones",
+    PhonesDesc: "phones desc",
+    ProxyAddresses: "proxyAddresses",
+    ProxyAddressesDesc: "proxyAddresses desc",
+    ServiceProvisioningErrors: "serviceProvisioningErrors",
+    ServiceProvisioningErrorsDesc: "serviceProvisioningErrors desc",
+    Surname: "surname",
+    SurnameDesc: "surname desc",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    Addresses: "addresses",
+    CompanyName: "companyName",
+    Department: "department",
+    DisplayName: "displayName",
+    GivenName: "givenName",
+    JobTitle: "jobTitle",
+    Mail: "mail",
+    MailNickname: "mailNickname",
+    OnPremisesLastSyncDateTime: "onPremisesLastSyncDateTime",
+    OnPremisesProvisioningErrors: "onPremisesProvisioningErrors",
+    OnPremisesSyncEnabled: "onPremisesSyncEnabled",
+    Phones: "phones",
+    ProxyAddresses: "proxyAddresses",
+    ServiceProvisioningErrors: "serviceProvisioningErrors",
+    Surname: "surname",
+    DirectReports: "directReports",
+    Manager: "manager",
+    MemberOf: "memberOf",
+    TransitiveMemberOf: "transitiveMemberOf",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

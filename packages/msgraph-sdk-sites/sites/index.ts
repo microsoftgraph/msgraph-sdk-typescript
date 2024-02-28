@@ -11,6 +11,9 @@ import { SiteItemRequestBuilderNavigationMetadata, SiteItemRequestBuilderRequest
 import { RemoveRequestBuilderRequestsMetadata, type RemoveRequestBuilder } from './remove/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the collection of site entities.
  */
@@ -42,22 +45,22 @@ export interface SitesRequestBuilder extends BaseRequestBuilder<SitesRequestBuil
      */
      bySiteId(siteId: string) : SiteItemRequestBuilder;
     /**
-     * Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is createdDateTime. The search filter is a free text search that uses multiple properties when retrieving the search results.
+     * List all available [sites][] in an organization. Specific filter criteria and query options are also supported and described below: In addition, you can use a [$search][] query against the /sites collection to find sites matching given keywords.If you want to list all sites across all geographies, refer to getAllSites][]. For more guidance about building applications that use site discovery for scanning purposes, see [Best practices for discovering files and detecting changes at scale.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SiteCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/site-search?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/site-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SitesRequestBuilderGetQueryParameters> | undefined) : Promise<SiteCollectionResponse | undefined>;
     /**
-     * Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is createdDateTime. The search filter is a free text search that uses multiple properties when retrieving the search results.
+     * List all available [sites][] in an organization. Specific filter criteria and query options are also supported and described below: In addition, you can use a [$search][] query against the /sites collection to find sites matching given keywords.If you want to list all sites across all geographies, refer to getAllSites][]. For more guidance about building applications that use site discovery for scanning purposes, see [Best practices for discovering files and detecting changes at scale.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SitesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is createdDateTime. The search filter is a free text search that uses multiple properties when retrieving the search results.
+ * List all available [sites][] in an organization. Specific filter criteria and query options are also supported and described below: In addition, you can use a [$search][] query against the /sites collection to find sites matching given keywords.If you want to list all sites across all geographies, refer to getAllSites][]. For more guidance about building applications that use site discovery for scanning purposes, see [Best practices for discovering files and detecting changes at scale.
  */
 export interface SitesRequestBuilderGetQueryParameters {
     /**
@@ -67,7 +70,7 @@ export interface SitesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -75,7 +78,7 @@ export interface SitesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -83,7 +86,7 @@ export interface SitesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -97,6 +100,102 @@ export interface SitesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SitesRequestBuilderUriTemplate = "{+baseurl}/sites{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the collection of site entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    CreatedByUser: "createdByUser",
+    LastModifiedByUser: "lastModifiedByUser",
+    Analytics: "analytics",
+    Columns: "columns",
+    ContentTypes: "contentTypes",
+    Drive: "drive",
+    Drives: "drives",
+    ExternalColumns: "externalColumns",
+    Items: "items",
+    Lists: "lists",
+    Onenote: "onenote",
+    Operations: "operations",
+    Permissions: "permissions",
+    Sites: "sites",
+    TermStore: "termStore",
+    TermStores: "termStores",
+} as const;
+/**
+ * Provides operations to manage the collection of site entities.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    ETag: "eTag",
+    ETagDesc: "eTag desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Name: "name",
+    NameDesc: "name desc",
+    ParentReference: "parentReference",
+    ParentReferenceDesc: "parentReference desc",
+    WebUrl: "webUrl",
+    WebUrlDesc: "webUrl desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    ErrorEscaped: "error",
+    ErrorDesc: "error desc",
+    IsPersonalSite: "isPersonalSite",
+    IsPersonalSiteDesc: "isPersonalSite desc",
+    Root: "root",
+    RootDesc: "root desc",
+    SharepointIds: "sharepointIds",
+    SharepointIdsDesc: "sharepointIds desc",
+    SiteCollection: "siteCollection",
+    SiteCollectionDesc: "siteCollection desc",
+} as const;
+/**
+ * Provides operations to manage the collection of site entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    ETag: "eTag",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Name: "name",
+    ParentReference: "parentReference",
+    WebUrl: "webUrl",
+    DisplayName: "displayName",
+    ErrorEscaped: "error",
+    IsPersonalSite: "isPersonalSite",
+    Root: "root",
+    SharepointIds: "sharepointIds",
+    SiteCollection: "siteCollection",
+    CreatedByUser: "createdByUser",
+    LastModifiedByUser: "lastModifiedByUser",
+    Analytics: "analytics",
+    Columns: "columns",
+    ContentTypes: "contentTypes",
+    Drive: "drive",
+    Drives: "drives",
+    ExternalColumns: "externalColumns",
+    Items: "items",
+    Lists: "lists",
+    Onenote: "onenote",
+    Operations: "operations",
+    Permissions: "permissions",
+    Sites: "sites",
+    TermStore: "termStore",
+    TermStores: "termStores",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -145,7 +244,7 @@ export const SitesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSiteCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SitesRequestBuilderGetQueryParametersMapper,
     },

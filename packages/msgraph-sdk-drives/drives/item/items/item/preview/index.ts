@@ -85,7 +85,7 @@ export const PreviewRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createItemPreviewInfoFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePreviewPostRequestBody,

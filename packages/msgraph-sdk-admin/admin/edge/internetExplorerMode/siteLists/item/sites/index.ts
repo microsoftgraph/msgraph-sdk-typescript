@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { BrowserSiteItemRequestBuilderRequestsMetadata, type BrowserSiteItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
  */
@@ -63,7 +66,7 @@ export interface SitesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface SitesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface SitesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,61 @@ export interface SitesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SitesRequestBuilderUriTemplate = "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sites{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AllowRedirect: "allowRedirect",
+    AllowRedirectDesc: "allowRedirect desc",
+    Comment: "comment",
+    CommentDesc: "comment desc",
+    CompatibilityMode: "compatibilityMode",
+    CompatibilityModeDesc: "compatibilityMode desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DeletedDateTime: "deletedDateTime",
+    DeletedDateTimeDesc: "deletedDateTime desc",
+    History: "history",
+    HistoryDesc: "history desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    MergeType: "mergeType",
+    MergeTypeDesc: "mergeType desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    TargetEnvironment: "targetEnvironment",
+    TargetEnvironmentDesc: "targetEnvironment desc",
+    WebUrl: "webUrl",
+    WebUrlDesc: "webUrl desc",
+} as const;
+/**
+ * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AllowRedirect: "allowRedirect",
+    Comment: "comment",
+    CompatibilityMode: "compatibilityMode",
+    CreatedDateTime: "createdDateTime",
+    DeletedDateTime: "deletedDateTime",
+    History: "history",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    MergeType: "mergeType",
+    Status: "status",
+    TargetEnvironment: "targetEnvironment",
+    WebUrl: "webUrl",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +186,7 @@ export const SitesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBrowserSiteCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SitesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +196,7 @@ export const SitesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBrowserSiteFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBrowserSite,

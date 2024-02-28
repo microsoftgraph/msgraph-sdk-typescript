@@ -5,6 +5,8 @@ import { createUserRegistrationDetailsFromDiscriminatorValue, serializeUserRegis
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
  */
@@ -58,16 +60,43 @@ export interface UserRegistrationDetailsItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const UserRegistrationDetailsItemRequestBuilderUriTemplate = "{+baseurl}/reports/authenticationMethods/userRegistrationDetails/{userRegistrationDetails%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    IsAdmin: "isAdmin",
+    IsMfaCapable: "isMfaCapable",
+    IsMfaRegistered: "isMfaRegistered",
+    IsPasswordlessCapable: "isPasswordlessCapable",
+    IsSsprCapable: "isSsprCapable",
+    IsSsprEnabled: "isSsprEnabled",
+    IsSsprRegistered: "isSsprRegistered",
+    IsSystemPreferredAuthenticationMethodEnabled: "isSystemPreferredAuthenticationMethodEnabled",
+    LastUpdatedDateTime: "lastUpdatedDateTime",
+    MethodsRegistered: "methodsRegistered",
+    SystemPreferredAuthenticationMethods: "systemPreferredAuthenticationMethods",
+    UserDisplayName: "userDisplayName",
+    UserPreferredMethodForSecondaryAuthentication: "userPreferredMethodForSecondaryAuthentication",
+    UserPrincipalName: "userPrincipalName",
+    UserType: "userType",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -85,7 +114,7 @@ export const UserRegistrationDetailsItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UserRegistrationDetailsItemRequestBuilderUriTemplate,
@@ -93,7 +122,7 @@ export const UserRegistrationDetailsItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserRegistrationDetailsFromDiscriminatorValue,
         queryParametersMapper: UserRegistrationDetailsItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +132,7 @@ export const UserRegistrationDetailsItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserRegistrationDetailsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserRegistrationDetails,

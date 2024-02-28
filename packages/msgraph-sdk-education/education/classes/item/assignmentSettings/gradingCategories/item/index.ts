@@ -58,12 +58,14 @@ export interface EducationGradingCategoryItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -85,7 +87,7 @@ export const EducationGradingCategoryItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: EducationGradingCategoryItemRequestBuilderUriTemplate,
@@ -93,7 +95,7 @@ export const EducationGradingCategoryItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationGradingCategoryFromDiscriminatorValue,
         queryParametersMapper: EducationGradingCategoryItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,12 +105,26 @@ export const EducationGradingCategoryItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationGradingCategoryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEducationGradingCategory,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the gradingCategories property of the microsoft.graph.educationAssignmentSettings entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the gradingCategories property of the microsoft.graph.educationAssignmentSettings entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DisplayName: "displayName",
+    PercentageWeight: "percentageWeight",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

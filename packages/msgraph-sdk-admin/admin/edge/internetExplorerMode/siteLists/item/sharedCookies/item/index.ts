@@ -60,12 +60,14 @@ export interface BrowserSharedCookieItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -87,7 +89,7 @@ export const BrowserSharedCookieItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: BrowserSharedCookieItemRequestBuilderUriTemplate,
@@ -95,7 +97,7 @@ export const BrowserSharedCookieItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBrowserSharedCookieFromDiscriminatorValue,
         queryParametersMapper: BrowserSharedCookieItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,12 +107,36 @@ export const BrowserSharedCookieItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBrowserSharedCookieFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBrowserSharedCookie,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Comment: "comment",
+    CreatedDateTime: "createdDateTime",
+    DeletedDateTime: "deletedDateTime",
+    DisplayName: "displayName",
+    History: "history",
+    HostOnly: "hostOnly",
+    HostOrDomain: "hostOrDomain",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Path: "path",
+    SourceEnvironment: "sourceEnvironment",
+    Status: "status",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

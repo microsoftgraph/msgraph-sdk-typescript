@@ -32,11 +32,11 @@ export interface AgreementItemRequestBuilder extends BaseRequestBuilder<Agreemen
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of an agreement object.
+     * Retrieve all files related to an agreement. This includes the default file and all localized files.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Agreement>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/agreement-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/agreement-list-files?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AgreementItemRequestBuilderGetQueryParameters> | undefined) : Promise<Agreement | undefined>;
     /**
@@ -55,7 +55,7 @@ export interface AgreementItemRequestBuilder extends BaseRequestBuilder<Agreemen
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of an agreement object.
+     * Retrieve all files related to an agreement. This includes the default file and all localized files.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -69,18 +69,20 @@ export interface AgreementItemRequestBuilder extends BaseRequestBuilder<Agreemen
      toPatchRequestInformation(body: Agreement, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of an agreement object.
+ * Retrieve all files related to an agreement. This includes the default file and all localized files.
  */
 export interface AgreementItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -119,7 +121,7 @@ export const AgreementItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AgreementItemRequestBuilderUriTemplate,
@@ -127,7 +129,7 @@ export const AgreementItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFromDiscriminatorValue,
         queryParametersMapper: AgreementItemRequestBuilderGetQueryParametersMapper,
     },
@@ -137,12 +139,35 @@ export const AgreementItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAgreement,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Acceptances: "acceptances",
+    File: "file",
+    Files: "files",
+} as const;
+/**
+ * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DisplayName: "displayName",
+    IsPerDeviceAcceptanceRequired: "isPerDeviceAcceptanceRequired",
+    IsViewingBeforeAcceptanceRequired: "isViewingBeforeAcceptanceRequired",
+    TermsExpiration: "termsExpiration",
+    UserReacceptRequiredFrequency: "userReacceptRequiredFrequency",
+    Acceptances: "acceptances",
+    File: "file",
+    Files: "files",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

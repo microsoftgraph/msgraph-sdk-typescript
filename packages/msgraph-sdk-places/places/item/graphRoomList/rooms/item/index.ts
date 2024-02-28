@@ -5,6 +5,8 @@ import { createRoomFromDiscriminatorValue, serializeRoom, type Room } from '@mic
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the rooms property of the microsoft.graph.roomList entity.
  */
@@ -57,16 +59,45 @@ export interface RoomItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const RoomItemRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.roomList/rooms/{room%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the rooms property of the microsoft.graph.roomList entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the rooms property of the microsoft.graph.roomList entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Address: "address",
+    DisplayName: "displayName",
+    GeoCoordinates: "geoCoordinates",
+    Phone: "phone",
+    AudioDeviceName: "audioDeviceName",
+    BookingType: "bookingType",
+    Building: "building",
+    Capacity: "capacity",
+    DisplayDeviceName: "displayDeviceName",
+    EmailAddress: "emailAddress",
+    FloorLabel: "floorLabel",
+    FloorNumber: "floorNumber",
+    IsWheelChairAccessible: "isWheelChairAccessible",
+    Label: "label",
+    Nickname: "nickname",
+    Tags: "tags",
+    VideoDeviceName: "videoDeviceName",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -84,7 +115,7 @@ export const RoomItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RoomItemRequestBuilderUriTemplate,
@@ -92,7 +123,7 @@ export const RoomItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoomFromDiscriminatorValue,
         queryParametersMapper: RoomItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +133,7 @@ export const RoomItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoomFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRoom,

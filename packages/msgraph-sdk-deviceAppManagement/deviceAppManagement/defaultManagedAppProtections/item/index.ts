@@ -70,12 +70,14 @@ export interface DefaultManagedAppProtectionItemRequestBuilderGetQueryParameters
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -109,7 +111,7 @@ export const DefaultManagedAppProtectionItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DefaultManagedAppProtectionItemRequestBuilderUriTemplate,
@@ -117,7 +119,7 @@ export const DefaultManagedAppProtectionItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDefaultManagedAppProtectionFromDiscriminatorValue,
         queryParametersMapper: DefaultManagedAppProtectionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -127,12 +129,70 @@ export const DefaultManagedAppProtectionItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDefaultManagedAppProtectionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDefaultManagedAppProtection,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Apps: "apps",
+    DeploymentSummary: "deploymentSummary",
+} as const;
+/**
+ * Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Version: "version",
+    AllowedDataStorageLocations: "allowedDataStorageLocations",
+    AllowedInboundDataTransferSources: "allowedInboundDataTransferSources",
+    AllowedOutboundClipboardSharingLevel: "allowedOutboundClipboardSharingLevel",
+    AllowedOutboundDataTransferDestinations: "allowedOutboundDataTransferDestinations",
+    ContactSyncBlocked: "contactSyncBlocked",
+    DataBackupBlocked: "dataBackupBlocked",
+    DeviceComplianceRequired: "deviceComplianceRequired",
+    DisableAppPinIfDevicePinIsSet: "disableAppPinIfDevicePinIsSet",
+    FingerprintBlocked: "fingerprintBlocked",
+    ManagedBrowser: "managedBrowser",
+    ManagedBrowserToOpenLinksRequired: "managedBrowserToOpenLinksRequired",
+    MaximumPinRetries: "maximumPinRetries",
+    MinimumPinLength: "minimumPinLength",
+    MinimumRequiredAppVersion: "minimumRequiredAppVersion",
+    MinimumRequiredOsVersion: "minimumRequiredOsVersion",
+    MinimumWarningAppVersion: "minimumWarningAppVersion",
+    MinimumWarningOsVersion: "minimumWarningOsVersion",
+    OrganizationalCredentialsRequired: "organizationalCredentialsRequired",
+    PeriodBeforePinReset: "periodBeforePinReset",
+    PeriodOfflineBeforeAccessCheck: "periodOfflineBeforeAccessCheck",
+    PeriodOfflineBeforeWipeIsEnforced: "periodOfflineBeforeWipeIsEnforced",
+    PeriodOnlineBeforeAccessCheck: "periodOnlineBeforeAccessCheck",
+    PinCharacterSet: "pinCharacterSet",
+    PinRequired: "pinRequired",
+    PrintBlocked: "printBlocked",
+    SaveAsBlocked: "saveAsBlocked",
+    SimplePinBlocked: "simplePinBlocked",
+    AppDataEncryptionType: "appDataEncryptionType",
+    CustomSettings: "customSettings",
+    DeployedAppCount: "deployedAppCount",
+    DisableAppEncryptionIfDeviceEncryptionIsEnabled: "disableAppEncryptionIfDeviceEncryptionIsEnabled",
+    EncryptAppData: "encryptAppData",
+    FaceIdBlocked: "faceIdBlocked",
+    MinimumRequiredPatchVersion: "minimumRequiredPatchVersion",
+    MinimumRequiredSdkVersion: "minimumRequiredSdkVersion",
+    MinimumWarningPatchVersion: "minimumWarningPatchVersion",
+    ScreenCaptureBlocked: "screenCaptureBlocked",
+    Apps: "apps",
+    DeploymentSummary: "deploymentSummary",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

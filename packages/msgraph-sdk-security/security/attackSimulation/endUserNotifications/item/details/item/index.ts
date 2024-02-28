@@ -57,12 +57,14 @@ export interface EndUserNotificationDetailItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -84,7 +86,7 @@ export const EndUserNotificationDetailItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: EndUserNotificationDetailItemRequestBuilderUriTemplate,
@@ -92,7 +94,7 @@ export const EndUserNotificationDetailItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEndUserNotificationDetailFromDiscriminatorValue,
         queryParametersMapper: EndUserNotificationDetailItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,12 +104,30 @@ export const EndUserNotificationDetailItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEndUserNotificationDetailFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEndUserNotificationDetail,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the details property of the microsoft.graph.endUserNotification entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the details property of the microsoft.graph.endUserNotification entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    EmailContent: "emailContent",
+    IsDefaultLangauge: "isDefaultLangauge",
+    Language: "language",
+    Locale: "locale",
+    SentFrom: "sentFrom",
+    Subject: "subject",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

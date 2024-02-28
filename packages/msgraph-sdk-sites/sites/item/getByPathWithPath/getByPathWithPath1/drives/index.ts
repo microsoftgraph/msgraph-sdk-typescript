@@ -34,7 +34,7 @@ export interface DrivesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -42,7 +42,7 @@ export interface DrivesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -50,7 +50,7 @@ export interface DrivesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -60,6 +60,9 @@ export interface DrivesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -87,10 +90,87 @@ export const DrivesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDriveCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DrivesRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the drives property of the microsoft.graph.site entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    CreatedByUser: "createdByUser",
+    LastModifiedByUser: "lastModifiedByUser",
+    Bundles: "bundles",
+    Following: "following",
+    Items: "items",
+    List: "list",
+    Root: "root",
+    Special: "special",
+} as const;
+/**
+ * Provides operations to manage the drives property of the microsoft.graph.site entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    ETag: "eTag",
+    ETagDesc: "eTag desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Name: "name",
+    NameDesc: "name desc",
+    ParentReference: "parentReference",
+    ParentReferenceDesc: "parentReference desc",
+    WebUrl: "webUrl",
+    WebUrlDesc: "webUrl desc",
+    DriveType: "driveType",
+    DriveTypeDesc: "driveType desc",
+    Owner: "owner",
+    OwnerDesc: "owner desc",
+    Quota: "quota",
+    QuotaDesc: "quota desc",
+    SharePointIds: "sharePointIds",
+    SharePointIdsDesc: "sharePointIds desc",
+    System: "system",
+    SystemDesc: "system desc",
+} as const;
+/**
+ * Provides operations to manage the drives property of the microsoft.graph.site entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    ETag: "eTag",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Name: "name",
+    ParentReference: "parentReference",
+    WebUrl: "webUrl",
+    DriveType: "driveType",
+    Owner: "owner",
+    Quota: "quota",
+    SharePointIds: "sharePointIds",
+    System: "system",
+    CreatedByUser: "createdByUser",
+    LastModifiedByUser: "lastModifiedByUser",
+    Bundles: "bundles",
+    Following: "following",
+    Items: "items",
+    List: "list",
+    Root: "root",
+    Special: "special",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

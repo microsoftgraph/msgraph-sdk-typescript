@@ -8,6 +8,9 @@ import { DeltaRequestBuilderRequestsMetadata, type DeltaRequestBuilder } from '.
 import { EducationUserItemRequestBuilderNavigationMetadata, EducationUserItemRequestBuilderRequestsMetadata, type EducationUserItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
  */
@@ -68,7 +71,7 @@ export interface UsersRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -76,7 +79,7 @@ export interface UsersRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -84,7 +87,7 @@ export interface UsersRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -98,6 +101,133 @@ export interface UsersRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const UsersRequestBuilderUriTemplate = "{+baseurl}/education/users{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Assignments: "assignments",
+    Classes: "classes",
+    Rubrics: "rubrics",
+    Schools: "schools",
+    TaughtClasses: "taughtClasses",
+    User: "user",
+} as const;
+/**
+ * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AccountEnabled: "accountEnabled",
+    AccountEnabledDesc: "accountEnabled desc",
+    AssignedLicenses: "assignedLicenses",
+    AssignedLicensesDesc: "assignedLicenses desc",
+    AssignedPlans: "assignedPlans",
+    AssignedPlansDesc: "assignedPlans desc",
+    BusinessPhones: "businessPhones",
+    BusinessPhonesDesc: "businessPhones desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    Department: "department",
+    DepartmentDesc: "department desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    ExternalSource: "externalSource",
+    ExternalSourceDesc: "externalSource desc",
+    ExternalSourceDetail: "externalSourceDetail",
+    ExternalSourceDetailDesc: "externalSourceDetail desc",
+    GivenName: "givenName",
+    GivenNameDesc: "givenName desc",
+    Mail: "mail",
+    MailDesc: "mail desc",
+    MailingAddress: "mailingAddress",
+    MailingAddressDesc: "mailingAddress desc",
+    MailNickname: "mailNickname",
+    MailNicknameDesc: "mailNickname desc",
+    MiddleName: "middleName",
+    MiddleNameDesc: "middleName desc",
+    MobilePhone: "mobilePhone",
+    MobilePhoneDesc: "mobilePhone desc",
+    OfficeLocation: "officeLocation",
+    OfficeLocationDesc: "officeLocation desc",
+    OnPremisesInfo: "onPremisesInfo",
+    OnPremisesInfoDesc: "onPremisesInfo desc",
+    PasswordPolicies: "passwordPolicies",
+    PasswordPoliciesDesc: "passwordPolicies desc",
+    PasswordProfile: "passwordProfile",
+    PasswordProfileDesc: "passwordProfile desc",
+    PreferredLanguage: "preferredLanguage",
+    PreferredLanguageDesc: "preferredLanguage desc",
+    PrimaryRole: "primaryRole",
+    PrimaryRoleDesc: "primaryRole desc",
+    ProvisionedPlans: "provisionedPlans",
+    ProvisionedPlansDesc: "provisionedPlans desc",
+    RefreshTokensValidFromDateTime: "refreshTokensValidFromDateTime",
+    RefreshTokensValidFromDateTimeDesc: "refreshTokensValidFromDateTime desc",
+    RelatedContacts: "relatedContacts",
+    RelatedContactsDesc: "relatedContacts desc",
+    ResidenceAddress: "residenceAddress",
+    ResidenceAddressDesc: "residenceAddress desc",
+    ShowInAddressList: "showInAddressList",
+    ShowInAddressListDesc: "showInAddressList desc",
+    Student: "student",
+    StudentDesc: "student desc",
+    Surname: "surname",
+    SurnameDesc: "surname desc",
+    Teacher: "teacher",
+    TeacherDesc: "teacher desc",
+    UsageLocation: "usageLocation",
+    UsageLocationDesc: "usageLocation desc",
+    UserPrincipalName: "userPrincipalName",
+    UserPrincipalNameDesc: "userPrincipalName desc",
+    UserType: "userType",
+    UserTypeDesc: "userType desc",
+} as const;
+/**
+ * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AccountEnabled: "accountEnabled",
+    AssignedLicenses: "assignedLicenses",
+    AssignedPlans: "assignedPlans",
+    BusinessPhones: "businessPhones",
+    CreatedBy: "createdBy",
+    Department: "department",
+    DisplayName: "displayName",
+    ExternalSource: "externalSource",
+    ExternalSourceDetail: "externalSourceDetail",
+    GivenName: "givenName",
+    Mail: "mail",
+    MailingAddress: "mailingAddress",
+    MailNickname: "mailNickname",
+    MiddleName: "middleName",
+    MobilePhone: "mobilePhone",
+    OfficeLocation: "officeLocation",
+    OnPremisesInfo: "onPremisesInfo",
+    PasswordPolicies: "passwordPolicies",
+    PasswordProfile: "passwordProfile",
+    PreferredLanguage: "preferredLanguage",
+    PrimaryRole: "primaryRole",
+    ProvisionedPlans: "provisionedPlans",
+    RefreshTokensValidFromDateTime: "refreshTokensValidFromDateTime",
+    RelatedContacts: "relatedContacts",
+    ResidenceAddress: "residenceAddress",
+    ShowInAddressList: "showInAddressList",
+    Student: "student",
+    Surname: "surname",
+    Teacher: "teacher",
+    UsageLocation: "usageLocation",
+    UserPrincipalName: "userPrincipalName",
+    UserType: "userType",
+    Assignments: "assignments",
+    Classes: "classes",
+    Rubrics: "rubrics",
+    Schools: "schools",
+    TaughtClasses: "taughtClasses",
+    User: "user",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -137,7 +267,7 @@ export const UsersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationUserCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UsersRequestBuilderGetQueryParametersMapper,
     },
@@ -147,7 +277,7 @@ export const UsersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationUserFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEducationUser,

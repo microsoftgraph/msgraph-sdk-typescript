@@ -5,6 +5,8 @@ import { createOnenoteSectionFromDiscriminatorValue, type OnenoteSection } from 
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the parentSection property of the microsoft.graph.onenotePage entity.
  */
@@ -30,16 +32,43 @@ export interface ParentSectionRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const ParentSectionRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/onenote/notebooks/{notebook%2Did}/sections/{onenoteSection%2Did}/pages/{onenotePage%2Did}/parentSection{?%24expand,%24select}";
+/**
+ * Provides operations to manage the parentSection property of the microsoft.graph.onenotePage entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Pages: "pages",
+    ParentNotebook: "parentNotebook",
+    ParentSectionGroup: "parentSectionGroup",
+} as const;
+/**
+ * Provides operations to manage the parentSection property of the microsoft.graph.onenotePage entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Self: "self",
+    CreatedDateTime: "createdDateTime",
+    CreatedBy: "createdBy",
+    DisplayName: "displayName",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    IsDefault: "isDefault",
+    Links: "links",
+    PagesUrl: "pagesUrl",
+    Pages: "pages",
+    ParentNotebook: "parentNotebook",
+    ParentSectionGroup: "parentSectionGroup",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +86,7 @@ export const ParentSectionRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnenoteSectionFromDiscriminatorValue,
         queryParametersMapper: ParentSectionRequestBuilderGetQueryParametersMapper,
     },

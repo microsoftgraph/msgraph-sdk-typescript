@@ -5,6 +5,8 @@ import { createThreatAssessmentResultFromDiscriminatorValue, serializeThreatAsse
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.
  */
@@ -57,16 +59,31 @@ export interface ThreatAssessmentResultItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const ThreatAssessmentResultItemRequestBuilderUriTemplate = "{+baseurl}/informationProtection/threatAssessmentRequests/{threatAssessmentRequest%2Did}/results/{threatAssessmentResult%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Message: "message",
+    ResultType: "resultType",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -84,7 +101,7 @@ export const ThreatAssessmentResultItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ThreatAssessmentResultItemRequestBuilderUriTemplate,
@@ -92,7 +109,7 @@ export const ThreatAssessmentResultItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createThreatAssessmentResultFromDiscriminatorValue,
         queryParametersMapper: ThreatAssessmentResultItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +119,7 @@ export const ThreatAssessmentResultItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createThreatAssessmentResultFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeThreatAssessmentResult,

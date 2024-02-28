@@ -80,7 +80,7 @@ export const AddCopyRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createContentTypeFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAddCopyPostRequestBody,

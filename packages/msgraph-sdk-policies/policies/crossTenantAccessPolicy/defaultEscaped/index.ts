@@ -64,12 +64,14 @@ export interface DefaultRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -99,7 +101,7 @@ export const DefaultRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DefaultRequestBuilderUriTemplate,
@@ -107,7 +109,7 @@ export const DefaultRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCrossTenantAccessPolicyConfigurationDefaultFromDiscriminatorValue,
         queryParametersMapper: DefaultRequestBuilderGetQueryParametersMapper,
     },
@@ -117,12 +119,31 @@ export const DefaultRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCrossTenantAccessPolicyConfigurationDefaultFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCrossTenantAccessPolicyConfigurationDefault,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the default property of the microsoft.graph.crossTenantAccessPolicy entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the default property of the microsoft.graph.crossTenantAccessPolicy entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AutomaticUserConsentSettings: "automaticUserConsentSettings",
+    B2bCollaborationInbound: "b2bCollaborationInbound",
+    B2bCollaborationOutbound: "b2bCollaborationOutbound",
+    B2bDirectConnectInbound: "b2bDirectConnectInbound",
+    B2bDirectConnectOutbound: "b2bDirectConnectOutbound",
+    InboundTrust: "inboundTrust",
+    IsServiceDefault: "isServiceDefault",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

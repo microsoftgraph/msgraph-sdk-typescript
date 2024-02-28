@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { SegmentItemRequestBuilderRequestsMetadata, type SegmentItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
  */
@@ -61,7 +64,7 @@ export interface SegmentsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface SegmentsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface SegmentsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,43 @@ export interface SegmentsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SegmentsRequestBuilderUriTemplate = "{+baseurl}/communications/callRecords/{callRecord%2Did}/sessions/{session%2Did}/segments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Callee: "callee",
+    CalleeDesc: "callee desc",
+    Caller: "caller",
+    CallerDesc: "caller desc",
+    EndDateTime: "endDateTime",
+    EndDateTimeDesc: "endDateTime desc",
+    FailureInfo: "failureInfo",
+    FailureInfoDesc: "failureInfo desc",
+    Media: "media",
+    MediaDesc: "media desc",
+    StartDateTime: "startDateTime",
+    StartDateTimeDesc: "startDateTime desc",
+} as const;
+/**
+ * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Callee: "callee",
+    Caller: "caller",
+    EndDateTime: "endDateTime",
+    FailureInfo: "failureInfo",
+    Media: "media",
+    StartDateTime: "startDateTime",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +166,7 @@ export const SegmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSegmentCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SegmentsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +176,7 @@ export const SegmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSegmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSegment,

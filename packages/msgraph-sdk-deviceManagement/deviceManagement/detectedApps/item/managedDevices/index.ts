@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { ManagedDeviceItemRequestBuilderRequestsMetadata, type ManagedDeviceItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity.
  */
@@ -46,7 +49,7 @@ export interface ManagedDevicesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -54,7 +57,7 @@ export interface ManagedDevicesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -62,7 +65,7 @@ export interface ManagedDevicesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -76,6 +79,196 @@ export interface ManagedDevicesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const ManagedDevicesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/detectedApps/{detectedApp%2Did}/managedDevices{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    DeviceCategory: "deviceCategory",
+    DeviceCompliancePolicyStates: "deviceCompliancePolicyStates",
+    DeviceConfigurationStates: "deviceConfigurationStates",
+    LogCollectionRequests: "logCollectionRequests",
+    Users: "users",
+    WindowsProtectionState: "windowsProtectionState",
+} as const;
+/**
+ * Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ActivationLockBypassCode: "activationLockBypassCode",
+    ActivationLockBypassCodeDesc: "activationLockBypassCode desc",
+    AndroidSecurityPatchLevel: "androidSecurityPatchLevel",
+    AndroidSecurityPatchLevelDesc: "androidSecurityPatchLevel desc",
+    AzureADDeviceId: "azureADDeviceId",
+    AzureADDeviceIdDesc: "azureADDeviceId desc",
+    AzureADRegistered: "azureADRegistered",
+    AzureADRegisteredDesc: "azureADRegistered desc",
+    ComplianceGracePeriodExpirationDateTime: "complianceGracePeriodExpirationDateTime",
+    ComplianceGracePeriodExpirationDateTimeDesc: "complianceGracePeriodExpirationDateTime desc",
+    ComplianceState: "complianceState",
+    ComplianceStateDesc: "complianceState desc",
+    ConfigurationManagerClientEnabledFeatures: "configurationManagerClientEnabledFeatures",
+    ConfigurationManagerClientEnabledFeaturesDesc: "configurationManagerClientEnabledFeatures desc",
+    DeviceActionResults: "deviceActionResults",
+    DeviceActionResultsDesc: "deviceActionResults desc",
+    DeviceCategoryDisplayName: "deviceCategoryDisplayName",
+    DeviceCategoryDisplayNameDesc: "deviceCategoryDisplayName desc",
+    DeviceEnrollmentType: "deviceEnrollmentType",
+    DeviceEnrollmentTypeDesc: "deviceEnrollmentType desc",
+    DeviceHealthAttestationState: "deviceHealthAttestationState",
+    DeviceHealthAttestationStateDesc: "deviceHealthAttestationState desc",
+    DeviceName: "deviceName",
+    DeviceNameDesc: "deviceName desc",
+    DeviceRegistrationState: "deviceRegistrationState",
+    DeviceRegistrationStateDesc: "deviceRegistrationState desc",
+    EasActivated: "easActivated",
+    EasActivatedDesc: "easActivated desc",
+    EasActivationDateTime: "easActivationDateTime",
+    EasActivationDateTimeDesc: "easActivationDateTime desc",
+    EasDeviceId: "easDeviceId",
+    EasDeviceIdDesc: "easDeviceId desc",
+    EmailAddress: "emailAddress",
+    EmailAddressDesc: "emailAddress desc",
+    EnrolledDateTime: "enrolledDateTime",
+    EnrolledDateTimeDesc: "enrolledDateTime desc",
+    EthernetMacAddress: "ethernetMacAddress",
+    EthernetMacAddressDesc: "ethernetMacAddress desc",
+    ExchangeAccessState: "exchangeAccessState",
+    ExchangeAccessStateDesc: "exchangeAccessState desc",
+    ExchangeAccessStateReason: "exchangeAccessStateReason",
+    ExchangeAccessStateReasonDesc: "exchangeAccessStateReason desc",
+    ExchangeLastSuccessfulSyncDateTime: "exchangeLastSuccessfulSyncDateTime",
+    ExchangeLastSuccessfulSyncDateTimeDesc: "exchangeLastSuccessfulSyncDateTime desc",
+    FreeStorageSpaceInBytes: "freeStorageSpaceInBytes",
+    FreeStorageSpaceInBytesDesc: "freeStorageSpaceInBytes desc",
+    Iccid: "iccid",
+    IccidDesc: "iccid desc",
+    Imei: "imei",
+    ImeiDesc: "imei desc",
+    IsEncrypted: "isEncrypted",
+    IsEncryptedDesc: "isEncrypted desc",
+    IsSupervised: "isSupervised",
+    IsSupervisedDesc: "isSupervised desc",
+    JailBroken: "jailBroken",
+    JailBrokenDesc: "jailBroken desc",
+    LastSyncDateTime: "lastSyncDateTime",
+    LastSyncDateTimeDesc: "lastSyncDateTime desc",
+    ManagedDeviceName: "managedDeviceName",
+    ManagedDeviceNameDesc: "managedDeviceName desc",
+    ManagedDeviceOwnerType: "managedDeviceOwnerType",
+    ManagedDeviceOwnerTypeDesc: "managedDeviceOwnerType desc",
+    ManagementAgent: "managementAgent",
+    ManagementAgentDesc: "managementAgent desc",
+    ManagementCertificateExpirationDate: "managementCertificateExpirationDate",
+    ManagementCertificateExpirationDateDesc: "managementCertificateExpirationDate desc",
+    Manufacturer: "manufacturer",
+    ManufacturerDesc: "manufacturer desc",
+    Meid: "meid",
+    MeidDesc: "meid desc",
+    Model: "model",
+    ModelDesc: "model desc",
+    Notes: "notes",
+    NotesDesc: "notes desc",
+    OperatingSystem: "operatingSystem",
+    OperatingSystemDesc: "operatingSystem desc",
+    OsVersion: "osVersion",
+    OsVersionDesc: "osVersion desc",
+    PartnerReportedThreatState: "partnerReportedThreatState",
+    PartnerReportedThreatStateDesc: "partnerReportedThreatState desc",
+    PhoneNumber: "phoneNumber",
+    PhoneNumberDesc: "phoneNumber desc",
+    PhysicalMemoryInBytes: "physicalMemoryInBytes",
+    PhysicalMemoryInBytesDesc: "physicalMemoryInBytes desc",
+    RemoteAssistanceSessionErrorDetails: "remoteAssistanceSessionErrorDetails",
+    RemoteAssistanceSessionErrorDetailsDesc: "remoteAssistanceSessionErrorDetails desc",
+    RemoteAssistanceSessionUrl: "remoteAssistanceSessionUrl",
+    RemoteAssistanceSessionUrlDesc: "remoteAssistanceSessionUrl desc",
+    RequireUserEnrollmentApproval: "requireUserEnrollmentApproval",
+    RequireUserEnrollmentApprovalDesc: "requireUserEnrollmentApproval desc",
+    SerialNumber: "serialNumber",
+    SerialNumberDesc: "serialNumber desc",
+    SubscriberCarrier: "subscriberCarrier",
+    SubscriberCarrierDesc: "subscriberCarrier desc",
+    TotalStorageSpaceInBytes: "totalStorageSpaceInBytes",
+    TotalStorageSpaceInBytesDesc: "totalStorageSpaceInBytes desc",
+    Udid: "udid",
+    UdidDesc: "udid desc",
+    UserDisplayName: "userDisplayName",
+    UserDisplayNameDesc: "userDisplayName desc",
+    UserId: "userId",
+    UserIdDesc: "userId desc",
+    UserPrincipalName: "userPrincipalName",
+    UserPrincipalNameDesc: "userPrincipalName desc",
+    WiFiMacAddress: "wiFiMacAddress",
+    WiFiMacAddressDesc: "wiFiMacAddress desc",
+} as const;
+/**
+ * Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActivationLockBypassCode: "activationLockBypassCode",
+    AndroidSecurityPatchLevel: "androidSecurityPatchLevel",
+    AzureADDeviceId: "azureADDeviceId",
+    AzureADRegistered: "azureADRegistered",
+    ComplianceGracePeriodExpirationDateTime: "complianceGracePeriodExpirationDateTime",
+    ComplianceState: "complianceState",
+    ConfigurationManagerClientEnabledFeatures: "configurationManagerClientEnabledFeatures",
+    DeviceActionResults: "deviceActionResults",
+    DeviceCategoryDisplayName: "deviceCategoryDisplayName",
+    DeviceEnrollmentType: "deviceEnrollmentType",
+    DeviceHealthAttestationState: "deviceHealthAttestationState",
+    DeviceName: "deviceName",
+    DeviceRegistrationState: "deviceRegistrationState",
+    EasActivated: "easActivated",
+    EasActivationDateTime: "easActivationDateTime",
+    EasDeviceId: "easDeviceId",
+    EmailAddress: "emailAddress",
+    EnrolledDateTime: "enrolledDateTime",
+    EthernetMacAddress: "ethernetMacAddress",
+    ExchangeAccessState: "exchangeAccessState",
+    ExchangeAccessStateReason: "exchangeAccessStateReason",
+    ExchangeLastSuccessfulSyncDateTime: "exchangeLastSuccessfulSyncDateTime",
+    FreeStorageSpaceInBytes: "freeStorageSpaceInBytes",
+    Iccid: "iccid",
+    Imei: "imei",
+    IsEncrypted: "isEncrypted",
+    IsSupervised: "isSupervised",
+    JailBroken: "jailBroken",
+    LastSyncDateTime: "lastSyncDateTime",
+    ManagedDeviceName: "managedDeviceName",
+    ManagedDeviceOwnerType: "managedDeviceOwnerType",
+    ManagementAgent: "managementAgent",
+    ManagementCertificateExpirationDate: "managementCertificateExpirationDate",
+    Manufacturer: "manufacturer",
+    Meid: "meid",
+    Model: "model",
+    Notes: "notes",
+    OperatingSystem: "operatingSystem",
+    OsVersion: "osVersion",
+    PartnerReportedThreatState: "partnerReportedThreatState",
+    PhoneNumber: "phoneNumber",
+    PhysicalMemoryInBytes: "physicalMemoryInBytes",
+    RemoteAssistanceSessionErrorDetails: "remoteAssistanceSessionErrorDetails",
+    RemoteAssistanceSessionUrl: "remoteAssistanceSessionUrl",
+    RequireUserEnrollmentApproval: "requireUserEnrollmentApproval",
+    SerialNumber: "serialNumber",
+    SubscriberCarrier: "subscriberCarrier",
+    TotalStorageSpaceInBytes: "totalStorageSpaceInBytes",
+    Udid: "udid",
+    UserDisplayName: "userDisplayName",
+    UserId: "userId",
+    UserPrincipalName: "userPrincipalName",
+    WiFiMacAddress: "wiFiMacAddress",
+    DeviceCategory: "deviceCategory",
+    DeviceCompliancePolicyStates: "deviceCompliancePolicyStates",
+    DeviceConfigurationStates: "deviceConfigurationStates",
+    LogCollectionRequests: "logCollectionRequests",
+    Users: "users",
+    WindowsProtectionState: "windowsProtectionState",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -111,7 +304,7 @@ export const ManagedDevicesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedDeviceCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ManagedDevicesRequestBuilderGetQueryParametersMapper,
     },

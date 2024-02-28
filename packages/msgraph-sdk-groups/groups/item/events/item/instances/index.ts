@@ -8,6 +8,8 @@ import { DeltaRequestBuilderRequestsMetadata, type DeltaRequestBuilder } from '.
 import { EventItemRequestBuilderNavigationMetadata, EventItemRequestBuilderRequestsMetadata, type EventItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the instances property of the microsoft.graph.event entity.
  */
@@ -60,11 +62,11 @@ export interface InstancesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -82,6 +84,145 @@ export interface InstancesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const InstancesRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/events/{event%2Did}/instances?endDateTime={endDateTime}&startDateTime={startDateTime}{&%24count,%24filter,%24orderby,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the instances property of the microsoft.graph.event entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Categories: "categories",
+    CategoriesDesc: "categories desc",
+    ChangeKey: "changeKey",
+    ChangeKeyDesc: "changeKey desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    AllowNewTimeProposals: "allowNewTimeProposals",
+    AllowNewTimeProposalsDesc: "allowNewTimeProposals desc",
+    Attendees: "attendees",
+    AttendeesDesc: "attendees desc",
+    Body: "body",
+    BodyDesc: "body desc",
+    BodyPreview: "bodyPreview",
+    BodyPreviewDesc: "bodyPreview desc",
+    End: "end",
+    EndDesc: "end desc",
+    HasAttachments: "hasAttachments",
+    HasAttachmentsDesc: "hasAttachments desc",
+    HideAttendees: "hideAttendees",
+    HideAttendeesDesc: "hideAttendees desc",
+    ICalUId: "iCalUId",
+    ICalUIdDesc: "iCalUId desc",
+    Importance: "importance",
+    ImportanceDesc: "importance desc",
+    IsAllDay: "isAllDay",
+    IsAllDayDesc: "isAllDay desc",
+    IsCancelled: "isCancelled",
+    IsCancelledDesc: "isCancelled desc",
+    IsDraft: "isDraft",
+    IsDraftDesc: "isDraft desc",
+    IsOnlineMeeting: "isOnlineMeeting",
+    IsOnlineMeetingDesc: "isOnlineMeeting desc",
+    IsOrganizer: "isOrganizer",
+    IsOrganizerDesc: "isOrganizer desc",
+    IsReminderOn: "isReminderOn",
+    IsReminderOnDesc: "isReminderOn desc",
+    Location: "location",
+    LocationDesc: "location desc",
+    Locations: "locations",
+    LocationsDesc: "locations desc",
+    OnlineMeeting: "onlineMeeting",
+    OnlineMeetingDesc: "onlineMeeting desc",
+    OnlineMeetingProvider: "onlineMeetingProvider",
+    OnlineMeetingProviderDesc: "onlineMeetingProvider desc",
+    OnlineMeetingUrl: "onlineMeetingUrl",
+    OnlineMeetingUrlDesc: "onlineMeetingUrl desc",
+    Organizer: "organizer",
+    OrganizerDesc: "organizer desc",
+    OriginalEndTimeZone: "originalEndTimeZone",
+    OriginalEndTimeZoneDesc: "originalEndTimeZone desc",
+    OriginalStart: "originalStart",
+    OriginalStartDesc: "originalStart desc",
+    OriginalStartTimeZone: "originalStartTimeZone",
+    OriginalStartTimeZoneDesc: "originalStartTimeZone desc",
+    Recurrence: "recurrence",
+    RecurrenceDesc: "recurrence desc",
+    ReminderMinutesBeforeStart: "reminderMinutesBeforeStart",
+    ReminderMinutesBeforeStartDesc: "reminderMinutesBeforeStart desc",
+    ResponseRequested: "responseRequested",
+    ResponseRequestedDesc: "responseRequested desc",
+    ResponseStatus: "responseStatus",
+    ResponseStatusDesc: "responseStatus desc",
+    Sensitivity: "sensitivity",
+    SensitivityDesc: "sensitivity desc",
+    SeriesMasterId: "seriesMasterId",
+    SeriesMasterIdDesc: "seriesMasterId desc",
+    ShowAs: "showAs",
+    ShowAsDesc: "showAs desc",
+    Start: "start",
+    StartDesc: "start desc",
+    Subject: "subject",
+    SubjectDesc: "subject desc",
+    TransactionId: "transactionId",
+    TransactionIdDesc: "transactionId desc",
+    Type: "type",
+    TypeDesc: "type desc",
+    WebLink: "webLink",
+    WebLinkDesc: "webLink desc",
+} as const;
+/**
+ * Provides operations to manage the instances property of the microsoft.graph.event entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Categories: "categories",
+    ChangeKey: "changeKey",
+    CreatedDateTime: "createdDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    AllowNewTimeProposals: "allowNewTimeProposals",
+    Attendees: "attendees",
+    Body: "body",
+    BodyPreview: "bodyPreview",
+    End: "end",
+    HasAttachments: "hasAttachments",
+    HideAttendees: "hideAttendees",
+    ICalUId: "iCalUId",
+    Importance: "importance",
+    IsAllDay: "isAllDay",
+    IsCancelled: "isCancelled",
+    IsDraft: "isDraft",
+    IsOnlineMeeting: "isOnlineMeeting",
+    IsOrganizer: "isOrganizer",
+    IsReminderOn: "isReminderOn",
+    Location: "location",
+    Locations: "locations",
+    OnlineMeeting: "onlineMeeting",
+    OnlineMeetingProvider: "onlineMeetingProvider",
+    OnlineMeetingUrl: "onlineMeetingUrl",
+    Organizer: "organizer",
+    OriginalEndTimeZone: "originalEndTimeZone",
+    OriginalStart: "originalStart",
+    OriginalStartTimeZone: "originalStartTimeZone",
+    Recurrence: "recurrence",
+    ReminderMinutesBeforeStart: "reminderMinutesBeforeStart",
+    ResponseRequested: "responseRequested",
+    ResponseStatus: "responseStatus",
+    Sensitivity: "sensitivity",
+    SeriesMasterId: "seriesMasterId",
+    ShowAs: "showAs",
+    Start: "start",
+    Subject: "subject",
+    TransactionId: "transactionId",
+    Type: "type",
+    WebLink: "webLink",
+    Attachments: "attachments",
+    Calendar: "calendar",
+    Extensions: "extensions",
+    Instances: "instances",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -119,7 +260,7 @@ export const InstancesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEventCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: InstancesRequestBuilderGetQueryParametersMapper,
     },

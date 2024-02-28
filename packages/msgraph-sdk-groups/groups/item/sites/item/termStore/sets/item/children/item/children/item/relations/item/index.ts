@@ -8,6 +8,8 @@ import { SetRequestBuilderRequestsMetadata, type SetRequestBuilder } from './set
 import { ToTermRequestBuilderRequestsMetadata, type ToTermRequestBuilder } from './toTerm/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the relations property of the microsoft.graph.termStore.term entity.
  */
@@ -72,16 +74,35 @@ export interface RelationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const RelationItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStore/sets/{set%2Did}/children/{term%2Did}/children/{term%2Did1}/relations/{relation%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the relations property of the microsoft.graph.termStore.term entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    FromTerm: "fromTerm",
+    Set: "set",
+    ToTerm: "toTerm",
+} as const;
+/**
+ * Provides operations to manage the relations property of the microsoft.graph.termStore.term entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Relationship: "relationship",
+    FromTerm: "fromTerm",
+    Set: "set",
+    ToTerm: "toTerm",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -113,7 +134,7 @@ export const RelationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RelationItemRequestBuilderUriTemplate,
@@ -121,7 +142,7 @@ export const RelationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRelationFromDiscriminatorValue,
         queryParametersMapper: RelationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -131,7 +152,7 @@ export const RelationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRelationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRelation,

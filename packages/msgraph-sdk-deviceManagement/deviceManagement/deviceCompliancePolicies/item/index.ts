@@ -55,43 +55,43 @@ export interface DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBui
      */
     get userStatusOverview(): UserStatusOverviewRequestBuilder;
     /**
-     * Deletes a androidWorkProfileCompliancePolicy.
+     * Deletes a windows10MobileCompliancePolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10mobilecompliancepolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the iosCompliancePolicy object.
+     * Read properties and relationships of the androidWorkProfileCompliancePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-ioscompliancepolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCompliancePolicy | undefined>;
     /**
-     * Update the properties of a androidWorkProfileCompliancePolicy object.
+     * Update the properties of a windows10CompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10compliancepolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceCompliancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCompliancePolicy | undefined>;
     /**
-     * Deletes a androidWorkProfileCompliancePolicy.
+     * Deletes a windows10MobileCompliancePolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the iosCompliancePolicy object.
+     * Read properties and relationships of the androidWorkProfileCompliancePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a androidWorkProfileCompliancePolicy object.
+     * Update the properties of a windows10CompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -99,18 +99,20 @@ export interface DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBui
      toPatchRequestInformation(body: DeviceCompliancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the iosCompliancePolicy object.
+ * Read properties and relationships of the androidWorkProfileCompliancePolicy object.
  */
 export interface DeviceCompliancePolicyItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -169,7 +171,7 @@ export const DeviceCompliancePolicyItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DeviceCompliancePolicyItemRequestBuilderUriTemplate,
@@ -177,7 +179,7 @@ export const DeviceCompliancePolicyItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceCompliancePolicyFromDiscriminatorValue,
         queryParametersMapper: DeviceCompliancePolicyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -187,12 +189,43 @@ export const DeviceCompliancePolicyItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceCompliancePolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceCompliancePolicy,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Assignments: "assignments",
+    DeviceSettingStateSummaries: "deviceSettingStateSummaries",
+    DeviceStatuses: "deviceStatuses",
+    DeviceStatusOverview: "deviceStatusOverview",
+    ScheduledActionsForRule: "scheduledActionsForRule",
+    UserStatuses: "userStatuses",
+    UserStatusOverview: "userStatusOverview",
+} as const;
+/**
+ * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Version: "version",
+    Assignments: "assignments",
+    DeviceSettingStateSummaries: "deviceSettingStateSummaries",
+    DeviceStatuses: "deviceStatuses",
+    DeviceStatusOverview: "deviceStatusOverview",
+    ScheduledActionsForRule: "scheduledActionsForRule",
+    UserStatuses: "userStatuses",
+    UserStatusOverview: "userStatusOverview",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

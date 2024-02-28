@@ -53,7 +53,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -61,7 +61,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -69,7 +69,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +93,9 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaG
         "value": n => { deltaGetResponse.value = n.getCollectionOfObjectValues<Event>(createEventFromDiscriminatorValue); },
     }
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -128,10 +131,161 @@ export const DeltaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeltaGetResponseFromDiscriminatorValue,
         queryParametersMapper: DeltaRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Attachments: "attachments",
+    Calendar: "calendar",
+    Extensions: "extensions",
+    Instances: "instances",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Categories: "categories",
+    CategoriesDesc: "categories desc",
+    ChangeKey: "changeKey",
+    ChangeKeyDesc: "changeKey desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    AllowNewTimeProposals: "allowNewTimeProposals",
+    AllowNewTimeProposalsDesc: "allowNewTimeProposals desc",
+    Attendees: "attendees",
+    AttendeesDesc: "attendees desc",
+    Body: "body",
+    BodyDesc: "body desc",
+    BodyPreview: "bodyPreview",
+    BodyPreviewDesc: "bodyPreview desc",
+    End: "end",
+    EndDesc: "end desc",
+    HasAttachments: "hasAttachments",
+    HasAttachmentsDesc: "hasAttachments desc",
+    HideAttendees: "hideAttendees",
+    HideAttendeesDesc: "hideAttendees desc",
+    ICalUId: "iCalUId",
+    ICalUIdDesc: "iCalUId desc",
+    Importance: "importance",
+    ImportanceDesc: "importance desc",
+    IsAllDay: "isAllDay",
+    IsAllDayDesc: "isAllDay desc",
+    IsCancelled: "isCancelled",
+    IsCancelledDesc: "isCancelled desc",
+    IsDraft: "isDraft",
+    IsDraftDesc: "isDraft desc",
+    IsOnlineMeeting: "isOnlineMeeting",
+    IsOnlineMeetingDesc: "isOnlineMeeting desc",
+    IsOrganizer: "isOrganizer",
+    IsOrganizerDesc: "isOrganizer desc",
+    IsReminderOn: "isReminderOn",
+    IsReminderOnDesc: "isReminderOn desc",
+    Location: "location",
+    LocationDesc: "location desc",
+    Locations: "locations",
+    LocationsDesc: "locations desc",
+    OnlineMeeting: "onlineMeeting",
+    OnlineMeetingDesc: "onlineMeeting desc",
+    OnlineMeetingProvider: "onlineMeetingProvider",
+    OnlineMeetingProviderDesc: "onlineMeetingProvider desc",
+    OnlineMeetingUrl: "onlineMeetingUrl",
+    OnlineMeetingUrlDesc: "onlineMeetingUrl desc",
+    Organizer: "organizer",
+    OrganizerDesc: "organizer desc",
+    OriginalEndTimeZone: "originalEndTimeZone",
+    OriginalEndTimeZoneDesc: "originalEndTimeZone desc",
+    OriginalStart: "originalStart",
+    OriginalStartDesc: "originalStart desc",
+    OriginalStartTimeZone: "originalStartTimeZone",
+    OriginalStartTimeZoneDesc: "originalStartTimeZone desc",
+    Recurrence: "recurrence",
+    RecurrenceDesc: "recurrence desc",
+    ReminderMinutesBeforeStart: "reminderMinutesBeforeStart",
+    ReminderMinutesBeforeStartDesc: "reminderMinutesBeforeStart desc",
+    ResponseRequested: "responseRequested",
+    ResponseRequestedDesc: "responseRequested desc",
+    ResponseStatus: "responseStatus",
+    ResponseStatusDesc: "responseStatus desc",
+    Sensitivity: "sensitivity",
+    SensitivityDesc: "sensitivity desc",
+    SeriesMasterId: "seriesMasterId",
+    SeriesMasterIdDesc: "seriesMasterId desc",
+    ShowAs: "showAs",
+    ShowAsDesc: "showAs desc",
+    Start: "start",
+    StartDesc: "start desc",
+    Subject: "subject",
+    SubjectDesc: "subject desc",
+    TransactionId: "transactionId",
+    TransactionIdDesc: "transactionId desc",
+    Type: "type",
+    TypeDesc: "type desc",
+    WebLink: "webLink",
+    WebLinkDesc: "webLink desc",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Categories: "categories",
+    ChangeKey: "changeKey",
+    CreatedDateTime: "createdDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    AllowNewTimeProposals: "allowNewTimeProposals",
+    Attendees: "attendees",
+    Body: "body",
+    BodyPreview: "bodyPreview",
+    End: "end",
+    HasAttachments: "hasAttachments",
+    HideAttendees: "hideAttendees",
+    ICalUId: "iCalUId",
+    Importance: "importance",
+    IsAllDay: "isAllDay",
+    IsCancelled: "isCancelled",
+    IsDraft: "isDraft",
+    IsOnlineMeeting: "isOnlineMeeting",
+    IsOrganizer: "isOrganizer",
+    IsReminderOn: "isReminderOn",
+    Location: "location",
+    Locations: "locations",
+    OnlineMeeting: "onlineMeeting",
+    OnlineMeetingProvider: "onlineMeetingProvider",
+    OnlineMeetingUrl: "onlineMeetingUrl",
+    Organizer: "organizer",
+    OriginalEndTimeZone: "originalEndTimeZone",
+    OriginalStart: "originalStart",
+    OriginalStartTimeZone: "originalStartTimeZone",
+    Recurrence: "recurrence",
+    ReminderMinutesBeforeStart: "reminderMinutesBeforeStart",
+    ResponseRequested: "responseRequested",
+    ResponseStatus: "responseStatus",
+    Sensitivity: "sensitivity",
+    SeriesMasterId: "seriesMasterId",
+    ShowAs: "showAs",
+    Start: "start",
+    Subject: "subject",
+    TransactionId: "transactionId",
+    Type: "type",
+    WebLink: "webLink",
+    Attachments: "attachments",
+    Calendar: "calendar",
+    Extensions: "extensions",
+    Instances: "instances",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

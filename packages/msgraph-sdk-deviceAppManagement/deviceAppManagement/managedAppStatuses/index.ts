@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { ManagedAppStatusItemRequestBuilderRequestsMetadata, type ManagedAppStatusItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
  */
@@ -22,11 +25,11 @@ export interface ManagedAppStatusesRequestBuilder extends BaseRequestBuilder<Man
      */
      byManagedAppStatusId(managedAppStatusId: string) : ManagedAppStatusItemRequestBuilder;
     /**
-     * List properties and relationships of the managedAppStatus objects.
+     * List properties and relationships of the managedAppStatusRaw objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedAppStatusCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappstatus-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappstatusraw-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedAppStatusesRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedAppStatusCollectionResponse | undefined>;
     /**
@@ -38,7 +41,7 @@ export interface ManagedAppStatusesRequestBuilder extends BaseRequestBuilder<Man
      */
      post(body: ManagedAppStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedAppStatus | undefined>;
     /**
-     * List properties and relationships of the managedAppStatus objects.
+     * List properties and relationships of the managedAppStatusRaw objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -52,7 +55,7 @@ export interface ManagedAppStatusesRequestBuilder extends BaseRequestBuilder<Man
      toPostRequestInformation(body: ManagedAppStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the managedAppStatus objects.
+ * List properties and relationships of the managedAppStatusRaw objects.
  */
 export interface ManagedAppStatusesRequestBuilderGetQueryParameters {
     /**
@@ -62,7 +65,7 @@ export interface ManagedAppStatusesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface ManagedAppStatusesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface ManagedAppStatusesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,31 @@ export interface ManagedAppStatusesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const ManagedAppStatusesRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppStatuses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    Version: "version",
+    VersionDesc: "version desc",
+} as const;
+/**
+ * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DisplayName: "displayName",
+    Version: "version",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +155,7 @@ export const ManagedAppStatusesRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedAppStatusCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ManagedAppStatusesRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +165,7 @@ export const ManagedAppStatusesRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedAppStatusFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeManagedAppStatus,

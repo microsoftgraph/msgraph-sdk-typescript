@@ -12,6 +12,8 @@ import { StartRequestBuilderRequestsMetadata, type StartRequestBuilder } from '.
 import { type ValidateCredentialsRequestBuilder, ValidateCredentialsRequestBuilderRequestsMetadata } from './validateCredentials/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
  */
@@ -94,16 +96,36 @@ export interface SynchronizationJobItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SynchronizationJobItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    BulkUpload: "bulkUpload",
+    Schema: "schema",
+} as const;
+/**
+ * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Schedule: "schedule",
+    Status: "status",
+    SynchronizationJobSettings: "synchronizationJobSettings",
+    TemplateId: "templateId",
+    BulkUpload: "bulkUpload",
+    Schema: "schema",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -149,7 +171,7 @@ export const SynchronizationJobItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SynchronizationJobItemRequestBuilderUriTemplate,
@@ -157,7 +179,7 @@ export const SynchronizationJobItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSynchronizationJobFromDiscriminatorValue,
         queryParametersMapper: SynchronizationJobItemRequestBuilderGetQueryParametersMapper,
     },
@@ -167,7 +189,7 @@ export const SynchronizationJobItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSynchronizationJobFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSynchronizationJob,

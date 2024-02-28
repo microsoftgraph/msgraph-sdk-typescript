@@ -7,6 +7,8 @@ import { LastSharedMethodRequestBuilderRequestsMetadata, type LastSharedMethodRe
 import { ResourceRequestBuilderRequestsMetadata, type ResourceRequestBuilder } from './resource/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
  */
@@ -67,16 +69,36 @@ export interface SharedInsightItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SharedInsightItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/shared/{sharedInsight%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    LastSharedMethod: "lastSharedMethod",
+    Resource: "resource",
+} as const;
+/**
+ * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    LastShared: "lastShared",
+    ResourceReference: "resourceReference",
+    ResourceVisualization: "resourceVisualization",
+    SharingHistory: "sharingHistory",
+    LastSharedMethod: "lastSharedMethod",
+    Resource: "resource",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +127,7 @@ export const SharedInsightItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SharedInsightItemRequestBuilderUriTemplate,
@@ -113,7 +135,7 @@ export const SharedInsightItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSharedInsightFromDiscriminatorValue,
         queryParametersMapper: SharedInsightItemRequestBuilderGetQueryParametersMapper,
     },
@@ -123,7 +145,7 @@ export const SharedInsightItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSharedInsightFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSharedInsight,

@@ -77,12 +77,14 @@ export interface CategoryAxisRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -125,7 +127,7 @@ export const CategoryAxisRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CategoryAxisRequestBuilderUriTemplate,
@@ -133,7 +135,7 @@ export const CategoryAxisRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartAxisFromDiscriminatorValue,
         queryParametersMapper: CategoryAxisRequestBuilderGetQueryParametersMapper,
     },
@@ -143,12 +145,36 @@ export const CategoryAxisRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartAxisFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbookChartAxis,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the categoryAxis property of the microsoft.graph.workbookChartAxes entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Format: "format",
+    MajorGridlines: "majorGridlines",
+    MinorGridlines: "minorGridlines",
+    Title: "title",
+} as const;
+/**
+ * Provides operations to manage the categoryAxis property of the microsoft.graph.workbookChartAxes entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    MajorUnit: "majorUnit",
+    Maximum: "maximum",
+    Minimum: "minimum",
+    MinorUnit: "minorUnit",
+    Format: "format",
+    MajorGridlines: "majorGridlines",
+    MinorGridlines: "minorGridlines",
+    Title: "title",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

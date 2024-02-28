@@ -6,6 +6,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { SubscriptionItemRequestBuilderNavigationMetadata, SubscriptionItemRequestBuilderRequestsMetadata, type SubscriptionItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the collection of subscription entities.
  */
@@ -58,12 +59,32 @@ export interface SubscriptionsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SubscriptionsRequestBuilderUriTemplate = "{+baseurl}/subscriptions{?%24search,%24select}";
+/**
+ * Provides operations to manage the collection of subscription entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ApplicationId: "applicationId",
+    ChangeType: "changeType",
+    ClientState: "clientState",
+    CreatorId: "creatorId",
+    EncryptionCertificate: "encryptionCertificate",
+    EncryptionCertificateId: "encryptionCertificateId",
+    ExpirationDateTime: "expirationDateTime",
+    IncludeResourceData: "includeResourceData",
+    LatestSupportedTlsVersion: "latestSupportedTlsVersion",
+    LifecycleNotificationUrl: "lifecycleNotificationUrl",
+    NotificationQueryOptions: "notificationQueryOptions",
+    NotificationUrl: "notificationUrl",
+    NotificationUrlAppId: "notificationUrlAppId",
+    Resource: "resource",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +112,7 @@ export const SubscriptionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubscriptionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SubscriptionsRequestBuilderGetQueryParametersMapper,
     },
@@ -101,7 +122,7 @@ export const SubscriptionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubscriptionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSubscription,

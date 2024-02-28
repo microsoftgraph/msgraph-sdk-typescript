@@ -5,6 +5,8 @@ import { createSectionGroupFromDiscriminatorValue, type SectionGroup } from '@mi
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
  */
@@ -30,16 +32,44 @@ export interface SectionGroupItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SectionGroupItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onenote/sectionGroups/{sectionGroup%2Did}/sectionGroups/{sectionGroup%2Did1}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ParentNotebook: "parentNotebook",
+    ParentSectionGroup: "parentSectionGroup",
+    SectionGroups: "sectionGroups",
+    Sections: "sections",
+} as const;
+/**
+ * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Self: "self",
+    CreatedDateTime: "createdDateTime",
+    CreatedBy: "createdBy",
+    DisplayName: "displayName",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    SectionGroupsUrl: "sectionGroupsUrl",
+    SectionsUrl: "sectionsUrl",
+    ParentNotebook: "parentNotebook",
+    ParentSectionGroup: "parentSectionGroup",
+    SectionGroups: "sectionGroups",
+    Sections: "sections",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +87,7 @@ export const SectionGroupItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSectionGroupFromDiscriminatorValue,
         queryParametersMapper: SectionGroupItemRequestBuilderGetQueryParametersMapper,
     },

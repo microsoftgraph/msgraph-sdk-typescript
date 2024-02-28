@@ -63,12 +63,14 @@ export interface ActivityHistoryItemItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -98,7 +100,7 @@ export const ActivityHistoryItemItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ActivityHistoryItemItemRequestBuilderUriTemplate,
@@ -106,7 +108,7 @@ export const ActivityHistoryItemItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createActivityHistoryItemFromDiscriminatorValue,
         queryParametersMapper: ActivityHistoryItemItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,12 +118,34 @@ export const ActivityHistoryItemItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createActivityHistoryItemFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeActivityHistoryItem,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Activity: "activity",
+} as const;
+/**
+ * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActiveDurationSeconds: "activeDurationSeconds",
+    CreatedDateTime: "createdDateTime",
+    ExpirationDateTime: "expirationDateTime",
+    LastActiveDateTime: "lastActiveDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    StartedDateTime: "startedDateTime",
+    Status: "status",
+    UserTimezone: "userTimezone",
+    Activity: "activity",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

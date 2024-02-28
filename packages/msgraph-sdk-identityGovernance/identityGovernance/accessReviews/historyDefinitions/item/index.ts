@@ -63,12 +63,14 @@ export interface AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParamete
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -99,7 +101,7 @@ export const AccessReviewHistoryDefinitionItemRequestBuilderRequestsMetadata: Re
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AccessReviewHistoryDefinitionItemRequestBuilderUriTemplate,
@@ -107,7 +109,7 @@ export const AccessReviewHistoryDefinitionItemRequestBuilderRequestsMetadata: Re
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewHistoryDefinitionFromDiscriminatorValue,
         queryParametersMapper: AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -117,12 +119,35 @@ export const AccessReviewHistoryDefinitionItemRequestBuilderRequestsMetadata: Re
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewHistoryDefinitionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAccessReviewHistoryDefinition,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Instances: "instances",
+} as const;
+/**
+ * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Decisions: "decisions",
+    DisplayName: "displayName",
+    ReviewHistoryPeriodEndDateTime: "reviewHistoryPeriodEndDateTime",
+    ReviewHistoryPeriodStartDateTime: "reviewHistoryPeriodStartDateTime",
+    ScheduleSettings: "scheduleSettings",
+    Scopes: "scopes",
+    Status: "status",
+    Instances: "instances",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

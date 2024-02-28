@@ -7,6 +7,8 @@ import { CommitRequestBuilderRequestsMetadata, type CommitRequestBuilder } from 
 import { RenewUploadRequestBuilderRequestsMetadata, type RenewUploadRequestBuilder } from './renewUpload/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the files property of the microsoft.graph.mobileAppContent entity.
  */
@@ -67,16 +69,37 @@ export interface MobileAppContentFileItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const MobileAppContentFileItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.win32LobApp/contentVersions/{mobileAppContent%2Did}/files/{mobileAppContentFile%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the files property of the microsoft.graph.mobileAppContent entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the files property of the microsoft.graph.mobileAppContent entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AzureStorageUri: "azureStorageUri",
+    AzureStorageUriExpirationDateTime: "azureStorageUriExpirationDateTime",
+    CreatedDateTime: "createdDateTime",
+    IsCommitted: "isCommitted",
+    Manifest: "manifest",
+    Name: "name",
+    Size: "size",
+    SizeEncrypted: "sizeEncrypted",
+    UploadState: "uploadState",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +128,7 @@ export const MobileAppContentFileItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: MobileAppContentFileItemRequestBuilderUriTemplate,
@@ -113,7 +136,7 @@ export const MobileAppContentFileItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppContentFileFromDiscriminatorValue,
         queryParametersMapper: MobileAppContentFileItemRequestBuilderGetQueryParametersMapper,
     },
@@ -123,7 +146,7 @@ export const MobileAppContentFileItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppContentFileFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMobileAppContentFile,

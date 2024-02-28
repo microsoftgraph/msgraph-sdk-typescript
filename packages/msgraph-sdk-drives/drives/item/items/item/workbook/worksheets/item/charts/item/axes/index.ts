@@ -72,12 +72,14 @@ export interface AxesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -116,7 +118,7 @@ export const AxesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AxesRequestBuilderUriTemplate,
@@ -124,7 +126,7 @@ export const AxesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartAxesFromDiscriminatorValue,
         queryParametersMapper: AxesRequestBuilderGetQueryParametersMapper,
     },
@@ -134,12 +136,30 @@ export const AxesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartAxesFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbookChartAxes,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the axes property of the microsoft.graph.workbookChart entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    CategoryAxis: "categoryAxis",
+    SeriesAxis: "seriesAxis",
+    ValueAxis: "valueAxis",
+} as const;
+/**
+ * Provides operations to manage the axes property of the microsoft.graph.workbookChart entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CategoryAxis: "categoryAxis",
+    SeriesAxis: "seriesAxis",
+    ValueAxis: "valueAxis",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

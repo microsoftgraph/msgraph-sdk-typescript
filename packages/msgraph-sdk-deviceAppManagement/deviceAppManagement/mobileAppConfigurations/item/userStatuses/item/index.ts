@@ -5,6 +5,8 @@ import { createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorVal
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
  */
@@ -60,16 +62,33 @@ export interface ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/userStatuses/{managedDeviceMobileAppConfigurationUserStatus%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the userStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the userStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DevicesCount: "devicesCount",
+    LastReportedDateTime: "lastReportedDateTime",
+    Status: "status",
+    UserDisplayName: "userDisplayName",
+    UserPrincipalName: "userPrincipalName",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -87,7 +106,7 @@ export const ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderUriTemplate,
@@ -95,7 +114,7 @@ export const ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue,
         queryParametersMapper: ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +124,7 @@ export const ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeManagedDeviceMobileAppConfigurationUserStatus,

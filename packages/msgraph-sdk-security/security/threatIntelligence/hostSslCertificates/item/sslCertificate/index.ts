@@ -5,6 +5,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { createSslCertificateFromDiscriminatorValue, type SslCertificate } from '@microsoft/msgraph-sdk/models/security/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the sslCertificate property of the microsoft.graph.security.hostSslCertificate entity.
  */
@@ -30,16 +32,39 @@ export interface SslCertificateRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SslCertificateRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostSslCertificates/{hostSslCertificate%2Did}/sslCertificate{?%24expand,%24select}";
+/**
+ * Provides operations to manage the sslCertificate property of the microsoft.graph.security.hostSslCertificate entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    RelatedHosts: "relatedHosts",
+} as const;
+/**
+ * Provides operations to manage the sslCertificate property of the microsoft.graph.security.hostSslCertificate entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ExpirationDateTime: "expirationDateTime",
+    Fingerprint: "fingerprint",
+    FirstSeenDateTime: "firstSeenDateTime",
+    IssueDateTime: "issueDateTime",
+    Issuer: "issuer",
+    LastSeenDateTime: "lastSeenDateTime",
+    SerialNumber: "serialNumber",
+    Sha1: "sha1",
+    Subject: "subject",
+    RelatedHosts: "relatedHosts",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +82,7 @@ export const SslCertificateRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSslCertificateFromDiscriminatorValue,
         queryParametersMapper: SslCertificateRequestBuilderGetQueryParametersMapper,
     },

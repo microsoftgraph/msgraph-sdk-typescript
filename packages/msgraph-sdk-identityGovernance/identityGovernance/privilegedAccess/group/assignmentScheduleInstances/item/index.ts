@@ -8,6 +8,8 @@ import { GroupRequestBuilderNavigationMetadata, GroupRequestBuilderRequestsMetad
 import { PrincipalRequestBuilderRequestsMetadata, type PrincipalRequestBuilder } from './principal/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the assignmentScheduleInstances property of the microsoft.graph.privilegedAccessGroup entity.
  */
@@ -73,16 +75,42 @@ export interface PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuild
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/assignmentScheduleInstances/{privilegedAccessGroupAssignmentScheduleInstance%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the assignmentScheduleInstances property of the microsoft.graph.privilegedAccessGroup entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ActivatedUsing: "activatedUsing",
+    Group: "group",
+    Principal: "principal",
+} as const;
+/**
+ * Provides operations to manage the assignmentScheduleInstances property of the microsoft.graph.privilegedAccessGroup entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    EndDateTime: "endDateTime",
+    StartDateTime: "startDateTime",
+    AccessId: "accessId",
+    AssignmentScheduleId: "assignmentScheduleId",
+    AssignmentType: "assignmentType",
+    GroupId: "groupId",
+    MemberType: "memberType",
+    PrincipalId: "principalId",
+    ActivatedUsing: "activatedUsing",
+    Group: "group",
+    Principal: "principal",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +143,7 @@ export const PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderRe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderUriTemplate,
@@ -123,7 +151,7 @@ export const PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderRe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupAssignmentScheduleInstanceFromDiscriminatorValue,
         queryParametersMapper: PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetQueryParametersMapper,
     },
@@ -133,7 +161,7 @@ export const PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderRe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupAssignmentScheduleInstanceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrivilegedAccessGroupAssignmentScheduleInstance,

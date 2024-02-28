@@ -61,7 +61,7 @@ export interface DeviceSettingStateSummariesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +69,7 @@ export interface DeviceSettingStateSummariesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +77,7 @@ export interface DeviceSettingStateSummariesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -87,6 +87,9 @@ export interface DeviceSettingStateSummariesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -126,7 +129,7 @@ export const DeviceSettingStateSummariesRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSettingStateDeviceSummaryCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DeviceSettingStateSummariesRequestBuilderGetQueryParametersMapper,
     },
@@ -136,12 +139,58 @@ export const DeviceSettingStateSummariesRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSettingStateDeviceSummaryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSettingStateDeviceSummary,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceCompliancePolicy entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceCompliancePolicy entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CompliantDeviceCount: "compliantDeviceCount",
+    CompliantDeviceCountDesc: "compliantDeviceCount desc",
+    ConflictDeviceCount: "conflictDeviceCount",
+    ConflictDeviceCountDesc: "conflictDeviceCount desc",
+    ErrorDeviceCount: "errorDeviceCount",
+    ErrorDeviceCountDesc: "errorDeviceCount desc",
+    InstancePath: "instancePath",
+    InstancePathDesc: "instancePath desc",
+    NonCompliantDeviceCount: "nonCompliantDeviceCount",
+    NonCompliantDeviceCountDesc: "nonCompliantDeviceCount desc",
+    NotApplicableDeviceCount: "notApplicableDeviceCount",
+    NotApplicableDeviceCountDesc: "notApplicableDeviceCount desc",
+    RemediatedDeviceCount: "remediatedDeviceCount",
+    RemediatedDeviceCountDesc: "remediatedDeviceCount desc",
+    SettingName: "settingName",
+    SettingNameDesc: "settingName desc",
+    UnknownDeviceCount: "unknownDeviceCount",
+    UnknownDeviceCountDesc: "unknownDeviceCount desc",
+} as const;
+/**
+ * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceCompliancePolicy entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CompliantDeviceCount: "compliantDeviceCount",
+    ConflictDeviceCount: "conflictDeviceCount",
+    ErrorDeviceCount: "errorDeviceCount",
+    InstancePath: "instancePath",
+    NonCompliantDeviceCount: "nonCompliantDeviceCount",
+    NotApplicableDeviceCount: "notApplicableDeviceCount",
+    RemediatedDeviceCount: "remediatedDeviceCount",
+    SettingName: "settingName",
+    UnknownDeviceCount: "unknownDeviceCount",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

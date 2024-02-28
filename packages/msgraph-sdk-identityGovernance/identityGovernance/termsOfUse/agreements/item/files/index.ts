@@ -62,7 +62,7 @@ export interface FilesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +70,7 @@ export interface FilesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +78,7 @@ export interface FilesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -88,6 +88,9 @@ export interface FilesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -128,7 +131,7 @@ export const FilesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFileLocalizationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: FilesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,12 +141,54 @@ export const FilesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFileLocalizationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAgreementFileLocalization,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the files property of the microsoft.graph.agreement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Versions: "versions",
+} as const;
+/**
+ * Provides operations to manage the files property of the microsoft.graph.agreement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    FileData: "fileData",
+    FileDataDesc: "fileData desc",
+    FileName: "fileName",
+    FileNameDesc: "fileName desc",
+    IsDefault: "isDefault",
+    IsDefaultDesc: "isDefault desc",
+    IsMajorVersion: "isMajorVersion",
+    IsMajorVersionDesc: "isMajorVersion desc",
+    Language: "language",
+    LanguageDesc: "language desc",
+} as const;
+/**
+ * Provides operations to manage the files property of the microsoft.graph.agreement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    DisplayName: "displayName",
+    FileData: "fileData",
+    FileName: "fileName",
+    IsDefault: "isDefault",
+    IsMajorVersion: "isMajorVersion",
+    Language: "language",
+    Versions: "versions",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

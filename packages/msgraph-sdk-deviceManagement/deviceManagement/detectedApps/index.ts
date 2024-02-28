@@ -63,7 +63,7 @@ export interface DetectedAppsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface DetectedAppsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface DetectedAppsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface DetectedAppsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -129,7 +132,7 @@ export const DetectedAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDetectedAppCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DetectedAppsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,12 +142,51 @@ export const DetectedAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDetectedAppFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDetectedApp,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ManagedDevices: "managedDevices",
+} as const;
+/**
+ * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DeviceCount: "deviceCount",
+    DeviceCountDesc: "deviceCount desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    Platform: "platform",
+    PlatformDesc: "platform desc",
+    Publisher: "publisher",
+    PublisherDesc: "publisher desc",
+    SizeInByte: "sizeInByte",
+    SizeInByteDesc: "sizeInByte desc",
+    Version: "version",
+    VersionDesc: "version desc",
+} as const;
+/**
+ * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeviceCount: "deviceCount",
+    DisplayName: "displayName",
+    Platform: "platform",
+    Publisher: "publisher",
+    SizeInByte: "sizeInByte",
+    Version: "version",
+    ManagedDevices: "managedDevices",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

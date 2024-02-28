@@ -79,6 +79,8 @@ import { TranslateExchangeIdsRequestBuilderRequestsMetadata, type TranslateExcha
 import { type WipeManagedAppRegistrationsByDeviceTagRequestBuilder, WipeManagedAppRegistrationsByDeviceTagRequestBuilderRequestsMetadata } from './wipeManagedAppRegistrationsByDeviceTag/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the collection of user entities.
  */
@@ -372,10 +374,10 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
     get wipeManagedAppRegistrationsByDeviceTag(): WipeManagedAppRegistrationsByDeviceTagRequestBuilder;
     /**
-     * Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems.
+     * Deletes a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -390,16 +392,16 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<User>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserItemRequestBuilderGetQueryParameters> | undefined) : Promise<User | undefined>;
     /**
-     * Update the properties of a user object.
+     * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<User>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: User, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<User | undefined>;
     /**
@@ -410,7 +412,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
      reminderViewWithStartDateTimeWithEndDateTime(endDateTime: string | undefined, startDateTime: string | undefined) : ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder;
     /**
-     * Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems.
+     * Deletes a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -422,7 +424,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a user object.
+     * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -436,16 +438,204 @@ export interface UserItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const UserItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the collection of user entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Activities: "activities",
+    AgreementAcceptances: "agreementAcceptances",
+    AppRoleAssignments: "appRoleAssignments",
+    Authentication: "authentication",
+    Calendar: "calendar",
+    CalendarGroups: "calendarGroups",
+    Calendars: "calendars",
+    CalendarView: "calendarView",
+    Chats: "chats",
+    CloudClipboard: "cloudClipboard",
+    ContactFolders: "contactFolders",
+    Contacts: "contacts",
+    CreatedObjects: "createdObjects",
+    DeviceManagementTroubleshootingEvents: "deviceManagementTroubleshootingEvents",
+    DirectReports: "directReports",
+    Drive: "drive",
+    Drives: "drives",
+    EmployeeExperience: "employeeExperience",
+    Events: "events",
+    Extensions: "extensions",
+    FollowedSites: "followedSites",
+    InferenceClassification: "inferenceClassification",
+    Insights: "insights",
+    JoinedTeams: "joinedTeams",
+    LicenseDetails: "licenseDetails",
+    MailFolders: "mailFolders",
+    ManagedAppRegistrations: "managedAppRegistrations",
+    ManagedDevices: "managedDevices",
+    Manager: "manager",
+    MemberOf: "memberOf",
+    Messages: "messages",
+    Oauth2PermissionGrants: "oauth2PermissionGrants",
+    Onenote: "onenote",
+    OnlineMeetings: "onlineMeetings",
+    Outlook: "outlook",
+    OwnedDevices: "ownedDevices",
+    OwnedObjects: "ownedObjects",
+    People: "people",
+    PermissionGrants: "permissionGrants",
+    Photo: "photo",
+    Photos: "photos",
+    Planner: "planner",
+    Presence: "presence",
+    RegisteredDevices: "registeredDevices",
+    ScopedRoleMemberOf: "scopedRoleMemberOf",
+    Settings: "settings",
+    Teamwork: "teamwork",
+    Todo: "todo",
+    TransitiveMemberOf: "transitiveMemberOf",
+} as const;
+/**
+ * Provides operations to manage the collection of user entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    AboutMe: "aboutMe",
+    AccountEnabled: "accountEnabled",
+    AgeGroup: "ageGroup",
+    AssignedLicenses: "assignedLicenses",
+    AssignedPlans: "assignedPlans",
+    AuthorizationInfo: "authorizationInfo",
+    Birthday: "birthday",
+    BusinessPhones: "businessPhones",
+    City: "city",
+    CompanyName: "companyName",
+    ConsentProvidedForMinor: "consentProvidedForMinor",
+    Country: "country",
+    CreatedDateTime: "createdDateTime",
+    CreationType: "creationType",
+    CustomSecurityAttributes: "customSecurityAttributes",
+    Department: "department",
+    DeviceEnrollmentLimit: "deviceEnrollmentLimit",
+    DisplayName: "displayName",
+    EmployeeHireDate: "employeeHireDate",
+    EmployeeId: "employeeId",
+    EmployeeLeaveDateTime: "employeeLeaveDateTime",
+    EmployeeOrgData: "employeeOrgData",
+    EmployeeType: "employeeType",
+    ExternalUserState: "externalUserState",
+    ExternalUserStateChangeDateTime: "externalUserStateChangeDateTime",
+    FaxNumber: "faxNumber",
+    GivenName: "givenName",
+    HireDate: "hireDate",
+    Identities: "identities",
+    ImAddresses: "imAddresses",
+    Interests: "interests",
+    IsResourceAccount: "isResourceAccount",
+    JobTitle: "jobTitle",
+    LastPasswordChangeDateTime: "lastPasswordChangeDateTime",
+    LegalAgeGroupClassification: "legalAgeGroupClassification",
+    LicenseAssignmentStates: "licenseAssignmentStates",
+    Mail: "mail",
+    MailboxSettings: "mailboxSettings",
+    MailNickname: "mailNickname",
+    MobilePhone: "mobilePhone",
+    MySite: "mySite",
+    OfficeLocation: "officeLocation",
+    OnPremisesDistinguishedName: "onPremisesDistinguishedName",
+    OnPremisesDomainName: "onPremisesDomainName",
+    OnPremisesExtensionAttributes: "onPremisesExtensionAttributes",
+    OnPremisesImmutableId: "onPremisesImmutableId",
+    OnPremisesLastSyncDateTime: "onPremisesLastSyncDateTime",
+    OnPremisesProvisioningErrors: "onPremisesProvisioningErrors",
+    OnPremisesSamAccountName: "onPremisesSamAccountName",
+    OnPremisesSecurityIdentifier: "onPremisesSecurityIdentifier",
+    OnPremisesSyncEnabled: "onPremisesSyncEnabled",
+    OnPremisesUserPrincipalName: "onPremisesUserPrincipalName",
+    OtherMails: "otherMails",
+    PasswordPolicies: "passwordPolicies",
+    PasswordProfile: "passwordProfile",
+    PastProjects: "pastProjects",
+    PostalCode: "postalCode",
+    PreferredDataLocation: "preferredDataLocation",
+    PreferredLanguage: "preferredLanguage",
+    PreferredName: "preferredName",
+    Print: "print",
+    ProvisionedPlans: "provisionedPlans",
+    ProxyAddresses: "proxyAddresses",
+    Responsibilities: "responsibilities",
+    Schools: "schools",
+    SecurityIdentifier: "securityIdentifier",
+    ServiceProvisioningErrors: "serviceProvisioningErrors",
+    ShowInAddressList: "showInAddressList",
+    SignInActivity: "signInActivity",
+    SignInSessionsValidFromDateTime: "signInSessionsValidFromDateTime",
+    Skills: "skills",
+    State: "state",
+    StreetAddress: "streetAddress",
+    Surname: "surname",
+    UsageLocation: "usageLocation",
+    UserPrincipalName: "userPrincipalName",
+    UserType: "userType",
+    Activities: "activities",
+    AgreementAcceptances: "agreementAcceptances",
+    AppRoleAssignments: "appRoleAssignments",
+    Authentication: "authentication",
+    Calendar: "calendar",
+    CalendarGroups: "calendarGroups",
+    Calendars: "calendars",
+    CalendarView: "calendarView",
+    Chats: "chats",
+    CloudClipboard: "cloudClipboard",
+    ContactFolders: "contactFolders",
+    Contacts: "contacts",
+    CreatedObjects: "createdObjects",
+    DeviceManagementTroubleshootingEvents: "deviceManagementTroubleshootingEvents",
+    DirectReports: "directReports",
+    Drive: "drive",
+    Drives: "drives",
+    EmployeeExperience: "employeeExperience",
+    Events: "events",
+    Extensions: "extensions",
+    FollowedSites: "followedSites",
+    InferenceClassification: "inferenceClassification",
+    Insights: "insights",
+    JoinedTeams: "joinedTeams",
+    LicenseDetails: "licenseDetails",
+    MailFolders: "mailFolders",
+    ManagedAppRegistrations: "managedAppRegistrations",
+    ManagedDevices: "managedDevices",
+    Manager: "manager",
+    MemberOf: "memberOf",
+    Messages: "messages",
+    Oauth2PermissionGrants: "oauth2PermissionGrants",
+    Onenote: "onenote",
+    OnlineMeetings: "onlineMeetings",
+    Outlook: "outlook",
+    OwnedDevices: "ownedDevices",
+    OwnedObjects: "ownedObjects",
+    People: "people",
+    PermissionGrants: "permissionGrants",
+    Photo: "photo",
+    Photos: "photos",
+    Planner: "planner",
+    Presence: "presence",
+    RegisteredDevices: "registeredDevices",
+    ScopedRoleMemberOf: "scopedRoleMemberOf",
+    Settings: "settings",
+    Teamwork: "teamwork",
+    Todo: "todo",
+    TransitiveMemberOf: "transitiveMemberOf",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -739,7 +929,7 @@ export const UserItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UserItemRequestBuilderUriTemplate,
@@ -747,7 +937,7 @@ export const UserItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserFromDiscriminatorValue,
         queryParametersMapper: UserItemRequestBuilderGetQueryParametersMapper,
     },
@@ -757,7 +947,7 @@ export const UserItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUser,

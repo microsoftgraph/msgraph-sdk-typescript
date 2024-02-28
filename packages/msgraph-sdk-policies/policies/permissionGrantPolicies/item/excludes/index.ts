@@ -63,7 +63,7 @@ export interface ExcludesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface ExcludesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface ExcludesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface ExcludesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -128,7 +131,7 @@ export const ExcludesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPermissionGrantConditionSetCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ExcludesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,12 +141,55 @@ export const ExcludesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPermissionGrantConditionSetFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePermissionGrantConditionSet,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ClientApplicationIds: "clientApplicationIds",
+    ClientApplicationIdsDesc: "clientApplicationIds desc",
+    ClientApplicationPublisherIds: "clientApplicationPublisherIds",
+    ClientApplicationPublisherIdsDesc: "clientApplicationPublisherIds desc",
+    ClientApplicationsFromVerifiedPublisherOnly: "clientApplicationsFromVerifiedPublisherOnly",
+    ClientApplicationsFromVerifiedPublisherOnlyDesc: "clientApplicationsFromVerifiedPublisherOnly desc",
+    ClientApplicationTenantIds: "clientApplicationTenantIds",
+    ClientApplicationTenantIdsDesc: "clientApplicationTenantIds desc",
+    PermissionClassification: "permissionClassification",
+    PermissionClassificationDesc: "permissionClassification desc",
+    Permissions: "permissions",
+    PermissionsDesc: "permissions desc",
+    PermissionType: "permissionType",
+    PermissionTypeDesc: "permissionType desc",
+    ResourceApplication: "resourceApplication",
+    ResourceApplicationDesc: "resourceApplication desc",
+} as const;
+/**
+ * Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ClientApplicationIds: "clientApplicationIds",
+    ClientApplicationPublisherIds: "clientApplicationPublisherIds",
+    ClientApplicationsFromVerifiedPublisherOnly: "clientApplicationsFromVerifiedPublisherOnly",
+    ClientApplicationTenantIds: "clientApplicationTenantIds",
+    PermissionClassification: "permissionClassification",
+    Permissions: "permissions",
+    PermissionType: "permissionType",
+    ResourceApplication: "resourceApplication",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

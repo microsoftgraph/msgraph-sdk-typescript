@@ -59,12 +59,14 @@ export interface AllowedValueItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -86,7 +88,7 @@ export const AllowedValueItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AllowedValueItemRequestBuilderUriTemplate,
@@ -94,7 +96,7 @@ export const AllowedValueItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAllowedValueFromDiscriminatorValue,
         queryParametersMapper: AllowedValueItemRequestBuilderGetQueryParametersMapper,
     },
@@ -104,12 +106,25 @@ export const AllowedValueItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAllowedValueFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAllowedValue,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    IsActive: "isActive",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

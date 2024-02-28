@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { IncidentReportRequestBuilderRequestsMetadata, type IncidentReportRequestBuilder } from './incidentReport/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the issues property of the microsoft.graph.serviceAnnouncement entity.
  */
@@ -63,16 +65,42 @@ export interface ServiceHealthIssueItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const ServiceHealthIssueItemRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/issues/{serviceHealthIssue%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the issues property of the microsoft.graph.serviceAnnouncement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the issues property of the microsoft.graph.serviceAnnouncement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Details: "details",
+    EndDateTime: "endDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    StartDateTime: "startDateTime",
+    Title: "title",
+    Classification: "classification",
+    Feature: "feature",
+    FeatureGroup: "featureGroup",
+    ImpactDescription: "impactDescription",
+    IsResolved: "isResolved",
+    Origin: "origin",
+    Posts: "posts",
+    Service: "service",
+    Status: "status",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -98,7 +126,7 @@ export const ServiceHealthIssueItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ServiceHealthIssueItemRequestBuilderUriTemplate,
@@ -106,7 +134,7 @@ export const ServiceHealthIssueItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServiceHealthIssueFromDiscriminatorValue,
         queryParametersMapper: ServiceHealthIssueItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +144,7 @@ export const ServiceHealthIssueItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServiceHealthIssueFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeServiceHealthIssue,

@@ -63,7 +63,7 @@ export interface ExchangeConnectorsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface ExchangeConnectorsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface ExchangeConnectorsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface ExchangeConnectorsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -129,7 +132,7 @@ export const ExchangeConnectorsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceManagementExchangeConnectorCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ExchangeConnectorsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,12 +142,58 @@ export const ExchangeConnectorsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceManagementExchangeConnectorFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceManagementExchangeConnector,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ConnectorServerName: "connectorServerName",
+    ConnectorServerNameDesc: "connectorServerName desc",
+    ExchangeAlias: "exchangeAlias",
+    ExchangeAliasDesc: "exchangeAlias desc",
+    ExchangeConnectorType: "exchangeConnectorType",
+    ExchangeConnectorTypeDesc: "exchangeConnectorType desc",
+    ExchangeOrganization: "exchangeOrganization",
+    ExchangeOrganizationDesc: "exchangeOrganization desc",
+    LastSyncDateTime: "lastSyncDateTime",
+    LastSyncDateTimeDesc: "lastSyncDateTime desc",
+    PrimarySmtpAddress: "primarySmtpAddress",
+    PrimarySmtpAddressDesc: "primarySmtpAddress desc",
+    ServerName: "serverName",
+    ServerNameDesc: "serverName desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    Version: "version",
+    VersionDesc: "version desc",
+} as const;
+/**
+ * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ConnectorServerName: "connectorServerName",
+    ExchangeAlias: "exchangeAlias",
+    ExchangeConnectorType: "exchangeConnectorType",
+    ExchangeOrganization: "exchangeOrganization",
+    LastSyncDateTime: "lastSyncDateTime",
+    PrimarySmtpAddress: "primarySmtpAddress",
+    ServerName: "serverName",
+    Status: "status",
+    Version: "version",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

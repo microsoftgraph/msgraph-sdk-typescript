@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { TemporaryAccessPassAuthenticationMethodItemRequestBuilderRequestsMetadata, type TemporaryAccessPassAuthenticationMethodItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
  */
@@ -63,7 +66,7 @@ export interface TemporaryAccessPassMethodsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface TemporaryAccessPassMethodsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface TemporaryAccessPassMethodsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,46 @@ export interface TemporaryAccessPassMethodsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const TemporaryAccessPassMethodsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/temporaryAccessPassMethods{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    IsUsable: "isUsable",
+    IsUsableDesc: "isUsable desc",
+    IsUsableOnce: "isUsableOnce",
+    IsUsableOnceDesc: "isUsableOnce desc",
+    LifetimeInMinutes: "lifetimeInMinutes",
+    LifetimeInMinutesDesc: "lifetimeInMinutes desc",
+    MethodUsabilityReason: "methodUsabilityReason",
+    MethodUsabilityReasonDesc: "methodUsabilityReason desc",
+    StartDateTime: "startDateTime",
+    StartDateTimeDesc: "startDateTime desc",
+    TemporaryAccessPass: "temporaryAccessPass",
+    TemporaryAccessPassDesc: "temporaryAccessPass desc",
+} as const;
+/**
+ * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    IsUsable: "isUsable",
+    IsUsableOnce: "isUsableOnce",
+    LifetimeInMinutes: "lifetimeInMinutes",
+    MethodUsabilityReason: "methodUsabilityReason",
+    StartDateTime: "startDateTime",
+    TemporaryAccessPass: "temporaryAccessPass",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +171,7 @@ export const TemporaryAccessPassMethodsRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTemporaryAccessPassAuthenticationMethodCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TemporaryAccessPassMethodsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +181,7 @@ export const TemporaryAccessPassMethodsRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTemporaryAccessPassAuthenticationMethod,

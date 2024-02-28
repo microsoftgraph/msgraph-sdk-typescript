@@ -63,7 +63,7 @@ export interface BookingBusinessesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface BookingBusinessesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface BookingBusinessesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface BookingBusinessesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -129,7 +132,7 @@ export const BookingBusinessesRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingBusinessCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: BookingBusinessesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,12 +142,79 @@ export const BookingBusinessesRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingBusinessFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBookingBusiness,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Appointments: "appointments",
+    CalendarView: "calendarView",
+    Customers: "customers",
+    CustomQuestions: "customQuestions",
+    Services: "services",
+    StaffMembers: "staffMembers",
+} as const;
+/**
+ * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Address: "address",
+    AddressDesc: "address desc",
+    BusinessHours: "businessHours",
+    BusinessHoursDesc: "businessHours desc",
+    BusinessType: "businessType",
+    BusinessTypeDesc: "businessType desc",
+    DefaultCurrencyIso: "defaultCurrencyIso",
+    DefaultCurrencyIsoDesc: "defaultCurrencyIso desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    Email: "email",
+    EmailDesc: "email desc",
+    IsPublished: "isPublished",
+    IsPublishedDesc: "isPublished desc",
+    LanguageTag: "languageTag",
+    LanguageTagDesc: "languageTag desc",
+    Phone: "phone",
+    PhoneDesc: "phone desc",
+    PublicUrl: "publicUrl",
+    PublicUrlDesc: "publicUrl desc",
+    SchedulingPolicy: "schedulingPolicy",
+    SchedulingPolicyDesc: "schedulingPolicy desc",
+    WebSiteUrl: "webSiteUrl",
+    WebSiteUrlDesc: "webSiteUrl desc",
+} as const;
+/**
+ * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Address: "address",
+    BusinessHours: "businessHours",
+    BusinessType: "businessType",
+    DefaultCurrencyIso: "defaultCurrencyIso",
+    DisplayName: "displayName",
+    Email: "email",
+    IsPublished: "isPublished",
+    LanguageTag: "languageTag",
+    Phone: "phone",
+    PublicUrl: "publicUrl",
+    SchedulingPolicy: "schedulingPolicy",
+    WebSiteUrl: "webSiteUrl",
+    Appointments: "appointments",
+    CalendarView: "calendarView",
+    Customers: "customers",
+    CustomQuestions: "customQuestions",
+    Services: "services",
+    StaffMembers: "staffMembers",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

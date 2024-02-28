@@ -82,12 +82,14 @@ export interface ConditionalAccessRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -134,7 +136,7 @@ export const ConditionalAccessRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ConditionalAccessRequestBuilderUriTemplate,
@@ -142,7 +144,7 @@ export const ConditionalAccessRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConditionalAccessRootFromDiscriminatorValue,
         queryParametersMapper: ConditionalAccessRequestBuilderGetQueryParametersMapper,
     },
@@ -152,12 +154,34 @@ export const ConditionalAccessRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConditionalAccessRootFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeConditionalAccessRoot,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AuthenticationContextClassReferences: "authenticationContextClassReferences",
+    AuthenticationStrength: "authenticationStrength",
+    NamedLocations: "namedLocations",
+    Policies: "policies",
+    Templates: "templates",
+} as const;
+/**
+ * Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AuthenticationContextClassReferences: "authenticationContextClassReferences",
+    AuthenticationStrength: "authenticationStrength",
+    NamedLocations: "namedLocations",
+    Policies: "policies",
+    Templates: "templates",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

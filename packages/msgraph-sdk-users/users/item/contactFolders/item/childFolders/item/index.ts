@@ -62,12 +62,14 @@ export interface ContactFolderItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -98,7 +100,7 @@ export const ContactFolderItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ContactFolderItemRequestBuilderUriTemplate,
@@ -106,7 +108,7 @@ export const ContactFolderItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createContactFolderFromDiscriminatorValue,
         queryParametersMapper: ContactFolderItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,12 +118,34 @@ export const ContactFolderItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createContactFolderFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeContactFolder,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the childFolders property of the microsoft.graph.contactFolder entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ChildFolders: "childFolders",
+    Contacts: "contacts",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
+/**
+ * Provides operations to manage the childFolders property of the microsoft.graph.contactFolder entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DisplayName: "displayName",
+    ParentFolderId: "parentFolderId",
+    ChildFolders: "childFolders",
+    Contacts: "contacts",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

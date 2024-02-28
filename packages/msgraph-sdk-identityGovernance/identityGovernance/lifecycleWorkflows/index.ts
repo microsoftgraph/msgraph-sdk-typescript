@@ -11,6 +11,8 @@ import { type WorkflowsRequestBuilder, WorkflowsRequestBuilderNavigationMetadata
 import { type WorkflowTemplatesRequestBuilder, WorkflowTemplatesRequestBuilderNavigationMetadata, WorkflowTemplatesRequestBuilderRequestsMetadata } from './workflowTemplates/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the lifecycleWorkflows property of the microsoft.graph.identityGovernance entity.
  */
@@ -87,16 +89,40 @@ export interface LifecycleWorkflowsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const LifecycleWorkflowsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows{?%24expand,%24select}";
+/**
+ * Provides operations to manage the lifecycleWorkflows property of the microsoft.graph.identityGovernance entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    CustomTaskExtensions: "customTaskExtensions",
+    DeletedItems: "deletedItems",
+    Settings: "settings",
+    TaskDefinitions: "taskDefinitions",
+    Workflows: "workflows",
+    WorkflowTemplates: "workflowTemplates",
+} as const;
+/**
+ * Provides operations to manage the lifecycleWorkflows property of the microsoft.graph.identityGovernance entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CustomTaskExtensions: "customTaskExtensions",
+    DeletedItems: "deletedItems",
+    Settings: "settings",
+    TaskDefinitions: "taskDefinitions",
+    Workflows: "workflows",
+    WorkflowTemplates: "workflowTemplates",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -142,7 +168,7 @@ export const LifecycleWorkflowsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: LifecycleWorkflowsRequestBuilderUriTemplate,
@@ -150,7 +176,7 @@ export const LifecycleWorkflowsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLifecycleWorkflowsContainerFromDiscriminatorValue,
         queryParametersMapper: LifecycleWorkflowsRequestBuilderGetQueryParametersMapper,
     },
@@ -160,7 +186,7 @@ export const LifecycleWorkflowsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLifecycleWorkflowsContainerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLifecycleWorkflowsContainer,

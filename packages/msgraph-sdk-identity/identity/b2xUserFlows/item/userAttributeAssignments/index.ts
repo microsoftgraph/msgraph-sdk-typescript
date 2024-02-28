@@ -9,6 +9,9 @@ import { IdentityUserFlowAttributeAssignmentItemRequestBuilderNavigationMetadata
 import { SetOrderRequestBuilderRequestsMetadata, type SetOrderRequestBuilder } from './setOrder/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
  */
@@ -73,7 +76,7 @@ export interface UserAttributeAssignmentsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -81,7 +84,7 @@ export interface UserAttributeAssignmentsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -89,7 +92,7 @@ export interface UserAttributeAssignmentsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -103,6 +106,42 @@ export interface UserAttributeAssignmentsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const UserAttributeAssignmentsRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userAttributeAssignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    UserAttribute: "userAttribute",
+} as const;
+/**
+ * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    IsOptional: "isOptional",
+    IsOptionalDesc: "isOptional desc",
+    RequiresVerification: "requiresVerification",
+    RequiresVerificationDesc: "requiresVerification desc",
+    UserAttributeValues: "userAttributeValues",
+    UserAttributeValuesDesc: "userAttributeValues desc",
+    UserInputType: "userInputType",
+    UserInputTypeDesc: "userInputType desc",
+} as const;
+/**
+ * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DisplayName: "displayName",
+    IsOptional: "isOptional",
+    RequiresVerification: "requiresVerification",
+    UserAttributeValues: "userAttributeValues",
+    UserInputType: "userInputType",
+    UserAttribute: "userAttribute",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -145,7 +184,7 @@ export const UserAttributeAssignmentsRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityUserFlowAttributeAssignmentCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UserAttributeAssignmentsRequestBuilderGetQueryParametersMapper,
     },
@@ -155,7 +194,7 @@ export const UserAttributeAssignmentsRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIdentityUserFlowAttributeAssignment,

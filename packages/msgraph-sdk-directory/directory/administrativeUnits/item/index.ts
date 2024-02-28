@@ -75,12 +75,14 @@ export interface AdministrativeUnitItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -119,7 +121,7 @@ export const AdministrativeUnitItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AdministrativeUnitItemRequestBuilderUriTemplate,
@@ -127,7 +129,7 @@ export const AdministrativeUnitItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAdministrativeUnitFromDiscriminatorValue,
         queryParametersMapper: AdministrativeUnitItemRequestBuilderGetQueryParametersMapper,
     },
@@ -137,12 +139,34 @@ export const AdministrativeUnitItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAdministrativeUnitFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAdministrativeUnit,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Extensions: "extensions",
+    Members: "members",
+    ScopedRoleMembers: "scopedRoleMembers",
+} as const;
+/**
+ * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    Visibility: "visibility",
+    Extensions: "extensions",
+    Members: "members",
+    ScopedRoleMembers: "scopedRoleMembers",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

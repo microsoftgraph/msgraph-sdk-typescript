@@ -58,12 +58,14 @@ export interface DelegatedAdminRelationshipOperationItemRequestBuilderGetQueryPa
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -85,7 +87,7 @@ export const DelegatedAdminRelationshipOperationItemRequestBuilderRequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DelegatedAdminRelationshipOperationItemRequestBuilderUriTemplate,
@@ -93,7 +95,7 @@ export const DelegatedAdminRelationshipOperationItemRequestBuilderRequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminRelationshipOperationFromDiscriminatorValue,
         queryParametersMapper: DelegatedAdminRelationshipOperationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,12 +105,29 @@ export const DelegatedAdminRelationshipOperationItemRequestBuilderRequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminRelationshipOperationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDelegatedAdminRelationshipOperation,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Data: "data",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    OperationType: "operationType",
+    Status: "status",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

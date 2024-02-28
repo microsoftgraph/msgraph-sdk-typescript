@@ -65,12 +65,14 @@ export interface CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBui
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -100,7 +102,7 @@ export const CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderUriTemplate,
@@ -108,7 +110,7 @@ export const CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue,
         queryParametersMapper: CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetQueryParametersMapper,
     },
@@ -118,12 +120,33 @@ export const CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCrossTenantAccessPolicyConfigurationPartner,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    IdentitySynchronization: "identitySynchronization",
+} as const;
+/**
+ * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    AutomaticUserConsentSettings: "automaticUserConsentSettings",
+    B2bCollaborationInbound: "b2bCollaborationInbound",
+    B2bCollaborationOutbound: "b2bCollaborationOutbound",
+    B2bDirectConnectInbound: "b2bDirectConnectInbound",
+    B2bDirectConnectOutbound: "b2bDirectConnectOutbound",
+    InboundTrust: "inboundTrust",
+    IsServiceProvider: "isServiceProvider",
+    TenantId: "tenantId",
+    IdentitySynchronization: "identitySynchronization",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

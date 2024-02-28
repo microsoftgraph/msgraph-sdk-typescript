@@ -49,7 +49,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -57,7 +57,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -65,7 +65,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -85,6 +85,9 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaG
         "value": n => { deltaGetResponse.value = n.getCollectionOfObjectValues<ContactFolder>(createContactFolderFromDiscriminatorValue); },
     }
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -120,10 +123,43 @@ export const DeltaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeltaGetResponseFromDiscriminatorValue,
         queryParametersMapper: DeltaRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ChildFolders: "childFolders",
+    Contacts: "contacts",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    ParentFolderId: "parentFolderId",
+    ParentFolderIdDesc: "parentFolderId desc",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DisplayName: "displayName",
+    ParentFolderId: "parentFolderId",
+    ChildFolders: "childFolders",
+    Contacts: "contacts",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

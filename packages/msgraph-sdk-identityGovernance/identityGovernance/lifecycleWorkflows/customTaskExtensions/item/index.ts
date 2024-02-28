@@ -70,12 +70,14 @@ export interface CustomTaskExtensionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -110,7 +112,7 @@ export const CustomTaskExtensionItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CustomTaskExtensionItemRequestBuilderUriTemplate,
@@ -118,7 +120,7 @@ export const CustomTaskExtensionItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCustomTaskExtensionFromDiscriminatorValue,
         queryParametersMapper: CustomTaskExtensionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -128,12 +130,36 @@ export const CustomTaskExtensionItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCustomTaskExtensionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCustomTaskExtension,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    CreatedBy: "createdBy",
+    LastModifiedBy: "lastModifiedBy",
+} as const;
+/**
+ * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AuthenticationConfiguration: "authenticationConfiguration",
+    ClientConfiguration: "clientConfiguration",
+    Description: "description",
+    DisplayName: "displayName",
+    EndpointConfiguration: "endpointConfiguration",
+    CallbackConfiguration: "callbackConfiguration",
+    CreatedDateTime: "createdDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    CreatedBy: "createdBy",
+    LastModifiedBy: "lastModifiedBy",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

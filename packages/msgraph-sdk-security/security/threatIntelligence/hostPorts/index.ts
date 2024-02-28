@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { HostPortItemRequestBuilderNavigationMetadata, HostPortItemRequestBuilderRequestsMetadata, type HostPortItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the hostPorts property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -61,7 +64,7 @@ export interface HostPortsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface HostPortsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface HostPortsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,56 @@ export interface HostPortsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const HostPortsRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPorts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the hostPorts property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Host: "host",
+    MostRecentSslCertificate: "mostRecentSslCertificate",
+} as const;
+/**
+ * Provides operations to manage the hostPorts property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Banners: "banners",
+    BannersDesc: "banners desc",
+    FirstSeenDateTime: "firstSeenDateTime",
+    FirstSeenDateTimeDesc: "firstSeenDateTime desc",
+    LastScanDateTime: "lastScanDateTime",
+    LastScanDateTimeDesc: "lastScanDateTime desc",
+    LastSeenDateTime: "lastSeenDateTime",
+    LastSeenDateTimeDesc: "lastSeenDateTime desc",
+    Port: "port",
+    PortDesc: "port desc",
+    Protocol: "protocol",
+    ProtocolDesc: "protocol desc",
+    Services: "services",
+    ServicesDesc: "services desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    TimesObserved: "timesObserved",
+    TimesObservedDesc: "timesObserved desc",
+} as const;
+/**
+ * Provides operations to manage the hostPorts property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Banners: "banners",
+    FirstSeenDateTime: "firstSeenDateTime",
+    LastScanDateTime: "lastScanDateTime",
+    LastSeenDateTime: "lastSeenDateTime",
+    Port: "port",
+    Protocol: "protocol",
+    Services: "services",
+    Status: "status",
+    TimesObserved: "timesObserved",
+    Host: "host",
+    MostRecentSslCertificate: "mostRecentSslCertificate",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +180,7 @@ export const HostPortsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostPortCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: HostPortsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +190,7 @@ export const HostPortsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostPortFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeHostPort,

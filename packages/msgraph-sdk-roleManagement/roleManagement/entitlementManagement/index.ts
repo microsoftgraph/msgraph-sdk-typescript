@@ -102,12 +102,14 @@ export interface EntitlementManagementRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -170,7 +172,7 @@ export const EntitlementManagementRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: EntitlementManagementRequestBuilderUriTemplate,
@@ -178,7 +180,7 @@ export const EntitlementManagementRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRbacApplicationFromDiscriminatorValue,
         queryParametersMapper: EntitlementManagementRequestBuilderGetQueryParametersMapper,
     },
@@ -188,12 +190,42 @@ export const EntitlementManagementRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRbacApplicationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRbacApplication,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ResourceNamespaces: "resourceNamespaces",
+    RoleAssignments: "roleAssignments",
+    RoleAssignmentScheduleInstances: "roleAssignmentScheduleInstances",
+    RoleAssignmentScheduleRequests: "roleAssignmentScheduleRequests",
+    RoleAssignmentSchedules: "roleAssignmentSchedules",
+    RoleDefinitions: "roleDefinitions",
+    RoleEligibilityScheduleInstances: "roleEligibilityScheduleInstances",
+    RoleEligibilityScheduleRequests: "roleEligibilityScheduleRequests",
+    RoleEligibilitySchedules: "roleEligibilitySchedules",
+} as const;
+/**
+ * Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ResourceNamespaces: "resourceNamespaces",
+    RoleAssignments: "roleAssignments",
+    RoleAssignmentScheduleInstances: "roleAssignmentScheduleInstances",
+    RoleAssignmentScheduleRequests: "roleAssignmentScheduleRequests",
+    RoleAssignmentSchedules: "roleAssignmentSchedules",
+    RoleDefinitions: "roleDefinitions",
+    RoleEligibilityScheduleInstances: "roleEligibilityScheduleInstances",
+    RoleEligibilityScheduleRequests: "roleEligibilityScheduleRequests",
+    RoleEligibilitySchedules: "roleEligibilitySchedules",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

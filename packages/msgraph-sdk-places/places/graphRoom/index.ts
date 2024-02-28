@@ -6,6 +6,9 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Casts the previous resource to room.
  */
@@ -39,7 +42,7 @@ export interface GraphRoomRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -47,7 +50,7 @@ export interface GraphRoomRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -55,7 +58,7 @@ export interface GraphRoomRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -69,6 +72,37 @@ export interface GraphRoomRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const GraphRoomRequestBuilderUriTemplate = "{+baseurl}/places/graph.room{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Casts the previous resource to room.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Casts the previous resource to room.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Address: "address",
+    AddressDesc: "address desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    GeoCoordinates: "geoCoordinates",
+    GeoCoordinatesDesc: "geoCoordinates desc",
+    Phone: "phone",
+    PhoneDesc: "phone desc",
+} as const;
+/**
+ * Casts the previous resource to room.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Address: "address",
+    DisplayName: "displayName",
+    GeoCoordinates: "geoCoordinates",
+    Phone: "phone",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -100,7 +134,7 @@ export const GraphRoomRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoomCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: GraphRoomRequestBuilderGetQueryParametersMapper,
     },

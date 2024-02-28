@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { GrantRequestBuilderRequestsMetadata, type GrantRequestBuilder } from './grant/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the permissions property of the microsoft.graph.site entity.
  */
@@ -65,16 +67,39 @@ export interface PermissionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const PermissionItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/permissions/{permission%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the permissions property of the microsoft.graph.site entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the permissions property of the microsoft.graph.site entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ExpirationDateTime: "expirationDateTime",
+    GrantedTo: "grantedTo",
+    GrantedToIdentities: "grantedToIdentities",
+    GrantedToIdentitiesV2: "grantedToIdentitiesV2",
+    GrantedToV2: "grantedToV2",
+    HasPassword: "hasPassword",
+    InheritedFrom: "inheritedFrom",
+    Invitation: "invitation",
+    Link: "link",
+    Roles: "roles",
+    ShareId: "shareId",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -100,7 +125,7 @@ export const PermissionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PermissionItemRequestBuilderUriTemplate,
@@ -108,7 +133,7 @@ export const PermissionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPermissionFromDiscriminatorValue,
         queryParametersMapper: PermissionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -118,7 +143,7 @@ export const PermissionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPermissionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePermission,

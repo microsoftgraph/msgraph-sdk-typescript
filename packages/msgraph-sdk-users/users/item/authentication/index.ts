@@ -107,12 +107,14 @@ export interface AuthenticationRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -179,7 +181,7 @@ export const AuthenticationRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AuthenticationRequestBuilderUriTemplate,
@@ -187,7 +189,7 @@ export const AuthenticationRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthenticationFromDiscriminatorValue,
         queryParametersMapper: AuthenticationRequestBuilderGetQueryParametersMapper,
     },
@@ -197,12 +199,44 @@ export const AuthenticationRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthenticationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAuthentication,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the authentication property of the microsoft.graph.user entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    EmailMethods: "emailMethods",
+    Fido2Methods: "fido2Methods",
+    Methods: "methods",
+    MicrosoftAuthenticatorMethods: "microsoftAuthenticatorMethods",
+    Operations: "operations",
+    PasswordMethods: "passwordMethods",
+    PhoneMethods: "phoneMethods",
+    SoftwareOathMethods: "softwareOathMethods",
+    TemporaryAccessPassMethods: "temporaryAccessPassMethods",
+    WindowsHelloForBusinessMethods: "windowsHelloForBusinessMethods",
+} as const;
+/**
+ * Provides operations to manage the authentication property of the microsoft.graph.user entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    EmailMethods: "emailMethods",
+    Fido2Methods: "fido2Methods",
+    Methods: "methods",
+    MicrosoftAuthenticatorMethods: "microsoftAuthenticatorMethods",
+    Operations: "operations",
+    PasswordMethods: "passwordMethods",
+    PhoneMethods: "phoneMethods",
+    SoftwareOathMethods: "softwareOathMethods",
+    TemporaryAccessPassMethods: "temporaryAccessPassMethods",
+    WindowsHelloForBusinessMethods: "windowsHelloForBusinessMethods",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -5,6 +5,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { createPassiveDnsRecordFromDiscriminatorValue, type PassiveDnsRecord } from '@microsoft/msgraph-sdk/models/security/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the passiveDnsReverse property of the microsoft.graph.security.host entity.
  */
@@ -30,16 +32,36 @@ export interface PassiveDnsRecordItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const PassiveDnsRecordItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/passiveDnsReverse/{passiveDnsRecord%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the passiveDnsReverse property of the microsoft.graph.security.host entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Artifact: "artifact",
+    ParentHost: "parentHost",
+} as const;
+/**
+ * Provides operations to manage the passiveDnsReverse property of the microsoft.graph.security.host entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CollectedDateTime: "collectedDateTime",
+    FirstSeenDateTime: "firstSeenDateTime",
+    LastSeenDateTime: "lastSeenDateTime",
+    RecordType: "recordType",
+    Artifact: "artifact",
+    ParentHost: "parentHost",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +79,7 @@ export const PassiveDnsRecordItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPassiveDnsRecordFromDiscriminatorValue,
         queryParametersMapper: PassiveDnsRecordItemRequestBuilderGetQueryParametersMapper,
     },

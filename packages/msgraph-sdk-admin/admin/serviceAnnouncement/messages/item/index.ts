@@ -7,6 +7,8 @@ import { AttachmentsRequestBuilderNavigationMetadata, AttachmentsRequestBuilderR
 import { AttachmentsArchiveRequestBuilderRequestsMetadata, type AttachmentsArchiveRequestBuilder } from './attachmentsArchive/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
  */
@@ -68,16 +70,45 @@ export interface ServiceUpdateMessageItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const ServiceUpdateMessageItemRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Attachments: "attachments",
+} as const;
+/**
+ * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Details: "details",
+    EndDateTime: "endDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    StartDateTime: "startDateTime",
+    Title: "title",
+    ActionRequiredByDateTime: "actionRequiredByDateTime",
+    AttachmentsArchive: "attachmentsArchive",
+    Body: "body",
+    Category: "category",
+    HasAttachments: "hasAttachments",
+    IsMajorChange: "isMajorChange",
+    Services: "services",
+    Severity: "severity",
+    Tags: "tags",
+    ViewPoint: "viewPoint",
+    Attachments: "attachments",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -107,7 +138,7 @@ export const ServiceUpdateMessageItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ServiceUpdateMessageItemRequestBuilderUriTemplate,
@@ -115,7 +146,7 @@ export const ServiceUpdateMessageItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServiceUpdateMessageFromDiscriminatorValue,
         queryParametersMapper: ServiceUpdateMessageItemRequestBuilderGetQueryParametersMapper,
     },
@@ -125,7 +156,7 @@ export const ServiceUpdateMessageItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServiceUpdateMessageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeServiceUpdateMessage,

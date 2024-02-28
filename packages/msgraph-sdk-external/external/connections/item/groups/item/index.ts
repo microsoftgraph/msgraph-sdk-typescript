@@ -65,12 +65,14 @@ export interface ExternalGroupItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -101,7 +103,7 @@ export const ExternalGroupItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ExternalGroupItemRequestBuilderUriTemplate,
@@ -109,7 +111,7 @@ export const ExternalGroupItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExternalGroupFromDiscriminatorValue,
         queryParametersMapper: ExternalGroupItemRequestBuilderGetQueryParametersMapper,
     },
@@ -119,12 +121,28 @@ export const ExternalGroupItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExternalGroupFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeExternalGroup,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Members: "members",
+} as const;
+/**
+ * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Description: "description",
+    DisplayName: "displayName",
+    Members: "members",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

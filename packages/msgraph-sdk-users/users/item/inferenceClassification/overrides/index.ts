@@ -7,6 +7,8 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { InferenceClassificationOverrideItemRequestBuilderRequestsMetadata, type InferenceClassificationOverrideItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the overrides property of the microsoft.graph.inferenceClassification entity.
  */
@@ -67,11 +69,11 @@ export interface OverridesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -85,6 +87,25 @@ export interface OverridesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const OverridesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/inferenceClassification/overrides{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the overrides property of the microsoft.graph.inferenceClassification entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ClassifyAs: "classifyAs",
+    ClassifyAsDesc: "classifyAs desc",
+    SenderEmailAddress: "senderEmailAddress",
+    SenderEmailAddressDesc: "senderEmailAddress desc",
+} as const;
+/**
+ * Provides operations to manage the overrides property of the microsoft.graph.inferenceClassification entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ClassifyAs: "classifyAs",
+    SenderEmailAddress: "senderEmailAddress",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -118,7 +139,7 @@ export const OverridesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInferenceClassificationOverrideCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: OverridesRequestBuilderGetQueryParametersMapper,
     },
@@ -128,7 +149,7 @@ export const OverridesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInferenceClassificationOverrideFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeInferenceClassificationOverride,

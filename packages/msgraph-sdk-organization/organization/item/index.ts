@@ -14,6 +14,8 @@ import { RestoreRequestBuilderRequestsMetadata, type RestoreRequestBuilder } fro
 import { SetMobileDeviceManagementAuthorityRequestBuilderRequestsMetadata, type SetMobileDeviceManagementAuthorityRequestBuilder } from './setMobileDeviceManagementAuthority/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the collection of organization entities.
  */
@@ -104,16 +106,59 @@ export interface OrganizationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const OrganizationItemRequestBuilderUriTemplate = "{+baseurl}/organization/{organization%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the collection of organization entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Branding: "branding",
+    CertificateBasedAuthConfiguration: "certificateBasedAuthConfiguration",
+    Extensions: "extensions",
+} as const;
+/**
+ * Provides operations to manage the collection of organization entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    AssignedPlans: "assignedPlans",
+    BusinessPhones: "businessPhones",
+    City: "city",
+    Country: "country",
+    CountryLetterCode: "countryLetterCode",
+    CreatedDateTime: "createdDateTime",
+    DefaultUsageLocation: "defaultUsageLocation",
+    DisplayName: "displayName",
+    MarketingNotificationEmails: "marketingNotificationEmails",
+    MobileDeviceManagementAuthority: "mobileDeviceManagementAuthority",
+    OnPremisesLastSyncDateTime: "onPremisesLastSyncDateTime",
+    OnPremisesSyncEnabled: "onPremisesSyncEnabled",
+    PartnerTenantType: "partnerTenantType",
+    PostalCode: "postalCode",
+    PreferredLanguage: "preferredLanguage",
+    PrivacyProfile: "privacyProfile",
+    ProvisionedPlans: "provisionedPlans",
+    SecurityComplianceNotificationMails: "securityComplianceNotificationMails",
+    SecurityComplianceNotificationPhones: "securityComplianceNotificationPhones",
+    State: "state",
+    Street: "street",
+    TechnicalNotificationMails: "technicalNotificationMails",
+    TenantType: "tenantType",
+    VerifiedDomains: "verifiedDomains",
+    Branding: "branding",
+    CertificateBasedAuthConfiguration: "certificateBasedAuthConfiguration",
+    Extensions: "extensions",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -166,7 +211,7 @@ export const OrganizationItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OrganizationItemRequestBuilderUriTemplate,
@@ -174,7 +219,7 @@ export const OrganizationItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrganizationFromDiscriminatorValue,
         queryParametersMapper: OrganizationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -184,7 +229,7 @@ export const OrganizationItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrganizationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOrganization,

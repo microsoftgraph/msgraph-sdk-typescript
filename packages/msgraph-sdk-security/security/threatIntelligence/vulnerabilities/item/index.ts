@@ -7,6 +7,8 @@ import { ArticlesRequestBuilderNavigationMetadata, ArticlesRequestBuilderRequest
 import { ComponentsRequestBuilderNavigationMetadata, ComponentsRequestBuilderRequestsMetadata, type ComponentsRequestBuilder } from './components/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the vulnerabilities property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -68,16 +70,47 @@ export interface VulnerabilityItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const VulnerabilityItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/vulnerabilities/{vulnerability%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the vulnerabilities property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Articles: "articles",
+    Components: "components",
+} as const;
+/**
+ * Provides operations to manage the vulnerabilities property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActiveExploitsObserved: "activeExploitsObserved",
+    CommonWeaknessEnumerationIds: "commonWeaknessEnumerationIds",
+    CreatedDateTime: "createdDateTime",
+    Cvss2Summary: "cvss2Summary",
+    Cvss3Summary: "cvss3Summary",
+    Description: "description",
+    Exploits: "exploits",
+    ExploitsAvailable: "exploitsAvailable",
+    HasChatter: "hasChatter",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    PriorityScore: "priorityScore",
+    PublishedDateTime: "publishedDateTime",
+    References: "references",
+    Remediation: "remediation",
+    Severity: "severity",
+    Articles: "articles",
+    Components: "components",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -108,7 +141,7 @@ export const VulnerabilityItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: VulnerabilityItemRequestBuilderUriTemplate,
@@ -116,7 +149,7 @@ export const VulnerabilityItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVulnerabilityFromDiscriminatorValue,
         queryParametersMapper: VulnerabilityItemRequestBuilderGetQueryParametersMapper,
     },
@@ -126,7 +159,7 @@ export const VulnerabilityItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVulnerabilityFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeVulnerability,

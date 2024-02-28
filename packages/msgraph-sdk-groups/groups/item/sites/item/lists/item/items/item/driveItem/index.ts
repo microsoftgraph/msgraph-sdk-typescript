@@ -35,12 +35,14 @@ export interface DriveItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -70,10 +72,77 @@ export const DriveItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDriveItemFromDiscriminatorValue,
         queryParametersMapper: DriveItemRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the driveItem property of the microsoft.graph.listItem entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    CreatedByUser: "createdByUser",
+    LastModifiedByUser: "lastModifiedByUser",
+    Analytics: "analytics",
+    Children: "children",
+    ListItem: "listItem",
+    Permissions: "permissions",
+    RetentionLabel: "retentionLabel",
+    Subscriptions: "subscriptions",
+    Thumbnails: "thumbnails",
+    Versions: "versions",
+    Workbook: "workbook",
+} as const;
+/**
+ * Provides operations to manage the driveItem property of the microsoft.graph.listItem entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    ETag: "eTag",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Name: "name",
+    ParentReference: "parentReference",
+    WebUrl: "webUrl",
+    Audio: "audio",
+    Bundle: "bundle",
+    Content: "content",
+    CTag: "cTag",
+    Deleted: "deleted",
+    File: "file",
+    FileSystemInfo: "fileSystemInfo",
+    Folder: "folder",
+    Image: "image",
+    Location: "location",
+    Malware: "malware",
+    PackageEscaped: "package",
+    PendingOperations: "pendingOperations",
+    Photo: "photo",
+    Publication: "publication",
+    RemoteItem: "remoteItem",
+    Root: "root",
+    SearchResult: "searchResult",
+    Shared: "shared",
+    SharepointIds: "sharepointIds",
+    Size: "size",
+    SpecialFolder: "specialFolder",
+    Video: "video",
+    WebDavUrl: "webDavUrl",
+    CreatedByUser: "createdByUser",
+    LastModifiedByUser: "lastModifiedByUser",
+    Analytics: "analytics",
+    Children: "children",
+    ListItem: "listItem",
+    Permissions: "permissions",
+    RetentionLabel: "retentionLabel",
+    Subscriptions: "subscriptions",
+    Thumbnails: "thumbnails",
+    Versions: "versions",
+    Workbook: "workbook",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

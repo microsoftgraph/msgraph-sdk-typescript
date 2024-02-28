@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { SecureScoreItemRequestBuilderRequestsMetadata, type SecureScoreItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
  */
@@ -62,7 +65,7 @@ export interface SecureScoresRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface SecureScoresRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface SecureScoresRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,55 @@ export interface SecureScoresRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SecureScoresRequestBuilderUriTemplate = "{+baseurl}/security/secureScores{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ActiveUserCount: "activeUserCount",
+    ActiveUserCountDesc: "activeUserCount desc",
+    AverageComparativeScores: "averageComparativeScores",
+    AverageComparativeScoresDesc: "averageComparativeScores desc",
+    AzureTenantId: "azureTenantId",
+    AzureTenantIdDesc: "azureTenantId desc",
+    ControlScores: "controlScores",
+    ControlScoresDesc: "controlScores desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    CurrentScore: "currentScore",
+    CurrentScoreDesc: "currentScore desc",
+    EnabledServices: "enabledServices",
+    EnabledServicesDesc: "enabledServices desc",
+    LicensedUserCount: "licensedUserCount",
+    LicensedUserCountDesc: "licensedUserCount desc",
+    MaxScore: "maxScore",
+    MaxScoreDesc: "maxScore desc",
+    VendorInformation: "vendorInformation",
+    VendorInformationDesc: "vendorInformation desc",
+} as const;
+/**
+ * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActiveUserCount: "activeUserCount",
+    AverageComparativeScores: "averageComparativeScores",
+    AzureTenantId: "azureTenantId",
+    ControlScores: "controlScores",
+    CreatedDateTime: "createdDateTime",
+    CurrentScore: "currentScore",
+    EnabledServices: "enabledServices",
+    LicensedUserCount: "licensedUserCount",
+    MaxScore: "maxScore",
+    VendorInformation: "vendorInformation",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +179,7 @@ export const SecureScoresRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecureScoreCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SecureScoresRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +189,7 @@ export const SecureScoresRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecureScoreFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSecureScore,

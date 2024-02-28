@@ -10,6 +10,8 @@ import { SetStatusMessageRequestBuilderRequestsMetadata, type SetStatusMessageRe
 import { SetUserPreferredPresenceRequestBuilderRequestsMetadata, type SetUserPreferredPresenceRequestBuilder } from './setUserPreferredPresence/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the presence property of the microsoft.graph.user entity.
  */
@@ -41,11 +43,11 @@ export interface PresenceRequestBuilder extends BaseRequestBuilder<PresenceReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get a user's presence information.
+     * Set a presence status message for a user. An optional expiration date and time can be supplied.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Presence>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/presence-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/presence-setstatusmessage?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PresenceRequestBuilderGetQueryParameters> | undefined) : Promise<Presence | undefined>;
     /**
@@ -63,7 +65,7 @@ export interface PresenceRequestBuilder extends BaseRequestBuilder<PresenceReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get a user's presence information.
+     * Set a presence status message for a user. An optional expiration date and time can be supplied.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -77,22 +79,37 @@ export interface PresenceRequestBuilder extends BaseRequestBuilder<PresenceReque
      toPatchRequestInformation(body: Presence, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a user's presence information.
+ * Set a presence status message for a user. An optional expiration date and time can be supplied.
  */
 export interface PresenceRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const PresenceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/presence{?%24expand,%24select}";
+/**
+ * Provides operations to manage the presence property of the microsoft.graph.user entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the presence property of the microsoft.graph.user entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Activity: "activity",
+    Availability: "availability",
+    StatusMessage: "statusMessage",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -130,7 +147,7 @@ export const PresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PresenceRequestBuilderUriTemplate,
@@ -138,7 +155,7 @@ export const PresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPresenceFromDiscriminatorValue,
         queryParametersMapper: PresenceRequestBuilderGetQueryParametersMapper,
     },
@@ -148,7 +165,7 @@ export const PresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPresenceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePresence,

@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { DetailsRequestBuilderNavigationMetadata, DetailsRequestBuilderRequestsMetadata, type DetailsRequestBuilder } from './details/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the landingPages property of the microsoft.graph.attackSimulationRoot entity.
  */
@@ -62,16 +64,40 @@ export interface LandingPageItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const LandingPageItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/landingPages/{landingPage%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the landingPages property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Details: "details",
+} as const;
+/**
+ * Provides operations to manage the landingPages property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Locale: "locale",
+    Source: "source",
+    Status: "status",
+    SupportedLocales: "supportedLocales",
+    Details: "details",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -98,7 +124,7 @@ export const LandingPageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: LandingPageItemRequestBuilderUriTemplate,
@@ -106,7 +132,7 @@ export const LandingPageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLandingPageFromDiscriminatorValue,
         queryParametersMapper: LandingPageItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +142,7 @@ export const LandingPageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLandingPageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLandingPage,

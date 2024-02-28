@@ -5,6 +5,8 @@ import { createMailboxSettingsFromDiscriminatorValue, serializeMailboxSettings, 
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Builds and executes requests for operations under /identityGovernance/lifecycleWorkflows/workflows/{workflow-id}/runs/{run-id}/userProcessingResults/{userProcessingResult-id}/subject/mailboxSettings
  */
@@ -45,16 +47,30 @@ export interface MailboxSettingsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const MailboxSettingsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/runs/{run%2Did}/userProcessingResults/{userProcessingResult%2Did}/subject/mailboxSettings{?%24expand,%24select}";
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+export const GetSelectQueryParameterTypeObject = {
+    ArchiveFolder: "archiveFolder",
+    AutomaticRepliesSetting: "automaticRepliesSetting",
+    DateFormat: "dateFormat",
+    DelegateMeetingMessageDeliveryOptions: "delegateMeetingMessageDeliveryOptions",
+    Language: "language",
+    TimeFormat: "timeFormat",
+    TimeZone: "timeZone",
+    UserPurpose: "userPurpose",
+    WorkingHours: "workingHours",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -72,7 +88,7 @@ export const MailboxSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMailboxSettingsFromDiscriminatorValue,
         queryParametersMapper: MailboxSettingsRequestBuilderGetQueryParametersMapper,
     },
@@ -82,7 +98,7 @@ export const MailboxSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMailboxSettingsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMailboxSettings,

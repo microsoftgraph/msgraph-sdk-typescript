@@ -23,6 +23,8 @@ export function deserializeIntoGetRelyingPartyDetailedSummaryWithPeriodGetRespon
         "value": n => { getRelyingPartyDetailedSummaryWithPeriodGetResponse.value = n.getCollectionOfObjectValues<RelyingPartyDetailedSummary>(createRelyingPartyDetailedSummaryFromDiscriminatorValue); },
     }
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
 export interface GetRelyingPartyDetailedSummaryWithPeriodGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
@@ -58,7 +60,7 @@ export interface GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryP
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -66,7 +68,7 @@ export interface GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryP
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -74,7 +76,7 @@ export interface GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryP
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -84,6 +86,7 @@ export interface GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryP
      */
     top?: number;
 }
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -96,6 +99,41 @@ export function serializeGetRelyingPartyDetailedSummaryWithPeriodGetResponse(wri
  * Uri template for the request builder.
  */
 export const GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderUriTemplate = "{+baseurl}/reports/getRelyingPartyDetailedSummary(period='{period}'){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to call the getRelyingPartyDetailedSummary method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to call the getRelyingPartyDetailedSummary method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    FailedSignInCount: "failedSignInCount",
+    FailedSignInCountDesc: "failedSignInCount desc",
+    MigrationStatus: "migrationStatus",
+    MigrationStatusDesc: "migrationStatus desc",
+    MigrationValidationDetails: "migrationValidationDetails",
+    MigrationValidationDetailsDesc: "migrationValidationDetails desc",
+    RelyingPartyId: "relyingPartyId",
+    RelyingPartyIdDesc: "relyingPartyId desc",
+    RelyingPartyName: "relyingPartyName",
+    RelyingPartyNameDesc: "relyingPartyName desc",
+    ReplyUrls: "replyUrls",
+    ReplyUrlsDesc: "replyUrls desc",
+    ServiceId: "serviceId",
+    ServiceIdDesc: "serviceId desc",
+    SignInSuccessRate: "signInSuccessRate",
+    SignInSuccessRateDesc: "signInSuccessRate desc",
+    SuccessfulSignInCount: "successfulSignInCount",
+    SuccessfulSignInCountDesc: "successfulSignInCount desc",
+    TotalSignInCount: "totalSignInCount",
+    TotalSignInCountDesc: "totalSignInCount desc",
+    UniqueUserCount: "uniqueUserCount",
+    UniqueUserCountDesc: "uniqueUserCount desc",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -119,10 +157,27 @@ export const GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderRequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGetRelyingPartyDetailedSummaryWithPeriodGetResponseFromDiscriminatorValue,
         queryParametersMapper: GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to call the getRelyingPartyDetailedSummary method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    FailedSignInCount: "failedSignInCount",
+    MigrationStatus: "migrationStatus",
+    MigrationValidationDetails: "migrationValidationDetails",
+    RelyingPartyId: "relyingPartyId",
+    RelyingPartyName: "relyingPartyName",
+    ReplyUrls: "replyUrls",
+    ServiceId: "serviceId",
+    SignInSuccessRate: "signInSuccessRate",
+    SuccessfulSignInCount: "successfulSignInCount",
+    TotalSignInCount: "totalSignInCount",
+    UniqueUserCount: "uniqueUserCount",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

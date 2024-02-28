@@ -92,7 +92,7 @@ export const AddKeyRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createKeyCredentialFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAddKeyPostRequestBody,

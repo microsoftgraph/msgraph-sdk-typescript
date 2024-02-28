@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { PostItemRequestBuilderNavigationMetadata, PostItemRequestBuilderRequestsMetadata, type PostItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
  */
@@ -47,7 +50,7 @@ export interface PostsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -55,11 +58,11 @@ export interface PostsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -73,6 +76,71 @@ export interface PostsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const PostsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}/threads/{conversationThread%2Did}/posts{?%24count,%24expand,%24filter,%24orderby,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Attachments: "attachments",
+    Extensions: "extensions",
+    InReplyTo: "inReplyTo",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
+/**
+ * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Categories: "categories",
+    CategoriesDesc: "categories desc",
+    ChangeKey: "changeKey",
+    ChangeKeyDesc: "changeKey desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Body: "body",
+    BodyDesc: "body desc",
+    ConversationId: "conversationId",
+    ConversationIdDesc: "conversationId desc",
+    ConversationThreadId: "conversationThreadId",
+    ConversationThreadIdDesc: "conversationThreadId desc",
+    From: "from",
+    FromDesc: "from desc",
+    HasAttachments: "hasAttachments",
+    HasAttachmentsDesc: "hasAttachments desc",
+    NewParticipants: "newParticipants",
+    NewParticipantsDesc: "newParticipants desc",
+    ReceivedDateTime: "receivedDateTime",
+    ReceivedDateTimeDesc: "receivedDateTime desc",
+    Sender: "sender",
+    SenderDesc: "sender desc",
+} as const;
+/**
+ * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Categories: "categories",
+    ChangeKey: "changeKey",
+    CreatedDateTime: "createdDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Body: "body",
+    ConversationId: "conversationId",
+    ConversationThreadId: "conversationThreadId",
+    From: "from",
+    HasAttachments: "hasAttachments",
+    NewParticipants: "newParticipants",
+    ReceivedDateTime: "receivedDateTime",
+    Sender: "sender",
+    Attachments: "attachments",
+    Extensions: "extensions",
+    InReplyTo: "inReplyTo",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -108,7 +176,7 @@ export const PostsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPostCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: PostsRequestBuilderGetQueryParametersMapper,
     },

@@ -105,12 +105,14 @@ export interface EdiscoveryCaseItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -171,7 +173,7 @@ export const EdiscoveryCaseItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: EdiscoveryCaseItemRequestBuilderUriTemplate,
@@ -179,7 +181,7 @@ export const EdiscoveryCaseItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryCaseFromDiscriminatorValue,
         queryParametersMapper: EdiscoveryCaseItemRequestBuilderGetQueryParametersMapper,
     },
@@ -189,12 +191,47 @@ export const EdiscoveryCaseItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryCaseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEdiscoveryCase,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Custodians: "custodians",
+    NoncustodialDataSources: "noncustodialDataSources",
+    Operations: "operations",
+    ReviewSets: "reviewSets",
+    Searches: "searches",
+    Settings: "settings",
+    Tags: "tags",
+} as const;
+/**
+ * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Status: "status",
+    ClosedBy: "closedBy",
+    ClosedDateTime: "closedDateTime",
+    ExternalId: "externalId",
+    Custodians: "custodians",
+    NoncustodialDataSources: "noncustodialDataSources",
+    Operations: "operations",
+    ReviewSets: "reviewSets",
+    Searches: "searches",
+    Settings: "settings",
+    Tags: "tags",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

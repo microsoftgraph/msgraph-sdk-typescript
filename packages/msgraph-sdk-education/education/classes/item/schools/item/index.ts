@@ -30,12 +30,14 @@ export interface EducationSchoolItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -57,10 +59,43 @@ export const EducationSchoolItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationSchoolFromDiscriminatorValue,
         queryParametersMapper: EducationSchoolItemRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the schools property of the microsoft.graph.educationClass entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AdministrativeUnit: "administrativeUnit",
+    Classes: "classes",
+    Users: "users",
+} as const;
+/**
+ * Provides operations to manage the schools property of the microsoft.graph.educationClass entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Description: "description",
+    DisplayName: "displayName",
+    ExternalSource: "externalSource",
+    ExternalSourceDetail: "externalSourceDetail",
+    Address: "address",
+    CreatedBy: "createdBy",
+    ExternalId: "externalId",
+    ExternalPrincipalId: "externalPrincipalId",
+    Fax: "fax",
+    HighestGrade: "highestGrade",
+    LowestGrade: "lowestGrade",
+    Phone: "phone",
+    PrincipalEmail: "principalEmail",
+    PrincipalName: "principalName",
+    SchoolNumber: "schoolNumber",
+    AdministrativeUnit: "administrativeUnit",
+    Classes: "classes",
+    Users: "users",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

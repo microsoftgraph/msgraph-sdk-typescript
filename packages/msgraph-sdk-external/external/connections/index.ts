@@ -63,7 +63,7 @@ export interface ConnectionsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface ConnectionsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface ConnectionsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface ConnectionsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -129,7 +132,7 @@ export const ConnectionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExternalConnectionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ConnectionsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,12 +142,60 @@ export const ConnectionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExternalConnectionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeExternalConnection,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Groups: "groups",
+    Items: "items",
+    Operations: "operations",
+    Schema: "schema",
+} as const;
+/**
+ * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ActivitySettings: "activitySettings",
+    ActivitySettingsDesc: "activitySettings desc",
+    Configuration: "configuration",
+    ConfigurationDesc: "configuration desc",
+    ConnectorId: "connectorId",
+    ConnectorIdDesc: "connectorId desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    Name: "name",
+    NameDesc: "name desc",
+    SearchSettings: "searchSettings",
+    SearchSettingsDesc: "searchSettings desc",
+    State: "state",
+    StateDesc: "state desc",
+} as const;
+/**
+ * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActivitySettings: "activitySettings",
+    Configuration: "configuration",
+    ConnectorId: "connectorId",
+    Description: "description",
+    Name: "name",
+    SearchSettings: "searchSettings",
+    State: "state",
+    Groups: "groups",
+    Items: "items",
+    Operations: "operations",
+    Schema: "schema",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

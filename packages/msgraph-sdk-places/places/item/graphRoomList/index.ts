@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { RoomsRequestBuilderNavigationMetadata, RoomsRequestBuilderRequestsMetadata, type RoomsRequestBuilder } from './rooms/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Casts the previous resource to roomList.
  */
@@ -35,16 +37,32 @@ export interface GraphRoomListRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const GraphRoomListRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.roomList{?%24expand,%24select}";
+/**
+ * Casts the previous resource to roomList.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Casts the previous resource to roomList.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Address: "address",
+    DisplayName: "displayName",
+    GeoCoordinates: "geoCoordinates",
+    Phone: "phone",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -71,7 +89,7 @@ export const GraphRoomListRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoomListFromDiscriminatorValue,
         queryParametersMapper: GraphRoomListRequestBuilderGetQueryParametersMapper,
     },

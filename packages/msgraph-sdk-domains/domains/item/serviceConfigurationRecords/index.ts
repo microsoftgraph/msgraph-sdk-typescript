@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { DomainDnsRecordItemRequestBuilderRequestsMetadata, type DomainDnsRecordItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
  */
@@ -62,7 +65,7 @@ export interface ServiceConfigurationRecordsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface ServiceConfigurationRecordsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface ServiceConfigurationRecordsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,40 @@ export interface ServiceConfigurationRecordsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const ServiceConfigurationRecordsRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/serviceConfigurationRecords{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    IsOptional: "isOptional",
+    IsOptionalDesc: "isOptional desc",
+    Label: "label",
+    LabelDesc: "label desc",
+    RecordType: "recordType",
+    RecordTypeDesc: "recordType desc",
+    SupportedService: "supportedService",
+    SupportedServiceDesc: "supportedService desc",
+    Ttl: "ttl",
+    TtlDesc: "ttl desc",
+} as const;
+/**
+ * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    IsOptional: "isOptional",
+    Label: "label",
+    RecordType: "recordType",
+    SupportedService: "supportedService",
+    Ttl: "ttl",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +164,7 @@ export const ServiceConfigurationRecordsRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDomainDnsRecordCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ServiceConfigurationRecordsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +174,7 @@ export const ServiceConfigurationRecordsRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDomainDnsRecordFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDomainDnsRecord,

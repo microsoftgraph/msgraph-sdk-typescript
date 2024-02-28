@@ -7,6 +7,8 @@ import { AcceptanceStatusesRequestBuilderNavigationMetadata, AcceptanceStatusesR
 import { AssignmentsRequestBuilderNavigationMetadata, AssignmentsRequestBuilderRequestsMetadata, type AssignmentsRequestBuilder } from './assignments/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
  */
@@ -70,16 +72,40 @@ export interface TermsAndConditionsItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const TermsAndConditionsItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AcceptanceStatuses: "acceptanceStatuses",
+    Assignments: "assignments",
+} as const;
+/**
+ * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AcceptanceStatement: "acceptanceStatement",
+    BodyText: "bodyText",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Title: "title",
+    Version: "version",
+    AcceptanceStatuses: "acceptanceStatuses",
+    Assignments: "assignments",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -110,7 +136,7 @@ export const TermsAndConditionsItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TermsAndConditionsItemRequestBuilderUriTemplate,
@@ -118,7 +144,7 @@ export const TermsAndConditionsItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTermsAndConditionsFromDiscriminatorValue,
         queryParametersMapper: TermsAndConditionsItemRequestBuilderGetQueryParametersMapper,
     },
@@ -128,7 +154,7 @@ export const TermsAndConditionsItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTermsAndConditionsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTermsAndConditions,

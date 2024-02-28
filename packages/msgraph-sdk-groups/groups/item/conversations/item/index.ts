@@ -18,15 +18,15 @@ export interface ConversationItemRequestBuilder extends BaseRequestBuilder<Conve
      * Delete conversation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/conversation-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-delete-conversation?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of conversation object.
+     * The group's conversations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Conversation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/conversation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-get-conversation?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConversationItemRequestBuilderGetQueryParameters> | undefined) : Promise<Conversation | undefined>;
     /**
@@ -36,21 +36,22 @@ export interface ConversationItemRequestBuilder extends BaseRequestBuilder<Conve
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of conversation object.
+     * The group's conversations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConversationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of conversation object.
+ * The group's conversations.
  */
 export interface ConversationItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -80,7 +81,7 @@ export const ConversationItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ConversationItemRequestBuilderUriTemplate,
@@ -88,10 +89,22 @@ export const ConversationItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConversationFromDiscriminatorValue,
         queryParametersMapper: ConversationItemRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the conversations property of the microsoft.graph.group entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    HasAttachments: "hasAttachments",
+    LastDeliveredDateTime: "lastDeliveredDateTime",
+    Preview: "preview",
+    Topic: "topic",
+    UniqueSenders: "uniqueSenders",
+    Threads: "threads",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

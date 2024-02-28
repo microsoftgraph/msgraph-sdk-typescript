@@ -5,6 +5,8 @@ import { createLandingPageFromDiscriminatorValue, type LandingPage } from '@micr
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the landingPage property of the microsoft.graph.simulation entity.
  */
@@ -30,16 +32,40 @@ export interface LandingPageRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const LandingPageRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/landingPage{?%24expand,%24select}";
+/**
+ * Provides operations to manage the landingPage property of the microsoft.graph.simulation entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Details: "details",
+} as const;
+/**
+ * Provides operations to manage the landingPage property of the microsoft.graph.simulation entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Locale: "locale",
+    Source: "source",
+    Status: "status",
+    SupportedLocales: "supportedLocales",
+    Details: "details",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +83,7 @@ export const LandingPageRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLandingPageFromDiscriminatorValue,
         queryParametersMapper: LandingPageRequestBuilderGetQueryParametersMapper,
     },

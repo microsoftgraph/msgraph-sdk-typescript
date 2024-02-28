@@ -17,6 +17,8 @@ import { TablesRequestBuilderNavigationMetadata, TablesRequestBuilderRequestsMet
 import { type WorksheetsRequestBuilder, WorksheetsRequestBuilderNavigationMetadata, WorksheetsRequestBuilderRequestsMetadata } from './worksheets/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the workbook property of the microsoft.graph.driveItem entity.
  */
@@ -121,16 +123,42 @@ export interface WorkbookRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const WorkbookRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook{?%24expand,%24select}";
+/**
+ * Provides operations to manage the workbook property of the microsoft.graph.driveItem entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Application: "application",
+    Comments: "comments",
+    Functions: "functions",
+    Names: "names",
+    Operations: "operations",
+    Tables: "tables",
+    Worksheets: "worksheets",
+} as const;
+/**
+ * Provides operations to manage the workbook property of the microsoft.graph.driveItem entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Application: "application",
+    Comments: "comments",
+    Functions: "functions",
+    Names: "names",
+    Operations: "operations",
+    Tables: "tables",
+    Worksheets: "worksheets",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -196,7 +224,7 @@ export const WorkbookRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: WorkbookRequestBuilderUriTemplate,
@@ -204,7 +232,7 @@ export const WorkbookRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookFromDiscriminatorValue,
         queryParametersMapper: WorkbookRequestBuilderGetQueryParametersMapper,
     },
@@ -214,7 +242,7 @@ export const WorkbookRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbook,

@@ -47,7 +47,7 @@ export interface ChildHostPairsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -55,7 +55,7 @@ export interface ChildHostPairsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -63,7 +63,7 @@ export interface ChildHostPairsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -73,6 +73,9 @@ export interface ChildHostPairsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -112,10 +115,42 @@ export const ChildHostPairsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostPairCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ChildHostPairsRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the childHostPairs property of the microsoft.graph.security.host entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ChildHost: "childHost",
+    ParentHost: "parentHost",
+} as const;
+/**
+ * Provides operations to manage the childHostPairs property of the microsoft.graph.security.host entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    FirstSeenDateTime: "firstSeenDateTime",
+    FirstSeenDateTimeDesc: "firstSeenDateTime desc",
+    LastSeenDateTime: "lastSeenDateTime",
+    LastSeenDateTimeDesc: "lastSeenDateTime desc",
+    LinkKind: "linkKind",
+    LinkKindDesc: "linkKind desc",
+} as const;
+/**
+ * Provides operations to manage the childHostPairs property of the microsoft.graph.security.host entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    FirstSeenDateTime: "firstSeenDateTime",
+    LastSeenDateTime: "lastSeenDateTime",
+    LinkKind: "linkKind",
+    ChildHost: "childHost",
+    ParentHost: "parentHost",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { SubjectRightsRequestItemRequestBuilderNavigationMetadata, SubjectRightsRequestItemRequestBuilderRequestsMetadata, type SubjectRightsRequestItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
  */
@@ -69,7 +72,7 @@ export interface SubjectRightsRequestsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -77,7 +80,7 @@ export interface SubjectRightsRequestsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -85,7 +88,7 @@ export interface SubjectRightsRequestsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -99,6 +102,105 @@ export interface SubjectRightsRequestsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SubjectRightsRequestsRequestBuilderUriTemplate = "{+baseurl}/privacy/subjectRightsRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Approvers: "approvers",
+    Collaborators: "collaborators",
+    Notes: "notes",
+    Team: "team",
+} as const;
+/**
+ * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AssignedTo: "assignedTo",
+    AssignedToDesc: "assignedTo desc",
+    ClosedDateTime: "closedDateTime",
+    ClosedDateTimeDesc: "closedDateTime desc",
+    ContentQuery: "contentQuery",
+    ContentQueryDesc: "contentQuery desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DataSubject: "dataSubject",
+    DataSubjectDesc: "dataSubject desc",
+    DataSubjectType: "dataSubjectType",
+    DataSubjectTypeDesc: "dataSubjectType desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    ExternalId: "externalId",
+    ExternalIdDesc: "externalId desc",
+    History: "history",
+    HistoryDesc: "history desc",
+    IncludeAllVersions: "includeAllVersions",
+    IncludeAllVersionsDesc: "includeAllVersions desc",
+    IncludeAuthoredContent: "includeAuthoredContent",
+    IncludeAuthoredContentDesc: "includeAuthoredContent desc",
+    Insight: "insight",
+    InsightDesc: "insight desc",
+    InternalDueDateTime: "internalDueDateTime",
+    InternalDueDateTimeDesc: "internalDueDateTime desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    MailboxLocations: "mailboxLocations",
+    MailboxLocationsDesc: "mailboxLocations desc",
+    PauseAfterEstimate: "pauseAfterEstimate",
+    PauseAfterEstimateDesc: "pauseAfterEstimate desc",
+    Regulations: "regulations",
+    RegulationsDesc: "regulations desc",
+    SiteLocations: "siteLocations",
+    SiteLocationsDesc: "siteLocations desc",
+    Stages: "stages",
+    StagesDesc: "stages desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    Type: "type",
+    TypeDesc: "type desc",
+} as const;
+/**
+ * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AssignedTo: "assignedTo",
+    ClosedDateTime: "closedDateTime",
+    ContentQuery: "contentQuery",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    DataSubject: "dataSubject",
+    DataSubjectType: "dataSubjectType",
+    Description: "description",
+    DisplayName: "displayName",
+    ExternalId: "externalId",
+    History: "history",
+    IncludeAllVersions: "includeAllVersions",
+    IncludeAuthoredContent: "includeAuthoredContent",
+    Insight: "insight",
+    InternalDueDateTime: "internalDueDateTime",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    MailboxLocations: "mailboxLocations",
+    PauseAfterEstimate: "pauseAfterEstimate",
+    Regulations: "regulations",
+    SiteLocations: "siteLocations",
+    Stages: "stages",
+    Status: "status",
+    Type: "type",
+    Approvers: "approvers",
+    Collaborators: "collaborators",
+    Notes: "notes",
+    Team: "team",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -135,7 +237,7 @@ export const SubjectRightsRequestsRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubjectRightsRequestCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SubjectRightsRequestsRequestBuilderGetQueryParametersMapper,
     },
@@ -145,7 +247,7 @@ export const SubjectRightsRequestsRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubjectRightsRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSubjectRightsRequest,

@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { AppliesToRequestBuilderNavigationMetadata, AppliesToRequestBuilderRequestsMetadata, type AppliesToRequestBuilder } from './appliesTo/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.
  */
@@ -64,16 +66,35 @@ export interface TokenIssuancePolicyItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const TokenIssuancePolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AppliesTo: "appliesTo",
+} as const;
+/**
+ * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    Definition: "definition",
+    IsOrganizationDefault: "isOrganizationDefault",
+    AppliesTo: "appliesTo",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -100,7 +121,7 @@ export const TokenIssuancePolicyItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TokenIssuancePolicyItemRequestBuilderUriTemplate,
@@ -108,7 +129,7 @@ export const TokenIssuancePolicyItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTokenIssuancePolicyFromDiscriminatorValue,
         queryParametersMapper: TokenIssuancePolicyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -118,7 +139,7 @@ export const TokenIssuancePolicyItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTokenIssuancePolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTokenIssuancePolicy,

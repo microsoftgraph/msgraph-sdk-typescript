@@ -5,6 +5,8 @@ import { createItemRetentionLabelFromDiscriminatorValue, serializeItemRetentionL
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the retentionLabel property of the microsoft.graph.driveItem entity.
  */
@@ -24,12 +26,12 @@ export interface RetentionLabelRequestBuilder extends BaseRequestBuilder<Retenti
      */
      get(requestConfiguration?: RequestConfiguration<RetentionLabelRequestBuilderGetQueryParameters> | undefined) : Promise<ItemRetentionLabel | undefined>;
     /**
-     * Lock or unlock a retention label on a driveItem that classifies content as records. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint. For more information about how you can lock and unlock retention labels, see Use record versioning to update records stored in SharePoint or OneDrive.
+     * Apply (set) a retention label on a driveItem (files and folders). Retention labels don't need to be published in a retention label policy to be applied using this method. When a retention label is applied to a folder, all the items in the folder are tagged with the same retention label. For information about conflict resolution for retention labels, see Will an existing label be overridden or removed. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ItemRetentionLabel>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/driveitem-lockorunlockrecord?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/driveitem-setretentionlabel?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ItemRetentionLabel, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ItemRetentionLabel | undefined>;
     /**
@@ -45,7 +47,7 @@ export interface RetentionLabelRequestBuilder extends BaseRequestBuilder<Retenti
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RetentionLabelRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Lock or unlock a retention label on a driveItem that classifies content as records. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint. For more information about how you can lock and unlock retention labels, see Use record versioning to update records stored in SharePoint or OneDrive.
+     * Apply (set) a retention label on a driveItem (files and folders). Retention labels don't need to be published in a retention label policy to be applied using this method. When a retention label is applied to a folder, all the items in the folder are tagged with the same retention label. For information about conflict resolution for retention labels, see Will an existing label be overridden or removed. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -59,16 +61,33 @@ export interface RetentionLabelRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const RetentionLabelRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/retentionLabel{?%24expand,%24select}";
+/**
+ * Provides operations to manage the retentionLabel property of the microsoft.graph.driveItem entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the retentionLabel property of the microsoft.graph.driveItem entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    IsLabelAppliedExplicitly: "isLabelAppliedExplicitly",
+    LabelAppliedBy: "labelAppliedBy",
+    LabelAppliedDateTime: "labelAppliedDateTime",
+    Name: "name",
+    RetentionSettings: "retentionSettings",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -86,7 +105,7 @@ export const RetentionLabelRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RetentionLabelRequestBuilderUriTemplate,
@@ -94,7 +113,7 @@ export const RetentionLabelRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createItemRetentionLabelFromDiscriminatorValue,
         queryParametersMapper: RetentionLabelRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +123,7 @@ export const RetentionLabelRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createItemRetentionLabelFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeItemRetentionLabel,

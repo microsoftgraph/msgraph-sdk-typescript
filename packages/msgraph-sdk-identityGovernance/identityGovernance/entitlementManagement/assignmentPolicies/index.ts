@@ -63,7 +63,7 @@ export interface AssignmentPoliciesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface AssignmentPoliciesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface AssignmentPoliciesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface AssignmentPoliciesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -129,7 +132,7 @@ export const AssignmentPoliciesRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessPackageAssignmentPolicyCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AssignmentPoliciesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,12 +142,72 @@ export const AssignmentPoliciesRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessPackageAssignmentPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAccessPackageAssignmentPolicy,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the assignmentPolicies property of the microsoft.graph.entitlementManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AccessPackage: "accessPackage",
+    Catalog: "catalog",
+    CustomExtensionStageSettings: "customExtensionStageSettings",
+    Questions: "questions",
+} as const;
+/**
+ * Provides operations to manage the assignmentPolicies property of the microsoft.graph.entitlementManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AllowedTargetScope: "allowedTargetScope",
+    AllowedTargetScopeDesc: "allowedTargetScope desc",
+    AutomaticRequestSettings: "automaticRequestSettings",
+    AutomaticRequestSettingsDesc: "automaticRequestSettings desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    Expiration: "expiration",
+    ExpirationDesc: "expiration desc",
+    ModifiedDateTime: "modifiedDateTime",
+    ModifiedDateTimeDesc: "modifiedDateTime desc",
+    RequestApprovalSettings: "requestApprovalSettings",
+    RequestApprovalSettingsDesc: "requestApprovalSettings desc",
+    RequestorSettings: "requestorSettings",
+    RequestorSettingsDesc: "requestorSettings desc",
+    ReviewSettings: "reviewSettings",
+    ReviewSettingsDesc: "reviewSettings desc",
+    SpecificAllowedTargets: "specificAllowedTargets",
+    SpecificAllowedTargetsDesc: "specificAllowedTargets desc",
+} as const;
+/**
+ * Provides operations to manage the assignmentPolicies property of the microsoft.graph.entitlementManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AllowedTargetScope: "allowedTargetScope",
+    AutomaticRequestSettings: "automaticRequestSettings",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    Expiration: "expiration",
+    ModifiedDateTime: "modifiedDateTime",
+    RequestApprovalSettings: "requestApprovalSettings",
+    RequestorSettings: "requestorSettings",
+    ReviewSettings: "reviewSettings",
+    SpecificAllowedTargets: "specificAllowedTargets",
+    AccessPackage: "accessPackage",
+    Catalog: "catalog",
+    CustomExtensionStageSettings: "customExtensionStageSettings",
+    Questions: "questions",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

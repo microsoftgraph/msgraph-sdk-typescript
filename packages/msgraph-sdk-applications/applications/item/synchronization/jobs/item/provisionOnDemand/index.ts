@@ -80,7 +80,7 @@ export const ProvisionOnDemandRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createStringKeyStringValuePairFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeProvisionOnDemandPostRequestBody,

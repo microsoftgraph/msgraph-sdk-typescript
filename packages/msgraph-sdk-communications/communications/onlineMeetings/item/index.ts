@@ -12,6 +12,8 @@ import { SendVirtualAppointmentSmsRequestBuilderRequestsMetadata, type SendVirtu
 import { TranscriptsRequestBuilderNavigationMetadata, TranscriptsRequestBuilderRequestsMetadata, type TranscriptsRequestBuilder } from './transcripts/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
  */
@@ -92,16 +94,60 @@ export interface OnlineMeetingItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const OnlineMeetingItemRequestBuilderUriTemplate = "{+baseurl}/communications/onlineMeetings/{onlineMeeting%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AttendanceReports: "attendanceReports",
+    Recordings: "recordings",
+    Transcripts: "transcripts",
+} as const;
+/**
+ * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AllowAttendeeToEnableCamera: "allowAttendeeToEnableCamera",
+    AllowAttendeeToEnableMic: "allowAttendeeToEnableMic",
+    AllowedPresenters: "allowedPresenters",
+    AllowMeetingChat: "allowMeetingChat",
+    AllowParticipantsToChangeName: "allowParticipantsToChangeName",
+    AllowTeamworkReactions: "allowTeamworkReactions",
+    AudioConferencing: "audioConferencing",
+    ChatInfo: "chatInfo",
+    IsEntryExitAnnounced: "isEntryExitAnnounced",
+    JoinInformation: "joinInformation",
+    JoinMeetingIdSettings: "joinMeetingIdSettings",
+    JoinWebUrl: "joinWebUrl",
+    LobbyBypassSettings: "lobbyBypassSettings",
+    RecordAutomatically: "recordAutomatically",
+    ShareMeetingChatHistoryDefault: "shareMeetingChatHistoryDefault",
+    Subject: "subject",
+    VideoTeleconferenceId: "videoTeleconferenceId",
+    WatermarkProtection: "watermarkProtection",
+    AttendeeReport: "attendeeReport",
+    BroadcastSettings: "broadcastSettings",
+    CreationDateTime: "creationDateTime",
+    EndDateTime: "endDateTime",
+    ExternalId: "externalId",
+    IsBroadcast: "isBroadcast",
+    Participants: "participants",
+    StartDateTime: "startDateTime",
+    AttendanceReports: "attendanceReports",
+    Recordings: "recordings",
+    Transcripts: "transcripts",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -148,7 +194,7 @@ export const OnlineMeetingItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OnlineMeetingItemRequestBuilderUriTemplate,
@@ -156,7 +202,7 @@ export const OnlineMeetingItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnlineMeetingFromDiscriminatorValue,
         queryParametersMapper: OnlineMeetingItemRequestBuilderGetQueryParametersMapper,
     },
@@ -166,7 +212,7 @@ export const OnlineMeetingItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnlineMeetingFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOnlineMeeting,

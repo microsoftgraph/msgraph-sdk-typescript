@@ -67,7 +67,7 @@ export interface CallsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -75,7 +75,7 @@ export interface CallsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -83,7 +83,7 @@ export interface CallsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +93,9 @@ export interface CallsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -136,7 +139,7 @@ export const CallsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCallCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: CallsRequestBuilderGetQueryParametersMapper,
     },
@@ -146,12 +149,99 @@ export const CallsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCallFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCall,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AudioRoutingGroups: "audioRoutingGroups",
+    ContentSharingSessions: "contentSharingSessions",
+    Operations: "operations",
+    Participants: "participants",
+} as const;
+/**
+ * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CallbackUri: "callbackUri",
+    CallbackUriDesc: "callbackUri desc",
+    CallChainId: "callChainId",
+    CallChainIdDesc: "callChainId desc",
+    CallOptions: "callOptions",
+    CallOptionsDesc: "callOptions desc",
+    CallRoutes: "callRoutes",
+    CallRoutesDesc: "callRoutes desc",
+    ChatInfo: "chatInfo",
+    ChatInfoDesc: "chatInfo desc",
+    Direction: "direction",
+    DirectionDesc: "direction desc",
+    IncomingContext: "incomingContext",
+    IncomingContextDesc: "incomingContext desc",
+    MediaConfig: "mediaConfig",
+    MediaConfigDesc: "mediaConfig desc",
+    MediaState: "mediaState",
+    MediaStateDesc: "mediaState desc",
+    MeetingInfo: "meetingInfo",
+    MeetingInfoDesc: "meetingInfo desc",
+    MyParticipantId: "myParticipantId",
+    MyParticipantIdDesc: "myParticipantId desc",
+    RequestedModalities: "requestedModalities",
+    RequestedModalitiesDesc: "requestedModalities desc",
+    ResultInfo: "resultInfo",
+    ResultInfoDesc: "resultInfo desc",
+    Source: "source",
+    SourceDesc: "source desc",
+    State: "state",
+    StateDesc: "state desc",
+    Subject: "subject",
+    SubjectDesc: "subject desc",
+    Targets: "targets",
+    TargetsDesc: "targets desc",
+    TenantId: "tenantId",
+    TenantIdDesc: "tenantId desc",
+    ToneInfo: "toneInfo",
+    ToneInfoDesc: "toneInfo desc",
+    Transcription: "transcription",
+    TranscriptionDesc: "transcription desc",
+} as const;
+/**
+ * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CallbackUri: "callbackUri",
+    CallChainId: "callChainId",
+    CallOptions: "callOptions",
+    CallRoutes: "callRoutes",
+    ChatInfo: "chatInfo",
+    Direction: "direction",
+    IncomingContext: "incomingContext",
+    MediaConfig: "mediaConfig",
+    MediaState: "mediaState",
+    MeetingInfo: "meetingInfo",
+    MyParticipantId: "myParticipantId",
+    RequestedModalities: "requestedModalities",
+    ResultInfo: "resultInfo",
+    Source: "source",
+    State: "state",
+    Subject: "subject",
+    Targets: "targets",
+    TenantId: "tenantId",
+    ToneInfo: "toneInfo",
+    Transcription: "transcription",
+    AudioRoutingGroups: "audioRoutingGroups",
+    ContentSharingSessions: "contentSharingSessions",
+    Operations: "operations",
+    Participants: "participants",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

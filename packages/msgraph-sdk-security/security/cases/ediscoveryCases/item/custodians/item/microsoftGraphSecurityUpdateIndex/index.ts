@@ -36,7 +36,7 @@ export const MicrosoftGraphSecurityUpdateIndexRequestBuilderRequestsMetadata: Re
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
 };
 /* tslint:enable */

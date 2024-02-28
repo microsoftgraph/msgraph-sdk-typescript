@@ -58,12 +58,14 @@ export interface AttackSimulationOperationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -85,7 +87,7 @@ export const AttackSimulationOperationItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AttackSimulationOperationItemRequestBuilderUriTemplate,
@@ -93,7 +95,7 @@ export const AttackSimulationOperationItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttackSimulationOperationFromDiscriminatorValue,
         queryParametersMapper: AttackSimulationOperationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,12 +105,32 @@ export const AttackSimulationOperationItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttackSimulationOperationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAttackSimulationOperation,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the operations property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the operations property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    LastActionDateTime: "lastActionDateTime",
+    ResourceLocation: "resourceLocation",
+    Status: "status",
+    StatusDetail: "statusDetail",
+    PercentageCompleted: "percentageCompleted",
+    TenantId: "tenantId",
+    Type: "type",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

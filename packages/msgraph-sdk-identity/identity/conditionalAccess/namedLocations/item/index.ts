@@ -5,23 +5,25 @@ import { createNamedLocationFromDiscriminatorValue, serializeNamedLocation, type
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
  */
 export interface NamedLocationItemRequestBuilder extends BaseRequestBuilder<NamedLocationItemRequestBuilder> {
     /**
-     * Delete an ipNamedLocation object.
+     * Delete a namedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/ipnamedlocation-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/namedlocation-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of an ipNamedLocation object.
+     * Retrieve the properties and relationships of a countryNamedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<NamedLocation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/ipnamedlocation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/countrynamedlocation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<NamedLocationItemRequestBuilderGetQueryParameters> | undefined) : Promise<NamedLocation | undefined>;
     /**
@@ -34,13 +36,13 @@ export interface NamedLocationItemRequestBuilder extends BaseRequestBuilder<Name
      */
      patch(body: NamedLocation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<NamedLocation | undefined>;
     /**
-     * Delete an ipNamedLocation object.
+     * Delete a namedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of an ipNamedLocation object.
+     * Retrieve the properties and relationships of a countryNamedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,22 +56,37 @@ export interface NamedLocationItemRequestBuilder extends BaseRequestBuilder<Name
      toPatchRequestInformation(body: NamedLocation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of an ipNamedLocation object.
+ * Retrieve the properties and relationships of a countryNamedLocation object.
  */
 export interface NamedLocationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const NamedLocationItemRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/namedLocations/{namedLocation%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    DisplayName: "displayName",
+    ModifiedDateTime: "modifiedDateTime",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -87,7 +104,7 @@ export const NamedLocationItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: NamedLocationItemRequestBuilderUriTemplate,
@@ -95,7 +112,7 @@ export const NamedLocationItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createNamedLocationFromDiscriminatorValue,
         queryParametersMapper: NamedLocationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +122,7 @@ export const NamedLocationItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createNamedLocationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeNamedLocation,

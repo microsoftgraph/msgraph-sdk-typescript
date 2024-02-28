@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { ManagedDeviceMobileAppConfigurationItemRequestBuilderNavigationMetadata, ManagedDeviceMobileAppConfigurationItemRequestBuilderRequestsMetadata, type ManagedDeviceMobileAppConfigurationItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
  */
@@ -63,7 +66,7 @@ export interface MobileAppConfigurationsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface MobileAppConfigurationsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface MobileAppConfigurationsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,53 @@ export interface MobileAppConfigurationsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const MobileAppConfigurationsRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Assignments: "assignments",
+    DeviceStatuses: "deviceStatuses",
+    DeviceStatusSummary: "deviceStatusSummary",
+    UserStatuses: "userStatuses",
+    UserStatusSummary: "userStatusSummary",
+} as const;
+/**
+ * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    TargetedMobileApps: "targetedMobileApps",
+    TargetedMobileAppsDesc: "targetedMobileApps desc",
+    Version: "version",
+    VersionDesc: "version desc",
+} as const;
+/**
+ * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    TargetedMobileApps: "targetedMobileApps",
+    Version: "version",
+    Assignments: "assignments",
+    DeviceStatuses: "deviceStatuses",
+    DeviceStatusSummary: "deviceStatusSummary",
+    UserStatuses: "userStatuses",
+    UserStatusSummary: "userStatusSummary",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +179,7 @@ export const MobileAppConfigurationsRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MobileAppConfigurationsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +189,7 @@ export const MobileAppConfigurationsRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedDeviceMobileAppConfigurationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeManagedDeviceMobileAppConfiguration,

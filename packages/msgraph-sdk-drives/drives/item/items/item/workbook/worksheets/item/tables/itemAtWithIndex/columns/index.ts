@@ -51,7 +51,7 @@ export interface ColumnsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -59,7 +59,7 @@ export interface ColumnsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -67,7 +67,7 @@ export interface ColumnsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -77,6 +77,9 @@ export interface ColumnsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -104,7 +107,7 @@ export const ColumnsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookTableColumnCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ColumnsRequestBuilderGetQueryParametersMapper,
     },
@@ -114,12 +117,42 @@ export const ColumnsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookTableColumnFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbookTableColumn,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Filter: "filter",
+} as const;
+/**
+ * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Index: "index",
+    IndexDesc: "index desc",
+    Name: "name",
+    NameDesc: "name desc",
+    Values: "values",
+    ValuesDesc: "values desc",
+} as const;
+/**
+ * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Index: "index",
+    Name: "name",
+    Values: "values",
+    Filter: "filter",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

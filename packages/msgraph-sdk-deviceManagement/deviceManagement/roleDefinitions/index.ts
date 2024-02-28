@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { RoleDefinitionItemRequestBuilderNavigationMetadata, RoleDefinitionItemRequestBuilderRequestsMetadata, type RoleDefinitionItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
  */
@@ -22,30 +25,30 @@ export interface RoleDefinitionsRequestBuilder extends BaseRequestBuilder<RoleDe
      */
      byRoleDefinitionId(roleDefinitionId: string) : RoleDefinitionItemRequestBuilder;
     /**
-     * List properties and relationships of the deviceAndAppManagementRoleDefinition objects.
+     * List properties and relationships of the roleDefinition objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleDefinitionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RoleDefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<RoleDefinitionCollectionResponse | undefined>;
     /**
-     * Create a new roleDefinition object.
+     * Create a new deviceAndAppManagementRoleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: RoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RoleDefinition | undefined>;
     /**
-     * List properties and relationships of the deviceAndAppManagementRoleDefinition objects.
+     * List properties and relationships of the roleDefinition objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleDefinitionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new roleDefinition object.
+     * Create a new deviceAndAppManagementRoleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -53,7 +56,7 @@ export interface RoleDefinitionsRequestBuilder extends BaseRequestBuilder<RoleDe
      toPostRequestInformation(body: RoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the deviceAndAppManagementRoleDefinition objects.
+ * List properties and relationships of the roleDefinition objects.
  */
 export interface RoleDefinitionsRequestBuilderGetQueryParameters {
     /**
@@ -63,7 +66,7 @@ export interface RoleDefinitionsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface RoleDefinitionsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface RoleDefinitionsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,39 @@ export interface RoleDefinitionsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const RoleDefinitionsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/roleDefinitions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    RoleAssignments: "roleAssignments",
+} as const;
+/**
+ * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    IsBuiltIn: "isBuiltIn",
+    IsBuiltInDesc: "isBuiltIn desc",
+    RolePermissions: "rolePermissions",
+    RolePermissionsDesc: "rolePermissions desc",
+} as const;
+/**
+ * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Description: "description",
+    DisplayName: "displayName",
+    IsBuiltIn: "isBuiltIn",
+    RolePermissions: "rolePermissions",
+    RoleAssignments: "roleAssignments",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +165,7 @@ export const RoleDefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoleDefinitionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RoleDefinitionsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +175,7 @@ export const RoleDefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoleDefinitionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRoleDefinition,

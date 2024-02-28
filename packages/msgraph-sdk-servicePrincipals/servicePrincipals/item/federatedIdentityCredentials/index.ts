@@ -61,7 +61,7 @@ export interface FederatedIdentityCredentialsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +69,7 @@ export interface FederatedIdentityCredentialsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +77,7 @@ export interface FederatedIdentityCredentialsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -87,6 +87,9 @@ export interface FederatedIdentityCredentialsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -126,7 +129,7 @@ export const FederatedIdentityCredentialsRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: FederatedIdentityCredentialsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,12 +139,46 @@ export const FederatedIdentityCredentialsRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFederatedIdentityCredentialFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeFederatedIdentityCredential,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.servicePrincipal entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.servicePrincipal entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Audiences: "audiences",
+    AudiencesDesc: "audiences desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    Issuer: "issuer",
+    IssuerDesc: "issuer desc",
+    Name: "name",
+    NameDesc: "name desc",
+    Subject: "subject",
+    SubjectDesc: "subject desc",
+} as const;
+/**
+ * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.servicePrincipal entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Audiences: "audiences",
+    Description: "description",
+    Issuer: "issuer",
+    Name: "name",
+    Subject: "subject",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

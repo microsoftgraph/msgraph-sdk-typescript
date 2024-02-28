@@ -58,7 +58,7 @@ export interface GetAllSitesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -66,7 +66,7 @@ export interface GetAllSitesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -74,7 +74,7 @@ export interface GetAllSitesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -84,6 +84,9 @@ export interface GetAllSitesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -119,10 +122,106 @@ export const GetAllSitesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGetAllSitesGetResponseFromDiscriminatorValue,
         queryParametersMapper: GetAllSitesRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to call the getAllSites method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    CreatedByUser: "createdByUser",
+    LastModifiedByUser: "lastModifiedByUser",
+    Analytics: "analytics",
+    Columns: "columns",
+    ContentTypes: "contentTypes",
+    Drive: "drive",
+    Drives: "drives",
+    ExternalColumns: "externalColumns",
+    Items: "items",
+    Lists: "lists",
+    Onenote: "onenote",
+    Operations: "operations",
+    Permissions: "permissions",
+    Sites: "sites",
+    TermStore: "termStore",
+    TermStores: "termStores",
+} as const;
+/**
+ * Provides operations to call the getAllSites method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    ETag: "eTag",
+    ETagDesc: "eTag desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Name: "name",
+    NameDesc: "name desc",
+    ParentReference: "parentReference",
+    ParentReferenceDesc: "parentReference desc",
+    WebUrl: "webUrl",
+    WebUrlDesc: "webUrl desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    ErrorEscaped: "error",
+    ErrorDesc: "error desc",
+    IsPersonalSite: "isPersonalSite",
+    IsPersonalSiteDesc: "isPersonalSite desc",
+    Root: "root",
+    RootDesc: "root desc",
+    SharepointIds: "sharepointIds",
+    SharepointIdsDesc: "sharepointIds desc",
+    SiteCollection: "siteCollection",
+    SiteCollectionDesc: "siteCollection desc",
+} as const;
+/**
+ * Provides operations to call the getAllSites method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    ETag: "eTag",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Name: "name",
+    ParentReference: "parentReference",
+    WebUrl: "webUrl",
+    DisplayName: "displayName",
+    ErrorEscaped: "error",
+    IsPersonalSite: "isPersonalSite",
+    Root: "root",
+    SharepointIds: "sharepointIds",
+    SiteCollection: "siteCollection",
+    CreatedByUser: "createdByUser",
+    LastModifiedByUser: "lastModifiedByUser",
+    Analytics: "analytics",
+    Columns: "columns",
+    ContentTypes: "contentTypes",
+    Drive: "drive",
+    Drives: "drives",
+    ExternalColumns: "externalColumns",
+    Items: "items",
+    Lists: "lists",
+    Onenote: "onenote",
+    Operations: "operations",
+    Permissions: "permissions",
+    Sites: "sites",
+    TermStore: "termStore",
+    TermStores: "termStores",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

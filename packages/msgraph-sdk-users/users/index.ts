@@ -11,6 +11,9 @@ import { type UserItemRequestBuilder, UserItemRequestBuilderNavigationMetadata, 
 import { type ValidatePropertiesRequestBuilder, ValidatePropertiesRequestBuilderRequestsMetadata } from './validateProperties/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the collection of user entities.
  */
@@ -42,11 +45,11 @@ export interface UsersRequestBuilder extends BaseRequestBuilder<UsersRequestBuil
      */
      byUserId(userId: string) : UserItemRequestBuilder;
     /**
-     * List properties and relationships of the user objects.
+     * Retrieve a list of user objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UsersRequestBuilderGetQueryParameters> | undefined) : Promise<UserCollectionResponse | undefined>;
     /**
@@ -59,7 +62,7 @@ export interface UsersRequestBuilder extends BaseRequestBuilder<UsersRequestBuil
      */
      post(body: User, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<User | undefined>;
     /**
-     * List properties and relationships of the user objects.
+     * Retrieve a list of user objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -73,7 +76,7 @@ export interface UsersRequestBuilder extends BaseRequestBuilder<UsersRequestBuil
      toPostRequestInformation(body: User, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the user objects.
+ * Retrieve a list of user objects.
  */
 export interface UsersRequestBuilderGetQueryParameters {
     /**
@@ -83,7 +86,7 @@ export interface UsersRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -91,7 +94,7 @@ export interface UsersRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -99,7 +102,7 @@ export interface UsersRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Show only the first n items
      */
@@ -109,6 +112,357 @@ export interface UsersRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const UsersRequestBuilderUriTemplate = "{+baseurl}/users{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24top}";
+/**
+ * Provides operations to manage the collection of user entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Activities: "activities",
+    AgreementAcceptances: "agreementAcceptances",
+    AppRoleAssignments: "appRoleAssignments",
+    Authentication: "authentication",
+    Calendar: "calendar",
+    CalendarGroups: "calendarGroups",
+    Calendars: "calendars",
+    CalendarView: "calendarView",
+    Chats: "chats",
+    CloudClipboard: "cloudClipboard",
+    ContactFolders: "contactFolders",
+    Contacts: "contacts",
+    CreatedObjects: "createdObjects",
+    DeviceManagementTroubleshootingEvents: "deviceManagementTroubleshootingEvents",
+    DirectReports: "directReports",
+    Drive: "drive",
+    Drives: "drives",
+    EmployeeExperience: "employeeExperience",
+    Events: "events",
+    Extensions: "extensions",
+    FollowedSites: "followedSites",
+    InferenceClassification: "inferenceClassification",
+    Insights: "insights",
+    JoinedTeams: "joinedTeams",
+    LicenseDetails: "licenseDetails",
+    MailFolders: "mailFolders",
+    ManagedAppRegistrations: "managedAppRegistrations",
+    ManagedDevices: "managedDevices",
+    Manager: "manager",
+    MemberOf: "memberOf",
+    Messages: "messages",
+    Oauth2PermissionGrants: "oauth2PermissionGrants",
+    Onenote: "onenote",
+    OnlineMeetings: "onlineMeetings",
+    Outlook: "outlook",
+    OwnedDevices: "ownedDevices",
+    OwnedObjects: "ownedObjects",
+    People: "people",
+    PermissionGrants: "permissionGrants",
+    Photo: "photo",
+    Photos: "photos",
+    Planner: "planner",
+    Presence: "presence",
+    RegisteredDevices: "registeredDevices",
+    ScopedRoleMemberOf: "scopedRoleMemberOf",
+    Settings: "settings",
+    Teamwork: "teamwork",
+    Todo: "todo",
+    TransitiveMemberOf: "transitiveMemberOf",
+} as const;
+/**
+ * Provides operations to manage the collection of user entities.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DeletedDateTime: "deletedDateTime",
+    DeletedDateTimeDesc: "deletedDateTime desc",
+    AboutMe: "aboutMe",
+    AboutMeDesc: "aboutMe desc",
+    AccountEnabled: "accountEnabled",
+    AccountEnabledDesc: "accountEnabled desc",
+    AgeGroup: "ageGroup",
+    AgeGroupDesc: "ageGroup desc",
+    AssignedLicenses: "assignedLicenses",
+    AssignedLicensesDesc: "assignedLicenses desc",
+    AssignedPlans: "assignedPlans",
+    AssignedPlansDesc: "assignedPlans desc",
+    AuthorizationInfo: "authorizationInfo",
+    AuthorizationInfoDesc: "authorizationInfo desc",
+    Birthday: "birthday",
+    BirthdayDesc: "birthday desc",
+    BusinessPhones: "businessPhones",
+    BusinessPhonesDesc: "businessPhones desc",
+    City: "city",
+    CityDesc: "city desc",
+    CompanyName: "companyName",
+    CompanyNameDesc: "companyName desc",
+    ConsentProvidedForMinor: "consentProvidedForMinor",
+    ConsentProvidedForMinorDesc: "consentProvidedForMinor desc",
+    Country: "country",
+    CountryDesc: "country desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    CreationType: "creationType",
+    CreationTypeDesc: "creationType desc",
+    CustomSecurityAttributes: "customSecurityAttributes",
+    CustomSecurityAttributesDesc: "customSecurityAttributes desc",
+    Department: "department",
+    DepartmentDesc: "department desc",
+    DeviceEnrollmentLimit: "deviceEnrollmentLimit",
+    DeviceEnrollmentLimitDesc: "deviceEnrollmentLimit desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    EmployeeHireDate: "employeeHireDate",
+    EmployeeHireDateDesc: "employeeHireDate desc",
+    EmployeeId: "employeeId",
+    EmployeeIdDesc: "employeeId desc",
+    EmployeeLeaveDateTime: "employeeLeaveDateTime",
+    EmployeeLeaveDateTimeDesc: "employeeLeaveDateTime desc",
+    EmployeeOrgData: "employeeOrgData",
+    EmployeeOrgDataDesc: "employeeOrgData desc",
+    EmployeeType: "employeeType",
+    EmployeeTypeDesc: "employeeType desc",
+    ExternalUserState: "externalUserState",
+    ExternalUserStateDesc: "externalUserState desc",
+    ExternalUserStateChangeDateTime: "externalUserStateChangeDateTime",
+    ExternalUserStateChangeDateTimeDesc: "externalUserStateChangeDateTime desc",
+    FaxNumber: "faxNumber",
+    FaxNumberDesc: "faxNumber desc",
+    GivenName: "givenName",
+    GivenNameDesc: "givenName desc",
+    HireDate: "hireDate",
+    HireDateDesc: "hireDate desc",
+    Identities: "identities",
+    IdentitiesDesc: "identities desc",
+    ImAddresses: "imAddresses",
+    ImAddressesDesc: "imAddresses desc",
+    Interests: "interests",
+    InterestsDesc: "interests desc",
+    IsResourceAccount: "isResourceAccount",
+    IsResourceAccountDesc: "isResourceAccount desc",
+    JobTitle: "jobTitle",
+    JobTitleDesc: "jobTitle desc",
+    LastPasswordChangeDateTime: "lastPasswordChangeDateTime",
+    LastPasswordChangeDateTimeDesc: "lastPasswordChangeDateTime desc",
+    LegalAgeGroupClassification: "legalAgeGroupClassification",
+    LegalAgeGroupClassificationDesc: "legalAgeGroupClassification desc",
+    LicenseAssignmentStates: "licenseAssignmentStates",
+    LicenseAssignmentStatesDesc: "licenseAssignmentStates desc",
+    Mail: "mail",
+    MailDesc: "mail desc",
+    MailboxSettings: "mailboxSettings",
+    MailboxSettingsDesc: "mailboxSettings desc",
+    MailNickname: "mailNickname",
+    MailNicknameDesc: "mailNickname desc",
+    MobilePhone: "mobilePhone",
+    MobilePhoneDesc: "mobilePhone desc",
+    MySite: "mySite",
+    MySiteDesc: "mySite desc",
+    OfficeLocation: "officeLocation",
+    OfficeLocationDesc: "officeLocation desc",
+    OnPremisesDistinguishedName: "onPremisesDistinguishedName",
+    OnPremisesDistinguishedNameDesc: "onPremisesDistinguishedName desc",
+    OnPremisesDomainName: "onPremisesDomainName",
+    OnPremisesDomainNameDesc: "onPremisesDomainName desc",
+    OnPremisesExtensionAttributes: "onPremisesExtensionAttributes",
+    OnPremisesExtensionAttributesDesc: "onPremisesExtensionAttributes desc",
+    OnPremisesImmutableId: "onPremisesImmutableId",
+    OnPremisesImmutableIdDesc: "onPremisesImmutableId desc",
+    OnPremisesLastSyncDateTime: "onPremisesLastSyncDateTime",
+    OnPremisesLastSyncDateTimeDesc: "onPremisesLastSyncDateTime desc",
+    OnPremisesProvisioningErrors: "onPremisesProvisioningErrors",
+    OnPremisesProvisioningErrorsDesc: "onPremisesProvisioningErrors desc",
+    OnPremisesSamAccountName: "onPremisesSamAccountName",
+    OnPremisesSamAccountNameDesc: "onPremisesSamAccountName desc",
+    OnPremisesSecurityIdentifier: "onPremisesSecurityIdentifier",
+    OnPremisesSecurityIdentifierDesc: "onPremisesSecurityIdentifier desc",
+    OnPremisesSyncEnabled: "onPremisesSyncEnabled",
+    OnPremisesSyncEnabledDesc: "onPremisesSyncEnabled desc",
+    OnPremisesUserPrincipalName: "onPremisesUserPrincipalName",
+    OnPremisesUserPrincipalNameDesc: "onPremisesUserPrincipalName desc",
+    OtherMails: "otherMails",
+    OtherMailsDesc: "otherMails desc",
+    PasswordPolicies: "passwordPolicies",
+    PasswordPoliciesDesc: "passwordPolicies desc",
+    PasswordProfile: "passwordProfile",
+    PasswordProfileDesc: "passwordProfile desc",
+    PastProjects: "pastProjects",
+    PastProjectsDesc: "pastProjects desc",
+    PostalCode: "postalCode",
+    PostalCodeDesc: "postalCode desc",
+    PreferredDataLocation: "preferredDataLocation",
+    PreferredDataLocationDesc: "preferredDataLocation desc",
+    PreferredLanguage: "preferredLanguage",
+    PreferredLanguageDesc: "preferredLanguage desc",
+    PreferredName: "preferredName",
+    PreferredNameDesc: "preferredName desc",
+    Print: "print",
+    PrintDesc: "print desc",
+    ProvisionedPlans: "provisionedPlans",
+    ProvisionedPlansDesc: "provisionedPlans desc",
+    ProxyAddresses: "proxyAddresses",
+    ProxyAddressesDesc: "proxyAddresses desc",
+    Responsibilities: "responsibilities",
+    ResponsibilitiesDesc: "responsibilities desc",
+    Schools: "schools",
+    SchoolsDesc: "schools desc",
+    SecurityIdentifier: "securityIdentifier",
+    SecurityIdentifierDesc: "securityIdentifier desc",
+    ServiceProvisioningErrors: "serviceProvisioningErrors",
+    ServiceProvisioningErrorsDesc: "serviceProvisioningErrors desc",
+    ShowInAddressList: "showInAddressList",
+    ShowInAddressListDesc: "showInAddressList desc",
+    SignInActivity: "signInActivity",
+    SignInActivityDesc: "signInActivity desc",
+    SignInSessionsValidFromDateTime: "signInSessionsValidFromDateTime",
+    SignInSessionsValidFromDateTimeDesc: "signInSessionsValidFromDateTime desc",
+    Skills: "skills",
+    SkillsDesc: "skills desc",
+    State: "state",
+    StateDesc: "state desc",
+    StreetAddress: "streetAddress",
+    StreetAddressDesc: "streetAddress desc",
+    Surname: "surname",
+    SurnameDesc: "surname desc",
+    UsageLocation: "usageLocation",
+    UsageLocationDesc: "usageLocation desc",
+    UserPrincipalName: "userPrincipalName",
+    UserPrincipalNameDesc: "userPrincipalName desc",
+    UserType: "userType",
+    UserTypeDesc: "userType desc",
+} as const;
+/**
+ * Provides operations to manage the collection of user entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    AboutMe: "aboutMe",
+    AccountEnabled: "accountEnabled",
+    AgeGroup: "ageGroup",
+    AssignedLicenses: "assignedLicenses",
+    AssignedPlans: "assignedPlans",
+    AuthorizationInfo: "authorizationInfo",
+    Birthday: "birthday",
+    BusinessPhones: "businessPhones",
+    City: "city",
+    CompanyName: "companyName",
+    ConsentProvidedForMinor: "consentProvidedForMinor",
+    Country: "country",
+    CreatedDateTime: "createdDateTime",
+    CreationType: "creationType",
+    CustomSecurityAttributes: "customSecurityAttributes",
+    Department: "department",
+    DeviceEnrollmentLimit: "deviceEnrollmentLimit",
+    DisplayName: "displayName",
+    EmployeeHireDate: "employeeHireDate",
+    EmployeeId: "employeeId",
+    EmployeeLeaveDateTime: "employeeLeaveDateTime",
+    EmployeeOrgData: "employeeOrgData",
+    EmployeeType: "employeeType",
+    ExternalUserState: "externalUserState",
+    ExternalUserStateChangeDateTime: "externalUserStateChangeDateTime",
+    FaxNumber: "faxNumber",
+    GivenName: "givenName",
+    HireDate: "hireDate",
+    Identities: "identities",
+    ImAddresses: "imAddresses",
+    Interests: "interests",
+    IsResourceAccount: "isResourceAccount",
+    JobTitle: "jobTitle",
+    LastPasswordChangeDateTime: "lastPasswordChangeDateTime",
+    LegalAgeGroupClassification: "legalAgeGroupClassification",
+    LicenseAssignmentStates: "licenseAssignmentStates",
+    Mail: "mail",
+    MailboxSettings: "mailboxSettings",
+    MailNickname: "mailNickname",
+    MobilePhone: "mobilePhone",
+    MySite: "mySite",
+    OfficeLocation: "officeLocation",
+    OnPremisesDistinguishedName: "onPremisesDistinguishedName",
+    OnPremisesDomainName: "onPremisesDomainName",
+    OnPremisesExtensionAttributes: "onPremisesExtensionAttributes",
+    OnPremisesImmutableId: "onPremisesImmutableId",
+    OnPremisesLastSyncDateTime: "onPremisesLastSyncDateTime",
+    OnPremisesProvisioningErrors: "onPremisesProvisioningErrors",
+    OnPremisesSamAccountName: "onPremisesSamAccountName",
+    OnPremisesSecurityIdentifier: "onPremisesSecurityIdentifier",
+    OnPremisesSyncEnabled: "onPremisesSyncEnabled",
+    OnPremisesUserPrincipalName: "onPremisesUserPrincipalName",
+    OtherMails: "otherMails",
+    PasswordPolicies: "passwordPolicies",
+    PasswordProfile: "passwordProfile",
+    PastProjects: "pastProjects",
+    PostalCode: "postalCode",
+    PreferredDataLocation: "preferredDataLocation",
+    PreferredLanguage: "preferredLanguage",
+    PreferredName: "preferredName",
+    Print: "print",
+    ProvisionedPlans: "provisionedPlans",
+    ProxyAddresses: "proxyAddresses",
+    Responsibilities: "responsibilities",
+    Schools: "schools",
+    SecurityIdentifier: "securityIdentifier",
+    ServiceProvisioningErrors: "serviceProvisioningErrors",
+    ShowInAddressList: "showInAddressList",
+    SignInActivity: "signInActivity",
+    SignInSessionsValidFromDateTime: "signInSessionsValidFromDateTime",
+    Skills: "skills",
+    State: "state",
+    StreetAddress: "streetAddress",
+    Surname: "surname",
+    UsageLocation: "usageLocation",
+    UserPrincipalName: "userPrincipalName",
+    UserType: "userType",
+    Activities: "activities",
+    AgreementAcceptances: "agreementAcceptances",
+    AppRoleAssignments: "appRoleAssignments",
+    Authentication: "authentication",
+    Calendar: "calendar",
+    CalendarGroups: "calendarGroups",
+    Calendars: "calendars",
+    CalendarView: "calendarView",
+    Chats: "chats",
+    CloudClipboard: "cloudClipboard",
+    ContactFolders: "contactFolders",
+    Contacts: "contacts",
+    CreatedObjects: "createdObjects",
+    DeviceManagementTroubleshootingEvents: "deviceManagementTroubleshootingEvents",
+    DirectReports: "directReports",
+    Drive: "drive",
+    Drives: "drives",
+    EmployeeExperience: "employeeExperience",
+    Events: "events",
+    Extensions: "extensions",
+    FollowedSites: "followedSites",
+    InferenceClassification: "inferenceClassification",
+    Insights: "insights",
+    JoinedTeams: "joinedTeams",
+    LicenseDetails: "licenseDetails",
+    MailFolders: "mailFolders",
+    ManagedAppRegistrations: "managedAppRegistrations",
+    ManagedDevices: "managedDevices",
+    Manager: "manager",
+    MemberOf: "memberOf",
+    Messages: "messages",
+    Oauth2PermissionGrants: "oauth2PermissionGrants",
+    Onenote: "onenote",
+    OnlineMeetings: "onlineMeetings",
+    Outlook: "outlook",
+    OwnedDevices: "ownedDevices",
+    OwnedObjects: "ownedObjects",
+    People: "people",
+    PermissionGrants: "permissionGrants",
+    Photo: "photo",
+    Photos: "photos",
+    Planner: "planner",
+    Presence: "presence",
+    RegisteredDevices: "registeredDevices",
+    ScopedRoleMemberOf: "scopedRoleMemberOf",
+    Settings: "settings",
+    Teamwork: "teamwork",
+    Todo: "todo",
+    TransitiveMemberOf: "transitiveMemberOf",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -156,7 +510,7 @@ export const UsersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UsersRequestBuilderGetQueryParametersMapper,
     },
@@ -166,7 +520,7 @@ export const UsersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUser,

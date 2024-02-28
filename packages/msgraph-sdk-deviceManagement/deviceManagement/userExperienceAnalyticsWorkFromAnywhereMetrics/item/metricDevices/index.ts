@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { type UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder, UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderRequestsMetadata } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the metricDevices property of the microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric entity.
  */
@@ -61,7 +64,7 @@ export interface MetricDevicesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface MetricDevicesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface MetricDevicesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,127 @@ export interface MetricDevicesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const MetricDevicesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsWorkFromAnywhereMetrics/{userExperienceAnalyticsWorkFromAnywhereMetric%2Did}/metricDevices{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the metricDevices property of the microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the metricDevices property of the microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AutoPilotProfileAssigned: "autoPilotProfileAssigned",
+    AutoPilotProfileAssignedDesc: "autoPilotProfileAssigned desc",
+    AutoPilotRegistered: "autoPilotRegistered",
+    AutoPilotRegisteredDesc: "autoPilotRegistered desc",
+    AzureAdDeviceId: "azureAdDeviceId",
+    AzureAdDeviceIdDesc: "azureAdDeviceId desc",
+    AzureAdJoinType: "azureAdJoinType",
+    AzureAdJoinTypeDesc: "azureAdJoinType desc",
+    AzureAdRegistered: "azureAdRegistered",
+    AzureAdRegisteredDesc: "azureAdRegistered desc",
+    CloudIdentityScore: "cloudIdentityScore",
+    CloudIdentityScoreDesc: "cloudIdentityScore desc",
+    CloudManagementScore: "cloudManagementScore",
+    CloudManagementScoreDesc: "cloudManagementScore desc",
+    CloudProvisioningScore: "cloudProvisioningScore",
+    CloudProvisioningScoreDesc: "cloudProvisioningScore desc",
+    CompliancePolicySetToIntune: "compliancePolicySetToIntune",
+    CompliancePolicySetToIntuneDesc: "compliancePolicySetToIntune desc",
+    DeviceId: "deviceId",
+    DeviceIdDesc: "deviceId desc",
+    DeviceName: "deviceName",
+    DeviceNameDesc: "deviceName desc",
+    HealthStatus: "healthStatus",
+    HealthStatusDesc: "healthStatus desc",
+    IsCloudManagedGatewayEnabled: "isCloudManagedGatewayEnabled",
+    IsCloudManagedGatewayEnabledDesc: "isCloudManagedGatewayEnabled desc",
+    ManagedBy: "managedBy",
+    ManagedByDesc: "managedBy desc",
+    Manufacturer: "manufacturer",
+    ManufacturerDesc: "manufacturer desc",
+    Model: "model",
+    ModelDesc: "model desc",
+    OsCheckFailed: "osCheckFailed",
+    OsCheckFailedDesc: "osCheckFailed desc",
+    OsDescription: "osDescription",
+    OsDescriptionDesc: "osDescription desc",
+    OsVersion: "osVersion",
+    OsVersionDesc: "osVersion desc",
+    OtherWorkloadsSetToIntune: "otherWorkloadsSetToIntune",
+    OtherWorkloadsSetToIntuneDesc: "otherWorkloadsSetToIntune desc",
+    Ownership: "ownership",
+    OwnershipDesc: "ownership desc",
+    Processor64BitCheckFailed: "processor64BitCheckFailed",
+    Processor64BitCheckFailedDesc: "processor64BitCheckFailed desc",
+    ProcessorCoreCountCheckFailed: "processorCoreCountCheckFailed",
+    ProcessorCoreCountCheckFailedDesc: "processorCoreCountCheckFailed desc",
+    ProcessorFamilyCheckFailed: "processorFamilyCheckFailed",
+    ProcessorFamilyCheckFailedDesc: "processorFamilyCheckFailed desc",
+    ProcessorSpeedCheckFailed: "processorSpeedCheckFailed",
+    ProcessorSpeedCheckFailedDesc: "processorSpeedCheckFailed desc",
+    RamCheckFailed: "ramCheckFailed",
+    RamCheckFailedDesc: "ramCheckFailed desc",
+    SecureBootCheckFailed: "secureBootCheckFailed",
+    SecureBootCheckFailedDesc: "secureBootCheckFailed desc",
+    SerialNumber: "serialNumber",
+    SerialNumberDesc: "serialNumber desc",
+    StorageCheckFailed: "storageCheckFailed",
+    StorageCheckFailedDesc: "storageCheckFailed desc",
+    TenantAttached: "tenantAttached",
+    TenantAttachedDesc: "tenantAttached desc",
+    TpmCheckFailed: "tpmCheckFailed",
+    TpmCheckFailedDesc: "tpmCheckFailed desc",
+    UpgradeEligibility: "upgradeEligibility",
+    UpgradeEligibilityDesc: "upgradeEligibility desc",
+    WindowsScore: "windowsScore",
+    WindowsScoreDesc: "windowsScore desc",
+    WorkFromAnywhereScore: "workFromAnywhereScore",
+    WorkFromAnywhereScoreDesc: "workFromAnywhereScore desc",
+} as const;
+/**
+ * Provides operations to manage the metricDevices property of the microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AutoPilotProfileAssigned: "autoPilotProfileAssigned",
+    AutoPilotRegistered: "autoPilotRegistered",
+    AzureAdDeviceId: "azureAdDeviceId",
+    AzureAdJoinType: "azureAdJoinType",
+    AzureAdRegistered: "azureAdRegistered",
+    CloudIdentityScore: "cloudIdentityScore",
+    CloudManagementScore: "cloudManagementScore",
+    CloudProvisioningScore: "cloudProvisioningScore",
+    CompliancePolicySetToIntune: "compliancePolicySetToIntune",
+    DeviceId: "deviceId",
+    DeviceName: "deviceName",
+    HealthStatus: "healthStatus",
+    IsCloudManagedGatewayEnabled: "isCloudManagedGatewayEnabled",
+    ManagedBy: "managedBy",
+    Manufacturer: "manufacturer",
+    Model: "model",
+    OsCheckFailed: "osCheckFailed",
+    OsDescription: "osDescription",
+    OsVersion: "osVersion",
+    OtherWorkloadsSetToIntune: "otherWorkloadsSetToIntune",
+    Ownership: "ownership",
+    Processor64BitCheckFailed: "processor64BitCheckFailed",
+    ProcessorCoreCountCheckFailed: "processorCoreCountCheckFailed",
+    ProcessorFamilyCheckFailed: "processorFamilyCheckFailed",
+    ProcessorSpeedCheckFailed: "processorSpeedCheckFailed",
+    RamCheckFailed: "ramCheckFailed",
+    SecureBootCheckFailed: "secureBootCheckFailed",
+    SerialNumber: "serialNumber",
+    StorageCheckFailed: "storageCheckFailed",
+    TenantAttached: "tenantAttached",
+    TpmCheckFailed: "tpmCheckFailed",
+    UpgradeEligibility: "upgradeEligibility",
+    WindowsScore: "windowsScore",
+    WorkFromAnywhereScore: "workFromAnywhereScore",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +250,7 @@ export const MetricDevicesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsWorkFromAnywhereDeviceCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MetricDevicesRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +260,7 @@ export const MetricDevicesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsWorkFromAnywhereDeviceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsWorkFromAnywhereDevice,

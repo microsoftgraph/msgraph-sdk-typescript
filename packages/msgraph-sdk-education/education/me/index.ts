@@ -11,6 +11,8 @@ import { TaughtClassesRequestBuilderNavigationMetadata, TaughtClassesRequestBuil
 import { type UserRequestBuilder, UserRequestBuilderNavigationMetadata, UserRequestBuilderRequestsMetadata } from './user/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the me property of the microsoft.graph.educationRoot entity.
  */
@@ -87,16 +89,72 @@ export interface MeRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const MeRequestBuilderUriTemplate = "{+baseurl}/education/me{?%24expand,%24select}";
+/**
+ * Provides operations to manage the me property of the microsoft.graph.educationRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Assignments: "assignments",
+    Classes: "classes",
+    Rubrics: "rubrics",
+    Schools: "schools",
+    TaughtClasses: "taughtClasses",
+    User: "user",
+} as const;
+/**
+ * Provides operations to manage the me property of the microsoft.graph.educationRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AccountEnabled: "accountEnabled",
+    AssignedLicenses: "assignedLicenses",
+    AssignedPlans: "assignedPlans",
+    BusinessPhones: "businessPhones",
+    CreatedBy: "createdBy",
+    Department: "department",
+    DisplayName: "displayName",
+    ExternalSource: "externalSource",
+    ExternalSourceDetail: "externalSourceDetail",
+    GivenName: "givenName",
+    Mail: "mail",
+    MailingAddress: "mailingAddress",
+    MailNickname: "mailNickname",
+    MiddleName: "middleName",
+    MobilePhone: "mobilePhone",
+    OfficeLocation: "officeLocation",
+    OnPremisesInfo: "onPremisesInfo",
+    PasswordPolicies: "passwordPolicies",
+    PasswordProfile: "passwordProfile",
+    PreferredLanguage: "preferredLanguage",
+    PrimaryRole: "primaryRole",
+    ProvisionedPlans: "provisionedPlans",
+    RefreshTokensValidFromDateTime: "refreshTokensValidFromDateTime",
+    RelatedContacts: "relatedContacts",
+    ResidenceAddress: "residenceAddress",
+    ShowInAddressList: "showInAddressList",
+    Student: "student",
+    Surname: "surname",
+    Teacher: "teacher",
+    UsageLocation: "usageLocation",
+    UserPrincipalName: "userPrincipalName",
+    UserType: "userType",
+    Assignments: "assignments",
+    Classes: "classes",
+    Rubrics: "rubrics",
+    Schools: "schools",
+    TaughtClasses: "taughtClasses",
+    User: "user",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -143,7 +201,7 @@ export const MeRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: MeRequestBuilderUriTemplate,
@@ -151,7 +209,7 @@ export const MeRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationUserFromDiscriminatorValue,
         queryParametersMapper: MeRequestBuilderGetQueryParametersMapper,
     },
@@ -161,7 +219,7 @@ export const MeRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationUserFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEducationUser,

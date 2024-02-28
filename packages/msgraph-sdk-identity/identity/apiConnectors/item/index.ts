@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { type UploadClientCertificateRequestBuilder, UploadClientCertificateRequestBuilderRequestsMetadata } from './uploadClientCertificate/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
  */
@@ -65,16 +67,31 @@ export interface IdentityApiConnectorItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const IdentityApiConnectorItemRequestBuilderUriTemplate = "{+baseurl}/identity/apiConnectors/{identityApiConnector%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AuthenticationConfiguration: "authenticationConfiguration",
+    DisplayName: "displayName",
+    TargetUrl: "targetUrl",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -100,7 +117,7 @@ export const IdentityApiConnectorItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: IdentityApiConnectorItemRequestBuilderUriTemplate,
@@ -108,7 +125,7 @@ export const IdentityApiConnectorItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityApiConnectorFromDiscriminatorValue,
         queryParametersMapper: IdentityApiConnectorItemRequestBuilderGetQueryParametersMapper,
     },
@@ -118,7 +135,7 @@ export const IdentityApiConnectorItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityApiConnectorFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIdentityApiConnector,

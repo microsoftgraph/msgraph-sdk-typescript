@@ -70,12 +70,14 @@ export interface ConnectedOrganizationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -110,7 +112,7 @@ export const ConnectedOrganizationItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ConnectedOrganizationItemRequestBuilderUriTemplate,
@@ -118,7 +120,7 @@ export const ConnectedOrganizationItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConnectedOrganizationFromDiscriminatorValue,
         queryParametersMapper: ConnectedOrganizationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -128,12 +130,34 @@ export const ConnectedOrganizationItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConnectedOrganizationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeConnectedOrganization,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ExternalSponsors: "externalSponsors",
+    InternalSponsors: "internalSponsors",
+} as const;
+/**
+ * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    IdentitySources: "identitySources",
+    ModifiedDateTime: "modifiedDateTime",
+    State: "state",
+    ExternalSponsors: "externalSponsors",
+    InternalSponsors: "internalSponsors",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

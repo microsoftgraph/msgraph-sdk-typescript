@@ -23,6 +23,9 @@ import { GraphWindowsWebAppRequestBuilderNavigationMetadata, GraphWindowsWebAppR
 import { MobileAppItemRequestBuilderNavigationMetadata, MobileAppItemRequestBuilderRequestsMetadata, type MobileAppItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
  */
@@ -102,30 +105,30 @@ export interface MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsR
      */
      byMobileAppId(mobileAppId: string) : MobileAppItemRequestBuilder;
     /**
-     * List properties and relationships of the microsoftStoreForBusinessApp objects.
+     * List properties and relationships of the windowsWebApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-microsoftstoreforbusinessapp-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowswebapp-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppsRequestBuilderGetQueryParameters> | undefined) : Promise<MobileAppCollectionResponse | undefined>;
     /**
-     * Create a new managedIOSLobApp object.
+     * Create a new win32LobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-managedioslobapp-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-win32lobapp-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileApp | undefined>;
     /**
-     * List properties and relationships of the microsoftStoreForBusinessApp objects.
+     * List properties and relationships of the windowsWebApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileAppsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new managedIOSLobApp object.
+     * Create a new win32LobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -133,7 +136,7 @@ export interface MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsR
      toPostRequestInformation(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the microsoftStoreForBusinessApp objects.
+ * List properties and relationships of the windowsWebApp objects.
  */
 export interface MobileAppsRequestBuilderGetQueryParameters {
     /**
@@ -143,7 +146,7 @@ export interface MobileAppsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -151,7 +154,7 @@ export interface MobileAppsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -159,7 +162,7 @@ export interface MobileAppsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -173,6 +176,68 @@ export interface MobileAppsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const MobileAppsRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Assignments: "assignments",
+    Categories: "categories",
+} as const;
+/**
+ * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    Developer: "developer",
+    DeveloperDesc: "developer desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    InformationUrl: "informationUrl",
+    InformationUrlDesc: "informationUrl desc",
+    IsFeatured: "isFeatured",
+    IsFeaturedDesc: "isFeatured desc",
+    LargeIcon: "largeIcon",
+    LargeIconDesc: "largeIcon desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Notes: "notes",
+    NotesDesc: "notes desc",
+    Owner: "owner",
+    OwnerDesc: "owner desc",
+    PrivacyInformationUrl: "privacyInformationUrl",
+    PrivacyInformationUrlDesc: "privacyInformationUrl desc",
+    Publisher: "publisher",
+    PublisherDesc: "publisher desc",
+    PublishingState: "publishingState",
+    PublishingStateDesc: "publishingState desc",
+} as const;
+/**
+ * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    Developer: "developer",
+    DisplayName: "displayName",
+    InformationUrl: "informationUrl",
+    IsFeatured: "isFeatured",
+    LargeIcon: "largeIcon",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Notes: "notes",
+    Owner: "owner",
+    PrivacyInformationUrl: "privacyInformationUrl",
+    Publisher: "publisher",
+    PublishingState: "publishingState",
+    Assignments: "assignments",
+    Categories: "categories",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -273,7 +338,7 @@ export const MobileAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MobileAppsRequestBuilderGetQueryParametersMapper,
     },
@@ -283,7 +348,7 @@ export const MobileAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMobileApp,

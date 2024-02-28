@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { TargetDeviceGroupsRequestBuilderNavigationMetadata, TargetDeviceGroupsRequestBuilderRequestsMetadata, type TargetDeviceGroupsRequestBuilder } from './targetDeviceGroups/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the remoteDesktopSecurityConfiguration property of the microsoft.graph.servicePrincipal entity.
  */
@@ -65,16 +67,31 @@ export interface RemoteDesktopSecurityConfigurationRequestBuilderGetQueryParamet
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const RemoteDesktopSecurityConfigurationRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/remoteDesktopSecurityConfiguration{?%24expand,%24select}";
+/**
+ * Provides operations to manage the remoteDesktopSecurityConfiguration property of the microsoft.graph.servicePrincipal entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    TargetDeviceGroups: "targetDeviceGroups",
+} as const;
+/**
+ * Provides operations to manage the remoteDesktopSecurityConfiguration property of the microsoft.graph.servicePrincipal entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    IsRemoteDesktopProtocolEnabled: "isRemoteDesktopProtocolEnabled",
+    TargetDeviceGroups: "targetDeviceGroups",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -101,7 +118,7 @@ export const RemoteDesktopSecurityConfigurationRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RemoteDesktopSecurityConfigurationRequestBuilderUriTemplate,
@@ -109,7 +126,7 @@ export const RemoteDesktopSecurityConfigurationRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRemoteDesktopSecurityConfigurationFromDiscriminatorValue,
         queryParametersMapper: RemoteDesktopSecurityConfigurationRequestBuilderGetQueryParametersMapper,
     },
@@ -119,7 +136,7 @@ export const RemoteDesktopSecurityConfigurationRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRemoteDesktopSecurityConfigurationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRemoteDesktopSecurityConfiguration,

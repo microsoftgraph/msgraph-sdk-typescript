@@ -60,12 +60,14 @@ export interface BookingCustomQuestionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -87,7 +89,7 @@ export const BookingCustomQuestionItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: BookingCustomQuestionItemRequestBuilderUriTemplate,
@@ -95,7 +97,7 @@ export const BookingCustomQuestionItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingCustomQuestionFromDiscriminatorValue,
         queryParametersMapper: BookingCustomQuestionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,12 +107,27 @@ export const BookingCustomQuestionItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingCustomQuestionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBookingCustomQuestion,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AnswerInputType: "answerInputType",
+    AnswerOptions: "answerOptions",
+    DisplayName: "displayName",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

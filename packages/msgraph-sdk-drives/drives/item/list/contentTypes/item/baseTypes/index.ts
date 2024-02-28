@@ -46,7 +46,7 @@ export interface BaseTypesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -54,7 +54,7 @@ export interface BaseTypesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -62,7 +62,7 @@ export interface BaseTypesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -72,6 +72,9 @@ export interface BaseTypesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -111,10 +114,81 @@ export const BaseTypesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createContentTypeCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: BaseTypesRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Base: "base",
+    BaseTypes: "baseTypes",
+    ColumnLinks: "columnLinks",
+    ColumnPositions: "columnPositions",
+    Columns: "columns",
+} as const;
+/**
+ * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AssociatedHubsUrls: "associatedHubsUrls",
+    AssociatedHubsUrlsDesc: "associatedHubsUrls desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DocumentSet: "documentSet",
+    DocumentSetDesc: "documentSet desc",
+    DocumentTemplate: "documentTemplate",
+    DocumentTemplateDesc: "documentTemplate desc",
+    Group: "group",
+    GroupDesc: "group desc",
+    Hidden: "hidden",
+    HiddenDesc: "hidden desc",
+    InheritedFrom: "inheritedFrom",
+    InheritedFromDesc: "inheritedFrom desc",
+    IsBuiltIn: "isBuiltIn",
+    IsBuiltInDesc: "isBuiltIn desc",
+    Name: "name",
+    NameDesc: "name desc",
+    Order: "order",
+    OrderDesc: "order desc",
+    ParentId: "parentId",
+    ParentIdDesc: "parentId desc",
+    PropagateChanges: "propagateChanges",
+    PropagateChangesDesc: "propagateChanges desc",
+    ReadOnly: "readOnly",
+    ReadOnlyDesc: "readOnly desc",
+    Sealed: "sealed",
+    SealedDesc: "sealed desc",
+} as const;
+/**
+ * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AssociatedHubsUrls: "associatedHubsUrls",
+    Description: "description",
+    DocumentSet: "documentSet",
+    DocumentTemplate: "documentTemplate",
+    Group: "group",
+    Hidden: "hidden",
+    InheritedFrom: "inheritedFrom",
+    IsBuiltIn: "isBuiltIn",
+    Name: "name",
+    Order: "order",
+    ParentId: "parentId",
+    PropagateChanges: "propagateChanges",
+    ReadOnly: "readOnly",
+    Sealed: "sealed",
+    Base: "base",
+    BaseTypes: "baseTypes",
+    ColumnLinks: "columnLinks",
+    ColumnPositions: "columnPositions",
+    Columns: "columns",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

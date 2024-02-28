@@ -8,6 +8,9 @@ import { type WorkbookChartPointItemRequestBuilder, WorkbookChartPointItemReques
 import { ItemAtWithIndexRequestBuilderNavigationMetadata, ItemAtWithIndexRequestBuilderRequestsMetadata, type ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
  */
@@ -23,11 +26,11 @@ export interface PointsRequestBuilder extends BaseRequestBuilder<PointsRequestBu
      */
      byWorkbookChartPointId(workbookChartPointId: string) : WorkbookChartPointItemRequestBuilder;
     /**
-     * Retrieve a list of chartpoints objects.
+     * Retrieve a list of chartpoint objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartPointCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartseries-list-points?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartpoint-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PointsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartPointCollectionResponse | undefined>;
     /**
@@ -46,7 +49,7 @@ export interface PointsRequestBuilder extends BaseRequestBuilder<PointsRequestBu
      */
      post(body: WorkbookChartPoint, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartPoint | undefined>;
     /**
-     * Retrieve a list of chartpoints objects.
+     * Retrieve a list of chartpoint objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +63,7 @@ export interface PointsRequestBuilder extends BaseRequestBuilder<PointsRequestBu
      toPostRequestInformation(body: WorkbookChartPoint, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of chartpoints objects.
+ * Retrieve a list of chartpoint objects.
  */
 export interface PointsRequestBuilderGetQueryParameters {
     /**
@@ -70,7 +73,7 @@ export interface PointsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -78,7 +81,7 @@ export interface PointsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -86,7 +89,7 @@ export interface PointsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -100,6 +103,30 @@ export interface PointsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const PointsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/series/{workbookChartSeries%2Did}/points{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Format: "format",
+} as const;
+/**
+ * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Value: "value",
+    ValueDesc: "value desc",
+} as const;
+/**
+ * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Value: "value",
+    Format: "format",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -140,7 +167,7 @@ export const PointsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartPointCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: PointsRequestBuilderGetQueryParametersMapper,
     },
@@ -150,7 +177,7 @@ export const PointsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartPointFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbookChartPoint,

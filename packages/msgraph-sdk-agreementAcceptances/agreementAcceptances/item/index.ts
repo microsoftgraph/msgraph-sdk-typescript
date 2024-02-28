@@ -57,8 +57,9 @@ export interface AgreementAcceptanceItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -79,7 +80,7 @@ export const AgreementAcceptanceItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AgreementAcceptanceItemRequestBuilderUriTemplate,
@@ -87,7 +88,7 @@ export const AgreementAcceptanceItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementAcceptanceFromDiscriminatorValue,
         queryParametersMapper: AgreementAcceptanceItemRequestBuilderGetQueryParametersMapper,
     },
@@ -97,12 +98,31 @@ export const AgreementAcceptanceItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementAcceptanceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAgreementAcceptance,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the collection of agreementAcceptance entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AgreementFileId: "agreementFileId",
+    AgreementId: "agreementId",
+    DeviceDisplayName: "deviceDisplayName",
+    DeviceId: "deviceId",
+    DeviceOSType: "deviceOSType",
+    DeviceOSVersion: "deviceOSVersion",
+    ExpirationDateTime: "expirationDateTime",
+    RecordedDateTime: "recordedDateTime",
+    State: "state",
+    UserDisplayName: "userDisplayName",
+    UserEmail: "userEmail",
+    UserId: "userId",
+    UserPrincipalName: "userPrincipalName",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

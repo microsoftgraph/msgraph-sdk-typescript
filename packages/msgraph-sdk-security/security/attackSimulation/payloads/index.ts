@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { PayloadItemRequestBuilderRequestsMetadata, type PayloadItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the payloads property of the microsoft.graph.attackSimulationRoot entity.
  */
@@ -62,7 +65,7 @@ export interface PayloadsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface PayloadsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface PayloadsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,91 @@ export interface PayloadsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const PayloadsRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/payloads{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the payloads property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the payloads property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Brand: "brand",
+    BrandDesc: "brand desc",
+    Complexity: "complexity",
+    ComplexityDesc: "complexity desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    Detail: "detail",
+    DetailDesc: "detail desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    Industry: "industry",
+    IndustryDesc: "industry desc",
+    IsAutomated: "isAutomated",
+    IsAutomatedDesc: "isAutomated desc",
+    IsControversial: "isControversial",
+    IsControversialDesc: "isControversial desc",
+    IsCurrentEvent: "isCurrentEvent",
+    IsCurrentEventDesc: "isCurrentEvent desc",
+    Language: "language",
+    LanguageDesc: "language desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    PayloadTags: "payloadTags",
+    PayloadTagsDesc: "payloadTags desc",
+    Platform: "platform",
+    PlatformDesc: "platform desc",
+    PredictedCompromiseRate: "predictedCompromiseRate",
+    PredictedCompromiseRateDesc: "predictedCompromiseRate desc",
+    SimulationAttackType: "simulationAttackType",
+    SimulationAttackTypeDesc: "simulationAttackType desc",
+    Source: "source",
+    SourceDesc: "source desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    Technique: "technique",
+    TechniqueDesc: "technique desc",
+    Theme: "theme",
+    ThemeDesc: "theme desc",
+} as const;
+/**
+ * Provides operations to manage the payloads property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Brand: "brand",
+    Complexity: "complexity",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    Detail: "detail",
+    DisplayName: "displayName",
+    Industry: "industry",
+    IsAutomated: "isAutomated",
+    IsControversial: "isControversial",
+    IsCurrentEvent: "isCurrentEvent",
+    Language: "language",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    PayloadTags: "payloadTags",
+    Platform: "platform",
+    PredictedCompromiseRate: "predictedCompromiseRate",
+    SimulationAttackType: "simulationAttackType",
+    Source: "source",
+    Status: "status",
+    Technique: "technique",
+    Theme: "theme",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +215,7 @@ export const PayloadsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPayloadCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: PayloadsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +225,7 @@ export const PayloadsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPayloadFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePayload,

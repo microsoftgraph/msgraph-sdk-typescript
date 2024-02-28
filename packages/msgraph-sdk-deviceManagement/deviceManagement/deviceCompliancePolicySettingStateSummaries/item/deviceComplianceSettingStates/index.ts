@@ -63,7 +63,7 @@ export interface DeviceComplianceSettingStatesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface DeviceComplianceSettingStatesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface DeviceComplianceSettingStatesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface DeviceComplianceSettingStatesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -128,7 +131,7 @@ export const DeviceComplianceSettingStatesRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceComplianceSettingStateCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DeviceComplianceSettingStatesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,12 +141,64 @@ export const DeviceComplianceSettingStatesRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceComplianceSettingStateFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceComplianceSettingState,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the deviceComplianceSettingStates property of the microsoft.graph.deviceCompliancePolicySettingStateSummary entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the deviceComplianceSettingStates property of the microsoft.graph.deviceCompliancePolicySettingStateSummary entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ComplianceGracePeriodExpirationDateTime: "complianceGracePeriodExpirationDateTime",
+    ComplianceGracePeriodExpirationDateTimeDesc: "complianceGracePeriodExpirationDateTime desc",
+    DeviceId: "deviceId",
+    DeviceIdDesc: "deviceId desc",
+    DeviceModel: "deviceModel",
+    DeviceModelDesc: "deviceModel desc",
+    DeviceName: "deviceName",
+    DeviceNameDesc: "deviceName desc",
+    Setting: "setting",
+    SettingDesc: "setting desc",
+    SettingName: "settingName",
+    SettingNameDesc: "settingName desc",
+    State: "state",
+    StateDesc: "state desc",
+    UserEmail: "userEmail",
+    UserEmailDesc: "userEmail desc",
+    UserId: "userId",
+    UserIdDesc: "userId desc",
+    UserName: "userName",
+    UserNameDesc: "userName desc",
+    UserPrincipalName: "userPrincipalName",
+    UserPrincipalNameDesc: "userPrincipalName desc",
+} as const;
+/**
+ * Provides operations to manage the deviceComplianceSettingStates property of the microsoft.graph.deviceCompliancePolicySettingStateSummary entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ComplianceGracePeriodExpirationDateTime: "complianceGracePeriodExpirationDateTime",
+    DeviceId: "deviceId",
+    DeviceModel: "deviceModel",
+    DeviceName: "deviceName",
+    Setting: "setting",
+    SettingName: "settingName",
+    State: "state",
+    UserEmail: "userEmail",
+    UserId: "userId",
+    UserName: "userName",
+    UserPrincipalName: "userPrincipalName",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

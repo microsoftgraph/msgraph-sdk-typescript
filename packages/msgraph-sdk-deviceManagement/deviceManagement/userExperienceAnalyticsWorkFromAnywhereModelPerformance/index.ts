@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { type UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder, UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilderRequestsMetadata } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereModelPerformance property of the microsoft.graph.deviceManagement entity.
  */
@@ -61,7 +64,7 @@ export interface UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestB
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestB
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestB
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,52 @@ export interface UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestB
  * Uri template for the request builder.
  */
 export const UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsWorkFromAnywhereModelPerformance{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereModelPerformance property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereModelPerformance property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CloudIdentityScore: "cloudIdentityScore",
+    CloudIdentityScoreDesc: "cloudIdentityScore desc",
+    CloudManagementScore: "cloudManagementScore",
+    CloudManagementScoreDesc: "cloudManagementScore desc",
+    CloudProvisioningScore: "cloudProvisioningScore",
+    CloudProvisioningScoreDesc: "cloudProvisioningScore desc",
+    HealthStatus: "healthStatus",
+    HealthStatusDesc: "healthStatus desc",
+    Manufacturer: "manufacturer",
+    ManufacturerDesc: "manufacturer desc",
+    Model: "model",
+    ModelDesc: "model desc",
+    ModelDeviceCount: "modelDeviceCount",
+    ModelDeviceCountDesc: "modelDeviceCount desc",
+    WindowsScore: "windowsScore",
+    WindowsScoreDesc: "windowsScore desc",
+    WorkFromAnywhereScore: "workFromAnywhereScore",
+    WorkFromAnywhereScoreDesc: "workFromAnywhereScore desc",
+} as const;
+/**
+ * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereModelPerformance property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CloudIdentityScore: "cloudIdentityScore",
+    CloudManagementScore: "cloudManagementScore",
+    CloudProvisioningScore: "cloudProvisioningScore",
+    HealthStatus: "healthStatus",
+    Manufacturer: "manufacturer",
+    Model: "model",
+    ModelDeviceCount: "modelDeviceCount",
+    WindowsScore: "windowsScore",
+    WorkFromAnywhereScore: "workFromAnywhereScore",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +175,7 @@ export const UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuild
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +185,7 @@ export const UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuild
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsWorkFromAnywhereModelPerformanceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance,

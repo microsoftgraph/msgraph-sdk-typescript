@@ -63,7 +63,7 @@ export interface DelegatedAdminRelationshipsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface DelegatedAdminRelationshipsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface DelegatedAdminRelationshipsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface DelegatedAdminRelationshipsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -129,7 +132,7 @@ export const DelegatedAdminRelationshipsRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminRelationshipCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DelegatedAdminRelationshipsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,12 +142,67 @@ export const DelegatedAdminRelationshipsRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminRelationshipFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDelegatedAdminRelationship,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AccessAssignments: "accessAssignments",
+    Operations: "operations",
+    Requests: "requests",
+} as const;
+/**
+ * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AccessDetails: "accessDetails",
+    AccessDetailsDesc: "accessDetails desc",
+    ActivatedDateTime: "activatedDateTime",
+    ActivatedDateTimeDesc: "activatedDateTime desc",
+    AutoExtendDuration: "autoExtendDuration",
+    AutoExtendDurationDesc: "autoExtendDuration desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Customer: "customer",
+    CustomerDesc: "customer desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    Duration: "duration",
+    DurationDesc: "duration desc",
+    EndDateTime: "endDateTime",
+    EndDateTimeDesc: "endDateTime desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Status: "status",
+    StatusDesc: "status desc",
+} as const;
+/**
+ * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AccessDetails: "accessDetails",
+    ActivatedDateTime: "activatedDateTime",
+    AutoExtendDuration: "autoExtendDuration",
+    CreatedDateTime: "createdDateTime",
+    Customer: "customer",
+    DisplayName: "displayName",
+    Duration: "duration",
+    EndDateTime: "endDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Status: "status",
+    AccessAssignments: "accessAssignments",
+    Operations: "operations",
+    Requests: "requests",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

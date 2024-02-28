@@ -5,6 +5,7 @@ import { createSubscribedSkuFromDiscriminatorValue, serializeSubscribedSku, type
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the collection of subscribedSku entities.
  */
@@ -58,12 +59,28 @@ export interface SubscribedSkuItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SubscribedSkuItemRequestBuilderUriTemplate = "{+baseurl}/subscribedSkus/{subscribedSku%2Did}{?%24select}";
+/**
+ * Provides operations to manage the collection of subscribedSku entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AccountId: "accountId",
+    AccountName: "accountName",
+    AppliesTo: "appliesTo",
+    CapabilityStatus: "capabilityStatus",
+    ConsumedUnits: "consumedUnits",
+    PrepaidUnits: "prepaidUnits",
+    ServicePlans: "servicePlans",
+    SkuId: "skuId",
+    SkuPartNumber: "skuPartNumber",
+    SubscriptionIds: "subscriptionIds",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -80,7 +97,7 @@ export const SubscribedSkuItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SubscribedSkuItemRequestBuilderUriTemplate,
@@ -88,7 +105,7 @@ export const SubscribedSkuItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubscribedSkuFromDiscriminatorValue,
         queryParametersMapper: SubscribedSkuItemRequestBuilderGetQueryParametersMapper,
     },
@@ -98,7 +115,7 @@ export const SubscribedSkuItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubscribedSkuFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSubscribedSku,

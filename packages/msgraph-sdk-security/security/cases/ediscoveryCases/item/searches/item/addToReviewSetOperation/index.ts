@@ -30,12 +30,14 @@ export interface AddToReviewSetOperationRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -57,10 +59,33 @@ export const AddToReviewSetOperationRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryAddToReviewSetOperationFromDiscriminatorValue,
         queryParametersMapper: AddToReviewSetOperationRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the addToReviewSetOperation property of the microsoft.graph.security.ediscoverySearch entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ReviewSet: "reviewSet",
+    Search: "search",
+} as const;
+/**
+ * Provides operations to manage the addToReviewSetOperation property of the microsoft.graph.security.ediscoverySearch entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Action: "action",
+    CompletedDateTime: "completedDateTime",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    PercentProgress: "percentProgress",
+    ResultInfo: "resultInfo",
+    Status: "status",
+    ReviewSet: "reviewSet",
+    Search: "search",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

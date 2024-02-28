@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { SetItemRequestBuilderNavigationMetadata, SetItemRequestBuilderRequestsMetadata, type SetItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
  */
@@ -62,7 +65,7 @@ export interface SetsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface SetsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface SetsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,45 @@ export interface SetsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SetsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore/groups/{group%2Did}/sets{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Children: "children",
+    ParentGroup: "parentGroup",
+    Relations: "relations",
+    Terms: "terms",
+} as const;
+/**
+ * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    LocalizedNames: "localizedNames",
+    LocalizedNamesDesc: "localizedNames desc",
+    Properties: "properties",
+    PropertiesDesc: "properties desc",
+} as const;
+/**
+ * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    LocalizedNames: "localizedNames",
+    Properties: "properties",
+    Children: "children",
+    ParentGroup: "parentGroup",
+    Relations: "relations",
+    Terms: "terms",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +170,7 @@ export const SetsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSetCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SetsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +180,7 @@ export const SetsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSetFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSet,

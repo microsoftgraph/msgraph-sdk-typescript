@@ -7,6 +7,8 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { TimeOffRequestItemRequestBuilderRequestsMetadata, type TimeOffRequestItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.
  */
@@ -66,7 +68,7 @@ export interface TimeOffRequestsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -74,7 +76,7 @@ export interface TimeOffRequestsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -88,6 +90,61 @@ export interface TimeOffRequestsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const TimeOffRequestsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/timeOffRequests{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    AssignedTo: "assignedTo",
+    AssignedToDesc: "assignedTo desc",
+    ManagerActionDateTime: "managerActionDateTime",
+    ManagerActionDateTimeDesc: "managerActionDateTime desc",
+    ManagerActionMessage: "managerActionMessage",
+    ManagerActionMessageDesc: "managerActionMessage desc",
+    ManagerUserId: "managerUserId",
+    ManagerUserIdDesc: "managerUserId desc",
+    SenderDateTime: "senderDateTime",
+    SenderDateTimeDesc: "senderDateTime desc",
+    SenderMessage: "senderMessage",
+    SenderMessageDesc: "senderMessage desc",
+    SenderUserId: "senderUserId",
+    SenderUserIdDesc: "senderUserId desc",
+    State: "state",
+    StateDesc: "state desc",
+    EndDateTime: "endDateTime",
+    EndDateTimeDesc: "endDateTime desc",
+    StartDateTime: "startDateTime",
+    StartDateTimeDesc: "startDateTime desc",
+    TimeOffReasonId: "timeOffReasonId",
+    TimeOffReasonIdDesc: "timeOffReasonId desc",
+} as const;
+/**
+ * Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    AssignedTo: "assignedTo",
+    ManagerActionDateTime: "managerActionDateTime",
+    ManagerActionMessage: "managerActionMessage",
+    ManagerUserId: "managerUserId",
+    SenderDateTime: "senderDateTime",
+    SenderMessage: "senderMessage",
+    SenderUserId: "senderUserId",
+    State: "state",
+    EndDateTime: "endDateTime",
+    StartDateTime: "startDateTime",
+    TimeOffReasonId: "timeOffReasonId",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -122,7 +179,7 @@ export const TimeOffRequestsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTimeOffRequestCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TimeOffRequestsRequestBuilderGetQueryParametersMapper,
     },
@@ -132,7 +189,7 @@ export const TimeOffRequestsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTimeOffRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTimeOffRequest,

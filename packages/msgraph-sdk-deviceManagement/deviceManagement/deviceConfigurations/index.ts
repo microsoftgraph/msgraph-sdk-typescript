@@ -22,30 +22,30 @@ export interface DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<D
      */
      byDeviceConfigurationId(deviceConfigurationId: string) : DeviceConfigurationItemRequestBuilder;
     /**
-     * List properties and relationships of the windows10TeamGeneralConfiguration objects.
+     * List properties and relationships of the windowsUpdateForBusinessConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfigurationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10teamgeneralconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windowsupdateforbusinessconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfigurationCollectionResponse | undefined>;
     /**
-     * Create a new androidWorkProfileCustomConfiguration object.
+     * Create a new windows10GeneralConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecustomconfiguration-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10generalconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfiguration | undefined>;
     /**
-     * List properties and relationships of the windows10TeamGeneralConfiguration objects.
+     * List properties and relationships of the windowsUpdateForBusinessConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceConfigurationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new androidWorkProfileCustomConfiguration object.
+     * Create a new windows10GeneralConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -53,7 +53,7 @@ export interface DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<D
      toPostRequestInformation(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the windows10TeamGeneralConfiguration objects.
+ * List properties and relationships of the windowsUpdateForBusinessConfiguration objects.
  */
 export interface DeviceConfigurationsRequestBuilderGetQueryParameters {
     /**
@@ -63,7 +63,7 @@ export interface DeviceConfigurationsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface DeviceConfigurationsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface DeviceConfigurationsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface DeviceConfigurationsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -129,7 +132,7 @@ export const DeviceConfigurationsRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceConfigurationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DeviceConfigurationsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,12 +142,58 @@ export const DeviceConfigurationsRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceConfigurationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceConfiguration,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Assignments: "assignments",
+    DeviceSettingStateSummaries: "deviceSettingStateSummaries",
+    DeviceStatuses: "deviceStatuses",
+    DeviceStatusOverview: "deviceStatusOverview",
+    UserStatuses: "userStatuses",
+    UserStatusOverview: "userStatusOverview",
+} as const;
+/**
+ * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Version: "version",
+    VersionDesc: "version desc",
+} as const;
+/**
+ * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Version: "version",
+    Assignments: "assignments",
+    DeviceSettingStateSummaries: "deviceSettingStateSummaries",
+    DeviceStatuses: "deviceStatuses",
+    DeviceStatusOverview: "deviceStatusOverview",
+    UserStatuses: "userStatuses",
+    UserStatusOverview: "userStatusOverview",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

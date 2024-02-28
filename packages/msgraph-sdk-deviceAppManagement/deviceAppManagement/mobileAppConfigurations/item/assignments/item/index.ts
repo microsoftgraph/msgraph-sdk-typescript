@@ -5,6 +5,8 @@ import { createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorVal
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
  */
@@ -60,16 +62,29 @@ export interface ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/assignments/{managedDeviceMobileAppConfigurationAssignment%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the assignments property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the assignments property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Target: "target",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -87,7 +102,7 @@ export const ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderUriTemplate,
@@ -95,7 +110,7 @@ export const ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue,
         queryParametersMapper: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +120,7 @@ export const ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeManagedDeviceMobileAppConfigurationAssignment,

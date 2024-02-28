@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { OnenoteOperationItemRequestBuilderRequestsMetadata, type OnenoteOperationItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the operations property of the microsoft.graph.onenote entity.
  */
@@ -61,7 +64,7 @@ export interface OperationsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface OperationsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface OperationsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,46 @@ export interface OperationsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const OperationsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/onenote/operations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the operations property of the microsoft.graph.onenote entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the operations property of the microsoft.graph.onenote entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    LastActionDateTime: "lastActionDateTime",
+    LastActionDateTimeDesc: "lastActionDateTime desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    ErrorEscaped: "error",
+    ErrorDesc: "error desc",
+    PercentComplete: "percentComplete",
+    PercentCompleteDesc: "percentComplete desc",
+    ResourceId: "resourceId",
+    ResourceIdDesc: "resourceId desc",
+    ResourceLocation: "resourceLocation",
+    ResourceLocationDesc: "resourceLocation desc",
+} as const;
+/**
+ * Provides operations to manage the operations property of the microsoft.graph.onenote entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    LastActionDateTime: "lastActionDateTime",
+    Status: "status",
+    ErrorEscaped: "error",
+    PercentComplete: "percentComplete",
+    ResourceId: "resourceId",
+    ResourceLocation: "resourceLocation",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +169,7 @@ export const OperationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnenoteOperationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: OperationsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +179,7 @@ export const OperationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnenoteOperationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOnenoteOperation,

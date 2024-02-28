@@ -97,12 +97,14 @@ export interface AttackSimulationRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -161,7 +163,7 @@ export const AttackSimulationRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AttackSimulationRequestBuilderUriTemplate,
@@ -169,7 +171,7 @@ export const AttackSimulationRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttackSimulationRootFromDiscriminatorValue,
         queryParametersMapper: AttackSimulationRequestBuilderGetQueryParametersMapper,
     },
@@ -179,12 +181,40 @@ export const AttackSimulationRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttackSimulationRootFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAttackSimulationRoot,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the attackSimulation property of the microsoft.graph.security entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    EndUserNotifications: "endUserNotifications",
+    LandingPages: "landingPages",
+    LoginPages: "loginPages",
+    Operations: "operations",
+    Payloads: "payloads",
+    SimulationAutomations: "simulationAutomations",
+    Simulations: "simulations",
+    Trainings: "trainings",
+} as const;
+/**
+ * Provides operations to manage the attackSimulation property of the microsoft.graph.security entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    EndUserNotifications: "endUserNotifications",
+    LandingPages: "landingPages",
+    LoginPages: "loginPages",
+    Operations: "operations",
+    Payloads: "payloads",
+    SimulationAutomations: "simulationAutomations",
+    Simulations: "simulations",
+    Trainings: "trainings",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

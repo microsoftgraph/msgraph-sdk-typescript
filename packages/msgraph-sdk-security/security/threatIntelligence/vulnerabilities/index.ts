@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { type VulnerabilityItemRequestBuilder, VulnerabilityItemRequestBuilderNavigationMetadata, VulnerabilityItemRequestBuilderRequestsMetadata } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the vulnerabilities property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -61,7 +64,7 @@ export interface VulnerabilitiesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface VulnerabilitiesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface VulnerabilitiesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,74 @@ export interface VulnerabilitiesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const VulnerabilitiesRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/vulnerabilities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the vulnerabilities property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Articles: "articles",
+    Components: "components",
+} as const;
+/**
+ * Provides operations to manage the vulnerabilities property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ActiveExploitsObserved: "activeExploitsObserved",
+    ActiveExploitsObservedDesc: "activeExploitsObserved desc",
+    CommonWeaknessEnumerationIds: "commonWeaknessEnumerationIds",
+    CommonWeaknessEnumerationIdsDesc: "commonWeaknessEnumerationIds desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Cvss2Summary: "cvss2Summary",
+    Cvss2SummaryDesc: "cvss2Summary desc",
+    Cvss3Summary: "cvss3Summary",
+    Cvss3SummaryDesc: "cvss3Summary desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    Exploits: "exploits",
+    ExploitsDesc: "exploits desc",
+    ExploitsAvailable: "exploitsAvailable",
+    ExploitsAvailableDesc: "exploitsAvailable desc",
+    HasChatter: "hasChatter",
+    HasChatterDesc: "hasChatter desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    PriorityScore: "priorityScore",
+    PriorityScoreDesc: "priorityScore desc",
+    PublishedDateTime: "publishedDateTime",
+    PublishedDateTimeDesc: "publishedDateTime desc",
+    References: "references",
+    ReferencesDesc: "references desc",
+    Remediation: "remediation",
+    RemediationDesc: "remediation desc",
+    Severity: "severity",
+    SeverityDesc: "severity desc",
+} as const;
+/**
+ * Provides operations to manage the vulnerabilities property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActiveExploitsObserved: "activeExploitsObserved",
+    CommonWeaknessEnumerationIds: "commonWeaknessEnumerationIds",
+    CreatedDateTime: "createdDateTime",
+    Cvss2Summary: "cvss2Summary",
+    Cvss3Summary: "cvss3Summary",
+    Description: "description",
+    Exploits: "exploits",
+    ExploitsAvailable: "exploitsAvailable",
+    HasChatter: "hasChatter",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    PriorityScore: "priorityScore",
+    PublishedDateTime: "publishedDateTime",
+    References: "references",
+    Remediation: "remediation",
+    Severity: "severity",
+    Articles: "articles",
+    Components: "components",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +198,7 @@ export const VulnerabilitiesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVulnerabilityCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: VulnerabilitiesRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +208,7 @@ export const VulnerabilitiesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVulnerabilityFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeVulnerability,

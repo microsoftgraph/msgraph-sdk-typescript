@@ -9,6 +9,8 @@ import { FunctionsRequestBuilderRequestsMetadata, type FunctionsRequestBuilder }
 import { ParseExpressionRequestBuilderRequestsMetadata, type ParseExpressionRequestBuilder } from './parseExpression/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the schema property of the microsoft.graph.synchronizationTemplate entity.
  */
@@ -77,16 +79,32 @@ export interface SchemaRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SchemaRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/synchronization/templates/{synchronizationTemplate%2Did}/schema{?%24expand,%24select}";
+/**
+ * Provides operations to manage the schema property of the microsoft.graph.synchronizationTemplate entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Directories: "directories",
+} as const;
+/**
+ * Provides operations to manage the schema property of the microsoft.graph.synchronizationTemplate entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    SynchronizationRules: "synchronizationRules",
+    Version: "version",
+    Directories: "directories",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -122,7 +140,7 @@ export const SchemaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SchemaRequestBuilderUriTemplate,
@@ -130,7 +148,7 @@ export const SchemaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSynchronizationSchemaFromDiscriminatorValue,
         queryParametersMapper: SchemaRequestBuilderGetQueryParametersMapper,
     },
@@ -140,7 +158,7 @@ export const SchemaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSynchronizationSchemaFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSynchronizationSchema,

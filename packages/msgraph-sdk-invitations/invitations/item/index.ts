@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { InvitedUserRequestBuilderNavigationMetadata, InvitedUserRequestBuilderRequestsMetadata, type InvitedUserRequestBuilder } from './invitedUser/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the collection of invitation entities.
  */
@@ -62,16 +64,39 @@ export interface InvitationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const InvitationItemRequestBuilderUriTemplate = "{+baseurl}/invitations/{invitation%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the collection of invitation entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    InvitedUser: "invitedUser",
+} as const;
+/**
+ * Provides operations to manage the collection of invitation entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    InvitedUserDisplayName: "invitedUserDisplayName",
+    InvitedUserEmailAddress: "invitedUserEmailAddress",
+    InvitedUserMessageInfo: "invitedUserMessageInfo",
+    InvitedUserType: "invitedUserType",
+    InviteRedeemUrl: "inviteRedeemUrl",
+    InviteRedirectUrl: "inviteRedirectUrl",
+    ResetRedemption: "resetRedemption",
+    SendInvitationMessage: "sendInvitationMessage",
+    Status: "status",
+    InvitedUser: "invitedUser",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -98,7 +123,7 @@ export const InvitationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: InvitationItemRequestBuilderUriTemplate,
@@ -106,7 +131,7 @@ export const InvitationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInvitationFromDiscriminatorValue,
         queryParametersMapper: InvitationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +141,7 @@ export const InvitationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInvitationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeInvitation,

@@ -9,6 +9,8 @@ import { RelationsRequestBuilderNavigationMetadata, RelationsRequestBuilderReque
 import { TermsRequestBuilderNavigationMetadata, TermsRequestBuilderRequestsMetadata, type TermsRequestBuilder } from './terms/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
  */
@@ -80,16 +82,40 @@ export interface SetItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SetItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStore/sets/{set%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Children: "children",
+    ParentGroup: "parentGroup",
+    Relations: "relations",
+    Terms: "terms",
+} as const;
+/**
+ * Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    LocalizedNames: "localizedNames",
+    Properties: "properties",
+    Children: "children",
+    ParentGroup: "parentGroup",
+    Relations: "relations",
+    Terms: "terms",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +154,7 @@ export const SetItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SetItemRequestBuilderUriTemplate,
@@ -136,7 +162,7 @@ export const SetItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSetFromDiscriminatorValue,
         queryParametersMapper: SetItemRequestBuilderGetQueryParametersMapper,
     },
@@ -146,7 +172,7 @@ export const SetItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSetFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSet,

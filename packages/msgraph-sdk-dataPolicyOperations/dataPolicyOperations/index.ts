@@ -61,7 +61,7 @@ export interface DataPolicyOperationsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +69,7 @@ export interface DataPolicyOperationsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +77,7 @@ export interface DataPolicyOperationsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -87,6 +87,9 @@ export interface DataPolicyOperationsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -126,7 +129,7 @@ export const DataPolicyOperationsRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDataPolicyOperationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DataPolicyOperationsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,12 +139,49 @@ export const DataPolicyOperationsRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDataPolicyOperationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDataPolicyOperation,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the collection of dataPolicyOperation entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the collection of dataPolicyOperation entities.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CompletedDateTime: "completedDateTime",
+    CompletedDateTimeDesc: "completedDateTime desc",
+    Progress: "progress",
+    ProgressDesc: "progress desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    StorageLocation: "storageLocation",
+    StorageLocationDesc: "storageLocation desc",
+    SubmittedDateTime: "submittedDateTime",
+    SubmittedDateTimeDesc: "submittedDateTime desc",
+    UserId: "userId",
+    UserIdDesc: "userId desc",
+} as const;
+/**
+ * Provides operations to manage the collection of dataPolicyOperation entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CompletedDateTime: "completedDateTime",
+    Progress: "progress",
+    Status: "status",
+    StorageLocation: "storageLocation",
+    SubmittedDateTime: "submittedDateTime",
+    UserId: "userId",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

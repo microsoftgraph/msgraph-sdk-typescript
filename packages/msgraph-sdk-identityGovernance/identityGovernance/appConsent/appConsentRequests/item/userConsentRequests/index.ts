@@ -8,6 +8,9 @@ import { FilterByCurrentUserWithOnRequestBuilderRequestsMetadata, type FilterByC
 import { type UserConsentRequestItemRequestBuilder, UserConsentRequestItemRequestBuilderNavigationMetadata, UserConsentRequestItemRequestBuilderRequestsMetadata } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
  */
@@ -69,7 +72,7 @@ export interface UserConsentRequestsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -77,7 +80,7 @@ export interface UserConsentRequestsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -85,7 +88,7 @@ export interface UserConsentRequestsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -99,6 +102,48 @@ export interface UserConsentRequestsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const UserConsentRequestsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/appConsent/appConsentRequests/{appConsentRequest%2Did}/userConsentRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Approval: "approval",
+} as const;
+/**
+ * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ApprovalId: "approvalId",
+    ApprovalIdDesc: "approvalId desc",
+    CompletedDateTime: "completedDateTime",
+    CompletedDateTimeDesc: "completedDateTime desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    CustomData: "customData",
+    CustomDataDesc: "customData desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    Reason: "reason",
+    ReasonDesc: "reason desc",
+} as const;
+/**
+ * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ApprovalId: "approvalId",
+    CompletedDateTime: "completedDateTime",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    CustomData: "customData",
+    Status: "status",
+    Reason: "reason",
+    Approval: "approval",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -138,7 +183,7 @@ export const UserConsentRequestsRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserConsentRequestCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UserConsentRequestsRequestBuilderGetQueryParametersMapper,
     },
@@ -148,7 +193,7 @@ export const UserConsentRequestsRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserConsentRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserConsentRequest,

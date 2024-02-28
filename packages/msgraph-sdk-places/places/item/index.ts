@@ -74,7 +74,7 @@ export const PlaceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     patch: {
         uriTemplate: PlaceItemRequestBuilderUriTemplate,
@@ -82,7 +82,7 @@ export const PlaceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlaceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePlace,

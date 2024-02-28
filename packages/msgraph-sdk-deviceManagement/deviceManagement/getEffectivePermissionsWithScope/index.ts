@@ -104,7 +104,7 @@ export const GetEffectivePermissionsWithScopeRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGetEffectivePermissionsWithScopeGetResponseFromDiscriminatorValue,
         queryParametersMapper: GetEffectivePermissionsWithScopeRequestBuilderGetQueryParametersMapper,
     },

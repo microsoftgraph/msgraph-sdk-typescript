@@ -65,12 +65,14 @@ export interface DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetQ
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -101,7 +103,7 @@ export const DeviceCompliancePolicySettingStateSummaryItemRequestBuilderRequests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DeviceCompliancePolicySettingStateSummaryItemRequestBuilderUriTemplate,
@@ -109,7 +111,7 @@ export const DeviceCompliancePolicySettingStateSummaryItemRequestBuilderRequests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceCompliancePolicySettingStateSummaryFromDiscriminatorValue,
         queryParametersMapper: DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetQueryParametersMapper,
     },
@@ -119,12 +121,36 @@ export const DeviceCompliancePolicySettingStateSummaryItemRequestBuilderRequests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceCompliancePolicySettingStateSummaryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceCompliancePolicySettingStateSummary,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    DeviceComplianceSettingStates: "deviceComplianceSettingStates",
+} as const;
+/**
+ * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CompliantDeviceCount: "compliantDeviceCount",
+    ConflictDeviceCount: "conflictDeviceCount",
+    ErrorDeviceCount: "errorDeviceCount",
+    NonCompliantDeviceCount: "nonCompliantDeviceCount",
+    NotApplicableDeviceCount: "notApplicableDeviceCount",
+    PlatformType: "platformType",
+    RemediatedDeviceCount: "remediatedDeviceCount",
+    Setting: "setting",
+    SettingName: "settingName",
+    UnknownDeviceCount: "unknownDeviceCount",
+    DeviceComplianceSettingStates: "deviceComplianceSettingStates",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -56,8 +56,9 @@ export interface AgreementsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -89,7 +90,7 @@ export const AgreementsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AgreementsRequestBuilderGetQueryParametersMapper,
     },
@@ -99,12 +100,26 @@ export const AgreementsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAgreement,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the collection of agreement entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DisplayName: "displayName",
+    IsPerDeviceAcceptanceRequired: "isPerDeviceAcceptanceRequired",
+    IsViewingBeforeAcceptanceRequired: "isViewingBeforeAcceptanceRequired",
+    TermsExpiration: "termsExpiration",
+    UserReacceptRequiredFrequency: "userReacceptRequiredFrequency",
+    Acceptances: "acceptances",
+    File: "file",
+    Files: "files",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

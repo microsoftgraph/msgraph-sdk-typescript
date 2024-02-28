@@ -5,6 +5,7 @@ import { createOutlookCategoryFromDiscriminatorValue, serializeOutlookCategory, 
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
  */
@@ -60,12 +61,20 @@ export interface OutlookCategoryItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const OutlookCategoryItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/masterCategories/{outlookCategory%2Did}{?%24select}";
+/**
+ * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Color: "color",
+    DisplayName: "displayName",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -82,7 +91,7 @@ export const OutlookCategoryItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OutlookCategoryItemRequestBuilderUriTemplate,
@@ -90,7 +99,7 @@ export const OutlookCategoryItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOutlookCategoryFromDiscriminatorValue,
         queryParametersMapper: OutlookCategoryItemRequestBuilderGetQueryParametersMapper,
     },
@@ -100,7 +109,7 @@ export const OutlookCategoryItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOutlookCategoryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOutlookCategory,

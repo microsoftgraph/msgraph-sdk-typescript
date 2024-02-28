@@ -63,7 +63,7 @@ export interface ChecklistItemsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface ChecklistItemsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface ChecklistItemsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface ChecklistItemsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -128,7 +131,7 @@ export const ChecklistItemsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChecklistItemCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ChecklistItemsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,12 +141,43 @@ export const ChecklistItemsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChecklistItemFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeChecklistItem,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CheckedDateTime: "checkedDateTime",
+    CheckedDateTimeDesc: "checkedDateTime desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    IsChecked: "isChecked",
+    IsCheckedDesc: "isChecked desc",
+} as const;
+/**
+ * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CheckedDateTime: "checkedDateTime",
+    CreatedDateTime: "createdDateTime",
+    DisplayName: "displayName",
+    IsChecked: "isChecked",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

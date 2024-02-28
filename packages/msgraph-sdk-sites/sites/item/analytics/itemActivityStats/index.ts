@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { ItemActivityStatItemRequestBuilderNavigationMetadata, ItemActivityStatItemRequestBuilderRequestsMetadata, type ItemActivityStatItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
  */
@@ -61,7 +64,7 @@ export interface ItemActivityStatsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface ItemActivityStatsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface ItemActivityStatsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,54 @@ export interface ItemActivityStatsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const ItemActivityStatsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/analytics/itemActivityStats{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Activities: "activities",
+} as const;
+/**
+ * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Access: "access",
+    AccessDesc: "access desc",
+    Create: "create",
+    CreateDesc: "create desc",
+    Delete: "delete",
+    DeleteDesc: "delete desc",
+    Edit: "edit",
+    EditDesc: "edit desc",
+    EndDateTime: "endDateTime",
+    EndDateTimeDesc: "endDateTime desc",
+    IncompleteData: "incompleteData",
+    IncompleteDataDesc: "incompleteData desc",
+    IsTrending: "isTrending",
+    IsTrendingDesc: "isTrending desc",
+    Move: "move",
+    MoveDesc: "move desc",
+    StartDateTime: "startDateTime",
+    StartDateTimeDesc: "startDateTime desc",
+} as const;
+/**
+ * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Access: "access",
+    Create: "create",
+    Delete: "delete",
+    Edit: "edit",
+    EndDateTime: "endDateTime",
+    IncompleteData: "incompleteData",
+    IsTrending: "isTrending",
+    Move: "move",
+    StartDateTime: "startDateTime",
+    Activities: "activities",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +178,7 @@ export const ItemActivityStatsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createItemActivityStatCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ItemActivityStatsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +188,7 @@ export const ItemActivityStatsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createItemActivityStatFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeItemActivityStat,

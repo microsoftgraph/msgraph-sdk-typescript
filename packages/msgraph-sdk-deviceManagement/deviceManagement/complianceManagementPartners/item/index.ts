@@ -60,12 +60,14 @@ export interface ComplianceManagementPartnerItemRequestBuilderGetQueryParameters
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -87,7 +89,7 @@ export const ComplianceManagementPartnerItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ComplianceManagementPartnerItemRequestBuilderUriTemplate,
@@ -95,7 +97,7 @@ export const ComplianceManagementPartnerItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createComplianceManagementPartnerFromDiscriminatorValue,
         queryParametersMapper: ComplianceManagementPartnerItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,12 +107,33 @@ export const ComplianceManagementPartnerItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createComplianceManagementPartnerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeComplianceManagementPartner,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AndroidEnrollmentAssignments: "androidEnrollmentAssignments",
+    AndroidOnboarded: "androidOnboarded",
+    DisplayName: "displayName",
+    IosEnrollmentAssignments: "iosEnrollmentAssignments",
+    IosOnboarded: "iosOnboarded",
+    LastHeartbeatDateTime: "lastHeartbeatDateTime",
+    MacOsEnrollmentAssignments: "macOsEnrollmentAssignments",
+    MacOsOnboarded: "macOsOnboarded",
+    PartnerState: "partnerState",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

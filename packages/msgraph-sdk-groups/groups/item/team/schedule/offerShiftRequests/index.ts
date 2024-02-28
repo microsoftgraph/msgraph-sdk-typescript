@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { OfferShiftRequestItemRequestBuilderRequestsMetadata, type OfferShiftRequestItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
  */
@@ -63,7 +66,7 @@ export interface OfferShiftRequestsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface OfferShiftRequestsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface OfferShiftRequestsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,70 @@ export interface OfferShiftRequestsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const OfferShiftRequestsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/offerShiftRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    AssignedTo: "assignedTo",
+    AssignedToDesc: "assignedTo desc",
+    ManagerActionDateTime: "managerActionDateTime",
+    ManagerActionDateTimeDesc: "managerActionDateTime desc",
+    ManagerActionMessage: "managerActionMessage",
+    ManagerActionMessageDesc: "managerActionMessage desc",
+    ManagerUserId: "managerUserId",
+    ManagerUserIdDesc: "managerUserId desc",
+    SenderDateTime: "senderDateTime",
+    SenderDateTimeDesc: "senderDateTime desc",
+    SenderMessage: "senderMessage",
+    SenderMessageDesc: "senderMessage desc",
+    SenderUserId: "senderUserId",
+    SenderUserIdDesc: "senderUserId desc",
+    State: "state",
+    StateDesc: "state desc",
+    RecipientActionDateTime: "recipientActionDateTime",
+    RecipientActionDateTimeDesc: "recipientActionDateTime desc",
+    RecipientActionMessage: "recipientActionMessage",
+    RecipientActionMessageDesc: "recipientActionMessage desc",
+    RecipientUserId: "recipientUserId",
+    RecipientUserIdDesc: "recipientUserId desc",
+    SenderShiftId: "senderShiftId",
+    SenderShiftIdDesc: "senderShiftId desc",
+} as const;
+/**
+ * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    AssignedTo: "assignedTo",
+    ManagerActionDateTime: "managerActionDateTime",
+    ManagerActionMessage: "managerActionMessage",
+    ManagerUserId: "managerUserId",
+    SenderDateTime: "senderDateTime",
+    SenderMessage: "senderMessage",
+    SenderUserId: "senderUserId",
+    State: "state",
+    RecipientActionDateTime: "recipientActionDateTime",
+    RecipientActionMessage: "recipientActionMessage",
+    RecipientUserId: "recipientUserId",
+    SenderShiftId: "senderShiftId",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +195,7 @@ export const OfferShiftRequestsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOfferShiftRequestCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: OfferShiftRequestsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +205,7 @@ export const OfferShiftRequestsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOfferShiftRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOfferShiftRequest,

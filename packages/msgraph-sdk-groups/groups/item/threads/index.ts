@@ -7,6 +7,8 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { ConversationThreadItemRequestBuilderNavigationMetadata, ConversationThreadItemRequestBuilderRequestsMetadata, type ConversationThreadItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the threads property of the microsoft.graph.group entity.
  */
@@ -67,11 +69,11 @@ export interface ThreadsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -85,6 +87,44 @@ export interface ThreadsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const ThreadsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/threads{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the threads property of the microsoft.graph.group entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CcRecipients: "ccRecipients",
+    CcRecipientsDesc: "ccRecipients desc",
+    HasAttachments: "hasAttachments",
+    HasAttachmentsDesc: "hasAttachments desc",
+    IsLocked: "isLocked",
+    IsLockedDesc: "isLocked desc",
+    LastDeliveredDateTime: "lastDeliveredDateTime",
+    LastDeliveredDateTimeDesc: "lastDeliveredDateTime desc",
+    Preview: "preview",
+    PreviewDesc: "preview desc",
+    Topic: "topic",
+    TopicDesc: "topic desc",
+    ToRecipients: "toRecipients",
+    ToRecipientsDesc: "toRecipients desc",
+    UniqueSenders: "uniqueSenders",
+    UniqueSendersDesc: "uniqueSenders desc",
+} as const;
+/**
+ * Provides operations to manage the threads property of the microsoft.graph.group entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CcRecipients: "ccRecipients",
+    HasAttachments: "hasAttachments",
+    IsLocked: "isLocked",
+    LastDeliveredDateTime: "lastDeliveredDateTime",
+    Preview: "preview",
+    Topic: "topic",
+    ToRecipients: "toRecipients",
+    UniqueSenders: "uniqueSenders",
+    Posts: "posts",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -119,7 +159,7 @@ export const ThreadsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConversationThreadCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ThreadsRequestBuilderGetQueryParametersMapper,
     },
@@ -129,7 +169,7 @@ export const ThreadsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConversationThreadFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeConversationThread,

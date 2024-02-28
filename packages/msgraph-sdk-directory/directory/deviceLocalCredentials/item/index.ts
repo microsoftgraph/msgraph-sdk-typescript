@@ -58,8 +58,9 @@ export interface DeviceLocalCredentialInfoItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -80,7 +81,7 @@ export const DeviceLocalCredentialInfoItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DeviceLocalCredentialInfoItemRequestBuilderUriTemplate,
@@ -88,7 +89,7 @@ export const DeviceLocalCredentialInfoItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceLocalCredentialInfoFromDiscriminatorValue,
         queryParametersMapper: DeviceLocalCredentialInfoItemRequestBuilderGetQueryParametersMapper,
     },
@@ -98,12 +99,22 @@ export const DeviceLocalCredentialInfoItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceLocalCredentialInfoFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceLocalCredentialInfo,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the deviceLocalCredentials property of the microsoft.graph.directory entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Credentials: "credentials",
+    DeviceName: "deviceName",
+    LastBackupDateTime: "lastBackupDateTime",
+    RefreshDateTime: "refreshDateTime",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -57,12 +57,14 @@ export interface DelegatedAdminServiceManagementDetailItemRequestBuilderGetQuery
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -84,7 +86,7 @@ export const DelegatedAdminServiceManagementDetailItemRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DelegatedAdminServiceManagementDetailItemRequestBuilderUriTemplate,
@@ -92,7 +94,7 @@ export const DelegatedAdminServiceManagementDetailItemRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminServiceManagementDetailFromDiscriminatorValue,
         queryParametersMapper: DelegatedAdminServiceManagementDetailItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,12 +104,26 @@ export const DelegatedAdminServiceManagementDetailItemRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminServiceManagementDetailFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDelegatedAdminServiceManagementDetail,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ServiceManagementUrl: "serviceManagementUrl",
+    ServiceName: "serviceName",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -76,7 +76,7 @@ export const ImageWithWidthRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createImageWithWidthGetResponseFromDiscriminatorValue,
     },
 };

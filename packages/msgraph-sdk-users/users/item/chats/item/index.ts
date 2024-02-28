@@ -118,12 +118,14 @@ export interface ChatItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -192,7 +194,7 @@ export const ChatItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ChatItemRequestBuilderUriTemplate,
@@ -200,7 +202,7 @@ export const ChatItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChatFromDiscriminatorValue,
         queryParametersMapper: ChatItemRequestBuilderGetQueryParametersMapper,
     },
@@ -210,12 +212,46 @@ export const ChatItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChatFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeChat,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the chats property of the microsoft.graph.user entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    InstalledApps: "installedApps",
+    LastMessagePreview: "lastMessagePreview",
+    Members: "members",
+    Messages: "messages",
+    PermissionGrants: "permissionGrants",
+    PinnedMessages: "pinnedMessages",
+    Tabs: "tabs",
+} as const;
+/**
+ * Provides operations to manage the chats property of the microsoft.graph.user entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ChatType: "chatType",
+    CreatedDateTime: "createdDateTime",
+    LastUpdatedDateTime: "lastUpdatedDateTime",
+    OnlineMeetingInfo: "onlineMeetingInfo",
+    TenantId: "tenantId",
+    Topic: "topic",
+    Viewpoint: "viewpoint",
+    WebUrl: "webUrl",
+    InstalledApps: "installedApps",
+    LastMessagePreview: "lastMessagePreview",
+    Members: "members",
+    Messages: "messages",
+    PermissionGrants: "permissionGrants",
+    PinnedMessages: "pinnedMessages",
+    Tabs: "tabs",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

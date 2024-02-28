@@ -5,6 +5,9 @@ import { createPermissionCollectionResponseFromDiscriminatorValue, createPermiss
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the permissions property of the microsoft.graph.site entity.
  */
@@ -51,7 +54,7 @@ export interface PermissionsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -59,7 +62,7 @@ export interface PermissionsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -67,7 +70,7 @@ export interface PermissionsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -81,6 +84,58 @@ export interface PermissionsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const PermissionsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/permissions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the permissions property of the microsoft.graph.site entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the permissions property of the microsoft.graph.site entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ExpirationDateTime: "expirationDateTime",
+    ExpirationDateTimeDesc: "expirationDateTime desc",
+    GrantedTo: "grantedTo",
+    GrantedToDesc: "grantedTo desc",
+    GrantedToIdentities: "grantedToIdentities",
+    GrantedToIdentitiesDesc: "grantedToIdentities desc",
+    GrantedToIdentitiesV2: "grantedToIdentitiesV2",
+    GrantedToIdentitiesV2Desc: "grantedToIdentitiesV2 desc",
+    GrantedToV2: "grantedToV2",
+    GrantedToV2Desc: "grantedToV2 desc",
+    HasPassword: "hasPassword",
+    HasPasswordDesc: "hasPassword desc",
+    InheritedFrom: "inheritedFrom",
+    InheritedFromDesc: "inheritedFrom desc",
+    Invitation: "invitation",
+    InvitationDesc: "invitation desc",
+    Link: "link",
+    LinkDesc: "link desc",
+    Roles: "roles",
+    RolesDesc: "roles desc",
+    ShareId: "shareId",
+    ShareIdDesc: "shareId desc",
+} as const;
+/**
+ * Provides operations to manage the permissions property of the microsoft.graph.site entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ExpirationDateTime: "expirationDateTime",
+    GrantedTo: "grantedTo",
+    GrantedToIdentities: "grantedToIdentities",
+    GrantedToIdentitiesV2: "grantedToIdentitiesV2",
+    GrantedToV2: "grantedToV2",
+    HasPassword: "hasPassword",
+    InheritedFrom: "inheritedFrom",
+    Invitation: "invitation",
+    Link: "link",
+    Roles: "roles",
+    ShareId: "shareId",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +159,7 @@ export const PermissionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPermissionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: PermissionsRequestBuilderGetQueryParametersMapper,
     },
@@ -114,7 +169,7 @@ export const PermissionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPermissionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePermission,

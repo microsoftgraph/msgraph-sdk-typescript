@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { type UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder, UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilderRequestsMetadata } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformance property of the microsoft.graph.deviceManagement entity.
  */
@@ -61,7 +64,7 @@ export interface UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBu
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBu
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBu
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,52 @@ export interface UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBu
  * Uri template for the request builder.
  */
 export const UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsAppHealthApplicationPerformance{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformance property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformance property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ActiveDeviceCount: "activeDeviceCount",
+    ActiveDeviceCountDesc: "activeDeviceCount desc",
+    AppCrashCount: "appCrashCount",
+    AppCrashCountDesc: "appCrashCount desc",
+    AppDisplayName: "appDisplayName",
+    AppDisplayNameDesc: "appDisplayName desc",
+    AppHangCount: "appHangCount",
+    AppHangCountDesc: "appHangCount desc",
+    AppHealthScore: "appHealthScore",
+    AppHealthScoreDesc: "appHealthScore desc",
+    AppName: "appName",
+    AppNameDesc: "appName desc",
+    AppPublisher: "appPublisher",
+    AppPublisherDesc: "appPublisher desc",
+    AppUsageDuration: "appUsageDuration",
+    AppUsageDurationDesc: "appUsageDuration desc",
+    MeanTimeToFailureInMinutes: "meanTimeToFailureInMinutes",
+    MeanTimeToFailureInMinutesDesc: "meanTimeToFailureInMinutes desc",
+} as const;
+/**
+ * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformance property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActiveDeviceCount: "activeDeviceCount",
+    AppCrashCount: "appCrashCount",
+    AppDisplayName: "appDisplayName",
+    AppHangCount: "appHangCount",
+    AppHealthScore: "appHealthScore",
+    AppName: "appName",
+    AppPublisher: "appPublisher",
+    AppUsageDuration: "appUsageDuration",
+    MeanTimeToFailureInMinutes: "meanTimeToFailureInMinutes",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +175,7 @@ export const UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilde
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +185,7 @@ export const UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilde
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsAppHealthApplicationPerformanceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsAppHealthApplicationPerformance,

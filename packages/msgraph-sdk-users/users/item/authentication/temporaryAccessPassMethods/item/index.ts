@@ -5,6 +5,8 @@ import { createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue, ty
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
  */
@@ -44,16 +46,35 @@ export interface TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQue
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const TemporaryAccessPassAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/temporaryAccessPassMethods/{temporaryAccessPassAuthenticationMethod%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    IsUsable: "isUsable",
+    IsUsableOnce: "isUsableOnce",
+    LifetimeInMinutes: "lifetimeInMinutes",
+    MethodUsabilityReason: "methodUsabilityReason",
+    StartDateTime: "startDateTime",
+    TemporaryAccessPass: "temporaryAccessPass",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -71,7 +92,7 @@ export const TemporaryAccessPassAuthenticationMethodItemRequestBuilderRequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TemporaryAccessPassAuthenticationMethodItemRequestBuilderUriTemplate,
@@ -79,7 +100,7 @@ export const TemporaryAccessPassAuthenticationMethodItemRequestBuilderRequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue,
         queryParametersMapper: TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQueryParametersMapper,
     },

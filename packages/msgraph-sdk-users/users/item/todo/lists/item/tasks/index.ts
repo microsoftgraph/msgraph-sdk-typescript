@@ -8,6 +8,9 @@ import { DeltaRequestBuilderRequestsMetadata, type DeltaRequestBuilder } from '.
 import { TodoTaskItemRequestBuilderNavigationMetadata, TodoTaskItemRequestBuilderRequestsMetadata, type TodoTaskItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
  */
@@ -68,7 +71,7 @@ export interface TasksRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -76,7 +79,7 @@ export interface TasksRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -84,7 +87,7 @@ export interface TasksRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -98,6 +101,80 @@ export interface TasksRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const TasksRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Attachments: "attachments",
+    AttachmentSessions: "attachmentSessions",
+    ChecklistItems: "checklistItems",
+    Extensions: "extensions",
+    LinkedResources: "linkedResources",
+} as const;
+/**
+ * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Body: "body",
+    BodyDesc: "body desc",
+    BodyLastModifiedDateTime: "bodyLastModifiedDateTime",
+    BodyLastModifiedDateTimeDesc: "bodyLastModifiedDateTime desc",
+    Categories: "categories",
+    CategoriesDesc: "categories desc",
+    CompletedDateTime: "completedDateTime",
+    CompletedDateTimeDesc: "completedDateTime desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DueDateTime: "dueDateTime",
+    DueDateTimeDesc: "dueDateTime desc",
+    HasAttachments: "hasAttachments",
+    HasAttachmentsDesc: "hasAttachments desc",
+    Importance: "importance",
+    ImportanceDesc: "importance desc",
+    IsReminderOn: "isReminderOn",
+    IsReminderOnDesc: "isReminderOn desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Recurrence: "recurrence",
+    RecurrenceDesc: "recurrence desc",
+    ReminderDateTime: "reminderDateTime",
+    ReminderDateTimeDesc: "reminderDateTime desc",
+    StartDateTime: "startDateTime",
+    StartDateTimeDesc: "startDateTime desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    Title: "title",
+    TitleDesc: "title desc",
+} as const;
+/**
+ * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Body: "body",
+    BodyLastModifiedDateTime: "bodyLastModifiedDateTime",
+    Categories: "categories",
+    CompletedDateTime: "completedDateTime",
+    CreatedDateTime: "createdDateTime",
+    DueDateTime: "dueDateTime",
+    HasAttachments: "hasAttachments",
+    Importance: "importance",
+    IsReminderOn: "isReminderOn",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Recurrence: "recurrence",
+    ReminderDateTime: "reminderDateTime",
+    StartDateTime: "startDateTime",
+    Status: "status",
+    Title: "title",
+    Attachments: "attachments",
+    AttachmentSessions: "attachmentSessions",
+    ChecklistItems: "checklistItems",
+    Extensions: "extensions",
+    LinkedResources: "linkedResources",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -137,7 +214,7 @@ export const TasksRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTodoTaskCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TasksRequestBuilderGetQueryParametersMapper,
     },
@@ -147,7 +224,7 @@ export const TasksRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTodoTaskFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTodoTask,

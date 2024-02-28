@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { RoleAssignmentItemRequestBuilderNavigationMetadata, RoleAssignmentItemRequestBuilderRequestsMetadata, type RoleAssignmentItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.roleDefinition entity.
  */
@@ -63,7 +66,7 @@ export interface RoleAssignmentsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface RoleAssignmentsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface RoleAssignmentsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,36 @@ export interface RoleAssignmentsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const RoleAssignmentsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/roleDefinitions/{roleDefinition%2Did}/roleAssignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the roleAssignments property of the microsoft.graph.roleDefinition entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    RoleDefinition: "roleDefinition",
+} as const;
+/**
+ * Provides operations to manage the roleAssignments property of the microsoft.graph.roleDefinition entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    ResourceScopes: "resourceScopes",
+    ResourceScopesDesc: "resourceScopes desc",
+} as const;
+/**
+ * Provides operations to manage the roleAssignments property of the microsoft.graph.roleDefinition entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Description: "description",
+    DisplayName: "displayName",
+    ResourceScopes: "resourceScopes",
+    RoleDefinition: "roleDefinition",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +162,7 @@ export const RoleAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoleAssignmentCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RoleAssignmentsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +172,7 @@ export const RoleAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoleAssignmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRoleAssignment,

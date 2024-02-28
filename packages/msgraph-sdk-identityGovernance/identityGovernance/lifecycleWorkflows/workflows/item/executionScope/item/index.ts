@@ -5,6 +5,8 @@ import { createUserProcessingResultFromDiscriminatorValue, type UserProcessingRe
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the executionScope property of the microsoft.graph.identityGovernance.workflow entity.
  */
@@ -30,16 +32,41 @@ export interface UserProcessingResultItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const UserProcessingResultItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/executionScope/{userProcessingResult%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the executionScope property of the microsoft.graph.identityGovernance.workflow entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Subject: "subject",
+    TaskProcessingResults: "taskProcessingResults",
+} as const;
+/**
+ * Provides operations to manage the executionScope property of the microsoft.graph.identityGovernance.workflow entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CompletedDateTime: "completedDateTime",
+    FailedTasksCount: "failedTasksCount",
+    ProcessingStatus: "processingStatus",
+    ScheduledDateTime: "scheduledDateTime",
+    StartedDateTime: "startedDateTime",
+    TotalTasksCount: "totalTasksCount",
+    TotalUnprocessedTasksCount: "totalUnprocessedTasksCount",
+    WorkflowExecutionType: "workflowExecutionType",
+    WorkflowVersion: "workflowVersion",
+    Subject: "subject",
+    TaskProcessingResults: "taskProcessingResults",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +84,7 @@ export const UserProcessingResultItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserProcessingResultFromDiscriminatorValue,
         queryParametersMapper: UserProcessingResultItemRequestBuilderGetQueryParametersMapper,
     },

@@ -5,6 +5,8 @@ import { createItemActivityStatFromDiscriminatorValue, type ItemActivityStat } f
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the lastSevenDays property of the microsoft.graph.itemAnalytics entity.
  */
@@ -30,16 +32,39 @@ export interface LastSevenDaysRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const LastSevenDaysRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/analytics/lastSevenDays{?%24expand,%24select}";
+/**
+ * Provides operations to manage the lastSevenDays property of the microsoft.graph.itemAnalytics entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Activities: "activities",
+} as const;
+/**
+ * Provides operations to manage the lastSevenDays property of the microsoft.graph.itemAnalytics entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Access: "access",
+    Create: "create",
+    Delete: "delete",
+    Edit: "edit",
+    EndDateTime: "endDateTime",
+    IncompleteData: "incompleteData",
+    IsTrending: "isTrending",
+    Move: "move",
+    StartDateTime: "startDateTime",
+    Activities: "activities",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +82,7 @@ export const LastSevenDaysRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createItemActivityStatFromDiscriminatorValue,
         queryParametersMapper: LastSevenDaysRequestBuilderGetQueryParametersMapper,
     },

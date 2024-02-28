@@ -40,7 +40,7 @@ export interface AdditionalAccessRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -48,7 +48,7 @@ export interface AdditionalAccessRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -56,7 +56,7 @@ export interface AdditionalAccessRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -84,6 +84,9 @@ export function deserializeIntoAdditionalAccessGetResponse(additionalAccessGetRe
         "value": n => { additionalAccessGetResponse.value = n.getCollectionOfObjectValues<AccessPackageAssignment>(createAccessPackageAssignmentFromDiscriminatorValue); },
     }
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -119,10 +122,50 @@ export const AdditionalAccessRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAdditionalAccessGetResponseFromDiscriminatorValue,
         queryParametersMapper: AdditionalAccessRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to call the additionalAccess method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AccessPackage: "accessPackage",
+    AssignmentPolicy: "assignmentPolicy",
+    Target: "target",
+} as const;
+/**
+ * Provides operations to call the additionalAccess method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CustomExtensionCalloutInstances: "customExtensionCalloutInstances",
+    CustomExtensionCalloutInstancesDesc: "customExtensionCalloutInstances desc",
+    ExpiredDateTime: "expiredDateTime",
+    ExpiredDateTimeDesc: "expiredDateTime desc",
+    Schedule: "schedule",
+    ScheduleDesc: "schedule desc",
+    State: "state",
+    StateDesc: "state desc",
+    Status: "status",
+    StatusDesc: "status desc",
+} as const;
+/**
+ * Provides operations to call the additionalAccess method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CustomExtensionCalloutInstances: "customExtensionCalloutInstances",
+    ExpiredDateTime: "expiredDateTime",
+    Schedule: "schedule",
+    State: "state",
+    Status: "status",
+    AccessPackage: "accessPackage",
+    AssignmentPolicy: "assignmentPolicy",
+    Target: "target",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

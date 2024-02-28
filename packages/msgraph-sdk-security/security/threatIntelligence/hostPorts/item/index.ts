@@ -7,6 +7,8 @@ import { HostRequestBuilderRequestsMetadata, type HostRequestBuilder } from './h
 import { MostRecentSslCertificateRequestBuilderRequestsMetadata, type MostRecentSslCertificateRequestBuilder } from './mostRecentSslCertificate/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the hostPorts property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -68,16 +70,41 @@ export interface HostPortItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const HostPortItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPorts/{hostPort%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the hostPorts property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Host: "host",
+    MostRecentSslCertificate: "mostRecentSslCertificate",
+} as const;
+/**
+ * Provides operations to manage the hostPorts property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Banners: "banners",
+    FirstSeenDateTime: "firstSeenDateTime",
+    LastScanDateTime: "lastScanDateTime",
+    LastSeenDateTime: "lastSeenDateTime",
+    Port: "port",
+    Protocol: "protocol",
+    Services: "services",
+    Status: "status",
+    TimesObserved: "timesObserved",
+    Host: "host",
+    MostRecentSslCertificate: "mostRecentSslCertificate",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -106,7 +133,7 @@ export const HostPortItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: HostPortItemRequestBuilderUriTemplate,
@@ -114,7 +141,7 @@ export const HostPortItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostPortFromDiscriminatorValue,
         queryParametersMapper: HostPortItemRequestBuilderGetQueryParametersMapper,
     },
@@ -124,7 +151,7 @@ export const HostPortItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostPortFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeHostPort,

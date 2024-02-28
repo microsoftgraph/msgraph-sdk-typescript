@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { ContentRequestBuilderRequestsMetadata, type ContentRequestBuilder } from './content/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the root property of the microsoft.graph.sharedDriveItem entity.
  */
@@ -35,16 +37,83 @@ export interface RootRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const RootRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/root{?%24expand,%24select}";
+/**
+ * Provides operations to manage the root property of the microsoft.graph.sharedDriveItem entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    CreatedByUser: "createdByUser",
+    LastModifiedByUser: "lastModifiedByUser",
+    Analytics: "analytics",
+    Children: "children",
+    ListItem: "listItem",
+    Permissions: "permissions",
+    RetentionLabel: "retentionLabel",
+    Subscriptions: "subscriptions",
+    Thumbnails: "thumbnails",
+    Versions: "versions",
+    Workbook: "workbook",
+} as const;
+/**
+ * Provides operations to manage the root property of the microsoft.graph.sharedDriveItem entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    ETag: "eTag",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Name: "name",
+    ParentReference: "parentReference",
+    WebUrl: "webUrl",
+    Audio: "audio",
+    Bundle: "bundle",
+    Content: "content",
+    CTag: "cTag",
+    Deleted: "deleted",
+    File: "file",
+    FileSystemInfo: "fileSystemInfo",
+    Folder: "folder",
+    Image: "image",
+    Location: "location",
+    Malware: "malware",
+    PackageEscaped: "package",
+    PendingOperations: "pendingOperations",
+    Photo: "photo",
+    Publication: "publication",
+    RemoteItem: "remoteItem",
+    Root: "root",
+    SearchResult: "searchResult",
+    Shared: "shared",
+    SharepointIds: "sharepointIds",
+    Size: "size",
+    SpecialFolder: "specialFolder",
+    Video: "video",
+    WebDavUrl: "webDavUrl",
+    CreatedByUser: "createdByUser",
+    LastModifiedByUser: "lastModifiedByUser",
+    Analytics: "analytics",
+    Children: "children",
+    ListItem: "listItem",
+    Permissions: "permissions",
+    RetentionLabel: "retentionLabel",
+    Subscriptions: "subscriptions",
+    Thumbnails: "thumbnails",
+    Versions: "versions",
+    Workbook: "workbook",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -70,7 +139,7 @@ export const RootRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDriveItemFromDiscriminatorValue,
         queryParametersMapper: RootRequestBuilderGetQueryParametersMapper,
     },

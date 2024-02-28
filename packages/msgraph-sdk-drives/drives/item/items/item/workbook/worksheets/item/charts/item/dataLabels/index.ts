@@ -64,12 +64,14 @@ export interface DataLabelsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -100,7 +102,7 @@ export const DataLabelsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DataLabelsRequestBuilderUriTemplate,
@@ -108,7 +110,7 @@ export const DataLabelsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartDataLabelsFromDiscriminatorValue,
         queryParametersMapper: DataLabelsRequestBuilderGetQueryParametersMapper,
     },
@@ -118,12 +120,34 @@ export const DataLabelsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartDataLabelsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbookChartDataLabels,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the dataLabels property of the microsoft.graph.workbookChart entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Format: "format",
+} as const;
+/**
+ * Provides operations to manage the dataLabels property of the microsoft.graph.workbookChart entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Position: "position",
+    Separator: "separator",
+    ShowBubbleSize: "showBubbleSize",
+    ShowCategoryName: "showCategoryName",
+    ShowLegendKey: "showLegendKey",
+    ShowPercentage: "showPercentage",
+    ShowSeriesName: "showSeriesName",
+    ShowValue: "showValue",
+    Format: "format",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -5,6 +5,8 @@ import { createTeamsAppSettingsFromDiscriminatorValue, serializeTeamsAppSettings
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the teamsAppSettings property of the microsoft.graph.teamwork entity.
  */
@@ -59,16 +61,30 @@ export interface TeamsAppSettingsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const TeamsAppSettingsRequestBuilderUriTemplate = "{+baseurl}/teamwork/teamsAppSettings{?%24expand,%24select}";
+/**
+ * Provides operations to manage the teamsAppSettings property of the microsoft.graph.teamwork entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the teamsAppSettings property of the microsoft.graph.teamwork entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AllowUserRequestsForAppAccess: "allowUserRequestsForAppAccess",
+    IsUserPersonalScopeResourceSpecificConsentEnabled: "isUserPersonalScopeResourceSpecificConsentEnabled",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -86,7 +102,7 @@ export const TeamsAppSettingsRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TeamsAppSettingsRequestBuilderUriTemplate,
@@ -94,7 +110,7 @@ export const TeamsAppSettingsRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamsAppSettingsFromDiscriminatorValue,
         queryParametersMapper: TeamsAppSettingsRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +120,7 @@ export const TeamsAppSettingsRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamsAppSettingsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTeamsAppSettings,

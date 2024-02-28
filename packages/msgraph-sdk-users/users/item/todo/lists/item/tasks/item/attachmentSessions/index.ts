@@ -50,11 +50,11 @@ export interface AttachmentSessionsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -64,6 +64,8 @@ export interface AttachmentSessionsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -102,10 +104,32 @@ export const AttachmentSessionsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttachmentSessionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AttachmentSessionsRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Content: "content",
+    ContentDesc: "content desc",
+    ExpirationDateTime: "expirationDateTime",
+    ExpirationDateTimeDesc: "expirationDateTime desc",
+    NextExpectedRanges: "nextExpectedRanges",
+    NextExpectedRangesDesc: "nextExpectedRanges desc",
+} as const;
+/**
+ * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Content: "content",
+    ExpirationDateTime: "expirationDateTime",
+    NextExpectedRanges: "nextExpectedRanges",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

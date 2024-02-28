@@ -16,6 +16,8 @@ import { ServiceProvisioningErrorsRequestBuilderNavigationMetadata, ServiceProvi
 import { TransitiveMemberOfRequestBuilderNavigationMetadata, TransitiveMemberOfRequestBuilderRequestsMetadata, type TransitiveMemberOfRequestBuilder } from './transitiveMemberOf/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the collection of orgContact entities.
  */
@@ -113,16 +115,52 @@ export interface OrgContactItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const OrgContactItemRequestBuilderUriTemplate = "{+baseurl}/contacts/{orgContact%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the collection of orgContact entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    DirectReports: "directReports",
+    Manager: "manager",
+    MemberOf: "memberOf",
+    TransitiveMemberOf: "transitiveMemberOf",
+} as const;
+/**
+ * Provides operations to manage the collection of orgContact entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    Addresses: "addresses",
+    CompanyName: "companyName",
+    Department: "department",
+    DisplayName: "displayName",
+    GivenName: "givenName",
+    JobTitle: "jobTitle",
+    Mail: "mail",
+    MailNickname: "mailNickname",
+    OnPremisesLastSyncDateTime: "onPremisesLastSyncDateTime",
+    OnPremisesProvisioningErrors: "onPremisesProvisioningErrors",
+    OnPremisesSyncEnabled: "onPremisesSyncEnabled",
+    Phones: "phones",
+    ProxyAddresses: "proxyAddresses",
+    ServiceProvisioningErrors: "serviceProvisioningErrors",
+    Surname: "surname",
+    DirectReports: "directReports",
+    Manager: "manager",
+    MemberOf: "memberOf",
+    TransitiveMemberOf: "transitiveMemberOf",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -182,7 +220,7 @@ export const OrgContactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OrgContactItemRequestBuilderUriTemplate,
@@ -190,7 +228,7 @@ export const OrgContactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrgContactFromDiscriminatorValue,
         queryParametersMapper: OrgContactItemRequestBuilderGetQueryParametersMapper,
     },
@@ -200,7 +238,7 @@ export const OrgContactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrgContactFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOrgContact,

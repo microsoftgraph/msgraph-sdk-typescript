@@ -62,8 +62,9 @@ export interface AttachmentSessionItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -92,7 +93,7 @@ export const AttachmentSessionItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AttachmentSessionItemRequestBuilderUriTemplate,
@@ -100,7 +101,7 @@ export const AttachmentSessionItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttachmentSessionFromDiscriminatorValue,
         queryParametersMapper: AttachmentSessionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -110,12 +111,21 @@ export const AttachmentSessionItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttachmentSessionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAttachmentSession,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Content: "content",
+    ExpirationDateTime: "expirationDateTime",
+    NextExpectedRanges: "nextExpectedRanges",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -88,12 +88,14 @@ export interface ChatMessageItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -140,7 +142,7 @@ export const ChatMessageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ChatMessageItemRequestBuilderUriTemplate,
@@ -148,7 +150,7 @@ export const ChatMessageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChatMessageFromDiscriminatorValue,
         queryParametersMapper: ChatMessageItemRequestBuilderGetQueryParametersMapper,
     },
@@ -158,12 +160,50 @@ export const ChatMessageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChatMessageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeChatMessage,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the messages property of the microsoft.graph.chat entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    HostedContents: "hostedContents",
+    Replies: "replies",
+} as const;
+/**
+ * Provides operations to manage the messages property of the microsoft.graph.chat entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Attachments: "attachments",
+    Body: "body",
+    ChannelIdentity: "channelIdentity",
+    ChatId: "chatId",
+    CreatedDateTime: "createdDateTime",
+    DeletedDateTime: "deletedDateTime",
+    Etag: "etag",
+    EventDetail: "eventDetail",
+    From: "from",
+    Importance: "importance",
+    LastEditedDateTime: "lastEditedDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Locale: "locale",
+    Mentions: "mentions",
+    MessageHistory: "messageHistory",
+    MessageType: "messageType",
+    PolicyViolation: "policyViolation",
+    Reactions: "reactions",
+    ReplyToId: "replyToId",
+    Subject: "subject",
+    Summary: "summary",
+    WebUrl: "webUrl",
+    HostedContents: "hostedContents",
+    Replies: "replies",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

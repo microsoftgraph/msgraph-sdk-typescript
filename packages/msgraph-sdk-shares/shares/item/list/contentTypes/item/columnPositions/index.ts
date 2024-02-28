@@ -46,7 +46,7 @@ export interface ColumnPositionsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -54,7 +54,7 @@ export interface ColumnPositionsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -62,7 +62,7 @@ export interface ColumnPositionsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -72,6 +72,9 @@ export interface ColumnPositionsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -111,10 +114,124 @@ export const ColumnPositionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createColumnDefinitionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ColumnPositionsRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the columnPositions property of the microsoft.graph.contentType entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    SourceColumn: "sourceColumn",
+} as const;
+/**
+ * Provides operations to manage the columnPositions property of the microsoft.graph.contentType entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Boolean: "boolean",
+    BooleanDesc: "boolean desc",
+    Calculated: "calculated",
+    CalculatedDesc: "calculated desc",
+    Choice: "choice",
+    ChoiceDesc: "choice desc",
+    ColumnGroup: "columnGroup",
+    ColumnGroupDesc: "columnGroup desc",
+    ContentApprovalStatus: "contentApprovalStatus",
+    ContentApprovalStatusDesc: "contentApprovalStatus desc",
+    Currency: "currency",
+    CurrencyDesc: "currency desc",
+    DateTime: "dateTime",
+    DateTimeDesc: "dateTime desc",
+    DefaultValue: "defaultValue",
+    DefaultValueDesc: "defaultValue desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    EnforceUniqueValues: "enforceUniqueValues",
+    EnforceUniqueValuesDesc: "enforceUniqueValues desc",
+    Geolocation: "geolocation",
+    GeolocationDesc: "geolocation desc",
+    Hidden: "hidden",
+    HiddenDesc: "hidden desc",
+    HyperlinkOrPicture: "hyperlinkOrPicture",
+    HyperlinkOrPictureDesc: "hyperlinkOrPicture desc",
+    Indexed: "indexed",
+    IndexedDesc: "indexed desc",
+    IsDeletable: "isDeletable",
+    IsDeletableDesc: "isDeletable desc",
+    IsReorderable: "isReorderable",
+    IsReorderableDesc: "isReorderable desc",
+    IsSealed: "isSealed",
+    IsSealedDesc: "isSealed desc",
+    Lookup: "lookup",
+    LookupDesc: "lookup desc",
+    Name: "name",
+    NameDesc: "name desc",
+    Number: "number",
+    NumberDesc: "number desc",
+    PersonOrGroup: "personOrGroup",
+    PersonOrGroupDesc: "personOrGroup desc",
+    PropagateChanges: "propagateChanges",
+    PropagateChangesDesc: "propagateChanges desc",
+    ReadOnly: "readOnly",
+    ReadOnlyDesc: "readOnly desc",
+    Required: "required",
+    RequiredDesc: "required desc",
+    SourceContentType: "sourceContentType",
+    SourceContentTypeDesc: "sourceContentType desc",
+    Term: "term",
+    TermDesc: "term desc",
+    Text: "text",
+    TextDesc: "text desc",
+    Thumbnail: "thumbnail",
+    ThumbnailDesc: "thumbnail desc",
+    Type: "type",
+    TypeDesc: "type desc",
+    Validation: "validation",
+    ValidationDesc: "validation desc",
+} as const;
+/**
+ * Provides operations to manage the columnPositions property of the microsoft.graph.contentType entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Boolean: "boolean",
+    Calculated: "calculated",
+    Choice: "choice",
+    ColumnGroup: "columnGroup",
+    ContentApprovalStatus: "contentApprovalStatus",
+    Currency: "currency",
+    DateTime: "dateTime",
+    DefaultValue: "defaultValue",
+    Description: "description",
+    DisplayName: "displayName",
+    EnforceUniqueValues: "enforceUniqueValues",
+    Geolocation: "geolocation",
+    Hidden: "hidden",
+    HyperlinkOrPicture: "hyperlinkOrPicture",
+    Indexed: "indexed",
+    IsDeletable: "isDeletable",
+    IsReorderable: "isReorderable",
+    IsSealed: "isSealed",
+    Lookup: "lookup",
+    Name: "name",
+    Number: "number",
+    PersonOrGroup: "personOrGroup",
+    PropagateChanges: "propagateChanges",
+    ReadOnly: "readOnly",
+    Required: "required",
+    SourceContentType: "sourceContentType",
+    Term: "term",
+    Text: "text",
+    Thumbnail: "thumbnail",
+    Type: "type",
+    Validation: "validation",
+    SourceColumn: "sourceColumn",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

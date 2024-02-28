@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { OnenotePageItemRequestBuilderNavigationMetadata, OnenotePageItemRequestBuilderRequestsMetadata, type OnenotePageItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the pages property of the microsoft.graph.onenote entity.
  */
@@ -63,7 +66,7 @@ export interface PagesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface PagesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface PagesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,62 @@ export interface PagesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const PagesRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/onenote/pages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the pages property of the microsoft.graph.onenote entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ParentNotebook: "parentNotebook",
+    ParentSection: "parentSection",
+} as const;
+/**
+ * Provides operations to manage the pages property of the microsoft.graph.onenote entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Self: "self",
+    SelfDesc: "self desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Content: "content",
+    ContentDesc: "content desc",
+    ContentUrl: "contentUrl",
+    ContentUrlDesc: "contentUrl desc",
+    CreatedByAppId: "createdByAppId",
+    CreatedByAppIdDesc: "createdByAppId desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Level: "level",
+    LevelDesc: "level desc",
+    Links: "links",
+    LinksDesc: "links desc",
+    Order: "order",
+    OrderDesc: "order desc",
+    Title: "title",
+    TitleDesc: "title desc",
+    UserTags: "userTags",
+    UserTagsDesc: "userTags desc",
+} as const;
+/**
+ * Provides operations to manage the pages property of the microsoft.graph.onenote entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Self: "self",
+    CreatedDateTime: "createdDateTime",
+    Content: "content",
+    ContentUrl: "contentUrl",
+    CreatedByAppId: "createdByAppId",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Level: "level",
+    Links: "links",
+    Order: "order",
+    Title: "title",
+    UserTags: "userTags",
+    ParentNotebook: "parentNotebook",
+    ParentSection: "parentSection",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +188,7 @@ export const PagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnenotePageCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: PagesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +198,7 @@ export const PagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnenotePageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOnenotePage,

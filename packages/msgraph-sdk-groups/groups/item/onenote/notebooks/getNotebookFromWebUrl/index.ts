@@ -80,7 +80,7 @@ export const GetNotebookFromWebUrlRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCopyNotebookModelFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGetNotebookFromWebUrlPostRequestBody,

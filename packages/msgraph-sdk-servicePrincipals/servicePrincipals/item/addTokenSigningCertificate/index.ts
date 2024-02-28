@@ -86,7 +86,7 @@ export const AddTokenSigningCertificateRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSelfSignedCertificateFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAddTokenSigningCertificatePostRequestBody,

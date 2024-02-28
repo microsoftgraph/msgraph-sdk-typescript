@@ -63,7 +63,7 @@ export interface DomainsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface DomainsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface DomainsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface DomainsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -129,7 +132,7 @@ export const DomainsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDomainCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DomainsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,12 +142,78 @@ export const DomainsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDomainFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDomain,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the collection of domain entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    DomainNameReferences: "domainNameReferences",
+    FederationConfiguration: "federationConfiguration",
+    ServiceConfigurationRecords: "serviceConfigurationRecords",
+    VerificationDnsRecords: "verificationDnsRecords",
+} as const;
+/**
+ * Provides operations to manage the collection of domain entities.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AuthenticationType: "authenticationType",
+    AuthenticationTypeDesc: "authenticationType desc",
+    AvailabilityStatus: "availabilityStatus",
+    AvailabilityStatusDesc: "availabilityStatus desc",
+    IsAdminManaged: "isAdminManaged",
+    IsAdminManagedDesc: "isAdminManaged desc",
+    IsDefault: "isDefault",
+    IsDefaultDesc: "isDefault desc",
+    IsInitial: "isInitial",
+    IsInitialDesc: "isInitial desc",
+    IsRoot: "isRoot",
+    IsRootDesc: "isRoot desc",
+    IsVerified: "isVerified",
+    IsVerifiedDesc: "isVerified desc",
+    Manufacturer: "manufacturer",
+    ManufacturerDesc: "manufacturer desc",
+    Model: "model",
+    ModelDesc: "model desc",
+    PasswordNotificationWindowInDays: "passwordNotificationWindowInDays",
+    PasswordNotificationWindowInDaysDesc: "passwordNotificationWindowInDays desc",
+    PasswordValidityPeriodInDays: "passwordValidityPeriodInDays",
+    PasswordValidityPeriodInDaysDesc: "passwordValidityPeriodInDays desc",
+    State: "state",
+    StateDesc: "state desc",
+    SupportedServices: "supportedServices",
+    SupportedServicesDesc: "supportedServices desc",
+} as const;
+/**
+ * Provides operations to manage the collection of domain entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AuthenticationType: "authenticationType",
+    AvailabilityStatus: "availabilityStatus",
+    IsAdminManaged: "isAdminManaged",
+    IsDefault: "isDefault",
+    IsInitial: "isInitial",
+    IsRoot: "isRoot",
+    IsVerified: "isVerified",
+    Manufacturer: "manufacturer",
+    Model: "model",
+    PasswordNotificationWindowInDays: "passwordNotificationWindowInDays",
+    PasswordValidityPeriodInDays: "passwordValidityPeriodInDays",
+    State: "state",
+    SupportedServices: "supportedServices",
+    DomainNameReferences: "domainNameReferences",
+    FederationConfiguration: "federationConfiguration",
+    ServiceConfigurationRecords: "serviceConfigurationRecords",
+    VerificationDnsRecords: "verificationDnsRecords",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { BookingServiceItemRequestBuilderRequestsMetadata, type BookingServiceItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
  */
@@ -63,7 +66,7 @@ export interface ServicesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface ServicesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface ServicesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,88 @@ export interface ServicesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const ServicesRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/services{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AdditionalInformation: "additionalInformation",
+    AdditionalInformationDesc: "additionalInformation desc",
+    CustomQuestions: "customQuestions",
+    CustomQuestionsDesc: "customQuestions desc",
+    DefaultDuration: "defaultDuration",
+    DefaultDurationDesc: "defaultDuration desc",
+    DefaultLocation: "defaultLocation",
+    DefaultLocationDesc: "defaultLocation desc",
+    DefaultPrice: "defaultPrice",
+    DefaultPriceDesc: "defaultPrice desc",
+    DefaultPriceType: "defaultPriceType",
+    DefaultPriceTypeDesc: "defaultPriceType desc",
+    DefaultReminders: "defaultReminders",
+    DefaultRemindersDesc: "defaultReminders desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    IsAnonymousJoinEnabled: "isAnonymousJoinEnabled",
+    IsAnonymousJoinEnabledDesc: "isAnonymousJoinEnabled desc",
+    IsHiddenFromCustomers: "isHiddenFromCustomers",
+    IsHiddenFromCustomersDesc: "isHiddenFromCustomers desc",
+    IsLocationOnline: "isLocationOnline",
+    IsLocationOnlineDesc: "isLocationOnline desc",
+    LanguageTag: "languageTag",
+    LanguageTagDesc: "languageTag desc",
+    MaximumAttendeesCount: "maximumAttendeesCount",
+    MaximumAttendeesCountDesc: "maximumAttendeesCount desc",
+    Notes: "notes",
+    NotesDesc: "notes desc",
+    PostBuffer: "postBuffer",
+    PostBufferDesc: "postBuffer desc",
+    PreBuffer: "preBuffer",
+    PreBufferDesc: "preBuffer desc",
+    SchedulingPolicy: "schedulingPolicy",
+    SchedulingPolicyDesc: "schedulingPolicy desc",
+    SmsNotificationsEnabled: "smsNotificationsEnabled",
+    SmsNotificationsEnabledDesc: "smsNotificationsEnabled desc",
+    StaffMemberIds: "staffMemberIds",
+    StaffMemberIdsDesc: "staffMemberIds desc",
+    WebUrl: "webUrl",
+    WebUrlDesc: "webUrl desc",
+} as const;
+/**
+ * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AdditionalInformation: "additionalInformation",
+    CustomQuestions: "customQuestions",
+    DefaultDuration: "defaultDuration",
+    DefaultLocation: "defaultLocation",
+    DefaultPrice: "defaultPrice",
+    DefaultPriceType: "defaultPriceType",
+    DefaultReminders: "defaultReminders",
+    Description: "description",
+    DisplayName: "displayName",
+    IsAnonymousJoinEnabled: "isAnonymousJoinEnabled",
+    IsHiddenFromCustomers: "isHiddenFromCustomers",
+    IsLocationOnline: "isLocationOnline",
+    LanguageTag: "languageTag",
+    MaximumAttendeesCount: "maximumAttendeesCount",
+    Notes: "notes",
+    PostBuffer: "postBuffer",
+    PreBuffer: "preBuffer",
+    SchedulingPolicy: "schedulingPolicy",
+    SmsNotificationsEnabled: "smsNotificationsEnabled",
+    StaffMemberIds: "staffMemberIds",
+    WebUrl: "webUrl",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +213,7 @@ export const ServicesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingServiceCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ServicesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +223,7 @@ export const ServicesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingServiceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBookingService,

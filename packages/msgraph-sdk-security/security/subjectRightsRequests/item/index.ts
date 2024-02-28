@@ -11,6 +11,8 @@ import { NotesRequestBuilderNavigationMetadata, NotesRequestBuilderRequestsMetad
 import { TeamRequestBuilderRequestsMetadata, type TeamRequestBuilder } from './team/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.security entity.
  */
@@ -87,16 +89,60 @@ export interface SubjectRightsRequestItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SubjectRightsRequestItemRequestBuilderUriTemplate = "{+baseurl}/security/subjectRightsRequests/{subjectRightsRequest%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.security entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Approvers: "approvers",
+    Collaborators: "collaborators",
+    Notes: "notes",
+    Team: "team",
+} as const;
+/**
+ * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.security entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AssignedTo: "assignedTo",
+    ClosedDateTime: "closedDateTime",
+    ContentQuery: "contentQuery",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    DataSubject: "dataSubject",
+    DataSubjectType: "dataSubjectType",
+    Description: "description",
+    DisplayName: "displayName",
+    ExternalId: "externalId",
+    History: "history",
+    IncludeAllVersions: "includeAllVersions",
+    IncludeAuthoredContent: "includeAuthoredContent",
+    Insight: "insight",
+    InternalDueDateTime: "internalDueDateTime",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    MailboxLocations: "mailboxLocations",
+    PauseAfterEstimate: "pauseAfterEstimate",
+    Regulations: "regulations",
+    SiteLocations: "siteLocations",
+    Stages: "stages",
+    Status: "status",
+    Type: "type",
+    Approvers: "approvers",
+    Collaborators: "collaborators",
+    Notes: "notes",
+    Team: "team",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -140,7 +186,7 @@ export const SubjectRightsRequestItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SubjectRightsRequestItemRequestBuilderUriTemplate,
@@ -148,7 +194,7 @@ export const SubjectRightsRequestItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubjectRightsRequestFromDiscriminatorValue,
         queryParametersMapper: SubjectRightsRequestItemRequestBuilderGetQueryParametersMapper,
     },
@@ -158,7 +204,7 @@ export const SubjectRightsRequestItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubjectRightsRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSubjectRightsRequest,

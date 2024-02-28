@@ -5,6 +5,8 @@ import { createInternalDomainFederationFromDiscriminatorValue, serializeInternal
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
  */
@@ -60,16 +62,41 @@ export interface InternalDomainFederationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const InternalDomainFederationItemRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/federationConfiguration/{internalDomainFederation%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DisplayName: "displayName",
+    IssuerUri: "issuerUri",
+    MetadataExchangeUri: "metadataExchangeUri",
+    PassiveSignInUri: "passiveSignInUri",
+    PreferredAuthenticationProtocol: "preferredAuthenticationProtocol",
+    SigningCertificate: "signingCertificate",
+    ActiveSignInUri: "activeSignInUri",
+    FederatedIdpMfaBehavior: "federatedIdpMfaBehavior",
+    IsSignedAuthenticationRequestRequired: "isSignedAuthenticationRequestRequired",
+    NextSigningCertificate: "nextSigningCertificate",
+    PromptLoginBehavior: "promptLoginBehavior",
+    SigningCertificateUpdateStatus: "signingCertificateUpdateStatus",
+    SignOutUri: "signOutUri",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -87,7 +114,7 @@ export const InternalDomainFederationItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: InternalDomainFederationItemRequestBuilderUriTemplate,
@@ -95,7 +122,7 @@ export const InternalDomainFederationItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInternalDomainFederationFromDiscriminatorValue,
         queryParametersMapper: InternalDomainFederationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +132,7 @@ export const InternalDomainFederationItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInternalDomainFederationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeInternalDomainFederation,

@@ -93,12 +93,14 @@ export interface DirectoryRoleItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -148,7 +150,7 @@ export const DirectoryRoleItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DirectoryRoleItemRequestBuilderUriTemplate,
@@ -156,7 +158,7 @@ export const DirectoryRoleItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryRoleFromDiscriminatorValue,
         queryParametersMapper: DirectoryRoleItemRequestBuilderGetQueryParametersMapper,
     },
@@ -166,12 +168,32 @@ export const DirectoryRoleItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryRoleFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDirectoryRole,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the collection of directoryRole entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Members: "members",
+    ScopedMembers: "scopedMembers",
+} as const;
+/**
+ * Provides operations to manage the collection of directoryRole entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    RoleTemplateId: "roleTemplateId",
+    Members: "members",
+    ScopedMembers: "scopedMembers",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

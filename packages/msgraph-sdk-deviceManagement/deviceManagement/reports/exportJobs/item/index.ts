@@ -60,12 +60,14 @@ export interface DeviceManagementExportJobItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -87,7 +89,7 @@ export const DeviceManagementExportJobItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DeviceManagementExportJobItemRequestBuilderUriTemplate,
@@ -95,7 +97,7 @@ export const DeviceManagementExportJobItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceManagementExportJobFromDiscriminatorValue,
         queryParametersMapper: DeviceManagementExportJobItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,12 +107,34 @@ export const DeviceManagementExportJobItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceManagementExportJobFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceManagementExportJob,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ExpirationDateTime: "expirationDateTime",
+    Filter: "filter",
+    Format: "format",
+    LocalizationType: "localizationType",
+    ReportName: "reportName",
+    RequestDateTime: "requestDateTime",
+    Select: "select",
+    SnapshotId: "snapshotId",
+    Status: "status",
+    Url: "url",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

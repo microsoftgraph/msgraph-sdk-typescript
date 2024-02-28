@@ -80,12 +80,14 @@ export interface DirectoryRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -140,7 +142,7 @@ export const DirectoryRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryFromDiscriminatorValue,
         queryParametersMapper: DirectoryRequestBuilderGetQueryParametersMapper,
     },
@@ -150,12 +152,38 @@ export const DirectoryRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDirectory,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the directory singleton.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AdministrativeUnits: "administrativeUnits",
+    AttributeSets: "attributeSets",
+    CustomSecurityAttributeDefinitions: "customSecurityAttributeDefinitions",
+    DeletedItems: "deletedItems",
+    DeviceLocalCredentials: "deviceLocalCredentials",
+    FederationConfigurations: "federationConfigurations",
+    OnPremisesSynchronization: "onPremisesSynchronization",
+} as const;
+/**
+ * Provides operations to manage the directory singleton.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AdministrativeUnits: "administrativeUnits",
+    AttributeSets: "attributeSets",
+    CustomSecurityAttributeDefinitions: "customSecurityAttributeDefinitions",
+    DeletedItems: "deletedItems",
+    DeviceLocalCredentials: "deviceLocalCredentials",
+    FederationConfigurations: "federationConfigurations",
+    OnPremisesSynchronization: "onPremisesSynchronization",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

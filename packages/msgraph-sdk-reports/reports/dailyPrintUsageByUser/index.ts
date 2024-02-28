@@ -62,7 +62,7 @@ export interface DailyPrintUsageByUserRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +70,7 @@ export interface DailyPrintUsageByUserRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +78,7 @@ export interface DailyPrintUsageByUserRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -88,6 +88,9 @@ export interface DailyPrintUsageByUserRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -127,7 +130,7 @@ export const DailyPrintUsageByUserRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintUsageByUserCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DailyPrintUsageByUserRequestBuilderGetQueryParametersMapper,
     },
@@ -137,12 +140,67 @@ export const DailyPrintUsageByUserRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintUsageByUserFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrintUsageByUser,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    BlackAndWhitePageCount: "blackAndWhitePageCount",
+    BlackAndWhitePageCountDesc: "blackAndWhitePageCount desc",
+    ColorPageCount: "colorPageCount",
+    ColorPageCountDesc: "colorPageCount desc",
+    CompletedBlackAndWhiteJobCount: "completedBlackAndWhiteJobCount",
+    CompletedBlackAndWhiteJobCountDesc: "completedBlackAndWhiteJobCount desc",
+    CompletedColorJobCount: "completedColorJobCount",
+    CompletedColorJobCountDesc: "completedColorJobCount desc",
+    CompletedJobCount: "completedJobCount",
+    CompletedJobCountDesc: "completedJobCount desc",
+    DoubleSidedSheetCount: "doubleSidedSheetCount",
+    DoubleSidedSheetCountDesc: "doubleSidedSheetCount desc",
+    IncompleteJobCount: "incompleteJobCount",
+    IncompleteJobCountDesc: "incompleteJobCount desc",
+    MediaSheetCount: "mediaSheetCount",
+    MediaSheetCountDesc: "mediaSheetCount desc",
+    PageCount: "pageCount",
+    PageCountDesc: "pageCount desc",
+    SingleSidedSheetCount: "singleSidedSheetCount",
+    SingleSidedSheetCountDesc: "singleSidedSheetCount desc",
+    UsageDate: "usageDate",
+    UsageDateDesc: "usageDate desc",
+    UserPrincipalName: "userPrincipalName",
+    UserPrincipalNameDesc: "userPrincipalName desc",
+} as const;
+/**
+ * Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    BlackAndWhitePageCount: "blackAndWhitePageCount",
+    ColorPageCount: "colorPageCount",
+    CompletedBlackAndWhiteJobCount: "completedBlackAndWhiteJobCount",
+    CompletedColorJobCount: "completedColorJobCount",
+    CompletedJobCount: "completedJobCount",
+    DoubleSidedSheetCount: "doubleSidedSheetCount",
+    IncompleteJobCount: "incompleteJobCount",
+    MediaSheetCount: "mediaSheetCount",
+    PageCount: "pageCount",
+    SingleSidedSheetCount: "singleSidedSheetCount",
+    UsageDate: "usageDate",
+    UserPrincipalName: "userPrincipalName",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

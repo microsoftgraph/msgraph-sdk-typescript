@@ -35,12 +35,14 @@ export interface AlertItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -71,10 +73,54 @@ export const AlertItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAlertFromDiscriminatorValue,
         queryParametersMapper: AlertItemRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the alerts property of the microsoft.graph.security.incident entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the alerts property of the microsoft.graph.security.incident entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActorDisplayName: "actorDisplayName",
+    AdditionalData: "additionalData",
+    AlertPolicyId: "alertPolicyId",
+    AlertWebUrl: "alertWebUrl",
+    AssignedTo: "assignedTo",
+    Category: "category",
+    Classification: "classification",
+    Comments: "comments",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DetectionSource: "detectionSource",
+    DetectorId: "detectorId",
+    Determination: "determination",
+    Evidence: "evidence",
+    FirstActivityDateTime: "firstActivityDateTime",
+    IncidentId: "incidentId",
+    IncidentWebUrl: "incidentWebUrl",
+    LastActivityDateTime: "lastActivityDateTime",
+    LastUpdateDateTime: "lastUpdateDateTime",
+    MitreTechniques: "mitreTechniques",
+    ProductName: "productName",
+    ProviderAlertId: "providerAlertId",
+    RecommendedActions: "recommendedActions",
+    ResolvedDateTime: "resolvedDateTime",
+    ServiceSource: "serviceSource",
+    Severity: "severity",
+    Status: "status",
+    SystemTags: "systemTags",
+    TenantId: "tenantId",
+    ThreatDisplayName: "threatDisplayName",
+    ThreatFamilyName: "threatFamilyName",
+    Title: "title",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

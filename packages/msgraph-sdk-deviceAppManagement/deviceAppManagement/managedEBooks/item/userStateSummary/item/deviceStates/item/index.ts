@@ -57,12 +57,14 @@ export interface DeviceInstallStateItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -84,7 +86,7 @@ export const DeviceInstallStateItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DeviceInstallStateItemRequestBuilderUriTemplate,
@@ -92,7 +94,7 @@ export const DeviceInstallStateItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceInstallStateFromDiscriminatorValue,
         queryParametersMapper: DeviceInstallStateItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,12 +104,32 @@ export const DeviceInstallStateItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceInstallStateFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceInstallState,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the deviceStates property of the microsoft.graph.userInstallStateSummary entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the deviceStates property of the microsoft.graph.userInstallStateSummary entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeviceId: "deviceId",
+    DeviceName: "deviceName",
+    ErrorCode: "errorCode",
+    InstallState: "installState",
+    LastSyncDateTime: "lastSyncDateTime",
+    OsDescription: "osDescription",
+    OsVersion: "osVersion",
+    UserName: "userName",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { RoleAssignmentsRequestBuilderNavigationMetadata, RoleAssignmentsRequestBuilderRequestsMetadata, type RoleAssignmentsRequestBuilder } from './roleAssignments/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
  */
@@ -15,10 +17,10 @@ export interface RoleDefinitionItemRequestBuilder extends BaseRequestBuilder<Rol
      */
     get roleAssignments(): RoleAssignmentsRequestBuilder;
     /**
-     * Deletes a deviceAndAppManagementRoleDefinition.
+     * Deletes a roleDefinition.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -30,16 +32,16 @@ export interface RoleDefinitionItemRequestBuilder extends BaseRequestBuilder<Rol
      */
      get(requestConfiguration?: RequestConfiguration<RoleDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<RoleDefinition | undefined>;
     /**
-     * Update the properties of a roleDefinition object.
+     * Update the properties of a deviceAndAppManagementRoleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: RoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RoleDefinition | undefined>;
     /**
-     * Deletes a deviceAndAppManagementRoleDefinition.
+     * Deletes a roleDefinition.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -51,7 +53,7 @@ export interface RoleDefinitionItemRequestBuilder extends BaseRequestBuilder<Rol
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleDefinitionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a roleDefinition object.
+     * Update the properties of a deviceAndAppManagementRoleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -65,16 +67,34 @@ export interface RoleDefinitionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const RoleDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/roleDefinitions/{roleDefinition%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    RoleAssignments: "roleAssignments",
+} as const;
+/**
+ * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Description: "description",
+    DisplayName: "displayName",
+    IsBuiltIn: "isBuiltIn",
+    RolePermissions: "rolePermissions",
+    RoleAssignments: "roleAssignments",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -101,7 +121,7 @@ export const RoleDefinitionItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RoleDefinitionItemRequestBuilderUriTemplate,
@@ -109,7 +129,7 @@ export const RoleDefinitionItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoleDefinitionFromDiscriminatorValue,
         queryParametersMapper: RoleDefinitionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -119,7 +139,7 @@ export const RoleDefinitionItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoleDefinitionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRoleDefinition,
