@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { IntelligenceProfileItemRequestBuilderNavigationMetadata, IntelligenceProfileItemRequestBuilderRequestsMetadata, type IntelligenceProfileItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the intelProfiles property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -62,7 +65,7 @@ export interface IntelProfilesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface IntelProfilesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface IntelProfilesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,54 @@ export interface IntelProfilesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const IntelProfilesRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/intelProfiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the intelProfiles property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Indicators: "indicators",
+} as const;
+/**
+ * Provides operations to manage the intelProfiles property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Aliases: "aliases",
+    AliasesDesc: "aliases desc",
+    CountriesOrRegionsOfOrigin: "countriesOrRegionsOfOrigin",
+    CountriesOrRegionsOfOriginDesc: "countriesOrRegionsOfOrigin desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    FirstActiveDateTime: "firstActiveDateTime",
+    FirstActiveDateTimeDesc: "firstActiveDateTime desc",
+    Kind: "kind",
+    KindDesc: "kind desc",
+    Summary: "summary",
+    SummaryDesc: "summary desc",
+    Targets: "targets",
+    TargetsDesc: "targets desc",
+    Title: "title",
+    TitleDesc: "title desc",
+    Tradecraft: "tradecraft",
+    TradecraftDesc: "tradecraft desc",
+} as const;
+/**
+ * Provides operations to manage the intelProfiles property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Aliases: "aliases",
+    CountriesOrRegionsOfOrigin: "countriesOrRegionsOfOrigin",
+    Description: "description",
+    FirstActiveDateTime: "firstActiveDateTime",
+    Kind: "kind",
+    Summary: "summary",
+    Targets: "targets",
+    Title: "title",
+    Tradecraft: "tradecraft",
+    Indicators: "indicators",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +179,7 @@ export const IntelProfilesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIntelligenceProfileCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: IntelProfilesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +189,7 @@ export const IntelProfilesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIntelligenceProfileFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIntelligenceProfile,

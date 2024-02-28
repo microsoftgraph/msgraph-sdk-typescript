@@ -5,6 +5,8 @@ import { createPrinterFromDiscriminatorValue, type Printer } from '@microsoft/ms
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the printer property of the microsoft.graph.printerShare entity.
  */
@@ -30,16 +32,48 @@ export interface PrinterRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const PrinterRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerShare%2Did}/printer{?%24expand,%24select}";
+/**
+ * Provides operations to manage the printer property of the microsoft.graph.printerShare entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Jobs: "jobs",
+    Connectors: "connectors",
+    Shares: "shares",
+    TaskTriggers: "taskTriggers",
+} as const;
+/**
+ * Provides operations to manage the printer property of the microsoft.graph.printerShare entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Capabilities: "capabilities",
+    Defaults: "defaults",
+    DisplayName: "displayName",
+    IsAcceptingJobs: "isAcceptingJobs",
+    Location: "location",
+    Manufacturer: "manufacturer",
+    Model: "model",
+    Status: "status",
+    HasPhysicalDevice: "hasPhysicalDevice",
+    IsShared: "isShared",
+    LastSeenDateTime: "lastSeenDateTime",
+    RegisteredDateTime: "registeredDateTime",
+    Jobs: "jobs",
+    Connectors: "connectors",
+    Shares: "shares",
+    TaskTriggers: "taskTriggers",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +91,7 @@ export const PrinterRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrinterFromDiscriminatorValue,
         queryParametersMapper: PrinterRequestBuilderGetQueryParametersMapper,
     },

@@ -65,12 +65,14 @@ export interface ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters 
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -101,7 +103,7 @@ export const ActivityBasedTimeoutPolicyItemRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ActivityBasedTimeoutPolicyItemRequestBuilderUriTemplate,
@@ -109,7 +111,7 @@ export const ActivityBasedTimeoutPolicyItemRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createActivityBasedTimeoutPolicyFromDiscriminatorValue,
         queryParametersMapper: ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -119,12 +121,31 @@ export const ActivityBasedTimeoutPolicyItemRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createActivityBasedTimeoutPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeActivityBasedTimeoutPolicy,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AppliesTo: "appliesTo",
+} as const;
+/**
+ * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    Definition: "definition",
+    IsOrganizationDefault: "isOrganizationDefault",
+    AppliesTo: "appliesTo",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

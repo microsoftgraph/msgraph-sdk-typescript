@@ -11,6 +11,8 @@ import { type UserStatusesRequestBuilder, UserStatusesRequestBuilderNavigationMe
 import { type UserStatusSummaryRequestBuilder, UserStatusSummaryRequestBuilderRequestsMetadata } from './userStatusSummary/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
  */
@@ -90,16 +92,44 @@ export interface ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryPa
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const ManagedDeviceMobileAppConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Assignments: "assignments",
+    DeviceStatuses: "deviceStatuses",
+    DeviceStatusSummary: "deviceStatusSummary",
+    UserStatuses: "userStatuses",
+    UserStatusSummary: "userStatusSummary",
+} as const;
+/**
+ * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    TargetedMobileApps: "targetedMobileApps",
+    Version: "version",
+    Assignments: "assignments",
+    DeviceStatuses: "deviceStatuses",
+    DeviceStatusSummary: "deviceStatusSummary",
+    UserStatuses: "userStatuses",
+    UserStatusSummary: "userStatusSummary",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -143,7 +173,7 @@ export const ManagedDeviceMobileAppConfigurationItemRequestBuilderRequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ManagedDeviceMobileAppConfigurationItemRequestBuilderUriTemplate,
@@ -151,7 +181,7 @@ export const ManagedDeviceMobileAppConfigurationItemRequestBuilderRequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedDeviceMobileAppConfigurationFromDiscriminatorValue,
         queryParametersMapper: ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -161,7 +191,7 @@ export const ManagedDeviceMobileAppConfigurationItemRequestBuilderRequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedDeviceMobileAppConfigurationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeManagedDeviceMobileAppConfiguration,

@@ -104,7 +104,7 @@ export const ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderRequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createReminderViewWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue,
         queryParametersMapper: ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParametersMapper,
     },

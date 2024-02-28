@@ -5,6 +5,8 @@ import { createRoomFromDiscriminatorValue, type Room } from '@microsoft/msgraph-
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Casts the previous resource to room.
  */
@@ -30,16 +32,32 @@ export interface GraphRoomRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const GraphRoomRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.room{?%24expand,%24select}";
+/**
+ * Casts the previous resource to room.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Casts the previous resource to room.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Address: "address",
+    DisplayName: "displayName",
+    GeoCoordinates: "geoCoordinates",
+    Phone: "phone",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +75,7 @@ export const GraphRoomRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoomFromDiscriminatorValue,
         queryParametersMapper: GraphRoomRequestBuilderGetQueryParametersMapper,
     },

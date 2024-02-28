@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { CallRecordingItemRequestBuilderNavigationMetadata, CallRecordingItemRequestBuilderRequestsMetadata, type CallRecordingItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the recordings property of the microsoft.graph.onlineMeeting entity.
  */
@@ -61,7 +64,7 @@ export interface RecordingsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface RecordingsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface RecordingsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,40 @@ export interface RecordingsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const RecordingsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/recordings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the recordings property of the microsoft.graph.onlineMeeting entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the recordings property of the microsoft.graph.onlineMeeting entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Content: "content",
+    ContentDesc: "content desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    MeetingId: "meetingId",
+    MeetingIdDesc: "meetingId desc",
+    MeetingOrganizer: "meetingOrganizer",
+    MeetingOrganizerDesc: "meetingOrganizer desc",
+    RecordingContentUrl: "recordingContentUrl",
+    RecordingContentUrlDesc: "recordingContentUrl desc",
+} as const;
+/**
+ * Provides operations to manage the recordings property of the microsoft.graph.onlineMeeting entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Content: "content",
+    CreatedDateTime: "createdDateTime",
+    MeetingId: "meetingId",
+    MeetingOrganizer: "meetingOrganizer",
+    RecordingContentUrl: "recordingContentUrl",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +164,7 @@ export const RecordingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCallRecordingCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RecordingsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +174,7 @@ export const RecordingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCallRecordingFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCallRecording,

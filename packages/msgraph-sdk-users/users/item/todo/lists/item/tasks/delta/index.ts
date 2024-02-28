@@ -48,7 +48,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -56,7 +56,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -64,7 +64,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -84,6 +84,9 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaG
         "value": n => { deltaGetResponse.value = n.getCollectionOfObjectValues<TodoTask>(createTodoTaskFromDiscriminatorValue); },
     }
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -119,10 +122,84 @@ export const DeltaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeltaGetResponseFromDiscriminatorValue,
         queryParametersMapper: DeltaRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Attachments: "attachments",
+    AttachmentSessions: "attachmentSessions",
+    ChecklistItems: "checklistItems",
+    Extensions: "extensions",
+    LinkedResources: "linkedResources",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Body: "body",
+    BodyDesc: "body desc",
+    BodyLastModifiedDateTime: "bodyLastModifiedDateTime",
+    BodyLastModifiedDateTimeDesc: "bodyLastModifiedDateTime desc",
+    Categories: "categories",
+    CategoriesDesc: "categories desc",
+    CompletedDateTime: "completedDateTime",
+    CompletedDateTimeDesc: "completedDateTime desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DueDateTime: "dueDateTime",
+    DueDateTimeDesc: "dueDateTime desc",
+    HasAttachments: "hasAttachments",
+    HasAttachmentsDesc: "hasAttachments desc",
+    Importance: "importance",
+    ImportanceDesc: "importance desc",
+    IsReminderOn: "isReminderOn",
+    IsReminderOnDesc: "isReminderOn desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Recurrence: "recurrence",
+    RecurrenceDesc: "recurrence desc",
+    ReminderDateTime: "reminderDateTime",
+    ReminderDateTimeDesc: "reminderDateTime desc",
+    StartDateTime: "startDateTime",
+    StartDateTimeDesc: "startDateTime desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    Title: "title",
+    TitleDesc: "title desc",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Body: "body",
+    BodyLastModifiedDateTime: "bodyLastModifiedDateTime",
+    Categories: "categories",
+    CompletedDateTime: "completedDateTime",
+    CreatedDateTime: "createdDateTime",
+    DueDateTime: "dueDateTime",
+    HasAttachments: "hasAttachments",
+    Importance: "importance",
+    IsReminderOn: "isReminderOn",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Recurrence: "recurrence",
+    ReminderDateTime: "reminderDateTime",
+    StartDateTime: "startDateTime",
+    Status: "status",
+    Title: "title",
+    Attachments: "attachments",
+    AttachmentSessions: "attachmentSessions",
+    ChecklistItems: "checklistItems",
+    Extensions: "extensions",
+    LinkedResources: "linkedResources",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

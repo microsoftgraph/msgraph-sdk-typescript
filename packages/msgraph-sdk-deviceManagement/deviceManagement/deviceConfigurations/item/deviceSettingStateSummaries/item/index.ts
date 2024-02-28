@@ -5,6 +5,8 @@ import { createSettingStateDeviceSummaryFromDiscriminatorValue, serializeSetting
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceConfiguration entity.
  */
@@ -60,16 +62,37 @@ export interface SettingStateDeviceSummaryItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SettingStateDeviceSummaryItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/deviceSettingStateSummaries/{settingStateDeviceSummary%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceConfiguration entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceConfiguration entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CompliantDeviceCount: "compliantDeviceCount",
+    ConflictDeviceCount: "conflictDeviceCount",
+    ErrorDeviceCount: "errorDeviceCount",
+    InstancePath: "instancePath",
+    NonCompliantDeviceCount: "nonCompliantDeviceCount",
+    NotApplicableDeviceCount: "notApplicableDeviceCount",
+    RemediatedDeviceCount: "remediatedDeviceCount",
+    SettingName: "settingName",
+    UnknownDeviceCount: "unknownDeviceCount",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -87,7 +110,7 @@ export const SettingStateDeviceSummaryItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SettingStateDeviceSummaryItemRequestBuilderUriTemplate,
@@ -95,7 +118,7 @@ export const SettingStateDeviceSummaryItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSettingStateDeviceSummaryFromDiscriminatorValue,
         queryParametersMapper: SettingStateDeviceSummaryItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +128,7 @@ export const SettingStateDeviceSummaryItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSettingStateDeviceSummaryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSettingStateDeviceSummary,

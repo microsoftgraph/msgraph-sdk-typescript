@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { type WorkflowItemRequestBuilder, WorkflowItemRequestBuilderNavigationMetadata, WorkflowItemRequestBuilderRequestsMetadata } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the workflows property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
  */
@@ -63,7 +66,7 @@ export interface WorkflowsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface WorkflowsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface WorkflowsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,74 @@ export interface WorkflowsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const WorkflowsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the workflows property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    CreatedBy: "createdBy",
+    LastModifiedBy: "lastModifiedBy",
+    Tasks: "tasks",
+    ExecutionScope: "executionScope",
+    Runs: "runs",
+    TaskReports: "taskReports",
+    UserProcessingResults: "userProcessingResults",
+    Versions: "versions",
+} as const;
+/**
+ * Provides operations to manage the workflows property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Category: "category",
+    CategoryDesc: "category desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    ExecutionConditions: "executionConditions",
+    ExecutionConditionsDesc: "executionConditions desc",
+    IsEnabled: "isEnabled",
+    IsEnabledDesc: "isEnabled desc",
+    IsSchedulingEnabled: "isSchedulingEnabled",
+    IsSchedulingEnabledDesc: "isSchedulingEnabled desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    DeletedDateTime: "deletedDateTime",
+    DeletedDateTimeDesc: "deletedDateTime desc",
+    Id: "id",
+    IdDesc: "id desc",
+    NextScheduleRunDateTime: "nextScheduleRunDateTime",
+    NextScheduleRunDateTimeDesc: "nextScheduleRunDateTime desc",
+    Version: "version",
+    VersionDesc: "version desc",
+} as const;
+/**
+ * Provides operations to manage the workflows property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Category: "category",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    ExecutionConditions: "executionConditions",
+    IsEnabled: "isEnabled",
+    IsSchedulingEnabled: "isSchedulingEnabled",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    DeletedDateTime: "deletedDateTime",
+    Id: "id",
+    NextScheduleRunDateTime: "nextScheduleRunDateTime",
+    Version: "version",
+    CreatedBy: "createdBy",
+    LastModifiedBy: "lastModifiedBy",
+    Tasks: "tasks",
+    ExecutionScope: "executionScope",
+    Runs: "runs",
+    TaskReports: "taskReports",
+    UserProcessingResults: "userProcessingResults",
+    Versions: "versions",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +200,7 @@ export const WorkflowsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkflowCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: WorkflowsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +210,7 @@ export const WorkflowsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkflowFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkflow,

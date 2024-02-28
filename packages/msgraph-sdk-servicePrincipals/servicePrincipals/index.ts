@@ -11,6 +11,9 @@ import { ServicePrincipalItemRequestBuilderNavigationMetadata, ServicePrincipalI
 import { type ValidatePropertiesRequestBuilder, ValidatePropertiesRequestBuilderRequestsMetadata } from './validateProperties/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the collection of servicePrincipal entities.
  */
@@ -83,7 +86,7 @@ export interface ServicePrincipalsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -91,7 +94,7 @@ export interface ServicePrincipalsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -99,7 +102,7 @@ export interface ServicePrincipalsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -113,6 +116,166 @@ export interface ServicePrincipalsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const ServicePrincipalsRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the collection of servicePrincipal entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AppManagementPolicies: "appManagementPolicies",
+    AppRoleAssignedTo: "appRoleAssignedTo",
+    AppRoleAssignments: "appRoleAssignments",
+    ClaimsMappingPolicies: "claimsMappingPolicies",
+    CreatedObjects: "createdObjects",
+    DelegatedPermissionClassifications: "delegatedPermissionClassifications",
+    Endpoints: "endpoints",
+    FederatedIdentityCredentials: "federatedIdentityCredentials",
+    HomeRealmDiscoveryPolicies: "homeRealmDiscoveryPolicies",
+    MemberOf: "memberOf",
+    Oauth2PermissionGrants: "oauth2PermissionGrants",
+    OwnedObjects: "ownedObjects",
+    Owners: "owners",
+    RemoteDesktopSecurityConfiguration: "remoteDesktopSecurityConfiguration",
+    Synchronization: "synchronization",
+    TokenIssuancePolicies: "tokenIssuancePolicies",
+    TokenLifetimePolicies: "tokenLifetimePolicies",
+    TransitiveMemberOf: "transitiveMemberOf",
+} as const;
+/**
+ * Provides operations to manage the collection of servicePrincipal entities.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DeletedDateTime: "deletedDateTime",
+    DeletedDateTimeDesc: "deletedDateTime desc",
+    AccountEnabled: "accountEnabled",
+    AccountEnabledDesc: "accountEnabled desc",
+    AddIns: "addIns",
+    AddInsDesc: "addIns desc",
+    AlternativeNames: "alternativeNames",
+    AlternativeNamesDesc: "alternativeNames desc",
+    AppDescription: "appDescription",
+    AppDescriptionDesc: "appDescription desc",
+    AppDisplayName: "appDisplayName",
+    AppDisplayNameDesc: "appDisplayName desc",
+    AppId: "appId",
+    AppIdDesc: "appId desc",
+    ApplicationTemplateId: "applicationTemplateId",
+    ApplicationTemplateIdDesc: "applicationTemplateId desc",
+    AppOwnerOrganizationId: "appOwnerOrganizationId",
+    AppOwnerOrganizationIdDesc: "appOwnerOrganizationId desc",
+    AppRoleAssignmentRequired: "appRoleAssignmentRequired",
+    AppRoleAssignmentRequiredDesc: "appRoleAssignmentRequired desc",
+    AppRoles: "appRoles",
+    AppRolesDesc: "appRoles desc",
+    CustomSecurityAttributes: "customSecurityAttributes",
+    CustomSecurityAttributesDesc: "customSecurityAttributes desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisabledByMicrosoftStatus: "disabledByMicrosoftStatus",
+    DisabledByMicrosoftStatusDesc: "disabledByMicrosoftStatus desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    Homepage: "homepage",
+    HomepageDesc: "homepage desc",
+    Info: "info",
+    InfoDesc: "info desc",
+    KeyCredentials: "keyCredentials",
+    KeyCredentialsDesc: "keyCredentials desc",
+    LoginUrl: "loginUrl",
+    LoginUrlDesc: "loginUrl desc",
+    LogoutUrl: "logoutUrl",
+    LogoutUrlDesc: "logoutUrl desc",
+    Notes: "notes",
+    NotesDesc: "notes desc",
+    NotificationEmailAddresses: "notificationEmailAddresses",
+    NotificationEmailAddressesDesc: "notificationEmailAddresses desc",
+    Oauth2PermissionScopes: "oauth2PermissionScopes",
+    Oauth2PermissionScopesDesc: "oauth2PermissionScopes desc",
+    PasswordCredentials: "passwordCredentials",
+    PasswordCredentialsDesc: "passwordCredentials desc",
+    PreferredSingleSignOnMode: "preferredSingleSignOnMode",
+    PreferredSingleSignOnModeDesc: "preferredSingleSignOnMode desc",
+    PreferredTokenSigningKeyThumbprint: "preferredTokenSigningKeyThumbprint",
+    PreferredTokenSigningKeyThumbprintDesc: "preferredTokenSigningKeyThumbprint desc",
+    ReplyUrls: "replyUrls",
+    ReplyUrlsDesc: "replyUrls desc",
+    ResourceSpecificApplicationPermissions: "resourceSpecificApplicationPermissions",
+    ResourceSpecificApplicationPermissionsDesc: "resourceSpecificApplicationPermissions desc",
+    SamlSingleSignOnSettings: "samlSingleSignOnSettings",
+    SamlSingleSignOnSettingsDesc: "samlSingleSignOnSettings desc",
+    ServicePrincipalNames: "servicePrincipalNames",
+    ServicePrincipalNamesDesc: "servicePrincipalNames desc",
+    ServicePrincipalType: "servicePrincipalType",
+    ServicePrincipalTypeDesc: "servicePrincipalType desc",
+    SignInAudience: "signInAudience",
+    SignInAudienceDesc: "signInAudience desc",
+    Tags: "tags",
+    TagsDesc: "tags desc",
+    TokenEncryptionKeyId: "tokenEncryptionKeyId",
+    TokenEncryptionKeyIdDesc: "tokenEncryptionKeyId desc",
+    VerifiedPublisher: "verifiedPublisher",
+    VerifiedPublisherDesc: "verifiedPublisher desc",
+} as const;
+/**
+ * Provides operations to manage the collection of servicePrincipal entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    AccountEnabled: "accountEnabled",
+    AddIns: "addIns",
+    AlternativeNames: "alternativeNames",
+    AppDescription: "appDescription",
+    AppDisplayName: "appDisplayName",
+    AppId: "appId",
+    ApplicationTemplateId: "applicationTemplateId",
+    AppOwnerOrganizationId: "appOwnerOrganizationId",
+    AppRoleAssignmentRequired: "appRoleAssignmentRequired",
+    AppRoles: "appRoles",
+    CustomSecurityAttributes: "customSecurityAttributes",
+    Description: "description",
+    DisabledByMicrosoftStatus: "disabledByMicrosoftStatus",
+    DisplayName: "displayName",
+    Homepage: "homepage",
+    Info: "info",
+    KeyCredentials: "keyCredentials",
+    LoginUrl: "loginUrl",
+    LogoutUrl: "logoutUrl",
+    Notes: "notes",
+    NotificationEmailAddresses: "notificationEmailAddresses",
+    Oauth2PermissionScopes: "oauth2PermissionScopes",
+    PasswordCredentials: "passwordCredentials",
+    PreferredSingleSignOnMode: "preferredSingleSignOnMode",
+    PreferredTokenSigningKeyThumbprint: "preferredTokenSigningKeyThumbprint",
+    ReplyUrls: "replyUrls",
+    ResourceSpecificApplicationPermissions: "resourceSpecificApplicationPermissions",
+    SamlSingleSignOnSettings: "samlSingleSignOnSettings",
+    ServicePrincipalNames: "servicePrincipalNames",
+    ServicePrincipalType: "servicePrincipalType",
+    SignInAudience: "signInAudience",
+    Tags: "tags",
+    TokenEncryptionKeyId: "tokenEncryptionKeyId",
+    VerifiedPublisher: "verifiedPublisher",
+    AppManagementPolicies: "appManagementPolicies",
+    AppRoleAssignedTo: "appRoleAssignedTo",
+    AppRoleAssignments: "appRoleAssignments",
+    ClaimsMappingPolicies: "claimsMappingPolicies",
+    CreatedObjects: "createdObjects",
+    DelegatedPermissionClassifications: "delegatedPermissionClassifications",
+    Endpoints: "endpoints",
+    FederatedIdentityCredentials: "federatedIdentityCredentials",
+    HomeRealmDiscoveryPolicies: "homeRealmDiscoveryPolicies",
+    MemberOf: "memberOf",
+    Oauth2PermissionGrants: "oauth2PermissionGrants",
+    OwnedObjects: "ownedObjects",
+    Owners: "owners",
+    RemoteDesktopSecurityConfiguration: "remoteDesktopSecurityConfiguration",
+    Synchronization: "synchronization",
+    TokenIssuancePolicies: "tokenIssuancePolicies",
+    TokenLifetimePolicies: "tokenLifetimePolicies",
+    TransitiveMemberOf: "transitiveMemberOf",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -161,7 +324,7 @@ export const ServicePrincipalsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServicePrincipalCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ServicePrincipalsRequestBuilderGetQueryParametersMapper,
     },
@@ -171,7 +334,7 @@ export const ServicePrincipalsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServicePrincipalFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeServicePrincipal,

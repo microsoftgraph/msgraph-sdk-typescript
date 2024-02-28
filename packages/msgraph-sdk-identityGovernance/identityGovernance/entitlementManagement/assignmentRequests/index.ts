@@ -70,7 +70,7 @@ export interface AssignmentRequestsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -78,7 +78,7 @@ export interface AssignmentRequestsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -86,7 +86,7 @@ export interface AssignmentRequestsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -96,6 +96,9 @@ export interface AssignmentRequestsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -139,7 +142,7 @@ export const AssignmentRequestsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessPackageAssignmentRequestCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AssignmentRequestsRequestBuilderGetQueryParametersMapper,
     },
@@ -149,12 +152,61 @@ export const AssignmentRequestsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessPackageAssignmentRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAccessPackageAssignmentRequest,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AccessPackage: "accessPackage",
+    Assignment: "assignment",
+    Requestor: "requestor",
+} as const;
+/**
+ * Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Answers: "answers",
+    AnswersDesc: "answers desc",
+    CompletedDateTime: "completedDateTime",
+    CompletedDateTimeDesc: "completedDateTime desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    CustomExtensionCalloutInstances: "customExtensionCalloutInstances",
+    CustomExtensionCalloutInstancesDesc: "customExtensionCalloutInstances desc",
+    RequestType: "requestType",
+    RequestTypeDesc: "requestType desc",
+    Schedule: "schedule",
+    ScheduleDesc: "schedule desc",
+    State: "state",
+    StateDesc: "state desc",
+    Status: "status",
+    StatusDesc: "status desc",
+} as const;
+/**
+ * Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Answers: "answers",
+    CompletedDateTime: "completedDateTime",
+    CreatedDateTime: "createdDateTime",
+    CustomExtensionCalloutInstances: "customExtensionCalloutInstances",
+    RequestType: "requestType",
+    Schedule: "schedule",
+    State: "state",
+    Status: "status",
+    AccessPackage: "accessPackage",
+    Assignment: "assignment",
+    Requestor: "requestor",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

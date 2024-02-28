@@ -10,6 +10,9 @@ import { ResourceSpecificPermissionGrantItemRequestBuilderNavigationMetadata, Re
 import { type ValidatePropertiesRequestBuilder, ValidatePropertiesRequestBuilderRequestsMetadata } from './validateProperties/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the collection of resourceSpecificPermissionGrant entities.
  */
@@ -72,7 +75,7 @@ export interface PermissionGrantsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -80,7 +83,7 @@ export interface PermissionGrantsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -88,12 +91,49 @@ export interface PermissionGrantsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const PermissionGrantsRequestBuilderUriTemplate = "{+baseurl}/permissionGrants{?%24expand,%24filter,%24orderby,%24search,%24select}";
+/**
+ * Provides operations to manage the collection of resourceSpecificPermissionGrant entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the collection of resourceSpecificPermissionGrant entities.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DeletedDateTime: "deletedDateTime",
+    DeletedDateTimeDesc: "deletedDateTime desc",
+    ClientAppId: "clientAppId",
+    ClientAppIdDesc: "clientAppId desc",
+    ClientId: "clientId",
+    ClientIdDesc: "clientId desc",
+    Permission: "permission",
+    PermissionDesc: "permission desc",
+    PermissionType: "permissionType",
+    PermissionTypeDesc: "permissionType desc",
+    ResourceAppId: "resourceAppId",
+    ResourceAppIdDesc: "resourceAppId desc",
+} as const;
+/**
+ * Provides operations to manage the collection of resourceSpecificPermissionGrant entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    ClientAppId: "clientAppId",
+    ClientId: "clientId",
+    Permission: "permission",
+    PermissionType: "permissionType",
+    ResourceAppId: "resourceAppId",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -136,7 +176,7 @@ export const PermissionGrantsRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createResourceSpecificPermissionGrantCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: PermissionGrantsRequestBuilderGetQueryParametersMapper,
     },
@@ -146,7 +186,7 @@ export const PermissionGrantsRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createResourceSpecificPermissionGrantFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeResourceSpecificPermissionGrant,

@@ -23,6 +23,9 @@ export function deserializeIntoRecentGetResponse(recentGetResponse: Partial<Rece
         "value": n => { recentGetResponse.value = n.getCollectionOfObjectValues<UserActivity>(createUserActivityFromDiscriminatorValue); },
     }
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 export interface RecentGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
@@ -59,7 +62,7 @@ export interface RecentRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -67,7 +70,7 @@ export interface RecentRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -75,7 +78,7 @@ export interface RecentRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -97,6 +100,66 @@ export function serializeRecentGetResponse(writer: SerializationWriter, recentGe
  * Uri template for the request builder.
  */
 export const RecentRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/activities/recent(){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to call the recent method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    HistoryItems: "historyItems",
+} as const;
+/**
+ * Provides operations to call the recent method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ActivationUrl: "activationUrl",
+    ActivationUrlDesc: "activationUrl desc",
+    ActivitySourceHost: "activitySourceHost",
+    ActivitySourceHostDesc: "activitySourceHost desc",
+    AppActivityId: "appActivityId",
+    AppActivityIdDesc: "appActivityId desc",
+    AppDisplayName: "appDisplayName",
+    AppDisplayNameDesc: "appDisplayName desc",
+    ContentInfo: "contentInfo",
+    ContentInfoDesc: "contentInfo desc",
+    ContentUrl: "contentUrl",
+    ContentUrlDesc: "contentUrl desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    ExpirationDateTime: "expirationDateTime",
+    ExpirationDateTimeDesc: "expirationDateTime desc",
+    FallbackUrl: "fallbackUrl",
+    FallbackUrlDesc: "fallbackUrl desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    UserTimezone: "userTimezone",
+    UserTimezoneDesc: "userTimezone desc",
+    VisualElements: "visualElements",
+    VisualElementsDesc: "visualElements desc",
+} as const;
+/**
+ * Provides operations to call the recent method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActivationUrl: "activationUrl",
+    ActivitySourceHost: "activitySourceHost",
+    AppActivityId: "appActivityId",
+    AppDisplayName: "appDisplayName",
+    ContentInfo: "contentInfo",
+    ContentUrl: "contentUrl",
+    CreatedDateTime: "createdDateTime",
+    ExpirationDateTime: "expirationDateTime",
+    FallbackUrl: "fallbackUrl",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Status: "status",
+    UserTimezone: "userTimezone",
+    VisualElements: "visualElements",
+    HistoryItems: "historyItems",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -120,7 +183,7 @@ export const RecentRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRecentGetResponseFromDiscriminatorValue,
         queryParametersMapper: RecentRequestBuilderGetQueryParametersMapper,
     },

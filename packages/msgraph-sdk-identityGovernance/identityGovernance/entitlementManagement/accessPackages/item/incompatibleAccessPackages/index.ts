@@ -8,6 +8,9 @@ import { AccessPackageItemRequestBuilderNavigationMetadata, type AccessPackageIt
 import { RefRequestBuilderRequestsMetadata, type RefRequestBuilder } from './ref/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the incompatibleAccessPackages property of the microsoft.graph.accessPackage entity.
  */
@@ -52,7 +55,7 @@ export interface IncompatibleAccessPackagesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -60,7 +63,7 @@ export interface IncompatibleAccessPackagesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -68,7 +71,7 @@ export interface IncompatibleAccessPackagesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -82,6 +85,52 @@ export interface IncompatibleAccessPackagesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const IncompatibleAccessPackagesRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/incompatibleAccessPackages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the incompatibleAccessPackages property of the microsoft.graph.accessPackage entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AccessPackagesIncompatibleWith: "accessPackagesIncompatibleWith",
+    AssignmentPolicies: "assignmentPolicies",
+    Catalog: "catalog",
+    IncompatibleAccessPackages: "incompatibleAccessPackages",
+    IncompatibleGroups: "incompatibleGroups",
+    ResourceRoleScopes: "resourceRoleScopes",
+} as const;
+/**
+ * Provides operations to manage the incompatibleAccessPackages property of the microsoft.graph.accessPackage entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    IsHidden: "isHidden",
+    IsHiddenDesc: "isHidden desc",
+    ModifiedDateTime: "modifiedDateTime",
+    ModifiedDateTimeDesc: "modifiedDateTime desc",
+} as const;
+/**
+ * Provides operations to manage the incompatibleAccessPackages property of the microsoft.graph.accessPackage entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    IsHidden: "isHidden",
+    ModifiedDateTime: "modifiedDateTime",
+    AccessPackagesIncompatibleWith: "accessPackagesIncompatibleWith",
+    AssignmentPolicies: "assignmentPolicies",
+    Catalog: "catalog",
+    IncompatibleAccessPackages: "incompatibleAccessPackages",
+    IncompatibleGroups: "incompatibleGroups",
+    ResourceRoleScopes: "resourceRoleScopes",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -120,7 +169,7 @@ export const IncompatibleAccessPackagesRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessPackageCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: IncompatibleAccessPackagesRequestBuilderGetQueryParametersMapper,
     },

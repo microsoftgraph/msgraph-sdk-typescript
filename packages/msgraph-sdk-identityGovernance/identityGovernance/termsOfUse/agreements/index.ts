@@ -63,7 +63,7 @@ export interface AgreementsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface AgreementsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface AgreementsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface AgreementsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -129,7 +132,7 @@ export const AgreementsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AgreementsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,12 +142,52 @@ export const AgreementsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAgreement,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Acceptances: "acceptances",
+    File: "file",
+    Files: "files",
+} as const;
+/**
+ * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    IsPerDeviceAcceptanceRequired: "isPerDeviceAcceptanceRequired",
+    IsPerDeviceAcceptanceRequiredDesc: "isPerDeviceAcceptanceRequired desc",
+    IsViewingBeforeAcceptanceRequired: "isViewingBeforeAcceptanceRequired",
+    IsViewingBeforeAcceptanceRequiredDesc: "isViewingBeforeAcceptanceRequired desc",
+    TermsExpiration: "termsExpiration",
+    TermsExpirationDesc: "termsExpiration desc",
+    UserReacceptRequiredFrequency: "userReacceptRequiredFrequency",
+    UserReacceptRequiredFrequencyDesc: "userReacceptRequiredFrequency desc",
+} as const;
+/**
+ * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DisplayName: "displayName",
+    IsPerDeviceAcceptanceRequired: "isPerDeviceAcceptanceRequired",
+    IsViewingBeforeAcceptanceRequired: "isViewingBeforeAcceptanceRequired",
+    TermsExpiration: "termsExpiration",
+    UserReacceptRequiredFrequency: "userReacceptRequiredFrequency",
+    Acceptances: "acceptances",
+    File: "file",
+    Files: "files",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

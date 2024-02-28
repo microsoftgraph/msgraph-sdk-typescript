@@ -57,12 +57,14 @@ export interface AttendanceRecordItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -84,7 +86,7 @@ export const AttendanceRecordItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AttendanceRecordItemRequestBuilderUriTemplate,
@@ -92,7 +94,7 @@ export const AttendanceRecordItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttendanceRecordFromDiscriminatorValue,
         queryParametersMapper: AttendanceRecordItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,12 +104,29 @@ export const AttendanceRecordItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttendanceRecordFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAttendanceRecord,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AttendanceIntervals: "attendanceIntervals",
+    EmailAddress: "emailAddress",
+    Identity: "identity",
+    Role: "role",
+    TotalAttendanceInSeconds: "totalAttendanceInSeconds",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

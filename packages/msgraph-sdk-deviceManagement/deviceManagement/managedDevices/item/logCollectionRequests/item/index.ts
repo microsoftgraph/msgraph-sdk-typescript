@@ -62,12 +62,14 @@ export interface DeviceLogCollectionResponseItemRequestBuilderGetQueryParameters
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -97,7 +99,7 @@ export const DeviceLogCollectionResponseItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DeviceLogCollectionResponseItemRequestBuilderUriTemplate,
@@ -105,7 +107,7 @@ export const DeviceLogCollectionResponseItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceLogCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DeviceLogCollectionResponseItemRequestBuilderGetQueryParametersMapper,
     },
@@ -115,12 +117,32 @@ export const DeviceLogCollectionResponseItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceLogCollectionResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceLogCollectionResponse,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    EnrolledByUser: "enrolledByUser",
+    ExpirationDateTimeUTC: "expirationDateTimeUTC",
+    InitiatedByUserPrincipalName: "initiatedByUserPrincipalName",
+    ManagedDeviceId: "managedDeviceId",
+    ReceivedDateTimeUTC: "receivedDateTimeUTC",
+    RequestedDateTimeUTC: "requestedDateTimeUTC",
+    SizeInKB: "sizeInKB",
+    Status: "status",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

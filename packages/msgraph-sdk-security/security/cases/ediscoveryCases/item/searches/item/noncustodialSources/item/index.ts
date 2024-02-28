@@ -30,12 +30,14 @@ export interface EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParam
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -57,10 +59,32 @@ export const EdiscoveryNoncustodialDataSourceItemRequestBuilderRequestsMetadata:
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue,
         queryParametersMapper: EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the noncustodialSources property of the microsoft.graph.security.ediscoverySearch entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    DataSource: "dataSource",
+    LastIndexOperation: "lastIndexOperation",
+} as const;
+/**
+ * Provides operations to manage the noncustodialSources property of the microsoft.graph.security.ediscoverySearch entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    DisplayName: "displayName",
+    HoldStatus: "holdStatus",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    ReleasedDateTime: "releasedDateTime",
+    Status: "status",
+    DataSource: "dataSource",
+    LastIndexOperation: "lastIndexOperation",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

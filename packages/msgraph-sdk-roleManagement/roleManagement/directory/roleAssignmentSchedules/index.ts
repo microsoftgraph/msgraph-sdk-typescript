@@ -8,6 +8,9 @@ import { FilterByCurrentUserWithOnRequestBuilderRequestsMetadata, type FilterByC
 import { type UnifiedRoleAssignmentScheduleItemRequestBuilder, UnifiedRoleAssignmentScheduleItemRequestBuilderNavigationMetadata, UnifiedRoleAssignmentScheduleItemRequestBuilderRequestsMetadata } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
  */
@@ -69,7 +72,7 @@ export interface RoleAssignmentSchedulesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -77,7 +80,7 @@ export interface RoleAssignmentSchedulesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -85,7 +88,7 @@ export interface RoleAssignmentSchedulesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -99,6 +102,68 @@ export interface RoleAssignmentSchedulesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const RoleAssignmentSchedulesRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignmentSchedules{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AppScope: "appScope",
+    DirectoryScope: "directoryScope",
+    Principal: "principal",
+    RoleDefinition: "roleDefinition",
+    ActivatedUsing: "activatedUsing",
+} as const;
+/**
+ * Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AppScopeId: "appScopeId",
+    AppScopeIdDesc: "appScopeId desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    CreatedUsing: "createdUsing",
+    CreatedUsingDesc: "createdUsing desc",
+    DirectoryScopeId: "directoryScopeId",
+    DirectoryScopeIdDesc: "directoryScopeId desc",
+    ModifiedDateTime: "modifiedDateTime",
+    ModifiedDateTimeDesc: "modifiedDateTime desc",
+    PrincipalId: "principalId",
+    PrincipalIdDesc: "principalId desc",
+    RoleDefinitionId: "roleDefinitionId",
+    RoleDefinitionIdDesc: "roleDefinitionId desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    AssignmentType: "assignmentType",
+    AssignmentTypeDesc: "assignmentType desc",
+    MemberType: "memberType",
+    MemberTypeDesc: "memberType desc",
+    ScheduleInfo: "scheduleInfo",
+    ScheduleInfoDesc: "scheduleInfo desc",
+} as const;
+/**
+ * Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AppScopeId: "appScopeId",
+    CreatedDateTime: "createdDateTime",
+    CreatedUsing: "createdUsing",
+    DirectoryScopeId: "directoryScopeId",
+    ModifiedDateTime: "modifiedDateTime",
+    PrincipalId: "principalId",
+    RoleDefinitionId: "roleDefinitionId",
+    Status: "status",
+    AssignmentType: "assignmentType",
+    MemberType: "memberType",
+    ScheduleInfo: "scheduleInfo",
+    AppScope: "appScope",
+    DirectoryScope: "directoryScope",
+    Principal: "principal",
+    RoleDefinition: "roleDefinition",
+    ActivatedUsing: "activatedUsing",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -138,7 +203,7 @@ export const RoleAssignmentSchedulesRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleAssignmentScheduleCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RoleAssignmentSchedulesRequestBuilderGetQueryParametersMapper,
     },
@@ -148,7 +213,7 @@ export const RoleAssignmentSchedulesRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleAssignmentScheduleFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUnifiedRoleAssignmentSchedule,

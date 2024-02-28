@@ -75,12 +75,14 @@ export interface AgreementItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -119,7 +121,7 @@ export const AgreementItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AgreementItemRequestBuilderUriTemplate,
@@ -127,7 +129,7 @@ export const AgreementItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFromDiscriminatorValue,
         queryParametersMapper: AgreementItemRequestBuilderGetQueryParametersMapper,
     },
@@ -137,12 +139,35 @@ export const AgreementItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAgreement,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Acceptances: "acceptances",
+    File: "file",
+    Files: "files",
+} as const;
+/**
+ * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DisplayName: "displayName",
+    IsPerDeviceAcceptanceRequired: "isPerDeviceAcceptanceRequired",
+    IsViewingBeforeAcceptanceRequired: "isViewingBeforeAcceptanceRequired",
+    TermsExpiration: "termsExpiration",
+    UserReacceptRequiredFrequency: "userReacceptRequiredFrequency",
+    Acceptances: "acceptances",
+    File: "file",
+    Files: "files",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

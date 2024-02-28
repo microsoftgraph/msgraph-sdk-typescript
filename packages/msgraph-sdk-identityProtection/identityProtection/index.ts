@@ -9,6 +9,8 @@ import { RiskyUsersRequestBuilderNavigationMetadata, RiskyUsersRequestBuilderReq
 import { ServicePrincipalRiskDetectionsRequestBuilderNavigationMetadata, ServicePrincipalRiskDetectionsRequestBuilderRequestsMetadata, type ServicePrincipalRiskDetectionsRequestBuilder } from './servicePrincipalRiskDetections/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the identityProtectionRoot singleton.
  */
@@ -65,16 +67,35 @@ export interface IdentityProtectionRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const IdentityProtectionRequestBuilderUriTemplate = "{+baseurl}/identityProtection{?%24expand,%24select}";
+/**
+ * Provides operations to manage the identityProtectionRoot singleton.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    RiskDetections: "riskDetections",
+    RiskyServicePrincipals: "riskyServicePrincipals",
+    RiskyUsers: "riskyUsers",
+    ServicePrincipalRiskDetections: "servicePrincipalRiskDetections",
+} as const;
+/**
+ * Provides operations to manage the identityProtectionRoot singleton.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    RiskDetections: "riskDetections",
+    RiskyServicePrincipals: "riskyServicePrincipals",
+    RiskyUsers: "riskyUsers",
+    ServicePrincipalRiskDetections: "servicePrincipalRiskDetections",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -113,7 +134,7 @@ export const IdentityProtectionRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityProtectionRootFromDiscriminatorValue,
         queryParametersMapper: IdentityProtectionRequestBuilderGetQueryParametersMapper,
     },
@@ -123,7 +144,7 @@ export const IdentityProtectionRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityProtectionRootFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIdentityProtectionRoot,

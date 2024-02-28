@@ -8,6 +8,8 @@ import { AssignmentsRequestBuilderNavigationMetadata, AssignmentsRequestBuilderR
 import { DeploymentSummaryRequestBuilderRequestsMetadata, type DeploymentSummaryRequestBuilder } from './deploymentSummary/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
  */
@@ -75,16 +77,72 @@ export interface IosManagedAppProtectionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const IosManagedAppProtectionItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Assignments: "assignments",
+    Apps: "apps",
+    DeploymentSummary: "deploymentSummary",
+} as const;
+/**
+ * Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Version: "version",
+    AllowedDataStorageLocations: "allowedDataStorageLocations",
+    AllowedInboundDataTransferSources: "allowedInboundDataTransferSources",
+    AllowedOutboundClipboardSharingLevel: "allowedOutboundClipboardSharingLevel",
+    AllowedOutboundDataTransferDestinations: "allowedOutboundDataTransferDestinations",
+    ContactSyncBlocked: "contactSyncBlocked",
+    DataBackupBlocked: "dataBackupBlocked",
+    DeviceComplianceRequired: "deviceComplianceRequired",
+    DisableAppPinIfDevicePinIsSet: "disableAppPinIfDevicePinIsSet",
+    FingerprintBlocked: "fingerprintBlocked",
+    ManagedBrowser: "managedBrowser",
+    ManagedBrowserToOpenLinksRequired: "managedBrowserToOpenLinksRequired",
+    MaximumPinRetries: "maximumPinRetries",
+    MinimumPinLength: "minimumPinLength",
+    MinimumRequiredAppVersion: "minimumRequiredAppVersion",
+    MinimumRequiredOsVersion: "minimumRequiredOsVersion",
+    MinimumWarningAppVersion: "minimumWarningAppVersion",
+    MinimumWarningOsVersion: "minimumWarningOsVersion",
+    OrganizationalCredentialsRequired: "organizationalCredentialsRequired",
+    PeriodBeforePinReset: "periodBeforePinReset",
+    PeriodOfflineBeforeAccessCheck: "periodOfflineBeforeAccessCheck",
+    PeriodOfflineBeforeWipeIsEnforced: "periodOfflineBeforeWipeIsEnforced",
+    PeriodOnlineBeforeAccessCheck: "periodOnlineBeforeAccessCheck",
+    PinCharacterSet: "pinCharacterSet",
+    PinRequired: "pinRequired",
+    PrintBlocked: "printBlocked",
+    SaveAsBlocked: "saveAsBlocked",
+    SimplePinBlocked: "simplePinBlocked",
+    IsAssigned: "isAssigned",
+    AppDataEncryptionType: "appDataEncryptionType",
+    CustomBrowserProtocol: "customBrowserProtocol",
+    DeployedAppCount: "deployedAppCount",
+    FaceIdBlocked: "faceIdBlocked",
+    MinimumRequiredSdkVersion: "minimumRequiredSdkVersion",
+    Assignments: "assignments",
+    Apps: "apps",
+    DeploymentSummary: "deploymentSummary",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -118,7 +176,7 @@ export const IosManagedAppProtectionItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: IosManagedAppProtectionItemRequestBuilderUriTemplate,
@@ -126,7 +184,7 @@ export const IosManagedAppProtectionItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIosManagedAppProtectionFromDiscriminatorValue,
         queryParametersMapper: IosManagedAppProtectionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +194,7 @@ export const IosManagedAppProtectionItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIosManagedAppProtectionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIosManagedAppProtection,

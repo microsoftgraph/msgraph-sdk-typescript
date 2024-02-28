@@ -68,12 +68,14 @@ export interface CallTranscriptItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -106,7 +108,7 @@ export const CallTranscriptItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CallTranscriptItemRequestBuilderUriTemplate,
@@ -114,7 +116,7 @@ export const CallTranscriptItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCallTranscriptFromDiscriminatorValue,
         queryParametersMapper: CallTranscriptItemRequestBuilderGetQueryParametersMapper,
     },
@@ -124,12 +126,30 @@ export const CallTranscriptItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCallTranscriptFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCallTranscript,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Content: "content",
+    CreatedDateTime: "createdDateTime",
+    MeetingId: "meetingId",
+    MeetingOrganizer: "meetingOrganizer",
+    MetadataContent: "metadataContent",
+    TranscriptContentUrl: "transcriptContentUrl",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

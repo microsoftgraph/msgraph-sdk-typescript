@@ -5,6 +5,8 @@ import { createOpenShiftFromDiscriminatorValue, serializeOpenShift, type OpenShi
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
  */
@@ -60,16 +62,34 @@ export interface OpenShiftItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const OpenShiftItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/openShifts/{openShift%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    DraftOpenShift: "draftOpenShift",
+    SchedulingGroupId: "schedulingGroupId",
+    SharedOpenShift: "sharedOpenShift",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -87,7 +107,7 @@ export const OpenShiftItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OpenShiftItemRequestBuilderUriTemplate,
@@ -95,7 +115,7 @@ export const OpenShiftItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOpenShiftFromDiscriminatorValue,
         queryParametersMapper: OpenShiftItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +125,7 @@ export const OpenShiftItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOpenShiftFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOpenShift,

@@ -6,6 +6,9 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Builds and executes requests for operations under /privacy/subjectRightsRequests/{subjectRightsRequest-id}/collaborators/{user-id}/serviceProvisioningErrors
  */
@@ -42,7 +45,7 @@ export interface ServiceProvisioningErrorsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -50,7 +53,7 @@ export interface ServiceProvisioningErrorsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -58,7 +61,7 @@ export interface ServiceProvisioningErrorsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -72,6 +75,22 @@ export interface ServiceProvisioningErrorsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const ServiceProvisioningErrorsRequestBuilderUriTemplate = "{+baseurl}/privacy/subjectRightsRequests/{subjectRightsRequest%2Did}/collaborators/{user%2Did}/serviceProvisioningErrors{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+export const GetOrderbyQueryParameterTypeObject = {
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    IsResolved: "isResolved",
+    IsResolvedDesc: "isResolved desc",
+    ServiceInstance: "serviceInstance",
+    ServiceInstanceDesc: "serviceInstance desc",
+} as const;
+export const GetSelectQueryParameterTypeObject = {
+    CreatedDateTime: "createdDateTime",
+    IsResolved: "isResolved",
+    ServiceInstance: "serviceInstance",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -103,7 +122,7 @@ export const ServiceProvisioningErrorsRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServiceProvisioningErrorCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ServiceProvisioningErrorsRequestBuilderGetQueryParametersMapper,
     },

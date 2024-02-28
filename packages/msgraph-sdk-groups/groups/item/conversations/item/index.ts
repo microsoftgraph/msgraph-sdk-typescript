@@ -49,8 +49,9 @@ export interface ConversationItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -80,7 +81,7 @@ export const ConversationItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ConversationItemRequestBuilderUriTemplate,
@@ -88,10 +89,22 @@ export const ConversationItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConversationFromDiscriminatorValue,
         queryParametersMapper: ConversationItemRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the conversations property of the microsoft.graph.group entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    HasAttachments: "hasAttachments",
+    LastDeliveredDateTime: "lastDeliveredDateTime",
+    Preview: "preview",
+    Topic: "topic",
+    UniqueSenders: "uniqueSenders",
+    Threads: "threads",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -47,7 +47,7 @@ export interface CustodianSourcesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -55,7 +55,7 @@ export interface CustodianSourcesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -63,7 +63,7 @@ export interface CustodianSourcesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -73,6 +73,9 @@ export interface CustodianSourcesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -112,10 +115,41 @@ export const CustodianSourcesRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDataSourceCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: CustodianSourcesRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    HoldStatus: "holdStatus",
+    HoldStatusDesc: "holdStatus desc",
+} as const;
+/**
+ * Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    DisplayName: "displayName",
+    HoldStatus: "holdStatus",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

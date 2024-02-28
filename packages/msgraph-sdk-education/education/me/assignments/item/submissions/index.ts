@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { EducationSubmissionItemRequestBuilderNavigationMetadata, EducationSubmissionItemRequestBuilderRequestsMetadata, type EducationSubmissionItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
  */
@@ -62,7 +65,7 @@ export interface SubmissionsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface SubmissionsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface SubmissionsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,67 @@ export interface SubmissionsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SubmissionsRequestBuilderUriTemplate = "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/submissions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Outcomes: "outcomes",
+    Resources: "resources",
+    SubmittedResources: "submittedResources",
+} as const;
+/**
+ * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ReassignedBy: "reassignedBy",
+    ReassignedByDesc: "reassignedBy desc",
+    ReassignedDateTime: "reassignedDateTime",
+    ReassignedDateTimeDesc: "reassignedDateTime desc",
+    Recipient: "recipient",
+    RecipientDesc: "recipient desc",
+    ResourcesFolderUrl: "resourcesFolderUrl",
+    ResourcesFolderUrlDesc: "resourcesFolderUrl desc",
+    ReturnedBy: "returnedBy",
+    ReturnedByDesc: "returnedBy desc",
+    ReturnedDateTime: "returnedDateTime",
+    ReturnedDateTimeDesc: "returnedDateTime desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    SubmittedBy: "submittedBy",
+    SubmittedByDesc: "submittedBy desc",
+    SubmittedDateTime: "submittedDateTime",
+    SubmittedDateTimeDesc: "submittedDateTime desc",
+    UnsubmittedBy: "unsubmittedBy",
+    UnsubmittedByDesc: "unsubmittedBy desc",
+    UnsubmittedDateTime: "unsubmittedDateTime",
+    UnsubmittedDateTimeDesc: "unsubmittedDateTime desc",
+    WebUrl: "webUrl",
+    WebUrlDesc: "webUrl desc",
+} as const;
+/**
+ * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ReassignedBy: "reassignedBy",
+    ReassignedDateTime: "reassignedDateTime",
+    Recipient: "recipient",
+    ResourcesFolderUrl: "resourcesFolderUrl",
+    ReturnedBy: "returnedBy",
+    ReturnedDateTime: "returnedDateTime",
+    Status: "status",
+    SubmittedBy: "submittedBy",
+    SubmittedDateTime: "submittedDateTime",
+    UnsubmittedBy: "unsubmittedBy",
+    UnsubmittedDateTime: "unsubmittedDateTime",
+    WebUrl: "webUrl",
+    Outcomes: "outcomes",
+    Resources: "resources",
+    SubmittedResources: "submittedResources",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +192,7 @@ export const SubmissionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationSubmissionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SubmissionsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +202,7 @@ export const SubmissionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationSubmissionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEducationSubmission,

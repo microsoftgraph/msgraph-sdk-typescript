@@ -59,12 +59,14 @@ export interface ExtensionPropertyItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -86,7 +88,7 @@ export const ExtensionPropertyItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ExtensionPropertyItemRequestBuilderUriTemplate,
@@ -94,7 +96,7 @@ export const ExtensionPropertyItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExtensionPropertyFromDiscriminatorValue,
         queryParametersMapper: ExtensionPropertyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -104,12 +106,31 @@ export const ExtensionPropertyItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExtensionPropertyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeExtensionProperty,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    AppDisplayName: "appDisplayName",
+    DataType: "dataType",
+    IsMultiValued: "isMultiValued",
+    IsSyncedFromOnPremises: "isSyncedFromOnPremises",
+    Name: "name",
+    TargetObjects: "targetObjects",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -9,6 +9,9 @@ import { GetByUserRoleWithRoleRequestBuilderRequestsMetadata, type GetByUserRole
 import { type VirtualEventWebinarItemRequestBuilder, VirtualEventWebinarItemRequestBuilderNavigationMetadata, VirtualEventWebinarItemRequestBuilderRequestsMetadata } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the webinars property of the microsoft.graph.virtualEventsRoot entity.
  */
@@ -77,7 +80,7 @@ export interface WebinarsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -85,7 +88,7 @@ export interface WebinarsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -93,7 +96,7 @@ export interface WebinarsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -107,6 +110,53 @@ export interface WebinarsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const WebinarsRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the webinars property of the microsoft.graph.virtualEventsRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Sessions: "sessions",
+    Registrations: "registrations",
+} as const;
+/**
+ * Provides operations to manage the webinars property of the microsoft.graph.virtualEventsRoot entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    EndDateTime: "endDateTime",
+    EndDateTimeDesc: "endDateTime desc",
+    StartDateTime: "startDateTime",
+    StartDateTimeDesc: "startDateTime desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    Audience: "audience",
+    AudienceDesc: "audience desc",
+    CoOrganizers: "coOrganizers",
+    CoOrganizersDesc: "coOrganizers desc",
+} as const;
+/**
+ * Provides operations to manage the webinars property of the microsoft.graph.virtualEventsRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    Description: "description",
+    DisplayName: "displayName",
+    EndDateTime: "endDateTime",
+    StartDateTime: "startDateTime",
+    Status: "status",
+    Audience: "audience",
+    CoOrganizers: "coOrganizers",
+    Sessions: "sessions",
+    Registrations: "registrations",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -149,7 +199,7 @@ export const WebinarsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVirtualEventWebinarCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: WebinarsRequestBuilderGetQueryParametersMapper,
     },
@@ -159,7 +209,7 @@ export const WebinarsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVirtualEventWebinarFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeVirtualEventWebinar,

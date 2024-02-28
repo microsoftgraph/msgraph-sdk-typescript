@@ -61,7 +61,7 @@ export interface AgreementAcceptancesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +69,7 @@ export interface AgreementAcceptancesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +77,7 @@ export interface AgreementAcceptancesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -87,6 +87,9 @@ export interface AgreementAcceptancesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -126,7 +129,7 @@ export const AgreementAcceptancesRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementAcceptanceCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AgreementAcceptancesRequestBuilderGetQueryParametersMapper,
     },
@@ -136,12 +139,70 @@ export const AgreementAcceptancesRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementAcceptanceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAgreementAcceptance,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the agreementAcceptances property of the microsoft.graph.termsOfUseContainer entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the agreementAcceptances property of the microsoft.graph.termsOfUseContainer entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AgreementFileId: "agreementFileId",
+    AgreementFileIdDesc: "agreementFileId desc",
+    AgreementId: "agreementId",
+    AgreementIdDesc: "agreementId desc",
+    DeviceDisplayName: "deviceDisplayName",
+    DeviceDisplayNameDesc: "deviceDisplayName desc",
+    DeviceId: "deviceId",
+    DeviceIdDesc: "deviceId desc",
+    DeviceOSType: "deviceOSType",
+    DeviceOSTypeDesc: "deviceOSType desc",
+    DeviceOSVersion: "deviceOSVersion",
+    DeviceOSVersionDesc: "deviceOSVersion desc",
+    ExpirationDateTime: "expirationDateTime",
+    ExpirationDateTimeDesc: "expirationDateTime desc",
+    RecordedDateTime: "recordedDateTime",
+    RecordedDateTimeDesc: "recordedDateTime desc",
+    State: "state",
+    StateDesc: "state desc",
+    UserDisplayName: "userDisplayName",
+    UserDisplayNameDesc: "userDisplayName desc",
+    UserEmail: "userEmail",
+    UserEmailDesc: "userEmail desc",
+    UserId: "userId",
+    UserIdDesc: "userId desc",
+    UserPrincipalName: "userPrincipalName",
+    UserPrincipalNameDesc: "userPrincipalName desc",
+} as const;
+/**
+ * Provides operations to manage the agreementAcceptances property of the microsoft.graph.termsOfUseContainer entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AgreementFileId: "agreementFileId",
+    AgreementId: "agreementId",
+    DeviceDisplayName: "deviceDisplayName",
+    DeviceId: "deviceId",
+    DeviceOSType: "deviceOSType",
+    DeviceOSVersion: "deviceOSVersion",
+    ExpirationDateTime: "expirationDateTime",
+    RecordedDateTime: "recordedDateTime",
+    State: "state",
+    UserDisplayName: "userDisplayName",
+    UserEmail: "userEmail",
+    UserId: "userId",
+    UserPrincipalName: "userPrincipalName",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

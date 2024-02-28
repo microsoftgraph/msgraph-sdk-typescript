@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { BrowserSharedCookieItemRequestBuilderRequestsMetadata, type BrowserSharedCookieItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
  */
@@ -63,7 +66,7 @@ export interface SharedCookiesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface SharedCookiesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface SharedCookiesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,61 @@ export interface SharedCookiesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SharedCookiesRequestBuilderUriTemplate = "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sharedCookies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Comment: "comment",
+    CommentDesc: "comment desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DeletedDateTime: "deletedDateTime",
+    DeletedDateTimeDesc: "deletedDateTime desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    History: "history",
+    HistoryDesc: "history desc",
+    HostOnly: "hostOnly",
+    HostOnlyDesc: "hostOnly desc",
+    HostOrDomain: "hostOrDomain",
+    HostOrDomainDesc: "hostOrDomain desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Path: "path",
+    PathDesc: "path desc",
+    SourceEnvironment: "sourceEnvironment",
+    SourceEnvironmentDesc: "sourceEnvironment desc",
+    Status: "status",
+    StatusDesc: "status desc",
+} as const;
+/**
+ * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Comment: "comment",
+    CreatedDateTime: "createdDateTime",
+    DeletedDateTime: "deletedDateTime",
+    DisplayName: "displayName",
+    History: "history",
+    HostOnly: "hostOnly",
+    HostOrDomain: "hostOrDomain",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Path: "path",
+    SourceEnvironment: "sourceEnvironment",
+    Status: "status",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +186,7 @@ export const SharedCookiesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBrowserSharedCookieCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SharedCookiesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +196,7 @@ export const SharedCookiesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBrowserSharedCookieFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBrowserSharedCookie,

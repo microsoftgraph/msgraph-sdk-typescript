@@ -8,6 +8,9 @@ import { DeltaRequestBuilderRequestsMetadata, type DeltaRequestBuilder } from '.
 import { EducationSchoolItemRequestBuilderNavigationMetadata, EducationSchoolItemRequestBuilderRequestsMetadata, type EducationSchoolItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
  */
@@ -68,7 +71,7 @@ export interface SchoolsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -76,7 +79,7 @@ export interface SchoolsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -84,7 +87,7 @@ export interface SchoolsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -98,6 +101,76 @@ export interface SchoolsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SchoolsRequestBuilderUriTemplate = "{+baseurl}/education/schools{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AdministrativeUnit: "administrativeUnit",
+    Classes: "classes",
+    Users: "users",
+} as const;
+/**
+ * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    ExternalSource: "externalSource",
+    ExternalSourceDesc: "externalSource desc",
+    ExternalSourceDetail: "externalSourceDetail",
+    ExternalSourceDetailDesc: "externalSourceDetail desc",
+    Address: "address",
+    AddressDesc: "address desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    ExternalId: "externalId",
+    ExternalIdDesc: "externalId desc",
+    ExternalPrincipalId: "externalPrincipalId",
+    ExternalPrincipalIdDesc: "externalPrincipalId desc",
+    Fax: "fax",
+    FaxDesc: "fax desc",
+    HighestGrade: "highestGrade",
+    HighestGradeDesc: "highestGrade desc",
+    LowestGrade: "lowestGrade",
+    LowestGradeDesc: "lowestGrade desc",
+    Phone: "phone",
+    PhoneDesc: "phone desc",
+    PrincipalEmail: "principalEmail",
+    PrincipalEmailDesc: "principalEmail desc",
+    PrincipalName: "principalName",
+    PrincipalNameDesc: "principalName desc",
+    SchoolNumber: "schoolNumber",
+    SchoolNumberDesc: "schoolNumber desc",
+} as const;
+/**
+ * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Description: "description",
+    DisplayName: "displayName",
+    ExternalSource: "externalSource",
+    ExternalSourceDetail: "externalSourceDetail",
+    Address: "address",
+    CreatedBy: "createdBy",
+    ExternalId: "externalId",
+    ExternalPrincipalId: "externalPrincipalId",
+    Fax: "fax",
+    HighestGrade: "highestGrade",
+    LowestGrade: "lowestGrade",
+    Phone: "phone",
+    PrincipalEmail: "principalEmail",
+    PrincipalName: "principalName",
+    SchoolNumber: "schoolNumber",
+    AdministrativeUnit: "administrativeUnit",
+    Classes: "classes",
+    Users: "users",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -137,7 +210,7 @@ export const SchoolsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationSchoolCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SchoolsRequestBuilderGetQueryParametersMapper,
     },
@@ -147,7 +220,7 @@ export const SchoolsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationSchoolFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEducationSchool,

@@ -110,7 +110,7 @@ export const CreateOrGetRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnlineMeetingFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCreateOrGetPostRequestBody,

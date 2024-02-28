@@ -67,12 +67,14 @@ export interface ContactItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -107,7 +109,7 @@ export const ContactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ContactItemRequestBuilderUriTemplate,
@@ -115,7 +117,7 @@ export const ContactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createContactFromDiscriminatorValue,
         queryParametersMapper: ContactItemRequestBuilderGetQueryParametersMapper,
     },
@@ -125,12 +127,69 @@ export const ContactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createContactFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeContact,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the contacts property of the microsoft.graph.contactFolder entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Extensions: "extensions",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    Photo: "photo",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
+/**
+ * Provides operations to manage the contacts property of the microsoft.graph.contactFolder entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Categories: "categories",
+    ChangeKey: "changeKey",
+    CreatedDateTime: "createdDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    AssistantName: "assistantName",
+    Birthday: "birthday",
+    BusinessAddress: "businessAddress",
+    BusinessHomePage: "businessHomePage",
+    BusinessPhones: "businessPhones",
+    Children: "children",
+    CompanyName: "companyName",
+    Department: "department",
+    DisplayName: "displayName",
+    EmailAddresses: "emailAddresses",
+    FileAs: "fileAs",
+    Generation: "generation",
+    GivenName: "givenName",
+    HomeAddress: "homeAddress",
+    HomePhones: "homePhones",
+    ImAddresses: "imAddresses",
+    Initials: "initials",
+    JobTitle: "jobTitle",
+    Manager: "manager",
+    MiddleName: "middleName",
+    MobilePhone: "mobilePhone",
+    NickName: "nickName",
+    OfficeLocation: "officeLocation",
+    OtherAddress: "otherAddress",
+    ParentFolderId: "parentFolderId",
+    PersonalNotes: "personalNotes",
+    Profession: "profession",
+    SpouseName: "spouseName",
+    Surname: "surname",
+    Title: "title",
+    YomiCompanyName: "yomiCompanyName",
+    YomiGivenName: "yomiGivenName",
+    YomiSurname: "yomiSurname",
+    Extensions: "extensions",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    Photo: "photo",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

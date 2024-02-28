@@ -6,6 +6,8 @@ import { createHostCookieFromDiscriminatorValue, serializeHostCookie, type HostC
 import { HostRequestBuilderRequestsMetadata, type HostRequestBuilder } from './host/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the hostCookies property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -63,16 +65,34 @@ export interface HostCookieItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const HostCookieItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostCookies/{hostCookie%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the hostCookies property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Host: "host",
+} as const;
+/**
+ * Provides operations to manage the hostCookies property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Domain: "domain",
+    FirstSeenDateTime: "firstSeenDateTime",
+    LastSeenDateTime: "lastSeenDateTime",
+    Name: "name",
+    Host: "host",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -98,7 +118,7 @@ export const HostCookieItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: HostCookieItemRequestBuilderUriTemplate,
@@ -106,7 +126,7 @@ export const HostCookieItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostCookieFromDiscriminatorValue,
         queryParametersMapper: HostCookieItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +136,7 @@ export const HostCookieItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostCookieFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeHostCookie,

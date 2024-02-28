@@ -63,7 +63,7 @@ export interface DeviceManagementPartnersRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface DeviceManagementPartnersRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface DeviceManagementPartnersRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface DeviceManagementPartnersRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -129,7 +132,7 @@ export const DeviceManagementPartnersRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceManagementPartnerCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DeviceManagementPartnersRequestBuilderGetQueryParametersMapper,
     },
@@ -139,12 +142,58 @@ export const DeviceManagementPartnersRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceManagementPartnerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceManagementPartner,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    GroupsRequiringPartnerEnrollment: "groupsRequiringPartnerEnrollment",
+    GroupsRequiringPartnerEnrollmentDesc: "groupsRequiringPartnerEnrollment desc",
+    IsConfigured: "isConfigured",
+    IsConfiguredDesc: "isConfigured desc",
+    LastHeartbeatDateTime: "lastHeartbeatDateTime",
+    LastHeartbeatDateTimeDesc: "lastHeartbeatDateTime desc",
+    PartnerAppType: "partnerAppType",
+    PartnerAppTypeDesc: "partnerAppType desc",
+    PartnerState: "partnerState",
+    PartnerStateDesc: "partnerState desc",
+    SingleTenantAppId: "singleTenantAppId",
+    SingleTenantAppIdDesc: "singleTenantAppId desc",
+    WhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime: "whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime",
+    WhenPartnerDevicesWillBeMarkedAsNonCompliantDateTimeDesc: "whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime desc",
+    WhenPartnerDevicesWillBeRemovedDateTime: "whenPartnerDevicesWillBeRemovedDateTime",
+    WhenPartnerDevicesWillBeRemovedDateTimeDesc: "whenPartnerDevicesWillBeRemovedDateTime desc",
+} as const;
+/**
+ * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DisplayName: "displayName",
+    GroupsRequiringPartnerEnrollment: "groupsRequiringPartnerEnrollment",
+    IsConfigured: "isConfigured",
+    LastHeartbeatDateTime: "lastHeartbeatDateTime",
+    PartnerAppType: "partnerAppType",
+    PartnerState: "partnerState",
+    SingleTenantAppId: "singleTenantAppId",
+    WhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime: "whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime",
+    WhenPartnerDevicesWillBeRemovedDateTime: "whenPartnerDevicesWillBeRemovedDateTime",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

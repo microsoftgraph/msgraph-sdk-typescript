@@ -165,12 +165,14 @@ export interface ApplicationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -268,7 +270,7 @@ export const ApplicationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ApplicationItemRequestBuilderUriTemplate,
@@ -276,7 +278,7 @@ export const ApplicationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createApplicationFromDiscriminatorValue,
         queryParametersMapper: ApplicationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -286,12 +288,80 @@ export const ApplicationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createApplicationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeApplication,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the collection of application entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AppManagementPolicies: "appManagementPolicies",
+    CreatedOnBehalfOf: "createdOnBehalfOf",
+    ExtensionProperties: "extensionProperties",
+    FederatedIdentityCredentials: "federatedIdentityCredentials",
+    HomeRealmDiscoveryPolicies: "homeRealmDiscoveryPolicies",
+    Owners: "owners",
+    Synchronization: "synchronization",
+    TokenIssuancePolicies: "tokenIssuancePolicies",
+    TokenLifetimePolicies: "tokenLifetimePolicies",
+} as const;
+/**
+ * Provides operations to manage the collection of application entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    AddIns: "addIns",
+    Api: "api",
+    AppId: "appId",
+    ApplicationTemplateId: "applicationTemplateId",
+    AppRoles: "appRoles",
+    Certification: "certification",
+    CreatedDateTime: "createdDateTime",
+    DefaultRedirectUri: "defaultRedirectUri",
+    Description: "description",
+    DisabledByMicrosoftStatus: "disabledByMicrosoftStatus",
+    DisplayName: "displayName",
+    GroupMembershipClaims: "groupMembershipClaims",
+    IdentifierUris: "identifierUris",
+    Info: "info",
+    IsDeviceOnlyAuthSupported: "isDeviceOnlyAuthSupported",
+    IsFallbackPublicClient: "isFallbackPublicClient",
+    KeyCredentials: "keyCredentials",
+    Logo: "logo",
+    Notes: "notes",
+    Oauth2RequirePostResponse: "oauth2RequirePostResponse",
+    OptionalClaims: "optionalClaims",
+    ParentalControlSettings: "parentalControlSettings",
+    PasswordCredentials: "passwordCredentials",
+    PublicClient: "publicClient",
+    PublisherDomain: "publisherDomain",
+    RequestSignatureVerification: "requestSignatureVerification",
+    RequiredResourceAccess: "requiredResourceAccess",
+    SamlMetadataUrl: "samlMetadataUrl",
+    ServiceManagementReference: "serviceManagementReference",
+    ServicePrincipalLockConfiguration: "servicePrincipalLockConfiguration",
+    SignInAudience: "signInAudience",
+    Spa: "spa",
+    Tags: "tags",
+    TokenEncryptionKeyId: "tokenEncryptionKeyId",
+    UniqueName: "uniqueName",
+    VerifiedPublisher: "verifiedPublisher",
+    Web: "web",
+    AppManagementPolicies: "appManagementPolicies",
+    CreatedOnBehalfOf: "createdOnBehalfOf",
+    ExtensionProperties: "extensionProperties",
+    FederatedIdentityCredentials: "federatedIdentityCredentials",
+    HomeRealmDiscoveryPolicies: "homeRealmDiscoveryPolicies",
+    Owners: "owners",
+    Synchronization: "synchronization",
+    TokenIssuancePolicies: "tokenIssuancePolicies",
+    TokenLifetimePolicies: "tokenLifetimePolicies",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

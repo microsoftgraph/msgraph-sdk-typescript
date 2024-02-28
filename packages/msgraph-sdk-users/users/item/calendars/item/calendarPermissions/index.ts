@@ -67,11 +67,11 @@ export interface CalendarPermissionsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -81,6 +81,8 @@ export interface CalendarPermissionsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -118,7 +120,7 @@ export const CalendarPermissionsRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCalendarPermissionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: CalendarPermissionsRequestBuilderGetQueryParametersMapper,
     },
@@ -128,12 +130,40 @@ export const CalendarPermissionsRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCalendarPermissionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCalendarPermission,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AllowedRoles: "allowedRoles",
+    AllowedRolesDesc: "allowedRoles desc",
+    EmailAddress: "emailAddress",
+    EmailAddressDesc: "emailAddress desc",
+    IsInsideOrganization: "isInsideOrganization",
+    IsInsideOrganizationDesc: "isInsideOrganization desc",
+    IsRemovable: "isRemovable",
+    IsRemovableDesc: "isRemovable desc",
+    Role: "role",
+    RoleDesc: "role desc",
+} as const;
+/**
+ * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AllowedRoles: "allowedRoles",
+    EmailAddress: "emailAddress",
+    IsInsideOrganization: "isInsideOrganization",
+    IsRemovable: "isRemovable",
+    Role: "role",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

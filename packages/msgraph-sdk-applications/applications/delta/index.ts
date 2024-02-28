@@ -48,7 +48,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -56,7 +56,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -64,7 +64,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -84,6 +84,9 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaG
         "value": n => { deltaGetResponse.value = n.getCollectionOfObjectValues<Application>(createApplicationFromDiscriminatorValue); },
     }
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -119,10 +122,161 @@ export const DeltaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeltaGetResponseFromDiscriminatorValue,
         queryParametersMapper: DeltaRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AppManagementPolicies: "appManagementPolicies",
+    CreatedOnBehalfOf: "createdOnBehalfOf",
+    ExtensionProperties: "extensionProperties",
+    FederatedIdentityCredentials: "federatedIdentityCredentials",
+    HomeRealmDiscoveryPolicies: "homeRealmDiscoveryPolicies",
+    Owners: "owners",
+    Synchronization: "synchronization",
+    TokenIssuancePolicies: "tokenIssuancePolicies",
+    TokenLifetimePolicies: "tokenLifetimePolicies",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DeletedDateTime: "deletedDateTime",
+    DeletedDateTimeDesc: "deletedDateTime desc",
+    AddIns: "addIns",
+    AddInsDesc: "addIns desc",
+    Api: "api",
+    ApiDesc: "api desc",
+    AppId: "appId",
+    AppIdDesc: "appId desc",
+    ApplicationTemplateId: "applicationTemplateId",
+    ApplicationTemplateIdDesc: "applicationTemplateId desc",
+    AppRoles: "appRoles",
+    AppRolesDesc: "appRoles desc",
+    Certification: "certification",
+    CertificationDesc: "certification desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DefaultRedirectUri: "defaultRedirectUri",
+    DefaultRedirectUriDesc: "defaultRedirectUri desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisabledByMicrosoftStatus: "disabledByMicrosoftStatus",
+    DisabledByMicrosoftStatusDesc: "disabledByMicrosoftStatus desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    GroupMembershipClaims: "groupMembershipClaims",
+    GroupMembershipClaimsDesc: "groupMembershipClaims desc",
+    IdentifierUris: "identifierUris",
+    IdentifierUrisDesc: "identifierUris desc",
+    Info: "info",
+    InfoDesc: "info desc",
+    IsDeviceOnlyAuthSupported: "isDeviceOnlyAuthSupported",
+    IsDeviceOnlyAuthSupportedDesc: "isDeviceOnlyAuthSupported desc",
+    IsFallbackPublicClient: "isFallbackPublicClient",
+    IsFallbackPublicClientDesc: "isFallbackPublicClient desc",
+    KeyCredentials: "keyCredentials",
+    KeyCredentialsDesc: "keyCredentials desc",
+    Logo: "logo",
+    LogoDesc: "logo desc",
+    Notes: "notes",
+    NotesDesc: "notes desc",
+    Oauth2RequirePostResponse: "oauth2RequirePostResponse",
+    Oauth2RequirePostResponseDesc: "oauth2RequirePostResponse desc",
+    OptionalClaims: "optionalClaims",
+    OptionalClaimsDesc: "optionalClaims desc",
+    ParentalControlSettings: "parentalControlSettings",
+    ParentalControlSettingsDesc: "parentalControlSettings desc",
+    PasswordCredentials: "passwordCredentials",
+    PasswordCredentialsDesc: "passwordCredentials desc",
+    PublicClient: "publicClient",
+    PublicClientDesc: "publicClient desc",
+    PublisherDomain: "publisherDomain",
+    PublisherDomainDesc: "publisherDomain desc",
+    RequestSignatureVerification: "requestSignatureVerification",
+    RequestSignatureVerificationDesc: "requestSignatureVerification desc",
+    RequiredResourceAccess: "requiredResourceAccess",
+    RequiredResourceAccessDesc: "requiredResourceAccess desc",
+    SamlMetadataUrl: "samlMetadataUrl",
+    SamlMetadataUrlDesc: "samlMetadataUrl desc",
+    ServiceManagementReference: "serviceManagementReference",
+    ServiceManagementReferenceDesc: "serviceManagementReference desc",
+    ServicePrincipalLockConfiguration: "servicePrincipalLockConfiguration",
+    ServicePrincipalLockConfigurationDesc: "servicePrincipalLockConfiguration desc",
+    SignInAudience: "signInAudience",
+    SignInAudienceDesc: "signInAudience desc",
+    Spa: "spa",
+    SpaDesc: "spa desc",
+    Tags: "tags",
+    TagsDesc: "tags desc",
+    TokenEncryptionKeyId: "tokenEncryptionKeyId",
+    TokenEncryptionKeyIdDesc: "tokenEncryptionKeyId desc",
+    UniqueName: "uniqueName",
+    UniqueNameDesc: "uniqueName desc",
+    VerifiedPublisher: "verifiedPublisher",
+    VerifiedPublisherDesc: "verifiedPublisher desc",
+    Web: "web",
+    WebDesc: "web desc",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    AddIns: "addIns",
+    Api: "api",
+    AppId: "appId",
+    ApplicationTemplateId: "applicationTemplateId",
+    AppRoles: "appRoles",
+    Certification: "certification",
+    CreatedDateTime: "createdDateTime",
+    DefaultRedirectUri: "defaultRedirectUri",
+    Description: "description",
+    DisabledByMicrosoftStatus: "disabledByMicrosoftStatus",
+    DisplayName: "displayName",
+    GroupMembershipClaims: "groupMembershipClaims",
+    IdentifierUris: "identifierUris",
+    Info: "info",
+    IsDeviceOnlyAuthSupported: "isDeviceOnlyAuthSupported",
+    IsFallbackPublicClient: "isFallbackPublicClient",
+    KeyCredentials: "keyCredentials",
+    Logo: "logo",
+    Notes: "notes",
+    Oauth2RequirePostResponse: "oauth2RequirePostResponse",
+    OptionalClaims: "optionalClaims",
+    ParentalControlSettings: "parentalControlSettings",
+    PasswordCredentials: "passwordCredentials",
+    PublicClient: "publicClient",
+    PublisherDomain: "publisherDomain",
+    RequestSignatureVerification: "requestSignatureVerification",
+    RequiredResourceAccess: "requiredResourceAccess",
+    SamlMetadataUrl: "samlMetadataUrl",
+    ServiceManagementReference: "serviceManagementReference",
+    ServicePrincipalLockConfiguration: "servicePrincipalLockConfiguration",
+    SignInAudience: "signInAudience",
+    Spa: "spa",
+    Tags: "tags",
+    TokenEncryptionKeyId: "tokenEncryptionKeyId",
+    UniqueName: "uniqueName",
+    VerifiedPublisher: "verifiedPublisher",
+    Web: "web",
+    AppManagementPolicies: "appManagementPolicies",
+    CreatedOnBehalfOf: "createdOnBehalfOf",
+    ExtensionProperties: "extensionProperties",
+    FederatedIdentityCredentials: "federatedIdentityCredentials",
+    HomeRealmDiscoveryPolicies: "homeRealmDiscoveryPolicies",
+    Owners: "owners",
+    Synchronization: "synchronization",
+    TokenIssuancePolicies: "tokenIssuancePolicies",
+    TokenLifetimePolicies: "tokenLifetimePolicies",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

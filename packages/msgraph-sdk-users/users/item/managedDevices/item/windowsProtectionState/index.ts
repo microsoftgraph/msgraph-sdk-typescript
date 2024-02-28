@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { DetectedMalwareStateRequestBuilderNavigationMetadata, DetectedMalwareStateRequestBuilderRequestsMetadata, type DetectedMalwareStateRequestBuilder } from './detectedMalwareState/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the windowsProtectionState property of the microsoft.graph.managedDevice entity.
  */
@@ -64,16 +66,50 @@ export interface WindowsProtectionStateRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const WindowsProtectionStateRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/windowsProtectionState{?%24expand,%24select}";
+/**
+ * Provides operations to manage the windowsProtectionState property of the microsoft.graph.managedDevice entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    DetectedMalwareState: "detectedMalwareState",
+} as const;
+/**
+ * Provides operations to manage the windowsProtectionState property of the microsoft.graph.managedDevice entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AntiMalwareVersion: "antiMalwareVersion",
+    DeviceState: "deviceState",
+    EngineVersion: "engineVersion",
+    FullScanOverdue: "fullScanOverdue",
+    FullScanRequired: "fullScanRequired",
+    IsVirtualMachine: "isVirtualMachine",
+    LastFullScanDateTime: "lastFullScanDateTime",
+    LastFullScanSignatureVersion: "lastFullScanSignatureVersion",
+    LastQuickScanDateTime: "lastQuickScanDateTime",
+    LastQuickScanSignatureVersion: "lastQuickScanSignatureVersion",
+    LastReportedDateTime: "lastReportedDateTime",
+    MalwareProtectionEnabled: "malwareProtectionEnabled",
+    NetworkInspectionSystemEnabled: "networkInspectionSystemEnabled",
+    ProductStatus: "productStatus",
+    QuickScanOverdue: "quickScanOverdue",
+    RealTimeProtectionEnabled: "realTimeProtectionEnabled",
+    RebootRequired: "rebootRequired",
+    SignatureUpdateOverdue: "signatureUpdateOverdue",
+    SignatureVersion: "signatureVersion",
+    TamperProtectionEnabled: "tamperProtectionEnabled",
+    DetectedMalwareState: "detectedMalwareState",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -100,7 +136,7 @@ export const WindowsProtectionStateRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: WindowsProtectionStateRequestBuilderUriTemplate,
@@ -108,7 +144,7 @@ export const WindowsProtectionStateRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsProtectionStateFromDiscriminatorValue,
         queryParametersMapper: WindowsProtectionStateRequestBuilderGetQueryParametersMapper,
     },
@@ -118,7 +154,7 @@ export const WindowsProtectionStateRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsProtectionStateFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWindowsProtectionState,

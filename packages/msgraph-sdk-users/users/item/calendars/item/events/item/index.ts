@@ -113,12 +113,14 @@ export interface EventItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -181,7 +183,7 @@ export const EventItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: EventItemRequestBuilderUriTemplate,
@@ -189,7 +191,7 @@ export const EventItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEventFromDiscriminatorValue,
         queryParametersMapper: EventItemRequestBuilderGetQueryParametersMapper,
     },
@@ -199,12 +201,76 @@ export const EventItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEventFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEvent,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the events property of the microsoft.graph.calendar entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Attachments: "attachments",
+    Calendar: "calendar",
+    Extensions: "extensions",
+    Instances: "instances",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
+/**
+ * Provides operations to manage the events property of the microsoft.graph.calendar entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Categories: "categories",
+    ChangeKey: "changeKey",
+    CreatedDateTime: "createdDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    AllowNewTimeProposals: "allowNewTimeProposals",
+    Attendees: "attendees",
+    Body: "body",
+    BodyPreview: "bodyPreview",
+    End: "end",
+    HasAttachments: "hasAttachments",
+    HideAttendees: "hideAttendees",
+    ICalUId: "iCalUId",
+    Importance: "importance",
+    IsAllDay: "isAllDay",
+    IsCancelled: "isCancelled",
+    IsDraft: "isDraft",
+    IsOnlineMeeting: "isOnlineMeeting",
+    IsOrganizer: "isOrganizer",
+    IsReminderOn: "isReminderOn",
+    Location: "location",
+    Locations: "locations",
+    OnlineMeeting: "onlineMeeting",
+    OnlineMeetingProvider: "onlineMeetingProvider",
+    OnlineMeetingUrl: "onlineMeetingUrl",
+    Organizer: "organizer",
+    OriginalEndTimeZone: "originalEndTimeZone",
+    OriginalStart: "originalStart",
+    OriginalStartTimeZone: "originalStartTimeZone",
+    Recurrence: "recurrence",
+    ReminderMinutesBeforeStart: "reminderMinutesBeforeStart",
+    ResponseRequested: "responseRequested",
+    ResponseStatus: "responseStatus",
+    Sensitivity: "sensitivity",
+    SeriesMasterId: "seriesMasterId",
+    ShowAs: "showAs",
+    Start: "start",
+    Subject: "subject",
+    TransactionId: "transactionId",
+    Type: "type",
+    WebLink: "webLink",
+    Attachments: "attachments",
+    Calendar: "calendar",
+    Extensions: "extensions",
+    Instances: "instances",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

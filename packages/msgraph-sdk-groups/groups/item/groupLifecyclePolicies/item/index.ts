@@ -7,6 +7,8 @@ import { AddGroupRequestBuilderRequestsMetadata, type AddGroupRequestBuilder } f
 import { RemoveGroupRequestBuilderRequestsMetadata, type RemoveGroupRequestBuilder } from './removeGroup/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.
  */
@@ -67,16 +69,31 @@ export interface GroupLifecyclePolicyItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const GroupLifecyclePolicyItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/groupLifecyclePolicies/{groupLifecyclePolicy%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AlternateNotificationEmails: "alternateNotificationEmails",
+    GroupLifetimeInDays: "groupLifetimeInDays",
+    ManagedGroupTypes: "managedGroupTypes",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +122,7 @@ export const GroupLifecyclePolicyItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: GroupLifecyclePolicyItemRequestBuilderUriTemplate,
@@ -113,7 +130,7 @@ export const GroupLifecyclePolicyItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGroupLifecyclePolicyFromDiscriminatorValue,
         queryParametersMapper: GroupLifecyclePolicyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -123,7 +140,7 @@ export const GroupLifecyclePolicyItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGroupLifecyclePolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGroupLifecyclePolicy,

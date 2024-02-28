@@ -5,6 +5,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { createHostComponentFromDiscriminatorValue, type HostComponent } from '@microsoft/msgraph-sdk/models/security/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the components property of the microsoft.graph.security.host entity.
  */
@@ -30,16 +32,35 @@ export interface HostComponentItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const HostComponentItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/components/{hostComponent%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the components property of the microsoft.graph.security.host entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Host: "host",
+} as const;
+/**
+ * Provides operations to manage the components property of the microsoft.graph.security.host entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Category: "category",
+    FirstSeenDateTime: "firstSeenDateTime",
+    LastSeenDateTime: "lastSeenDateTime",
+    Name: "name",
+    Version: "version",
+    Host: "host",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +78,7 @@ export const HostComponentItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostComponentFromDiscriminatorValue,
         queryParametersMapper: HostComponentItemRequestBuilderGetQueryParametersMapper,
     },

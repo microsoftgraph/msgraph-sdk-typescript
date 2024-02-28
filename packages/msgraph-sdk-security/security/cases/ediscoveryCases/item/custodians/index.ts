@@ -73,7 +73,7 @@ export interface CustodiansRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -81,7 +81,7 @@ export interface CustodiansRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -89,7 +89,7 @@ export interface CustodiansRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -99,6 +99,9 @@ export interface CustodiansRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -145,7 +148,7 @@ export const CustodiansRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryCustodianCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: CustodiansRequestBuilderGetQueryParametersMapper,
     },
@@ -155,12 +158,63 @@ export const CustodiansRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryCustodianFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEdiscoveryCustodian,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    LastIndexOperation: "lastIndexOperation",
+    SiteSources: "siteSources",
+    UnifiedGroupSources: "unifiedGroupSources",
+    UserSources: "userSources",
+} as const;
+/**
+ * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    HoldStatus: "holdStatus",
+    HoldStatusDesc: "holdStatus desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    ReleasedDateTime: "releasedDateTime",
+    ReleasedDateTimeDesc: "releasedDateTime desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    AcknowledgedDateTime: "acknowledgedDateTime",
+    AcknowledgedDateTimeDesc: "acknowledgedDateTime desc",
+    Email: "email",
+    EmailDesc: "email desc",
+} as const;
+/**
+ * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    DisplayName: "displayName",
+    HoldStatus: "holdStatus",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    ReleasedDateTime: "releasedDateTime",
+    Status: "status",
+    AcknowledgedDateTime: "acknowledgedDateTime",
+    Email: "email",
+    LastIndexOperation: "lastIndexOperation",
+    SiteSources: "siteSources",
+    UnifiedGroupSources: "unifiedGroupSources",
+    UserSources: "userSources",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

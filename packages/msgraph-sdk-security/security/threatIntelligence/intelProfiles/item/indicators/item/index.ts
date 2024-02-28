@@ -5,6 +5,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { createIntelligenceProfileIndicatorFromDiscriminatorValue, type IntelligenceProfileIndicator } from '@microsoft/msgraph-sdk/models/security/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the indicators property of the microsoft.graph.security.intelligenceProfile entity.
  */
@@ -30,16 +32,33 @@ export interface IntelligenceProfileIndicatorItemRequestBuilderGetQueryParameter
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const IntelligenceProfileIndicatorItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/intelProfiles/{intelligenceProfile%2Did}/indicators/{intelligenceProfileIndicator%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the indicators property of the microsoft.graph.security.intelligenceProfile entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Artifact: "artifact",
+} as const;
+/**
+ * Provides operations to manage the indicators property of the microsoft.graph.security.intelligenceProfile entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Source: "source",
+    FirstSeenDateTime: "firstSeenDateTime",
+    LastSeenDateTime: "lastSeenDateTime",
+    Artifact: "artifact",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +76,7 @@ export const IntelligenceProfileIndicatorItemRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIntelligenceProfileIndicatorFromDiscriminatorValue,
         queryParametersMapper: IntelligenceProfileIndicatorItemRequestBuilderGetQueryParametersMapper,
     },

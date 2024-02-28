@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { ActivitiesRequestBuilderNavigationMetadata, ActivitiesRequestBuilderRequestsMetadata, type ActivitiesRequestBuilder } from './activities/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
  */
@@ -62,16 +64,39 @@ export interface ItemActivityStatItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const ItemActivityStatItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/analytics/itemActivityStats/{itemActivityStat%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Activities: "activities",
+} as const;
+/**
+ * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Access: "access",
+    Create: "create",
+    Delete: "delete",
+    Edit: "edit",
+    EndDateTime: "endDateTime",
+    IncompleteData: "incompleteData",
+    IsTrending: "isTrending",
+    Move: "move",
+    StartDateTime: "startDateTime",
+    Activities: "activities",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -98,7 +123,7 @@ export const ItemActivityStatItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ItemActivityStatItemRequestBuilderUriTemplate,
@@ -106,7 +131,7 @@ export const ItemActivityStatItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createItemActivityStatFromDiscriminatorValue,
         queryParametersMapper: ItemActivityStatItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +141,7 @@ export const ItemActivityStatItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createItemActivityStatFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeItemActivityStat,

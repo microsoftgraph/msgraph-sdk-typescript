@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderNavigationMetadata, CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderRequestsMetadata, type CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
  */
@@ -63,7 +66,7 @@ export interface PartnersRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface PartnersRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface PartnersRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,48 @@ export interface PartnersRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const PartnersRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/partners{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    IdentitySynchronization: "identitySynchronization",
+} as const;
+/**
+ * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    AutomaticUserConsentSettings: "automaticUserConsentSettings",
+    AutomaticUserConsentSettingsDesc: "automaticUserConsentSettings desc",
+    B2bCollaborationInbound: "b2bCollaborationInbound",
+    B2bCollaborationInboundDesc: "b2bCollaborationInbound desc",
+    B2bCollaborationOutbound: "b2bCollaborationOutbound",
+    B2bCollaborationOutboundDesc: "b2bCollaborationOutbound desc",
+    B2bDirectConnectInbound: "b2bDirectConnectInbound",
+    B2bDirectConnectInboundDesc: "b2bDirectConnectInbound desc",
+    B2bDirectConnectOutbound: "b2bDirectConnectOutbound",
+    B2bDirectConnectOutboundDesc: "b2bDirectConnectOutbound desc",
+    InboundTrust: "inboundTrust",
+    InboundTrustDesc: "inboundTrust desc",
+    IsServiceProvider: "isServiceProvider",
+    IsServiceProviderDesc: "isServiceProvider desc",
+    TenantId: "tenantId",
+    TenantIdDesc: "tenantId desc",
+} as const;
+/**
+ * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    AutomaticUserConsentSettings: "automaticUserConsentSettings",
+    B2bCollaborationInbound: "b2bCollaborationInbound",
+    B2bCollaborationOutbound: "b2bCollaborationOutbound",
+    B2bDirectConnectInbound: "b2bDirectConnectInbound",
+    B2bDirectConnectOutbound: "b2bDirectConnectOutbound",
+    InboundTrust: "inboundTrust",
+    IsServiceProvider: "isServiceProvider",
+    TenantId: "tenantId",
+    IdentitySynchronization: "identitySynchronization",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +174,7 @@ export const PartnersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCrossTenantAccessPolicyConfigurationPartnerCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: PartnersRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +184,7 @@ export const PartnersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCrossTenantAccessPolicyConfigurationPartner,

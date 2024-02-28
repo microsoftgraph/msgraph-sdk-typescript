@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { SubscriptionItemRequestBuilderNavigationMetadata, SubscriptionItemRequestBuilderRequestsMetadata, type SubscriptionItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the subscriptions property of the microsoft.graph.list entity.
  */
@@ -61,7 +64,7 @@ export interface SubscriptionsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface SubscriptionsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface SubscriptionsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,67 @@ export interface SubscriptionsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SubscriptionsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/subscriptions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the subscriptions property of the microsoft.graph.list entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the subscriptions property of the microsoft.graph.list entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ApplicationId: "applicationId",
+    ApplicationIdDesc: "applicationId desc",
+    ChangeType: "changeType",
+    ChangeTypeDesc: "changeType desc",
+    ClientState: "clientState",
+    ClientStateDesc: "clientState desc",
+    CreatorId: "creatorId",
+    CreatorIdDesc: "creatorId desc",
+    EncryptionCertificate: "encryptionCertificate",
+    EncryptionCertificateDesc: "encryptionCertificate desc",
+    EncryptionCertificateId: "encryptionCertificateId",
+    EncryptionCertificateIdDesc: "encryptionCertificateId desc",
+    ExpirationDateTime: "expirationDateTime",
+    ExpirationDateTimeDesc: "expirationDateTime desc",
+    IncludeResourceData: "includeResourceData",
+    IncludeResourceDataDesc: "includeResourceData desc",
+    LatestSupportedTlsVersion: "latestSupportedTlsVersion",
+    LatestSupportedTlsVersionDesc: "latestSupportedTlsVersion desc",
+    LifecycleNotificationUrl: "lifecycleNotificationUrl",
+    LifecycleNotificationUrlDesc: "lifecycleNotificationUrl desc",
+    NotificationQueryOptions: "notificationQueryOptions",
+    NotificationQueryOptionsDesc: "notificationQueryOptions desc",
+    NotificationUrl: "notificationUrl",
+    NotificationUrlDesc: "notificationUrl desc",
+    NotificationUrlAppId: "notificationUrlAppId",
+    NotificationUrlAppIdDesc: "notificationUrlAppId desc",
+    Resource: "resource",
+    ResourceDesc: "resource desc",
+} as const;
+/**
+ * Provides operations to manage the subscriptions property of the microsoft.graph.list entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ApplicationId: "applicationId",
+    ChangeType: "changeType",
+    ClientState: "clientState",
+    CreatorId: "creatorId",
+    EncryptionCertificate: "encryptionCertificate",
+    EncryptionCertificateId: "encryptionCertificateId",
+    ExpirationDateTime: "expirationDateTime",
+    IncludeResourceData: "includeResourceData",
+    LatestSupportedTlsVersion: "latestSupportedTlsVersion",
+    LifecycleNotificationUrl: "lifecycleNotificationUrl",
+    NotificationQueryOptions: "notificationQueryOptions",
+    NotificationUrl: "notificationUrl",
+    NotificationUrlAppId: "notificationUrlAppId",
+    Resource: "resource",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +191,7 @@ export const SubscriptionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubscriptionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SubscriptionsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +201,7 @@ export const SubscriptionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubscriptionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSubscription,

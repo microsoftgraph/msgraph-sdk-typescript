@@ -47,7 +47,7 @@ export interface Fido2MethodsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -55,7 +55,7 @@ export interface Fido2MethodsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -63,7 +63,7 @@ export interface Fido2MethodsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -73,6 +73,9 @@ export interface Fido2MethodsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -112,10 +115,47 @@ export const Fido2MethodsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: Fido2MethodsRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AaGuid: "aaGuid",
+    AaGuidDesc: "aaGuid desc",
+    AttestationCertificates: "attestationCertificates",
+    AttestationCertificatesDesc: "attestationCertificates desc",
+    AttestationLevel: "attestationLevel",
+    AttestationLevelDesc: "attestationLevel desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    Model: "model",
+    ModelDesc: "model desc",
+} as const;
+/**
+ * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AaGuid: "aaGuid",
+    AttestationCertificates: "attestationCertificates",
+    AttestationLevel: "attestationLevel",
+    CreatedDateTime: "createdDateTime",
+    DisplayName: "displayName",
+    Model: "model",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { MobileThreatDefenseConnectorItemRequestBuilderRequestsMetadata, type MobileThreatDefenseConnectorItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
  */
@@ -63,7 +66,7 @@ export interface MobileThreatDefenseConnectorsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface MobileThreatDefenseConnectorsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface MobileThreatDefenseConnectorsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,70 @@ export interface MobileThreatDefenseConnectorsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const MobileThreatDefenseConnectorsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/mobileThreatDefenseConnectors{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AllowPartnerToCollectIOSApplicationMetadata: "allowPartnerToCollectIOSApplicationMetadata",
+    AllowPartnerToCollectIOSApplicationMetadataDesc: "allowPartnerToCollectIOSApplicationMetadata desc",
+    AllowPartnerToCollectIOSPersonalApplicationMetadata: "allowPartnerToCollectIOSPersonalApplicationMetadata",
+    AllowPartnerToCollectIOSPersonalApplicationMetadataDesc: "allowPartnerToCollectIOSPersonalApplicationMetadata desc",
+    AndroidDeviceBlockedOnMissingPartnerData: "androidDeviceBlockedOnMissingPartnerData",
+    AndroidDeviceBlockedOnMissingPartnerDataDesc: "androidDeviceBlockedOnMissingPartnerData desc",
+    AndroidEnabled: "androidEnabled",
+    AndroidEnabledDesc: "androidEnabled desc",
+    AndroidMobileApplicationManagementEnabled: "androidMobileApplicationManagementEnabled",
+    AndroidMobileApplicationManagementEnabledDesc: "androidMobileApplicationManagementEnabled desc",
+    IosDeviceBlockedOnMissingPartnerData: "iosDeviceBlockedOnMissingPartnerData",
+    IosDeviceBlockedOnMissingPartnerDataDesc: "iosDeviceBlockedOnMissingPartnerData desc",
+    IosEnabled: "iosEnabled",
+    IosEnabledDesc: "iosEnabled desc",
+    IosMobileApplicationManagementEnabled: "iosMobileApplicationManagementEnabled",
+    IosMobileApplicationManagementEnabledDesc: "iosMobileApplicationManagementEnabled desc",
+    LastHeartbeatDateTime: "lastHeartbeatDateTime",
+    LastHeartbeatDateTimeDesc: "lastHeartbeatDateTime desc",
+    MicrosoftDefenderForEndpointAttachEnabled: "microsoftDefenderForEndpointAttachEnabled",
+    MicrosoftDefenderForEndpointAttachEnabledDesc: "microsoftDefenderForEndpointAttachEnabled desc",
+    PartnerState: "partnerState",
+    PartnerStateDesc: "partnerState desc",
+    PartnerUnresponsivenessThresholdInDays: "partnerUnresponsivenessThresholdInDays",
+    PartnerUnresponsivenessThresholdInDaysDesc: "partnerUnresponsivenessThresholdInDays desc",
+    PartnerUnsupportedOsVersionBlocked: "partnerUnsupportedOsVersionBlocked",
+    PartnerUnsupportedOsVersionBlockedDesc: "partnerUnsupportedOsVersionBlocked desc",
+    WindowsDeviceBlockedOnMissingPartnerData: "windowsDeviceBlockedOnMissingPartnerData",
+    WindowsDeviceBlockedOnMissingPartnerDataDesc: "windowsDeviceBlockedOnMissingPartnerData desc",
+    WindowsEnabled: "windowsEnabled",
+    WindowsEnabledDesc: "windowsEnabled desc",
+} as const;
+/**
+ * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AllowPartnerToCollectIOSApplicationMetadata: "allowPartnerToCollectIOSApplicationMetadata",
+    AllowPartnerToCollectIOSPersonalApplicationMetadata: "allowPartnerToCollectIOSPersonalApplicationMetadata",
+    AndroidDeviceBlockedOnMissingPartnerData: "androidDeviceBlockedOnMissingPartnerData",
+    AndroidEnabled: "androidEnabled",
+    AndroidMobileApplicationManagementEnabled: "androidMobileApplicationManagementEnabled",
+    IosDeviceBlockedOnMissingPartnerData: "iosDeviceBlockedOnMissingPartnerData",
+    IosEnabled: "iosEnabled",
+    IosMobileApplicationManagementEnabled: "iosMobileApplicationManagementEnabled",
+    LastHeartbeatDateTime: "lastHeartbeatDateTime",
+    MicrosoftDefenderForEndpointAttachEnabled: "microsoftDefenderForEndpointAttachEnabled",
+    PartnerState: "partnerState",
+    PartnerUnresponsivenessThresholdInDays: "partnerUnresponsivenessThresholdInDays",
+    PartnerUnsupportedOsVersionBlocked: "partnerUnsupportedOsVersionBlocked",
+    WindowsDeviceBlockedOnMissingPartnerData: "windowsDeviceBlockedOnMissingPartnerData",
+    WindowsEnabled: "windowsEnabled",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +195,7 @@ export const MobileThreatDefenseConnectorsRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileThreatDefenseConnectorCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MobileThreatDefenseConnectorsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +205,7 @@ export const MobileThreatDefenseConnectorsRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileThreatDefenseConnectorFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMobileThreatDefenseConnector,

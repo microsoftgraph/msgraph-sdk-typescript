@@ -9,6 +9,9 @@ import { type WorkbookTableItemRequestBuilder, WorkbookTableItemRequestBuilderNa
 import { ItemAtWithIndexRequestBuilderNavigationMetadata, ItemAtWithIndexRequestBuilderRequestsMetadata, type ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.
  */
@@ -74,7 +77,7 @@ export interface TablesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -82,7 +85,7 @@ export interface TablesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -90,7 +93,7 @@ export interface TablesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -104,6 +107,63 @@ export interface TablesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const TablesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/tables{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Columns: "columns",
+    Rows: "rows",
+    Sort: "sort",
+    Worksheet: "worksheet",
+} as const;
+/**
+ * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    HighlightFirstColumn: "highlightFirstColumn",
+    HighlightFirstColumnDesc: "highlightFirstColumn desc",
+    HighlightLastColumn: "highlightLastColumn",
+    HighlightLastColumnDesc: "highlightLastColumn desc",
+    LegacyId: "legacyId",
+    LegacyIdDesc: "legacyId desc",
+    Name: "name",
+    NameDesc: "name desc",
+    ShowBandedColumns: "showBandedColumns",
+    ShowBandedColumnsDesc: "showBandedColumns desc",
+    ShowBandedRows: "showBandedRows",
+    ShowBandedRowsDesc: "showBandedRows desc",
+    ShowFilterButton: "showFilterButton",
+    ShowFilterButtonDesc: "showFilterButton desc",
+    ShowHeaders: "showHeaders",
+    ShowHeadersDesc: "showHeaders desc",
+    ShowTotals: "showTotals",
+    ShowTotalsDesc: "showTotals desc",
+    Style: "style",
+    StyleDesc: "style desc",
+} as const;
+/**
+ * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    HighlightFirstColumn: "highlightFirstColumn",
+    HighlightLastColumn: "highlightLastColumn",
+    LegacyId: "legacyId",
+    Name: "name",
+    ShowBandedColumns: "showBandedColumns",
+    ShowBandedRows: "showBandedRows",
+    ShowFilterButton: "showFilterButton",
+    ShowHeaders: "showHeaders",
+    ShowTotals: "showTotals",
+    Style: "style",
+    Columns: "columns",
+    Rows: "rows",
+    Sort: "sort",
+    Worksheet: "worksheet",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -147,7 +207,7 @@ export const TablesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookTableCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TablesRequestBuilderGetQueryParametersMapper,
     },
@@ -157,7 +217,7 @@ export const TablesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookTableFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbookTable,

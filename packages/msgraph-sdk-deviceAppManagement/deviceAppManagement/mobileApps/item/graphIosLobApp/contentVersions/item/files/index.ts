@@ -61,7 +61,7 @@ export interface FilesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +69,7 @@ export interface FilesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +77,7 @@ export interface FilesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -87,6 +87,9 @@ export interface FilesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -127,7 +130,7 @@ export const FilesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppContentFileCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: FilesRequestBuilderGetQueryParametersMapper,
     },
@@ -137,12 +140,58 @@ export const FilesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppContentFileFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMobileAppContentFile,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the files property of the microsoft.graph.mobileAppContent entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the files property of the microsoft.graph.mobileAppContent entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AzureStorageUri: "azureStorageUri",
+    AzureStorageUriDesc: "azureStorageUri desc",
+    AzureStorageUriExpirationDateTime: "azureStorageUriExpirationDateTime",
+    AzureStorageUriExpirationDateTimeDesc: "azureStorageUriExpirationDateTime desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    IsCommitted: "isCommitted",
+    IsCommittedDesc: "isCommitted desc",
+    Manifest: "manifest",
+    ManifestDesc: "manifest desc",
+    Name: "name",
+    NameDesc: "name desc",
+    Size: "size",
+    SizeDesc: "size desc",
+    SizeEncrypted: "sizeEncrypted",
+    SizeEncryptedDesc: "sizeEncrypted desc",
+    UploadState: "uploadState",
+    UploadStateDesc: "uploadState desc",
+} as const;
+/**
+ * Provides operations to manage the files property of the microsoft.graph.mobileAppContent entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AzureStorageUri: "azureStorageUri",
+    AzureStorageUriExpirationDateTime: "azureStorageUriExpirationDateTime",
+    CreatedDateTime: "createdDateTime",
+    IsCommitted: "isCommitted",
+    Manifest: "manifest",
+    Name: "name",
+    Size: "size",
+    SizeEncrypted: "sizeEncrypted",
+    UploadState: "uploadState",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

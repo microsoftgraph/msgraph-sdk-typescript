@@ -50,12 +50,14 @@ export interface AuthenticationMethodsPolicyRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -86,7 +88,7 @@ export const AuthenticationMethodsPolicyRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthenticationMethodsPolicyFromDiscriminatorValue,
         queryParametersMapper: AuthenticationMethodsPolicyRequestBuilderGetQueryParametersMapper,
     },
@@ -96,12 +98,33 @@ export const AuthenticationMethodsPolicyRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthenticationMethodsPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAuthenticationMethodsPolicy,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the authenticationMethodsPolicy singleton.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AuthenticationMethodConfigurations: "authenticationMethodConfigurations",
+} as const;
+/**
+ * Provides operations to manage the authenticationMethodsPolicy singleton.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    PolicyMigrationState: "policyMigrationState",
+    PolicyVersion: "policyVersion",
+    ReconfirmationInDays: "reconfirmationInDays",
+    RegistrationEnforcement: "registrationEnforcement",
+    AuthenticationMethodConfigurations: "authenticationMethodConfigurations",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

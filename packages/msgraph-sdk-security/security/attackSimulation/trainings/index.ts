@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { TrainingItemRequestBuilderNavigationMetadata, TrainingItemRequestBuilderRequestsMetadata, type TrainingItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the trainings property of the microsoft.graph.attackSimulationRoot entity.
  */
@@ -62,7 +65,7 @@ export interface TrainingsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface TrainingsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface TrainingsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,66 @@ export interface TrainingsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const TrainingsRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/trainings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the trainings property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    LanguageDetails: "languageDetails",
+} as const;
+/**
+ * Provides operations to manage the trainings property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AvailabilityStatus: "availabilityStatus",
+    AvailabilityStatusDesc: "availabilityStatus desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    DurationInMinutes: "durationInMinutes",
+    DurationInMinutesDesc: "durationInMinutes desc",
+    HasEvaluation: "hasEvaluation",
+    HasEvaluationDesc: "hasEvaluation desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Source: "source",
+    SourceDesc: "source desc",
+    SupportedLocales: "supportedLocales",
+    SupportedLocalesDesc: "supportedLocales desc",
+    Tags: "tags",
+    TagsDesc: "tags desc",
+    Type: "type",
+    TypeDesc: "type desc",
+} as const;
+/**
+ * Provides operations to manage the trainings property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AvailabilityStatus: "availabilityStatus",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    DurationInMinutes: "durationInMinutes",
+    HasEvaluation: "hasEvaluation",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Source: "source",
+    SupportedLocales: "supportedLocales",
+    Tags: "tags",
+    Type: "type",
+    LanguageDetails: "languageDetails",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +191,7 @@ export const TrainingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTrainingCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TrainingsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +201,7 @@ export const TrainingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTrainingFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTraining,

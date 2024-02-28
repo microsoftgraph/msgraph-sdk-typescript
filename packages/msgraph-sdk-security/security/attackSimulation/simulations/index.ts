@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { SimulationItemRequestBuilderNavigationMetadata, SimulationItemRequestBuilderRequestsMetadata, type SimulationItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
  */
@@ -63,7 +66,7 @@ export interface SimulationsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface SimulationsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface SimulationsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,94 @@ export interface SimulationsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SimulationsRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/simulations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    LandingPage: "landingPage",
+    LoginPage: "loginPage",
+    Payload: "payload",
+} as const;
+/**
+ * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AttackTechnique: "attackTechnique",
+    AttackTechniqueDesc: "attackTechnique desc",
+    AttackType: "attackType",
+    AttackTypeDesc: "attackType desc",
+    AutomationId: "automationId",
+    AutomationIdDesc: "automationId desc",
+    CompletionDateTime: "completionDateTime",
+    CompletionDateTimeDesc: "completionDateTime desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    DurationInDays: "durationInDays",
+    DurationInDaysDesc: "durationInDays desc",
+    EndUserNotificationSetting: "endUserNotificationSetting",
+    EndUserNotificationSettingDesc: "endUserNotificationSetting desc",
+    ExcludedAccountTarget: "excludedAccountTarget",
+    ExcludedAccountTargetDesc: "excludedAccountTarget desc",
+    IncludedAccountTarget: "includedAccountTarget",
+    IncludedAccountTargetDesc: "includedAccountTarget desc",
+    IsAutomated: "isAutomated",
+    IsAutomatedDesc: "isAutomated desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    LaunchDateTime: "launchDateTime",
+    LaunchDateTimeDesc: "launchDateTime desc",
+    OAuthConsentAppDetail: "oAuthConsentAppDetail",
+    OAuthConsentAppDetailDesc: "oAuthConsentAppDetail desc",
+    PayloadDeliveryPlatform: "payloadDeliveryPlatform",
+    PayloadDeliveryPlatformDesc: "payloadDeliveryPlatform desc",
+    Report: "report",
+    ReportDesc: "report desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    TrainingSetting: "trainingSetting",
+    TrainingSettingDesc: "trainingSetting desc",
+} as const;
+/**
+ * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AttackTechnique: "attackTechnique",
+    AttackType: "attackType",
+    AutomationId: "automationId",
+    CompletionDateTime: "completionDateTime",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    DurationInDays: "durationInDays",
+    EndUserNotificationSetting: "endUserNotificationSetting",
+    ExcludedAccountTarget: "excludedAccountTarget",
+    IncludedAccountTarget: "includedAccountTarget",
+    IsAutomated: "isAutomated",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LaunchDateTime: "launchDateTime",
+    OAuthConsentAppDetail: "oAuthConsentAppDetail",
+    PayloadDeliveryPlatform: "payloadDeliveryPlatform",
+    Report: "report",
+    Status: "status",
+    TrainingSetting: "trainingSetting",
+    LandingPage: "landingPage",
+    LoginPage: "loginPage",
+    Payload: "payload",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +220,7 @@ export const SimulationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSimulationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SimulationsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +230,7 @@ export const SimulationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSimulationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSimulation,

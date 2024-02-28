@@ -63,7 +63,7 @@ export interface CalendarsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,11 +71,11 @@ export interface CalendarsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -85,6 +85,9 @@ export interface CalendarsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -124,7 +127,7 @@ export const CalendarsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCalendarCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: CalendarsRequestBuilderGetQueryParametersMapper,
     },
@@ -134,12 +137,80 @@ export const CalendarsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCalendarFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCalendar,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the calendars property of the microsoft.graph.user entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    CalendarPermissions: "calendarPermissions",
+    CalendarView: "calendarView",
+    Events: "events",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
+/**
+ * Provides operations to manage the calendars property of the microsoft.graph.user entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AllowedOnlineMeetingProviders: "allowedOnlineMeetingProviders",
+    AllowedOnlineMeetingProvidersDesc: "allowedOnlineMeetingProviders desc",
+    CanEdit: "canEdit",
+    CanEditDesc: "canEdit desc",
+    CanShare: "canShare",
+    CanShareDesc: "canShare desc",
+    CanViewPrivateItems: "canViewPrivateItems",
+    CanViewPrivateItemsDesc: "canViewPrivateItems desc",
+    ChangeKey: "changeKey",
+    ChangeKeyDesc: "changeKey desc",
+    Color: "color",
+    ColorDesc: "color desc",
+    DefaultOnlineMeetingProvider: "defaultOnlineMeetingProvider",
+    DefaultOnlineMeetingProviderDesc: "defaultOnlineMeetingProvider desc",
+    HexColor: "hexColor",
+    HexColorDesc: "hexColor desc",
+    IsDefaultCalendar: "isDefaultCalendar",
+    IsDefaultCalendarDesc: "isDefaultCalendar desc",
+    IsRemovable: "isRemovable",
+    IsRemovableDesc: "isRemovable desc",
+    IsTallyingResponses: "isTallyingResponses",
+    IsTallyingResponsesDesc: "isTallyingResponses desc",
+    Name: "name",
+    NameDesc: "name desc",
+    Owner: "owner",
+    OwnerDesc: "owner desc",
+} as const;
+/**
+ * Provides operations to manage the calendars property of the microsoft.graph.user entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AllowedOnlineMeetingProviders: "allowedOnlineMeetingProviders",
+    CanEdit: "canEdit",
+    CanShare: "canShare",
+    CanViewPrivateItems: "canViewPrivateItems",
+    ChangeKey: "changeKey",
+    Color: "color",
+    DefaultOnlineMeetingProvider: "defaultOnlineMeetingProvider",
+    HexColor: "hexColor",
+    IsDefaultCalendar: "isDefaultCalendar",
+    IsRemovable: "isRemovable",
+    IsTallyingResponses: "isTallyingResponses",
+    Name: "name",
+    Owner: "owner",
+    CalendarPermissions: "calendarPermissions",
+    CalendarView: "calendarView",
+    Events: "events",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -5,6 +5,8 @@ import { createChatMessageFromDiscriminatorValue, type ChatMessage } from '@micr
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the message property of the microsoft.graph.pinnedChatMessageInfo entity.
  */
@@ -30,16 +32,54 @@ export interface MessageRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const MessageRequestBuilderUriTemplate = "{+baseurl}/chats/{chat%2Did}/pinnedMessages/{pinnedChatMessageInfo%2Did}/message{?%24expand,%24select}";
+/**
+ * Provides operations to manage the message property of the microsoft.graph.pinnedChatMessageInfo entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    HostedContents: "hostedContents",
+    Replies: "replies",
+} as const;
+/**
+ * Provides operations to manage the message property of the microsoft.graph.pinnedChatMessageInfo entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Attachments: "attachments",
+    Body: "body",
+    ChannelIdentity: "channelIdentity",
+    ChatId: "chatId",
+    CreatedDateTime: "createdDateTime",
+    DeletedDateTime: "deletedDateTime",
+    Etag: "etag",
+    EventDetail: "eventDetail",
+    From: "from",
+    Importance: "importance",
+    LastEditedDateTime: "lastEditedDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Locale: "locale",
+    Mentions: "mentions",
+    MessageHistory: "messageHistory",
+    MessageType: "messageType",
+    PolicyViolation: "policyViolation",
+    Reactions: "reactions",
+    ReplyToId: "replyToId",
+    Subject: "subject",
+    Summary: "summary",
+    WebUrl: "webUrl",
+    HostedContents: "hostedContents",
+    Replies: "replies",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +97,7 @@ export const MessageRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChatMessageFromDiscriminatorValue,
         queryParametersMapper: MessageRequestBuilderGetQueryParametersMapper,
     },

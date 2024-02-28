@@ -88,12 +88,14 @@ export interface AuthenticationMethodsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -136,7 +138,7 @@ export const AuthenticationMethodsRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AuthenticationMethodsRequestBuilderUriTemplate,
@@ -144,7 +146,7 @@ export const AuthenticationMethodsRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthenticationMethodsRootFromDiscriminatorValue,
         queryParametersMapper: AuthenticationMethodsRequestBuilderGetQueryParametersMapper,
     },
@@ -154,12 +156,26 @@ export const AuthenticationMethodsRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthenticationMethodsRootFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAuthenticationMethodsRoot,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the authenticationMethods property of the microsoft.graph.reportRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    UserRegistrationDetails: "userRegistrationDetails",
+} as const;
+/**
+ * Provides operations to manage the authenticationMethods property of the microsoft.graph.reportRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    UserRegistrationDetails: "userRegistrationDetails",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

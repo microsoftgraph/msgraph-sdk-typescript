@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { HistoryRequestBuilderNavigationMetadata, HistoryRequestBuilderRequestsMetadata, type HistoryRequestBuilder } from './history/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
  */
@@ -63,16 +65,38 @@ export interface RiskyUserItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const RiskyUserItemRequestBuilderUriTemplate = "{+baseurl}/identityProtection/riskyUsers/{riskyUser%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    History: "history",
+} as const;
+/**
+ * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    IsDeleted: "isDeleted",
+    IsProcessing: "isProcessing",
+    RiskDetail: "riskDetail",
+    RiskLastUpdatedDateTime: "riskLastUpdatedDateTime",
+    RiskLevel: "riskLevel",
+    RiskState: "riskState",
+    UserDisplayName: "userDisplayName",
+    UserPrincipalName: "userPrincipalName",
+    History: "history",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -99,7 +123,7 @@ export const RiskyUserItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RiskyUserItemRequestBuilderUriTemplate,
@@ -107,7 +131,7 @@ export const RiskyUserItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRiskyUserFromDiscriminatorValue,
         queryParametersMapper: RiskyUserItemRequestBuilderGetQueryParametersMapper,
     },
@@ -117,7 +141,7 @@ export const RiskyUserItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRiskyUserFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRiskyUser,

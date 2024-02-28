@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { ActivityHistoryItemItemRequestBuilderNavigationMetadata, ActivityHistoryItemItemRequestBuilderRequestsMetadata, type ActivityHistoryItemItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
  */
@@ -61,7 +64,7 @@ export interface HistoryItemsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface HistoryItemsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface HistoryItemsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,51 @@ export interface HistoryItemsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const HistoryItemsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/activities/{userActivity%2Did}/historyItems{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Activity: "activity",
+} as const;
+/**
+ * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ActiveDurationSeconds: "activeDurationSeconds",
+    ActiveDurationSecondsDesc: "activeDurationSeconds desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    ExpirationDateTime: "expirationDateTime",
+    ExpirationDateTimeDesc: "expirationDateTime desc",
+    LastActiveDateTime: "lastActiveDateTime",
+    LastActiveDateTimeDesc: "lastActiveDateTime desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    StartedDateTime: "startedDateTime",
+    StartedDateTimeDesc: "startedDateTime desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    UserTimezone: "userTimezone",
+    UserTimezoneDesc: "userTimezone desc",
+} as const;
+/**
+ * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActiveDurationSeconds: "activeDurationSeconds",
+    CreatedDateTime: "createdDateTime",
+    ExpirationDateTime: "expirationDateTime",
+    LastActiveDateTime: "lastActiveDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    StartedDateTime: "startedDateTime",
+    Status: "status",
+    UserTimezone: "userTimezone",
+    Activity: "activity",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +175,7 @@ export const HistoryItemsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createActivityHistoryItemCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: HistoryItemsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +185,7 @@ export const HistoryItemsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createActivityHistoryItemFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeActivityHistoryItem,

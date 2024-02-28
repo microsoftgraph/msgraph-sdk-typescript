@@ -5,6 +5,8 @@ import { createRichLongRunningOperationFromDiscriminatorValue, serializeRichLong
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the operations property of the microsoft.graph.list entity.
  */
@@ -57,16 +59,37 @@ export interface RichLongRunningOperationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const RichLongRunningOperationItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list/operations/{richLongRunningOperation%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the operations property of the microsoft.graph.list entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the operations property of the microsoft.graph.list entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    LastActionDateTime: "lastActionDateTime",
+    ResourceLocation: "resourceLocation",
+    Status: "status",
+    StatusDetail: "statusDetail",
+    ErrorEscaped: "error",
+    PercentageComplete: "percentageComplete",
+    ResourceId: "resourceId",
+    Type: "type",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -84,7 +107,7 @@ export const RichLongRunningOperationItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RichLongRunningOperationItemRequestBuilderUriTemplate,
@@ -92,7 +115,7 @@ export const RichLongRunningOperationItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRichLongRunningOperationFromDiscriminatorValue,
         queryParametersMapper: RichLongRunningOperationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +125,7 @@ export const RichLongRunningOperationItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRichLongRunningOperationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRichLongRunningOperation,

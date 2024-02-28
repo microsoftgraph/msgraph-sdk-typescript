@@ -7,6 +7,8 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { PersonItemRequestBuilderRequestsMetadata, type PersonItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the people property of the microsoft.graph.user entity.
  */
@@ -51,7 +53,7 @@ export interface PeopleRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -59,7 +61,7 @@ export interface PeopleRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -73,6 +75,76 @@ export interface PeopleRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const PeopleRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/people{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the people property of the microsoft.graph.user entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Birthday: "birthday",
+    BirthdayDesc: "birthday desc",
+    CompanyName: "companyName",
+    CompanyNameDesc: "companyName desc",
+    Department: "department",
+    DepartmentDesc: "department desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    GivenName: "givenName",
+    GivenNameDesc: "givenName desc",
+    ImAddress: "imAddress",
+    ImAddressDesc: "imAddress desc",
+    IsFavorite: "isFavorite",
+    IsFavoriteDesc: "isFavorite desc",
+    JobTitle: "jobTitle",
+    JobTitleDesc: "jobTitle desc",
+    OfficeLocation: "officeLocation",
+    OfficeLocationDesc: "officeLocation desc",
+    PersonNotes: "personNotes",
+    PersonNotesDesc: "personNotes desc",
+    PersonType: "personType",
+    PersonTypeDesc: "personType desc",
+    Phones: "phones",
+    PhonesDesc: "phones desc",
+    PostalAddresses: "postalAddresses",
+    PostalAddressesDesc: "postalAddresses desc",
+    Profession: "profession",
+    ProfessionDesc: "profession desc",
+    ScoredEmailAddresses: "scoredEmailAddresses",
+    ScoredEmailAddressesDesc: "scoredEmailAddresses desc",
+    Surname: "surname",
+    SurnameDesc: "surname desc",
+    UserPrincipalName: "userPrincipalName",
+    UserPrincipalNameDesc: "userPrincipalName desc",
+    Websites: "websites",
+    WebsitesDesc: "websites desc",
+    YomiCompany: "yomiCompany",
+    YomiCompanyDesc: "yomiCompany desc",
+} as const;
+/**
+ * Provides operations to manage the people property of the microsoft.graph.user entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Birthday: "birthday",
+    CompanyName: "companyName",
+    Department: "department",
+    DisplayName: "displayName",
+    GivenName: "givenName",
+    ImAddress: "imAddress",
+    IsFavorite: "isFavorite",
+    JobTitle: "jobTitle",
+    OfficeLocation: "officeLocation",
+    PersonNotes: "personNotes",
+    PersonType: "personType",
+    Phones: "phones",
+    PostalAddresses: "postalAddresses",
+    Profession: "profession",
+    ScoredEmailAddresses: "scoredEmailAddresses",
+    Surname: "surname",
+    UserPrincipalName: "userPrincipalName",
+    Websites: "websites",
+    YomiCompany: "yomiCompany",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -107,7 +179,7 @@ export const PeopleRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPersonCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: PeopleRequestBuilderGetQueryParametersMapper,
     },

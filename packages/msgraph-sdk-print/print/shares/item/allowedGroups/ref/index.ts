@@ -5,6 +5,7 @@ import { createStringCollectionResponseFromDiscriminatorValue, serializeReferenc
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
 /**
  * Provides operations to manage the collection of print entities.
  */
@@ -76,7 +77,7 @@ export interface RefRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -94,6 +95,95 @@ export interface RefRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const RefRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerShare%2Did}/allowedGroups/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}";
+/**
+ * Provides operations to manage the collection of print entities.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DeletedDateTime: "deletedDateTime",
+    DeletedDateTimeDesc: "deletedDateTime desc",
+    AllowExternalSenders: "allowExternalSenders",
+    AllowExternalSendersDesc: "allowExternalSenders desc",
+    AssignedLabels: "assignedLabels",
+    AssignedLabelsDesc: "assignedLabels desc",
+    AssignedLicenses: "assignedLicenses",
+    AssignedLicensesDesc: "assignedLicenses desc",
+    AutoSubscribeNewMembers: "autoSubscribeNewMembers",
+    AutoSubscribeNewMembersDesc: "autoSubscribeNewMembers desc",
+    Classification: "classification",
+    ClassificationDesc: "classification desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    ExpirationDateTime: "expirationDateTime",
+    ExpirationDateTimeDesc: "expirationDateTime desc",
+    GroupTypes: "groupTypes",
+    GroupTypesDesc: "groupTypes desc",
+    HasMembersWithLicenseErrors: "hasMembersWithLicenseErrors",
+    HasMembersWithLicenseErrorsDesc: "hasMembersWithLicenseErrors desc",
+    HideFromAddressLists: "hideFromAddressLists",
+    HideFromAddressListsDesc: "hideFromAddressLists desc",
+    HideFromOutlookClients: "hideFromOutlookClients",
+    HideFromOutlookClientsDesc: "hideFromOutlookClients desc",
+    IsArchived: "isArchived",
+    IsArchivedDesc: "isArchived desc",
+    IsAssignableToRole: "isAssignableToRole",
+    IsAssignableToRoleDesc: "isAssignableToRole desc",
+    IsSubscribedByMail: "isSubscribedByMail",
+    IsSubscribedByMailDesc: "isSubscribedByMail desc",
+    LicenseProcessingState: "licenseProcessingState",
+    LicenseProcessingStateDesc: "licenseProcessingState desc",
+    Mail: "mail",
+    MailDesc: "mail desc",
+    MailEnabled: "mailEnabled",
+    MailEnabledDesc: "mailEnabled desc",
+    MailNickname: "mailNickname",
+    MailNicknameDesc: "mailNickname desc",
+    MembershipRule: "membershipRule",
+    MembershipRuleDesc: "membershipRule desc",
+    MembershipRuleProcessingState: "membershipRuleProcessingState",
+    MembershipRuleProcessingStateDesc: "membershipRuleProcessingState desc",
+    OnPremisesDomainName: "onPremisesDomainName",
+    OnPremisesDomainNameDesc: "onPremisesDomainName desc",
+    OnPremisesLastSyncDateTime: "onPremisesLastSyncDateTime",
+    OnPremisesLastSyncDateTimeDesc: "onPremisesLastSyncDateTime desc",
+    OnPremisesNetBiosName: "onPremisesNetBiosName",
+    OnPremisesNetBiosNameDesc: "onPremisesNetBiosName desc",
+    OnPremisesProvisioningErrors: "onPremisesProvisioningErrors",
+    OnPremisesProvisioningErrorsDesc: "onPremisesProvisioningErrors desc",
+    OnPremisesSamAccountName: "onPremisesSamAccountName",
+    OnPremisesSamAccountNameDesc: "onPremisesSamAccountName desc",
+    OnPremisesSecurityIdentifier: "onPremisesSecurityIdentifier",
+    OnPremisesSecurityIdentifierDesc: "onPremisesSecurityIdentifier desc",
+    OnPremisesSyncEnabled: "onPremisesSyncEnabled",
+    OnPremisesSyncEnabledDesc: "onPremisesSyncEnabled desc",
+    PreferredDataLocation: "preferredDataLocation",
+    PreferredDataLocationDesc: "preferredDataLocation desc",
+    PreferredLanguage: "preferredLanguage",
+    PreferredLanguageDesc: "preferredLanguage desc",
+    ProxyAddresses: "proxyAddresses",
+    ProxyAddressesDesc: "proxyAddresses desc",
+    RenewedDateTime: "renewedDateTime",
+    RenewedDateTimeDesc: "renewedDateTime desc",
+    SecurityEnabled: "securityEnabled",
+    SecurityEnabledDesc: "securityEnabled desc",
+    SecurityIdentifier: "securityIdentifier",
+    SecurityIdentifierDesc: "securityIdentifier desc",
+    ServiceProvisioningErrors: "serviceProvisioningErrors",
+    ServiceProvisioningErrorsDesc: "serviceProvisioningErrors desc",
+    Theme: "theme",
+    ThemeDesc: "theme desc",
+    UniqueName: "uniqueName",
+    UniqueNameDesc: "uniqueName desc",
+    UnseenCount: "unseenCount",
+    UnseenCountDesc: "unseenCount desc",
+    Visibility: "visibility",
+    VisibilityDesc: "visibility desc",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -121,7 +211,7 @@ export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
         queryParametersMapper: RefRequestBuilderDeleteQueryParametersMapper,
     },
     get: {
@@ -130,7 +220,7 @@ export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createStringCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RefRequestBuilderGetQueryParametersMapper,
     },
@@ -140,7 +230,7 @@ export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeReferenceCreate,
         requestInformationContentSetMethod: "setContentFromParsable",

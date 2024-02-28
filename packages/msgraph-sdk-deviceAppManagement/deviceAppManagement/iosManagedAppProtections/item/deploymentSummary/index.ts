@@ -59,12 +59,14 @@ export interface DeploymentSummaryRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -86,7 +88,7 @@ export const DeploymentSummaryRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DeploymentSummaryRequestBuilderUriTemplate,
@@ -94,7 +96,7 @@ export const DeploymentSummaryRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue,
         queryParametersMapper: DeploymentSummaryRequestBuilderGetQueryParametersMapper,
     },
@@ -104,12 +106,29 @@ export const DeploymentSummaryRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeManagedAppPolicyDeploymentSummary,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the deploymentSummary property of the microsoft.graph.iosManagedAppProtection entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the deploymentSummary property of the microsoft.graph.iosManagedAppProtection entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ConfigurationDeployedUserCount: "configurationDeployedUserCount",
+    ConfigurationDeploymentSummaryPerApp: "configurationDeploymentSummaryPerApp",
+    DisplayName: "displayName",
+    LastRefreshTime: "lastRefreshTime",
+    Version: "version",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

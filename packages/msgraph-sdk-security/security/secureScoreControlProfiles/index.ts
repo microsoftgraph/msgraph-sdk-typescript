@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { SecureScoreControlProfileItemRequestBuilderRequestsMetadata, type SecureScoreControlProfileItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
  */
@@ -62,7 +65,7 @@ export interface SecureScoreControlProfilesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface SecureScoreControlProfilesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface SecureScoreControlProfilesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,82 @@ export interface SecureScoreControlProfilesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SecureScoreControlProfilesRequestBuilderUriTemplate = "{+baseurl}/security/secureScoreControlProfiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ActionType: "actionType",
+    ActionTypeDesc: "actionType desc",
+    ActionUrl: "actionUrl",
+    ActionUrlDesc: "actionUrl desc",
+    AzureTenantId: "azureTenantId",
+    AzureTenantIdDesc: "azureTenantId desc",
+    ComplianceInformation: "complianceInformation",
+    ComplianceInformationDesc: "complianceInformation desc",
+    ControlCategory: "controlCategory",
+    ControlCategoryDesc: "controlCategory desc",
+    ControlStateUpdates: "controlStateUpdates",
+    ControlStateUpdatesDesc: "controlStateUpdates desc",
+    Deprecated: "deprecated",
+    DeprecatedDesc: "deprecated desc",
+    ImplementationCost: "implementationCost",
+    ImplementationCostDesc: "implementationCost desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    MaxScore: "maxScore",
+    MaxScoreDesc: "maxScore desc",
+    Rank: "rank",
+    RankDesc: "rank desc",
+    Remediation: "remediation",
+    RemediationDesc: "remediation desc",
+    RemediationImpact: "remediationImpact",
+    RemediationImpactDesc: "remediationImpact desc",
+    Service: "service",
+    ServiceDesc: "service desc",
+    Threats: "threats",
+    ThreatsDesc: "threats desc",
+    Tier: "tier",
+    TierDesc: "tier desc",
+    Title: "title",
+    TitleDesc: "title desc",
+    UserImpact: "userImpact",
+    UserImpactDesc: "userImpact desc",
+    VendorInformation: "vendorInformation",
+    VendorInformationDesc: "vendorInformation desc",
+} as const;
+/**
+ * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActionType: "actionType",
+    ActionUrl: "actionUrl",
+    AzureTenantId: "azureTenantId",
+    ComplianceInformation: "complianceInformation",
+    ControlCategory: "controlCategory",
+    ControlStateUpdates: "controlStateUpdates",
+    Deprecated: "deprecated",
+    ImplementationCost: "implementationCost",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    MaxScore: "maxScore",
+    Rank: "rank",
+    Remediation: "remediation",
+    RemediationImpact: "remediationImpact",
+    Service: "service",
+    Threats: "threats",
+    Tier: "tier",
+    Title: "title",
+    UserImpact: "userImpact",
+    VendorInformation: "vendorInformation",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +206,7 @@ export const SecureScoreControlProfilesRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecureScoreControlProfileCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SecureScoreControlProfilesRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +216,7 @@ export const SecureScoreControlProfilesRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecureScoreControlProfileFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSecureScoreControlProfile,

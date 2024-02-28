@@ -58,7 +58,7 @@ export interface FilterByCurrentUserWithOnRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -66,7 +66,7 @@ export interface FilterByCurrentUserWithOnRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -74,7 +74,7 @@ export interface FilterByCurrentUserWithOnRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -84,6 +84,9 @@ export interface FilterByCurrentUserWithOnRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -119,10 +122,70 @@ export const FilterByCurrentUserWithOnRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFilterByCurrentUserWithOnGetResponseFromDiscriminatorValue,
         queryParametersMapper: FilterByCurrentUserWithOnRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to call the filterByCurrentUser method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Insights: "insights",
+} as const;
+/**
+ * Provides operations to call the filterByCurrentUser method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AccessReviewId: "accessReviewId",
+    AccessReviewIdDesc: "accessReviewId desc",
+    AppliedBy: "appliedBy",
+    AppliedByDesc: "appliedBy desc",
+    AppliedDateTime: "appliedDateTime",
+    AppliedDateTimeDesc: "appliedDateTime desc",
+    ApplyResult: "applyResult",
+    ApplyResultDesc: "applyResult desc",
+    Decision: "decision",
+    DecisionDesc: "decision desc",
+    Justification: "justification",
+    JustificationDesc: "justification desc",
+    Principal: "principal",
+    PrincipalDesc: "principal desc",
+    PrincipalLink: "principalLink",
+    PrincipalLinkDesc: "principalLink desc",
+    Recommendation: "recommendation",
+    RecommendationDesc: "recommendation desc",
+    Resource: "resource",
+    ResourceDesc: "resource desc",
+    ResourceLink: "resourceLink",
+    ResourceLinkDesc: "resourceLink desc",
+    ReviewedBy: "reviewedBy",
+    ReviewedByDesc: "reviewedBy desc",
+    ReviewedDateTime: "reviewedDateTime",
+    ReviewedDateTimeDesc: "reviewedDateTime desc",
+} as const;
+/**
+ * Provides operations to call the filterByCurrentUser method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AccessReviewId: "accessReviewId",
+    AppliedBy: "appliedBy",
+    AppliedDateTime: "appliedDateTime",
+    ApplyResult: "applyResult",
+    Decision: "decision",
+    Justification: "justification",
+    Principal: "principal",
+    PrincipalLink: "principalLink",
+    Recommendation: "recommendation",
+    Resource: "resource",
+    ResourceLink: "resourceLink",
+    ReviewedBy: "reviewedBy",
+    ReviewedDateTime: "reviewedDateTime",
+    Insights: "insights",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

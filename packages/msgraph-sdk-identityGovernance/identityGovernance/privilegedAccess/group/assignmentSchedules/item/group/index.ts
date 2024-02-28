@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { ServiceProvisioningErrorsRequestBuilderNavigationMetadata, ServiceProvisioningErrorsRequestBuilderRequestsMetadata, type ServiceProvisioningErrorsRequestBuilder } from './serviceProvisioningErrors/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the group property of the microsoft.graph.privilegedAccessGroupAssignmentSchedule entity.
  */
@@ -35,16 +37,123 @@ export interface GroupRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const GroupRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/assignmentSchedules/{privilegedAccessGroupAssignmentSchedule%2Did}/group{?%24expand,%24select}";
+/**
+ * Provides operations to manage the group property of the microsoft.graph.privilegedAccessGroupAssignmentSchedule entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AcceptedSenders: "acceptedSenders",
+    AppRoleAssignments: "appRoleAssignments",
+    Calendar: "calendar",
+    CalendarView: "calendarView",
+    Conversations: "conversations",
+    CreatedOnBehalfOf: "createdOnBehalfOf",
+    Drive: "drive",
+    Drives: "drives",
+    Events: "events",
+    Extensions: "extensions",
+    GroupLifecyclePolicies: "groupLifecyclePolicies",
+    MemberOf: "memberOf",
+    Members: "members",
+    MembersWithLicenseErrors: "membersWithLicenseErrors",
+    Onenote: "onenote",
+    Owners: "owners",
+    PermissionGrants: "permissionGrants",
+    Photo: "photo",
+    Photos: "photos",
+    Planner: "planner",
+    RejectedSenders: "rejectedSenders",
+    Settings: "settings",
+    Sites: "sites",
+    Team: "team",
+    Threads: "threads",
+    TransitiveMemberOf: "transitiveMemberOf",
+    TransitiveMembers: "transitiveMembers",
+} as const;
+/**
+ * Provides operations to manage the group property of the microsoft.graph.privilegedAccessGroupAssignmentSchedule entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    AllowExternalSenders: "allowExternalSenders",
+    AssignedLabels: "assignedLabels",
+    AssignedLicenses: "assignedLicenses",
+    AutoSubscribeNewMembers: "autoSubscribeNewMembers",
+    Classification: "classification",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    ExpirationDateTime: "expirationDateTime",
+    GroupTypes: "groupTypes",
+    HasMembersWithLicenseErrors: "hasMembersWithLicenseErrors",
+    HideFromAddressLists: "hideFromAddressLists",
+    HideFromOutlookClients: "hideFromOutlookClients",
+    IsArchived: "isArchived",
+    IsAssignableToRole: "isAssignableToRole",
+    IsSubscribedByMail: "isSubscribedByMail",
+    LicenseProcessingState: "licenseProcessingState",
+    Mail: "mail",
+    MailEnabled: "mailEnabled",
+    MailNickname: "mailNickname",
+    MembershipRule: "membershipRule",
+    MembershipRuleProcessingState: "membershipRuleProcessingState",
+    OnPremisesDomainName: "onPremisesDomainName",
+    OnPremisesLastSyncDateTime: "onPremisesLastSyncDateTime",
+    OnPremisesNetBiosName: "onPremisesNetBiosName",
+    OnPremisesProvisioningErrors: "onPremisesProvisioningErrors",
+    OnPremisesSamAccountName: "onPremisesSamAccountName",
+    OnPremisesSecurityIdentifier: "onPremisesSecurityIdentifier",
+    OnPremisesSyncEnabled: "onPremisesSyncEnabled",
+    PreferredDataLocation: "preferredDataLocation",
+    PreferredLanguage: "preferredLanguage",
+    ProxyAddresses: "proxyAddresses",
+    RenewedDateTime: "renewedDateTime",
+    SecurityEnabled: "securityEnabled",
+    SecurityIdentifier: "securityIdentifier",
+    ServiceProvisioningErrors: "serviceProvisioningErrors",
+    Theme: "theme",
+    UniqueName: "uniqueName",
+    UnseenCount: "unseenCount",
+    Visibility: "visibility",
+    AcceptedSenders: "acceptedSenders",
+    AppRoleAssignments: "appRoleAssignments",
+    Calendar: "calendar",
+    CalendarView: "calendarView",
+    Conversations: "conversations",
+    CreatedOnBehalfOf: "createdOnBehalfOf",
+    Drive: "drive",
+    Drives: "drives",
+    Events: "events",
+    Extensions: "extensions",
+    GroupLifecyclePolicies: "groupLifecyclePolicies",
+    MemberOf: "memberOf",
+    Members: "members",
+    MembersWithLicenseErrors: "membersWithLicenseErrors",
+    Onenote: "onenote",
+    Owners: "owners",
+    PermissionGrants: "permissionGrants",
+    Photo: "photo",
+    Photos: "photos",
+    Planner: "planner",
+    RejectedSenders: "rejectedSenders",
+    Settings: "settings",
+    Sites: "sites",
+    Team: "team",
+    Threads: "threads",
+    TransitiveMemberOf: "transitiveMemberOf",
+    TransitiveMembers: "transitiveMembers",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -71,7 +180,7 @@ export const GroupRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGroupFromDiscriminatorValue,
         queryParametersMapper: GroupRequestBuilderGetQueryParametersMapper,
     },

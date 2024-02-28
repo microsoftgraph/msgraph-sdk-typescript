@@ -7,6 +7,8 @@ import { DirectoryRequestBuilderNavigationMetadata, DirectoryRequestBuilderReque
 import { EntitlementManagementRequestBuilderNavigationMetadata, EntitlementManagementRequestBuilderRequestsMetadata, type EntitlementManagementRequestBuilder } from './entitlementManagement/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the roleManagement singleton.
  */
@@ -55,16 +57,31 @@ export interface RoleManagementRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const RoleManagementRequestBuilderUriTemplate = "{+baseurl}/roleManagement{?%24expand,%24select}";
+/**
+ * Provides operations to manage the roleManagement singleton.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Directory: "directory",
+    EntitlementManagement: "entitlementManagement",
+} as const;
+/**
+ * Provides operations to manage the roleManagement singleton.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Directory: "directory",
+    EntitlementManagement: "entitlementManagement",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -95,7 +112,7 @@ export const RoleManagementRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoleManagementFromDiscriminatorValue,
         queryParametersMapper: RoleManagementRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +122,7 @@ export const RoleManagementRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoleManagementFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRoleManagement,

@@ -72,12 +72,14 @@ export interface BillingRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -116,7 +118,7 @@ export const BillingRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: BillingRequestBuilderUriTemplate,
@@ -124,7 +126,7 @@ export const BillingRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBillingFromDiscriminatorValue,
         queryParametersMapper: BillingRequestBuilderGetQueryParametersMapper,
     },
@@ -134,12 +136,30 @@ export const BillingRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBillingFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBilling,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the billing property of the microsoft.graph.partners entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Manifests: "manifests",
+    Operations: "operations",
+    Usage: "usage",
+} as const;
+/**
+ * Provides operations to manage the billing property of the microsoft.graph.partners entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Manifests: "manifests",
+    Operations: "operations",
+    Usage: "usage",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

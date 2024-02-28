@@ -6,6 +6,8 @@ import { createTriggerTypesRootFromDiscriminatorValue, serializeTriggerTypesRoot
 import { RetentionEventTypesRequestBuilderNavigationMetadata, RetentionEventTypesRequestBuilderRequestsMetadata, type RetentionEventTypesRequestBuilder } from './retentionEventTypes/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.
  */
@@ -62,16 +64,30 @@ export interface TriggerTypesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const TriggerTypesRequestBuilderUriTemplate = "{+baseurl}/security/triggerTypes{?%24expand,%24select}";
+/**
+ * Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    RetentionEventTypes: "retentionEventTypes",
+} as const;
+/**
+ * Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    RetentionEventTypes: "retentionEventTypes",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -98,7 +114,7 @@ export const TriggerTypesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TriggerTypesRequestBuilderUriTemplate,
@@ -106,7 +122,7 @@ export const TriggerTypesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTriggerTypesRootFromDiscriminatorValue,
         queryParametersMapper: TriggerTypesRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +132,7 @@ export const TriggerTypesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTriggerTypesRootFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTriggerTypesRoot,

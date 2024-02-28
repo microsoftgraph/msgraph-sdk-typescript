@@ -62,12 +62,14 @@ export interface DirectoryDefinitionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -97,7 +99,7 @@ export const DirectoryDefinitionItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DirectoryDefinitionItemRequestBuilderUriTemplate,
@@ -105,7 +107,7 @@ export const DirectoryDefinitionItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryDefinitionFromDiscriminatorValue,
         queryParametersMapper: DirectoryDefinitionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -115,12 +117,30 @@ export const DirectoryDefinitionItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryDefinitionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDirectoryDefinition,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Discoverabilities: "discoverabilities",
+    DiscoveryDateTime: "discoveryDateTime",
+    Name: "name",
+    Objects: "objects",
+    ReadOnly: "readOnly",
+    Version: "version",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

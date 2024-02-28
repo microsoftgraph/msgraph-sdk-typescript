@@ -24,6 +24,8 @@ import { GraphWindowsUniversalAppXRequestBuilderNavigationMetadata, GraphWindows
 import { GraphWindowsWebAppRequestBuilderNavigationMetadata, GraphWindowsWebAppRequestBuilderRequestsMetadata, type GraphWindowsWebAppRequestBuilder } from './graphWindowsWebApp/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
  */
@@ -155,16 +157,45 @@ export interface MobileAppItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const MobileAppItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Assignments: "assignments",
+    Categories: "categories",
+} as const;
+/**
+ * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    Developer: "developer",
+    DisplayName: "displayName",
+    InformationUrl: "informationUrl",
+    IsFeatured: "isFeatured",
+    LargeIcon: "largeIcon",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Notes: "notes",
+    Owner: "owner",
+    PrivacyInformationUrl: "privacyInformationUrl",
+    Publisher: "publisher",
+    PublishingState: "publishingState",
+    Assignments: "assignments",
+    Categories: "categories",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -262,7 +293,7 @@ export const MobileAppItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: MobileAppItemRequestBuilderUriTemplate,
@@ -270,7 +301,7 @@ export const MobileAppItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppFromDiscriminatorValue,
         queryParametersMapper: MobileAppItemRequestBuilderGetQueryParametersMapper,
     },
@@ -280,7 +311,7 @@ export const MobileAppItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMobileApp,

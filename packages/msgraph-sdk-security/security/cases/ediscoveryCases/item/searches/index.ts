@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { EdiscoverySearchItemRequestBuilderNavigationMetadata, EdiscoverySearchItemRequestBuilderRequestsMetadata, type EdiscoverySearchItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
  */
@@ -63,7 +66,7 @@ export interface SearchesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface SearchesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface SearchesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,59 @@ export interface SearchesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SearchesRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AdditionalSources: "additionalSources",
+    AddToReviewSetOperation: "addToReviewSetOperation",
+    CustodianSources: "custodianSources",
+    LastEstimateStatisticsOperation: "lastEstimateStatisticsOperation",
+    NoncustodialSources: "noncustodialSources",
+} as const;
+/**
+ * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ContentQuery: "contentQuery",
+    ContentQueryDesc: "contentQuery desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    DataSourceScopes: "dataSourceScopes",
+    DataSourceScopesDesc: "dataSourceScopes desc",
+} as const;
+/**
+ * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ContentQuery: "contentQuery",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    DataSourceScopes: "dataSourceScopes",
+    AdditionalSources: "additionalSources",
+    AddToReviewSetOperation: "addToReviewSetOperation",
+    CustodianSources: "custodianSources",
+    LastEstimateStatisticsOperation: "lastEstimateStatisticsOperation",
+    NoncustodialSources: "noncustodialSources",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +185,7 @@ export const SearchesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoverySearchCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SearchesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +195,7 @@ export const SearchesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoverySearchFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEdiscoverySearch,

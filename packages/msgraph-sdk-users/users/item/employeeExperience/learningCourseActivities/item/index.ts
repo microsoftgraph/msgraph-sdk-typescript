@@ -5,6 +5,8 @@ import { createLearningCourseActivityFromDiscriminatorValue, type LearningCourse
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperienceUser entity.
  */
@@ -31,16 +33,35 @@ export interface LearningCourseActivityItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const LearningCourseActivityItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/employeeExperience/learningCourseActivities/{learningCourseActivity%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperienceUser entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperienceUser entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CompletedDateTime: "completedDateTime",
+    CompletionPercentage: "completionPercentage",
+    ExternalcourseActivityId: "externalcourseActivityId",
+    LearnerUserId: "learnerUserId",
+    LearningContentId: "learningContentId",
+    LearningProviderId: "learningProviderId",
+    Status: "status",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -58,7 +79,7 @@ export const LearningCourseActivityItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLearningCourseActivityFromDiscriminatorValue,
         queryParametersMapper: LearningCourseActivityItemRequestBuilderGetQueryParametersMapper,
     },

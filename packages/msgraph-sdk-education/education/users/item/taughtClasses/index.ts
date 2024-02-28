@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { EducationClassItemRequestBuilderRequestsMetadata, type EducationClassItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
  */
@@ -47,7 +50,7 @@ export interface TaughtClassesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -55,7 +58,7 @@ export interface TaughtClassesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -63,7 +66,7 @@ export interface TaughtClassesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -77,6 +80,79 @@ export interface TaughtClassesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const TaughtClassesRequestBuilderUriTemplate = "{+baseurl}/education/users/{educationUser%2Did}/taughtClasses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AssignmentCategories: "assignmentCategories",
+    AssignmentDefaults: "assignmentDefaults",
+    Assignments: "assignments",
+    AssignmentSettings: "assignmentSettings",
+    Group: "group",
+    Members: "members",
+    Modules: "modules",
+    Schools: "schools",
+    Teachers: "teachers",
+} as const;
+/**
+ * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ClassCode: "classCode",
+    ClassCodeDesc: "classCode desc",
+    Course: "course",
+    CourseDesc: "course desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    ExternalId: "externalId",
+    ExternalIdDesc: "externalId desc",
+    ExternalName: "externalName",
+    ExternalNameDesc: "externalName desc",
+    ExternalSource: "externalSource",
+    ExternalSourceDesc: "externalSource desc",
+    ExternalSourceDetail: "externalSourceDetail",
+    ExternalSourceDetailDesc: "externalSourceDetail desc",
+    Grade: "grade",
+    GradeDesc: "grade desc",
+    MailNickname: "mailNickname",
+    MailNicknameDesc: "mailNickname desc",
+    Term: "term",
+    TermDesc: "term desc",
+} as const;
+/**
+ * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ClassCode: "classCode",
+    Course: "course",
+    CreatedBy: "createdBy",
+    Description: "description",
+    DisplayName: "displayName",
+    ExternalId: "externalId",
+    ExternalName: "externalName",
+    ExternalSource: "externalSource",
+    ExternalSourceDetail: "externalSourceDetail",
+    Grade: "grade",
+    MailNickname: "mailNickname",
+    Term: "term",
+    AssignmentCategories: "assignmentCategories",
+    AssignmentDefaults: "assignmentDefaults",
+    Assignments: "assignments",
+    AssignmentSettings: "assignmentSettings",
+    Group: "group",
+    Members: "members",
+    Modules: "modules",
+    Schools: "schools",
+    Teachers: "teachers",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -112,7 +188,7 @@ export const TaughtClassesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationClassCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TaughtClassesRequestBuilderGetQueryParametersMapper,
     },

@@ -60,12 +60,14 @@ export interface DeviceComplianceUserStatusItemRequestBuilderGetQueryParameters 
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -87,7 +89,7 @@ export const DeviceComplianceUserStatusItemRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DeviceComplianceUserStatusItemRequestBuilderUriTemplate,
@@ -95,7 +97,7 @@ export const DeviceComplianceUserStatusItemRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceComplianceUserStatusFromDiscriminatorValue,
         queryParametersMapper: DeviceComplianceUserStatusItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,12 +107,29 @@ export const DeviceComplianceUserStatusItemRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceComplianceUserStatusFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceComplianceUserStatus,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DevicesCount: "devicesCount",
+    LastReportedDateTime: "lastReportedDateTime",
+    Status: "status",
+    UserDisplayName: "userDisplayName",
+    UserPrincipalName: "userPrincipalName",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

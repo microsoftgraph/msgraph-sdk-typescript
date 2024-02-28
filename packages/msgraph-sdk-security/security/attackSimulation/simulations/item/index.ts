@@ -8,6 +8,8 @@ import { LoginPageRequestBuilderRequestsMetadata, type LoginPageRequestBuilder }
 import { PayloadRequestBuilderRequestsMetadata, type PayloadRequestBuilder } from './payload/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
  */
@@ -75,16 +77,55 @@ export interface SimulationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SimulationItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    LandingPage: "landingPage",
+    LoginPage: "loginPage",
+    Payload: "payload",
+} as const;
+/**
+ * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AttackTechnique: "attackTechnique",
+    AttackType: "attackType",
+    AutomationId: "automationId",
+    CompletionDateTime: "completionDateTime",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    DurationInDays: "durationInDays",
+    EndUserNotificationSetting: "endUserNotificationSetting",
+    ExcludedAccountTarget: "excludedAccountTarget",
+    IncludedAccountTarget: "includedAccountTarget",
+    IsAutomated: "isAutomated",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LaunchDateTime: "launchDateTime",
+    OAuthConsentAppDetail: "oAuthConsentAppDetail",
+    PayloadDeliveryPlatform: "payloadDeliveryPlatform",
+    Report: "report",
+    Status: "status",
+    TrainingSetting: "trainingSetting",
+    LandingPage: "landingPage",
+    LoginPage: "loginPage",
+    Payload: "payload",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -116,7 +157,7 @@ export const SimulationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SimulationItemRequestBuilderUriTemplate,
@@ -124,7 +165,7 @@ export const SimulationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSimulationFromDiscriminatorValue,
         queryParametersMapper: SimulationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -134,7 +175,7 @@ export const SimulationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSimulationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSimulation,

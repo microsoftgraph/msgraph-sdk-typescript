@@ -63,7 +63,7 @@ export interface ExtensionPropertiesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface ExtensionPropertiesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface ExtensionPropertiesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface ExtensionPropertiesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -128,7 +131,7 @@ export const ExtensionPropertiesRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExtensionPropertyCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ExtensionPropertiesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,12 +141,52 @@ export const ExtensionPropertiesRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExtensionPropertyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeExtensionProperty,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DeletedDateTime: "deletedDateTime",
+    DeletedDateTimeDesc: "deletedDateTime desc",
+    AppDisplayName: "appDisplayName",
+    AppDisplayNameDesc: "appDisplayName desc",
+    DataType: "dataType",
+    DataTypeDesc: "dataType desc",
+    IsMultiValued: "isMultiValued",
+    IsMultiValuedDesc: "isMultiValued desc",
+    IsSyncedFromOnPremises: "isSyncedFromOnPremises",
+    IsSyncedFromOnPremisesDesc: "isSyncedFromOnPremises desc",
+    Name: "name",
+    NameDesc: "name desc",
+    TargetObjects: "targetObjects",
+    TargetObjectsDesc: "targetObjects desc",
+} as const;
+/**
+ * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    AppDisplayName: "appDisplayName",
+    DataType: "dataType",
+    IsMultiValued: "isMultiValued",
+    IsSyncedFromOnPremises: "isSyncedFromOnPremises",
+    Name: "name",
+    TargetObjects: "targetObjects",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

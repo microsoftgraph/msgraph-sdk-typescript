@@ -30,12 +30,14 @@ export interface AssignmentPolicyRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -57,10 +59,41 @@ export const AssignmentPolicyRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessPackageAssignmentPolicyFromDiscriminatorValue,
         queryParametersMapper: AssignmentPolicyRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the assignmentPolicy property of the microsoft.graph.accessPackageAssignment entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AccessPackage: "accessPackage",
+    Catalog: "catalog",
+    CustomExtensionStageSettings: "customExtensionStageSettings",
+    Questions: "questions",
+} as const;
+/**
+ * Provides operations to manage the assignmentPolicy property of the microsoft.graph.accessPackageAssignment entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AllowedTargetScope: "allowedTargetScope",
+    AutomaticRequestSettings: "automaticRequestSettings",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    Expiration: "expiration",
+    ModifiedDateTime: "modifiedDateTime",
+    RequestApprovalSettings: "requestApprovalSettings",
+    RequestorSettings: "requestorSettings",
+    ReviewSettings: "reviewSettings",
+    SpecificAllowedTargets: "specificAllowedTargets",
+    AccessPackage: "accessPackage",
+    Catalog: "catalog",
+    CustomExtensionStageSettings: "customExtensionStageSettings",
+    Questions: "questions",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

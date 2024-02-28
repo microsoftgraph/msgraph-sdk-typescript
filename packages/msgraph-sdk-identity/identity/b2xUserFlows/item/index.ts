@@ -84,12 +84,14 @@ export interface B2xIdentityUserFlowItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -136,7 +138,7 @@ export const B2xIdentityUserFlowItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: B2xIdentityUserFlowItemRequestBuilderUriTemplate,
@@ -144,7 +146,7 @@ export const B2xIdentityUserFlowItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createB2xIdentityUserFlowFromDiscriminatorValue,
         queryParametersMapper: B2xIdentityUserFlowItemRequestBuilderGetQueryParametersMapper,
     },
@@ -154,12 +156,35 @@ export const B2xIdentityUserFlowItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createB2xIdentityUserFlowFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeB2xIdentityUserFlow,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    IdentityProviders: "identityProviders",
+    Languages: "languages",
+    UserAttributeAssignments: "userAttributeAssignments",
+    UserFlowIdentityProviders: "userFlowIdentityProviders",
+} as const;
+/**
+ * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    UserFlowType: "userFlowType",
+    UserFlowTypeVersion: "userFlowTypeVersion",
+    ApiConnectorConfiguration: "apiConnectorConfiguration",
+    IdentityProviders: "identityProviders",
+    Languages: "languages",
+    UserAttributeAssignments: "userAttributeAssignments",
+    UserFlowIdentityProviders: "userFlowIdentityProviders",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

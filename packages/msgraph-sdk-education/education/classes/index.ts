@@ -68,7 +68,7 @@ export interface ClassesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -76,7 +76,7 @@ export interface ClassesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -84,7 +84,7 @@ export interface ClassesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -94,6 +94,9 @@ export interface ClassesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -137,7 +140,7 @@ export const ClassesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationClassCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ClassesRequestBuilderGetQueryParametersMapper,
     },
@@ -147,12 +150,85 @@ export const ClassesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationClassFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEducationClass,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AssignmentCategories: "assignmentCategories",
+    AssignmentDefaults: "assignmentDefaults",
+    Assignments: "assignments",
+    AssignmentSettings: "assignmentSettings",
+    Group: "group",
+    Members: "members",
+    Modules: "modules",
+    Schools: "schools",
+    Teachers: "teachers",
+} as const;
+/**
+ * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ClassCode: "classCode",
+    ClassCodeDesc: "classCode desc",
+    Course: "course",
+    CourseDesc: "course desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    ExternalId: "externalId",
+    ExternalIdDesc: "externalId desc",
+    ExternalName: "externalName",
+    ExternalNameDesc: "externalName desc",
+    ExternalSource: "externalSource",
+    ExternalSourceDesc: "externalSource desc",
+    ExternalSourceDetail: "externalSourceDetail",
+    ExternalSourceDetailDesc: "externalSourceDetail desc",
+    Grade: "grade",
+    GradeDesc: "grade desc",
+    MailNickname: "mailNickname",
+    MailNicknameDesc: "mailNickname desc",
+    Term: "term",
+    TermDesc: "term desc",
+} as const;
+/**
+ * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ClassCode: "classCode",
+    Course: "course",
+    CreatedBy: "createdBy",
+    Description: "description",
+    DisplayName: "displayName",
+    ExternalId: "externalId",
+    ExternalName: "externalName",
+    ExternalSource: "externalSource",
+    ExternalSourceDetail: "externalSourceDetail",
+    Grade: "grade",
+    MailNickname: "mailNickname",
+    Term: "term",
+    AssignmentCategories: "assignmentCategories",
+    AssignmentDefaults: "assignmentDefaults",
+    Assignments: "assignments",
+    AssignmentSettings: "assignmentSettings",
+    Group: "group",
+    Members: "members",
+    Modules: "modules",
+    Schools: "schools",
+    Teachers: "teachers",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

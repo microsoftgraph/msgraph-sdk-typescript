@@ -75,7 +75,7 @@ export interface AuditEventsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -83,7 +83,7 @@ export interface AuditEventsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -91,7 +91,7 @@ export interface AuditEventsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -101,6 +101,9 @@ export interface AuditEventsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -146,7 +149,7 @@ export const AuditEventsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuditEventCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AuditEventsRequestBuilderGetQueryParametersMapper,
     },
@@ -156,12 +159,64 @@ export const AuditEventsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuditEventFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAuditEvent,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Activity: "activity",
+    ActivityDesc: "activity desc",
+    ActivityDateTime: "activityDateTime",
+    ActivityDateTimeDesc: "activityDateTime desc",
+    ActivityOperationType: "activityOperationType",
+    ActivityOperationTypeDesc: "activityOperationType desc",
+    ActivityResult: "activityResult",
+    ActivityResultDesc: "activityResult desc",
+    ActivityType: "activityType",
+    ActivityTypeDesc: "activityType desc",
+    Actor: "actor",
+    ActorDesc: "actor desc",
+    Category: "category",
+    CategoryDesc: "category desc",
+    ComponentName: "componentName",
+    ComponentNameDesc: "componentName desc",
+    CorrelationId: "correlationId",
+    CorrelationIdDesc: "correlationId desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    Resources: "resources",
+    ResourcesDesc: "resources desc",
+} as const;
+/**
+ * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Activity: "activity",
+    ActivityDateTime: "activityDateTime",
+    ActivityOperationType: "activityOperationType",
+    ActivityResult: "activityResult",
+    ActivityType: "activityType",
+    Actor: "actor",
+    Category: "category",
+    ComponentName: "componentName",
+    CorrelationId: "correlationId",
+    DisplayName: "displayName",
+    Resources: "resources",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

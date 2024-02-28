@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { type UserExperienceAnalyticsBaselineItemRequestBuilder, UserExperienceAnalyticsBaselineItemRequestBuilderNavigationMetadata, UserExperienceAnalyticsBaselineItemRequestBuilderRequestsMetadata } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.
  */
@@ -61,7 +64,7 @@ export interface UserExperienceAnalyticsBaselinesRequestBuilderGetQueryParameter
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface UserExperienceAnalyticsBaselinesRequestBuilderGetQueryParameter
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface UserExperienceAnalyticsBaselinesRequestBuilderGetQueryParameter
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,48 @@ export interface UserExperienceAnalyticsBaselinesRequestBuilderGetQueryParameter
  * Uri template for the request builder.
  */
 export const UserExperienceAnalyticsBaselinesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AppHealthMetrics: "appHealthMetrics",
+    BatteryHealthMetrics: "batteryHealthMetrics",
+    BestPracticesMetrics: "bestPracticesMetrics",
+    DeviceBootPerformanceMetrics: "deviceBootPerformanceMetrics",
+    RebootAnalyticsMetrics: "rebootAnalyticsMetrics",
+    ResourcePerformanceMetrics: "resourcePerformanceMetrics",
+    WorkFromAnywhereMetrics: "workFromAnywhereMetrics",
+} as const;
+/**
+ * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    IsBuiltIn: "isBuiltIn",
+    IsBuiltInDesc: "isBuiltIn desc",
+} as const;
+/**
+ * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    DisplayName: "displayName",
+    IsBuiltIn: "isBuiltIn",
+    AppHealthMetrics: "appHealthMetrics",
+    BatteryHealthMetrics: "batteryHealthMetrics",
+    BestPracticesMetrics: "bestPracticesMetrics",
+    DeviceBootPerformanceMetrics: "deviceBootPerformanceMetrics",
+    RebootAnalyticsMetrics: "rebootAnalyticsMetrics",
+    ResourcePerformanceMetrics: "resourcePerformanceMetrics",
+    WorkFromAnywhereMetrics: "workFromAnywhereMetrics",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +172,7 @@ export const UserExperienceAnalyticsBaselinesRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsBaselineCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsBaselinesRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +182,7 @@ export const UserExperienceAnalyticsBaselinesRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsBaselineFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsBaseline,

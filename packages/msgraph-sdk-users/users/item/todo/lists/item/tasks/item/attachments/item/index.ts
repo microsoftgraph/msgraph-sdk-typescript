@@ -49,8 +49,9 @@ export interface AttachmentBaseItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -79,7 +80,7 @@ export const AttachmentBaseItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AttachmentBaseItemRequestBuilderUriTemplate,
@@ -87,10 +88,20 @@ export const AttachmentBaseItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttachmentBaseFromDiscriminatorValue,
         queryParametersMapper: AttachmentBaseItemRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ContentType: "contentType",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Name: "name",
+    Size: "size",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

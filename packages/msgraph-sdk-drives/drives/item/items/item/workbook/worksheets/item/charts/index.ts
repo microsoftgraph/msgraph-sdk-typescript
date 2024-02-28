@@ -82,7 +82,7 @@ export interface ChartsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -90,7 +90,7 @@ export interface ChartsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -98,7 +98,7 @@ export interface ChartsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -108,6 +108,9 @@ export interface ChartsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -159,7 +162,7 @@ export const ChartsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ChartsRequestBuilderGetQueryParametersMapper,
     },
@@ -169,12 +172,60 @@ export const ChartsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbookChart,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Axes: "axes",
+    DataLabels: "dataLabels",
+    Format: "format",
+    Legend: "legend",
+    Series: "series",
+    Title: "title",
+    Worksheet: "worksheet",
+} as const;
+/**
+ * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Height: "height",
+    HeightDesc: "height desc",
+    Left: "left",
+    LeftDesc: "left desc",
+    Name: "name",
+    NameDesc: "name desc",
+    Top: "top",
+    TopDesc: "top desc",
+    Width: "width",
+    WidthDesc: "width desc",
+} as const;
+/**
+ * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Height: "height",
+    Left: "left",
+    Name: "name",
+    Top: "top",
+    Width: "width",
+    Axes: "axes",
+    DataLabels: "dataLabels",
+    Format: "format",
+    Legend: "legend",
+    Series: "series",
+    Title: "title",
+    Worksheet: "worksheet",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

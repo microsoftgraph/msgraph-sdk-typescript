@@ -5,6 +5,8 @@ import { createUnifiedRoleDefinitionFromDiscriminatorValue, type UnifiedRoleDefi
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleAssignment entity.
  */
@@ -30,16 +32,38 @@ export interface RoleDefinitionRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const RoleDefinitionRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignments/{unifiedRoleAssignment%2Did}/roleDefinition{?%24expand,%24select}";
+/**
+ * Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleAssignment entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    InheritsPermissionsFrom: "inheritsPermissionsFrom",
+} as const;
+/**
+ * Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleAssignment entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Description: "description",
+    DisplayName: "displayName",
+    IsBuiltIn: "isBuiltIn",
+    IsEnabled: "isEnabled",
+    ResourceScopes: "resourceScopes",
+    RolePermissions: "rolePermissions",
+    TemplateId: "templateId",
+    Version: "version",
+    InheritsPermissionsFrom: "inheritsPermissionsFrom",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -57,7 +81,7 @@ export const RoleDefinitionRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleDefinitionFromDiscriminatorValue,
         queryParametersMapper: RoleDefinitionRequestBuilderGetQueryParametersMapper,
     },

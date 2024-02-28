@@ -77,12 +77,14 @@ export interface ExternalConnectionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -124,7 +126,7 @@ export const ExternalConnectionItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ExternalConnectionItemRequestBuilderUriTemplate,
@@ -132,7 +134,7 @@ export const ExternalConnectionItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExternalConnectionFromDiscriminatorValue,
         queryParametersMapper: ExternalConnectionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -142,12 +144,39 @@ export const ExternalConnectionItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExternalConnectionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeExternalConnection,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the collection of externalConnection entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Groups: "groups",
+    Items: "items",
+    Operations: "operations",
+    Schema: "schema",
+} as const;
+/**
+ * Provides operations to manage the collection of externalConnection entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActivitySettings: "activitySettings",
+    Configuration: "configuration",
+    ConnectorId: "connectorId",
+    Description: "description",
+    Name: "name",
+    SearchSettings: "searchSettings",
+    State: "state",
+    Groups: "groups",
+    Items: "items",
+    Operations: "operations",
+    Schema: "schema",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

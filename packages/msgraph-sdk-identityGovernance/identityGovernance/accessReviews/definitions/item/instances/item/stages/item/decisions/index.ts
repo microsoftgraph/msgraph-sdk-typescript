@@ -69,7 +69,7 @@ export interface DecisionsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -77,7 +77,7 @@ export interface DecisionsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -85,7 +85,7 @@ export interface DecisionsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -95,6 +95,9 @@ export interface DecisionsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -138,7 +141,7 @@ export const DecisionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewInstanceDecisionItemCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DecisionsRequestBuilderGetQueryParametersMapper,
     },
@@ -148,12 +151,72 @@ export const DecisionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewInstanceDecisionItemFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAccessReviewInstanceDecisionItem,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Insights: "insights",
+} as const;
+/**
+ * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AccessReviewId: "accessReviewId",
+    AccessReviewIdDesc: "accessReviewId desc",
+    AppliedBy: "appliedBy",
+    AppliedByDesc: "appliedBy desc",
+    AppliedDateTime: "appliedDateTime",
+    AppliedDateTimeDesc: "appliedDateTime desc",
+    ApplyResult: "applyResult",
+    ApplyResultDesc: "applyResult desc",
+    Decision: "decision",
+    DecisionDesc: "decision desc",
+    Justification: "justification",
+    JustificationDesc: "justification desc",
+    Principal: "principal",
+    PrincipalDesc: "principal desc",
+    PrincipalLink: "principalLink",
+    PrincipalLinkDesc: "principalLink desc",
+    Recommendation: "recommendation",
+    RecommendationDesc: "recommendation desc",
+    Resource: "resource",
+    ResourceDesc: "resource desc",
+    ResourceLink: "resourceLink",
+    ResourceLinkDesc: "resourceLink desc",
+    ReviewedBy: "reviewedBy",
+    ReviewedByDesc: "reviewedBy desc",
+    ReviewedDateTime: "reviewedDateTime",
+    ReviewedDateTimeDesc: "reviewedDateTime desc",
+} as const;
+/**
+ * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AccessReviewId: "accessReviewId",
+    AppliedBy: "appliedBy",
+    AppliedDateTime: "appliedDateTime",
+    ApplyResult: "applyResult",
+    Decision: "decision",
+    Justification: "justification",
+    Principal: "principal",
+    PrincipalLink: "principalLink",
+    Recommendation: "recommendation",
+    Resource: "resource",
+    ResourceLink: "resourceLink",
+    ReviewedBy: "reviewedBy",
+    ReviewedDateTime: "reviewedDateTime",
+    Insights: "insights",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

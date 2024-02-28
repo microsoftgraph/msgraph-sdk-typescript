@@ -7,6 +7,8 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { OutlookCategoryItemRequestBuilderRequestsMetadata, type OutlookCategoryItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
  */
@@ -67,11 +69,11 @@ export interface MasterCategoriesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -85,6 +87,25 @@ export interface MasterCategoriesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const MasterCategoriesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/masterCategories{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Color: "color",
+    ColorDesc: "color desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+} as const;
+/**
+ * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Color: "color",
+    DisplayName: "displayName",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -118,7 +139,7 @@ export const MasterCategoriesRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOutlookCategoryCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MasterCategoriesRequestBuilderGetQueryParametersMapper,
     },
@@ -128,7 +149,7 @@ export const MasterCategoriesRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOutlookCategoryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOutlookCategory,

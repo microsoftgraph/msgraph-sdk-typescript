@@ -103,12 +103,14 @@ export interface EdiscoveryCustodianItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -165,7 +167,7 @@ export const EdiscoveryCustodianItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: EdiscoveryCustodianItemRequestBuilderUriTemplate,
@@ -173,7 +175,7 @@ export const EdiscoveryCustodianItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryCustodianFromDiscriminatorValue,
         queryParametersMapper: EdiscoveryCustodianItemRequestBuilderGetQueryParametersMapper,
     },
@@ -183,12 +185,40 @@ export const EdiscoveryCustodianItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryCustodianFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEdiscoveryCustodian,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    LastIndexOperation: "lastIndexOperation",
+    SiteSources: "siteSources",
+    UnifiedGroupSources: "unifiedGroupSources",
+    UserSources: "userSources",
+} as const;
+/**
+ * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    DisplayName: "displayName",
+    HoldStatus: "holdStatus",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    ReleasedDateTime: "releasedDateTime",
+    Status: "status",
+    AcknowledgedDateTime: "acknowledgedDateTime",
+    Email: "email",
+    LastIndexOperation: "lastIndexOperation",
+    SiteSources: "siteSources",
+    UnifiedGroupSources: "unifiedGroupSources",
+    UserSources: "userSources",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

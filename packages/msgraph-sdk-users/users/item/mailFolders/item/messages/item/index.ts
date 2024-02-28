@@ -17,6 +17,8 @@ import { SendRequestBuilderRequestsMetadata, type SendRequestBuilder } from './s
 import { ContentRequestBuilderRequestsMetadata, type ContentRequestBuilder } from './value/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
  */
@@ -117,16 +119,66 @@ export interface MessageItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const MessageItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/messages/{message%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Attachments: "attachments",
+    Extensions: "extensions",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
+/**
+ * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Categories: "categories",
+    ChangeKey: "changeKey",
+    CreatedDateTime: "createdDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    BccRecipients: "bccRecipients",
+    Body: "body",
+    BodyPreview: "bodyPreview",
+    CcRecipients: "ccRecipients",
+    ConversationId: "conversationId",
+    ConversationIndex: "conversationIndex",
+    Flag: "flag",
+    From: "from",
+    HasAttachments: "hasAttachments",
+    Importance: "importance",
+    InferenceClassification: "inferenceClassification",
+    InternetMessageHeaders: "internetMessageHeaders",
+    InternetMessageId: "internetMessageId",
+    IsDeliveryReceiptRequested: "isDeliveryReceiptRequested",
+    IsDraft: "isDraft",
+    IsRead: "isRead",
+    IsReadReceiptRequested: "isReadReceiptRequested",
+    ParentFolderId: "parentFolderId",
+    ReceivedDateTime: "receivedDateTime",
+    ReplyTo: "replyTo",
+    Sender: "sender",
+    SentDateTime: "sentDateTime",
+    Subject: "subject",
+    ToRecipients: "toRecipients",
+    UniqueBody: "uniqueBody",
+    WebLink: "webLink",
+    Attachments: "attachments",
+    Extensions: "extensions",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -187,7 +239,7 @@ export const MessageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: MessageItemRequestBuilderUriTemplate,
@@ -195,7 +247,7 @@ export const MessageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMessageFromDiscriminatorValue,
         queryParametersMapper: MessageItemRequestBuilderGetQueryParametersMapper,
     },
@@ -205,7 +257,7 @@ export const MessageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMessageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMessage,

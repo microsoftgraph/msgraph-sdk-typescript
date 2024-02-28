@@ -62,7 +62,7 @@ export interface ConnectorsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +70,7 @@ export interface ConnectorsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +78,7 @@ export interface ConnectorsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -88,6 +88,9 @@ export interface ConnectorsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -127,7 +130,7 @@ export const ConnectorsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintConnectorCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ConnectorsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,12 +140,49 @@ export const ConnectorsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintConnectorFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrintConnector,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the connectors property of the microsoft.graph.print entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the connectors property of the microsoft.graph.print entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AppVersion: "appVersion",
+    AppVersionDesc: "appVersion desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    FullyQualifiedDomainName: "fullyQualifiedDomainName",
+    FullyQualifiedDomainNameDesc: "fullyQualifiedDomainName desc",
+    Location: "location",
+    LocationDesc: "location desc",
+    OperatingSystem: "operatingSystem",
+    OperatingSystemDesc: "operatingSystem desc",
+    RegisteredDateTime: "registeredDateTime",
+    RegisteredDateTimeDesc: "registeredDateTime desc",
+} as const;
+/**
+ * Provides operations to manage the connectors property of the microsoft.graph.print entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AppVersion: "appVersion",
+    DisplayName: "displayName",
+    FullyQualifiedDomainName: "fullyQualifiedDomainName",
+    Location: "location",
+    OperatingSystem: "operatingSystem",
+    RegisteredDateTime: "registeredDateTime",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -8,6 +8,9 @@ import { GetUserIdsWithFlaggedAppRegistrationRequestBuilderRequestsMetadata, typ
 import { ManagedAppRegistrationItemRequestBuilderNavigationMetadata, ManagedAppRegistrationItemRequestBuilderRequestsMetadata, type ManagedAppRegistrationItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.
  */
@@ -68,7 +71,7 @@ export interface ManagedAppRegistrationsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -76,7 +79,7 @@ export interface ManagedAppRegistrationsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -84,7 +87,7 @@ export interface ManagedAppRegistrationsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -98,6 +101,67 @@ export interface ManagedAppRegistrationsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const ManagedAppRegistrationsRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppRegistrations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AppliedPolicies: "appliedPolicies",
+    IntendedPolicies: "intendedPolicies",
+    Operations: "operations",
+} as const;
+/**
+ * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AppIdentifier: "appIdentifier",
+    AppIdentifierDesc: "appIdentifier desc",
+    ApplicationVersion: "applicationVersion",
+    ApplicationVersionDesc: "applicationVersion desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DeviceName: "deviceName",
+    DeviceNameDesc: "deviceName desc",
+    DeviceTag: "deviceTag",
+    DeviceTagDesc: "deviceTag desc",
+    DeviceType: "deviceType",
+    DeviceTypeDesc: "deviceType desc",
+    FlaggedReasons: "flaggedReasons",
+    FlaggedReasonsDesc: "flaggedReasons desc",
+    LastSyncDateTime: "lastSyncDateTime",
+    LastSyncDateTimeDesc: "lastSyncDateTime desc",
+    ManagementSdkVersion: "managementSdkVersion",
+    ManagementSdkVersionDesc: "managementSdkVersion desc",
+    PlatformVersion: "platformVersion",
+    PlatformVersionDesc: "platformVersion desc",
+    UserId: "userId",
+    UserIdDesc: "userId desc",
+    Version: "version",
+    VersionDesc: "version desc",
+} as const;
+/**
+ * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AppIdentifier: "appIdentifier",
+    ApplicationVersion: "applicationVersion",
+    CreatedDateTime: "createdDateTime",
+    DeviceName: "deviceName",
+    DeviceTag: "deviceTag",
+    DeviceType: "deviceType",
+    FlaggedReasons: "flaggedReasons",
+    LastSyncDateTime: "lastSyncDateTime",
+    ManagementSdkVersion: "managementSdkVersion",
+    PlatformVersion: "platformVersion",
+    UserId: "userId",
+    Version: "version",
+    AppliedPolicies: "appliedPolicies",
+    IntendedPolicies: "intendedPolicies",
+    Operations: "operations",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -137,7 +201,7 @@ export const ManagedAppRegistrationsRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedAppRegistrationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ManagedAppRegistrationsRequestBuilderGetQueryParametersMapper,
     },
@@ -147,7 +211,7 @@ export const ManagedAppRegistrationsRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedAppRegistrationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeManagedAppRegistration,

@@ -5,6 +5,8 @@ import { createOnPremisesDirectorySynchronizationFromDiscriminatorValue, seriali
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
  */
@@ -59,16 +61,30 @@ export interface OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryPar
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const OnPremisesDirectorySynchronizationItemRequestBuilderUriTemplate = "{+baseurl}/directory/onPremisesSynchronization/{onPremisesDirectorySynchronization%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Configuration: "configuration",
+    Features: "features",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -86,7 +102,7 @@ export const OnPremisesDirectorySynchronizationItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OnPremisesDirectorySynchronizationItemRequestBuilderUriTemplate,
@@ -94,7 +110,7 @@ export const OnPremisesDirectorySynchronizationItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnPremisesDirectorySynchronizationFromDiscriminatorValue,
         queryParametersMapper: OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +120,7 @@ export const OnPremisesDirectorySynchronizationItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnPremisesDirectorySynchronizationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOnPremisesDirectorySynchronization,

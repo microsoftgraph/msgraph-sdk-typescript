@@ -48,7 +48,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -56,7 +56,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -64,7 +64,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -84,6 +84,9 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaG
         "value": n => { deltaGetResponse.value = n.getCollectionOfObjectValues<Device>(createDeviceFromDiscriminatorValue); },
     }
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -119,10 +122,120 @@ export const DeltaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeltaGetResponseFromDiscriminatorValue,
         queryParametersMapper: DeltaRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Extensions: "extensions",
+    MemberOf: "memberOf",
+    RegisteredOwners: "registeredOwners",
+    RegisteredUsers: "registeredUsers",
+    TransitiveMemberOf: "transitiveMemberOf",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DeletedDateTime: "deletedDateTime",
+    DeletedDateTimeDesc: "deletedDateTime desc",
+    AccountEnabled: "accountEnabled",
+    AccountEnabledDesc: "accountEnabled desc",
+    AlternativeSecurityIds: "alternativeSecurityIds",
+    AlternativeSecurityIdsDesc: "alternativeSecurityIds desc",
+    ApproximateLastSignInDateTime: "approximateLastSignInDateTime",
+    ApproximateLastSignInDateTimeDesc: "approximateLastSignInDateTime desc",
+    ComplianceExpirationDateTime: "complianceExpirationDateTime",
+    ComplianceExpirationDateTimeDesc: "complianceExpirationDateTime desc",
+    DeviceCategory: "deviceCategory",
+    DeviceCategoryDesc: "deviceCategory desc",
+    DeviceId: "deviceId",
+    DeviceIdDesc: "deviceId desc",
+    DeviceMetadata: "deviceMetadata",
+    DeviceMetadataDesc: "deviceMetadata desc",
+    DeviceOwnership: "deviceOwnership",
+    DeviceOwnershipDesc: "deviceOwnership desc",
+    DeviceVersion: "deviceVersion",
+    DeviceVersionDesc: "deviceVersion desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    EnrollmentProfileName: "enrollmentProfileName",
+    EnrollmentProfileNameDesc: "enrollmentProfileName desc",
+    IsCompliant: "isCompliant",
+    IsCompliantDesc: "isCompliant desc",
+    IsManaged: "isManaged",
+    IsManagedDesc: "isManaged desc",
+    Manufacturer: "manufacturer",
+    ManufacturerDesc: "manufacturer desc",
+    MdmAppId: "mdmAppId",
+    MdmAppIdDesc: "mdmAppId desc",
+    Model: "model",
+    ModelDesc: "model desc",
+    OnPremisesLastSyncDateTime: "onPremisesLastSyncDateTime",
+    OnPremisesLastSyncDateTimeDesc: "onPremisesLastSyncDateTime desc",
+    OnPremisesSecurityIdentifier: "onPremisesSecurityIdentifier",
+    OnPremisesSecurityIdentifierDesc: "onPremisesSecurityIdentifier desc",
+    OnPremisesSyncEnabled: "onPremisesSyncEnabled",
+    OnPremisesSyncEnabledDesc: "onPremisesSyncEnabled desc",
+    OperatingSystem: "operatingSystem",
+    OperatingSystemDesc: "operatingSystem desc",
+    OperatingSystemVersion: "operatingSystemVersion",
+    OperatingSystemVersionDesc: "operatingSystemVersion desc",
+    PhysicalIds: "physicalIds",
+    PhysicalIdsDesc: "physicalIds desc",
+    ProfileType: "profileType",
+    ProfileTypeDesc: "profileType desc",
+    RegistrationDateTime: "registrationDateTime",
+    RegistrationDateTimeDesc: "registrationDateTime desc",
+    SystemLabels: "systemLabels",
+    SystemLabelsDesc: "systemLabels desc",
+    TrustType: "trustType",
+    TrustTypeDesc: "trustType desc",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    AccountEnabled: "accountEnabled",
+    AlternativeSecurityIds: "alternativeSecurityIds",
+    ApproximateLastSignInDateTime: "approximateLastSignInDateTime",
+    ComplianceExpirationDateTime: "complianceExpirationDateTime",
+    DeviceCategory: "deviceCategory",
+    DeviceId: "deviceId",
+    DeviceMetadata: "deviceMetadata",
+    DeviceOwnership: "deviceOwnership",
+    DeviceVersion: "deviceVersion",
+    DisplayName: "displayName",
+    EnrollmentProfileName: "enrollmentProfileName",
+    IsCompliant: "isCompliant",
+    IsManaged: "isManaged",
+    Manufacturer: "manufacturer",
+    MdmAppId: "mdmAppId",
+    Model: "model",
+    OnPremisesLastSyncDateTime: "onPremisesLastSyncDateTime",
+    OnPremisesSecurityIdentifier: "onPremisesSecurityIdentifier",
+    OnPremisesSyncEnabled: "onPremisesSyncEnabled",
+    OperatingSystem: "operatingSystem",
+    OperatingSystemVersion: "operatingSystemVersion",
+    PhysicalIds: "physicalIds",
+    ProfileType: "profileType",
+    RegistrationDateTime: "registrationDateTime",
+    SystemLabels: "systemLabels",
+    TrustType: "trustType",
+    Extensions: "extensions",
+    MemberOf: "memberOf",
+    RegisteredOwners: "registeredOwners",
+    RegisteredUsers: "registeredUsers",
+    TransitiveMemberOf: "transitiveMemberOf",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

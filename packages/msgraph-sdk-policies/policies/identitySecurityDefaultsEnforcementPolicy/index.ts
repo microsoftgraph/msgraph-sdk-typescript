@@ -5,6 +5,8 @@ import { createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue, 
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the identitySecurityDefaultsEnforcementPolicy property of the microsoft.graph.policyRoot entity.
  */
@@ -59,16 +61,32 @@ export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQuery
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/identitySecurityDefaultsEnforcementPolicy{?%24expand,%24select}";
+/**
+ * Provides operations to manage the identitySecurityDefaultsEnforcementPolicy property of the microsoft.graph.policyRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the identitySecurityDefaultsEnforcementPolicy property of the microsoft.graph.policyRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    IsEnabled: "isEnabled",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -86,7 +104,7 @@ export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderUriTemplate,
@@ -94,7 +112,7 @@ export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue,
         queryParametersMapper: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +122,7 @@ export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIdentitySecurityDefaultsEnforcementPolicy,

@@ -5,6 +5,8 @@ import { createOAuth2PermissionGrantFromDiscriminatorValue, serializeOAuth2Permi
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the collection of oAuth2PermissionGrant entities.
  */
@@ -60,16 +62,33 @@ export interface OAuth2PermissionGrantItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const OAuth2PermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the collection of oAuth2PermissionGrant entities.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the collection of oAuth2PermissionGrant entities.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ClientId: "clientId",
+    ConsentType: "consentType",
+    PrincipalId: "principalId",
+    ResourceId: "resourceId",
+    Scope: "scope",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -87,7 +106,7 @@ export const OAuth2PermissionGrantItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OAuth2PermissionGrantItemRequestBuilderUriTemplate,
@@ -95,7 +114,7 @@ export const OAuth2PermissionGrantItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOAuth2PermissionGrantFromDiscriminatorValue,
         queryParametersMapper: OAuth2PermissionGrantItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +124,7 @@ export const OAuth2PermissionGrantItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOAuth2PermissionGrantFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOAuth2PermissionGrant,

@@ -117,12 +117,14 @@ export interface EntitlementManagementRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -196,7 +198,7 @@ export const EntitlementManagementRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: EntitlementManagementRequestBuilderUriTemplate,
@@ -204,7 +206,7 @@ export const EntitlementManagementRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEntitlementManagementFromDiscriminatorValue,
         queryParametersMapper: EntitlementManagementRequestBuilderGetQueryParametersMapper,
     },
@@ -214,12 +216,48 @@ export const EntitlementManagementRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEntitlementManagementFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEntitlementManagement,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AccessPackageAssignmentApprovals: "accessPackageAssignmentApprovals",
+    AccessPackages: "accessPackages",
+    AssignmentPolicies: "assignmentPolicies",
+    AssignmentRequests: "assignmentRequests",
+    Assignments: "assignments",
+    Catalogs: "catalogs",
+    ConnectedOrganizations: "connectedOrganizations",
+    ResourceEnvironments: "resourceEnvironments",
+    ResourceRequests: "resourceRequests",
+    ResourceRoleScopes: "resourceRoleScopes",
+    Resources: "resources",
+    Settings: "settings",
+} as const;
+/**
+ * Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AccessPackageAssignmentApprovals: "accessPackageAssignmentApprovals",
+    AccessPackages: "accessPackages",
+    AssignmentPolicies: "assignmentPolicies",
+    AssignmentRequests: "assignmentRequests",
+    Assignments: "assignments",
+    Catalogs: "catalogs",
+    ConnectedOrganizations: "connectedOrganizations",
+    ResourceEnvironments: "resourceEnvironments",
+    ResourceRequests: "resourceRequests",
+    ResourceRoleScopes: "resourceRoleScopes",
+    Resources: "resources",
+    Settings: "settings",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

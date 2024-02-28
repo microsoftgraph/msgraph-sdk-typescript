@@ -30,12 +30,14 @@ export interface ArticleItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -57,10 +59,32 @@ export const ArticleItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createArticleFromDiscriminatorValue,
         queryParametersMapper: ArticleItemRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the articles property of the microsoft.graph.security.vulnerability entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Indicators: "indicators",
+} as const;
+/**
+ * Provides operations to manage the articles property of the microsoft.graph.security.vulnerability entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Body: "body",
+    CreatedDateTime: "createdDateTime",
+    ImageUrl: "imageUrl",
+    IsFeatured: "isFeatured",
+    LastUpdatedDateTime: "lastUpdatedDateTime",
+    Summary: "summary",
+    Tags: "tags",
+    Title: "title",
+    Indicators: "indicators",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

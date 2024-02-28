@@ -8,6 +8,9 @@ import { DeltaRequestBuilderRequestsMetadata, type DeltaRequestBuilder } from '.
 import { MessageItemRequestBuilderNavigationMetadata, MessageItemRequestBuilderRequestsMetadata, type MessageItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the messages property of the microsoft.graph.user entity.
  */
@@ -68,7 +71,7 @@ export interface MessagesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -80,7 +83,7 @@ export interface MessagesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -88,7 +91,7 @@ export interface MessagesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -102,6 +105,123 @@ export interface MessagesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const MessagesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/messages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top,includeHiddenMessages*}";
+/**
+ * Provides operations to manage the messages property of the microsoft.graph.user entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Attachments: "attachments",
+    Extensions: "extensions",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
+/**
+ * Provides operations to manage the messages property of the microsoft.graph.user entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Categories: "categories",
+    CategoriesDesc: "categories desc",
+    ChangeKey: "changeKey",
+    ChangeKeyDesc: "changeKey desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    BccRecipients: "bccRecipients",
+    BccRecipientsDesc: "bccRecipients desc",
+    Body: "body",
+    BodyDesc: "body desc",
+    BodyPreview: "bodyPreview",
+    BodyPreviewDesc: "bodyPreview desc",
+    CcRecipients: "ccRecipients",
+    CcRecipientsDesc: "ccRecipients desc",
+    ConversationId: "conversationId",
+    ConversationIdDesc: "conversationId desc",
+    ConversationIndex: "conversationIndex",
+    ConversationIndexDesc: "conversationIndex desc",
+    Flag: "flag",
+    FlagDesc: "flag desc",
+    From: "from",
+    FromDesc: "from desc",
+    HasAttachments: "hasAttachments",
+    HasAttachmentsDesc: "hasAttachments desc",
+    Importance: "importance",
+    ImportanceDesc: "importance desc",
+    InferenceClassification: "inferenceClassification",
+    InferenceClassificationDesc: "inferenceClassification desc",
+    InternetMessageHeaders: "internetMessageHeaders",
+    InternetMessageHeadersDesc: "internetMessageHeaders desc",
+    InternetMessageId: "internetMessageId",
+    InternetMessageIdDesc: "internetMessageId desc",
+    IsDeliveryReceiptRequested: "isDeliveryReceiptRequested",
+    IsDeliveryReceiptRequestedDesc: "isDeliveryReceiptRequested desc",
+    IsDraft: "isDraft",
+    IsDraftDesc: "isDraft desc",
+    IsRead: "isRead",
+    IsReadDesc: "isRead desc",
+    IsReadReceiptRequested: "isReadReceiptRequested",
+    IsReadReceiptRequestedDesc: "isReadReceiptRequested desc",
+    ParentFolderId: "parentFolderId",
+    ParentFolderIdDesc: "parentFolderId desc",
+    ReceivedDateTime: "receivedDateTime",
+    ReceivedDateTimeDesc: "receivedDateTime desc",
+    ReplyTo: "replyTo",
+    ReplyToDesc: "replyTo desc",
+    Sender: "sender",
+    SenderDesc: "sender desc",
+    SentDateTime: "sentDateTime",
+    SentDateTimeDesc: "sentDateTime desc",
+    Subject: "subject",
+    SubjectDesc: "subject desc",
+    ToRecipients: "toRecipients",
+    ToRecipientsDesc: "toRecipients desc",
+    UniqueBody: "uniqueBody",
+    UniqueBodyDesc: "uniqueBody desc",
+    WebLink: "webLink",
+    WebLinkDesc: "webLink desc",
+} as const;
+/**
+ * Provides operations to manage the messages property of the microsoft.graph.user entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Categories: "categories",
+    ChangeKey: "changeKey",
+    CreatedDateTime: "createdDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    BccRecipients: "bccRecipients",
+    Body: "body",
+    BodyPreview: "bodyPreview",
+    CcRecipients: "ccRecipients",
+    ConversationId: "conversationId",
+    ConversationIndex: "conversationIndex",
+    Flag: "flag",
+    From: "from",
+    HasAttachments: "hasAttachments",
+    Importance: "importance",
+    InferenceClassification: "inferenceClassification",
+    InternetMessageHeaders: "internetMessageHeaders",
+    InternetMessageId: "internetMessageId",
+    IsDeliveryReceiptRequested: "isDeliveryReceiptRequested",
+    IsDraft: "isDraft",
+    IsRead: "isRead",
+    IsReadReceiptRequested: "isReadReceiptRequested",
+    ParentFolderId: "parentFolderId",
+    ReceivedDateTime: "receivedDateTime",
+    ReplyTo: "replyTo",
+    Sender: "sender",
+    SentDateTime: "sentDateTime",
+    Subject: "subject",
+    ToRecipients: "toRecipients",
+    UniqueBody: "uniqueBody",
+    WebLink: "webLink",
+    Attachments: "attachments",
+    Extensions: "extensions",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -141,7 +261,7 @@ export const MessagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMessageCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MessagesRequestBuilderGetQueryParametersMapper,
     },
@@ -151,7 +271,7 @@ export const MessagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMessageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMessage,

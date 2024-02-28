@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { type UserExperienceAnalyticsMetricHistoryItemRequestBuilder, UserExperienceAnalyticsMetricHistoryItemRequestBuilderRequestsMetadata } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the userExperienceAnalyticsMetricHistory property of the microsoft.graph.deviceManagement entity.
  */
@@ -61,7 +64,7 @@ export interface UserExperienceAnalyticsMetricHistoryRequestBuilderGetQueryParam
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface UserExperienceAnalyticsMetricHistoryRequestBuilderGetQueryParam
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface UserExperienceAnalyticsMetricHistoryRequestBuilderGetQueryParam
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,34 @@ export interface UserExperienceAnalyticsMetricHistoryRequestBuilderGetQueryParam
  * Uri template for the request builder.
  */
 export const UserExperienceAnalyticsMetricHistoryRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsMetricHistory{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the userExperienceAnalyticsMetricHistory property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the userExperienceAnalyticsMetricHistory property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DeviceId: "deviceId",
+    DeviceIdDesc: "deviceId desc",
+    MetricDateTime: "metricDateTime",
+    MetricDateTimeDesc: "metricDateTime desc",
+    MetricType: "metricType",
+    MetricTypeDesc: "metricType desc",
+} as const;
+/**
+ * Provides operations to manage the userExperienceAnalyticsMetricHistory property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeviceId: "deviceId",
+    MetricDateTime: "metricDateTime",
+    MetricType: "metricType",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +157,7 @@ export const UserExperienceAnalyticsMetricHistoryRequestBuilderRequestsMetadata:
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsMetricHistoryCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsMetricHistoryRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +167,7 @@ export const UserExperienceAnalyticsMetricHistoryRequestBuilderRequestsMetadata:
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsMetricHistoryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsMetricHistory,

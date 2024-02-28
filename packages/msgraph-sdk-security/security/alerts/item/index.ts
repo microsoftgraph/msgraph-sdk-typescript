@@ -47,12 +47,14 @@ export interface AlertItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -74,7 +76,7 @@ export const AlertItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAlertFromDiscriminatorValue,
         queryParametersMapper: AlertItemRequestBuilderGetQueryParametersMapper,
     },
@@ -84,12 +86,63 @@ export const AlertItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAlertFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAlert,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the alerts property of the microsoft.graph.security entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the alerts property of the microsoft.graph.security entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActivityGroupName: "activityGroupName",
+    AlertDetections: "alertDetections",
+    AssignedTo: "assignedTo",
+    AzureSubscriptionId: "azureSubscriptionId",
+    AzureTenantId: "azureTenantId",
+    Category: "category",
+    ClosedDateTime: "closedDateTime",
+    CloudAppStates: "cloudAppStates",
+    Comments: "comments",
+    Confidence: "confidence",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DetectionIds: "detectionIds",
+    EventDateTime: "eventDateTime",
+    Feedback: "feedback",
+    FileStates: "fileStates",
+    HistoryStates: "historyStates",
+    HostStates: "hostStates",
+    IncidentIds: "incidentIds",
+    InvestigationSecurityStates: "investigationSecurityStates",
+    LastEventDateTime: "lastEventDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    MalwareStates: "malwareStates",
+    MessageSecurityStates: "messageSecurityStates",
+    NetworkConnections: "networkConnections",
+    Processes: "processes",
+    RecommendedActions: "recommendedActions",
+    RegistryKeyStates: "registryKeyStates",
+    SecurityResources: "securityResources",
+    Severity: "severity",
+    SourceMaterials: "sourceMaterials",
+    Status: "status",
+    Tags: "tags",
+    Title: "title",
+    Triggers: "triggers",
+    UriClickSecurityStates: "uriClickSecurityStates",
+    UserStates: "userStates",
+    VendorInformation: "vendorInformation",
+    VulnerabilityStates: "vulnerabilityStates",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

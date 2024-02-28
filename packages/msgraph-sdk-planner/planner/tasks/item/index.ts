@@ -9,6 +9,8 @@ import { DetailsRequestBuilderRequestsMetadata, type DetailsRequestBuilder } fro
 import { ProgressTaskBoardFormatRequestBuilderRequestsMetadata, type ProgressTaskBoardFormatRequestBuilder } from './progressTaskBoardFormat/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.planner entity.
  */
@@ -80,16 +82,57 @@ export interface PlannerTaskItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const PlannerTaskItemRequestBuilderUriTemplate = "{+baseurl}/planner/tasks/{plannerTask%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the tasks property of the microsoft.graph.planner entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AssignedToTaskBoardFormat: "assignedToTaskBoardFormat",
+    BucketTaskBoardFormat: "bucketTaskBoardFormat",
+    Details: "details",
+    ProgressTaskBoardFormat: "progressTaskBoardFormat",
+} as const;
+/**
+ * Provides operations to manage the tasks property of the microsoft.graph.planner entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActiveChecklistItemCount: "activeChecklistItemCount",
+    AppliedCategories: "appliedCategories",
+    AssigneePriority: "assigneePriority",
+    Assignments: "assignments",
+    BucketId: "bucketId",
+    ChecklistItemCount: "checklistItemCount",
+    CompletedBy: "completedBy",
+    CompletedDateTime: "completedDateTime",
+    ConversationThreadId: "conversationThreadId",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    DueDateTime: "dueDateTime",
+    HasDescription: "hasDescription",
+    OrderHint: "orderHint",
+    PercentComplete: "percentComplete",
+    PlanId: "planId",
+    PreviewType: "previewType",
+    Priority: "priority",
+    ReferenceCount: "referenceCount",
+    StartDateTime: "startDateTime",
+    Title: "title",
+    AssignedToTaskBoardFormat: "assignedToTaskBoardFormat",
+    BucketTaskBoardFormat: "bucketTaskBoardFormat",
+    Details: "details",
+    ProgressTaskBoardFormat: "progressTaskBoardFormat",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -124,7 +167,7 @@ export const PlannerTaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PlannerTaskItemRequestBuilderUriTemplate,
@@ -132,7 +175,7 @@ export const PlannerTaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerTaskFromDiscriminatorValue,
         queryParametersMapper: PlannerTaskItemRequestBuilderGetQueryParametersMapper,
     },
@@ -142,7 +185,7 @@ export const PlannerTaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerTaskFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePlannerTask,

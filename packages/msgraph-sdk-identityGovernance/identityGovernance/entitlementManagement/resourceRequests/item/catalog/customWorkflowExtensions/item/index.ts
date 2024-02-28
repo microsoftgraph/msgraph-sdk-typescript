@@ -60,12 +60,14 @@ export interface CustomCalloutExtensionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -87,7 +89,7 @@ export const CustomCalloutExtensionItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CustomCalloutExtensionItemRequestBuilderUriTemplate,
@@ -95,7 +97,7 @@ export const CustomCalloutExtensionItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCustomCalloutExtensionFromDiscriminatorValue,
         queryParametersMapper: CustomCalloutExtensionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,12 +107,29 @@ export const CustomCalloutExtensionItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCustomCalloutExtensionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCustomCalloutExtension,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the customWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the customWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AuthenticationConfiguration: "authenticationConfiguration",
+    ClientConfiguration: "clientConfiguration",
+    Description: "description",
+    DisplayName: "displayName",
+    EndpointConfiguration: "endpointConfiguration",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -5,6 +5,8 @@ import { createUserExperienceAnalyticsWorkFromAnywhereDeviceFromDiscriminatorVal
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the metricDevices property of the microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric entity.
  */
@@ -57,16 +59,62 @@ export interface UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsWorkFromAnywhereMetrics/{userExperienceAnalyticsWorkFromAnywhereMetric%2Did}/metricDevices/{userExperienceAnalyticsWorkFromAnywhereDevice%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the metricDevices property of the microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the metricDevices property of the microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AutoPilotProfileAssigned: "autoPilotProfileAssigned",
+    AutoPilotRegistered: "autoPilotRegistered",
+    AzureAdDeviceId: "azureAdDeviceId",
+    AzureAdJoinType: "azureAdJoinType",
+    AzureAdRegistered: "azureAdRegistered",
+    CloudIdentityScore: "cloudIdentityScore",
+    CloudManagementScore: "cloudManagementScore",
+    CloudProvisioningScore: "cloudProvisioningScore",
+    CompliancePolicySetToIntune: "compliancePolicySetToIntune",
+    DeviceId: "deviceId",
+    DeviceName: "deviceName",
+    HealthStatus: "healthStatus",
+    IsCloudManagedGatewayEnabled: "isCloudManagedGatewayEnabled",
+    ManagedBy: "managedBy",
+    Manufacturer: "manufacturer",
+    Model: "model",
+    OsCheckFailed: "osCheckFailed",
+    OsDescription: "osDescription",
+    OsVersion: "osVersion",
+    OtherWorkloadsSetToIntune: "otherWorkloadsSetToIntune",
+    Ownership: "ownership",
+    Processor64BitCheckFailed: "processor64BitCheckFailed",
+    ProcessorCoreCountCheckFailed: "processorCoreCountCheckFailed",
+    ProcessorFamilyCheckFailed: "processorFamilyCheckFailed",
+    ProcessorSpeedCheckFailed: "processorSpeedCheckFailed",
+    RamCheckFailed: "ramCheckFailed",
+    SecureBootCheckFailed: "secureBootCheckFailed",
+    SerialNumber: "serialNumber",
+    StorageCheckFailed: "storageCheckFailed",
+    TenantAttached: "tenantAttached",
+    TpmCheckFailed: "tpmCheckFailed",
+    UpgradeEligibility: "upgradeEligibility",
+    WindowsScore: "windowsScore",
+    WorkFromAnywhereScore: "workFromAnywhereScore",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -84,7 +132,7 @@ export const UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderUriTemplate,
@@ -92,7 +140,7 @@ export const UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsWorkFromAnywhereDeviceFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +150,7 @@ export const UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsWorkFromAnywhereDeviceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsWorkFromAnywhereDevice,

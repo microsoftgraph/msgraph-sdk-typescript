@@ -64,12 +64,14 @@ export interface CustomSecurityAttributeDefinitionItemRequestBuilderGetQueryPara
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -100,7 +102,7 @@ export const CustomSecurityAttributeDefinitionItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CustomSecurityAttributeDefinitionItemRequestBuilderUriTemplate,
@@ -108,7 +110,7 @@ export const CustomSecurityAttributeDefinitionItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCustomSecurityAttributeDefinitionFromDiscriminatorValue,
         queryParametersMapper: CustomSecurityAttributeDefinitionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -118,12 +120,34 @@ export const CustomSecurityAttributeDefinitionItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCustomSecurityAttributeDefinitionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCustomSecurityAttributeDefinition,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AllowedValues: "allowedValues",
+} as const;
+/**
+ * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AttributeSet: "attributeSet",
+    Description: "description",
+    IsCollection: "isCollection",
+    IsSearchable: "isSearchable",
+    Name: "name",
+    Status: "status",
+    Type: "type",
+    UsePreDefinedValuesOnly: "usePreDefinedValuesOnly",
+    AllowedValues: "allowedValues",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

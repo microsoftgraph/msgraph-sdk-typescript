@@ -77,7 +77,7 @@ export interface CallRecordsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -85,7 +85,7 @@ export interface CallRecordsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -93,7 +93,7 @@ export interface CallRecordsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -103,6 +103,9 @@ export interface CallRecordsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -149,7 +152,7 @@ export const CallRecordsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCallRecordCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: CallRecordsRequestBuilderGetQueryParametersMapper,
     },
@@ -159,12 +162,60 @@ export const CallRecordsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCallRecordFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCallRecord,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Sessions: "sessions",
+} as const;
+/**
+ * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    EndDateTime: "endDateTime",
+    EndDateTimeDesc: "endDateTime desc",
+    JoinWebUrl: "joinWebUrl",
+    JoinWebUrlDesc: "joinWebUrl desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Modalities: "modalities",
+    ModalitiesDesc: "modalities desc",
+    Organizer: "organizer",
+    OrganizerDesc: "organizer desc",
+    Participants: "participants",
+    ParticipantsDesc: "participants desc",
+    StartDateTime: "startDateTime",
+    StartDateTimeDesc: "startDateTime desc",
+    Type: "type",
+    TypeDesc: "type desc",
+    Version: "version",
+    VersionDesc: "version desc",
+} as const;
+/**
+ * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    EndDateTime: "endDateTime",
+    JoinWebUrl: "joinWebUrl",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Modalities: "modalities",
+    Organizer: "organizer",
+    Participants: "participants",
+    StartDateTime: "startDateTime",
+    Type: "type",
+    Version: "version",
+    Sessions: "sessions",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

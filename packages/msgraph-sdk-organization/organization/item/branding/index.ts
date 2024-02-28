@@ -100,12 +100,14 @@ export interface BrandingRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -157,7 +159,7 @@ export const BrandingRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: BrandingRequestBuilderUriTemplate,
@@ -165,7 +167,7 @@ export const BrandingRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrganizationalBrandingFromDiscriminatorValue,
         queryParametersMapper: BrandingRequestBuilderGetQueryParametersMapper,
     },
@@ -175,12 +177,56 @@ export const BrandingRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrganizationalBrandingFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOrganizationalBranding,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the branding property of the microsoft.graph.organization entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Localizations: "localizations",
+} as const;
+/**
+ * Provides operations to manage the branding property of the microsoft.graph.organization entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    BackgroundColor: "backgroundColor",
+    BackgroundImage: "backgroundImage",
+    BackgroundImageRelativeUrl: "backgroundImageRelativeUrl",
+    BannerLogo: "bannerLogo",
+    BannerLogoRelativeUrl: "bannerLogoRelativeUrl",
+    CdnList: "cdnList",
+    CustomAccountResetCredentialsUrl: "customAccountResetCredentialsUrl",
+    CustomCannotAccessYourAccountText: "customCannotAccessYourAccountText",
+    CustomCannotAccessYourAccountUrl: "customCannotAccessYourAccountUrl",
+    CustomCSS: "customCSS",
+    CustomCSSRelativeUrl: "customCSSRelativeUrl",
+    CustomForgotMyPasswordText: "customForgotMyPasswordText",
+    CustomPrivacyAndCookiesText: "customPrivacyAndCookiesText",
+    CustomPrivacyAndCookiesUrl: "customPrivacyAndCookiesUrl",
+    CustomResetItNowText: "customResetItNowText",
+    CustomTermsOfUseText: "customTermsOfUseText",
+    CustomTermsOfUseUrl: "customTermsOfUseUrl",
+    Favicon: "favicon",
+    FaviconRelativeUrl: "faviconRelativeUrl",
+    HeaderBackgroundColor: "headerBackgroundColor",
+    HeaderLogo: "headerLogo",
+    HeaderLogoRelativeUrl: "headerLogoRelativeUrl",
+    LoginPageLayoutConfiguration: "loginPageLayoutConfiguration",
+    LoginPageTextVisibilitySettings: "loginPageTextVisibilitySettings",
+    SignInPageText: "signInPageText",
+    SquareLogo: "squareLogo",
+    SquareLogoDark: "squareLogoDark",
+    SquareLogoDarkRelativeUrl: "squareLogoDarkRelativeUrl",
+    SquareLogoRelativeUrl: "squareLogoRelativeUrl",
+    UsernameHintText: "usernameHintText",
+    Localizations: "localizations",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

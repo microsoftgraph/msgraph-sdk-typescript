@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { ServicePrincipalRiskDetectionItemRequestBuilderRequestsMetadata, type ServicePrincipalRiskDetectionItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
  */
@@ -62,7 +65,7 @@ export interface ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters 
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters 
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters 
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,85 @@ export interface ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters 
  * Uri template for the request builder.
  */
 export const ServicePrincipalRiskDetectionsRequestBuilderUriTemplate = "{+baseurl}/identityProtection/servicePrincipalRiskDetections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Activity: "activity",
+    ActivityDesc: "activity desc",
+    ActivityDateTime: "activityDateTime",
+    ActivityDateTimeDesc: "activityDateTime desc",
+    AdditionalInfo: "additionalInfo",
+    AdditionalInfoDesc: "additionalInfo desc",
+    AppId: "appId",
+    AppIdDesc: "appId desc",
+    CorrelationId: "correlationId",
+    CorrelationIdDesc: "correlationId desc",
+    DetectedDateTime: "detectedDateTime",
+    DetectedDateTimeDesc: "detectedDateTime desc",
+    DetectionTimingType: "detectionTimingType",
+    DetectionTimingTypeDesc: "detectionTimingType desc",
+    IpAddress: "ipAddress",
+    IpAddressDesc: "ipAddress desc",
+    KeyIds: "keyIds",
+    KeyIdsDesc: "keyIds desc",
+    LastUpdatedDateTime: "lastUpdatedDateTime",
+    LastUpdatedDateTimeDesc: "lastUpdatedDateTime desc",
+    Location: "location",
+    LocationDesc: "location desc",
+    RequestId: "requestId",
+    RequestIdDesc: "requestId desc",
+    RiskDetail: "riskDetail",
+    RiskDetailDesc: "riskDetail desc",
+    RiskEventType: "riskEventType",
+    RiskEventTypeDesc: "riskEventType desc",
+    RiskLevel: "riskLevel",
+    RiskLevelDesc: "riskLevel desc",
+    RiskState: "riskState",
+    RiskStateDesc: "riskState desc",
+    ServicePrincipalDisplayName: "servicePrincipalDisplayName",
+    ServicePrincipalDisplayNameDesc: "servicePrincipalDisplayName desc",
+    ServicePrincipalId: "servicePrincipalId",
+    ServicePrincipalIdDesc: "servicePrincipalId desc",
+    Source: "source",
+    SourceDesc: "source desc",
+    TokenIssuerType: "tokenIssuerType",
+    TokenIssuerTypeDesc: "tokenIssuerType desc",
+} as const;
+/**
+ * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Activity: "activity",
+    ActivityDateTime: "activityDateTime",
+    AdditionalInfo: "additionalInfo",
+    AppId: "appId",
+    CorrelationId: "correlationId",
+    DetectedDateTime: "detectedDateTime",
+    DetectionTimingType: "detectionTimingType",
+    IpAddress: "ipAddress",
+    KeyIds: "keyIds",
+    LastUpdatedDateTime: "lastUpdatedDateTime",
+    Location: "location",
+    RequestId: "requestId",
+    RiskDetail: "riskDetail",
+    RiskEventType: "riskEventType",
+    RiskLevel: "riskLevel",
+    RiskState: "riskState",
+    ServicePrincipalDisplayName: "servicePrincipalDisplayName",
+    ServicePrincipalId: "servicePrincipalId",
+    Source: "source",
+    TokenIssuerType: "tokenIssuerType",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +209,7 @@ export const ServicePrincipalRiskDetectionsRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServicePrincipalRiskDetectionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ServicePrincipalRiskDetectionsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +219,7 @@ export const ServicePrincipalRiskDetectionsRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServicePrincipalRiskDetectionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeServicePrincipalRiskDetection,

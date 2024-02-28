@@ -48,7 +48,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -56,7 +56,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -64,7 +64,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -84,6 +84,9 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaG
         "value": n => { deltaGetResponse.value = n.getCollectionOfObjectValues<DriveItem>(createDriveItemFromDiscriminatorValue); },
     }
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -119,10 +122,150 @@ export const DeltaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeltaGetResponseFromDiscriminatorValue,
         queryParametersMapper: DeltaRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    CreatedByUser: "createdByUser",
+    LastModifiedByUser: "lastModifiedByUser",
+    Analytics: "analytics",
+    Children: "children",
+    ListItem: "listItem",
+    Permissions: "permissions",
+    RetentionLabel: "retentionLabel",
+    Subscriptions: "subscriptions",
+    Thumbnails: "thumbnails",
+    Versions: "versions",
+    Workbook: "workbook",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    ETag: "eTag",
+    ETagDesc: "eTag desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Name: "name",
+    NameDesc: "name desc",
+    ParentReference: "parentReference",
+    ParentReferenceDesc: "parentReference desc",
+    WebUrl: "webUrl",
+    WebUrlDesc: "webUrl desc",
+    Audio: "audio",
+    AudioDesc: "audio desc",
+    Bundle: "bundle",
+    BundleDesc: "bundle desc",
+    Content: "content",
+    ContentDesc: "content desc",
+    CTag: "cTag",
+    CTagDesc: "cTag desc",
+    Deleted: "deleted",
+    DeletedDesc: "deleted desc",
+    File: "file",
+    FileDesc: "file desc",
+    FileSystemInfo: "fileSystemInfo",
+    FileSystemInfoDesc: "fileSystemInfo desc",
+    Folder: "folder",
+    FolderDesc: "folder desc",
+    Image: "image",
+    ImageDesc: "image desc",
+    Location: "location",
+    LocationDesc: "location desc",
+    Malware: "malware",
+    MalwareDesc: "malware desc",
+    PackageEscaped: "package",
+    PackageDesc: "package desc",
+    PendingOperations: "pendingOperations",
+    PendingOperationsDesc: "pendingOperations desc",
+    Photo: "photo",
+    PhotoDesc: "photo desc",
+    Publication: "publication",
+    PublicationDesc: "publication desc",
+    RemoteItem: "remoteItem",
+    RemoteItemDesc: "remoteItem desc",
+    Root: "root",
+    RootDesc: "root desc",
+    SearchResult: "searchResult",
+    SearchResultDesc: "searchResult desc",
+    Shared: "shared",
+    SharedDesc: "shared desc",
+    SharepointIds: "sharepointIds",
+    SharepointIdsDesc: "sharepointIds desc",
+    Size: "size",
+    SizeDesc: "size desc",
+    SpecialFolder: "specialFolder",
+    SpecialFolderDesc: "specialFolder desc",
+    Video: "video",
+    VideoDesc: "video desc",
+    WebDavUrl: "webDavUrl",
+    WebDavUrlDesc: "webDavUrl desc",
+} as const;
+/**
+ * Provides operations to call the delta method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    ETag: "eTag",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Name: "name",
+    ParentReference: "parentReference",
+    WebUrl: "webUrl",
+    Audio: "audio",
+    Bundle: "bundle",
+    Content: "content",
+    CTag: "cTag",
+    Deleted: "deleted",
+    File: "file",
+    FileSystemInfo: "fileSystemInfo",
+    Folder: "folder",
+    Image: "image",
+    Location: "location",
+    Malware: "malware",
+    PackageEscaped: "package",
+    PendingOperations: "pendingOperations",
+    Photo: "photo",
+    Publication: "publication",
+    RemoteItem: "remoteItem",
+    Root: "root",
+    SearchResult: "searchResult",
+    Shared: "shared",
+    SharepointIds: "sharepointIds",
+    Size: "size",
+    SpecialFolder: "specialFolder",
+    Video: "video",
+    WebDavUrl: "webDavUrl",
+    CreatedByUser: "createdByUser",
+    LastModifiedByUser: "lastModifiedByUser",
+    Analytics: "analytics",
+    Children: "children",
+    ListItem: "listItem",
+    Permissions: "permissions",
+    RetentionLabel: "retentionLabel",
+    Subscriptions: "subscriptions",
+    Thumbnails: "thumbnails",
+    Versions: "versions",
+    Workbook: "workbook",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

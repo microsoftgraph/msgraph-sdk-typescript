@@ -66,16 +66,18 @@ export interface BookingAppointmentItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00
      */
     start?: string;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -105,7 +107,7 @@ export const BookingAppointmentItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: BookingAppointmentItemRequestBuilderUriTemplate,
@@ -113,7 +115,7 @@ export const BookingAppointmentItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingAppointmentFromDiscriminatorValue,
         queryParametersMapper: BookingAppointmentItemRequestBuilderGetQueryParametersMapper,
     },
@@ -123,12 +125,48 @@ export const BookingAppointmentItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingAppointmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBookingAppointment,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AdditionalInformation: "additionalInformation",
+    AnonymousJoinWebUrl: "anonymousJoinWebUrl",
+    Customers: "customers",
+    CustomerTimeZone: "customerTimeZone",
+    Duration: "duration",
+    EndDateTime: "endDateTime",
+    FilledAttendeesCount: "filledAttendeesCount",
+    IsLocationOnline: "isLocationOnline",
+    JoinWebUrl: "joinWebUrl",
+    MaximumAttendeesCount: "maximumAttendeesCount",
+    OptOutOfCustomerEmail: "optOutOfCustomerEmail",
+    PostBuffer: "postBuffer",
+    PreBuffer: "preBuffer",
+    Price: "price",
+    PriceType: "priceType",
+    Reminders: "reminders",
+    SelfServiceAppointmentId: "selfServiceAppointmentId",
+    ServiceId: "serviceId",
+    ServiceLocation: "serviceLocation",
+    ServiceName: "serviceName",
+    ServiceNotes: "serviceNotes",
+    SmsNotificationsEnabled: "smsNotificationsEnabled",
+    StaffMemberIds: "staffMemberIds",
+    StartDateTime: "startDateTime",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

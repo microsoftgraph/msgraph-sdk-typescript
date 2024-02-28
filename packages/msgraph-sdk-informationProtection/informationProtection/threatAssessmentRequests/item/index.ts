@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { ResultsRequestBuilderNavigationMetadata, ResultsRequestBuilderRequestsMetadata, type ResultsRequestBuilder } from './results/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
  */
@@ -63,16 +65,37 @@ export interface ThreatAssessmentRequestItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const ThreatAssessmentRequestItemRequestBuilderUriTemplate = "{+baseurl}/informationProtection/threatAssessmentRequests/{threatAssessmentRequest%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Results: "results",
+} as const;
+/**
+ * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Category: "category",
+    ContentType: "contentType",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    ExpectedAssessment: "expectedAssessment",
+    RequestSource: "requestSource",
+    Status: "status",
+    Results: "results",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -99,7 +122,7 @@ export const ThreatAssessmentRequestItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ThreatAssessmentRequestItemRequestBuilderUriTemplate,
@@ -107,7 +130,7 @@ export const ThreatAssessmentRequestItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createThreatAssessmentRequestFromDiscriminatorValue,
         queryParametersMapper: ThreatAssessmentRequestItemRequestBuilderGetQueryParametersMapper,
     },
@@ -117,7 +140,7 @@ export const ThreatAssessmentRequestItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createThreatAssessmentRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeThreatAssessmentRequest,

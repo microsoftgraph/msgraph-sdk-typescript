@@ -102,12 +102,14 @@ export interface DeviceConfigurationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -162,7 +164,7 @@ export const DeviceConfigurationItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DeviceConfigurationItemRequestBuilderUriTemplate,
@@ -170,7 +172,7 @@ export const DeviceConfigurationItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceConfigurationFromDiscriminatorValue,
         queryParametersMapper: DeviceConfigurationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -180,12 +182,41 @@ export const DeviceConfigurationItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceConfigurationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceConfiguration,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Assignments: "assignments",
+    DeviceSettingStateSummaries: "deviceSettingStateSummaries",
+    DeviceStatuses: "deviceStatuses",
+    DeviceStatusOverview: "deviceStatusOverview",
+    UserStatuses: "userStatuses",
+    UserStatusOverview: "userStatusOverview",
+} as const;
+/**
+ * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Version: "version",
+    Assignments: "assignments",
+    DeviceSettingStateSummaries: "deviceSettingStateSummaries",
+    DeviceStatuses: "deviceStatuses",
+    DeviceStatusOverview: "deviceStatusOverview",
+    UserStatuses: "userStatuses",
+    UserStatusOverview: "userStatusOverview",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

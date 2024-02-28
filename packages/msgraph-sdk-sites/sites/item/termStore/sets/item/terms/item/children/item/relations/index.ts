@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { RelationItemRequestBuilderNavigationMetadata, RelationItemRequestBuilderRequestsMetadata, type RelationItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the relations property of the microsoft.graph.termStore.term entity.
  */
@@ -61,7 +64,7 @@ export interface RelationsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface RelationsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface RelationsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,34 @@ export interface RelationsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const RelationsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore/sets/{set%2Did}/terms/{term%2Did}/children/{term%2Did1}/relations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the relations property of the microsoft.graph.termStore.term entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    FromTerm: "fromTerm",
+    Set: "set",
+    ToTerm: "toTerm",
+} as const;
+/**
+ * Provides operations to manage the relations property of the microsoft.graph.termStore.term entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Relationship: "relationship",
+    RelationshipDesc: "relationship desc",
+} as const;
+/**
+ * Provides operations to manage the relations property of the microsoft.graph.termStore.term entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Relationship: "relationship",
+    FromTerm: "fromTerm",
+    Set: "set",
+    ToTerm: "toTerm",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +158,7 @@ export const RelationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRelationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RelationsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +168,7 @@ export const RelationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRelationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRelation,

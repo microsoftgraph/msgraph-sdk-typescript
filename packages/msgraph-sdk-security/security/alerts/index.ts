@@ -62,7 +62,7 @@ export interface AlertsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +70,7 @@ export interface AlertsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +78,7 @@ export interface AlertsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -88,6 +88,9 @@ export interface AlertsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -127,7 +130,7 @@ export const AlertsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAlertCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AlertsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,12 +140,148 @@ export const AlertsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAlertFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAlert,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the alerts property of the microsoft.graph.security entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the alerts property of the microsoft.graph.security entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ActivityGroupName: "activityGroupName",
+    ActivityGroupNameDesc: "activityGroupName desc",
+    AlertDetections: "alertDetections",
+    AlertDetectionsDesc: "alertDetections desc",
+    AssignedTo: "assignedTo",
+    AssignedToDesc: "assignedTo desc",
+    AzureSubscriptionId: "azureSubscriptionId",
+    AzureSubscriptionIdDesc: "azureSubscriptionId desc",
+    AzureTenantId: "azureTenantId",
+    AzureTenantIdDesc: "azureTenantId desc",
+    Category: "category",
+    CategoryDesc: "category desc",
+    ClosedDateTime: "closedDateTime",
+    ClosedDateTimeDesc: "closedDateTime desc",
+    CloudAppStates: "cloudAppStates",
+    CloudAppStatesDesc: "cloudAppStates desc",
+    Comments: "comments",
+    CommentsDesc: "comments desc",
+    Confidence: "confidence",
+    ConfidenceDesc: "confidence desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DetectionIds: "detectionIds",
+    DetectionIdsDesc: "detectionIds desc",
+    EventDateTime: "eventDateTime",
+    EventDateTimeDesc: "eventDateTime desc",
+    Feedback: "feedback",
+    FeedbackDesc: "feedback desc",
+    FileStates: "fileStates",
+    FileStatesDesc: "fileStates desc",
+    HistoryStates: "historyStates",
+    HistoryStatesDesc: "historyStates desc",
+    HostStates: "hostStates",
+    HostStatesDesc: "hostStates desc",
+    IncidentIds: "incidentIds",
+    IncidentIdsDesc: "incidentIds desc",
+    InvestigationSecurityStates: "investigationSecurityStates",
+    InvestigationSecurityStatesDesc: "investigationSecurityStates desc",
+    LastEventDateTime: "lastEventDateTime",
+    LastEventDateTimeDesc: "lastEventDateTime desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    MalwareStates: "malwareStates",
+    MalwareStatesDesc: "malwareStates desc",
+    MessageSecurityStates: "messageSecurityStates",
+    MessageSecurityStatesDesc: "messageSecurityStates desc",
+    NetworkConnections: "networkConnections",
+    NetworkConnectionsDesc: "networkConnections desc",
+    Processes: "processes",
+    ProcessesDesc: "processes desc",
+    RecommendedActions: "recommendedActions",
+    RecommendedActionsDesc: "recommendedActions desc",
+    RegistryKeyStates: "registryKeyStates",
+    RegistryKeyStatesDesc: "registryKeyStates desc",
+    SecurityResources: "securityResources",
+    SecurityResourcesDesc: "securityResources desc",
+    Severity: "severity",
+    SeverityDesc: "severity desc",
+    SourceMaterials: "sourceMaterials",
+    SourceMaterialsDesc: "sourceMaterials desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    Tags: "tags",
+    TagsDesc: "tags desc",
+    Title: "title",
+    TitleDesc: "title desc",
+    Triggers: "triggers",
+    TriggersDesc: "triggers desc",
+    UriClickSecurityStates: "uriClickSecurityStates",
+    UriClickSecurityStatesDesc: "uriClickSecurityStates desc",
+    UserStates: "userStates",
+    UserStatesDesc: "userStates desc",
+    VendorInformation: "vendorInformation",
+    VendorInformationDesc: "vendorInformation desc",
+    VulnerabilityStates: "vulnerabilityStates",
+    VulnerabilityStatesDesc: "vulnerabilityStates desc",
+} as const;
+/**
+ * Provides operations to manage the alerts property of the microsoft.graph.security entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActivityGroupName: "activityGroupName",
+    AlertDetections: "alertDetections",
+    AssignedTo: "assignedTo",
+    AzureSubscriptionId: "azureSubscriptionId",
+    AzureTenantId: "azureTenantId",
+    Category: "category",
+    ClosedDateTime: "closedDateTime",
+    CloudAppStates: "cloudAppStates",
+    Comments: "comments",
+    Confidence: "confidence",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DetectionIds: "detectionIds",
+    EventDateTime: "eventDateTime",
+    Feedback: "feedback",
+    FileStates: "fileStates",
+    HistoryStates: "historyStates",
+    HostStates: "hostStates",
+    IncidentIds: "incidentIds",
+    InvestigationSecurityStates: "investigationSecurityStates",
+    LastEventDateTime: "lastEventDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    MalwareStates: "malwareStates",
+    MessageSecurityStates: "messageSecurityStates",
+    NetworkConnections: "networkConnections",
+    Processes: "processes",
+    RecommendedActions: "recommendedActions",
+    RegistryKeyStates: "registryKeyStates",
+    SecurityResources: "securityResources",
+    Severity: "severity",
+    SourceMaterials: "sourceMaterials",
+    Status: "status",
+    Tags: "tags",
+    Title: "title",
+    Triggers: "triggers",
+    UriClickSecurityStates: "uriClickSecurityStates",
+    UserStates: "userStates",
+    VendorInformation: "vendorInformation",
+    VulnerabilityStates: "vulnerabilityStates",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

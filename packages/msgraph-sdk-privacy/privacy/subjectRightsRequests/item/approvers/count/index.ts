@@ -58,7 +58,7 @@ export const CountRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendPrimitiveAsync",
+        adapterMethodName: "sendPrimitive",
         responseBodyFactory:  "number",
         queryParametersMapper: CountRequestBuilderGetQueryParametersMapper,
     },

@@ -5,6 +5,8 @@ import { createSecureScoreFromDiscriminatorValue, serializeSecureScore, type Sec
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
  */
@@ -58,16 +60,38 @@ export interface SecureScoreItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SecureScoreItemRequestBuilderUriTemplate = "{+baseurl}/security/secureScores/{secureScore%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ActiveUserCount: "activeUserCount",
+    AverageComparativeScores: "averageComparativeScores",
+    AzureTenantId: "azureTenantId",
+    ControlScores: "controlScores",
+    CreatedDateTime: "createdDateTime",
+    CurrentScore: "currentScore",
+    EnabledServices: "enabledServices",
+    LicensedUserCount: "licensedUserCount",
+    MaxScore: "maxScore",
+    VendorInformation: "vendorInformation",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -85,7 +109,7 @@ export const SecureScoreItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SecureScoreItemRequestBuilderUriTemplate,
@@ -93,7 +117,7 @@ export const SecureScoreItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecureScoreFromDiscriminatorValue,
         queryParametersMapper: SecureScoreItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +127,7 @@ export const SecureScoreItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecureScoreFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSecureScore,

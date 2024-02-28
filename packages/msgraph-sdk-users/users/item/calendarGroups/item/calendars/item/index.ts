@@ -84,8 +84,9 @@ export interface CalendarItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -129,7 +130,7 @@ export const CalendarItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CalendarItemRequestBuilderUriTemplate,
@@ -137,7 +138,7 @@ export const CalendarItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCalendarFromDiscriminatorValue,
         queryParametersMapper: CalendarItemRequestBuilderGetQueryParametersMapper,
     },
@@ -147,12 +148,36 @@ export const CalendarItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCalendarFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCalendar,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the calendars property of the microsoft.graph.calendarGroup entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AllowedOnlineMeetingProviders: "allowedOnlineMeetingProviders",
+    CanEdit: "canEdit",
+    CanShare: "canShare",
+    CanViewPrivateItems: "canViewPrivateItems",
+    ChangeKey: "changeKey",
+    Color: "color",
+    DefaultOnlineMeetingProvider: "defaultOnlineMeetingProvider",
+    HexColor: "hexColor",
+    IsDefaultCalendar: "isDefaultCalendar",
+    IsRemovable: "isRemovable",
+    IsTallyingResponses: "isTallyingResponses",
+    Name: "name",
+    Owner: "owner",
+    CalendarPermissions: "calendarPermissions",
+    CalendarView: "calendarView",
+    Events: "events",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

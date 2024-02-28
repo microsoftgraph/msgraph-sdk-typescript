@@ -5,6 +5,8 @@ import { createSegmentFromDiscriminatorValue, serializeSegment, type Segment } f
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
  */
@@ -57,16 +59,34 @@ export interface SegmentItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SegmentItemRequestBuilderUriTemplate = "{+baseurl}/communications/callRecords/{callRecord%2Did}/sessions/{session%2Did}/segments/{segment%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Callee: "callee",
+    Caller: "caller",
+    EndDateTime: "endDateTime",
+    FailureInfo: "failureInfo",
+    Media: "media",
+    StartDateTime: "startDateTime",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -84,7 +104,7 @@ export const SegmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SegmentItemRequestBuilderUriTemplate,
@@ -92,7 +112,7 @@ export const SegmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSegmentFromDiscriminatorValue,
         queryParametersMapper: SegmentItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +122,7 @@ export const SegmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSegmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSegment,

@@ -8,6 +8,8 @@ import { TaskDefinitionRequestBuilderRequestsMetadata, type TaskDefinitionReques
 import { TaskProcessingResultsRequestBuilderNavigationMetadata, TaskProcessingResultsRequestBuilderRequestsMetadata, type TaskProcessingResultsRequestBuilder } from './taskProcessingResults/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
  */
@@ -45,16 +47,43 @@ export interface TaskReportItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const TaskReportItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/taskReports/{taskReport%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Task: "task",
+    TaskDefinition: "taskDefinition",
+    TaskProcessingResults: "taskProcessingResults",
+} as const;
+/**
+ * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CompletedDateTime: "completedDateTime",
+    FailedUsersCount: "failedUsersCount",
+    LastUpdatedDateTime: "lastUpdatedDateTime",
+    ProcessingStatus: "processingStatus",
+    RunId: "runId",
+    StartedDateTime: "startedDateTime",
+    SuccessfulUsersCount: "successfulUsersCount",
+    TotalUsersCount: "totalUsersCount",
+    UnprocessedUsersCount: "unprocessedUsersCount",
+    Task: "task",
+    TaskDefinition: "taskDefinition",
+    TaskProcessingResults: "taskProcessingResults",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -87,7 +116,7 @@ export const TaskReportItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTaskReportFromDiscriminatorValue,
         queryParametersMapper: TaskReportItemRequestBuilderGetQueryParametersMapper,
     },

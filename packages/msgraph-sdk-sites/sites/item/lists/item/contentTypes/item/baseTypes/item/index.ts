@@ -30,12 +30,14 @@ export interface ContentTypeItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -57,10 +59,46 @@ export const ContentTypeItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createContentTypeFromDiscriminatorValue,
         queryParametersMapper: ContentTypeItemRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Base: "base",
+    BaseTypes: "baseTypes",
+    ColumnLinks: "columnLinks",
+    ColumnPositions: "columnPositions",
+    Columns: "columns",
+} as const;
+/**
+ * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AssociatedHubsUrls: "associatedHubsUrls",
+    Description: "description",
+    DocumentSet: "documentSet",
+    DocumentTemplate: "documentTemplate",
+    Group: "group",
+    Hidden: "hidden",
+    InheritedFrom: "inheritedFrom",
+    IsBuiltIn: "isBuiltIn",
+    Name: "name",
+    Order: "order",
+    ParentId: "parentId",
+    PropagateChanges: "propagateChanges",
+    ReadOnly: "readOnly",
+    Sealed: "sealed",
+    Base: "base",
+    BaseTypes: "baseTypes",
+    ColumnLinks: "columnLinks",
+    ColumnPositions: "columnPositions",
+    Columns: "columns",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -6,6 +6,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { ContentRequestBuilderRequestsMetadata, type ContentRequestBuilder } from './value/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the photo property of the microsoft.graph.group entity.
  */
@@ -50,12 +51,20 @@ export interface PhotoRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const PhotoRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/photo{?%24select}";
+/**
+ * Provides operations to manage the photo property of the microsoft.graph.group entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Height: "height",
+    Width: "width",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -80,7 +89,7 @@ export const PhotoRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createProfilePhotoFromDiscriminatorValue,
         queryParametersMapper: PhotoRequestBuilderGetQueryParametersMapper,
     },
@@ -90,7 +99,7 @@ export const PhotoRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createProfilePhotoFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeProfilePhoto,

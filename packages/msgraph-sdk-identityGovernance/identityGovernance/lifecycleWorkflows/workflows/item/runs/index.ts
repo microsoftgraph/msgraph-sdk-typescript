@@ -8,6 +8,9 @@ import { RunItemRequestBuilderNavigationMetadata, RunItemRequestBuilderRequestsM
 import { MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder } from './microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
  */
@@ -55,7 +58,7 @@ export interface RunsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -63,7 +66,7 @@ export interface RunsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -71,7 +74,7 @@ export interface RunsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -85,6 +88,65 @@ export interface RunsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const RunsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/runs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    TaskProcessingResults: "taskProcessingResults",
+    UserProcessingResults: "userProcessingResults",
+} as const;
+/**
+ * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CompletedDateTime: "completedDateTime",
+    CompletedDateTimeDesc: "completedDateTime desc",
+    FailedTasksCount: "failedTasksCount",
+    FailedTasksCountDesc: "failedTasksCount desc",
+    FailedUsersCount: "failedUsersCount",
+    FailedUsersCountDesc: "failedUsersCount desc",
+    LastUpdatedDateTime: "lastUpdatedDateTime",
+    LastUpdatedDateTimeDesc: "lastUpdatedDateTime desc",
+    ProcessingStatus: "processingStatus",
+    ProcessingStatusDesc: "processingStatus desc",
+    ScheduledDateTime: "scheduledDateTime",
+    ScheduledDateTimeDesc: "scheduledDateTime desc",
+    StartedDateTime: "startedDateTime",
+    StartedDateTimeDesc: "startedDateTime desc",
+    SuccessfulUsersCount: "successfulUsersCount",
+    SuccessfulUsersCountDesc: "successfulUsersCount desc",
+    TotalTasksCount: "totalTasksCount",
+    TotalTasksCountDesc: "totalTasksCount desc",
+    TotalUnprocessedTasksCount: "totalUnprocessedTasksCount",
+    TotalUnprocessedTasksCountDesc: "totalUnprocessedTasksCount desc",
+    TotalUsersCount: "totalUsersCount",
+    TotalUsersCountDesc: "totalUsersCount desc",
+    WorkflowExecutionType: "workflowExecutionType",
+    WorkflowExecutionTypeDesc: "workflowExecutionType desc",
+} as const;
+/**
+ * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CompletedDateTime: "completedDateTime",
+    FailedTasksCount: "failedTasksCount",
+    FailedUsersCount: "failedUsersCount",
+    LastUpdatedDateTime: "lastUpdatedDateTime",
+    ProcessingStatus: "processingStatus",
+    ScheduledDateTime: "scheduledDateTime",
+    StartedDateTime: "startedDateTime",
+    SuccessfulUsersCount: "successfulUsersCount",
+    TotalTasksCount: "totalTasksCount",
+    TotalUnprocessedTasksCount: "totalUnprocessedTasksCount",
+    TotalUsersCount: "totalUsersCount",
+    WorkflowExecutionType: "workflowExecutionType",
+    TaskProcessingResults: "taskProcessingResults",
+    UserProcessingResults: "userProcessingResults",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -124,7 +186,7 @@ export const RunsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRunCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RunsRequestBuilderGetQueryParametersMapper,
     },

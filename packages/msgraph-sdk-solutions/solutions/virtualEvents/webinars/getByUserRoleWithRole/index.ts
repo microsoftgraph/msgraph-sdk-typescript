@@ -58,7 +58,7 @@ export interface GetByUserRoleWithRoleRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -66,7 +66,7 @@ export interface GetByUserRoleWithRoleRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -74,7 +74,7 @@ export interface GetByUserRoleWithRoleRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -84,6 +84,9 @@ export interface GetByUserRoleWithRoleRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -119,10 +122,57 @@ export const GetByUserRoleWithRoleRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGetByUserRoleWithRoleGetResponseFromDiscriminatorValue,
         queryParametersMapper: GetByUserRoleWithRoleRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to call the getByUserRole method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Sessions: "sessions",
+    Registrations: "registrations",
+} as const;
+/**
+ * Provides operations to call the getByUserRole method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    EndDateTime: "endDateTime",
+    EndDateTimeDesc: "endDateTime desc",
+    StartDateTime: "startDateTime",
+    StartDateTimeDesc: "startDateTime desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    Audience: "audience",
+    AudienceDesc: "audience desc",
+    CoOrganizers: "coOrganizers",
+    CoOrganizersDesc: "coOrganizers desc",
+} as const;
+/**
+ * Provides operations to call the getByUserRole method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    Description: "description",
+    DisplayName: "displayName",
+    EndDateTime: "endDateTime",
+    StartDateTime: "startDateTime",
+    Status: "status",
+    Audience: "audience",
+    CoOrganizers: "coOrganizers",
+    Sessions: "sessions",
+    Registrations: "registrations",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

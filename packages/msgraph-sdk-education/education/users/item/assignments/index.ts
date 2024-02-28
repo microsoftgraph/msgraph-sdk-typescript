@@ -67,7 +67,7 @@ export interface AssignmentsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -75,7 +75,7 @@ export interface AssignmentsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -83,7 +83,7 @@ export interface AssignmentsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +93,9 @@ export interface AssignmentsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -136,7 +139,7 @@ export const AssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationAssignmentCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AssignmentsRequestBuilderGetQueryParametersMapper,
     },
@@ -146,12 +149,110 @@ export const AssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationAssignmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEducationAssignment,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Categories: "categories",
+    GradingCategory: "gradingCategory",
+    Resources: "resources",
+    Rubric: "rubric",
+    Submissions: "submissions",
+} as const;
+/**
+ * Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AddedStudentAction: "addedStudentAction",
+    AddedStudentActionDesc: "addedStudentAction desc",
+    AddToCalendarAction: "addToCalendarAction",
+    AddToCalendarActionDesc: "addToCalendarAction desc",
+    AllowLateSubmissions: "allowLateSubmissions",
+    AllowLateSubmissionsDesc: "allowLateSubmissions desc",
+    AllowStudentsToAddResourcesToSubmission: "allowStudentsToAddResourcesToSubmission",
+    AllowStudentsToAddResourcesToSubmissionDesc: "allowStudentsToAddResourcesToSubmission desc",
+    AssignDateTime: "assignDateTime",
+    AssignDateTimeDesc: "assignDateTime desc",
+    AssignedDateTime: "assignedDateTime",
+    AssignedDateTimeDesc: "assignedDateTime desc",
+    AssignTo: "assignTo",
+    AssignToDesc: "assignTo desc",
+    ClassId: "classId",
+    ClassIdDesc: "classId desc",
+    CloseDateTime: "closeDateTime",
+    CloseDateTimeDesc: "closeDateTime desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    DueDateTime: "dueDateTime",
+    DueDateTimeDesc: "dueDateTime desc",
+    FeedbackResourcesFolderUrl: "feedbackResourcesFolderUrl",
+    FeedbackResourcesFolderUrlDesc: "feedbackResourcesFolderUrl desc",
+    Grading: "grading",
+    GradingDesc: "grading desc",
+    Instructions: "instructions",
+    InstructionsDesc: "instructions desc",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedByDesc: "lastModifiedBy desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    ModuleUrl: "moduleUrl",
+    ModuleUrlDesc: "moduleUrl desc",
+    NotificationChannelUrl: "notificationChannelUrl",
+    NotificationChannelUrlDesc: "notificationChannelUrl desc",
+    ResourcesFolderUrl: "resourcesFolderUrl",
+    ResourcesFolderUrlDesc: "resourcesFolderUrl desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    WebUrl: "webUrl",
+    WebUrlDesc: "webUrl desc",
+} as const;
+/**
+ * Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AddedStudentAction: "addedStudentAction",
+    AddToCalendarAction: "addToCalendarAction",
+    AllowLateSubmissions: "allowLateSubmissions",
+    AllowStudentsToAddResourcesToSubmission: "allowStudentsToAddResourcesToSubmission",
+    AssignDateTime: "assignDateTime",
+    AssignedDateTime: "assignedDateTime",
+    AssignTo: "assignTo",
+    ClassId: "classId",
+    CloseDateTime: "closeDateTime",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    DisplayName: "displayName",
+    DueDateTime: "dueDateTime",
+    FeedbackResourcesFolderUrl: "feedbackResourcesFolderUrl",
+    Grading: "grading",
+    Instructions: "instructions",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    ModuleUrl: "moduleUrl",
+    NotificationChannelUrl: "notificationChannelUrl",
+    ResourcesFolderUrl: "resourcesFolderUrl",
+    Status: "status",
+    WebUrl: "webUrl",
+    Categories: "categories",
+    GradingCategory: "gradingCategory",
+    Resources: "resources",
+    Rubric: "rubric",
+    Submissions: "submissions",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

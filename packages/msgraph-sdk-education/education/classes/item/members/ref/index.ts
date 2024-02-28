@@ -5,6 +5,7 @@ import { createStringCollectionResponseFromDiscriminatorValue, serializeReferenc
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
 /**
  * Provides operations to manage the collection of educationRoot entities.
  */
@@ -76,7 +77,7 @@ export interface RefRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -94,6 +95,77 @@ export interface RefRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const RefRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/members/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}";
+/**
+ * Provides operations to manage the collection of educationRoot entities.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AccountEnabled: "accountEnabled",
+    AccountEnabledDesc: "accountEnabled desc",
+    AssignedLicenses: "assignedLicenses",
+    AssignedLicensesDesc: "assignedLicenses desc",
+    AssignedPlans: "assignedPlans",
+    AssignedPlansDesc: "assignedPlans desc",
+    BusinessPhones: "businessPhones",
+    BusinessPhonesDesc: "businessPhones desc",
+    CreatedBy: "createdBy",
+    CreatedByDesc: "createdBy desc",
+    Department: "department",
+    DepartmentDesc: "department desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    ExternalSource: "externalSource",
+    ExternalSourceDesc: "externalSource desc",
+    ExternalSourceDetail: "externalSourceDetail",
+    ExternalSourceDetailDesc: "externalSourceDetail desc",
+    GivenName: "givenName",
+    GivenNameDesc: "givenName desc",
+    Mail: "mail",
+    MailDesc: "mail desc",
+    MailingAddress: "mailingAddress",
+    MailingAddressDesc: "mailingAddress desc",
+    MailNickname: "mailNickname",
+    MailNicknameDesc: "mailNickname desc",
+    MiddleName: "middleName",
+    MiddleNameDesc: "middleName desc",
+    MobilePhone: "mobilePhone",
+    MobilePhoneDesc: "mobilePhone desc",
+    OfficeLocation: "officeLocation",
+    OfficeLocationDesc: "officeLocation desc",
+    OnPremisesInfo: "onPremisesInfo",
+    OnPremisesInfoDesc: "onPremisesInfo desc",
+    PasswordPolicies: "passwordPolicies",
+    PasswordPoliciesDesc: "passwordPolicies desc",
+    PasswordProfile: "passwordProfile",
+    PasswordProfileDesc: "passwordProfile desc",
+    PreferredLanguage: "preferredLanguage",
+    PreferredLanguageDesc: "preferredLanguage desc",
+    PrimaryRole: "primaryRole",
+    PrimaryRoleDesc: "primaryRole desc",
+    ProvisionedPlans: "provisionedPlans",
+    ProvisionedPlansDesc: "provisionedPlans desc",
+    RefreshTokensValidFromDateTime: "refreshTokensValidFromDateTime",
+    RefreshTokensValidFromDateTimeDesc: "refreshTokensValidFromDateTime desc",
+    RelatedContacts: "relatedContacts",
+    RelatedContactsDesc: "relatedContacts desc",
+    ResidenceAddress: "residenceAddress",
+    ResidenceAddressDesc: "residenceAddress desc",
+    ShowInAddressList: "showInAddressList",
+    ShowInAddressListDesc: "showInAddressList desc",
+    Student: "student",
+    StudentDesc: "student desc",
+    Surname: "surname",
+    SurnameDesc: "surname desc",
+    Teacher: "teacher",
+    TeacherDesc: "teacher desc",
+    UsageLocation: "usageLocation",
+    UsageLocationDesc: "usageLocation desc",
+    UserPrincipalName: "userPrincipalName",
+    UserPrincipalNameDesc: "userPrincipalName desc",
+    UserType: "userType",
+    UserTypeDesc: "userType desc",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -121,7 +193,7 @@ export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
         queryParametersMapper: RefRequestBuilderDeleteQueryParametersMapper,
     },
     get: {
@@ -130,7 +202,7 @@ export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createStringCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RefRequestBuilderGetQueryParametersMapper,
     },
@@ -140,7 +212,7 @@ export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeReferenceCreate,
         requestInformationContentSetMethod: "setContentFromParsable",

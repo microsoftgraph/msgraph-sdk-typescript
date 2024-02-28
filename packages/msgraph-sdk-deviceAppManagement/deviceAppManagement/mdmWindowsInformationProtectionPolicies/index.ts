@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { MdmWindowsInformationProtectionPolicyItemRequestBuilderNavigationMetadata, MdmWindowsInformationProtectionPolicyItemRequestBuilderRequestsMetadata, type MdmWindowsInformationProtectionPolicyItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
  */
@@ -63,7 +66,7 @@ export interface MdmWindowsInformationProtectionPoliciesRequestBuilderGetQueryPa
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +74,7 @@ export interface MdmWindowsInformationProtectionPoliciesRequestBuilderGetQueryPa
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +82,7 @@ export interface MdmWindowsInformationProtectionPoliciesRequestBuilderGetQueryPa
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -93,6 +96,112 @@ export interface MdmWindowsInformationProtectionPoliciesRequestBuilderGetQueryPa
  * Uri template for the request builder.
  */
 export const MdmWindowsInformationProtectionPoliciesRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Assignments: "assignments",
+    ExemptAppLockerFiles: "exemptAppLockerFiles",
+    ProtectedAppLockerFiles: "protectedAppLockerFiles",
+} as const;
+/**
+ * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Version: "version",
+    VersionDesc: "version desc",
+    AzureRightsManagementServicesAllowed: "azureRightsManagementServicesAllowed",
+    AzureRightsManagementServicesAllowedDesc: "azureRightsManagementServicesAllowed desc",
+    DataRecoveryCertificate: "dataRecoveryCertificate",
+    DataRecoveryCertificateDesc: "dataRecoveryCertificate desc",
+    EnforcementLevel: "enforcementLevel",
+    EnforcementLevelDesc: "enforcementLevel desc",
+    EnterpriseDomain: "enterpriseDomain",
+    EnterpriseDomainDesc: "enterpriseDomain desc",
+    EnterpriseInternalProxyServers: "enterpriseInternalProxyServers",
+    EnterpriseInternalProxyServersDesc: "enterpriseInternalProxyServers desc",
+    EnterpriseIPRanges: "enterpriseIPRanges",
+    EnterpriseIPRangesDesc: "enterpriseIPRanges desc",
+    EnterpriseIPRangesAreAuthoritative: "enterpriseIPRangesAreAuthoritative",
+    EnterpriseIPRangesAreAuthoritativeDesc: "enterpriseIPRangesAreAuthoritative desc",
+    EnterpriseNetworkDomainNames: "enterpriseNetworkDomainNames",
+    EnterpriseNetworkDomainNamesDesc: "enterpriseNetworkDomainNames desc",
+    EnterpriseProtectedDomainNames: "enterpriseProtectedDomainNames",
+    EnterpriseProtectedDomainNamesDesc: "enterpriseProtectedDomainNames desc",
+    EnterpriseProxiedDomains: "enterpriseProxiedDomains",
+    EnterpriseProxiedDomainsDesc: "enterpriseProxiedDomains desc",
+    EnterpriseProxyServers: "enterpriseProxyServers",
+    EnterpriseProxyServersDesc: "enterpriseProxyServers desc",
+    EnterpriseProxyServersAreAuthoritative: "enterpriseProxyServersAreAuthoritative",
+    EnterpriseProxyServersAreAuthoritativeDesc: "enterpriseProxyServersAreAuthoritative desc",
+    ExemptApps: "exemptApps",
+    ExemptAppsDesc: "exemptApps desc",
+    IconsVisible: "iconsVisible",
+    IconsVisibleDesc: "iconsVisible desc",
+    IndexingEncryptedStoresOrItemsBlocked: "indexingEncryptedStoresOrItemsBlocked",
+    IndexingEncryptedStoresOrItemsBlockedDesc: "indexingEncryptedStoresOrItemsBlocked desc",
+    IsAssigned: "isAssigned",
+    IsAssignedDesc: "isAssigned desc",
+    NeutralDomainResources: "neutralDomainResources",
+    NeutralDomainResourcesDesc: "neutralDomainResources desc",
+    ProtectedApps: "protectedApps",
+    ProtectedAppsDesc: "protectedApps desc",
+    ProtectionUnderLockConfigRequired: "protectionUnderLockConfigRequired",
+    ProtectionUnderLockConfigRequiredDesc: "protectionUnderLockConfigRequired desc",
+    RevokeOnUnenrollDisabled: "revokeOnUnenrollDisabled",
+    RevokeOnUnenrollDisabledDesc: "revokeOnUnenrollDisabled desc",
+    RightsManagementServicesTemplateId: "rightsManagementServicesTemplateId",
+    RightsManagementServicesTemplateIdDesc: "rightsManagementServicesTemplateId desc",
+    SmbAutoEncryptedFileExtensions: "smbAutoEncryptedFileExtensions",
+    SmbAutoEncryptedFileExtensionsDesc: "smbAutoEncryptedFileExtensions desc",
+} as const;
+/**
+ * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Version: "version",
+    AzureRightsManagementServicesAllowed: "azureRightsManagementServicesAllowed",
+    DataRecoveryCertificate: "dataRecoveryCertificate",
+    EnforcementLevel: "enforcementLevel",
+    EnterpriseDomain: "enterpriseDomain",
+    EnterpriseInternalProxyServers: "enterpriseInternalProxyServers",
+    EnterpriseIPRanges: "enterpriseIPRanges",
+    EnterpriseIPRangesAreAuthoritative: "enterpriseIPRangesAreAuthoritative",
+    EnterpriseNetworkDomainNames: "enterpriseNetworkDomainNames",
+    EnterpriseProtectedDomainNames: "enterpriseProtectedDomainNames",
+    EnterpriseProxiedDomains: "enterpriseProxiedDomains",
+    EnterpriseProxyServers: "enterpriseProxyServers",
+    EnterpriseProxyServersAreAuthoritative: "enterpriseProxyServersAreAuthoritative",
+    ExemptApps: "exemptApps",
+    IconsVisible: "iconsVisible",
+    IndexingEncryptedStoresOrItemsBlocked: "indexingEncryptedStoresOrItemsBlocked",
+    IsAssigned: "isAssigned",
+    NeutralDomainResources: "neutralDomainResources",
+    ProtectedApps: "protectedApps",
+    ProtectionUnderLockConfigRequired: "protectionUnderLockConfigRequired",
+    RevokeOnUnenrollDisabled: "revokeOnUnenrollDisabled",
+    RightsManagementServicesTemplateId: "rightsManagementServicesTemplateId",
+    SmbAutoEncryptedFileExtensions: "smbAutoEncryptedFileExtensions",
+    Assignments: "assignments",
+    ExemptAppLockerFiles: "exemptAppLockerFiles",
+    ProtectedAppLockerFiles: "protectedAppLockerFiles",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +238,7 @@ export const MdmWindowsInformationProtectionPoliciesRequestBuilderRequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMdmWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MdmWindowsInformationProtectionPoliciesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +248,7 @@ export const MdmWindowsInformationProtectionPoliciesRequestBuilderRequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMdmWindowsInformationProtectionPolicy,

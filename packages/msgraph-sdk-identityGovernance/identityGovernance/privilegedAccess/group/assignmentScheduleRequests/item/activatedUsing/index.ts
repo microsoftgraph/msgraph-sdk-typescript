@@ -30,12 +30,14 @@ export interface ActivatedUsingRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -57,10 +59,35 @@ export const ActivatedUsingRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupEligibilityScheduleFromDiscriminatorValue,
         queryParametersMapper: ActivatedUsingRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the activatedUsing property of the microsoft.graph.privilegedAccessGroupAssignmentScheduleRequest entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Group: "group",
+    Principal: "principal",
+} as const;
+/**
+ * Provides operations to manage the activatedUsing property of the microsoft.graph.privilegedAccessGroupAssignmentScheduleRequest entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    CreatedUsing: "createdUsing",
+    ModifiedDateTime: "modifiedDateTime",
+    ScheduleInfo: "scheduleInfo",
+    Status: "status",
+    AccessId: "accessId",
+    GroupId: "groupId",
+    MemberType: "memberType",
+    PrincipalId: "principalId",
+    Group: "group",
+    Principal: "principal",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

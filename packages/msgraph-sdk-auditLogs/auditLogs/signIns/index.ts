@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { SignInItemRequestBuilderRequestsMetadata, type SignInItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
  */
@@ -62,7 +65,7 @@ export interface SignInsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface SignInsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface SignInsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,94 @@ export interface SignInsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const SignInsRequestBuilderUriTemplate = "{+baseurl}/auditLogs/signIns{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AppDisplayName: "appDisplayName",
+    AppDisplayNameDesc: "appDisplayName desc",
+    AppId: "appId",
+    AppIdDesc: "appId desc",
+    AppliedConditionalAccessPolicies: "appliedConditionalAccessPolicies",
+    AppliedConditionalAccessPoliciesDesc: "appliedConditionalAccessPolicies desc",
+    ClientAppUsed: "clientAppUsed",
+    ClientAppUsedDesc: "clientAppUsed desc",
+    ConditionalAccessStatus: "conditionalAccessStatus",
+    ConditionalAccessStatusDesc: "conditionalAccessStatus desc",
+    CorrelationId: "correlationId",
+    CorrelationIdDesc: "correlationId desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DeviceDetail: "deviceDetail",
+    DeviceDetailDesc: "deviceDetail desc",
+    IpAddress: "ipAddress",
+    IpAddressDesc: "ipAddress desc",
+    IsInteractive: "isInteractive",
+    IsInteractiveDesc: "isInteractive desc",
+    Location: "location",
+    LocationDesc: "location desc",
+    ResourceDisplayName: "resourceDisplayName",
+    ResourceDisplayNameDesc: "resourceDisplayName desc",
+    ResourceId: "resourceId",
+    ResourceIdDesc: "resourceId desc",
+    RiskDetail: "riskDetail",
+    RiskDetailDesc: "riskDetail desc",
+    RiskEventTypes: "riskEventTypes",
+    RiskEventTypesDesc: "riskEventTypes desc",
+    RiskEventTypes_v2: "riskEventTypes_v2",
+    RiskEventTypes_v2Desc: "riskEventTypes_v2 desc",
+    RiskLevelAggregated: "riskLevelAggregated",
+    RiskLevelAggregatedDesc: "riskLevelAggregated desc",
+    RiskLevelDuringSignIn: "riskLevelDuringSignIn",
+    RiskLevelDuringSignInDesc: "riskLevelDuringSignIn desc",
+    RiskState: "riskState",
+    RiskStateDesc: "riskState desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    UserDisplayName: "userDisplayName",
+    UserDisplayNameDesc: "userDisplayName desc",
+    UserId: "userId",
+    UserIdDesc: "userId desc",
+    UserPrincipalName: "userPrincipalName",
+    UserPrincipalNameDesc: "userPrincipalName desc",
+} as const;
+/**
+ * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AppDisplayName: "appDisplayName",
+    AppId: "appId",
+    AppliedConditionalAccessPolicies: "appliedConditionalAccessPolicies",
+    ClientAppUsed: "clientAppUsed",
+    ConditionalAccessStatus: "conditionalAccessStatus",
+    CorrelationId: "correlationId",
+    CreatedDateTime: "createdDateTime",
+    DeviceDetail: "deviceDetail",
+    IpAddress: "ipAddress",
+    IsInteractive: "isInteractive",
+    Location: "location",
+    ResourceDisplayName: "resourceDisplayName",
+    ResourceId: "resourceId",
+    RiskDetail: "riskDetail",
+    RiskEventTypes: "riskEventTypes",
+    RiskEventTypes_v2: "riskEventTypes_v2",
+    RiskLevelAggregated: "riskLevelAggregated",
+    RiskLevelDuringSignIn: "riskLevelDuringSignIn",
+    RiskState: "riskState",
+    Status: "status",
+    UserDisplayName: "userDisplayName",
+    UserId: "userId",
+    UserPrincipalName: "userPrincipalName",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +218,7 @@ export const SignInsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSignInCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SignInsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +228,7 @@ export const SignInsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSignInFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSignIn,

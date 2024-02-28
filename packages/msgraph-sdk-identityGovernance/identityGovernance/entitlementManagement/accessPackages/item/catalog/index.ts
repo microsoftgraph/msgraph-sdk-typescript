@@ -30,12 +30,14 @@ export interface CatalogRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -57,10 +59,39 @@ export const CatalogRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessPackageCatalogFromDiscriminatorValue,
         queryParametersMapper: CatalogRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the catalog property of the microsoft.graph.accessPackage entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AccessPackages: "accessPackages",
+    CustomWorkflowExtensions: "customWorkflowExtensions",
+    ResourceRoles: "resourceRoles",
+    Resources: "resources",
+    ResourceScopes: "resourceScopes",
+} as const;
+/**
+ * Provides operations to manage the catalog property of the microsoft.graph.accessPackage entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CatalogType: "catalogType",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    IsExternallyVisible: "isExternallyVisible",
+    ModifiedDateTime: "modifiedDateTime",
+    State: "state",
+    AccessPackages: "accessPackages",
+    CustomWorkflowExtensions: "customWorkflowExtensions",
+    ResourceRoles: "resourceRoles",
+    Resources: "resources",
+    ResourceScopes: "resourceScopes",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -6,6 +6,8 @@ import { createRetentionEventFromDiscriminatorValue, serializeRetentionEvent, ty
 import { RetentionEventTypeRequestBuilderRequestsMetadata, type RetentionEventTypeRequestBuilder } from './retentionEventType/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
  */
@@ -64,16 +66,41 @@ export interface RetentionEventItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const RetentionEventItemRequestBuilderUriTemplate = "{+baseurl}/security/triggers/retentionEvents/{retentionEvent%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    RetentionEventType: "retentionEventType",
+} as const;
+/**
+ * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    EventPropagationResults: "eventPropagationResults",
+    EventQueries: "eventQueries",
+    EventStatus: "eventStatus",
+    EventTriggerDateTime: "eventTriggerDateTime",
+    LastModifiedBy: "lastModifiedBy",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastStatusUpdateDateTime: "lastStatusUpdateDateTime",
+    RetentionEventType: "retentionEventType",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -99,7 +126,7 @@ export const RetentionEventItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RetentionEventItemRequestBuilderUriTemplate,
@@ -107,7 +134,7 @@ export const RetentionEventItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRetentionEventFromDiscriminatorValue,
         queryParametersMapper: RetentionEventItemRequestBuilderGetQueryParametersMapper,
     },
@@ -117,7 +144,7 @@ export const RetentionEventItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRetentionEventFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRetentionEvent,

@@ -75,12 +75,14 @@ export interface AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameter
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -117,7 +119,7 @@ export const AuthenticationStrengthPolicyItemRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AuthenticationStrengthPolicyItemRequestBuilderUriTemplate,
@@ -125,7 +127,7 @@ export const AuthenticationStrengthPolicyItemRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthenticationStrengthPolicyFromDiscriminatorValue,
         queryParametersMapper: AuthenticationStrengthPolicyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -135,12 +137,33 @@ export const AuthenticationStrengthPolicyItemRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthenticationStrengthPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAuthenticationStrengthPolicy,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    CombinationConfigurations: "combinationConfigurations",
+} as const;
+/**
+ * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AllowedCombinations: "allowedCombinations",
+    CreatedDateTime: "createdDateTime",
+    Description: "description",
+    DisplayName: "displayName",
+    ModifiedDateTime: "modifiedDateTime",
+    PolicyType: "policyType",
+    RequirementsSatisfied: "requirementsSatisfied",
+    CombinationConfigurations: "combinationConfigurations",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

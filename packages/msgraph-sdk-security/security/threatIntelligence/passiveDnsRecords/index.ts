@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { PassiveDnsRecordItemRequestBuilderNavigationMetadata, PassiveDnsRecordItemRequestBuilderRequestsMetadata, type PassiveDnsRecordItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the passiveDnsRecords property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -61,7 +64,7 @@ export interface PassiveDnsRecordsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface PassiveDnsRecordsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface PassiveDnsRecordsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,41 @@ export interface PassiveDnsRecordsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const PassiveDnsRecordsRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/passiveDnsRecords{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the passiveDnsRecords property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Artifact: "artifact",
+    ParentHost: "parentHost",
+} as const;
+/**
+ * Provides operations to manage the passiveDnsRecords property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CollectedDateTime: "collectedDateTime",
+    CollectedDateTimeDesc: "collectedDateTime desc",
+    FirstSeenDateTime: "firstSeenDateTime",
+    FirstSeenDateTimeDesc: "firstSeenDateTime desc",
+    LastSeenDateTime: "lastSeenDateTime",
+    LastSeenDateTimeDesc: "lastSeenDateTime desc",
+    RecordType: "recordType",
+    RecordTypeDesc: "recordType desc",
+} as const;
+/**
+ * Provides operations to manage the passiveDnsRecords property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CollectedDateTime: "collectedDateTime",
+    FirstSeenDateTime: "firstSeenDateTime",
+    LastSeenDateTime: "lastSeenDateTime",
+    RecordType: "recordType",
+    Artifact: "artifact",
+    ParentHost: "parentHost",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +165,7 @@ export const PassiveDnsRecordsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPassiveDnsRecordCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: PassiveDnsRecordsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +175,7 @@ export const PassiveDnsRecordsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPassiveDnsRecordFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePassiveDnsRecord,

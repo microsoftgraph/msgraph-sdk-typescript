@@ -63,7 +63,7 @@ export interface AppRoleAssignedToRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface AppRoleAssignedToRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface AppRoleAssignedToRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface AppRoleAssignedToRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -128,7 +131,7 @@ export const AppRoleAssignedToRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAppRoleAssignmentCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AppRoleAssignedToRequestBuilderGetQueryParametersMapper,
     },
@@ -138,12 +141,55 @@ export const AppRoleAssignedToRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAppRoleAssignmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAppRoleAssignment,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    DeletedDateTime: "deletedDateTime",
+    DeletedDateTimeDesc: "deletedDateTime desc",
+    AppRoleId: "appRoleId",
+    AppRoleIdDesc: "appRoleId desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    PrincipalDisplayName: "principalDisplayName",
+    PrincipalDisplayNameDesc: "principalDisplayName desc",
+    PrincipalId: "principalId",
+    PrincipalIdDesc: "principalId desc",
+    PrincipalType: "principalType",
+    PrincipalTypeDesc: "principalType desc",
+    ResourceDisplayName: "resourceDisplayName",
+    ResourceDisplayNameDesc: "resourceDisplayName desc",
+    ResourceId: "resourceId",
+    ResourceIdDesc: "resourceId desc",
+} as const;
+/**
+ * Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    DeletedDateTime: "deletedDateTime",
+    AppRoleId: "appRoleId",
+    CreatedDateTime: "createdDateTime",
+    PrincipalDisplayName: "principalDisplayName",
+    PrincipalId: "principalId",
+    PrincipalType: "principalType",
+    ResourceDisplayName: "resourceDisplayName",
+    ResourceId: "resourceId",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

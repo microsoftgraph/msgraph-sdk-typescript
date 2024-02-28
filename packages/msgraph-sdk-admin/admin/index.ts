@@ -65,12 +65,14 @@ export interface AdminRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -113,7 +115,7 @@ export const AdminRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAdminFromDiscriminatorValue,
         queryParametersMapper: AdminRequestBuilderGetQueryParametersMapper,
     },
@@ -123,12 +125,31 @@ export const AdminRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAdminFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAdmin,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the admin singleton.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Edge: "edge",
+    People: "people",
+    ServiceAnnouncement: "serviceAnnouncement",
+    Sharepoint: "sharepoint",
+} as const;
+/**
+ * Provides operations to manage the admin singleton.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Edge: "edge",
+    People: "people",
+    ServiceAnnouncement: "serviceAnnouncement",
+    Sharepoint: "sharepoint",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -70,8 +70,9 @@ export interface ConversationThreadItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -104,7 +105,7 @@ export const ConversationThreadItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ConversationThreadItemRequestBuilderUriTemplate,
@@ -112,7 +113,7 @@ export const ConversationThreadItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConversationThreadFromDiscriminatorValue,
         queryParametersMapper: ConversationThreadItemRequestBuilderGetQueryParametersMapper,
     },
@@ -122,12 +123,27 @@ export const ConversationThreadItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConversationThreadFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeConversationThread,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the threads property of the microsoft.graph.group entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CcRecipients: "ccRecipients",
+    HasAttachments: "hasAttachments",
+    IsLocked: "isLocked",
+    LastDeliveredDateTime: "lastDeliveredDateTime",
+    Preview: "preview",
+    Topic: "topic",
+    ToRecipients: "toRecipients",
+    UniqueSenders: "uniqueSenders",
+    Posts: "posts",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

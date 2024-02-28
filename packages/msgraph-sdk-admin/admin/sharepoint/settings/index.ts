@@ -5,6 +5,8 @@ import { createSharepointSettingsFromDiscriminatorValue, serializeSharepointSett
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the settings property of the microsoft.graph.sharepoint entity.
  */
@@ -59,16 +61,57 @@ export interface SettingsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const SettingsRequestBuilderUriTemplate = "{+baseurl}/admin/sharepoint/settings{?%24expand,%24select}";
+/**
+ * Provides operations to manage the settings property of the microsoft.graph.sharepoint entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+} as const;
+/**
+ * Provides operations to manage the settings property of the microsoft.graph.sharepoint entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AllowedDomainGuidsForSyncApp: "allowedDomainGuidsForSyncApp",
+    AvailableManagedPathsForSiteCreation: "availableManagedPathsForSiteCreation",
+    DeletedUserPersonalSiteRetentionPeriodInDays: "deletedUserPersonalSiteRetentionPeriodInDays",
+    ExcludedFileExtensionsForSyncApp: "excludedFileExtensionsForSyncApp",
+    IdleSessionSignOut: "idleSessionSignOut",
+    ImageTaggingOption: "imageTaggingOption",
+    IsCommentingOnSitePagesEnabled: "isCommentingOnSitePagesEnabled",
+    IsFileActivityNotificationEnabled: "isFileActivityNotificationEnabled",
+    IsLegacyAuthProtocolsEnabled: "isLegacyAuthProtocolsEnabled",
+    IsLoopEnabled: "isLoopEnabled",
+    IsMacSyncAppEnabled: "isMacSyncAppEnabled",
+    IsRequireAcceptingUserToMatchInvitedUserEnabled: "isRequireAcceptingUserToMatchInvitedUserEnabled",
+    IsResharingByExternalUsersEnabled: "isResharingByExternalUsersEnabled",
+    IsSharePointMobileNotificationEnabled: "isSharePointMobileNotificationEnabled",
+    IsSharePointNewsfeedEnabled: "isSharePointNewsfeedEnabled",
+    IsSiteCreationEnabled: "isSiteCreationEnabled",
+    IsSiteCreationUIEnabled: "isSiteCreationUIEnabled",
+    IsSitePagesCreationEnabled: "isSitePagesCreationEnabled",
+    IsSitesStorageLimitAutomatic: "isSitesStorageLimitAutomatic",
+    IsSyncButtonHiddenOnPersonalSite: "isSyncButtonHiddenOnPersonalSite",
+    IsUnmanagedSyncAppForTenantRestricted: "isUnmanagedSyncAppForTenantRestricted",
+    PersonalSiteDefaultStorageLimitInMB: "personalSiteDefaultStorageLimitInMB",
+    SharingAllowedDomainList: "sharingAllowedDomainList",
+    SharingBlockedDomainList: "sharingBlockedDomainList",
+    SharingCapability: "sharingCapability",
+    SharingDomainRestrictionMode: "sharingDomainRestrictionMode",
+    SiteCreationDefaultManagedPath: "siteCreationDefaultManagedPath",
+    SiteCreationDefaultStorageLimitInMB: "siteCreationDefaultStorageLimitInMB",
+    TenantDefaultTimezone: "tenantDefaultTimezone",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -86,7 +129,7 @@ export const SettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SettingsRequestBuilderUriTemplate,
@@ -94,7 +137,7 @@ export const SettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSharepointSettingsFromDiscriminatorValue,
         queryParametersMapper: SettingsRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +147,7 @@ export const SettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSharepointSettingsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSharepointSettings,

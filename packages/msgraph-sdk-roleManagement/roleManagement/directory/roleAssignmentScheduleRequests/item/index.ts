@@ -12,6 +12,8 @@ import { RoleDefinitionRequestBuilderRequestsMetadata, type RoleDefinitionReques
 import { TargetScheduleRequestBuilderRequestsMetadata, type TargetScheduleRequestBuilder } from './targetSchedule/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.
  */
@@ -93,16 +95,56 @@ export interface UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetQueryP
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const UnifiedRoleAssignmentScheduleRequestItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignmentScheduleRequests/{unifiedRoleAssignmentScheduleRequest%2Did}{?%24expand,%24select}";
+/**
+ * Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ActivatedUsing: "activatedUsing",
+    AppScope: "appScope",
+    DirectoryScope: "directoryScope",
+    Principal: "principal",
+    RoleDefinition: "roleDefinition",
+    TargetSchedule: "targetSchedule",
+} as const;
+/**
+ * Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ApprovalId: "approvalId",
+    CompletedDateTime: "completedDateTime",
+    CreatedBy: "createdBy",
+    CreatedDateTime: "createdDateTime",
+    CustomData: "customData",
+    Status: "status",
+    Action: "action",
+    AppScopeId: "appScopeId",
+    DirectoryScopeId: "directoryScopeId",
+    IsValidationOnly: "isValidationOnly",
+    Justification: "justification",
+    PrincipalId: "principalId",
+    RoleDefinitionId: "roleDefinitionId",
+    ScheduleInfo: "scheduleInfo",
+    TargetScheduleId: "targetScheduleId",
+    TicketInfo: "ticketInfo",
+    ActivatedUsing: "activatedUsing",
+    AppScope: "appScope",
+    DirectoryScope: "directoryScope",
+    Principal: "principal",
+    RoleDefinition: "roleDefinition",
+    TargetSchedule: "targetSchedule",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -146,7 +188,7 @@ export const UnifiedRoleAssignmentScheduleRequestItemRequestBuilderRequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UnifiedRoleAssignmentScheduleRequestItemRequestBuilderUriTemplate,
@@ -154,7 +196,7 @@ export const UnifiedRoleAssignmentScheduleRequestItemRequestBuilderRequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue,
         queryParametersMapper: UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetQueryParametersMapper,
     },
@@ -164,7 +206,7 @@ export const UnifiedRoleAssignmentScheduleRequestItemRequestBuilderRequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUnifiedRoleAssignmentScheduleRequest,

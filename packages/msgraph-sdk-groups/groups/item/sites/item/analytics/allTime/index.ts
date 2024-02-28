@@ -31,12 +31,14 @@ export interface AllTimeRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -58,10 +60,33 @@ export const AllTimeRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createItemActivityStatFromDiscriminatorValue,
         queryParametersMapper: AllTimeRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the allTime property of the microsoft.graph.itemAnalytics entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Activities: "activities",
+} as const;
+/**
+ * Provides operations to manage the allTime property of the microsoft.graph.itemAnalytics entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Access: "access",
+    Create: "create",
+    Delete: "delete",
+    Edit: "edit",
+    EndDateTime: "endDateTime",
+    IncompleteData: "incompleteData",
+    IsTrending: "isTrending",
+    Move: "move",
+    StartDateTime: "startDateTime",
+    Activities: "activities",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

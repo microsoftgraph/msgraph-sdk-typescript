@@ -63,7 +63,7 @@ export interface CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParamet
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -71,7 +71,7 @@ export interface CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParamet
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -79,7 +79,7 @@ export interface CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParamet
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -89,6 +89,9 @@ export interface CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParamet
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -129,7 +132,7 @@ export const CustomSecurityAttributeDefinitionsRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCustomSecurityAttributeDefinitionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,12 +142,57 @@ export const CustomSecurityAttributeDefinitionsRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCustomSecurityAttributeDefinitionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCustomSecurityAttributeDefinition,
         requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
+/**
+ * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    AllowedValues: "allowedValues",
+} as const;
+/**
+ * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    AttributeSet: "attributeSet",
+    AttributeSetDesc: "attributeSet desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    IsCollection: "isCollection",
+    IsCollectionDesc: "isCollection desc",
+    IsSearchable: "isSearchable",
+    IsSearchableDesc: "isSearchable desc",
+    Name: "name",
+    NameDesc: "name desc",
+    Status: "status",
+    StatusDesc: "status desc",
+    Type: "type",
+    TypeDesc: "type desc",
+    UsePreDefinedValuesOnly: "usePreDefinedValuesOnly",
+    UsePreDefinedValuesOnlyDesc: "usePreDefinedValuesOnly desc",
+} as const;
+/**
+ * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AttributeSet: "attributeSet",
+    Description: "description",
+    IsCollection: "isCollection",
+    IsSearchable: "isSearchable",
+    Name: "name",
+    Status: "status",
+    Type: "type",
+    UsePreDefinedValuesOnly: "usePreDefinedValuesOnly",
+    AllowedValues: "allowedValues",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

@@ -5,6 +5,7 @@ import { createMessageRuleFromDiscriminatorValue, serializeMessageRule, type Mes
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
  */
@@ -60,12 +61,26 @@ export interface MessageRuleItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
 /**
  * Uri template for the request builder.
  */
 export const MessageRuleItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messageRules/{messageRule%2Did}{?%24select}";
+/**
+ * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Actions: "actions",
+    Conditions: "conditions",
+    DisplayName: "displayName",
+    Exceptions: "exceptions",
+    HasError: "hasError",
+    IsEnabled: "isEnabled",
+    IsReadOnly: "isReadOnly",
+    Sequence: "sequence",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -82,7 +97,7 @@ export const MessageRuleItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: MessageRuleItemRequestBuilderUriTemplate,
@@ -90,7 +105,7 @@ export const MessageRuleItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMessageRuleFromDiscriminatorValue,
         queryParametersMapper: MessageRuleItemRequestBuilderGetQueryParametersMapper,
     },
@@ -100,7 +115,7 @@ export const MessageRuleItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMessageRuleFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMessageRule,

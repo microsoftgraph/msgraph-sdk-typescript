@@ -8,6 +8,9 @@ import { DeltaRequestBuilderRequestsMetadata, type DeltaRequestBuilder } from '.
 import { MailFolderItemRequestBuilderNavigationMetadata, MailFolderItemRequestBuilderRequestsMetadata, type MailFolderItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the mailFolders property of the microsoft.graph.user entity.
  */
@@ -68,7 +71,7 @@ export interface MailFoldersRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -80,11 +83,11 @@ export interface MailFoldersRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -98,6 +101,53 @@ export interface MailFoldersRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const MailFoldersRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders{?%24count,%24expand,%24filter,%24orderby,%24select,%24skip,%24top,includeHiddenFolders*}";
+/**
+ * Provides operations to manage the mailFolders property of the microsoft.graph.user entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    ChildFolders: "childFolders",
+    MessageRules: "messageRules",
+    Messages: "messages",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
+/**
+ * Provides operations to manage the mailFolders property of the microsoft.graph.user entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ChildFolderCount: "childFolderCount",
+    ChildFolderCountDesc: "childFolderCount desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    IsHidden: "isHidden",
+    IsHiddenDesc: "isHidden desc",
+    ParentFolderId: "parentFolderId",
+    ParentFolderIdDesc: "parentFolderId desc",
+    TotalItemCount: "totalItemCount",
+    TotalItemCountDesc: "totalItemCount desc",
+    UnreadItemCount: "unreadItemCount",
+    UnreadItemCountDesc: "unreadItemCount desc",
+} as const;
+/**
+ * Provides operations to manage the mailFolders property of the microsoft.graph.user entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ChildFolderCount: "childFolderCount",
+    DisplayName: "displayName",
+    IsHidden: "isHidden",
+    ParentFolderId: "parentFolderId",
+    TotalItemCount: "totalItemCount",
+    UnreadItemCount: "unreadItemCount",
+    ChildFolders: "childFolders",
+    MessageRules: "messageRules",
+    Messages: "messages",
+    MultiValueExtendedProperties: "multiValueExtendedProperties",
+    SingleValueExtendedProperties: "singleValueExtendedProperties",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -136,7 +186,7 @@ export const MailFoldersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMailFolderCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MailFoldersRequestBuilderGetQueryParametersMapper,
     },
@@ -146,7 +196,7 @@ export const MailFoldersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMailFolderFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMailFolder,

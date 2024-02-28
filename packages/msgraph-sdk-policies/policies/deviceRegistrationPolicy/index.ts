@@ -30,8 +30,9 @@ export interface DeviceRegistrationPolicyRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
 }
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Uri template for the request builder.
  */
@@ -52,10 +53,23 @@ export const DeviceRegistrationPolicyRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceRegistrationPolicyFromDiscriminatorValue,
         queryParametersMapper: DeviceRegistrationPolicyRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to manage the deviceRegistrationPolicy property of the microsoft.graph.policyRoot entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    AzureADJoin: "azureADJoin",
+    AzureADRegistration: "azureADRegistration",
+    Description: "description",
+    DisplayName: "displayName",
+    LocalAdminPassword: "localAdminPassword",
+    MultiFactorAuthConfiguration: "multiFactorAuthConfiguration",
+    UserDeviceQuota: "userDeviceQuota",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

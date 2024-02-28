@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { HostTrackerItemRequestBuilderNavigationMetadata, HostTrackerItemRequestBuilderRequestsMetadata, type HostTrackerItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the hostTrackers property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -61,7 +64,7 @@ export interface HostTrackersRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -69,7 +72,7 @@ export interface HostTrackersRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -77,7 +80,7 @@ export interface HostTrackersRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -91,6 +94,39 @@ export interface HostTrackersRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const HostTrackersRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostTrackers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the hostTrackers property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Host: "host",
+} as const;
+/**
+ * Provides operations to manage the hostTrackers property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    FirstSeenDateTime: "firstSeenDateTime",
+    FirstSeenDateTimeDesc: "firstSeenDateTime desc",
+    Kind: "kind",
+    KindDesc: "kind desc",
+    LastSeenDateTime: "lastSeenDateTime",
+    LastSeenDateTimeDesc: "lastSeenDateTime desc",
+    Value: "value",
+    ValueDesc: "value desc",
+} as const;
+/**
+ * Provides operations to manage the hostTrackers property of the microsoft.graph.security.threatIntelligence entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    FirstSeenDateTime: "firstSeenDateTime",
+    Kind: "kind",
+    LastSeenDateTime: "lastSeenDateTime",
+    Value: "value",
+    Host: "host",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +163,7 @@ export const HostTrackersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostTrackerCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: HostTrackersRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +173,7 @@ export const HostTrackersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostTrackerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeHostTracker,

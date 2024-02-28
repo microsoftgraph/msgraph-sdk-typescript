@@ -58,7 +58,7 @@ export interface GetAllMessagesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +70,7 @@ export interface GetAllMessagesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +78,7 @@ export interface GetAllMessagesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -88,6 +88,9 @@ export interface GetAllMessagesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
@@ -123,10 +126,99 @@ export const GetAllMessagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGetAllMessagesGetResponseFromDiscriminatorValue,
         queryParametersMapper: GetAllMessagesRequestBuilderGetQueryParametersMapper,
     },
 };
+/**
+ * Provides operations to call the getAllMessages method.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    HostedContents: "hostedContents",
+    Replies: "replies",
+} as const;
+/**
+ * Provides operations to call the getAllMessages method.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    Attachments: "attachments",
+    AttachmentsDesc: "attachments desc",
+    Body: "body",
+    BodyDesc: "body desc",
+    ChannelIdentity: "channelIdentity",
+    ChannelIdentityDesc: "channelIdentity desc",
+    ChatId: "chatId",
+    ChatIdDesc: "chatId desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DeletedDateTime: "deletedDateTime",
+    DeletedDateTimeDesc: "deletedDateTime desc",
+    Etag: "etag",
+    EtagDesc: "etag desc",
+    EventDetail: "eventDetail",
+    EventDetailDesc: "eventDetail desc",
+    From: "from",
+    FromDesc: "from desc",
+    Importance: "importance",
+    ImportanceDesc: "importance desc",
+    LastEditedDateTime: "lastEditedDateTime",
+    LastEditedDateTimeDesc: "lastEditedDateTime desc",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    LastModifiedDateTimeDesc: "lastModifiedDateTime desc",
+    Locale: "locale",
+    LocaleDesc: "locale desc",
+    Mentions: "mentions",
+    MentionsDesc: "mentions desc",
+    MessageHistory: "messageHistory",
+    MessageHistoryDesc: "messageHistory desc",
+    MessageType: "messageType",
+    MessageTypeDesc: "messageType desc",
+    PolicyViolation: "policyViolation",
+    PolicyViolationDesc: "policyViolation desc",
+    Reactions: "reactions",
+    ReactionsDesc: "reactions desc",
+    ReplyToId: "replyToId",
+    ReplyToIdDesc: "replyToId desc",
+    Subject: "subject",
+    SubjectDesc: "subject desc",
+    Summary: "summary",
+    SummaryDesc: "summary desc",
+    WebUrl: "webUrl",
+    WebUrlDesc: "webUrl desc",
+} as const;
+/**
+ * Provides operations to call the getAllMessages method.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    Attachments: "attachments",
+    Body: "body",
+    ChannelIdentity: "channelIdentity",
+    ChatId: "chatId",
+    CreatedDateTime: "createdDateTime",
+    DeletedDateTime: "deletedDateTime",
+    Etag: "etag",
+    EventDetail: "eventDetail",
+    From: "from",
+    Importance: "importance",
+    LastEditedDateTime: "lastEditedDateTime",
+    LastModifiedDateTime: "lastModifiedDateTime",
+    Locale: "locale",
+    Mentions: "mentions",
+    MessageHistory: "messageHistory",
+    MessageType: "messageType",
+    PolicyViolation: "policyViolation",
+    Reactions: "reactions",
+    ReplyToId: "replyToId",
+    Subject: "subject",
+    Summary: "summary",
+    WebUrl: "webUrl",
+    HostedContents: "hostedContents",
+    Replies: "replies",
+} as const;
 /* tslint:enable */
 /* eslint-enable */

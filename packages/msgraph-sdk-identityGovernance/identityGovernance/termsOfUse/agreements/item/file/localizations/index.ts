@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { AgreementFileLocalizationItemRequestBuilderNavigationMetadata, AgreementFileLocalizationItemRequestBuilderRequestsMetadata, type AgreementFileLocalizationItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
  */
@@ -62,7 +65,7 @@ export interface LocalizationsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface LocalizationsRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface LocalizationsRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,48 @@ export interface LocalizationsRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const LocalizationsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}/file/localizations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Versions: "versions",
+} as const;
+/**
+ * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    CreatedDateTime: "createdDateTime",
+    CreatedDateTimeDesc: "createdDateTime desc",
+    DisplayName: "displayName",
+    DisplayNameDesc: "displayName desc",
+    FileData: "fileData",
+    FileDataDesc: "fileData desc",
+    FileName: "fileName",
+    FileNameDesc: "fileName desc",
+    IsDefault: "isDefault",
+    IsDefaultDesc: "isDefault desc",
+    IsMajorVersion: "isMajorVersion",
+    IsMajorVersionDesc: "isMajorVersion desc",
+    Language: "language",
+    LanguageDesc: "language desc",
+} as const;
+/**
+ * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    CreatedDateTime: "createdDateTime",
+    DisplayName: "displayName",
+    FileData: "fileData",
+    FileName: "fileName",
+    IsDefault: "isDefault",
+    IsMajorVersion: "isMajorVersion",
+    Language: "language",
+    Versions: "versions",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +173,7 @@ export const LocalizationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFileLocalizationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: LocalizationsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +183,7 @@ export const LocalizationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFileLocalizationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAgreementFileLocalization,

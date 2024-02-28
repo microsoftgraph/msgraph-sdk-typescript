@@ -7,6 +7,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { SynchronizationTemplateItemRequestBuilderNavigationMetadata, SynchronizationTemplateItemRequestBuilderRequestsMetadata, type SynchronizationTemplateItemRequestBuilder } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
+export type GetExpandQueryParameterType = (typeof GetExpandQueryParameterTypeObject)[keyof typeof GetExpandQueryParameterTypeObject];
+export type GetOrderbyQueryParameterType = (typeof GetOrderbyQueryParameterTypeObject)[keyof typeof GetOrderbyQueryParameterTypeObject];
+export type GetSelectQueryParameterType = (typeof GetSelectQueryParameterTypeObject)[keyof typeof GetSelectQueryParameterTypeObject];
 /**
  * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
  */
@@ -62,7 +65,7 @@ export interface TemplatesRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
-    expand?: string[];
+    expand?: GetExpandQueryParameterType[];
     /**
      * Filter items by property values
      */
@@ -70,7 +73,7 @@ export interface TemplatesRequestBuilderGetQueryParameters {
     /**
      * Order items by property values
      */
-    orderby?: string[];
+    orderby?: GetOrderbyQueryParameterType[];
     /**
      * Search items by search phrases
      */
@@ -78,7 +81,7 @@ export interface TemplatesRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
-    select?: string[];
+    select?: GetSelectQueryParameterType[];
     /**
      * Skip the first n items
      */
@@ -92,6 +95,45 @@ export interface TemplatesRequestBuilderGetQueryParameters {
  * Uri template for the request builder.
  */
 export const TemplatesRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/templates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+/**
+ * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
+ */
+export const GetExpandQueryParameterTypeObject = {
+    Asterisk: "*",
+    Schema: "schema",
+} as const;
+/**
+ * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
+ */
+export const GetOrderbyQueryParameterTypeObject = {
+    Id: "id",
+    IdDesc: "id desc",
+    ApplicationId: "applicationId",
+    ApplicationIdDesc: "applicationId desc",
+    DefaultEscaped: "default",
+    DefaultDesc: "default desc",
+    Description: "description",
+    DescriptionDesc: "description desc",
+    Discoverable: "discoverable",
+    DiscoverableDesc: "discoverable desc",
+    FactoryTag: "factoryTag",
+    FactoryTagDesc: "factoryTag desc",
+    Metadata: "metadata",
+    MetadataDesc: "metadata desc",
+} as const;
+/**
+ * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
+ */
+export const GetSelectQueryParameterTypeObject = {
+    Id: "id",
+    ApplicationId: "applicationId",
+    DefaultEscaped: "default",
+    Description: "description",
+    Discoverable: "discoverable",
+    FactoryTag: "factoryTag",
+    Metadata: "metadata",
+    Schema: "schema",
+} as const;
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +170,7 @@ export const TemplatesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSynchronizationTemplateCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TemplatesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +180,7 @@ export const TemplatesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSynchronizationTemplateFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSynchronizationTemplate,
