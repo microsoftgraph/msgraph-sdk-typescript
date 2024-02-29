@@ -91,7 +91,7 @@ export const RedirectRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRedirectPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

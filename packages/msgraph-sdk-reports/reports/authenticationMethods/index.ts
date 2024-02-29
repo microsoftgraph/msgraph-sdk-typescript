@@ -136,7 +136,7 @@ export const AuthenticationMethodsRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AuthenticationMethodsRequestBuilderUriTemplate,
@@ -144,7 +144,7 @@ export const AuthenticationMethodsRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthenticationMethodsRootFromDiscriminatorValue,
         queryParametersMapper: AuthenticationMethodsRequestBuilderGetQueryParametersMapper,
     },
@@ -154,7 +154,7 @@ export const AuthenticationMethodsRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthenticationMethodsRootFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAuthenticationMethodsRoot,

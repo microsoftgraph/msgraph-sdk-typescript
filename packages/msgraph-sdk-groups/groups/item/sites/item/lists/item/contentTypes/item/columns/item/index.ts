@@ -100,7 +100,7 @@ export const ColumnDefinitionItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ColumnDefinitionItemRequestBuilderUriTemplate,
@@ -108,7 +108,7 @@ export const ColumnDefinitionItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createColumnDefinitionFromDiscriminatorValue,
         queryParametersMapper: ColumnDefinitionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -118,7 +118,7 @@ export const ColumnDefinitionItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createColumnDefinitionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeColumnDefinition,

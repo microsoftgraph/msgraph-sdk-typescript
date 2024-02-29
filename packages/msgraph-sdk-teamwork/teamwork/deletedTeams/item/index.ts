@@ -98,7 +98,7 @@ export const DeletedTeamItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DeletedTeamItemRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const DeletedTeamItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeletedTeamFromDiscriminatorValue,
         queryParametersMapper: DeletedTeamItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const DeletedTeamItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeletedTeamFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeletedTeam,

@@ -87,7 +87,7 @@ export const IosUpdateDeviceStatusItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: IosUpdateDeviceStatusItemRequestBuilderUriTemplate,
@@ -95,7 +95,7 @@ export const IosUpdateDeviceStatusItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIosUpdateDeviceStatusFromDiscriminatorValue,
         queryParametersMapper: IosUpdateDeviceStatusItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +105,7 @@ export const IosUpdateDeviceStatusItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIosUpdateDeviceStatusFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIosUpdateDeviceStatus,

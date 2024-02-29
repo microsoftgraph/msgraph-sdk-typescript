@@ -128,7 +128,7 @@ export const AudioRoutingGroupsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAudioRoutingGroupCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AudioRoutingGroupsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const AudioRoutingGroupsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAudioRoutingGroupFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAudioRoutingGroup,

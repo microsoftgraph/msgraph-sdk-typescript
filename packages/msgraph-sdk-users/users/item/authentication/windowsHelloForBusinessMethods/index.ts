@@ -113,7 +113,7 @@ export const WindowsHelloForBusinessMethodsRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsHelloForBusinessAuthenticationMethodCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: WindowsHelloForBusinessMethodsRequestBuilderGetQueryParametersMapper,
     },

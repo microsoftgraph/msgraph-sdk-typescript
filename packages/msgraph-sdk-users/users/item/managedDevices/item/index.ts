@@ -285,7 +285,7 @@ export const ManagedDeviceItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ManagedDeviceItemRequestBuilderUriTemplate,
@@ -293,7 +293,7 @@ export const ManagedDeviceItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedDeviceFromDiscriminatorValue,
         queryParametersMapper: ManagedDeviceItemRequestBuilderGetQueryParametersMapper,
     },
@@ -303,7 +303,7 @@ export const ManagedDeviceItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedDeviceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeManagedDevice,

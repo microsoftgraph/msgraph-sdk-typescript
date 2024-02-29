@@ -74,7 +74,7 @@ export const SchemaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSchemaFromDiscriminatorValue,
         queryParametersMapper: SchemaRequestBuilderGetQueryParametersMapper,
     },
@@ -84,7 +84,7 @@ export const SchemaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSchemaFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSchema,

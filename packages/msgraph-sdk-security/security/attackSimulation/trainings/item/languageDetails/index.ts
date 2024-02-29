@@ -126,7 +126,7 @@ export const LanguageDetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTrainingLanguageDetailCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: LanguageDetailsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const LanguageDetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTrainingLanguageDetailFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTrainingLanguageDetail,

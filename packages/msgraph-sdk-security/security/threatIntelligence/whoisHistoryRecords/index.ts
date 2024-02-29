@@ -127,7 +127,7 @@ export const WhoisHistoryRecordsRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWhoisHistoryRecordCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: WhoisHistoryRecordsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const WhoisHistoryRecordsRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWhoisHistoryRecordFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWhoisHistoryRecord,

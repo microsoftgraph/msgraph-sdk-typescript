@@ -80,7 +80,7 @@ export const CancelMediaProcessingRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCancelMediaProcessingOperationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCancelMediaProcessingPostRequestBody,

@@ -84,7 +84,7 @@ export const ScopedRoleMembershipItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ScopedRoleMembershipItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const ScopedRoleMembershipItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createScopedRoleMembershipFromDiscriminatorValue,
         queryParametersMapper: ScopedRoleMembershipItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const ScopedRoleMembershipItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createScopedRoleMembershipFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeScopedRoleMembership,

@@ -86,7 +86,7 @@ export const InstallSummaryRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: InstallSummaryRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const InstallSummaryRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEBookInstallSummaryFromDiscriminatorValue,
         queryParametersMapper: InstallSummaryRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const InstallSummaryRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEBookInstallSummaryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEBookInstallSummary,

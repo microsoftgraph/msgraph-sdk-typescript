@@ -127,7 +127,7 @@ export const ResourcesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnenoteResourceCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ResourcesRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const ResourcesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnenoteResourceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOnenoteResource,

@@ -116,7 +116,7 @@ export const NotebookItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: NotebookItemRequestBuilderUriTemplate,
@@ -124,7 +124,7 @@ export const NotebookItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createNotebookFromDiscriminatorValue,
         queryParametersMapper: NotebookItemRequestBuilderGetQueryParametersMapper,
     },
@@ -134,7 +134,7 @@ export const NotebookItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createNotebookFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeNotebook,

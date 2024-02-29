@@ -105,7 +105,7 @@ export const PostFederationSignupRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PostFederationSignupRequestBuilderUriTemplate,
@@ -113,7 +113,7 @@ export const PostFederationSignupRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityApiConnectorFromDiscriminatorValue,
         queryParametersMapper: PostFederationSignupRequestBuilderGetQueryParametersMapper,
     },
@@ -123,7 +123,7 @@ export const PostFederationSignupRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityApiConnectorFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIdentityApiConnector,

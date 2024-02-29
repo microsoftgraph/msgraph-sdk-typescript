@@ -97,7 +97,7 @@ export const SharepointRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SharepointRequestBuilderUriTemplate,
@@ -105,7 +105,7 @@ export const SharepointRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSharepointFromDiscriminatorValue,
         queryParametersMapper: SharepointRequestBuilderGetQueryParametersMapper,
     },
@@ -115,7 +115,7 @@ export const SharepointRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSharepointFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSharepoint,

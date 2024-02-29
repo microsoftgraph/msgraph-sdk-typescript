@@ -136,7 +136,7 @@ export const ParticipantsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createParticipantCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ParticipantsRequestBuilderGetQueryParametersMapper,
     },
@@ -146,7 +146,7 @@ export const ParticipantsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createParticipantFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeParticipant,

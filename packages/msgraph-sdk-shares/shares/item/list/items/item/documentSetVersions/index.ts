@@ -129,7 +129,7 @@ export const DocumentSetVersionsRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDocumentSetVersionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DocumentSetVersionsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const DocumentSetVersionsRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDocumentSetVersionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDocumentSetVersion,

@@ -128,7 +128,7 @@ export const HealthOverviewsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServiceHealthCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: HealthOverviewsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const HealthOverviewsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServiceHealthFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeServiceHealth,

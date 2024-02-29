@@ -130,7 +130,7 @@ export const ContractItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ContractItemRequestBuilderUriTemplate,
@@ -138,7 +138,7 @@ export const ContractItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createContractFromDiscriminatorValue,
         queryParametersMapper: ContractItemRequestBuilderGetQueryParametersMapper,
     },
@@ -148,7 +148,7 @@ export const ContractItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createContractFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeContract,

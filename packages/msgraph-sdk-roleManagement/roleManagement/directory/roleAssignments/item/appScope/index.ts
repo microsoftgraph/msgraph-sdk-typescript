@@ -84,7 +84,7 @@ export const AppScopeRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AppScopeRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const AppScopeRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAppScopeFromDiscriminatorValue,
         queryParametersMapper: AppScopeRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const AppScopeRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAppScopeFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAppScope,

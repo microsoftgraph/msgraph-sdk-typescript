@@ -123,7 +123,7 @@ export const ShiftsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createShiftCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ShiftsRequestBuilderGetQueryParametersMapper,
     },
@@ -133,7 +133,7 @@ export const ShiftsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createShiftFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeShift,

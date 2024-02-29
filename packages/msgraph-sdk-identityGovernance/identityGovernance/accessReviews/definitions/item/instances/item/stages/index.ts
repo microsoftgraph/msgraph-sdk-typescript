@@ -138,7 +138,7 @@ export const StagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewStageCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: StagesRequestBuilderGetQueryParametersMapper,
     },
@@ -148,7 +148,7 @@ export const StagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewStageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAccessReviewStage,

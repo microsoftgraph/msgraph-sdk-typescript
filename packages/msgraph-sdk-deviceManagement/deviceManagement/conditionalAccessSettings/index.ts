@@ -86,7 +86,7 @@ export const ConditionalAccessSettingsRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ConditionalAccessSettingsRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const ConditionalAccessSettingsRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnPremisesConditionalAccessSettingsFromDiscriminatorValue,
         queryParametersMapper: ConditionalAccessSettingsRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const ConditionalAccessSettingsRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnPremisesConditionalAccessSettingsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOnPremisesConditionalAccessSettings,

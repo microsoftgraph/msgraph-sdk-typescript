@@ -129,7 +129,7 @@ export const RoleAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoleAssignmentCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RoleAssignmentsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const RoleAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoleAssignmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRoleAssignment,

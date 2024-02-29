@@ -85,7 +85,7 @@ export const CommsOperationItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CommsOperationItemRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const CommsOperationItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCommsOperationFromDiscriminatorValue,
         queryParametersMapper: CommsOperationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const CommsOperationItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCommsOperationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCommsOperation,

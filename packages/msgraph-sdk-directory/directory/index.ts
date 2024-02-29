@@ -140,7 +140,7 @@ export const DirectoryRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryFromDiscriminatorValue,
         queryParametersMapper: DirectoryRequestBuilderGetQueryParametersMapper,
     },
@@ -150,7 +150,7 @@ export const DirectoryRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDirectory,

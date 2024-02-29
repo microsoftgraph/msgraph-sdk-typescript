@@ -97,7 +97,7 @@ export const UnbilledRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UnbilledRequestBuilderUriTemplate,
@@ -105,7 +105,7 @@ export const UnbilledRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnbilledUsageFromDiscriminatorValue,
         queryParametersMapper: UnbilledRequestBuilderGetQueryParametersMapper,
     },
@@ -115,7 +115,7 @@ export const UnbilledRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnbilledUsageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUnbilledUsage,

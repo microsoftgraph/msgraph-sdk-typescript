@@ -100,7 +100,7 @@ export const GraphWindowsMobileMSIRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsMobileMSICollectionResponseFromDiscriminatorValue,
         queryParametersMapper: GraphWindowsMobileMSIRequestBuilderGetQueryParametersMapper,
     },

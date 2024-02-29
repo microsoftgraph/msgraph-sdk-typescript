@@ -86,7 +86,7 @@ export const ImportedWindowsAutopilotDeviceIdentityItemRequestBuilderRequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ImportedWindowsAutopilotDeviceIdentityItemRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const ImportedWindowsAutopilotDeviceIdentityItemRequestBuilderRequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue,
         queryParametersMapper: ImportedWindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const ImportedWindowsAutopilotDeviceIdentityItemRequestBuilderRequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeImportedWindowsAutopilotDeviceIdentity,

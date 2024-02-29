@@ -126,7 +126,7 @@ export const UserExperienceAnalyticsModelScoresRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsModelScoresCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsModelScoresRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const UserExperienceAnalyticsModelScoresRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsModelScoresFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsModelScores,

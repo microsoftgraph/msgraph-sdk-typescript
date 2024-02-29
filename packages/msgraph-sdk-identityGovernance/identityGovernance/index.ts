@@ -131,7 +131,7 @@ export const IdentityGovernanceRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityGovernanceFromDiscriminatorValue,
         queryParametersMapper: IdentityGovernanceRequestBuilderGetQueryParametersMapper,
     },
@@ -141,7 +141,7 @@ export const IdentityGovernanceRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityGovernanceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIdentityGovernance,

@@ -144,7 +144,7 @@ export const NamesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookNamedItemCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: NamesRequestBuilderGetQueryParametersMapper,
     },
@@ -154,7 +154,7 @@ export const NamesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookNamedItemFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbookNamedItem,

@@ -128,7 +128,7 @@ export const FederationConfigurationRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInternalDomainFederationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: FederationConfigurationRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const FederationConfigurationRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInternalDomainFederationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeInternalDomainFederation,

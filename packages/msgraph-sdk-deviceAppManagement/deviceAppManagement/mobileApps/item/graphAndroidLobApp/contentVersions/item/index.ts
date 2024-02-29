@@ -107,7 +107,7 @@ export const MobileAppContentItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: MobileAppContentItemRequestBuilderUriTemplate,
@@ -115,7 +115,7 @@ export const MobileAppContentItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppContentFromDiscriminatorValue,
         queryParametersMapper: MobileAppContentItemRequestBuilderGetQueryParametersMapper,
     },
@@ -125,7 +125,7 @@ export const MobileAppContentItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppContentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMobileAppContent,

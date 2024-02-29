@@ -129,7 +129,7 @@ export const PartnersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCrossTenantAccessPolicyConfigurationPartnerCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: PartnersRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const PartnersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCrossTenantAccessPolicyConfigurationPartner,

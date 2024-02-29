@@ -71,7 +71,7 @@ export const Fido2AuthenticationMethodItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: Fido2AuthenticationMethodItemRequestBuilderUriTemplate,
@@ -79,7 +79,7 @@ export const Fido2AuthenticationMethodItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFido2AuthenticationMethodFromDiscriminatorValue,
         queryParametersMapper: Fido2AuthenticationMethodItemRequestBuilderGetQueryParametersMapper,
     },

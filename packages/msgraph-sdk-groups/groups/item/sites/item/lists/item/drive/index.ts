@@ -57,7 +57,7 @@ export const DriveRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDriveFromDiscriminatorValue,
         queryParametersMapper: DriveRequestBuilderGetQueryParametersMapper,
     },

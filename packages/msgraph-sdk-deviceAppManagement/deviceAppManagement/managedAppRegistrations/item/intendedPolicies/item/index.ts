@@ -97,7 +97,7 @@ export const ManagedAppPolicyItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ManagedAppPolicyItemRequestBuilderUriTemplate,
@@ -105,7 +105,7 @@ export const ManagedAppPolicyItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedAppPolicyFromDiscriminatorValue,
         queryParametersMapper: ManagedAppPolicyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -115,7 +115,7 @@ export const ManagedAppPolicyItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedAppPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeManagedAppPolicy,

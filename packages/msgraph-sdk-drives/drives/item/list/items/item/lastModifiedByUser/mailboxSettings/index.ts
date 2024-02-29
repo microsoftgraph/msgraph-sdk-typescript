@@ -72,7 +72,7 @@ export const MailboxSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMailboxSettingsFromDiscriminatorValue,
         queryParametersMapper: MailboxSettingsRequestBuilderGetQueryParametersMapper,
     },
@@ -82,7 +82,7 @@ export const MailboxSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMailboxSettingsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMailboxSettings,

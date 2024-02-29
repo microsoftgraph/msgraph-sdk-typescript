@@ -102,30 +102,30 @@ export interface MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsR
      */
      byMobileAppId(mobileAppId: string) : MobileAppItemRequestBuilder;
     /**
-     * List properties and relationships of the microsoftStoreForBusinessApp objects.
+     * List properties and relationships of the windowsWebApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-microsoftstoreforbusinessapp-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowswebapp-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppsRequestBuilderGetQueryParameters> | undefined) : Promise<MobileAppCollectionResponse | undefined>;
     /**
-     * Create a new managedIOSLobApp object.
+     * Create a new win32LobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-managedioslobapp-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-win32lobapp-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileApp | undefined>;
     /**
-     * List properties and relationships of the microsoftStoreForBusinessApp objects.
+     * List properties and relationships of the windowsWebApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileAppsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new managedIOSLobApp object.
+     * Create a new win32LobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -133,7 +133,7 @@ export interface MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsR
      toPostRequestInformation(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the microsoftStoreForBusinessApp objects.
+ * List properties and relationships of the windowsWebApp objects.
  */
 export interface MobileAppsRequestBuilderGetQueryParameters {
     /**
@@ -273,7 +273,7 @@ export const MobileAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MobileAppsRequestBuilderGetQueryParametersMapper,
     },
@@ -283,7 +283,7 @@ export const MobileAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMobileApp,

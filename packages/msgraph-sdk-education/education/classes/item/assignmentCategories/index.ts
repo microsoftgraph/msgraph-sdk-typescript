@@ -136,7 +136,7 @@ export const AssignmentCategoriesRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationCategoryCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AssignmentCategoriesRequestBuilderGetQueryParametersMapper,
     },
@@ -146,7 +146,7 @@ export const AssignmentCategoriesRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationCategoryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEducationCategory,

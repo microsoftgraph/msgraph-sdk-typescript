@@ -119,7 +119,7 @@ export const UnarchiveRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnarchivePostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUnarchivePostRequestBody,

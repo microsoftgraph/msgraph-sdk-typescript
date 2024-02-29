@@ -129,7 +129,7 @@ export const TaskTriggersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintTaskTriggerCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TaskTriggersRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const TaskTriggersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintTaskTriggerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrintTaskTrigger,

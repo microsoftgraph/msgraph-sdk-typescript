@@ -84,7 +84,7 @@ export const FilterOperatorSchemaItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: FilterOperatorSchemaItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const FilterOperatorSchemaItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFilterOperatorSchemaFromDiscriminatorValue,
         queryParametersMapper: FilterOperatorSchemaItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const FilterOperatorSchemaItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFilterOperatorSchemaFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeFilterOperatorSchema,

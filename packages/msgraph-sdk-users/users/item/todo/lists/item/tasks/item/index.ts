@@ -137,7 +137,7 @@ export const TodoTaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TodoTaskItemRequestBuilderUriTemplate,
@@ -145,7 +145,7 @@ export const TodoTaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTodoTaskFromDiscriminatorValue,
         queryParametersMapper: TodoTaskItemRequestBuilderGetQueryParametersMapper,
     },
@@ -155,7 +155,7 @@ export const TodoTaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTodoTaskFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTodoTask,

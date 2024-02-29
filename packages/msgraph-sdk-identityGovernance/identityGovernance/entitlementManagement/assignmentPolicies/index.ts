@@ -129,7 +129,7 @@ export const AssignmentPoliciesRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessPackageAssignmentPolicyCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AssignmentPoliciesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const AssignmentPoliciesRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessPackageAssignmentPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAccessPackageAssignmentPolicy,

@@ -128,7 +128,7 @@ export const MembersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamworkTagMemberCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MembersRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const MembersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamworkTagMemberFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTeamworkTagMember,

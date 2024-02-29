@@ -86,7 +86,7 @@ export const AdminConsentRequestPolicyRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AdminConsentRequestPolicyRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const AdminConsentRequestPolicyRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAdminConsentRequestPolicyFromDiscriminatorValue,
         queryParametersMapper: AdminConsentRequestPolicyRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const AdminConsentRequestPolicyRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAdminConsentRequestPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAdminConsentRequestPolicy,

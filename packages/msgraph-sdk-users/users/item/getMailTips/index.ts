@@ -118,7 +118,7 @@ export const GetMailTipsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGetMailTipsPostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGetMailTipsPostRequestBody,

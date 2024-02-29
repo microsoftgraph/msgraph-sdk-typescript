@@ -87,7 +87,7 @@ export const OAuth2PermissionGrantItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OAuth2PermissionGrantItemRequestBuilderUriTemplate,
@@ -95,7 +95,7 @@ export const OAuth2PermissionGrantItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOAuth2PermissionGrantFromDiscriminatorValue,
         queryParametersMapper: OAuth2PermissionGrantItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +105,7 @@ export const OAuth2PermissionGrantItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOAuth2PermissionGrantFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOAuth2PermissionGrant,

@@ -140,7 +140,7 @@ export const SubjectRightsRequestItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SubjectRightsRequestItemRequestBuilderUriTemplate,
@@ -148,7 +148,7 @@ export const SubjectRightsRequestItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubjectRightsRequestFromDiscriminatorValue,
         queryParametersMapper: SubjectRightsRequestItemRequestBuilderGetQueryParametersMapper,
     },
@@ -158,7 +158,7 @@ export const SubjectRightsRequestItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubjectRightsRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSubjectRightsRequest,

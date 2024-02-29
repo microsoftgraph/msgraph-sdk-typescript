@@ -128,7 +128,7 @@ export const ChecklistItemsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChecklistItemCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ChecklistItemsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const ChecklistItemsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChecklistItemFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeChecklistItem,

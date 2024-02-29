@@ -57,7 +57,7 @@ export const EdiscoveryReviewTagItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryReviewTagFromDiscriminatorValue,
         queryParametersMapper: EdiscoveryReviewTagItemRequestBuilderGetQueryParametersMapper,
     },

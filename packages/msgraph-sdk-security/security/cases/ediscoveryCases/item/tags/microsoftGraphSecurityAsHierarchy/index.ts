@@ -120,7 +120,7 @@ export const MicrosoftGraphSecurityAsHierarchyRequestBuilderRequestsMetadata: Re
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAsHierarchyGetResponseFromDiscriminatorValue,
         queryParametersMapper: MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParametersMapper,
     },

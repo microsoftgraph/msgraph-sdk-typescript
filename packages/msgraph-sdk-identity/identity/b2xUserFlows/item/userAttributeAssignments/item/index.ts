@@ -100,7 +100,7 @@ export const IdentityUserFlowAttributeAssignmentItemRequestBuilderRequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: IdentityUserFlowAttributeAssignmentItemRequestBuilderUriTemplate,
@@ -108,7 +108,7 @@ export const IdentityUserFlowAttributeAssignmentItemRequestBuilderRequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue,
         queryParametersMapper: IdentityUserFlowAttributeAssignmentItemRequestBuilderGetQueryParametersMapper,
     },
@@ -118,7 +118,7 @@ export const IdentityUserFlowAttributeAssignmentItemRequestBuilderRequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIdentityUserFlowAttributeAssignment,

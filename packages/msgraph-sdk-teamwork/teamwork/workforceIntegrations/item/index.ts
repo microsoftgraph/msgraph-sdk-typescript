@@ -87,7 +87,7 @@ export const WorkforceIntegrationItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: WorkforceIntegrationItemRequestBuilderUriTemplate,
@@ -95,7 +95,7 @@ export const WorkforceIntegrationItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkforceIntegrationFromDiscriminatorValue,
         queryParametersMapper: WorkforceIntegrationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +105,7 @@ export const WorkforceIntegrationItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkforceIntegrationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkforceIntegration,

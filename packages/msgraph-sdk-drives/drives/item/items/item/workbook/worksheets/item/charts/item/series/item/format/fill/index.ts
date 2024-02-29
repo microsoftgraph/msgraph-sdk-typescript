@@ -105,7 +105,7 @@ export const FillRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: FillRequestBuilderUriTemplate,
@@ -113,7 +113,7 @@ export const FillRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartFillFromDiscriminatorValue,
         queryParametersMapper: FillRequestBuilderGetQueryParametersMapper,
     },
@@ -123,7 +123,7 @@ export const FillRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartFillFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbookChartFill,

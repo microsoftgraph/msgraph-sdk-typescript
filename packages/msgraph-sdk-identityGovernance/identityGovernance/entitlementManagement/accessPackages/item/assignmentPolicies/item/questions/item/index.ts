@@ -84,7 +84,7 @@ export const AccessPackageQuestionItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AccessPackageQuestionItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const AccessPackageQuestionItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessPackageQuestionFromDiscriminatorValue,
         queryParametersMapper: AccessPackageQuestionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const AccessPackageQuestionItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessPackageQuestionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAccessPackageQuestion,

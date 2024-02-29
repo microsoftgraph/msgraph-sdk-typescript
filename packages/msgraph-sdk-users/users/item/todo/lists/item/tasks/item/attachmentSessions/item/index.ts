@@ -92,7 +92,7 @@ export const AttachmentSessionItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AttachmentSessionItemRequestBuilderUriTemplate,
@@ -100,7 +100,7 @@ export const AttachmentSessionItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttachmentSessionFromDiscriminatorValue,
         queryParametersMapper: AttachmentSessionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -110,7 +110,7 @@ export const AttachmentSessionItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttachmentSessionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAttachmentSession,

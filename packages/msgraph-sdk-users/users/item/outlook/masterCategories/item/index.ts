@@ -82,7 +82,7 @@ export const OutlookCategoryItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OutlookCategoryItemRequestBuilderUriTemplate,
@@ -90,7 +90,7 @@ export const OutlookCategoryItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOutlookCategoryFromDiscriminatorValue,
         queryParametersMapper: OutlookCategoryItemRequestBuilderGetQueryParametersMapper,
     },
@@ -100,7 +100,7 @@ export const OutlookCategoryItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOutlookCategoryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOutlookCategory,

@@ -84,7 +84,7 @@ export const LicenseDetailsItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: LicenseDetailsItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const LicenseDetailsItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLicenseDetailsFromDiscriminatorValue,
         queryParametersMapper: LicenseDetailsItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const LicenseDetailsItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLicenseDetailsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLicenseDetails,

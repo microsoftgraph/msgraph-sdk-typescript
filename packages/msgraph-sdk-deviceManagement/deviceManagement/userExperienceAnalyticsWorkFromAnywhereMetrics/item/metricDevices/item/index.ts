@@ -84,7 +84,7 @@ export const UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsWorkFromAnywhereDeviceFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsWorkFromAnywhereDeviceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsWorkFromAnywhereDevice,

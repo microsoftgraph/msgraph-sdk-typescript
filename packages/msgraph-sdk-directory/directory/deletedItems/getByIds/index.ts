@@ -118,7 +118,7 @@ export const GetByIdsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGetByIdsPostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGetByIdsPostRequestBody,

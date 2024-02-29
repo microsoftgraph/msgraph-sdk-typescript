@@ -58,7 +58,7 @@ export const LastIndexOperationRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryIndexOperationFromDiscriminatorValue,
         queryParametersMapper: LastIndexOperationRequestBuilderGetQueryParametersMapper,
     },

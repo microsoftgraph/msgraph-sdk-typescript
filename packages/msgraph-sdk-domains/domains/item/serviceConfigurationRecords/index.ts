@@ -127,7 +127,7 @@ export const ServiceConfigurationRecordsRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDomainDnsRecordCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ServiceConfigurationRecordsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const ServiceConfigurationRecordsRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDomainDnsRecordFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDomainDnsRecord,

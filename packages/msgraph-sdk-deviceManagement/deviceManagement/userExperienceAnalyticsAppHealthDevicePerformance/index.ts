@@ -126,7 +126,7 @@ export const UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsAppHealthDevicePerformanceCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsAppHealthDevicePerformanceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsAppHealthDevicePerformance,

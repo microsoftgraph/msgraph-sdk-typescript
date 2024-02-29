@@ -112,7 +112,7 @@ export const SectionGroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSectionGroupCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SectionGroupsRequestBuilderGetQueryParametersMapper,
     },

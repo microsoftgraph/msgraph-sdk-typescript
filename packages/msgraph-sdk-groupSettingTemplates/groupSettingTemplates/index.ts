@@ -160,7 +160,7 @@ export const GroupSettingTemplatesRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGroupSettingTemplateCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: GroupSettingTemplatesRequestBuilderGetQueryParametersMapper,
     },
@@ -170,7 +170,7 @@ export const GroupSettingTemplatesRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGroupSettingTemplateFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGroupSettingTemplate,

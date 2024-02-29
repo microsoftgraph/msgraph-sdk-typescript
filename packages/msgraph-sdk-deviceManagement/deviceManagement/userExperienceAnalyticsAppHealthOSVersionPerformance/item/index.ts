@@ -84,7 +84,7 @@ export const UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuil
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuil
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsAppHealthOSVersionPerformanceFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuil
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsAppHealthOSVersionPerformanceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsAppHealthOSVersionPerformance,

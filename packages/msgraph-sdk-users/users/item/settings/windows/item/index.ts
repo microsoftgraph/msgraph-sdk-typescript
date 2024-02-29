@@ -98,7 +98,7 @@ export const WindowsSettingItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: WindowsSettingItemRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const WindowsSettingItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsSettingFromDiscriminatorValue,
         queryParametersMapper: WindowsSettingItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const WindowsSettingItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsSettingFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWindowsSetting,

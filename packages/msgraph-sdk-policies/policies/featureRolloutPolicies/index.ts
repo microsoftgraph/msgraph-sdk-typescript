@@ -129,7 +129,7 @@ export const FeatureRolloutPoliciesRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFeatureRolloutPolicyCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: FeatureRolloutPoliciesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const FeatureRolloutPoliciesRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFeatureRolloutPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeFeatureRolloutPolicy,

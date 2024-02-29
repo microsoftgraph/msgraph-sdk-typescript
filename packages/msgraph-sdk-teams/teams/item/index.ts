@@ -247,7 +247,7 @@ export const TeamItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TeamItemRequestBuilderUriTemplate,
@@ -255,7 +255,7 @@ export const TeamItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamFromDiscriminatorValue,
         queryParametersMapper: TeamItemRequestBuilderGetQueryParametersMapper,
     },
@@ -265,7 +265,7 @@ export const TeamItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTeam,

@@ -112,7 +112,7 @@ export const GetAvailableExtensionPropertiesRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGetAvailableExtensionPropertiesPostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGetAvailableExtensionPropertiesPostRequestBody,

@@ -97,7 +97,7 @@ export const BulkUploadRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: BulkUploadRequestBuilderUriTemplate,
@@ -105,7 +105,7 @@ export const BulkUploadRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBulkUploadFromDiscriminatorValue,
         queryParametersMapper: BulkUploadRequestBuilderGetQueryParametersMapper,
     },
@@ -115,7 +115,7 @@ export const BulkUploadRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBulkUploadFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBulkUpload,

@@ -129,7 +129,7 @@ export const TermsAndConditionsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTermsAndConditionsCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TermsAndConditionsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const TermsAndConditionsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTermsAndConditionsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTermsAndConditions,

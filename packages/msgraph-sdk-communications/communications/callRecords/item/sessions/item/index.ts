@@ -98,7 +98,7 @@ export const SessionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SessionItemRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const SessionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSessionFromDiscriminatorValue,
         queryParametersMapper: SessionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const SessionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSessionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSession,

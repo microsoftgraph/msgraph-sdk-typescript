@@ -124,7 +124,7 @@ export const SchemaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SchemaRequestBuilderUriTemplate,
@@ -132,7 +132,7 @@ export const SchemaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSynchronizationSchemaFromDiscriminatorValue,
         queryParametersMapper: SchemaRequestBuilderGetQueryParametersMapper,
     },
@@ -142,7 +142,7 @@ export const SchemaRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSynchronizationSchemaFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSynchronizationSchema,

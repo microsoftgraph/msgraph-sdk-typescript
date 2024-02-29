@@ -99,7 +99,7 @@ export const FileRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: FileRequestBuilderUriTemplate,
@@ -107,7 +107,7 @@ export const FileRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFileFromDiscriminatorValue,
         queryParametersMapper: FileRequestBuilderGetQueryParametersMapper,
     },
@@ -117,7 +117,7 @@ export const FileRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFileFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAgreementFile,

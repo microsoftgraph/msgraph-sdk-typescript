@@ -101,7 +101,7 @@ export const RemoteDesktopSecurityConfigurationRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RemoteDesktopSecurityConfigurationRequestBuilderUriTemplate,
@@ -109,7 +109,7 @@ export const RemoteDesktopSecurityConfigurationRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRemoteDesktopSecurityConfigurationFromDiscriminatorValue,
         queryParametersMapper: RemoteDesktopSecurityConfigurationRequestBuilderGetQueryParametersMapper,
     },
@@ -119,7 +119,7 @@ export const RemoteDesktopSecurityConfigurationRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRemoteDesktopSecurityConfigurationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRemoteDesktopSecurityConfiguration,

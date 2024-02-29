@@ -106,7 +106,7 @@ export const CallTranscriptItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CallTranscriptItemRequestBuilderUriTemplate,
@@ -114,7 +114,7 @@ export const CallTranscriptItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCallTranscriptFromDiscriminatorValue,
         queryParametersMapper: CallTranscriptItemRequestBuilderGetQueryParametersMapper,
     },
@@ -124,7 +124,7 @@ export const CallTranscriptItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCallTranscriptFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCallTranscript,

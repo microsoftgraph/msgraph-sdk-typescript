@@ -128,7 +128,7 @@ export const LandingPagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLandingPageCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: LandingPagesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const LandingPagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLandingPageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLandingPage,

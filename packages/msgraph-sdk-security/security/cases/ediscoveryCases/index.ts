@@ -129,7 +129,7 @@ export const EdiscoveryCasesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryCaseCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: EdiscoveryCasesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const EdiscoveryCasesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryCaseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEdiscoveryCase,

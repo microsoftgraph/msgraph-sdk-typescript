@@ -84,7 +84,7 @@ export const TeamsTemplateItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TeamsTemplateItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const TeamsTemplateItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamsTemplateFromDiscriminatorValue,
         queryParametersMapper: TeamsTemplateItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const TeamsTemplateItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamsTemplateFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTeamsTemplate,

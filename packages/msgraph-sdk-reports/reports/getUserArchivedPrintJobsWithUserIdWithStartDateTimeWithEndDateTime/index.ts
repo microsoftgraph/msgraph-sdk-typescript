@@ -104,7 +104,7 @@ export const GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeR
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue,
         queryParametersMapper: GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParametersMapper,
     },

@@ -36,7 +36,7 @@ export const ClearUserPreferredPresenceRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
 };
 /* tslint:enable */

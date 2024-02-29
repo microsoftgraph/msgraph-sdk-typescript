@@ -165,7 +165,7 @@ export const EdiscoveryCustodianItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: EdiscoveryCustodianItemRequestBuilderUriTemplate,
@@ -173,7 +173,7 @@ export const EdiscoveryCustodianItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryCustodianFromDiscriminatorValue,
         queryParametersMapper: EdiscoveryCustodianItemRequestBuilderGetQueryParametersMapper,
     },
@@ -183,7 +183,7 @@ export const EdiscoveryCustodianItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryCustodianFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEdiscoveryCustodian,

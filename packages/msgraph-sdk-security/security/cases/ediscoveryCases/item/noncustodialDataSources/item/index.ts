@@ -137,7 +137,7 @@ export const EdiscoveryNoncustodialDataSourceItemRequestBuilderRequestsMetadata:
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: EdiscoveryNoncustodialDataSourceItemRequestBuilderUriTemplate,
@@ -145,7 +145,7 @@ export const EdiscoveryNoncustodialDataSourceItemRequestBuilderRequestsMetadata:
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue,
         queryParametersMapper: EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParametersMapper,
     },
@@ -155,7 +155,7 @@ export const EdiscoveryNoncustodialDataSourceItemRequestBuilderRequestsMetadata:
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEdiscoveryNoncustodialDataSource,

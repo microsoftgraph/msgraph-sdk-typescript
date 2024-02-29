@@ -82,7 +82,7 @@ export const ShiftItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ShiftItemRequestBuilderUriTemplate,
@@ -90,7 +90,7 @@ export const ShiftItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createShiftFromDiscriminatorValue,
         queryParametersMapper: ShiftItemRequestBuilderGetQueryParametersMapper,
     },
@@ -100,7 +100,7 @@ export const ShiftItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createShiftFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeShift,

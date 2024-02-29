@@ -57,7 +57,7 @@ export const CatalogRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessPackageCatalogFromDiscriminatorValue,
         queryParametersMapper: CatalogRequestBuilderGetQueryParametersMapper,
     },

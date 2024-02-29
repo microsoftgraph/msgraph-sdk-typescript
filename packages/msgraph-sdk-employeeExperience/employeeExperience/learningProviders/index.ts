@@ -129,7 +129,7 @@ export const LearningProvidersRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLearningProviderCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: LearningProvidersRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const LearningProvidersRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLearningProviderFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLearningProvider,

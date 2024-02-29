@@ -106,7 +106,7 @@ export const ListItemVersionItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ListItemVersionItemRequestBuilderUriTemplate,
@@ -114,7 +114,7 @@ export const ListItemVersionItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createListItemVersionFromDiscriminatorValue,
         queryParametersMapper: ListItemVersionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -124,7 +124,7 @@ export const ListItemVersionItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createListItemVersionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeListItemVersion,

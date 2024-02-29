@@ -87,7 +87,7 @@ export const GroupSettingItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: GroupSettingItemRequestBuilderUriTemplate,
@@ -95,7 +95,7 @@ export const GroupSettingItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGroupSettingFromDiscriminatorValue,
         queryParametersMapper: GroupSettingItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +105,7 @@ export const GroupSettingItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGroupSettingFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGroupSetting,

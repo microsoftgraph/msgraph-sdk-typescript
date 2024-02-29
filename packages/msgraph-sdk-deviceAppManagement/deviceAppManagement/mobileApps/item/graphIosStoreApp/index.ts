@@ -80,7 +80,7 @@ export const GraphIosStoreAppRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIosStoreAppFromDiscriminatorValue,
         queryParametersMapper: GraphIosStoreAppRequestBuilderGetQueryParametersMapper,
     },

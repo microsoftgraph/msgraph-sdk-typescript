@@ -139,7 +139,7 @@ export const RoleAssignmentScheduleRequestsRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RoleAssignmentScheduleRequestsRequestBuilderGetQueryParametersMapper,
     },
@@ -149,7 +149,7 @@ export const RoleAssignmentScheduleRequestsRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUnifiedRoleAssignmentScheduleRequest,

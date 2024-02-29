@@ -100,7 +100,7 @@ export const IdentityApiConnectorItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: IdentityApiConnectorItemRequestBuilderUriTemplate,
@@ -108,7 +108,7 @@ export const IdentityApiConnectorItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityApiConnectorFromDiscriminatorValue,
         queryParametersMapper: IdentityApiConnectorItemRequestBuilderGetQueryParametersMapper,
     },
@@ -118,7 +118,7 @@ export const IdentityApiConnectorItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityApiConnectorFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIdentityApiConnector,

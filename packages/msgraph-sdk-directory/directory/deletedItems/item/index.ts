@@ -164,7 +164,7 @@ export const DirectoryObjectItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DirectoryObjectItemRequestBuilderUriTemplate,
@@ -172,7 +172,7 @@ export const DirectoryObjectItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryObjectFromDiscriminatorValue,
         queryParametersMapper: DirectoryObjectItemRequestBuilderGetQueryParametersMapper,
     },

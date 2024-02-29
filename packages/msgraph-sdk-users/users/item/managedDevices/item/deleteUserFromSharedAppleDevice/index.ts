@@ -78,7 +78,7 @@ export const DeleteUserFromSharedAppleDeviceRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeleteUserFromSharedAppleDevicePostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

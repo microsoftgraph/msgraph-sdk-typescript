@@ -119,7 +119,7 @@ export const MdmWindowsInformationProtectionPolicyItemRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: MdmWindowsInformationProtectionPolicyItemRequestBuilderUriTemplate,
@@ -127,7 +127,7 @@ export const MdmWindowsInformationProtectionPolicyItemRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue,
         queryParametersMapper: MdmWindowsInformationProtectionPolicyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const MdmWindowsInformationProtectionPolicyItemRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMdmWindowsInformationProtectionPolicy,

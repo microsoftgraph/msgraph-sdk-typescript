@@ -127,7 +127,7 @@ export const ServicePrincipalRiskDetectionsRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServicePrincipalRiskDetectionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ServicePrincipalRiskDetectionsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const ServicePrincipalRiskDetectionsRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServicePrincipalRiskDetectionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeServicePrincipalRiskDetection,

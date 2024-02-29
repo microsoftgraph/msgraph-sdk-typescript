@@ -91,7 +91,7 @@ export const F_Dist_RTRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeF_Dist_RTPostRequestBody,

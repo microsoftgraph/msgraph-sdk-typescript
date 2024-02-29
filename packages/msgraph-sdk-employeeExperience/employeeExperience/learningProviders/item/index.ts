@@ -130,7 +130,7 @@ export const LearningProviderItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: LearningProviderItemRequestBuilderUriTemplate,
@@ -138,7 +138,7 @@ export const LearningProviderItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLearningProviderFromDiscriminatorValue,
         queryParametersMapper: LearningProviderItemRequestBuilderGetQueryParametersMapper,
     },
@@ -148,7 +148,7 @@ export const LearningProviderItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLearningProviderFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLearningProvider,

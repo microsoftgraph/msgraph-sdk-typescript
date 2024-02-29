@@ -127,7 +127,7 @@ export const SubdomainsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubdomainCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SubdomainsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const SubdomainsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubdomainFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSubdomain,

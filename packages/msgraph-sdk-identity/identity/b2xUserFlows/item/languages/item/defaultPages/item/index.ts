@@ -97,7 +97,7 @@ export const UserFlowLanguagePageItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UserFlowLanguagePageItemRequestBuilderUriTemplate,
@@ -105,7 +105,7 @@ export const UserFlowLanguagePageItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserFlowLanguagePageFromDiscriminatorValue,
         queryParametersMapper: UserFlowLanguagePageItemRequestBuilderGetQueryParametersMapper,
     },
@@ -115,7 +115,7 @@ export const UserFlowLanguagePageItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserFlowLanguagePageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserFlowLanguagePage,

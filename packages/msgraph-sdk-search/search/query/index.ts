@@ -112,7 +112,7 @@ export const QueryRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createQueryPostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeQueryPostRequestBody,

@@ -160,7 +160,7 @@ export const ListRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ListRequestBuilderUriTemplate,
@@ -168,7 +168,7 @@ export const ListRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createListFromDiscriminatorValue,
         queryParametersMapper: ListRequestBuilderGetQueryParametersMapper,
     },
@@ -178,7 +178,7 @@ export const ListRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createListFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeList,

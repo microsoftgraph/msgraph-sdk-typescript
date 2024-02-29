@@ -145,7 +145,7 @@ export const UserAttributeAssignmentsRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityUserFlowAttributeAssignmentCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UserAttributeAssignmentsRequestBuilderGetQueryParametersMapper,
     },
@@ -155,7 +155,7 @@ export const UserAttributeAssignmentsRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIdentityUserFlowAttributeAssignment,

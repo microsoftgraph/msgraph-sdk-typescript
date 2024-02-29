@@ -137,7 +137,7 @@ export const SchoolsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationSchoolCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SchoolsRequestBuilderGetQueryParametersMapper,
     },
@@ -147,7 +147,7 @@ export const SchoolsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationSchoolFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEducationSchool,

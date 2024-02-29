@@ -126,7 +126,7 @@ export const SegmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSegmentCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SegmentsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const SegmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSegmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSegment,

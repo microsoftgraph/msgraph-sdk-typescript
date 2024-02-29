@@ -86,7 +86,7 @@ export const DefaultAppManagementPolicyRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DefaultAppManagementPolicyRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const DefaultAppManagementPolicyRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTenantAppManagementPolicyFromDiscriminatorValue,
         queryParametersMapper: DefaultAppManagementPolicyRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const DefaultAppManagementPolicyRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTenantAppManagementPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTenantAppManagementPolicy,

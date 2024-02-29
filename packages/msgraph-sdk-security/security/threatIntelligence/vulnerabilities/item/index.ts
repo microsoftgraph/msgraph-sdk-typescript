@@ -108,7 +108,7 @@ export const VulnerabilityItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: VulnerabilityItemRequestBuilderUriTemplate,
@@ -116,7 +116,7 @@ export const VulnerabilityItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVulnerabilityFromDiscriminatorValue,
         queryParametersMapper: VulnerabilityItemRequestBuilderGetQueryParametersMapper,
     },
@@ -126,7 +126,7 @@ export const VulnerabilityItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVulnerabilityFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeVulnerability,

@@ -109,7 +109,7 @@ export const WorkbookChartSeriesItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: WorkbookChartSeriesItemRequestBuilderUriTemplate,
@@ -117,7 +117,7 @@ export const WorkbookChartSeriesItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartSeriesFromDiscriminatorValue,
         queryParametersMapper: WorkbookChartSeriesItemRequestBuilderGetQueryParametersMapper,
     },
@@ -127,7 +127,7 @@ export const WorkbookChartSeriesItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookChartSeriesFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbookChartSeries,

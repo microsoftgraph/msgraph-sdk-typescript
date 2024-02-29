@@ -108,7 +108,7 @@ export const AccessPackageResourceRoleScopeItemRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AccessPackageResourceRoleScopeItemRequestBuilderUriTemplate,
@@ -116,7 +116,7 @@ export const AccessPackageResourceRoleScopeItemRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessPackageResourceRoleScopeFromDiscriminatorValue,
         queryParametersMapper: AccessPackageResourceRoleScopeItemRequestBuilderGetQueryParametersMapper,
     },
@@ -126,7 +126,7 @@ export const AccessPackageResourceRoleScopeItemRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessPackageResourceRoleScopeFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAccessPackageResourceRoleScope,

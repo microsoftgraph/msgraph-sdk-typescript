@@ -126,7 +126,7 @@ export const ConditionalAccessPoliciesRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ConditionalAccessPoliciesRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const ConditionalAccessPoliciesRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConditionalAccessPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeConditionalAccessPolicy,

@@ -149,7 +149,7 @@ export const SynchronizationJobItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SynchronizationJobItemRequestBuilderUriTemplate,
@@ -157,7 +157,7 @@ export const SynchronizationJobItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSynchronizationJobFromDiscriminatorValue,
         queryParametersMapper: SynchronizationJobItemRequestBuilderGetQueryParametersMapper,
     },
@@ -167,7 +167,7 @@ export const SynchronizationJobItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSynchronizationJobFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSynchronizationJob,

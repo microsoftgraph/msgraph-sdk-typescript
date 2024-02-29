@@ -84,7 +84,7 @@ export const FederatedIdentityCredentialItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: FederatedIdentityCredentialItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const FederatedIdentityCredentialItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFederatedIdentityCredentialFromDiscriminatorValue,
         queryParametersMapper: FederatedIdentityCredentialItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const FederatedIdentityCredentialItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFederatedIdentityCredentialFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeFederatedIdentityCredential,

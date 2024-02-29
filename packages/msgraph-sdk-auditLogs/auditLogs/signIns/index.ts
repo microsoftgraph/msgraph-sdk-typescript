@@ -127,7 +127,7 @@ export const SignInsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSignInCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SignInsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const SignInsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSignInFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSignIn,

@@ -91,7 +91,7 @@ export const Expon_DistRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeExpon_DistPostRequestBody,

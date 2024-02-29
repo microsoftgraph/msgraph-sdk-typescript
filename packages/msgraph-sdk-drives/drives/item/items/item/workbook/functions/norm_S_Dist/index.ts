@@ -85,7 +85,7 @@ export const Norm_S_DistRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeNorm_S_DistPostRequestBody,

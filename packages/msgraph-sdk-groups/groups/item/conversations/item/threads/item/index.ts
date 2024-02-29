@@ -106,7 +106,7 @@ export const ConversationThreadItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ConversationThreadItemRequestBuilderUriTemplate,
@@ -114,7 +114,7 @@ export const ConversationThreadItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConversationThreadFromDiscriminatorValue,
         queryParametersMapper: ConversationThreadItemRequestBuilderGetQueryParametersMapper,
     },
@@ -124,7 +124,7 @@ export const ConversationThreadItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConversationThreadFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeConversationThread,

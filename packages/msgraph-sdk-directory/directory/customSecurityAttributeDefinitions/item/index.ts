@@ -100,7 +100,7 @@ export const CustomSecurityAttributeDefinitionItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CustomSecurityAttributeDefinitionItemRequestBuilderUriTemplate,
@@ -108,7 +108,7 @@ export const CustomSecurityAttributeDefinitionItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCustomSecurityAttributeDefinitionFromDiscriminatorValue,
         queryParametersMapper: CustomSecurityAttributeDefinitionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -118,7 +118,7 @@ export const CustomSecurityAttributeDefinitionItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCustomSecurityAttributeDefinitionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCustomSecurityAttributeDefinition,

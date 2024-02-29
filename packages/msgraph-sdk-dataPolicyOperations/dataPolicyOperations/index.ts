@@ -126,7 +126,7 @@ export const DataPolicyOperationsRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDataPolicyOperationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DataPolicyOperationsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const DataPolicyOperationsRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDataPolicyOperationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDataPolicyOperation,

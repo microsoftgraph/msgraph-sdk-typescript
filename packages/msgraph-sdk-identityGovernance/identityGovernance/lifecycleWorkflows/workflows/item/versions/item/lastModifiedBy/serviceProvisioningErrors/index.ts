@@ -100,7 +100,7 @@ export const ServiceProvisioningErrorsRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServiceProvisioningErrorCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ServiceProvisioningErrorsRequestBuilderGetQueryParametersMapper,
     },

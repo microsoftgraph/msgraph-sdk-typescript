@@ -106,7 +106,7 @@ export const DriveItemVersionItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DriveItemVersionItemRequestBuilderUriTemplate,
@@ -114,7 +114,7 @@ export const DriveItemVersionItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDriveItemVersionFromDiscriminatorValue,
         queryParametersMapper: DriveItemVersionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -124,7 +124,7 @@ export const DriveItemVersionItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDriveItemVersionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDriveItemVersion,

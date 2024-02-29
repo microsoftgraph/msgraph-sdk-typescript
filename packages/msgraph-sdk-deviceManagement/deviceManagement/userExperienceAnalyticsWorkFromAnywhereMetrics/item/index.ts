@@ -98,7 +98,7 @@ export const UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsWorkFromAnywhereMetricFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderRequ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsWorkFromAnywhereMetricFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsWorkFromAnywhereMetric,

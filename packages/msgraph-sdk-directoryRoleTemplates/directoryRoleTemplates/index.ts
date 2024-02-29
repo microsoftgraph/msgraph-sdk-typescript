@@ -155,7 +155,7 @@ export const DirectoryRoleTemplatesRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DirectoryRoleTemplatesRequestBuilderGetQueryParametersMapper,
     },
@@ -165,7 +165,7 @@ export const DirectoryRoleTemplatesRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryRoleTemplateFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDirectoryRoleTemplate,

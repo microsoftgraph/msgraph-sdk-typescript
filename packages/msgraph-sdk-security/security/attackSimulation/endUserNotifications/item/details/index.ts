@@ -126,7 +126,7 @@ export const DetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEndUserNotificationDetailCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DetailsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const DetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEndUserNotificationDetailFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEndUserNotificationDetail,

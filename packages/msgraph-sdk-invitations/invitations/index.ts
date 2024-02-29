@@ -128,7 +128,7 @@ export const InvitationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInvitationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: InvitationsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const InvitationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInvitationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeInvitation,

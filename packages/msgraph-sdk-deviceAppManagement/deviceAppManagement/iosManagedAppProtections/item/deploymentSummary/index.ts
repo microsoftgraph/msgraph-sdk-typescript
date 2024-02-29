@@ -86,7 +86,7 @@ export const DeploymentSummaryRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DeploymentSummaryRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const DeploymentSummaryRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue,
         queryParametersMapper: DeploymentSummaryRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const DeploymentSummaryRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeManagedAppPolicyDeploymentSummary,

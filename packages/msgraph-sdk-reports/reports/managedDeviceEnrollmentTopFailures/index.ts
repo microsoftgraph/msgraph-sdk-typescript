@@ -37,7 +37,7 @@ export const ManagedDeviceEnrollmentTopFailuresRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createReportFromDiscriminatorValue,
     },
 };

@@ -110,7 +110,7 @@ export const ConnectedOrganizationItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ConnectedOrganizationItemRequestBuilderUriTemplate,
@@ -118,7 +118,7 @@ export const ConnectedOrganizationItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConnectedOrganizationFromDiscriminatorValue,
         queryParametersMapper: ConnectedOrganizationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -128,7 +128,7 @@ export const ConnectedOrganizationItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConnectedOrganizationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeConnectedOrganization,

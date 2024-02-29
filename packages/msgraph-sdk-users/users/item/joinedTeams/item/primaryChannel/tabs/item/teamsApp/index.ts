@@ -57,7 +57,7 @@ export const TeamsAppRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamsAppFromDiscriminatorValue,
         queryParametersMapper: TeamsAppRequestBuilderGetQueryParametersMapper,
     },

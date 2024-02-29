@@ -152,7 +152,7 @@ export const GroupRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: GroupRequestBuilderUriTemplate,
@@ -160,7 +160,7 @@ export const GroupRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupFromDiscriminatorValue,
         queryParametersMapper: GroupRequestBuilderGetQueryParametersMapper,
     },
@@ -170,7 +170,7 @@ export const GroupRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrivilegedAccessGroup,

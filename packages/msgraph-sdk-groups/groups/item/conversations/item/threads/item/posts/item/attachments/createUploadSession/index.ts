@@ -80,7 +80,7 @@ export const CreateUploadSessionRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUploadSessionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCreateUploadSessionPostRequestBody,

@@ -127,7 +127,7 @@ export const PasswordMethodsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPasswordAuthenticationMethodCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: PasswordMethodsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const PasswordMethodsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPasswordAuthenticationMethodFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePasswordAuthenticationMethod,

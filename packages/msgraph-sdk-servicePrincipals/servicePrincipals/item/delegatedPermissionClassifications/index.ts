@@ -128,7 +128,7 @@ export const DelegatedPermissionClassificationsRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedPermissionClassificationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DelegatedPermissionClassificationsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const DelegatedPermissionClassificationsRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedPermissionClassificationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDelegatedPermissionClassification,

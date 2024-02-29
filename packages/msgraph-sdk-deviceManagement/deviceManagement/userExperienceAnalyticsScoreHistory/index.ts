@@ -126,7 +126,7 @@ export const UserExperienceAnalyticsScoreHistoryRequestBuilderRequestsMetadata: 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsScoreHistoryCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsScoreHistoryRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const UserExperienceAnalyticsScoreHistoryRequestBuilderRequestsMetadata: 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsScoreHistoryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsScoreHistory,

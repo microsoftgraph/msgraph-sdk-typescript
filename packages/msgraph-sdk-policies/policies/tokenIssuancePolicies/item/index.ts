@@ -100,7 +100,7 @@ export const TokenIssuancePolicyItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TokenIssuancePolicyItemRequestBuilderUriTemplate,
@@ -108,7 +108,7 @@ export const TokenIssuancePolicyItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTokenIssuancePolicyFromDiscriminatorValue,
         queryParametersMapper: TokenIssuancePolicyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -118,7 +118,7 @@ export const TokenIssuancePolicyItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTokenIssuancePolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTokenIssuancePolicy,

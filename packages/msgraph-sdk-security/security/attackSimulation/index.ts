@@ -161,7 +161,7 @@ export const AttackSimulationRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AttackSimulationRequestBuilderUriTemplate,
@@ -169,7 +169,7 @@ export const AttackSimulationRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttackSimulationRootFromDiscriminatorValue,
         queryParametersMapper: AttackSimulationRequestBuilderGetQueryParametersMapper,
     },
@@ -179,7 +179,7 @@ export const AttackSimulationRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttackSimulationRootFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAttackSimulationRoot,

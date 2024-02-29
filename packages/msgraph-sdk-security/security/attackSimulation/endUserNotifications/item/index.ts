@@ -98,7 +98,7 @@ export const EndUserNotificationItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: EndUserNotificationItemRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const EndUserNotificationItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEndUserNotificationFromDiscriminatorValue,
         queryParametersMapper: EndUserNotificationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const EndUserNotificationItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEndUserNotificationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEndUserNotification,

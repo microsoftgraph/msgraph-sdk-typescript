@@ -86,7 +86,7 @@ export const RestoreRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDriveItemFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRestorePostRequestBody,

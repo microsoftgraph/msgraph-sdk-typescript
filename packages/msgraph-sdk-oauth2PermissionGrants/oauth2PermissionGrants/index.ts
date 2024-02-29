@@ -136,7 +136,7 @@ export const Oauth2PermissionGrantsRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: Oauth2PermissionGrantsRequestBuilderGetQueryParametersMapper,
     },
@@ -146,7 +146,7 @@ export const Oauth2PermissionGrantsRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOAuth2PermissionGrantFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOAuth2PermissionGrant,

@@ -94,7 +94,7 @@ export const SubscribedSkusRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubscribedSkuCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SubscribedSkusRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const SubscribedSkusRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubscribedSkuFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSubscribedSku,

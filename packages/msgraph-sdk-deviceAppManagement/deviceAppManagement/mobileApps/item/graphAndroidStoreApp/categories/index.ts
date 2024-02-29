@@ -111,7 +111,7 @@ export const CategoriesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppCategoryCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: CategoriesRequestBuilderGetQueryParametersMapper,
     },

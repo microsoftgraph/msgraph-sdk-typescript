@@ -105,7 +105,7 @@ export const MobileAppContentFileItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: MobileAppContentFileItemRequestBuilderUriTemplate,
@@ -113,7 +113,7 @@ export const MobileAppContentFileItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppContentFileFromDiscriminatorValue,
         queryParametersMapper: MobileAppContentFileItemRequestBuilderGetQueryParametersMapper,
     },
@@ -123,7 +123,7 @@ export const MobileAppContentFileItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppContentFileFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMobileAppContentFile,

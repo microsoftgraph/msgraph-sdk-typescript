@@ -89,7 +89,7 @@ export const GraphMacOSLobAppRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMacOSLobAppFromDiscriminatorValue,
         queryParametersMapper: GraphMacOSLobAppRequestBuilderGetQueryParametersMapper,
     },

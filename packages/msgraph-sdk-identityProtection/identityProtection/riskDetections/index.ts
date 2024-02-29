@@ -127,7 +127,7 @@ export const RiskDetectionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRiskDetectionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RiskDetectionsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const RiskDetectionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRiskDetectionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRiskDetection,

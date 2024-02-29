@@ -99,7 +99,7 @@ export const AppConsentRequestItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AppConsentRequestItemRequestBuilderUriTemplate,
@@ -107,7 +107,7 @@ export const AppConsentRequestItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAppConsentRequestFromDiscriminatorValue,
         queryParametersMapper: AppConsentRequestItemRequestBuilderGetQueryParametersMapper,
     },
@@ -117,7 +117,7 @@ export const AppConsentRequestItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAppConsentRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAppConsentRequest,

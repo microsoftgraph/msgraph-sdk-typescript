@@ -160,7 +160,7 @@ export const ContractsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createContractCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ContractsRequestBuilderGetQueryParametersMapper,
     },
@@ -170,7 +170,7 @@ export const ContractsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createContractFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeContract,

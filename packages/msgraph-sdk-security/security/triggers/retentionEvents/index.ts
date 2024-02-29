@@ -129,7 +129,7 @@ export const RetentionEventsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRetentionEventCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RetentionEventsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const RetentionEventsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRetentionEventFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRetentionEvent,

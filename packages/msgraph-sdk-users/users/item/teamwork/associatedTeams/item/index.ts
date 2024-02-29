@@ -97,7 +97,7 @@ export const AssociatedTeamInfoItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AssociatedTeamInfoItemRequestBuilderUriTemplate,
@@ -105,7 +105,7 @@ export const AssociatedTeamInfoItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAssociatedTeamInfoFromDiscriminatorValue,
         queryParametersMapper: AssociatedTeamInfoItemRequestBuilderGetQueryParametersMapper,
     },
@@ -115,7 +115,7 @@ export const AssociatedTeamInfoItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAssociatedTeamInfoFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAssociatedTeamInfo,

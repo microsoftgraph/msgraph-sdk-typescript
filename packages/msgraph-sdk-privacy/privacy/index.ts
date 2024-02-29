@@ -86,7 +86,7 @@ export const PrivacyRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivacyFromDiscriminatorValue,
         queryParametersMapper: PrivacyRequestBuilderGetQueryParametersMapper,
     },
@@ -96,7 +96,7 @@ export const PrivacyRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivacyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrivacy,

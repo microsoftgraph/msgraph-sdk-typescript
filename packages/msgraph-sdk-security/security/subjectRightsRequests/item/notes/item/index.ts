@@ -84,7 +84,7 @@ export const AuthoredNoteItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AuthoredNoteItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const AuthoredNoteItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthoredNoteFromDiscriminatorValue,
         queryParametersMapper: AuthoredNoteItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const AuthoredNoteItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthoredNoteFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAuthoredNote,

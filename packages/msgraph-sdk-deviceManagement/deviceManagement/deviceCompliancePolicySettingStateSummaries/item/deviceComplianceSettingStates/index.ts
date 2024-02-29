@@ -128,7 +128,7 @@ export const DeviceComplianceSettingStatesRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceComplianceSettingStateCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DeviceComplianceSettingStatesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const DeviceComplianceSettingStatesRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceComplianceSettingStateFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceComplianceSettingState,

@@ -84,7 +84,7 @@ export const LandingPageDetailItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: LandingPageDetailItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const LandingPageDetailItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLandingPageDetailFromDiscriminatorValue,
         queryParametersMapper: LandingPageDetailItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const LandingPageDetailItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLandingPageDetailFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLandingPageDetail,

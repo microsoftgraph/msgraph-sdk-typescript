@@ -74,7 +74,7 @@ export const SettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLifecycleManagementSettingsFromDiscriminatorValue,
         queryParametersMapper: SettingsRequestBuilderGetQueryParametersMapper,
     },
@@ -84,7 +84,7 @@ export const SettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLifecycleManagementSettingsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLifecycleManagementSettings,

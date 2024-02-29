@@ -128,7 +128,7 @@ export const FederatedIdentityCredentialsRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: FederatedIdentityCredentialsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const FederatedIdentityCredentialsRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFederatedIdentityCredentialFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeFederatedIdentityCredential,

@@ -41,11 +41,11 @@ export interface PresenceRequestBuilder extends BaseRequestBuilder<PresenceReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get a user's presence information.
+     * Set a presence status message for a user. An optional expiration date and time can be supplied.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Presence>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/presence-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/presence-setstatusmessage?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PresenceRequestBuilderGetQueryParameters> | undefined) : Promise<Presence | undefined>;
     /**
@@ -63,7 +63,7 @@ export interface PresenceRequestBuilder extends BaseRequestBuilder<PresenceReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get a user's presence information.
+     * Set a presence status message for a user. An optional expiration date and time can be supplied.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -77,7 +77,7 @@ export interface PresenceRequestBuilder extends BaseRequestBuilder<PresenceReque
      toPatchRequestInformation(body: Presence, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a user's presence information.
+ * Set a presence status message for a user. An optional expiration date and time can be supplied.
  */
 export interface PresenceRequestBuilderGetQueryParameters {
     /**
@@ -130,7 +130,7 @@ export const PresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PresenceRequestBuilderUriTemplate,
@@ -138,7 +138,7 @@ export const PresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPresenceFromDiscriminatorValue,
         queryParametersMapper: PresenceRequestBuilderGetQueryParametersMapper,
     },
@@ -148,7 +148,7 @@ export const PresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPresenceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePresence,

@@ -187,7 +187,7 @@ export const DriveItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DriveItemRequestBuilderUriTemplate,
@@ -195,7 +195,7 @@ export const DriveItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDriveFromDiscriminatorValue,
         queryParametersMapper: DriveItemRequestBuilderGetQueryParametersMapper,
     },
@@ -205,7 +205,7 @@ export const DriveItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDriveFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDrive,

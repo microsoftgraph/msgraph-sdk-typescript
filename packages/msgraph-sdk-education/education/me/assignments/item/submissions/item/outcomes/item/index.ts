@@ -86,7 +86,7 @@ export const EducationOutcomeItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: EducationOutcomeItemRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const EducationOutcomeItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationOutcomeFromDiscriminatorValue,
         queryParametersMapper: EducationOutcomeItemRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const EducationOutcomeItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationOutcomeFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEducationOutcome,

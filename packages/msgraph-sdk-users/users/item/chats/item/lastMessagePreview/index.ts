@@ -84,7 +84,7 @@ export const LastMessagePreviewRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: LastMessagePreviewRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const LastMessagePreviewRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChatMessageInfoFromDiscriminatorValue,
         queryParametersMapper: LastMessagePreviewRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const LastMessagePreviewRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChatMessageInfoFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeChatMessageInfo,

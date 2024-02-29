@@ -119,7 +119,7 @@ export const DeltaWithTokenRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeltaWithTokenGetResponseFromDiscriminatorValue,
         queryParametersMapper: DeltaWithTokenRequestBuilderGetQueryParametersMapper,
     },

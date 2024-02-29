@@ -36,7 +36,7 @@ export interface NamesRequestBuilder extends BaseRequestBuilder<NamesRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookNamedItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/workbook-list-names?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/nameditem-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<NamesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookNamedItemCollectionResponse | undefined>;
     /**
@@ -144,7 +144,7 @@ export const NamesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookNamedItemCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: NamesRequestBuilderGetQueryParametersMapper,
     },
@@ -154,7 +154,7 @@ export const NamesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookNamedItemFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbookNamedItem,

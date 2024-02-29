@@ -99,7 +99,7 @@ export const SynchronizationTemplateItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SynchronizationTemplateItemRequestBuilderUriTemplate,
@@ -107,7 +107,7 @@ export const SynchronizationTemplateItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSynchronizationTemplateFromDiscriminatorValue,
         queryParametersMapper: SynchronizationTemplateItemRequestBuilderGetQueryParametersMapper,
     },
@@ -117,7 +117,7 @@ export const SynchronizationTemplateItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSynchronizationTemplateFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSynchronizationTemplate,

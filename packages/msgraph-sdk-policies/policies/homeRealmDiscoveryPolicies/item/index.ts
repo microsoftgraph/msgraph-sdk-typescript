@@ -101,7 +101,7 @@ export const HomeRealmDiscoveryPolicyItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: HomeRealmDiscoveryPolicyItemRequestBuilderUriTemplate,
@@ -109,7 +109,7 @@ export const HomeRealmDiscoveryPolicyItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHomeRealmDiscoveryPolicyFromDiscriminatorValue,
         queryParametersMapper: HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -119,7 +119,7 @@ export const HomeRealmDiscoveryPolicyItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHomeRealmDiscoveryPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeHomeRealmDiscoveryPolicy,

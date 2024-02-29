@@ -85,7 +85,7 @@ export const T_Inv_2TRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeT_Inv_2TPostRequestBody,

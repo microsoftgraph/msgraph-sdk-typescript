@@ -85,7 +85,7 @@ export const WorkbookCommentReplyItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: WorkbookCommentReplyItemRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const WorkbookCommentReplyItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookCommentReplyFromDiscriminatorValue,
         queryParametersMapper: WorkbookCommentReplyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const WorkbookCommentReplyItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookCommentReplyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbookCommentReply,

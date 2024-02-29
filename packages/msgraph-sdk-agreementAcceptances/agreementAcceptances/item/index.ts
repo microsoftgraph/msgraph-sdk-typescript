@@ -79,7 +79,7 @@ export const AgreementAcceptanceItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AgreementAcceptanceItemRequestBuilderUriTemplate,
@@ -87,7 +87,7 @@ export const AgreementAcceptanceItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementAcceptanceFromDiscriminatorValue,
         queryParametersMapper: AgreementAcceptanceItemRequestBuilderGetQueryParametersMapper,
     },
@@ -97,7 +97,7 @@ export const AgreementAcceptanceItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementAcceptanceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAgreementAcceptance,

@@ -128,7 +128,7 @@ export const StaffMembersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingStaffMemberBaseCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: StaffMembersRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const StaffMembersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingStaffMemberBaseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBookingStaffMemberBase,

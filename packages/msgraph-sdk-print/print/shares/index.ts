@@ -129,7 +129,7 @@ export const SharesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrinterShareCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SharesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const SharesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrinterShareFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrinterShare,

@@ -126,7 +126,7 @@ export const ExemptAppLockerFilesRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsInformationProtectionAppLockerFileCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ExemptAppLockerFilesRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const ExemptAppLockerFilesRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWindowsInformationProtectionAppLockerFile,

@@ -79,7 +79,7 @@ export const StDev_PRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookFunctionResultFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeStDev_PPostRequestBody,

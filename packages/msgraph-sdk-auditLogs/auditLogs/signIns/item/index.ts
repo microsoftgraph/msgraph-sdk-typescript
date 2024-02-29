@@ -85,7 +85,7 @@ export const SignInItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SignInItemRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const SignInItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSignInFromDiscriminatorValue,
         queryParametersMapper: SignInItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const SignInItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSignInFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSignIn,

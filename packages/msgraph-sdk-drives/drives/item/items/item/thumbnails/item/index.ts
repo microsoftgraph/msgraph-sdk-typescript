@@ -84,7 +84,7 @@ export const ThumbnailSetItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ThumbnailSetItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const ThumbnailSetItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createThumbnailSetFromDiscriminatorValue,
         queryParametersMapper: ThumbnailSetItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const ThumbnailSetItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createThumbnailSetFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeThumbnailSet,

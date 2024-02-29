@@ -71,7 +71,7 @@ export const RootRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDriveItemFromDiscriminatorValue,
         queryParametersMapper: RootRequestBuilderGetQueryParametersMapper,
     },

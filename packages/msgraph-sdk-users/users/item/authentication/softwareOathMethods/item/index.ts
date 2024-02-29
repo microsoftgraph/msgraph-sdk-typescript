@@ -71,7 +71,7 @@ export const SoftwareOathAuthenticationMethodItemRequestBuilderRequestsMetadata:
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SoftwareOathAuthenticationMethodItemRequestBuilderUriTemplate,
@@ -79,7 +79,7 @@ export const SoftwareOathAuthenticationMethodItemRequestBuilderRequestsMetadata:
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSoftwareOathAuthenticationMethodFromDiscriminatorValue,
         queryParametersMapper: SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParametersMapper,
     },

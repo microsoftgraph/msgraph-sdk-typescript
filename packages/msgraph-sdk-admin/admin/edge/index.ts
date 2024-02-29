@@ -98,7 +98,7 @@ export const EdgeRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: EdgeRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const EdgeRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdgeFromDiscriminatorValue,
         queryParametersMapper: EdgeRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const EdgeRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEdgeFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEdge,

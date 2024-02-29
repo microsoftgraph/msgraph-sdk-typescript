@@ -129,7 +129,7 @@ export const LocalizationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrganizationalBrandingLocalizationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: LocalizationsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const LocalizationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrganizationalBrandingLocalizationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOrganizationalBrandingLocalization,

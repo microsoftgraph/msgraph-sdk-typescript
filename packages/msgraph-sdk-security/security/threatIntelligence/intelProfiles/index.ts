@@ -128,7 +128,7 @@ export const IntelProfilesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIntelligenceProfileCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: IntelProfilesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const IntelProfilesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIntelligenceProfileFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIntelligenceProfile,

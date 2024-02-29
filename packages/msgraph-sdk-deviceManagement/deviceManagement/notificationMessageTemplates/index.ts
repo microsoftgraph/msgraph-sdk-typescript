@@ -129,7 +129,7 @@ export const NotificationMessageTemplatesRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createNotificationMessageTemplateCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: NotificationMessageTemplatesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const NotificationMessageTemplatesRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createNotificationMessageTemplateFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeNotificationMessageTemplate,

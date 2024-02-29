@@ -87,7 +87,7 @@ export const BookingCustomQuestionItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: BookingCustomQuestionItemRequestBuilderUriTemplate,
@@ -95,7 +95,7 @@ export const BookingCustomQuestionItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingCustomQuestionFromDiscriminatorValue,
         queryParametersMapper: BookingCustomQuestionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +105,7 @@ export const BookingCustomQuestionItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingCustomQuestionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBookingCustomQuestion,

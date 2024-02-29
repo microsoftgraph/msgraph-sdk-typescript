@@ -112,7 +112,7 @@ export const IncomingChannelsRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChannelCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: IncomingChannelsRequestBuilderGetQueryParametersMapper,
     },

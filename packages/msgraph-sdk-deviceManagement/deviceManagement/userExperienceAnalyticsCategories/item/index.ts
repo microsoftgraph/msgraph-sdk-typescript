@@ -98,7 +98,7 @@ export const UserExperienceAnalyticsCategoryItemRequestBuilderRequestsMetadata: 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UserExperienceAnalyticsCategoryItemRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const UserExperienceAnalyticsCategoryItemRequestBuilderRequestsMetadata: 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsCategoryFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsCategoryItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const UserExperienceAnalyticsCategoryItemRequestBuilderRequestsMetadata: 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsCategoryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsCategory,

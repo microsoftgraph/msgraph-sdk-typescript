@@ -128,7 +128,7 @@ export const ProfileCardPropertiesRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createProfileCardPropertyCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ProfileCardPropertiesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const ProfileCardPropertiesRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createProfileCardPropertyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeProfileCardProperty,

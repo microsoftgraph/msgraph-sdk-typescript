@@ -128,7 +128,7 @@ export const SwapShiftsChangeRequestsRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSwapShiftsChangeRequestCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SwapShiftsChangeRequestsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const SwapShiftsChangeRequestsRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSwapShiftsChangeRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSwapShiftsChangeRequest,

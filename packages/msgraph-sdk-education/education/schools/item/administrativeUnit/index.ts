@@ -73,7 +73,7 @@ export const AdministrativeUnitRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAdministrativeUnitFromDiscriminatorValue,
         queryParametersMapper: AdministrativeUnitRequestBuilderGetQueryParametersMapper,
     },
@@ -83,7 +83,7 @@ export const AdministrativeUnitRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAdministrativeUnitFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAdministrativeUnit,

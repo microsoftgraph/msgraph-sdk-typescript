@@ -124,7 +124,7 @@ export const ConversationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConversationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ConversationsRequestBuilderGetQueryParametersMapper,
     },
@@ -134,7 +134,7 @@ export const ConversationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConversationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeConversation,

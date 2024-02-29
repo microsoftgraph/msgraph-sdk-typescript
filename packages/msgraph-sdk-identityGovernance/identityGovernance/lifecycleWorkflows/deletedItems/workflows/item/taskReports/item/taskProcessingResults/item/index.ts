@@ -87,7 +87,7 @@ export const TaskProcessingResultItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTaskProcessingResultFromDiscriminatorValue,
         queryParametersMapper: TaskProcessingResultItemRequestBuilderGetQueryParametersMapper,
     },

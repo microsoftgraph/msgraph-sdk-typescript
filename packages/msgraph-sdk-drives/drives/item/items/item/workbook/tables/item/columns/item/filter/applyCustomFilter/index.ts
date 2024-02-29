@@ -89,7 +89,7 @@ export const ApplyCustomFilterRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeApplyCustomFilterPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

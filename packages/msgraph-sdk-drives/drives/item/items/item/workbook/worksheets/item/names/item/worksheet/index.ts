@@ -57,7 +57,7 @@ export const WorksheetRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookWorksheetFromDiscriminatorValue,
         queryParametersMapper: WorksheetRequestBuilderGetQueryParametersMapper,
     },

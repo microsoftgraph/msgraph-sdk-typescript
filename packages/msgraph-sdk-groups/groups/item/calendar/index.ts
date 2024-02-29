@@ -102,7 +102,7 @@ export const CalendarRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCalendarFromDiscriminatorValue,
         queryParametersMapper: CalendarRequestBuilderGetQueryParametersMapper,
     },

@@ -129,7 +129,7 @@ export const MdmWindowsInformationProtectionPoliciesRequestBuilderRequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMdmWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MdmWindowsInformationProtectionPoliciesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const MdmWindowsInformationProtectionPoliciesRequestBuilderRequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMdmWindowsInformationProtectionPolicy,

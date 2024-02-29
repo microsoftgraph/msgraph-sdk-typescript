@@ -128,7 +128,7 @@ export const SharedWithTeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSharedWithChannelTeamInfoCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SharedWithTeamsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const SharedWithTeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSharedWithChannelTeamInfoFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSharedWithChannelTeamInfo,

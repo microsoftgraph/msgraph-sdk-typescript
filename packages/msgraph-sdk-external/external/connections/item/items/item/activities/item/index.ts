@@ -97,7 +97,7 @@ export const ExternalActivityItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ExternalActivityItemRequestBuilderUriTemplate,
@@ -105,7 +105,7 @@ export const ExternalActivityItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExternalActivityFromDiscriminatorValue,
         queryParametersMapper: ExternalActivityItemRequestBuilderGetQueryParametersMapper,
     },
@@ -115,7 +115,7 @@ export const ExternalActivityItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExternalActivityFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeExternalActivity,

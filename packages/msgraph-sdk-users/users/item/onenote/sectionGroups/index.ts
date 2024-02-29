@@ -128,7 +128,7 @@ export const SectionGroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSectionGroupCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SectionGroupsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const SectionGroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSectionGroupFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSectionGroup,

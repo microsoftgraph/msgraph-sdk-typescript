@@ -126,7 +126,7 @@ export const DeviceManagementTroubleshootingEventsRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceManagementTroubleshootingEventCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DeviceManagementTroubleshootingEventsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const DeviceManagementTroubleshootingEventsRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceManagementTroubleshootingEventFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceManagementTroubleshootingEvent,

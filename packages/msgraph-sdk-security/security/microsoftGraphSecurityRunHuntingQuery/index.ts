@@ -79,7 +79,7 @@ export const MicrosoftGraphSecurityRunHuntingQueryRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHuntingQueryResultsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRunHuntingQueryPostRequestBody,

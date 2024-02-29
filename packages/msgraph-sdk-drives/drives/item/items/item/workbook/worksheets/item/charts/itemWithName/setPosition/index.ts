@@ -85,7 +85,7 @@ export const SetPositionRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSetPositionPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

@@ -127,7 +127,7 @@ export const WindowsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsSettingCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: WindowsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const WindowsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsSettingFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWindowsSetting,

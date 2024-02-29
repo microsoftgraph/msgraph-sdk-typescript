@@ -137,7 +137,7 @@ export const TasksRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTodoTaskCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TasksRequestBuilderGetQueryParametersMapper,
     },
@@ -147,7 +147,7 @@ export const TasksRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTodoTaskFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTodoTask,

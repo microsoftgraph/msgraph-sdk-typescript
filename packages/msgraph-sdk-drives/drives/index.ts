@@ -114,7 +114,7 @@ export const DrivesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDriveCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DrivesRequestBuilderGetQueryParametersMapper,
     },
@@ -124,7 +124,7 @@ export const DrivesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDriveFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDrive,

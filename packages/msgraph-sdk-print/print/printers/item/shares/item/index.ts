@@ -57,7 +57,7 @@ export const PrinterShareItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrinterShareFromDiscriminatorValue,
         queryParametersMapper: PrinterShareItemRequestBuilderGetQueryParametersMapper,
     },

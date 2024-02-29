@@ -149,7 +149,7 @@ export const WebinarsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVirtualEventWebinarCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: WebinarsRequestBuilderGetQueryParametersMapper,
     },
@@ -159,7 +159,7 @@ export const WebinarsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVirtualEventWebinarFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeVirtualEventWebinar,

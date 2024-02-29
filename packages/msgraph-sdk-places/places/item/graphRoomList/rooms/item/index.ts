@@ -84,7 +84,7 @@ export const RoomItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RoomItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const RoomItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoomFromDiscriminatorValue,
         queryParametersMapper: RoomItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const RoomItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoomFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRoom,

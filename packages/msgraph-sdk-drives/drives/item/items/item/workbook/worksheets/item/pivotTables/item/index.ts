@@ -106,7 +106,7 @@ export const WorkbookPivotTableItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: WorkbookPivotTableItemRequestBuilderUriTemplate,
@@ -114,7 +114,7 @@ export const WorkbookPivotTableItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookPivotTableFromDiscriminatorValue,
         queryParametersMapper: WorkbookPivotTableItemRequestBuilderGetQueryParametersMapper,
     },
@@ -124,7 +124,7 @@ export const WorkbookPivotTableItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookPivotTableFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkbookPivotTable,

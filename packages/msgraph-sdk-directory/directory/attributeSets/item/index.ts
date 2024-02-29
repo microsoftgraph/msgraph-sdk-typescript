@@ -86,7 +86,7 @@ export const AttributeSetItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AttributeSetItemRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const AttributeSetItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttributeSetFromDiscriminatorValue,
         queryParametersMapper: AttributeSetItemRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const AttributeSetItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttributeSetFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAttributeSet,

@@ -116,7 +116,7 @@ export const ServiceAnnouncementRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ServiceAnnouncementRequestBuilderUriTemplate,
@@ -124,7 +124,7 @@ export const ServiceAnnouncementRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServiceAnnouncementFromDiscriminatorValue,
         queryParametersMapper: ServiceAnnouncementRequestBuilderGetQueryParametersMapper,
     },
@@ -134,7 +134,7 @@ export const ServiceAnnouncementRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServiceAnnouncementFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeServiceAnnouncement,

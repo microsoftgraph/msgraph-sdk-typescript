@@ -76,7 +76,7 @@ export const IsPublishedRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIsPublishedGetResponseFromDiscriminatorValue,
     },
 };

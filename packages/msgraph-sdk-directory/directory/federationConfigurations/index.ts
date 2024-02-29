@@ -134,7 +134,7 @@ export const FederationConfigurationsRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityProviderBaseCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: FederationConfigurationsRequestBuilderGetQueryParametersMapper,
     },
@@ -144,7 +144,7 @@ export const FederationConfigurationsRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityProviderBaseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIdentityProviderBase,

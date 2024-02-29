@@ -136,7 +136,7 @@ export const DeletedTeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeletedTeamCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DeletedTeamsRequestBuilderGetQueryParametersMapper,
     },
@@ -146,7 +146,7 @@ export const DeletedTeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeletedTeamFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeletedTeam,

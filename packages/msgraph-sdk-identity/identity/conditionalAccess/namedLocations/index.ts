@@ -128,7 +128,7 @@ export const NamedLocationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createNamedLocationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: NamedLocationsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const NamedLocationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createNamedLocationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeNamedLocation,

@@ -127,7 +127,7 @@ export const SecureScoreControlProfilesRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecureScoreControlProfileCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SecureScoreControlProfilesRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const SecureScoreControlProfilesRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecureScoreControlProfileFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSecureScoreControlProfile,

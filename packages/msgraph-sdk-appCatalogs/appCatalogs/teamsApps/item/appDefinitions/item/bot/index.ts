@@ -85,7 +85,7 @@ export const BotRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: BotRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const BotRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamworkBotFromDiscriminatorValue,
         queryParametersMapper: BotRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const BotRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamworkBotFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTeamworkBot,

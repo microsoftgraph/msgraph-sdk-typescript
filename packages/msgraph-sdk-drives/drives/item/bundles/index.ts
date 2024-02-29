@@ -127,7 +127,7 @@ export const BundlesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDriveItemCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: BundlesRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const BundlesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDriveItemFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDriveItem,

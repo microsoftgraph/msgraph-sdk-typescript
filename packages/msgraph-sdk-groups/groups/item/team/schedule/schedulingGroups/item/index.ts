@@ -82,7 +82,7 @@ export const SchedulingGroupItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SchedulingGroupItemRequestBuilderUriTemplate,
@@ -90,7 +90,7 @@ export const SchedulingGroupItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSchedulingGroupFromDiscriminatorValue,
         queryParametersMapper: SchedulingGroupItemRequestBuilderGetQueryParametersMapper,
     },
@@ -100,7 +100,7 @@ export const SchedulingGroupItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSchedulingGroupFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSchedulingGroup,

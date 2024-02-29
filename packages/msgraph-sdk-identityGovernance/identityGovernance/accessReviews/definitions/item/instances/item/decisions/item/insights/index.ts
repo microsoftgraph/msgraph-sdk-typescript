@@ -126,7 +126,7 @@ export const InsightsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGovernanceInsightCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: InsightsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const InsightsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGovernanceInsightFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGovernanceInsight,

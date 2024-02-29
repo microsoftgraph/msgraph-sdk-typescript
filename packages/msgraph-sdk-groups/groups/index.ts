@@ -161,7 +161,7 @@ export const GroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGroupCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: GroupsRequestBuilderGetQueryParametersMapper,
     },
@@ -171,7 +171,7 @@ export const GroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGroupFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGroup,

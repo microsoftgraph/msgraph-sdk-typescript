@@ -128,7 +128,7 @@ export const OpenShiftsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOpenShiftCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: OpenShiftsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const OpenShiftsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOpenShiftFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOpenShift,

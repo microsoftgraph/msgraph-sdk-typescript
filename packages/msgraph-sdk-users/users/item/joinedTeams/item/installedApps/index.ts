@@ -129,7 +129,7 @@ export const InstalledAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamsAppInstallationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: InstalledAppsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const InstalledAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamsAppInstallationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTeamsAppInstallation,

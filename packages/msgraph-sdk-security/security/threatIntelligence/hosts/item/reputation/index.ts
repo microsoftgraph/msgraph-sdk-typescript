@@ -85,7 +85,7 @@ export const ReputationRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ReputationRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const ReputationRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostReputationFromDiscriminatorValue,
         queryParametersMapper: ReputationRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const ReputationRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostReputationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeHostReputation,

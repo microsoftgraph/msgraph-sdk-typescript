@@ -128,7 +128,7 @@ export const TemporaryAccessPassMethodsRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTemporaryAccessPassAuthenticationMethodCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TemporaryAccessPassMethodsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const TemporaryAccessPassMethodsRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTemporaryAccessPassAuthenticationMethod,

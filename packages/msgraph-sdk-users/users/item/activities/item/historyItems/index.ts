@@ -127,7 +127,7 @@ export const HistoryItemsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createActivityHistoryItemCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: HistoryItemsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const HistoryItemsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createActivityHistoryItemFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeActivityHistoryItem,

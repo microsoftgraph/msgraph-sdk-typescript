@@ -99,7 +99,7 @@ export const PrintTaskTriggerItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PrintTaskTriggerItemRequestBuilderUriTemplate,
@@ -107,7 +107,7 @@ export const PrintTaskTriggerItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintTaskTriggerFromDiscriminatorValue,
         queryParametersMapper: PrintTaskTriggerItemRequestBuilderGetQueryParametersMapper,
     },
@@ -117,7 +117,7 @@ export const PrintTaskTriggerItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintTaskTriggerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrintTaskTrigger,

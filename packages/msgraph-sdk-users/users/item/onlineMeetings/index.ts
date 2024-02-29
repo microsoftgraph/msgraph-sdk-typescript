@@ -137,7 +137,7 @@ export const OnlineMeetingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnlineMeetingCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: OnlineMeetingsRequestBuilderGetQueryParametersMapper,
     },
@@ -147,7 +147,7 @@ export const OnlineMeetingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnlineMeetingFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOnlineMeeting,

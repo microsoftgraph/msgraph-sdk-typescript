@@ -104,7 +104,7 @@ export const AuditLogsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuditLogRootFromDiscriminatorValue,
         queryParametersMapper: AuditLogsRequestBuilderGetQueryParametersMapper,
     },
@@ -114,7 +114,7 @@ export const AuditLogsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuditLogRootFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAuditLogRoot,

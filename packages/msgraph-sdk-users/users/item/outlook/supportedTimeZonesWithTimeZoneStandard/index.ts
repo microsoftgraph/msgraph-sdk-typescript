@@ -104,7 +104,7 @@ export const SupportedTimeZonesWithTimeZoneStandardRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSupportedTimeZonesWithTimeZoneStandardGetResponseFromDiscriminatorValue,
         queryParametersMapper: SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParametersMapper,
     },

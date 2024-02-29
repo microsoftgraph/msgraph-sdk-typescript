@@ -84,7 +84,7 @@ export const AnalyticsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AnalyticsRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const AnalyticsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createItemAnalyticsFromDiscriminatorValue,
         queryParametersMapper: AnalyticsRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const AnalyticsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createItemAnalyticsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeItemAnalytics,

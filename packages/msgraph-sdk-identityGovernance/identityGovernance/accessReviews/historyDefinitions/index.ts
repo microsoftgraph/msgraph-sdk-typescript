@@ -129,7 +129,7 @@ export const HistoryDefinitionsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewHistoryDefinitionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: HistoryDefinitionsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const HistoryDefinitionsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewHistoryDefinitionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAccessReviewHistoryDefinition,

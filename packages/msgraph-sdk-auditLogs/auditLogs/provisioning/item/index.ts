@@ -84,7 +84,7 @@ export const ProvisioningObjectSummaryItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ProvisioningObjectSummaryItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const ProvisioningObjectSummaryItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createProvisioningObjectSummaryFromDiscriminatorValue,
         queryParametersMapper: ProvisioningObjectSummaryItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const ProvisioningObjectSummaryItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createProvisioningObjectSummaryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeProvisioningObjectSummary,

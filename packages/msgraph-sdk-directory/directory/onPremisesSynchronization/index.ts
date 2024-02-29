@@ -126,7 +126,7 @@ export const OnPremisesSynchronizationRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnPremisesDirectorySynchronizationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: OnPremisesSynchronizationRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const OnPremisesSynchronizationRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnPremisesDirectorySynchronizationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOnPremisesDirectorySynchronization,

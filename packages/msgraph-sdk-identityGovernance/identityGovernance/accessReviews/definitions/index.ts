@@ -139,7 +139,7 @@ export const DefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewScheduleDefinitionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DefinitionsRequestBuilderGetQueryParametersMapper,
     },
@@ -149,7 +149,7 @@ export const DefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewScheduleDefinitionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAccessReviewScheduleDefinition,

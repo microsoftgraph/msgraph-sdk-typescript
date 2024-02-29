@@ -157,7 +157,7 @@ export const BrandingRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: BrandingRequestBuilderUriTemplate,
@@ -165,7 +165,7 @@ export const BrandingRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrganizationalBrandingFromDiscriminatorValue,
         queryParametersMapper: BrandingRequestBuilderGetQueryParametersMapper,
     },
@@ -175,7 +175,7 @@ export const BrandingRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrganizationalBrandingFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOrganizationalBranding,

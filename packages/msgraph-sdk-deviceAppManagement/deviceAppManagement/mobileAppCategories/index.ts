@@ -128,7 +128,7 @@ export const MobileAppCategoriesRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppCategoryCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MobileAppCategoriesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const MobileAppCategoriesRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileAppCategoryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMobileAppCategory,

@@ -58,7 +58,7 @@ export const PasswordAuthenticationMethodItemRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPasswordAuthenticationMethodFromDiscriminatorValue,
         queryParametersMapper: PasswordAuthenticationMethodItemRequestBuilderGetQueryParametersMapper,
     },

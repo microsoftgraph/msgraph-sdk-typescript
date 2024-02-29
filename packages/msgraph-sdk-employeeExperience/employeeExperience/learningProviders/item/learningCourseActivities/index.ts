@@ -127,7 +127,7 @@ export const LearningCourseActivitiesRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLearningCourseActivityCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: LearningCourseActivitiesRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const LearningCourseActivitiesRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLearningCourseActivityFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLearningCourseActivity,

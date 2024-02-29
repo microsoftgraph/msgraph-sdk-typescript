@@ -112,7 +112,7 @@ export const SharesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrinterShareCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SharesRequestBuilderGetQueryParametersMapper,
     },

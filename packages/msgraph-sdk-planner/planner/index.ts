@@ -104,7 +104,7 @@ export const PlannerRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerFromDiscriminatorValue,
         queryParametersMapper: PlannerRequestBuilderGetQueryParametersMapper,
     },
@@ -114,7 +114,7 @@ export const PlannerRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePlanner,

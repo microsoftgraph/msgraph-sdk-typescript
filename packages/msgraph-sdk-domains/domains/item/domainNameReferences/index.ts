@@ -112,7 +112,7 @@ export const DomainNameReferencesRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryObjectCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DomainNameReferencesRequestBuilderGetQueryParametersMapper,
     },

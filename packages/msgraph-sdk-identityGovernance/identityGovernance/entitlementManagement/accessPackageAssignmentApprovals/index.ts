@@ -137,7 +137,7 @@ export const AccessPackageAssignmentApprovalsRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createApprovalCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AccessPackageAssignmentApprovalsRequestBuilderGetQueryParametersMapper,
     },
@@ -147,7 +147,7 @@ export const AccessPackageAssignmentApprovalsRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createApprovalFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeApproval,

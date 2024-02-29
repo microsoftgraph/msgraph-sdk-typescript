@@ -98,7 +98,7 @@ export const PartnersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PartnersRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const PartnersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPartnersFromDiscriminatorValue,
         queryParametersMapper: PartnersRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const PartnersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPartnersFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePartners,

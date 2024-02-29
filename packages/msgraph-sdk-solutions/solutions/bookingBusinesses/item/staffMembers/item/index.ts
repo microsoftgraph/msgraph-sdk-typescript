@@ -87,7 +87,7 @@ export const BookingStaffMemberBaseItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: BookingStaffMemberBaseItemRequestBuilderUriTemplate,
@@ -95,7 +95,7 @@ export const BookingStaffMemberBaseItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingStaffMemberBaseFromDiscriminatorValue,
         queryParametersMapper: BookingStaffMemberBaseItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +105,7 @@ export const BookingStaffMemberBaseItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingStaffMemberBaseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBookingStaffMemberBase,

@@ -98,7 +98,7 @@ export const TriggerTypesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TriggerTypesRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const TriggerTypesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTriggerTypesRootFromDiscriminatorValue,
         queryParametersMapper: TriggerTypesRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const TriggerTypesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTriggerTypesRootFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTriggerTypesRoot,

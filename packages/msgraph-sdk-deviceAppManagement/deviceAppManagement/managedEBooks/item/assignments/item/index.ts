@@ -87,7 +87,7 @@ export const ManagedEBookAssignmentItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ManagedEBookAssignmentItemRequestBuilderUriTemplate,
@@ -95,7 +95,7 @@ export const ManagedEBookAssignmentItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedEBookAssignmentFromDiscriminatorValue,
         queryParametersMapper: ManagedEBookAssignmentItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +105,7 @@ export const ManagedEBookAssignmentItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedEBookAssignmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeManagedEBookAssignment,

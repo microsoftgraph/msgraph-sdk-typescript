@@ -112,7 +112,7 @@ export const SubdomainsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubdomainCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SubdomainsRequestBuilderGetQueryParametersMapper,
     },

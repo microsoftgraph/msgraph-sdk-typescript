@@ -57,7 +57,7 @@ export const GraphServicePrincipalRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServicePrincipalFromDiscriminatorValue,
         queryParametersMapper: GraphServicePrincipalRequestBuilderGetQueryParametersMapper,
     },

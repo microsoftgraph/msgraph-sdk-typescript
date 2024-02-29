@@ -107,7 +107,7 @@ export const UsageRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UsageRequestBuilderUriTemplate,
@@ -115,7 +115,7 @@ export const UsageRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAzureUsageFromDiscriminatorValue,
         queryParametersMapper: UsageRequestBuilderGetQueryParametersMapper,
     },
@@ -125,7 +125,7 @@ export const UsageRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAzureUsageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAzureUsage,

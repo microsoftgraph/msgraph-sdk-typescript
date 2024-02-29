@@ -128,7 +128,7 @@ export const OverridesPagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserFlowLanguagePageCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: OverridesPagesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const OverridesPagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserFlowLanguagePageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserFlowLanguagePage,

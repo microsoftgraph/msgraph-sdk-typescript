@@ -127,7 +127,7 @@ export const ThumbnailsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createThumbnailSetCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ThumbnailsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const ThumbnailsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createThumbnailSetFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeThumbnailSet,

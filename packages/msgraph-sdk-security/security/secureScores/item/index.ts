@@ -85,7 +85,7 @@ export const SecureScoreItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SecureScoreItemRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const SecureScoreItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecureScoreFromDiscriminatorValue,
         queryParametersMapper: SecureScoreItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const SecureScoreItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecureScoreFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSecureScore,

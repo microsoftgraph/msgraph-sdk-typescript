@@ -148,7 +148,7 @@ export const OrganizationalBrandingLocalizationItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OrganizationalBrandingLocalizationItemRequestBuilderUriTemplate,
@@ -156,7 +156,7 @@ export const OrganizationalBrandingLocalizationItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrganizationalBrandingLocalizationFromDiscriminatorValue,
         queryParametersMapper: OrganizationalBrandingLocalizationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -166,7 +166,7 @@ export const OrganizationalBrandingLocalizationItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrganizationalBrandingLocalizationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOrganizationalBrandingLocalization,

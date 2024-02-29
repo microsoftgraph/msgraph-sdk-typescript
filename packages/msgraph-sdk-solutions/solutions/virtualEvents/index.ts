@@ -107,7 +107,7 @@ export const VirtualEventsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: VirtualEventsRequestBuilderUriTemplate,
@@ -115,7 +115,7 @@ export const VirtualEventsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVirtualEventsRootFromDiscriminatorValue,
         queryParametersMapper: VirtualEventsRequestBuilderGetQueryParametersMapper,
     },
@@ -125,7 +125,7 @@ export const VirtualEventsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVirtualEventsRootFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeVirtualEventsRoot,

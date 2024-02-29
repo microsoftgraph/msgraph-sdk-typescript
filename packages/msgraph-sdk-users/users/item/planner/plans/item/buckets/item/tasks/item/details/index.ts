@@ -86,7 +86,7 @@ export const DetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DetailsRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const DetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerTaskDetailsFromDiscriminatorValue,
         queryParametersMapper: DetailsRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const DetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerTaskDetailsFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePlannerTaskDetails,

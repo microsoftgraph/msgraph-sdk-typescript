@@ -124,7 +124,7 @@ export const SetItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SetItemRequestBuilderUriTemplate,
@@ -132,7 +132,7 @@ export const SetItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSetFromDiscriminatorValue,
         queryParametersMapper: SetItemRequestBuilderGetQueryParametersMapper,
     },
@@ -142,7 +142,7 @@ export const SetItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSetFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSet,

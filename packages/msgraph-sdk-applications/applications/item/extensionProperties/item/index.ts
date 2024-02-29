@@ -86,7 +86,7 @@ export const ExtensionPropertyItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ExtensionPropertyItemRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const ExtensionPropertyItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExtensionPropertyFromDiscriminatorValue,
         queryParametersMapper: ExtensionPropertyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const ExtensionPropertyItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createExtensionPropertyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeExtensionProperty,

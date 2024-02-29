@@ -127,7 +127,7 @@ export const ArticleIndicatorsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createArticleIndicatorCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ArticleIndicatorsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const ArticleIndicatorsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createArticleIndicatorFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeArticleIndicator,

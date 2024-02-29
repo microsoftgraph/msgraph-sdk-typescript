@@ -126,7 +126,7 @@ export const UserExperienceAnalyticsDeviceStartupProcessesRequestBuilderRequests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsDeviceStartupProcessCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UserExperienceAnalyticsDeviceStartupProcessesRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const UserExperienceAnalyticsDeviceStartupProcessesRequestBuilderRequests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsDeviceStartupProcessFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserExperienceAnalyticsDeviceStartupProcess,

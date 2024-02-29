@@ -77,7 +77,7 @@ export const RevokeSignInSessionsRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRevokeSignInSessionsPostResponseFromDiscriminatorValue,
     },
 };

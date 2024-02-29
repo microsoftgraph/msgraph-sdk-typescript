@@ -128,7 +128,7 @@ export const AccessAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminAccessAssignmentCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AccessAssignmentsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const AccessAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminAccessAssignmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDelegatedAdminAccessAssignment,

@@ -84,7 +84,7 @@ export const AgreementFileVersionItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AgreementFileVersionItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const AgreementFileVersionItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFileVersionFromDiscriminatorValue,
         queryParametersMapper: AgreementFileVersionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const AgreementFileVersionItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementFileVersionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAgreementFileVersion,

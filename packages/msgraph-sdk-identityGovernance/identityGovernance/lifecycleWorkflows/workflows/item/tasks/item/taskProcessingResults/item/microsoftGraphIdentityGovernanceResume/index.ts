@@ -91,7 +91,7 @@ export const MicrosoftGraphIdentityGovernanceResumeRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeResumePostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

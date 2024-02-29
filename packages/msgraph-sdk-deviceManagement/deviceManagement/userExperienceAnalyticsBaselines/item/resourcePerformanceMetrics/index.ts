@@ -57,7 +57,7 @@ export const ResourcePerformanceMetricsRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserExperienceAnalyticsCategoryFromDiscriminatorValue,
         queryParametersMapper: ResourcePerformanceMetricsRequestBuilderGetQueryParametersMapper,
     },

@@ -85,7 +85,7 @@ export const DirectoryAuditItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DirectoryAuditItemRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const DirectoryAuditItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryAuditFromDiscriminatorValue,
         queryParametersMapper: DirectoryAuditItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const DirectoryAuditItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryAuditFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDirectoryAudit,

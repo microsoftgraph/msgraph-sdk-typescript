@@ -112,7 +112,7 @@ export const TemplatesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConditionalAccessTemplateCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TemplatesRequestBuilderGetQueryParametersMapper,
     },

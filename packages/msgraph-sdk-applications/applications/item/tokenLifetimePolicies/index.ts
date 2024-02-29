@@ -120,7 +120,7 @@ export const TokenLifetimePoliciesRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TokenLifetimePoliciesRequestBuilderGetQueryParametersMapper,
     },

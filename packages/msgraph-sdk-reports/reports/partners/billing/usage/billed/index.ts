@@ -97,7 +97,7 @@ export const BilledRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: BilledRequestBuilderUriTemplate,
@@ -105,7 +105,7 @@ export const BilledRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBilledUsageFromDiscriminatorValue,
         queryParametersMapper: BilledRequestBuilderGetQueryParametersMapper,
     },
@@ -115,7 +115,7 @@ export const BilledRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBilledUsageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBilledUsage,
