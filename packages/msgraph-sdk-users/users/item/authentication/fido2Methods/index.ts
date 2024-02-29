@@ -112,7 +112,7 @@ export const Fido2MethodsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: Fido2MethodsRequestBuilderGetQueryParametersMapper,
     },

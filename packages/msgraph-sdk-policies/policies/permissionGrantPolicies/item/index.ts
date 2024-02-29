@@ -110,7 +110,7 @@ export const PermissionGrantPolicyItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PermissionGrantPolicyItemRequestBuilderUriTemplate,
@@ -118,7 +118,7 @@ export const PermissionGrantPolicyItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPermissionGrantPolicyFromDiscriminatorValue,
         queryParametersMapper: PermissionGrantPolicyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -128,7 +128,7 @@ export const PermissionGrantPolicyItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPermissionGrantPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePermissionGrantPolicy,

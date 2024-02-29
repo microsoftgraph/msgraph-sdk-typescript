@@ -127,7 +127,7 @@ export const HostSslCertificatesRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostSslCertificateCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: HostSslCertificatesRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const HostSslCertificatesRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostSslCertificateFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeHostSslCertificate,

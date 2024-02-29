@@ -118,7 +118,7 @@ export const BrowserSiteListItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: BrowserSiteListItemRequestBuilderUriTemplate,
@@ -126,7 +126,7 @@ export const BrowserSiteListItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBrowserSiteListFromDiscriminatorValue,
         queryParametersMapper: BrowserSiteListItemRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const BrowserSiteListItemRequestBuilderRequestsMetadata: RequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBrowserSiteListFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBrowserSiteList,

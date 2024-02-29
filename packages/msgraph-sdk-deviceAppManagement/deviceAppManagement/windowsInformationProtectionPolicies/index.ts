@@ -129,7 +129,7 @@ export const WindowsInformationProtectionPoliciesRequestBuilderRequestsMetadata:
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: WindowsInformationProtectionPoliciesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const WindowsInformationProtectionPoliciesRequestBuilderRequestsMetadata:
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsInformationProtectionPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWindowsInformationProtectionPolicy,

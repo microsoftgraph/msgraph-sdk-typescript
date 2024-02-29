@@ -84,7 +84,7 @@ export const ColumnLinkItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ColumnLinkItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const ColumnLinkItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createColumnLinkFromDiscriminatorValue,
         queryParametersMapper: ColumnLinkItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const ColumnLinkItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createColumnLinkFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeColumnLink,

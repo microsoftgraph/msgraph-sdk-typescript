@@ -129,7 +129,7 @@ export const ResourceSpecificPermissionGrantItemRequestBuilderRequestsMetadata: 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ResourceSpecificPermissionGrantItemRequestBuilderUriTemplate,
@@ -137,7 +137,7 @@ export const ResourceSpecificPermissionGrantItemRequestBuilderRequestsMetadata: 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createResourceSpecificPermissionGrantFromDiscriminatorValue,
         queryParametersMapper: ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParametersMapper,
     },
@@ -147,7 +147,7 @@ export const ResourceSpecificPermissionGrantItemRequestBuilderRequestsMetadata: 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createResourceSpecificPermissionGrantFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeResourceSpecificPermissionGrant,

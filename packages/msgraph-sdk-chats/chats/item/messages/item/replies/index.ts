@@ -35,12 +35,12 @@ export interface RepliesRequestBuilder extends BaseRequestBuilder<RepliesRequest
      */
      get(requestConfiguration?: RequestConfiguration<RepliesRequestBuilderGetQueryParameters> | undefined) : Promise<ChatMessageCollectionResponse | undefined>;
     /**
-     * Create a new reply to a chatMessage in a specified channel.
+     * Send a new reply to a chatMessage in a specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ChatMessage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0|Find more info here}
      */
      post(body: ChatMessage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ChatMessage | undefined>;
     /**
@@ -50,7 +50,7 @@ export interface RepliesRequestBuilder extends BaseRequestBuilder<RepliesRequest
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RepliesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new reply to a chatMessage in a specified channel.
+     * Send a new reply to a chatMessage in a specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -137,7 +137,7 @@ export const RepliesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChatMessageCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RepliesRequestBuilderGetQueryParametersMapper,
     },
@@ -147,7 +147,7 @@ export const RepliesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createChatMessageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeChatMessage,

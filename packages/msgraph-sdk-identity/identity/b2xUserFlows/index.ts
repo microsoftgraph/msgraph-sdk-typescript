@@ -129,7 +129,7 @@ export const B2xUserFlowsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createB2xIdentityUserFlowCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: B2xUserFlowsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const B2xUserFlowsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createB2xIdentityUserFlowFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeB2xIdentityUserFlow,

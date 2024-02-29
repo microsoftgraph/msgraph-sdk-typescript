@@ -97,7 +97,7 @@ export const ServiceHealthIssueItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ServiceHealthIssueItemRequestBuilderUriTemplate,
@@ -105,7 +105,7 @@ export const ServiceHealthIssueItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServiceHealthIssueFromDiscriminatorValue,
         queryParametersMapper: ServiceHealthIssueItemRequestBuilderGetQueryParametersMapper,
     },
@@ -115,7 +115,7 @@ export const ServiceHealthIssueItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServiceHealthIssueFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeServiceHealthIssue,

@@ -98,7 +98,7 @@ export const TodoRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TodoRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const TodoRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTodoFromDiscriminatorValue,
         queryParametersMapper: TodoRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const TodoRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTodoFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTodo,

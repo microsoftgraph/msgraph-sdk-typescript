@@ -108,7 +108,7 @@ export const EmployeeExperienceRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: EmployeeExperienceRequestBuilderUriTemplate,
@@ -116,7 +116,7 @@ export const EmployeeExperienceRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEmployeeExperienceUserFromDiscriminatorValue,
         queryParametersMapper: EmployeeExperienceRequestBuilderGetQueryParametersMapper,
     },
@@ -126,7 +126,7 @@ export const EmployeeExperienceRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEmployeeExperienceUserFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEmployeeExperienceUser,

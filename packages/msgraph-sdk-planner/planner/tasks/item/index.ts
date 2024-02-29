@@ -124,7 +124,7 @@ export const PlannerTaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PlannerTaskItemRequestBuilderUriTemplate,
@@ -132,7 +132,7 @@ export const PlannerTaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerTaskFromDiscriminatorValue,
         queryParametersMapper: PlannerTaskItemRequestBuilderGetQueryParametersMapper,
     },
@@ -142,7 +142,7 @@ export const PlannerTaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerTaskFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePlannerTask,

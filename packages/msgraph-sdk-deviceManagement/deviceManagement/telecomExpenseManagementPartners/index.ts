@@ -128,7 +128,7 @@ export const TelecomExpenseManagementPartnersRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTelecomExpenseManagementPartnerCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TelecomExpenseManagementPartnersRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const TelecomExpenseManagementPartnersRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTelecomExpenseManagementPartnerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTelecomExpenseManagementPartner,

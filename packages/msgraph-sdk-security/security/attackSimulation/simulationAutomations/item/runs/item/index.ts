@@ -84,7 +84,7 @@ export const SimulationAutomationRunItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SimulationAutomationRunItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const SimulationAutomationRunItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSimulationAutomationRunFromDiscriminatorValue,
         queryParametersMapper: SimulationAutomationRunItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const SimulationAutomationRunItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSimulationAutomationRunFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSimulationAutomationRun,

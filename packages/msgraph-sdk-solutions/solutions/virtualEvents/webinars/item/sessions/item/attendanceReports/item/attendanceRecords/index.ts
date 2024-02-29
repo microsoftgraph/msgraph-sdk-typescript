@@ -127,7 +127,7 @@ export const AttendanceRecordsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttendanceRecordCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AttendanceRecordsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const AttendanceRecordsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttendanceRecordFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAttendanceRecord,

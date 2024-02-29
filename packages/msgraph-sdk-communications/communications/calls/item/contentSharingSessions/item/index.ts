@@ -85,7 +85,7 @@ export const ContentSharingSessionItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ContentSharingSessionItemRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const ContentSharingSessionItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createContentSharingSessionFromDiscriminatorValue,
         queryParametersMapper: ContentSharingSessionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const ContentSharingSessionItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createContentSharingSessionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeContentSharingSession,

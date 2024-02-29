@@ -128,7 +128,7 @@ export const UserStatusesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedDeviceMobileAppConfigurationUserStatusCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: UserStatusesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const UserStatusesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeManagedDeviceMobileAppConfigurationUserStatus,

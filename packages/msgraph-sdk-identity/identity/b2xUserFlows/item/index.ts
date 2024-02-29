@@ -136,7 +136,7 @@ export const B2xIdentityUserFlowItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: B2xIdentityUserFlowItemRequestBuilderUriTemplate,
@@ -144,7 +144,7 @@ export const B2xIdentityUserFlowItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createB2xIdentityUserFlowFromDiscriminatorValue,
         queryParametersMapper: B2xIdentityUserFlowItemRequestBuilderGetQueryParametersMapper,
     },
@@ -154,7 +154,7 @@ export const B2xIdentityUserFlowItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createB2xIdentityUserFlowFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeB2xIdentityUserFlow,

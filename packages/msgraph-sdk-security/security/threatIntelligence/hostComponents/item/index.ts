@@ -98,7 +98,7 @@ export const HostComponentItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: HostComponentItemRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const HostComponentItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostComponentFromDiscriminatorValue,
         queryParametersMapper: HostComponentItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const HostComponentItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostComponentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeHostComponent,

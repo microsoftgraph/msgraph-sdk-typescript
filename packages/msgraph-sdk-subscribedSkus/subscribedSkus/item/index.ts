@@ -80,7 +80,7 @@ export const SubscribedSkuItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SubscribedSkuItemRequestBuilderUriTemplate,
@@ -88,7 +88,7 @@ export const SubscribedSkuItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubscribedSkuFromDiscriminatorValue,
         queryParametersMapper: SubscribedSkuItemRequestBuilderGetQueryParametersMapper,
     },
@@ -98,7 +98,7 @@ export const SubscribedSkuItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSubscribedSkuFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSubscribedSku,

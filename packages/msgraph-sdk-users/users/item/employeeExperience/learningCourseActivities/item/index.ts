@@ -58,7 +58,7 @@ export const LearningCourseActivityItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLearningCourseActivityFromDiscriminatorValue,
         queryParametersMapper: LearningCourseActivityItemRequestBuilderGetQueryParametersMapper,
     },

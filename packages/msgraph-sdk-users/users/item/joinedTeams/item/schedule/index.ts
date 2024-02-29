@@ -179,7 +179,7 @@ export const ScheduleRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ScheduleRequestBuilderUriTemplate,
@@ -187,7 +187,7 @@ export const ScheduleRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createScheduleFromDiscriminatorValue,
         queryParametersMapper: ScheduleRequestBuilderGetQueryParametersMapper,
     },
@@ -197,7 +197,7 @@ export const ScheduleRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createScheduleFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSchedule,

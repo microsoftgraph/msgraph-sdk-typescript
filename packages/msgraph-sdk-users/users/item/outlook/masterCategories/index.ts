@@ -118,7 +118,7 @@ export const MasterCategoriesRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOutlookCategoryCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MasterCategoriesRequestBuilderGetQueryParametersMapper,
     },
@@ -128,7 +128,7 @@ export const MasterCategoriesRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOutlookCategoryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOutlookCategory,

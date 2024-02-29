@@ -84,7 +84,7 @@ export const TargetedManagedAppPolicyAssignmentItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TargetedManagedAppPolicyAssignmentItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const TargetedManagedAppPolicyAssignmentItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue,
         queryParametersMapper: TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const TargetedManagedAppPolicyAssignmentItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTargetedManagedAppPolicyAssignment,

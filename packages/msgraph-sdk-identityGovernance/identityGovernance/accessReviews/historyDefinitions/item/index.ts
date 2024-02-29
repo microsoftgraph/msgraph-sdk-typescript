@@ -99,7 +99,7 @@ export const AccessReviewHistoryDefinitionItemRequestBuilderRequestsMetadata: Re
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AccessReviewHistoryDefinitionItemRequestBuilderUriTemplate,
@@ -107,7 +107,7 @@ export const AccessReviewHistoryDefinitionItemRequestBuilderRequestsMetadata: Re
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewHistoryDefinitionFromDiscriminatorValue,
         queryParametersMapper: AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -117,7 +117,7 @@ export const AccessReviewHistoryDefinitionItemRequestBuilderRequestsMetadata: Re
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewHistoryDefinitionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAccessReviewHistoryDefinition,

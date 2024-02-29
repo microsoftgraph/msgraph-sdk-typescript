@@ -112,7 +112,7 @@ export const MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderRequests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAddActivitiesPostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAddActivitiesPostRequestBody,

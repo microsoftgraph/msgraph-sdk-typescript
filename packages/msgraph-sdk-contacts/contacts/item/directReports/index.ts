@@ -131,7 +131,7 @@ export const DirectReportsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryObjectCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DirectReportsRequestBuilderGetQueryParametersMapper,
     },

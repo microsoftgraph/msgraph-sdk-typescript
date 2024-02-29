@@ -126,7 +126,7 @@ export const GradingCategoriesRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationGradingCategoryCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: GradingCategoriesRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const GradingCategoriesRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createEducationGradingCategoryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeEducationGradingCategory,

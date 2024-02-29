@@ -108,7 +108,7 @@ export const RemoteAssistancePartnerItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RemoteAssistancePartnerItemRequestBuilderUriTemplate,
@@ -116,7 +116,7 @@ export const RemoteAssistancePartnerItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRemoteAssistancePartnerFromDiscriminatorValue,
         queryParametersMapper: RemoteAssistancePartnerItemRequestBuilderGetQueryParametersMapper,
     },
@@ -126,7 +126,7 @@ export const RemoteAssistancePartnerItemRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRemoteAssistancePartnerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRemoteAssistancePartner,

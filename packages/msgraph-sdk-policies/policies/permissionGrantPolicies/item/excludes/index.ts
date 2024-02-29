@@ -128,7 +128,7 @@ export const ExcludesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPermissionGrantConditionSetCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ExcludesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const ExcludesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPermissionGrantConditionSetFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePermissionGrantConditionSet,

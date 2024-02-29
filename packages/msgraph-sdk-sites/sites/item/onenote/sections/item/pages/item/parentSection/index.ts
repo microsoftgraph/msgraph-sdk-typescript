@@ -57,7 +57,7 @@ export const ParentSectionRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnenoteSectionFromDiscriminatorValue,
         queryParametersMapper: ParentSectionRequestBuilderGetQueryParametersMapper,
     },

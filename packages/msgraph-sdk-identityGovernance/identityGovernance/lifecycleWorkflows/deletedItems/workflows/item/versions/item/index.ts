@@ -90,7 +90,7 @@ export const WorkflowVersionVersionNumberItemRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkflowVersionFromDiscriminatorValue,
         queryParametersMapper: WorkflowVersionVersionNumberItemRequestBuilderGetQueryParametersMapper,
     },

@@ -119,7 +119,7 @@ export const GetManagedAppPoliciesRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGetManagedAppPoliciesGetResponseFromDiscriminatorValue,
         queryParametersMapper: GetManagedAppPoliciesRequestBuilderGetQueryParametersMapper,
     },

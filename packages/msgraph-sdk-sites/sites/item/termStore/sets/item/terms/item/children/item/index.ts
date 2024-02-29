@@ -106,7 +106,7 @@ export const TermItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TermItemRequestBuilderUriTemplate,
@@ -114,7 +114,7 @@ export const TermItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTermFromDiscriminatorValue,
         queryParametersMapper: TermItemRequestBuilderGetQueryParametersMapper,
     },
@@ -124,7 +124,7 @@ export const TermItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTermFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTerm,

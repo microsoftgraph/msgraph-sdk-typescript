@@ -57,7 +57,7 @@ export const AppManagementPolicyItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAppManagementPolicyFromDiscriminatorValue,
         queryParametersMapper: AppManagementPolicyItemRequestBuilderGetQueryParametersMapper,
     },

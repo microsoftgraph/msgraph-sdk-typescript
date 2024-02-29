@@ -84,7 +84,7 @@ export const WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderReques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderReques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue,
         queryParametersMapper: WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetQueryParametersMapper,
     },

@@ -129,7 +129,7 @@ export const ConnectedOrganizationsRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConnectedOrganizationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ConnectedOrganizationsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const ConnectedOrganizationsRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConnectedOrganizationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeConnectedOrganization,

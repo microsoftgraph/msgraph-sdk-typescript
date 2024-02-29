@@ -127,7 +127,7 @@ export const VulnerabilitiesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVulnerabilityCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: VulnerabilitiesRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const VulnerabilitiesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVulnerabilityFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeVulnerability,

@@ -98,7 +98,7 @@ export const InternetExplorerModeRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: InternetExplorerModeRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const InternetExplorerModeRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInternetExplorerModeFromDiscriminatorValue,
         queryParametersMapper: InternetExplorerModeRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const InternetExplorerModeRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInternetExplorerModeFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeInternetExplorerMode,

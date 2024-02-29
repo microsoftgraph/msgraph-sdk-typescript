@@ -82,7 +82,7 @@ export const MessageRuleItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: MessageRuleItemRequestBuilderUriTemplate,
@@ -90,7 +90,7 @@ export const MessageRuleItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMessageRuleFromDiscriminatorValue,
         queryParametersMapper: MessageRuleItemRequestBuilderGetQueryParametersMapper,
     },
@@ -100,7 +100,7 @@ export const MessageRuleItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMessageRuleFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMessageRule,

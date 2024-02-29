@@ -86,7 +86,7 @@ export const AddRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkbookTableRowFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAddPostRequestBody,

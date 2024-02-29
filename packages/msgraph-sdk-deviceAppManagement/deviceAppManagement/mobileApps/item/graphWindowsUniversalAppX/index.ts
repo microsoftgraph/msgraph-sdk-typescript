@@ -98,7 +98,7 @@ export const GraphWindowsUniversalAppXRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsUniversalAppXFromDiscriminatorValue,
         queryParametersMapper: GraphWindowsUniversalAppXRequestBuilderGetQueryParametersMapper,
     },

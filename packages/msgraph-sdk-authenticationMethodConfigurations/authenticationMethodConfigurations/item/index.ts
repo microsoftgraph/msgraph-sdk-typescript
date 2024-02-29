@@ -84,7 +84,7 @@ export const AuthenticationMethodConfigurationItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AuthenticationMethodConfigurationItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const AuthenticationMethodConfigurationItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthenticationMethodConfigurationFromDiscriminatorValue,
         queryParametersMapper: AuthenticationMethodConfigurationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const AuthenticationMethodConfigurationItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthenticationMethodConfigurationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAuthenticationMethodConfiguration,

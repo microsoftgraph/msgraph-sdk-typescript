@@ -98,7 +98,7 @@ export const PlannerBucketItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PlannerBucketItemRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const PlannerBucketItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerBucketFromDiscriminatorValue,
         queryParametersMapper: PlannerBucketItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const PlannerBucketItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerBucketFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePlannerBucket,

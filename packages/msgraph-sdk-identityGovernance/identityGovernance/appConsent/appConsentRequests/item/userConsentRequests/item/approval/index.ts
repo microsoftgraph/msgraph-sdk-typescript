@@ -98,7 +98,7 @@ export const ApprovalRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ApprovalRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const ApprovalRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createApprovalFromDiscriminatorValue,
         queryParametersMapper: ApprovalRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const ApprovalRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createApprovalFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeApproval,

@@ -79,7 +79,7 @@ export const LogTeleconferenceDeviceQualityRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLogTeleconferenceDeviceQualityPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

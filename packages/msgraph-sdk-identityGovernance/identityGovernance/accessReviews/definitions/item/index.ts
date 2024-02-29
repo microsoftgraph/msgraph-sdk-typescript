@@ -108,7 +108,7 @@ export const AccessReviewScheduleDefinitionItemRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AccessReviewScheduleDefinitionItemRequestBuilderUriTemplate,
@@ -116,7 +116,7 @@ export const AccessReviewScheduleDefinitionItemRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewScheduleDefinitionFromDiscriminatorValue,
         queryParametersMapper: AccessReviewScheduleDefinitionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -126,7 +126,7 @@ export const AccessReviewScheduleDefinitionItemRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAccessReviewScheduleDefinitionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAccessReviewScheduleDefinition,

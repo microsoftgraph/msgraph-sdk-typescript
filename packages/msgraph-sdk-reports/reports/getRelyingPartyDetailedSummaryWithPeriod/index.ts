@@ -119,7 +119,7 @@ export const GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderRequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGetRelyingPartyDetailedSummaryWithPeriodGetResponseFromDiscriminatorValue,
         queryParametersMapper: GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParametersMapper,
     },

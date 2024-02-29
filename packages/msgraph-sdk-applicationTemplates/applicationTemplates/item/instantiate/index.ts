@@ -80,7 +80,7 @@ export const InstantiateRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createApplicationServicePrincipalFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeInstantiatePostRequestBody,

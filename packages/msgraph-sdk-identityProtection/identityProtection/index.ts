@@ -113,7 +113,7 @@ export const IdentityProtectionRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityProtectionRootFromDiscriminatorValue,
         queryParametersMapper: IdentityProtectionRequestBuilderGetQueryParametersMapper,
     },
@@ -123,7 +123,7 @@ export const IdentityProtectionRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityProtectionRootFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIdentityProtectionRoot,

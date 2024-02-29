@@ -98,7 +98,7 @@ export const CasesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CasesRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const CasesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCasesRootFromDiscriminatorValue,
         queryParametersMapper: CasesRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const CasesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCasesRootFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCasesRoot,

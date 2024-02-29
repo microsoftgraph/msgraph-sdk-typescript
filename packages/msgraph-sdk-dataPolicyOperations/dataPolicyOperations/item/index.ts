@@ -85,7 +85,7 @@ export const DataPolicyOperationItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DataPolicyOperationItemRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const DataPolicyOperationItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDataPolicyOperationFromDiscriminatorValue,
         queryParametersMapper: DataPolicyOperationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const DataPolicyOperationItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDataPolicyOperationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDataPolicyOperation,

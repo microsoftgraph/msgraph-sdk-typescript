@@ -128,7 +128,7 @@ export const CustomQuestionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingCustomQuestionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: CustomQuestionsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const CustomQuestionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBookingCustomQuestionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeBookingCustomQuestion,

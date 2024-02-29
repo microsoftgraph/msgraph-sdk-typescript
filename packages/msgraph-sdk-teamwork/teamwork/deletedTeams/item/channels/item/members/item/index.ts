@@ -10,10 +10,10 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ConversationMemberItemRequestBuilder extends BaseRequestBuilder<ConversationMemberItemRequestBuilder> {
     /**
-     * Delete a conversationMember from a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+     * Delete a conversationMember from a channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/channel-delete-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conversationmember-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -34,7 +34,7 @@ export interface ConversationMemberItemRequestBuilder extends BaseRequestBuilder
      */
      patch(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConversationMember | undefined>;
     /**
-     * Delete a conversationMember from a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+     * Delete a conversationMember from a channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -87,7 +87,7 @@ export const ConversationMemberItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ConversationMemberItemRequestBuilderUriTemplate,
@@ -95,7 +95,7 @@ export const ConversationMemberItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConversationMemberFromDiscriminatorValue,
         queryParametersMapper: ConversationMemberItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +105,7 @@ export const ConversationMemberItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createConversationMemberFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeConversationMember,

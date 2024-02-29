@@ -128,7 +128,7 @@ export const DeviceSettingStateSummariesRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSettingStateDeviceSummaryCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DeviceSettingStateSummariesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const DeviceSettingStateSummariesRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSettingStateDeviceSummaryFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSettingStateDeviceSummary,

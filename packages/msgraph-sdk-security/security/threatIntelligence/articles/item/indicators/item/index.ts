@@ -57,7 +57,7 @@ export const ArticleIndicatorItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createArticleIndicatorFromDiscriminatorValue,
         queryParametersMapper: ArticleIndicatorItemRequestBuilderGetQueryParametersMapper,
     },

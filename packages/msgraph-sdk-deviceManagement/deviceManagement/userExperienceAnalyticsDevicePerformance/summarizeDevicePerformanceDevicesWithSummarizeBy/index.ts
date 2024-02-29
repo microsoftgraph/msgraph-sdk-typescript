@@ -119,7 +119,7 @@ export const SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderReque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSummarizeDevicePerformanceDevicesWithSummarizeByGetResponseFromDiscriminatorValue,
         queryParametersMapper: SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParametersMapper,
     },

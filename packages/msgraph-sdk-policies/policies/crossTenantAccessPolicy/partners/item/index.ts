@@ -100,7 +100,7 @@ export const CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderUriTemplate,
@@ -108,7 +108,7 @@ export const CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue,
         queryParametersMapper: CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetQueryParametersMapper,
     },
@@ -118,7 +118,7 @@ export const CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCrossTenantAccessPolicyConfigurationPartner,

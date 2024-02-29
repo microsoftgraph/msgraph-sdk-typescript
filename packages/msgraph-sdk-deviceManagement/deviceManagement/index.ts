@@ -326,7 +326,7 @@ export interface DeviceManagementRequestBuilder extends BaseRequestBuilder<Devic
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagement>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mstunnel-devicemanagement-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-devicemanagement-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceManagement | undefined>;
     /**
@@ -621,7 +621,7 @@ export const DeviceManagementRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceManagementFromDiscriminatorValue,
         queryParametersMapper: DeviceManagementRequestBuilderGetQueryParametersMapper,
     },
@@ -631,7 +631,7 @@ export const DeviceManagementRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceManagementFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceManagement,

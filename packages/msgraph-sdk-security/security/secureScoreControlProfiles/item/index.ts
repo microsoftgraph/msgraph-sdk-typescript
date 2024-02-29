@@ -86,7 +86,7 @@ export const SecureScoreControlProfileItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SecureScoreControlProfileItemRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const SecureScoreControlProfileItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecureScoreControlProfileFromDiscriminatorValue,
         queryParametersMapper: SecureScoreControlProfileItemRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const SecureScoreControlProfileItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecureScoreControlProfileFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSecureScoreControlProfile,

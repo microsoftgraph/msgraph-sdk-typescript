@@ -86,7 +86,7 @@ export const ProgressTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ProgressTaskBoardFormatRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const ProgressTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue,
         queryParametersMapper: ProgressTaskBoardFormatRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const ProgressTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePlannerProgressTaskBoardTaskFormat,

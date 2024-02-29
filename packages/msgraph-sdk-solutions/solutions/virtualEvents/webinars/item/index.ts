@@ -107,7 +107,7 @@ export const VirtualEventWebinarItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: VirtualEventWebinarItemRequestBuilderUriTemplate,
@@ -115,7 +115,7 @@ export const VirtualEventWebinarItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVirtualEventWebinarFromDiscriminatorValue,
         queryParametersMapper: VirtualEventWebinarItemRequestBuilderGetQueryParametersMapper,
     },
@@ -125,7 +125,7 @@ export const VirtualEventWebinarItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVirtualEventWebinarFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeVirtualEventWebinar,

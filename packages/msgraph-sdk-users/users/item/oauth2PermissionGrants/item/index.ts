@@ -57,7 +57,7 @@ export const OAuth2PermissionGrantItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOAuth2PermissionGrantFromDiscriminatorValue,
         queryParametersMapper: OAuth2PermissionGrantItemRequestBuilderGetQueryParametersMapper,
     },

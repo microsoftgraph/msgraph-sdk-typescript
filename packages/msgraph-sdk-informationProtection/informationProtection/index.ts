@@ -95,7 +95,7 @@ export const InformationProtectionRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInformationProtectionFromDiscriminatorValue,
         queryParametersMapper: InformationProtectionRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +105,7 @@ export const InformationProtectionRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createInformationProtectionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeInformationProtection,

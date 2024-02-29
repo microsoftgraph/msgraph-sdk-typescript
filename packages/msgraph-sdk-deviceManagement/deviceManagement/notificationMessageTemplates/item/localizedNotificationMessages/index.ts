@@ -128,7 +128,7 @@ export const LocalizedNotificationMessagesRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLocalizedNotificationMessageCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: LocalizedNotificationMessagesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const LocalizedNotificationMessagesRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLocalizedNotificationMessageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLocalizedNotificationMessage,

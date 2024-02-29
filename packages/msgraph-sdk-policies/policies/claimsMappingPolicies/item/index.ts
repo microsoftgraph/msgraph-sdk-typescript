@@ -101,7 +101,7 @@ export const ClaimsMappingPolicyItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ClaimsMappingPolicyItemRequestBuilderUriTemplate,
@@ -109,7 +109,7 @@ export const ClaimsMappingPolicyItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createClaimsMappingPolicyFromDiscriminatorValue,
         queryParametersMapper: ClaimsMappingPolicyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -119,7 +119,7 @@ export const ClaimsMappingPolicyItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createClaimsMappingPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeClaimsMappingPolicy,

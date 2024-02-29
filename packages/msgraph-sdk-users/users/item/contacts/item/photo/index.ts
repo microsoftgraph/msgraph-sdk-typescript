@@ -80,7 +80,7 @@ export const PhotoRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createProfilePhotoFromDiscriminatorValue,
         queryParametersMapper: PhotoRequestBuilderGetQueryParametersMapper,
     },
@@ -90,7 +90,7 @@ export const PhotoRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createProfilePhotoFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeProfilePhoto,

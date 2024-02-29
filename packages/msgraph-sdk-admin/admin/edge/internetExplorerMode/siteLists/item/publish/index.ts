@@ -92,7 +92,7 @@ export const PublishRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBrowserSiteListFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePublishPostRequestBody,

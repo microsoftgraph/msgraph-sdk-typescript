@@ -88,7 +88,7 @@ export const AgreementAcceptancesRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementAcceptanceCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AgreementAcceptancesRequestBuilderGetQueryParametersMapper,
     },
@@ -98,7 +98,7 @@ export const AgreementAcceptancesRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAgreementAcceptanceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAgreementAcceptance,

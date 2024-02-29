@@ -127,7 +127,7 @@ export const LoginPagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLoginPageCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: LoginPagesRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const LoginPagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLoginPageFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLoginPage,

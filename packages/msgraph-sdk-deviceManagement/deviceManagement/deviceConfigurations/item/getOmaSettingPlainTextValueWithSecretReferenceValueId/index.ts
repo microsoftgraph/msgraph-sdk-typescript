@@ -76,7 +76,7 @@ export const GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponseFromDiscriminatorValue,
     },
 };

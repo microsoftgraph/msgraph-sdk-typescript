@@ -98,7 +98,7 @@ export const IntelligenceProfileIndicatorItemRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: IntelligenceProfileIndicatorItemRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const IntelligenceProfileIndicatorItemRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIntelligenceProfileIndicatorFromDiscriminatorValue,
         queryParametersMapper: IntelligenceProfileIndicatorItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const IntelligenceProfileIndicatorItemRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIntelligenceProfileIndicatorFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIntelligenceProfileIndicator,

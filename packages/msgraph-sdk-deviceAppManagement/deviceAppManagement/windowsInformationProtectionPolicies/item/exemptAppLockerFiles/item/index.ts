@@ -84,7 +84,7 @@ export const WindowsInformationProtectionAppLockerFileItemRequestBuilderRequests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: WindowsInformationProtectionAppLockerFileItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const WindowsInformationProtectionAppLockerFileItemRequestBuilderRequests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue,
         queryParametersMapper: WindowsInformationProtectionAppLockerFileItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const WindowsInformationProtectionAppLockerFileItemRequestBuilderRequests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWindowsInformationProtectionAppLockerFile,

@@ -107,7 +107,7 @@ export const DocumentSetVersionItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DocumentSetVersionItemRequestBuilderUriTemplate,
@@ -115,7 +115,7 @@ export const DocumentSetVersionItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDocumentSetVersionFromDiscriminatorValue,
         queryParametersMapper: DocumentSetVersionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -125,7 +125,7 @@ export const DocumentSetVersionItemRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDocumentSetVersionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDocumentSetVersion,

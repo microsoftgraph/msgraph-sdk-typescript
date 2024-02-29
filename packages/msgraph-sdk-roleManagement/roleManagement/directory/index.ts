@@ -170,7 +170,7 @@ export const DirectoryRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DirectoryRequestBuilderUriTemplate,
@@ -178,7 +178,7 @@ export const DirectoryRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRbacApplicationFromDiscriminatorValue,
         queryParametersMapper: DirectoryRequestBuilderGetQueryParametersMapper,
     },
@@ -188,7 +188,7 @@ export const DirectoryRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRbacApplicationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRbacApplication,

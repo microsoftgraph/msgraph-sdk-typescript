@@ -85,7 +85,7 @@ export const OfferShiftRequestItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OfferShiftRequestItemRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const OfferShiftRequestItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOfferShiftRequestFromDiscriminatorValue,
         queryParametersMapper: OfferShiftRequestItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const OfferShiftRequestItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOfferShiftRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOfferShiftRequest,

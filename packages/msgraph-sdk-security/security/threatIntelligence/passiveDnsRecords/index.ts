@@ -127,7 +127,7 @@ export const PassiveDnsRecordsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPassiveDnsRecordCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: PassiveDnsRecordsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const PassiveDnsRecordsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPassiveDnsRecordFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePassiveDnsRecord,

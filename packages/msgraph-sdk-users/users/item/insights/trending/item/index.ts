@@ -97,7 +97,7 @@ export const TrendingItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TrendingItemRequestBuilderUriTemplate,
@@ -105,7 +105,7 @@ export const TrendingItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTrendingFromDiscriminatorValue,
         queryParametersMapper: TrendingItemRequestBuilderGetQueryParametersMapper,
     },
@@ -115,7 +115,7 @@ export const TrendingItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTrendingFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTrending,

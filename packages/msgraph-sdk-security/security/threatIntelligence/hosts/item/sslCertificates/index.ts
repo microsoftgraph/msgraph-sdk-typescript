@@ -112,7 +112,7 @@ export const SslCertificatesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostSslCertificateCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SslCertificatesRequestBuilderGetQueryParametersMapper,
     },

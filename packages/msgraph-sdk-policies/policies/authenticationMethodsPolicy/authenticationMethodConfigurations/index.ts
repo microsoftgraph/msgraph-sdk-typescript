@@ -126,7 +126,7 @@ export const AuthenticationMethodConfigurationsRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthenticationMethodConfigurationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AuthenticationMethodConfigurationsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const AuthenticationMethodConfigurationsRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuthenticationMethodConfigurationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAuthenticationMethodConfiguration,

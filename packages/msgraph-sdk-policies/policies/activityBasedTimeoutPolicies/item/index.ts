@@ -101,7 +101,7 @@ export const ActivityBasedTimeoutPolicyItemRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ActivityBasedTimeoutPolicyItemRequestBuilderUriTemplate,
@@ -109,7 +109,7 @@ export const ActivityBasedTimeoutPolicyItemRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createActivityBasedTimeoutPolicyFromDiscriminatorValue,
         queryParametersMapper: ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -119,7 +119,7 @@ export const ActivityBasedTimeoutPolicyItemRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createActivityBasedTimeoutPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeActivityBasedTimeoutPolicy,

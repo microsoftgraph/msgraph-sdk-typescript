@@ -142,7 +142,7 @@ export const LifecycleWorkflowsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: LifecycleWorkflowsRequestBuilderUriTemplate,
@@ -150,7 +150,7 @@ export const LifecycleWorkflowsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLifecycleWorkflowsContainerFromDiscriminatorValue,
         queryParametersMapper: LifecycleWorkflowsRequestBuilderGetQueryParametersMapper,
     },
@@ -160,7 +160,7 @@ export const LifecycleWorkflowsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createLifecycleWorkflowsContainerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeLifecycleWorkflowsContainer,

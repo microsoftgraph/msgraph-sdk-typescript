@@ -86,7 +86,7 @@ export const BucketTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: BucketTaskBoardFormatRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const BucketTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerBucketTaskBoardTaskFormatFromDiscriminatorValue,
         queryParametersMapper: BucketTaskBoardFormatRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const BucketTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPlannerBucketTaskBoardTaskFormatFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePlannerBucketTaskBoardTaskFormat,

@@ -86,7 +86,7 @@ export const TeamworkTagMemberItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TeamworkTagMemberItemRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const TeamworkTagMemberItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamworkTagMemberFromDiscriminatorValue,
         queryParametersMapper: TeamworkTagMemberItemRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const TeamworkTagMemberItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTeamworkTagMemberFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTeamworkTagMember,

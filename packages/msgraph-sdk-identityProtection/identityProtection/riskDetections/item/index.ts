@@ -85,7 +85,7 @@ export const RiskDetectionItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RiskDetectionItemRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const RiskDetectionItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRiskDetectionFromDiscriminatorValue,
         queryParametersMapper: RiskDetectionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const RiskDetectionItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRiskDetectionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRiskDetection,

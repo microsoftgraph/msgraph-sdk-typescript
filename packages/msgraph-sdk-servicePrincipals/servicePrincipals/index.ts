@@ -161,7 +161,7 @@ export const ServicePrincipalsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServicePrincipalCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ServicePrincipalsRequestBuilderGetQueryParametersMapper,
     },
@@ -171,7 +171,7 @@ export const ServicePrincipalsRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createServicePrincipalFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeServicePrincipal,

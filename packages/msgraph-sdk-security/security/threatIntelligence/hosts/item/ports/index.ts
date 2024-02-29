@@ -112,7 +112,7 @@ export const PortsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostPortCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: PortsRequestBuilderGetQueryParametersMapper,
     },

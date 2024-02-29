@@ -87,7 +87,7 @@ export const MobileThreatDefenseConnectorItemRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: MobileThreatDefenseConnectorItemRequestBuilderUriTemplate,
@@ -95,7 +95,7 @@ export const MobileThreatDefenseConnectorItemRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileThreatDefenseConnectorFromDiscriminatorValue,
         queryParametersMapper: MobileThreatDefenseConnectorItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +105,7 @@ export const MobileThreatDefenseConnectorItemRequestBuilderRequestsMetadata: Req
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileThreatDefenseConnectorFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMobileThreatDefenseConnector,

@@ -82,7 +82,7 @@ export const TimeOffItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TimeOffItemRequestBuilderUriTemplate,
@@ -90,7 +90,7 @@ export const TimeOffItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTimeOffFromDiscriminatorValue,
         queryParametersMapper: TimeOffItemRequestBuilderGetQueryParametersMapper,
     },
@@ -100,7 +100,7 @@ export const TimeOffItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTimeOffFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTimeOff,

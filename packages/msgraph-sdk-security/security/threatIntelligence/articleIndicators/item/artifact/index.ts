@@ -57,7 +57,7 @@ export const ArtifactRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createArtifactFromDiscriminatorValue,
         queryParametersMapper: ArtifactRequestBuilderGetQueryParametersMapper,
     },

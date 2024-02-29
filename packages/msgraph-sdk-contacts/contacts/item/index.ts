@@ -182,7 +182,7 @@ export const OrgContactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OrgContactItemRequestBuilderUriTemplate,
@@ -190,7 +190,7 @@ export const OrgContactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrgContactFromDiscriminatorValue,
         queryParametersMapper: OrgContactItemRequestBuilderGetQueryParametersMapper,
     },
@@ -200,7 +200,7 @@ export const OrgContactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrgContactFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOrgContact,

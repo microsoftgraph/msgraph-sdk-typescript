@@ -128,7 +128,7 @@ export const SslCertificatesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSslCertificateCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SslCertificatesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const SslCertificatesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSslCertificateFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSslCertificate,

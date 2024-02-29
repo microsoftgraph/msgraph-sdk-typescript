@@ -107,7 +107,7 @@ export const PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilderR
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilderUriTemplate,
@@ -115,7 +115,7 @@ export const PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilderR
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupEligibilityScheduleInstanceFromDiscriminatorValue,
         queryParametersMapper: PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilderGetQueryParametersMapper,
     },
@@ -125,7 +125,7 @@ export const PrivilegedAccessGroupEligibilityScheduleInstanceItemRequestBuilderR
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupEligibilityScheduleInstanceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrivilegedAccessGroupEligibilityScheduleInstance,

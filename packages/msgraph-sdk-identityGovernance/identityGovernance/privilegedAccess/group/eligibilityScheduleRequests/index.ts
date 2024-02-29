@@ -139,7 +139,7 @@ export const EligibilityScheduleRequestsRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupEligibilityScheduleRequestCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: EligibilityScheduleRequestsRequestBuilderGetQueryParametersMapper,
     },
@@ -149,7 +149,7 @@ export const EligibilityScheduleRequestsRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupEligibilityScheduleRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrivilegedAccessGroupEligibilityScheduleRequest,

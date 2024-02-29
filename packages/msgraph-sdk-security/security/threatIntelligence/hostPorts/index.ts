@@ -127,7 +127,7 @@ export const HostPortsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostPortCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: HostPortsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const HostPortsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostPortFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeHostPort,

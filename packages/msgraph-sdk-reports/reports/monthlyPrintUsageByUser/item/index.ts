@@ -84,7 +84,7 @@ export const PrintUsageByUserItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PrintUsageByUserItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const PrintUsageByUserItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintUsageByUserFromDiscriminatorValue,
         queryParametersMapper: PrintUsageByUserItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const PrintUsageByUserItemRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintUsageByUserFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrintUsageByUser,

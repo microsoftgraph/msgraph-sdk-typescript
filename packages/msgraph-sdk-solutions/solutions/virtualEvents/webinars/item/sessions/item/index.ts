@@ -98,7 +98,7 @@ export const VirtualEventSessionItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: VirtualEventSessionItemRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const VirtualEventSessionItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVirtualEventSessionFromDiscriminatorValue,
         queryParametersMapper: VirtualEventSessionItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const VirtualEventSessionItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createVirtualEventSessionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeVirtualEventSession,

@@ -86,7 +86,7 @@ export const AllowedValueItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AllowedValueItemRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const AllowedValueItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAllowedValueFromDiscriminatorValue,
         queryParametersMapper: AllowedValueItemRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const AllowedValueItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAllowedValueFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAllowedValue,

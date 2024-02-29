@@ -127,7 +127,7 @@ export const SharesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSharedDriveItemCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SharesRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const SharesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSharedDriveItemFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSharedDriveItem,

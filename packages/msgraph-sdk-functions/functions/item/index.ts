@@ -84,7 +84,7 @@ export const AttributeMappingFunctionSchemaItemRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AttributeMappingFunctionSchemaItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const AttributeMappingFunctionSchemaItemRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttributeMappingFunctionSchemaFromDiscriminatorValue,
         queryParametersMapper: AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const AttributeMappingFunctionSchemaItemRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttributeMappingFunctionSchemaFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAttributeMappingFunctionSchema,

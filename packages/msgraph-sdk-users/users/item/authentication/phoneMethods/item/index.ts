@@ -108,7 +108,7 @@ export const PhoneAuthenticationMethodItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PhoneAuthenticationMethodItemRequestBuilderUriTemplate,
@@ -116,7 +116,7 @@ export const PhoneAuthenticationMethodItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPhoneAuthenticationMethodFromDiscriminatorValue,
         queryParametersMapper: PhoneAuthenticationMethodItemRequestBuilderGetQueryParametersMapper,
     },
@@ -126,7 +126,7 @@ export const PhoneAuthenticationMethodItemRequestBuilderRequestsMetadata: Reques
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPhoneAuthenticationMethodFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePhoneAuthenticationMethod,

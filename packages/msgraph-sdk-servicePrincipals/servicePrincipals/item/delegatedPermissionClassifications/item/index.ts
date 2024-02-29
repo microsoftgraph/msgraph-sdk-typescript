@@ -85,7 +85,7 @@ export const DelegatedPermissionClassificationItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DelegatedPermissionClassificationItemRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const DelegatedPermissionClassificationItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedPermissionClassificationFromDiscriminatorValue,
         queryParametersMapper: DelegatedPermissionClassificationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const DelegatedPermissionClassificationItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedPermissionClassificationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDelegatedPermissionClassification,

@@ -84,7 +84,7 @@ export const SegmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SegmentItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const SegmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSegmentFromDiscriminatorValue,
         queryParametersMapper: SegmentItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const SegmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSegmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSegment,

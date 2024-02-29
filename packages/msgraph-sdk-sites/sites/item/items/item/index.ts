@@ -57,7 +57,7 @@ export const BaseItemItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createBaseItemFromDiscriminatorValue,
         queryParametersMapper: BaseItemItemRequestBuilderGetQueryParametersMapper,
     },

@@ -112,7 +112,7 @@ export const FollowedSitesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSiteCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: FollowedSitesRequestBuilderGetQueryParametersMapper,
     },

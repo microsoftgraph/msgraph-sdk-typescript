@@ -262,7 +262,7 @@ export const SiteItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSiteFromDiscriminatorValue,
         queryParametersMapper: SiteItemRequestBuilderGetQueryParametersMapper,
     },
@@ -272,7 +272,7 @@ export const SiteItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSiteFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSite,

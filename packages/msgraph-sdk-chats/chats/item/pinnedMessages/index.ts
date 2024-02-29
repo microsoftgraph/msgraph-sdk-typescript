@@ -129,7 +129,7 @@ export const PinnedMessagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPinnedChatMessageInfoCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: PinnedMessagesRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const PinnedMessagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPinnedChatMessageInfoFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePinnedChatMessageInfo,

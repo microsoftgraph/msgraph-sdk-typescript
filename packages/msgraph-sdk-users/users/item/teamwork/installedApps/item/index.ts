@@ -115,7 +115,7 @@ export const UserScopeTeamsAppInstallationItemRequestBuilderRequestsMetadata: Re
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UserScopeTeamsAppInstallationItemRequestBuilderUriTemplate,
@@ -123,7 +123,7 @@ export const UserScopeTeamsAppInstallationItemRequestBuilderRequestsMetadata: Re
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserScopeTeamsAppInstallationFromDiscriminatorValue,
         queryParametersMapper: UserScopeTeamsAppInstallationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -133,7 +133,7 @@ export const UserScopeTeamsAppInstallationItemRequestBuilderRequestsMetadata: Re
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserScopeTeamsAppInstallationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUserScopeTeamsAppInstallation,

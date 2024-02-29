@@ -128,7 +128,7 @@ export const AssociatedTeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAssociatedTeamInfoCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AssociatedTeamsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const AssociatedTeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAssociatedTeamInfoFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAssociatedTeamInfo,

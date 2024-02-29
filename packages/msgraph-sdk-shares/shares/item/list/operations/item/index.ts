@@ -84,7 +84,7 @@ export const RichLongRunningOperationItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RichLongRunningOperationItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const RichLongRunningOperationItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRichLongRunningOperationFromDiscriminatorValue,
         queryParametersMapper: RichLongRunningOperationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const RichLongRunningOperationItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRichLongRunningOperationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRichLongRunningOperation,

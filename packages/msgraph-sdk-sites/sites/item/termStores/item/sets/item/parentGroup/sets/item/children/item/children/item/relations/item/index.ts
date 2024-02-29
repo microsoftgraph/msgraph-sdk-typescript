@@ -113,7 +113,7 @@ export const RelationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RelationItemRequestBuilderUriTemplate,
@@ -121,7 +121,7 @@ export const RelationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRelationFromDiscriminatorValue,
         queryParametersMapper: RelationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -131,7 +131,7 @@ export const RelationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRelationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRelation,

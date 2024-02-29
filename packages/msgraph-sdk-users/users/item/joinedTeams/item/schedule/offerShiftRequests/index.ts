@@ -128,7 +128,7 @@ export const OfferShiftRequestsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOfferShiftRequestCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: OfferShiftRequestsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const OfferShiftRequestsRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOfferShiftRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOfferShiftRequest,

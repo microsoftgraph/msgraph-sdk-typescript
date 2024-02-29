@@ -144,7 +144,7 @@ export const RiskyUsersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRiskyUserCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RiskyUsersRequestBuilderGetQueryParametersMapper,
     },
@@ -154,7 +154,7 @@ export const RiskyUsersRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRiskyUserFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRiskyUser,

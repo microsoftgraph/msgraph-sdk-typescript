@@ -57,7 +57,7 @@ export const LastModifiedByUserRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUserFromDiscriminatorValue,
         queryParametersMapper: LastModifiedByUserRequestBuilderGetQueryParametersMapper,
     },

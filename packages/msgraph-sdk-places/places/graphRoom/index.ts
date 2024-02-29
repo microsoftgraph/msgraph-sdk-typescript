@@ -100,7 +100,7 @@ export const GraphRoomRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoomCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: GraphRoomRequestBuilderGetQueryParametersMapper,
     },

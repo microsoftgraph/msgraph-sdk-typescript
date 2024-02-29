@@ -57,7 +57,7 @@ export const HomeRealmDiscoveryPolicyItemRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHomeRealmDiscoveryPolicyFromDiscriminatorValue,
         queryParametersMapper: HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParametersMapper,
     },

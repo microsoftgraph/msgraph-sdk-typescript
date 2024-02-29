@@ -128,7 +128,7 @@ export const ManagedAppPoliciesRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedAppPolicyCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ManagedAppPoliciesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const ManagedAppPoliciesRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedAppPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeManagedAppPolicy,

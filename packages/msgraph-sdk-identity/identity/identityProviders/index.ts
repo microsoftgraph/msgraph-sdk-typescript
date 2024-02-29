@@ -136,7 +136,7 @@ export const IdentityProvidersRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityProviderBaseCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: IdentityProvidersRequestBuilderGetQueryParametersMapper,
     },
@@ -146,7 +146,7 @@ export const IdentityProvidersRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentityProviderBaseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIdentityProviderBase,

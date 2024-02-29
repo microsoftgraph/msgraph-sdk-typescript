@@ -87,7 +87,7 @@ export const ProfileCardPropertyItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: ProfileCardPropertyItemRequestBuilderUriTemplate,
@@ -95,7 +95,7 @@ export const ProfileCardPropertyItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createProfileCardPropertyFromDiscriminatorValue,
         queryParametersMapper: ProfileCardPropertyItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +105,7 @@ export const ProfileCardPropertyItemRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createProfileCardPropertyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeProfileCardProperty,

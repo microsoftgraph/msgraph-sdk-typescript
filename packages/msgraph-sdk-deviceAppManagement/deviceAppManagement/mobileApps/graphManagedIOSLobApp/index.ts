@@ -100,7 +100,7 @@ export const GraphManagedIOSLobAppRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedIOSLobAppCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: GraphManagedIOSLobAppRequestBuilderGetQueryParametersMapper,
     },

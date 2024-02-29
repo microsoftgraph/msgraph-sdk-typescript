@@ -87,7 +87,7 @@ export const TargetDeviceGroupItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: TargetDeviceGroupItemRequestBuilderUriTemplate,
@@ -95,7 +95,7 @@ export const TargetDeviceGroupItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTargetDeviceGroupFromDiscriminatorValue,
         queryParametersMapper: TargetDeviceGroupItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +105,7 @@ export const TargetDeviceGroupItemRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTargetDeviceGroupFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTargetDeviceGroup,

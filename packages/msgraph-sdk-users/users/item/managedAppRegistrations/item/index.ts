@@ -57,7 +57,7 @@ export const ManagedAppRegistrationItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createManagedAppRegistrationFromDiscriminatorValue,
         queryParametersMapper: ManagedAppRegistrationItemRequestBuilderGetQueryParametersMapper,
     },

@@ -138,7 +138,7 @@ export const AssignmentScheduleInstancesRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupAssignmentScheduleInstanceCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AssignmentScheduleInstancesRequestBuilderGetQueryParametersMapper,
     },
@@ -148,7 +148,7 @@ export const AssignmentScheduleInstancesRequestBuilderRequestsMetadata: Requests
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrivilegedAccessGroupAssignmentScheduleInstanceFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrivilegedAccessGroupAssignmentScheduleInstance,

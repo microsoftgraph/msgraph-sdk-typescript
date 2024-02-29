@@ -126,7 +126,7 @@ export const CommittedContainedAppsRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileContainedAppCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: CommittedContainedAppsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const CommittedContainedAppsRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createMobileContainedAppFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMobileContainedApp,

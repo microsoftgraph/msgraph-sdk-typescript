@@ -105,7 +105,7 @@ export const PostItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPostFromDiscriminatorValue,
         queryParametersMapper: PostItemRequestBuilderGetQueryParametersMapper,
     },

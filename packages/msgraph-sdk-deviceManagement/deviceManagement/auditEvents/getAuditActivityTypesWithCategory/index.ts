@@ -104,7 +104,7 @@ export const GetAuditActivityTypesWithCategoryRequestBuilderRequestsMetadata: Re
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createGetAuditActivityTypesWithCategoryGetResponseFromDiscriminatorValue,
         queryParametersMapper: GetAuditActivityTypesWithCategoryRequestBuilderGetQueryParametersMapper,
     },

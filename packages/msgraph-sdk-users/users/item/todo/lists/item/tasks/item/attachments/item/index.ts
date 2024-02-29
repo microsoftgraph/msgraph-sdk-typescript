@@ -79,7 +79,7 @@ export const AttachmentBaseItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: AttachmentBaseItemRequestBuilderUriTemplate,
@@ -87,7 +87,7 @@ export const AttachmentBaseItemRequestBuilderRequestsMetadata: RequestsMetadata 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAttachmentBaseFromDiscriminatorValue,
         queryParametersMapper: AttachmentBaseItemRequestBuilderGetQueryParametersMapper,
     },

@@ -129,7 +129,7 @@ export const CustomSecurityAttributeDefinitionsRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCustomSecurityAttributeDefinitionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const CustomSecurityAttributeDefinitionsRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCustomSecurityAttributeDefinitionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCustomSecurityAttributeDefinition,

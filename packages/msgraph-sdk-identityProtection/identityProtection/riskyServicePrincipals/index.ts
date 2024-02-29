@@ -144,7 +144,7 @@ export const RiskyServicePrincipalsRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRiskyServicePrincipalCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RiskyServicePrincipalsRequestBuilderGetQueryParametersMapper,
     },
@@ -154,7 +154,7 @@ export const RiskyServicePrincipalsRequestBuilderRequestsMetadata: RequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRiskyServicePrincipalFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRiskyServicePrincipal,

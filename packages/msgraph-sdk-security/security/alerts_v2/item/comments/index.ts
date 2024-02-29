@@ -52,7 +52,7 @@ export const CommentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendCollectionAsync",
+        adapterMethodName: "sendCollection",
         responseBodyFactory:  createAlertCommentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAlertComment,

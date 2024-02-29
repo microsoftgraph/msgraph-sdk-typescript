@@ -127,7 +127,7 @@ export const TermStoresRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createStoreCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TermStoresRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const TermStoresRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createStoreFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeStore,

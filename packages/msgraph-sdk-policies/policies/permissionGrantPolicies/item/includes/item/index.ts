@@ -85,7 +85,7 @@ export const PermissionGrantConditionSetItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PermissionGrantConditionSetItemRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const PermissionGrantConditionSetItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPermissionGrantConditionSetFromDiscriminatorValue,
         queryParametersMapper: PermissionGrantConditionSetItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const PermissionGrantConditionSetItemRequestBuilderRequestsMetadata: Requ
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPermissionGrantConditionSetFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePermissionGrantConditionSet,

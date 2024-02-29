@@ -86,7 +86,7 @@ export const RedirectRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintJobFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRedirectPostRequestBody,

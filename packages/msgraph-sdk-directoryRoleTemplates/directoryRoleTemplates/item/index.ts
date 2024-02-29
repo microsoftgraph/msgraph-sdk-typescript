@@ -130,7 +130,7 @@ export const DirectoryRoleTemplateItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DirectoryRoleTemplateItemRequestBuilderUriTemplate,
@@ -138,7 +138,7 @@ export const DirectoryRoleTemplateItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryRoleTemplateFromDiscriminatorValue,
         queryParametersMapper: DirectoryRoleTemplateItemRequestBuilderGetQueryParametersMapper,
     },
@@ -148,7 +148,7 @@ export const DirectoryRoleTemplateItemRequestBuilderRequestsMetadata: RequestsMe
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDirectoryRoleTemplateFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDirectoryRoleTemplate,

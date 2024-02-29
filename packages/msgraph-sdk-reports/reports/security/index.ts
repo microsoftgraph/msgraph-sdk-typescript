@@ -113,7 +113,7 @@ export const SecurityRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: SecurityRequestBuilderUriTemplate,
@@ -121,7 +121,7 @@ export const SecurityRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecurityReportsRootFromDiscriminatorValue,
         queryParametersMapper: SecurityRequestBuilderGetQueryParametersMapper,
     },
@@ -131,7 +131,7 @@ export const SecurityRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecurityReportsRootFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSecurityReportsRoot,

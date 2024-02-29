@@ -128,7 +128,7 @@ export const IosUpdateStatusesRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIosUpdateDeviceStatusCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: IosUpdateStatusesRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const IosUpdateStatusesRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIosUpdateDeviceStatusFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIosUpdateDeviceStatus,

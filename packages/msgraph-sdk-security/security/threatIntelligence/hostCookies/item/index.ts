@@ -98,7 +98,7 @@ export const HostCookieItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: HostCookieItemRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const HostCookieItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostCookieFromDiscriminatorValue,
         queryParametersMapper: HostCookieItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const HostCookieItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostCookieFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeHostCookie,

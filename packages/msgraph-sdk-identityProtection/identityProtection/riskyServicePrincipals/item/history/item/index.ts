@@ -84,7 +84,7 @@ export const RiskyServicePrincipalHistoryItemItemRequestBuilderRequestsMetadata:
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: RiskyServicePrincipalHistoryItemItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const RiskyServicePrincipalHistoryItemItemRequestBuilderRequestsMetadata:
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRiskyServicePrincipalHistoryItemFromDiscriminatorValue,
         queryParametersMapper: RiskyServicePrincipalHistoryItemItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const RiskyServicePrincipalHistoryItemItemRequestBuilderRequestsMetadata:
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRiskyServicePrincipalHistoryItemFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRiskyServicePrincipalHistoryItem,

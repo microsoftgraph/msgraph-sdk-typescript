@@ -85,7 +85,7 @@ export const DelegatedAdminRelationshipRequestItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DelegatedAdminRelationshipRequestItemRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const DelegatedAdminRelationshipRequestItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminRelationshipRequestFromDiscriminatorValue,
         queryParametersMapper: DelegatedAdminRelationshipRequestItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const DelegatedAdminRelationshipRequestItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminRelationshipRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDelegatedAdminRelationshipRequest,

@@ -87,7 +87,7 @@ export const ExternalColumnsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createColumnDefinitionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ExternalColumnsRequestBuilderGetQueryParametersMapper,
     },

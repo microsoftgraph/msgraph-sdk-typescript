@@ -106,7 +106,7 @@ export const HostPortItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: HostPortItemRequestBuilderUriTemplate,
@@ -114,7 +114,7 @@ export const HostPortItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostPortFromDiscriminatorValue,
         queryParametersMapper: HostPortItemRequestBuilderGetQueryParametersMapper,
     },
@@ -124,7 +124,7 @@ export const HostPortItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostPortFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeHostPort,

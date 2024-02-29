@@ -87,7 +87,7 @@ export const DelegatedAdminAccessAssignmentItemRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DelegatedAdminAccessAssignmentItemRequestBuilderUriTemplate,
@@ -95,7 +95,7 @@ export const DelegatedAdminAccessAssignmentItemRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminAccessAssignmentFromDiscriminatorValue,
         queryParametersMapper: DelegatedAdminAccessAssignmentItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +105,7 @@ export const DelegatedAdminAccessAssignmentItemRequestBuilderRequestsMetadata: R
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminAccessAssignmentFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDelegatedAdminAccessAssignment,

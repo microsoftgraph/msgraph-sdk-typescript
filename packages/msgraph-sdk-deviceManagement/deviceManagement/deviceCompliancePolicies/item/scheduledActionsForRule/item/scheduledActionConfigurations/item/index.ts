@@ -87,7 +87,7 @@ export const DeviceComplianceActionItemItemRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: DeviceComplianceActionItemItemRequestBuilderUriTemplate,
@@ -95,7 +95,7 @@ export const DeviceComplianceActionItemItemRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceComplianceActionItemFromDiscriminatorValue,
         queryParametersMapper: DeviceComplianceActionItemItemRequestBuilderGetQueryParametersMapper,
     },
@@ -105,7 +105,7 @@ export const DeviceComplianceActionItemItemRequestBuilderRequestsMetadata: Reque
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceComplianceActionItemFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceComplianceActionItem,

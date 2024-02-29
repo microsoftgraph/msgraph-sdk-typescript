@@ -129,7 +129,7 @@ export const AndroidManagedAppProtectionsRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAndroidManagedAppProtectionCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AndroidManagedAppProtectionsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const AndroidManagedAppProtectionsRequestBuilderRequestsMetadata: Request
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAndroidManagedAppProtectionFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAndroidManagedAppProtection,

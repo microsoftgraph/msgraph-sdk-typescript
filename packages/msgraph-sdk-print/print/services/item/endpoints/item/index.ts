@@ -85,7 +85,7 @@ export const PrintServiceEndpointItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: PrintServiceEndpointItemRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const PrintServiceEndpointItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintServiceEndpointFromDiscriminatorValue,
         queryParametersMapper: PrintServiceEndpointItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const PrintServiceEndpointItemRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintServiceEndpointFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrintServiceEndpoint,

@@ -120,7 +120,7 @@ export const TokenIssuancePoliciesRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createTokenIssuancePolicyCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: TokenIssuancePoliciesRequestBuilderGetQueryParametersMapper,
     },

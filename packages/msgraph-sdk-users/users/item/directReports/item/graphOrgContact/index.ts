@@ -57,7 +57,7 @@ export const GraphOrgContactRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrgContactFromDiscriminatorValue,
         queryParametersMapper: GraphOrgContactRequestBuilderGetQueryParametersMapper,
     },

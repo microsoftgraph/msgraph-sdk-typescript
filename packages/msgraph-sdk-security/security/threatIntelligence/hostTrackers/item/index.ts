@@ -98,7 +98,7 @@ export const HostTrackerItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: HostTrackerItemRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const HostTrackerItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostTrackerFromDiscriminatorValue,
         queryParametersMapper: HostTrackerItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const HostTrackerItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostTrackerFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeHostTracker,

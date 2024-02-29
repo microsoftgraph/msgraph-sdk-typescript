@@ -22,30 +22,30 @@ export interface DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<D
      */
      byDeviceConfigurationId(deviceConfigurationId: string) : DeviceConfigurationItemRequestBuilder;
     /**
-     * List properties and relationships of the windows10TeamGeneralConfiguration objects.
+     * List properties and relationships of the windowsUpdateForBusinessConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfigurationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10teamgeneralconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windowsupdateforbusinessconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfigurationCollectionResponse | undefined>;
     /**
-     * Create a new androidWorkProfileCustomConfiguration object.
+     * Create a new windows10GeneralConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecustomconfiguration-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10generalconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfiguration | undefined>;
     /**
-     * List properties and relationships of the windows10TeamGeneralConfiguration objects.
+     * List properties and relationships of the windowsUpdateForBusinessConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceConfigurationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new androidWorkProfileCustomConfiguration object.
+     * Create a new windows10GeneralConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -53,7 +53,7 @@ export interface DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<D
      toPostRequestInformation(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the windows10TeamGeneralConfiguration objects.
+ * List properties and relationships of the windowsUpdateForBusinessConfiguration objects.
  */
 export interface DeviceConfigurationsRequestBuilderGetQueryParameters {
     /**
@@ -129,7 +129,7 @@ export const DeviceConfigurationsRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceConfigurationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: DeviceConfigurationsRequestBuilderGetQueryParametersMapper,
     },
@@ -139,7 +139,7 @@ export const DeviceConfigurationsRequestBuilderRequestsMetadata: RequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDeviceConfigurationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDeviceConfiguration,

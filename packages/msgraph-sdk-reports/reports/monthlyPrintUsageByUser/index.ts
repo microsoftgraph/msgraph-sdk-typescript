@@ -127,7 +127,7 @@ export const MonthlyPrintUsageByUserRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintUsageByUserCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: MonthlyPrintUsageByUserRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const MonthlyPrintUsageByUserRequestBuilderRequestsMetadata: RequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createPrintUsageByUserFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializePrintUsageByUser,

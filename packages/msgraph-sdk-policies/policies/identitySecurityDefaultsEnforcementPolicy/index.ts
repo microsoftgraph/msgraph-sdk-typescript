@@ -86,7 +86,7 @@ export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue,
         queryParametersMapper: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderRequestsMeta
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeIdentitySecurityDefaultsEnforcementPolicy,

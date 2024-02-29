@@ -126,7 +126,7 @@ export const EffectiveRulesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleManagementPolicyRuleCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: EffectiveRulesRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const EffectiveRulesRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUnifiedRoleManagementPolicyRule,

@@ -146,7 +146,7 @@ export const UnifiedRoleAssignmentScheduleRequestItemRequestBuilderRequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: UnifiedRoleAssignmentScheduleRequestItemRequestBuilderUriTemplate,
@@ -154,7 +154,7 @@ export const UnifiedRoleAssignmentScheduleRequestItemRequestBuilderRequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue,
         queryParametersMapper: UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetQueryParametersMapper,
     },
@@ -164,7 +164,7 @@ export const UnifiedRoleAssignmentScheduleRequestItemRequestBuilderRequestsMetad
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUnifiedRoleAssignmentScheduleRequest,

@@ -84,7 +84,7 @@ export const CertificateBasedAuthConfigurationItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CertificateBasedAuthConfigurationItemRequestBuilderUriTemplate,
@@ -92,7 +92,7 @@ export const CertificateBasedAuthConfigurationItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCertificateBasedAuthConfigurationFromDiscriminatorValue,
         queryParametersMapper: CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -102,7 +102,7 @@ export const CertificateBasedAuthConfigurationItemRequestBuilderRequestsMetadata
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCertificateBasedAuthConfigurationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCertificateBasedAuthConfiguration,

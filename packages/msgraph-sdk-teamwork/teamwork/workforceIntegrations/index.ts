@@ -128,7 +128,7 @@ export const WorkforceIntegrationsRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkforceIntegrationCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: WorkforceIntegrationsRequestBuilderGetQueryParametersMapper,
     },
@@ -138,7 +138,7 @@ export const WorkforceIntegrationsRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkforceIntegrationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeWorkforceIntegration,

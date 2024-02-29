@@ -113,7 +113,7 @@ export const WorkflowTemplatesRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createWorkflowTemplateCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: WorkflowTemplatesRequestBuilderGetQueryParametersMapper,
     },

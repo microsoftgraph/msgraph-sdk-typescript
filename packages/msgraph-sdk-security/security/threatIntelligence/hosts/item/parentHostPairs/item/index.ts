@@ -57,7 +57,7 @@ export const HostPairItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createHostPairFromDiscriminatorValue,
         queryParametersMapper: HostPairItemRequestBuilderGetQueryParametersMapper,
     },

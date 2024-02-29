@@ -160,7 +160,7 @@ export const ContactsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrgContactCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ContactsRequestBuilderGetQueryParametersMapper,
     },
@@ -170,7 +170,7 @@ export const ContactsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOrgContactFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOrgContact,

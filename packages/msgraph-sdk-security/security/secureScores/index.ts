@@ -127,7 +127,7 @@ export const SecureScoresRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecureScoreCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SecureScoresRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const SecureScoresRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSecureScoreFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSecureScore,

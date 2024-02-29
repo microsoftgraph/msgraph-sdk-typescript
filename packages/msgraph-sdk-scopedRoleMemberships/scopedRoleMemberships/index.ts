@@ -126,7 +126,7 @@ export const ScopedRoleMembershipsRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createScopedRoleMembershipCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ScopedRoleMembershipsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const ScopedRoleMembershipsRequestBuilderRequestsMetadata: RequestsMetada
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createScopedRoleMembershipFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeScopedRoleMembership,

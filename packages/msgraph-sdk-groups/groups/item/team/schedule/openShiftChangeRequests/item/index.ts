@@ -85,7 +85,7 @@ export const OpenShiftChangeRequestItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OpenShiftChangeRequestItemRequestBuilderUriTemplate,
@@ -93,7 +93,7 @@ export const OpenShiftChangeRequestItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOpenShiftChangeRequestFromDiscriminatorValue,
         queryParametersMapper: OpenShiftChangeRequestItemRequestBuilderGetQueryParametersMapper,
     },
@@ -103,7 +103,7 @@ export const OpenShiftChangeRequestItemRequestBuilderRequestsMetadata: RequestsM
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOpenShiftChangeRequestFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOpenShiftChangeRequest,

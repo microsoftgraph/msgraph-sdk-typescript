@@ -127,7 +127,7 @@ export const ServiceManagementDetailsRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminServiceManagementDetailCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: ServiceManagementDetailsRequestBuilderGetQueryParametersMapper,
     },
@@ -137,7 +137,7 @@ export const ServiceManagementDetailsRequestBuilderRequestsMetadata: RequestsMet
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createDelegatedAdminServiceManagementDetailFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeDelegatedAdminServiceManagementDetail,

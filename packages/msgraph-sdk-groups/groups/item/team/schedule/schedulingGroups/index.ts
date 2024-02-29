@@ -123,7 +123,7 @@ export const SchedulingGroupsRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSchedulingGroupCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: SchedulingGroupsRequestBuilderGetQueryParametersMapper,
     },
@@ -133,7 +133,7 @@ export const SchedulingGroupsRequestBuilderRequestsMetadata: RequestsMetadata = 
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createSchedulingGroupFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSchedulingGroup,

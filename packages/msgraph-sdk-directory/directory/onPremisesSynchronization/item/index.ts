@@ -86,7 +86,7 @@ export const OnPremisesDirectorySynchronizationItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: OnPremisesDirectorySynchronizationItemRequestBuilderUriTemplate,
@@ -94,7 +94,7 @@ export const OnPremisesDirectorySynchronizationItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnPremisesDirectorySynchronizationFromDiscriminatorValue,
         queryParametersMapper: OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParametersMapper,
     },
@@ -104,7 +104,7 @@ export const OnPremisesDirectorySynchronizationItemRequestBuilderRequestsMetadat
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createOnPremisesDirectorySynchronizationFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeOnPremisesDirectorySynchronization,

@@ -146,7 +146,7 @@ export const AuditEventsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuditEventCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: AuditEventsRequestBuilderGetQueryParametersMapper,
     },
@@ -156,7 +156,7 @@ export const AuditEventsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createAuditEventFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAuditEvent,

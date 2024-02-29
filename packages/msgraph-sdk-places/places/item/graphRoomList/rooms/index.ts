@@ -126,7 +126,7 @@ export const RoomsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoomCollectionResponseFromDiscriminatorValue,
         queryParametersMapper: RoomsRequestBuilderGetQueryParametersMapper,
     },
@@ -136,7 +136,7 @@ export const RoomsRequestBuilderRequestsMetadata: RequestsMetadata = {
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createRoomFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRoom,

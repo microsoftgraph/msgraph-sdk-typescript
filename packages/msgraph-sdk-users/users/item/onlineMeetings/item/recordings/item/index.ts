@@ -98,7 +98,7 @@ export const CallRecordingItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendNoResponseContentAsync",
+        adapterMethodName: "sendNoResponseContent",
     },
     get: {
         uriTemplate: CallRecordingItemRequestBuilderUriTemplate,
@@ -106,7 +106,7 @@ export const CallRecordingItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCallRecordingFromDiscriminatorValue,
         queryParametersMapper: CallRecordingItemRequestBuilderGetQueryParametersMapper,
     },
@@ -116,7 +116,7 @@ export const CallRecordingItemRequestBuilderRequestsMetadata: RequestsMetadata =
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
-        adapterMethodName: "sendAsync",
+        adapterMethodName: "send",
         responseBodyFactory:  createCallRecordingFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCallRecording,
