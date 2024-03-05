@@ -801,7 +801,7 @@ export interface DirectRoutingLogRow extends AdditionalDataHolder, BackedModel, 
      */
     failureDateTime?: Date;
     /**
-     * The code with which the call ended. For more information, see RFC 3261.
+     * The final response code with which the call ended. For more information, see RFC 3261.
      */
     finalSipCode?: number;
     /**
@@ -813,7 +813,7 @@ export interface DirectRoutingLogRow extends AdditionalDataHolder, BackedModel, 
      */
     id?: string;
     /**
-     * When the initial invite was sent.
+     * The date and time when the initial invite was sent.
      */
     inviteDateTime?: Date;
     /**
@@ -833,7 +833,7 @@ export interface DirectRoutingLogRow extends AdditionalDataHolder, BackedModel, 
      */
     signalingLocation?: string;
     /**
-     * Call start time.For failed and unanswered calls, this can be equal to the invite or failure time.
+     * Call start time.For failed and unanswered calls, this value can be equal to the invite or failure time.
      */
     startDateTime?: Date;
     /**
@@ -853,7 +853,7 @@ export interface DirectRoutingLogRow extends AdditionalDataHolder, BackedModel, 
      */
     userId?: string;
     /**
-     * UserPrincipalName (sign-in name) in Microsoft Entra ID. This is usually the same as the user's SIP Address, and can be the same as the user's email address.
+     * UserPrincipalName (sign-in name) in Microsoft Entra ID. This value is usually the same as the user's SIP Address, and can be the same as the user's email address.
      */
     userPrincipalName?: string;
 }

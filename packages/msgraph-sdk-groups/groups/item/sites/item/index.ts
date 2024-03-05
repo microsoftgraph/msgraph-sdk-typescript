@@ -19,6 +19,7 @@ import { LastModifiedByUserRequestBuilderNavigationMetadata, LastModifiedByUserR
 import { ListsRequestBuilderNavigationMetadata, ListsRequestBuilderRequestsMetadata, type ListsRequestBuilder } from './lists/';
 import { OnenoteRequestBuilderNavigationMetadata, OnenoteRequestBuilderRequestsMetadata, type OnenoteRequestBuilder } from './onenote/';
 import { OperationsRequestBuilderNavigationMetadata, OperationsRequestBuilderRequestsMetadata, type OperationsRequestBuilder } from './operations/';
+import { PagesRequestBuilderNavigationMetadata, PagesRequestBuilderRequestsMetadata, type PagesRequestBuilder } from './pages/';
 import { PermissionsRequestBuilderNavigationMetadata, PermissionsRequestBuilderRequestsMetadata, type PermissionsRequestBuilder } from './permissions/';
 import { SitesRequestBuilderNavigationMetadata, SitesRequestBuilderRequestsMetadata, type SitesRequestBuilder } from './sites/';
 import { TermStoreRequestBuilderNavigationMetadata, TermStoreRequestBuilderRequestsMetadata, type TermStoreRequestBuilder } from './termStore/';
@@ -81,6 +82,10 @@ export interface SiteItemRequestBuilder extends BaseRequestBuilder<SiteItemReque
      * Provides operations to manage the operations property of the microsoft.graph.site entity.
      */
     get operations(): OperationsRequestBuilder;
+    /**
+     * Provides operations to manage the pages property of the microsoft.graph.site entity.
+     */
+    get pages(): PagesRequestBuilder;
     /**
      * Provides operations to manage the permissions property of the microsoft.graph.site entity.
      */
@@ -233,6 +238,10 @@ export const SiteItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Site
     operations: {
         requestsMetadata: OperationsRequestBuilderRequestsMetadata,
         navigationMetadata: OperationsRequestBuilderNavigationMetadata,
+    },
+    pages: {
+        requestsMetadata: PagesRequestBuilderRequestsMetadata,
+        navigationMetadata: PagesRequestBuilderNavigationMetadata,
     },
     permissions: {
         requestsMetadata: PermissionsRequestBuilderRequestsMetadata,

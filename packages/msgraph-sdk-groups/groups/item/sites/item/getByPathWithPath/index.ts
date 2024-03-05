@@ -19,6 +19,7 @@ import { LastModifiedByUserRequestBuilderRequestsMetadata, type LastModifiedByUs
 import { ListsRequestBuilderRequestsMetadata, type ListsRequestBuilder } from './lists/';
 import { OnenoteRequestBuilderRequestsMetadata, type OnenoteRequestBuilder } from './onenote/';
 import { OperationsRequestBuilderRequestsMetadata, type OperationsRequestBuilder } from './operations/';
+import { PagesRequestBuilderRequestsMetadata, type PagesRequestBuilder } from './pages/';
 import { PermissionsRequestBuilderRequestsMetadata, type PermissionsRequestBuilder } from './permissions/';
 import { SitesRequestBuilderRequestsMetadata, type SitesRequestBuilder } from './sites/';
 import { TermStoreRequestBuilderRequestsMetadata, type TermStoreRequestBuilder } from './termStore/';
@@ -81,6 +82,10 @@ export interface GetByPathWithPathRequestBuilder extends BaseRequestBuilder<GetB
      * Provides operations to manage the operations property of the microsoft.graph.site entity.
      */
     get operations(): OperationsRequestBuilder;
+    /**
+     * Provides operations to manage the pages property of the microsoft.graph.site entity.
+     */
+    get pages(): PagesRequestBuilder;
     /**
      * Provides operations to manage the permissions property of the microsoft.graph.site entity.
      */
@@ -187,6 +192,9 @@ export const GetByPathWithPathRequestBuilderNavigationMetadata: Record<Exclude<k
     },
     operations: {
         requestsMetadata: OperationsRequestBuilderRequestsMetadata,
+    },
+    pages: {
+        requestsMetadata: PagesRequestBuilderRequestsMetadata,
     },
     permissions: {
         requestsMetadata: PermissionsRequestBuilderRequestsMetadata,

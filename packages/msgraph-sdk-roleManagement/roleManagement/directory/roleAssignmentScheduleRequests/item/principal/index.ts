@@ -10,21 +10,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface PrincipalRequestBuilder extends BaseRequestBuilder<PrincipalRequestBuilder> {
     /**
-     * The principal that's getting a role assignment through the request. Supports $expand.
+     * The principal that's getting a role assignment through the request. Supports $expand and $select nested in $expand for id only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObject>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<PrincipalRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObject | undefined>;
     /**
-     * The principal that's getting a role assignment through the request. Supports $expand.
+     * The principal that's getting a role assignment through the request. Supports $expand and $select nested in $expand for id only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PrincipalRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The principal that's getting a role assignment through the request. Supports $expand.
+ * The principal that's getting a role assignment through the request. Supports $expand and $select nested in $expand for id only.
  */
 export interface PrincipalRequestBuilderGetQueryParameters {
     /**
