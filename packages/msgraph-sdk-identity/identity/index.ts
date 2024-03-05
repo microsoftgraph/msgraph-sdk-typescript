@@ -5,7 +5,7 @@ import { createIdentityContainerFromDiscriminatorValue, serializeIdentityContain
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { ApiConnectorsRequestBuilderNavigationMetadata, ApiConnectorsRequestBuilderRequestsMetadata, type ApiConnectorsRequestBuilder } from './apiConnectors/';
 import { B2xUserFlowsRequestBuilderNavigationMetadata, B2xUserFlowsRequestBuilderRequestsMetadata, type B2xUserFlowsRequestBuilder } from './b2xUserFlows/';
-import { ConditionalAccessRequestBuilderNavigationMetadata, ConditionalAccessRequestBuilderRequestsMetadata, type ConditionalAccessRequestBuilder } from './conditionalAccess/';
+import { ConditionalAccessRequestBuilderNavigationMetadata, type ConditionalAccessRequestBuilder } from './conditionalAccess/';
 import { IdentityProvidersRequestBuilderNavigationMetadata, IdentityProvidersRequestBuilderRequestsMetadata, type IdentityProvidersRequestBuilder } from './identityProviders/';
 import { type UserFlowAttributesRequestBuilder, UserFlowAttributesRequestBuilderNavigationMetadata, UserFlowAttributesRequestBuilderRequestsMetadata } from './userFlowAttributes/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -23,7 +23,7 @@ export interface IdentityRequestBuilder extends BaseRequestBuilder<IdentityReque
      */
     get b2xUserFlows(): B2xUserFlowsRequestBuilder;
     /**
-     * Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.
+     * The conditionalAccess property
      */
     get conditionalAccess(): ConditionalAccessRequestBuilder;
     /**
@@ -100,7 +100,6 @@ export const IdentityRequestBuilderNavigationMetadata: Record<Exclude<keyof Iden
         navigationMetadata: B2xUserFlowsRequestBuilderNavigationMetadata,
     },
     conditionalAccess: {
-        requestsMetadata: ConditionalAccessRequestBuilderRequestsMetadata,
         navigationMetadata: ConditionalAccessRequestBuilderNavigationMetadata,
     },
     identityProviders: {

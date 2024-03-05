@@ -10,21 +10,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface TargetScheduleRequestBuilder extends BaseRequestBuilder<TargetScheduleRequestBuilder> {
     /**
-     * The schedule for an eligible role assignment that is referenced through the targetScheduleId property. Supports $expand.
+     * The schedule for an eligible role assignment that is referenced through the targetScheduleId property. Supports $expand and $select nested in $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleAssignmentSchedule>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<TargetScheduleRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined>;
     /**
-     * The schedule for an eligible role assignment that is referenced through the targetScheduleId property. Supports $expand.
+     * The schedule for an eligible role assignment that is referenced through the targetScheduleId property. Supports $expand and $select nested in $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TargetScheduleRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The schedule for an eligible role assignment that is referenced through the targetScheduleId property. Supports $expand.
+ * The schedule for an eligible role assignment that is referenced through the targetScheduleId property. Supports $expand and $select nested in $expand.
  */
 export interface TargetScheduleRequestBuilderGetQueryParameters {
     /**

@@ -59,7 +59,7 @@ import { type UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequ
 import { type UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder, UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderNavigationMetadata, UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderRequestsMetadata } from './userExperienceAnalyticsWorkFromAnywhereMetrics/';
 import { type UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder, UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderNavigationMetadata, UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderRequestsMetadata } from './userExperienceAnalyticsWorkFromAnywhereModelPerformance/';
 import { type VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder, VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilderRequestsMetadata } from './verifyWindowsEnrollmentAutoDiscoveryWithDomainName/';
-import { type VirtualEndpointRequestBuilder, VirtualEndpointRequestBuilderRequestsMetadata } from './virtualEndpoint/';
+import { type VirtualEndpointRequestBuilder, VirtualEndpointRequestBuilderNavigationMetadata, VirtualEndpointRequestBuilderRequestsMetadata } from './virtualEndpoint/';
 import { type WindowsAutopilotDeviceIdentitiesRequestBuilder, WindowsAutopilotDeviceIdentitiesRequestBuilderNavigationMetadata, WindowsAutopilotDeviceIdentitiesRequestBuilderRequestsMetadata } from './windowsAutopilotDeviceIdentities/';
 import { type WindowsInformationProtectionAppLearningSummariesRequestBuilder, WindowsInformationProtectionAppLearningSummariesRequestBuilderNavigationMetadata, WindowsInformationProtectionAppLearningSummariesRequestBuilderRequestsMetadata } from './windowsInformationProtectionAppLearningSummaries/';
 import { type WindowsInformationProtectionNetworkLearningSummariesRequestBuilder, WindowsInformationProtectionNetworkLearningSummariesRequestBuilderNavigationMetadata, WindowsInformationProtectionNetworkLearningSummariesRequestBuilderRequestsMetadata } from './windowsInformationProtectionNetworkLearningSummaries/';
@@ -311,7 +311,7 @@ export interface DeviceManagementRequestBuilder extends BaseRequestBuilder<Devic
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagement>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-wip-devicemanagement-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-devicemanagement-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceManagementRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceManagement | undefined>;
     /**
@@ -326,7 +326,7 @@ export interface DeviceManagementRequestBuilder extends BaseRequestBuilder<Devic
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagement>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-devicemanagement-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-raimportcerts-devicemanagement-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceManagement | undefined>;
     /**
@@ -593,6 +593,7 @@ export const DeviceManagementRequestBuilderNavigationMetadata: Record<Exclude<ke
     },
     virtualEndpoint: {
         requestsMetadata: VirtualEndpointRequestBuilderRequestsMetadata,
+        navigationMetadata: VirtualEndpointRequestBuilderNavigationMetadata,
     },
     windowsAutopilotDeviceIdentities: {
         requestsMetadata: WindowsAutopilotDeviceIdentitiesRequestBuilderRequestsMetadata,
