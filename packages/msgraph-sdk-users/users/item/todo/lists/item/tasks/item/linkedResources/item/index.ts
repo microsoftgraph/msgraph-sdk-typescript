@@ -10,7 +10,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface LinkedResourceItemRequestBuilder extends BaseRequestBuilder<LinkedResourceItemRequestBuilder> {
     /**
-     * Deletes a linkedResource object.
+     * Delete a linkedResource object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/linkedresource-delete?view=graph-rest-1.0|Find more info here}
@@ -34,7 +34,7 @@ export interface LinkedResourceItemRequestBuilder extends BaseRequestBuilder<Lin
      */
      patch(body: LinkedResource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LinkedResource | undefined>;
     /**
-     * Deletes a linkedResource object.
+     * Delete a linkedResource object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

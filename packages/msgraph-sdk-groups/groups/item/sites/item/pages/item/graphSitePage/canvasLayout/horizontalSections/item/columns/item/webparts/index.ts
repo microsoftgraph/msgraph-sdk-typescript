@@ -4,7 +4,7 @@
 import { createWebPartCollectionResponseFromDiscriminatorValue, createWebPartFromDiscriminatorValue, serializeWebPart, type WebPart, type WebPartCollectionResponse } from '@microsoft/msgraph-sdk/models/';
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/';
-import { type WebPartItemRequestBuilder, WebPartItemRequestBuilderRequestsMetadata } from './item/';
+import { type WebPartItemRequestBuilder, WebPartItemRequestBuilderNavigationMetadata, WebPartItemRequestBuilderRequestsMetadata } from './item/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -110,6 +110,7 @@ const WebpartsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const WebpartsRequestBuilderNavigationMetadata: Record<Exclude<keyof WebpartsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     byWebPartId: {
         requestsMetadata: WebPartItemRequestBuilderRequestsMetadata,
+        navigationMetadata: WebPartItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["webPart%2Did"],
     },
     count: {

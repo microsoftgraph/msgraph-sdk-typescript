@@ -22,10 +22,11 @@ export interface InstancesRequestBuilder extends BaseRequestBuilder<InstancesReq
      */
      byWindowsSettingInstanceId(windowsSettingInstanceId: string) : WindowsSettingInstanceItemRequestBuilder;
     /**
-     * Get instances from users
+     * Get a list of windowsSettingInstance objects and their properties for the signed-in user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsSettingInstanceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/windowssetting-list-instances?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<InstancesRequestBuilderGetQueryParameters> | undefined) : Promise<WindowsSettingInstanceCollectionResponse | undefined>;
     /**
@@ -37,7 +38,7 @@ export interface InstancesRequestBuilder extends BaseRequestBuilder<InstancesReq
      */
      post(body: WindowsSettingInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WindowsSettingInstance | undefined>;
     /**
-     * Get instances from users
+     * Get a list of windowsSettingInstance objects and their properties for the signed-in user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -51,7 +52,7 @@ export interface InstancesRequestBuilder extends BaseRequestBuilder<InstancesReq
      toPostRequestInformation(body: WindowsSettingInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get instances from users
+ * Get a list of windowsSettingInstance objects and their properties for the signed-in user.
  */
 export interface InstancesRequestBuilderGetQueryParameters {
     /**

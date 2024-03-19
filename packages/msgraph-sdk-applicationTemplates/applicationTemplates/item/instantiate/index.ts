@@ -42,7 +42,7 @@ export interface InstantiatePostRequestBody extends AdditionalDataHolder, Backed
  */
 export interface InstantiateRequestBuilder extends BaseRequestBuilder<InstantiateRequestBuilder> {
     /**
-     * Add an instance of an application from the Microsoft Entra application gallery into your directory. You can also use this API to instantiate non-gallery apps. Use the following ID for the applicationTemplate object: 8adf8e6e-67b2-4cf2-a259-e3dc5476c621.
+     * Add an instance of an application from the Microsoft Entra application gallery into your directory. The application template with ID 8adf8e6e-67b2-4cf2-a259-e3dc5476c621 can be used to add a non-gallery app that you can configure different single-sign on (SSO) modes like SAML SSO and password-based SSO.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ApplicationServicePrincipal>}
@@ -51,7 +51,7 @@ export interface InstantiateRequestBuilder extends BaseRequestBuilder<Instantiat
      */
      post(body: InstantiatePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ApplicationServicePrincipal | undefined>;
     /**
-     * Add an instance of an application from the Microsoft Entra application gallery into your directory. You can also use this API to instantiate non-gallery apps. Use the following ID for the applicationTemplate object: 8adf8e6e-67b2-4cf2-a259-e3dc5476c621.
+     * Add an instance of an application from the Microsoft Entra application gallery into your directory. The application template with ID 8adf8e6e-67b2-4cf2-a259-e3dc5476c621 can be used to add a non-gallery app that you can configure different single-sign on (SSO) modes like SAML SSO and password-based SSO.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

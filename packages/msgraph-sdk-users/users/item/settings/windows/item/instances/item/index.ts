@@ -16,10 +16,11 @@ export interface WindowsSettingInstanceItemRequestBuilder extends BaseRequestBui
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get instances from users
+     * Read the properties and relationships of a windowsSettingInstance object by passing the Windows setting ID and Windows setting instance ID in the URL. This method gets a windowsSettingInstance for the signed-in user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsSettingInstance>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/windowssettinginstance-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WindowsSettingInstanceItemRequestBuilderGetQueryParameters> | undefined) : Promise<WindowsSettingInstance | undefined>;
     /**
@@ -37,7 +38,7 @@ export interface WindowsSettingInstanceItemRequestBuilder extends BaseRequestBui
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get instances from users
+     * Read the properties and relationships of a windowsSettingInstance object by passing the Windows setting ID and Windows setting instance ID in the URL. This method gets a windowsSettingInstance for the signed-in user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -51,7 +52,7 @@ export interface WindowsSettingInstanceItemRequestBuilder extends BaseRequestBui
      toPatchRequestInformation(body: WindowsSettingInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get instances from users
+ * Read the properties and relationships of a windowsSettingInstance object by passing the Windows setting ID and Windows setting instance ID in the URL. This method gets a windowsSettingInstance for the signed-in user.
  */
 export interface WindowsSettingInstanceItemRequestBuilderGetQueryParameters {
     /**

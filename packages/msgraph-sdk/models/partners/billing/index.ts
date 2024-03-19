@@ -15,6 +15,8 @@ export interface AzureUsage extends Entity, Parsable {
      */
     unbilled?: UnbilledUsage;
 }
+export interface BilledReconciliation extends Entity, Parsable {
+}
 export interface BilledUsage extends Entity, Parsable {
 }
 export interface Billing extends Entity, Parsable {
@@ -27,11 +29,21 @@ export interface Billing extends Entity, Parsable {
      */
     operations?: Operation[];
     /**
+     * The reconciliation property
+     */
+    reconciliation?: BillingReconciliation;
+    /**
      * The usage property
      */
     usage?: AzureUsage;
 }
 export type BillingPeriod = (typeof BillingPeriodObject)[keyof typeof BillingPeriodObject];
+export interface BillingReconciliation extends Entity, Parsable {
+    /**
+     * The billed property
+     */
+    billed?: BilledReconciliation;
+}
 export interface Blob extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -65,6 +77,14 @@ export function createAzureUsageFromDiscriminatorValue(parseNode: ParseNode | un
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {BilledReconciliation}
+ */
+export function createBilledReconciliationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoBilledReconciliation;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {BilledUsage}
  */
 export function createBilledUsageFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
@@ -77,6 +97,14 @@ export function createBilledUsageFromDiscriminatorValue(parseNode: ParseNode | u
  */
 export function createBillingFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBilling;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {BillingReconciliation}
+ */
+export function createBillingReconciliationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoBillingReconciliation;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -180,6 +208,15 @@ export function deserializeIntoAzureUsage(azureUsage: Partial<AzureUsage> | unde
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+export function deserializeIntoBilledReconciliation(billedReconciliation: Partial<BilledReconciliation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(billedReconciliation),
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
 export function deserializeIntoBilledUsage(billedUsage: Partial<BilledUsage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(billedUsage),
@@ -194,7 +231,18 @@ export function deserializeIntoBilling(billing: Partial<Billing> | undefined = {
         ...deserializeIntoEntity(billing),
         "manifests": n => { billing.manifests = n.getCollectionOfObjectValues<Manifest>(createManifestFromDiscriminatorValue); },
         "operations": n => { billing.operations = n.getCollectionOfObjectValues<Operation>(createOperationFromDiscriminatorValue); },
+        "reconciliation": n => { billing.reconciliation = n.getObjectValue<BillingReconciliation>(createBillingReconciliationFromDiscriminatorValue); },
         "usage": n => { billing.usage = n.getObjectValue<AzureUsage>(createAzureUsageFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+export function deserializeIntoBillingReconciliation(billingReconciliation: Partial<BillingReconciliation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(billingReconciliation),
+        "billed": n => { billingReconciliation.billed = n.getObjectValue<BilledReconciliation>(createBilledReconciliationFromDiscriminatorValue); },
     }
 }
 /**
@@ -393,6 +441,13 @@ export function serializeAzureUsage(writer: SerializationWriter, azureUsage: Par
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+export function serializeBilledReconciliation(writer: SerializationWriter, billedReconciliation: Partial<BilledReconciliation> | undefined = {}) : void {
+    serializeEntity(writer, billedReconciliation)
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
 export function serializeBilledUsage(writer: SerializationWriter, billedUsage: Partial<BilledUsage> | undefined = {}) : void {
     serializeEntity(writer, billedUsage)
 }
@@ -404,7 +459,16 @@ export function serializeBilling(writer: SerializationWriter, billing: Partial<B
     serializeEntity(writer, billing)
     writer.writeCollectionOfObjectValues<Manifest>("manifests", billing.manifests, serializeManifest);
     writer.writeCollectionOfObjectValues<Operation>("operations", billing.operations, serializeOperation);
+    writer.writeObjectValue<BillingReconciliation>("reconciliation", billing.reconciliation, serializeBillingReconciliation);
     writer.writeObjectValue<AzureUsage>("usage", billing.usage, serializeAzureUsage);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+export function serializeBillingReconciliation(writer: SerializationWriter, billingReconciliation: Partial<BillingReconciliation> | undefined = {}) : void {
+    serializeEntity(writer, billingReconciliation)
+    writer.writeObjectValue<BilledReconciliation>("billed", billingReconciliation.billed, serializeBilledReconciliation);
 }
 /**
  * Serializes information the current object

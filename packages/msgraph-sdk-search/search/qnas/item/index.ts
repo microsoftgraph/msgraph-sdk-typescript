@@ -10,40 +10,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface QnaItemRequestBuilder extends BaseRequestBuilder<QnaItemRequestBuilder> {
     /**
-     * Delete navigation property qnas for search
+     * Delete a qna object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/search-qna-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get qnas from search
+     * Read the properties and relationships of a qna object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Qna>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/search-qna-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<QnaItemRequestBuilderGetQueryParameters> | undefined) : Promise<Qna | undefined>;
     /**
-     * Update the navigation property qnas in search
+     * Update the properties of a qna object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Qna>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/search-qna-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Qna, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Qna | undefined>;
     /**
-     * Delete navigation property qnas for search
+     * Delete a qna object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get qnas from search
+     * Read the properties and relationships of a qna object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<QnaItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property qnas in search
+     * Update the properties of a qna object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -51,7 +54,7 @@ export interface QnaItemRequestBuilder extends BaseRequestBuilder<QnaItemRequest
      toPatchRequestInformation(body: Qna, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get qnas from search
+ * Read the properties and relationships of a qna object.
  */
 export interface QnaItemRequestBuilderGetQueryParameters {
     /**

@@ -9,13 +9,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface UndoDeleteRequestBuilder extends BaseRequestBuilder<UndoDeleteRequestBuilder> {
     /**
-     * Invoke action undoDelete
+     * Restore a  deletedChat to an active chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/deletedchat-undodelete?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Invoke action undoDelete
+     * Restore a  deletedChat to an active chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

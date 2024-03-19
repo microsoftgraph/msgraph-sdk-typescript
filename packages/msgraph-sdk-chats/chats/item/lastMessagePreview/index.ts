@@ -16,7 +16,7 @@ export interface LastMessagePreviewRequestBuilder extends BaseRequestBuilder<Las
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.
+     * Preview of the last message sent in the chat. Null if no messages were sent in the chat. Currently, only the list chats operation supports this property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ChatMessageInfo>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -37,7 +37,7 @@ export interface LastMessagePreviewRequestBuilder extends BaseRequestBuilder<Las
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.
+     * Preview of the last message sent in the chat. Null if no messages were sent in the chat. Currently, only the list chats operation supports this property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -51,7 +51,7 @@ export interface LastMessagePreviewRequestBuilder extends BaseRequestBuilder<Las
      toPatchRequestInformation(body: ChatMessageInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.
+ * Preview of the last message sent in the chat. Null if no messages were sent in the chat. Currently, only the list chats operation supports this property.
  */
 export interface LastMessagePreviewRequestBuilderGetQueryParameters {
     /**

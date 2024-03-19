@@ -4,6 +4,10 @@
 import { createVirtualEndpointFromDiscriminatorValue, serializeVirtualEndpoint, type VirtualEndpoint } from '@microsoft/msgraph-sdk/models/';
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { AuditEventsRequestBuilderNavigationMetadata, AuditEventsRequestBuilderRequestsMetadata, type AuditEventsRequestBuilder } from './auditEvents/';
+import { CloudPCsRequestBuilderNavigationMetadata, CloudPCsRequestBuilderRequestsMetadata, type CloudPCsRequestBuilder } from './cloudPCs/';
+import { DeviceImagesRequestBuilderNavigationMetadata, DeviceImagesRequestBuilderRequestsMetadata, type DeviceImagesRequestBuilder } from './deviceImages/';
+import { GalleryImagesRequestBuilderNavigationMetadata, GalleryImagesRequestBuilderRequestsMetadata, type GalleryImagesRequestBuilder } from './galleryImages/';
+import { OnPremisesConnectionsRequestBuilderNavigationMetadata, OnPremisesConnectionsRequestBuilderRequestsMetadata, type OnPremisesConnectionsRequestBuilder } from './onPremisesConnections/';
 import { ProvisioningPoliciesRequestBuilderNavigationMetadata, ProvisioningPoliciesRequestBuilderRequestsMetadata, type ProvisioningPoliciesRequestBuilder } from './provisioningPolicies/';
 import { type UserSettingsRequestBuilder, UserSettingsRequestBuilderNavigationMetadata, UserSettingsRequestBuilderRequestsMetadata } from './userSettings/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -16,6 +20,22 @@ export interface VirtualEndpointRequestBuilder extends BaseRequestBuilder<Virtua
      * Provides operations to manage the auditEvents property of the microsoft.graph.virtualEndpoint entity.
      */
     get auditEvents(): AuditEventsRequestBuilder;
+    /**
+     * Provides operations to manage the cloudPCs property of the microsoft.graph.virtualEndpoint entity.
+     */
+    get cloudPCs(): CloudPCsRequestBuilder;
+    /**
+     * Provides operations to manage the deviceImages property of the microsoft.graph.virtualEndpoint entity.
+     */
+    get deviceImages(): DeviceImagesRequestBuilder;
+    /**
+     * Provides operations to manage the galleryImages property of the microsoft.graph.virtualEndpoint entity.
+     */
+    get galleryImages(): GalleryImagesRequestBuilder;
+    /**
+     * Provides operations to manage the onPremisesConnections property of the microsoft.graph.virtualEndpoint entity.
+     */
+    get onPremisesConnections(): OnPremisesConnectionsRequestBuilder;
     /**
      * Provides operations to manage the provisioningPolicies property of the microsoft.graph.virtualEndpoint entity.
      */
@@ -96,6 +116,22 @@ export const VirtualEndpointRequestBuilderNavigationMetadata: Record<Exclude<key
     auditEvents: {
         requestsMetadata: AuditEventsRequestBuilderRequestsMetadata,
         navigationMetadata: AuditEventsRequestBuilderNavigationMetadata,
+    },
+    cloudPCs: {
+        requestsMetadata: CloudPCsRequestBuilderRequestsMetadata,
+        navigationMetadata: CloudPCsRequestBuilderNavigationMetadata,
+    },
+    deviceImages: {
+        requestsMetadata: DeviceImagesRequestBuilderRequestsMetadata,
+        navigationMetadata: DeviceImagesRequestBuilderNavigationMetadata,
+    },
+    galleryImages: {
+        requestsMetadata: GalleryImagesRequestBuilderRequestsMetadata,
+        navigationMetadata: GalleryImagesRequestBuilderNavigationMetadata,
+    },
+    onPremisesConnections: {
+        requestsMetadata: OnPremisesConnectionsRequestBuilderRequestsMetadata,
+        navigationMetadata: OnPremisesConnectionsRequestBuilderNavigationMetadata,
     },
     provisioningPolicies: {
         requestsMetadata: ProvisioningPoliciesRequestBuilderRequestsMetadata,

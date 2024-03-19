@@ -21,10 +21,11 @@ export interface WindowsSettingItemRequestBuilder extends BaseRequestBuilder<Win
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get windows from users
+     * Read the properties and relationships of a windowsSetting object by passing the ID of the setting in the URL. This method gets the setting for the signed-in user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsSetting>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/windowssetting-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WindowsSettingItemRequestBuilderGetQueryParameters> | undefined) : Promise<WindowsSetting | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface WindowsSettingItemRequestBuilder extends BaseRequestBuilder<Win
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get windows from users
+     * Read the properties and relationships of a windowsSetting object by passing the ID of the setting in the URL. This method gets the setting for the signed-in user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface WindowsSettingItemRequestBuilder extends BaseRequestBuilder<Win
      toPatchRequestInformation(body: WindowsSetting, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get windows from users
+ * Read the properties and relationships of a windowsSetting object by passing the ID of the setting in the URL. This method gets the setting for the signed-in user.
  */
 export interface WindowsSettingItemRequestBuilderGetQueryParameters {
     /**

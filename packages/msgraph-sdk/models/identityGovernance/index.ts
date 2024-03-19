@@ -1437,7 +1437,7 @@ export interface Task extends Entity, Parsable {
      */
     category?: LifecycleTaskCategory[];
     /**
-     * A boolean value that specifies whether, if this task fails, the workflow will stop, and subsequent tasks will not run. Optional.
+     * A boolean value that specifies whether, if this task fails, the workflow stops, and subsequent tasks aren't run. Optional.
      */
     continueOnError?: boolean;
     /**
@@ -1449,7 +1449,7 @@ export interface Task extends Entity, Parsable {
      */
     displayName?: string;
     /**
-     * An integer that states in what order the task will run in a workflow.Supports $orderby.
+     * An integer that states in what order the task runs in a workflow.Supports $orderby.
      */
     executionSequence?: number;
     /**
@@ -1457,7 +1457,7 @@ export interface Task extends Entity, Parsable {
      */
     isEnabled?: boolean;
     /**
-     * A unique template identifier for the task. For more information about the tasks that Lifecycle Workflows currently supports and their unique identifiers, see supported tasks. Required.Supports $filter(eq, ne).
+     * A unique template identifier for the task. For more information about the tasks that Lifecycle Workflows currently supports and their unique identifiers, see Configure the arguments for built-in Lifecycle Workflow tasks. Required.Supports $filter(eq, ne).
      */
     taskDefinitionId?: string;
     /**

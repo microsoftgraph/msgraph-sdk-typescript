@@ -30,7 +30,7 @@ export interface TeamsTabItemRequestBuilder extends BaseRequestBuilder<TeamsTabI
      */
      get(requestConfiguration?: RequestConfiguration<TeamsTabItemRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsTab | undefined>;
     /**
-     * Update the properties of the specified tab.This can be used to configure the content of the tab.
+     * Update the properties of the specified tab.This API can be used to configure the content of the tab.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsTab>}
@@ -51,7 +51,7 @@ export interface TeamsTabItemRequestBuilder extends BaseRequestBuilder<TeamsTabI
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeamsTabItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of the specified tab.This can be used to configure the content of the tab.
+     * Update the properties of the specified tab.This API can be used to configure the content of the tab.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
