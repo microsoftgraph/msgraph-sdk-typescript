@@ -9,14 +9,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface UnarchiveRequestBuilder extends BaseRequestBuilder<UnarchiveRequestBuilder> {
     /**
-     * Restore an archived team. This restores users' ability to send messages and edit the team, abiding by tenant and team settings. A Team is archived using the archive API. Unarchiving is an async operation. A team is unarchived once the async operation completes successfully, which may occur subsequent to a response from this API.
+     * Restore an archived team. This API restores users' ability to send messages and edit the team, abiding by tenant and team settings. A Team is archived using the archive API. Unarchiving is an async operation. A team is unarchived once the async operation completes successfully, which might occur subsequent to a response from this API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/team-unarchive?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Restore an archived team. This restores users' ability to send messages and edit the team, abiding by tenant and team settings. A Team is archived using the archive API. Unarchiving is an async operation. A team is unarchived once the async operation completes successfully, which may occur subsequent to a response from this API.
+     * Restore an archived team. This API restores users' ability to send messages and edit the team, abiding by tenant and team settings. A Team is archived using the archive API. Unarchiving is an async operation. A team is unarchived once the async operation completes successfully, which might occur subsequent to a response from this API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

@@ -70,9 +70,10 @@ export interface ChatItemRequestBuilder extends BaseRequestBuilder<ChatItemReque
      */
     get unhideForUser(): UnhideForUserRequestBuilder;
     /**
-     * Delete entity from chats
+     * Soft-delete a chat. When invoked with delegated permissions, this operation only works for tenant admins and Teams service admins.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/chat-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -93,7 +94,7 @@ export interface ChatItemRequestBuilder extends BaseRequestBuilder<ChatItemReque
      */
      patch(body: Chat, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Chat | undefined>;
     /**
-     * Delete entity from chats
+     * Soft-delete a chat. When invoked with delegated permissions, this operation only works for tenant admins and Teams service admins.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

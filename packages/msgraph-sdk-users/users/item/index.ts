@@ -394,12 +394,12 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
      get(requestConfiguration?: RequestConfiguration<UserItemRequestBuilderGetQueryParameters> | undefined) : Promise<User | undefined>;
     /**
-     * Update the properties of a user object.
+     * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage. Customers through Microsoft Entra ID for customers can also use this API operation to update their details. See Default user permissions in customer tenants for the list of properties they can update.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<User>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: User, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<User | undefined>;
     /**
@@ -422,7 +422,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a user object.
+     * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage. Customers through Microsoft Entra ID for customers can also use this API operation to update their details. See Default user permissions in customer tenants for the list of properties they can update.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

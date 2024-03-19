@@ -6,7 +6,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Pa
 
 export interface Acronym extends Parsable, SearchAnswer {
     /**
-     * The standsFor property
+     * What the acronym stands for.
      */
     standsFor?: string;
     /**
@@ -30,11 +30,11 @@ export interface AnswerKeyword extends AdditionalDataHolder, BackedModel, Parsab
      */
     backingStoreEnabled?: boolean;
     /**
-     * The keywords property
+     * A collection of keywords used to trigger the search answer.
      */
     keywords?: string[];
     /**
-     * The matchSimilarKeywords property
+     * If true, indicates that the search term contains similar words to the keywords that should trigger the search answer.
      */
     matchSimilarKeywords?: boolean;
     /**
@@ -42,7 +42,7 @@ export interface AnswerKeyword extends AdditionalDataHolder, BackedModel, Parsab
      */
     odataType?: string;
     /**
-     * The reservedKeywords property
+     * Unique keywords that guarantee the search answer is triggered.
      */
     reservedKeywords?: string[];
 }
@@ -57,15 +57,15 @@ export interface AnswerVariant extends AdditionalDataHolder, BackedModel, Parsab
      */
     backingStoreEnabled?: boolean;
     /**
-     * The description property
+     * The answer variation description that is shown on the search results page.
      */
     description?: string;
     /**
-     * The displayName property
+     * The answer variation name that is displayed in search results.
      */
     displayName?: string;
     /**
-     * The languageTag property
+     * The country or region that can view this answer variation.
      */
     languageTag?: string;
     /**
@@ -73,49 +73,49 @@ export interface AnswerVariant extends AdditionalDataHolder, BackedModel, Parsab
      */
     odataType?: string;
     /**
-     * The platform property
+     * The device or operating system that can view this answer variation. Possible values are: android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, unknown, androidASOP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
      */
     platform?: DevicePlatformType;
     /**
-     * The webUrl property
+     * The URL link for the answer variation. When users select this answer variation from the search results, they're directed to the specified URL.
      */
     webUrl?: string;
 }
 export interface Bookmark extends Parsable, SearchAnswer {
     /**
-     * The availabilityEndDateTime property
+     * Date and time when the bookmark stops appearing as a search result. Set as null for always available. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     availabilityEndDateTime?: Date;
     /**
-     * The availabilityStartDateTime property
+     * Date and time when the bookmark starts to appear as a search result. Set as null for always available. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     availabilityStartDateTime?: Date;
     /**
-     * The categories property
+     * Categories commonly used to describe this bookmark. For example, IT and HR.
      */
     categories?: string[];
     /**
-     * The groupIds property
+     * The list of security groups that are able to view this bookmark.
      */
     groupIds?: string[];
     /**
-     * The isSuggested property
+     * True if this bookmark was suggested to the admin, by a user, or was mined and suggested by Microsoft. Read-only.
      */
     isSuggested?: boolean;
     /**
-     * The keywords property
+     * Keywords that trigger this bookmark to appear in search results.
      */
     keywords?: AnswerKeyword;
     /**
-     * The languageTags property
+     * A list of geographically specific language names in which this bookmark can be viewed. Each language tag value follows the pattern {language}-{region}. For example, en-us is English as used in the United States. For the list of possible values, see Supported language tags.
      */
     languageTags?: string[];
     /**
-     * The platforms property
+     * List of devices and operating systems that are able to view this bookmark. Possible values are: android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, unknown, androidASOP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
      */
     platforms?: DevicePlatformType[];
     /**
-     * The powerAppIds property
+     * List of Power Apps associated with this bookmark. If users add existing Power Apps to a bookmark, they can complete tasks directly on the search results page, such as entering vacation time or reporting expenses.
      */
     powerAppIds?: string[];
     /**
@@ -123,7 +123,7 @@ export interface Bookmark extends Parsable, SearchAnswer {
      */
     state?: AnswerState;
     /**
-     * The targetedVariations property
+     * Variations of a bookmark for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings apply to all variations.
      */
     targetedVariations?: AnswerVariant[];
 }
@@ -432,31 +432,31 @@ export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable
 }
 export interface Qna extends Parsable, SearchAnswer {
     /**
-     * The availabilityEndDateTime property
+     * Date and time when the QnA stops appearing as a search result. Set as null for always available. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     availabilityEndDateTime?: Date;
     /**
-     * The availabilityStartDateTime property
+     * Date and time when the QnA starts to appear as a search result. Set as null for always available. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     availabilityStartDateTime?: Date;
     /**
-     * The groupIds property
+     * The list of security groups that are able to view this QnA.
      */
     groupIds?: string[];
     /**
-     * The isSuggested property
+     * True if a user or Microsoft suggested this QnA to the admin. Read-only.
      */
     isSuggested?: boolean;
     /**
-     * The keywords property
+     * Keywords that trigger this QnA to appear in search results.
      */
     keywords?: AnswerKeyword;
     /**
-     * The languageTags property
+     * A list of geographically specific language names in which this QnA can be viewed. Each language tag value follows the pattern {language}-{region}. For example, en-us is English as used in the United States. For the list of possible values, see Supported language tags.
      */
     languageTags?: string[];
     /**
-     * The platforms property
+     * List of devices and operating systems that are able to view this QnA. Possible values are: android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, unknown, androidASOP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
      */
     platforms?: DevicePlatformType[];
     /**
@@ -464,7 +464,7 @@ export interface Qna extends Parsable, SearchAnswer {
      */
     state?: AnswerState;
     /**
-     * The targetedVariations property
+     * Variations of a QnA for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings apply to all variations.
      */
     targetedVariations?: AnswerVariant[];
 }
@@ -476,23 +476,23 @@ export interface QnaCollectionResponse extends BaseCollectionPaginationCountResp
 }
 export interface SearchAnswer extends Entity, Parsable {
     /**
-     * The description property
+     * The search answer description that is shown on the search results page.
      */
     description?: string;
     /**
-     * The displayName property
+     * The search answer name that is displayed in search results.
      */
     displayName?: string;
     /**
-     * The lastModifiedBy property
+     * Details of the user who created or last modified the search answer. Read-only.
      */
     lastModifiedBy?: IdentitySet;
     /**
-     * The lastModifiedDateTime property
+     * Date and time when the search answer was created or last edited. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      */
     lastModifiedDateTime?: Date;
     /**
-     * The webUrl property
+     * The URL link for the search answer. When users select this search answer from the search results, they are directed to the specified URL.
      */
     webUrl?: string;
 }

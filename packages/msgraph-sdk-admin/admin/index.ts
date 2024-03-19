@@ -4,6 +4,7 @@
 import { createAdminFromDiscriminatorValue, serializeAdmin, type Admin } from '@microsoft/msgraph-sdk/models/';
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 import { EdgeRequestBuilderNavigationMetadata, EdgeRequestBuilderRequestsMetadata, type EdgeRequestBuilder } from './edge/';
+import { Microsoft365AppsRequestBuilderNavigationMetadata, Microsoft365AppsRequestBuilderRequestsMetadata, type Microsoft365AppsRequestBuilder } from './microsoft365Apps/';
 import { PeopleRequestBuilderNavigationMetadata, PeopleRequestBuilderRequestsMetadata, type PeopleRequestBuilder } from './people/';
 import { ServiceAnnouncementRequestBuilderNavigationMetadata, ServiceAnnouncementRequestBuilderRequestsMetadata, type ServiceAnnouncementRequestBuilder } from './serviceAnnouncement/';
 import { SharepointRequestBuilderNavigationMetadata, SharepointRequestBuilderRequestsMetadata, type SharepointRequestBuilder } from './sharepoint/';
@@ -17,6 +18,10 @@ export interface AdminRequestBuilder extends BaseRequestBuilder<AdminRequestBuil
      * Provides operations to manage the edge property of the microsoft.graph.admin entity.
      */
     get edge(): EdgeRequestBuilder;
+    /**
+     * Provides operations to manage the microsoft365Apps property of the microsoft.graph.admin entity.
+     */
+    get microsoft365Apps(): Microsoft365AppsRequestBuilder;
     /**
      * Provides operations to manage the people property of the microsoft.graph.admin entity.
      */
@@ -89,6 +94,10 @@ export const AdminRequestBuilderNavigationMetadata: Record<Exclude<keyof AdminRe
     edge: {
         requestsMetadata: EdgeRequestBuilderRequestsMetadata,
         navigationMetadata: EdgeRequestBuilderNavigationMetadata,
+    },
+    microsoft365Apps: {
+        requestsMetadata: Microsoft365AppsRequestBuilderRequestsMetadata,
+        navigationMetadata: Microsoft365AppsRequestBuilderNavigationMetadata,
     },
     people: {
         requestsMetadata: PeopleRequestBuilderRequestsMetadata,

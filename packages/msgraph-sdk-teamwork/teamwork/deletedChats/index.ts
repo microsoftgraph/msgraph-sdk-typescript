@@ -22,7 +22,7 @@ export interface DeletedChatsRequestBuilder extends BaseRequestBuilder<DeletedCh
      */
      byDeletedChatId(deletedChatId: string) : DeletedChatItemRequestBuilder;
     /**
-     * Get deletedChats from teamwork
+     * Read the properties and relationships of a deletedChat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeletedChatCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -37,7 +37,7 @@ export interface DeletedChatsRequestBuilder extends BaseRequestBuilder<DeletedCh
      */
      post(body: DeletedChat, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeletedChat | undefined>;
     /**
-     * Get deletedChats from teamwork
+     * Read the properties and relationships of a deletedChat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -51,7 +51,7 @@ export interface DeletedChatsRequestBuilder extends BaseRequestBuilder<DeletedCh
      toPostRequestInformation(body: DeletedChat, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get deletedChats from teamwork
+ * Read the properties and relationships of a deletedChat object.
  */
 export interface DeletedChatsRequestBuilderGetQueryParameters {
     /**

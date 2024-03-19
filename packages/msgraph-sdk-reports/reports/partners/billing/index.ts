@@ -5,6 +5,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { createBillingFromDiscriminatorValue, serializeBilling, type Billing } from '@microsoft/msgraph-sdk/models/partners/billing/';
 import { ManifestsRequestBuilderNavigationMetadata, ManifestsRequestBuilderRequestsMetadata, type ManifestsRequestBuilder } from './manifests/';
 import { OperationsRequestBuilderNavigationMetadata, OperationsRequestBuilderRequestsMetadata, type OperationsRequestBuilder } from './operations/';
+import { ReconciliationRequestBuilderNavigationMetadata, ReconciliationRequestBuilderRequestsMetadata, type ReconciliationRequestBuilder } from './reconciliation/';
 import { type UsageRequestBuilder, UsageRequestBuilderNavigationMetadata, UsageRequestBuilderRequestsMetadata } from './usage/';
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -20,6 +21,10 @@ export interface BillingRequestBuilder extends BaseRequestBuilder<BillingRequest
      * Provides operations to manage the operations property of the microsoft.graph.partners.billing.billing entity.
      */
     get operations(): OperationsRequestBuilder;
+    /**
+     * Provides operations to manage the reconciliation property of the microsoft.graph.partners.billing.billing entity.
+     */
+    get reconciliation(): ReconciliationRequestBuilder;
     /**
      * Provides operations to manage the usage property of the microsoft.graph.partners.billing.billing entity.
      */
@@ -100,6 +105,10 @@ export const BillingRequestBuilderNavigationMetadata: Record<Exclude<keyof Billi
     operations: {
         requestsMetadata: OperationsRequestBuilderRequestsMetadata,
         navigationMetadata: OperationsRequestBuilderNavigationMetadata,
+    },
+    reconciliation: {
+        requestsMetadata: ReconciliationRequestBuilderRequestsMetadata,
+        navigationMetadata: ReconciliationRequestBuilderNavigationMetadata,
     },
     usage: {
         requestsMetadata: UsageRequestBuilderRequestsMetadata,

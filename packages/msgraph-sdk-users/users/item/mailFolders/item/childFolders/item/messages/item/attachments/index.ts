@@ -27,11 +27,11 @@ export interface AttachmentsRequestBuilder extends BaseRequestBuilder<Attachment
      */
      byAttachmentId(attachmentId: string) : AttachmentItemRequestBuilder;
     /**
-     * Retrieve a list of attachment objects.
+     * Retrieve a list of attachment objects attached to a message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AttachmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/eventmessage-list-attachments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/message-list-attachments?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AttachmentsRequestBuilderGetQueryParameters> | undefined) : Promise<AttachmentCollectionResponse | undefined>;
     /**
@@ -44,7 +44,7 @@ export interface AttachmentsRequestBuilder extends BaseRequestBuilder<Attachment
      */
      post(body: Attachment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Attachment | undefined>;
     /**
-     * Retrieve a list of attachment objects.
+     * Retrieve a list of attachment objects attached to a message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -58,7 +58,7 @@ export interface AttachmentsRequestBuilder extends BaseRequestBuilder<Attachment
      toPostRequestInformation(body: Attachment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of attachment objects.
+ * Retrieve a list of attachment objects attached to a message.
  */
 export interface AttachmentsRequestBuilderGetQueryParameters {
     /**
