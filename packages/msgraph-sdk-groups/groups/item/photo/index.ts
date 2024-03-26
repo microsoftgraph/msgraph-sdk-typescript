@@ -15,6 +15,12 @@ export interface PhotoRequestBuilder extends BaseRequestBuilder<PhotoRequestBuil
      */
     get content(): ContentRequestBuilder;
     /**
+     * Delete navigation property photo for groups
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     */
+     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
+    /**
      * The group's profile photo
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ProfilePhoto>}
@@ -29,6 +35,12 @@ export interface PhotoRequestBuilder extends BaseRequestBuilder<PhotoRequestBuil
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: ProfilePhoto, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ProfilePhoto | undefined>;
+    /**
+     * Delete navigation property photo for groups
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns {RequestInformation}
+     */
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * The group's profile photo
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -74,6 +86,14 @@ export const PhotoRequestBuilderNavigationMetadata: Record<Exclude<keyof PhotoRe
  * Metadata for all the requests in the request builder.
  */
 export const PhotoRequestBuilderRequestsMetadata: RequestsMetadata = {
+    delete: {
+        uriTemplate: PhotoRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
+        errorMappings: {
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+        },
+        adapterMethodName: "sendNoResponseContent",
+    },
     get: {
         uriTemplate: PhotoRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",

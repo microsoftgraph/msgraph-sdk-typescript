@@ -72,6 +72,7 @@ import { ScopedRoleMemberOfRequestBuilderNavigationMetadata, ScopedRoleMemberOfR
 import { SendMailRequestBuilderRequestsMetadata, type SendMailRequestBuilder } from './sendMail/';
 import { ServiceProvisioningErrorsRequestBuilderNavigationMetadata, ServiceProvisioningErrorsRequestBuilderRequestsMetadata, type ServiceProvisioningErrorsRequestBuilder } from './serviceProvisioningErrors/';
 import { SettingsRequestBuilderNavigationMetadata, SettingsRequestBuilderRequestsMetadata, type SettingsRequestBuilder } from './settings/';
+import { SponsorsRequestBuilderNavigationMetadata, SponsorsRequestBuilderRequestsMetadata, type SponsorsRequestBuilder } from './sponsors/';
 import { TeamworkRequestBuilderNavigationMetadata, TeamworkRequestBuilderRequestsMetadata, type TeamworkRequestBuilder } from './teamwork/';
 import { TodoRequestBuilderNavigationMetadata, TodoRequestBuilderRequestsMetadata, type TodoRequestBuilder } from './todo/';
 import { TransitiveMemberOfRequestBuilderNavigationMetadata, TransitiveMemberOfRequestBuilderRequestsMetadata, type TransitiveMemberOfRequestBuilder } from './transitiveMemberOf/';
@@ -352,6 +353,10 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
     get settings(): SettingsRequestBuilder;
     /**
+     * Provides operations to manage the sponsors property of the microsoft.graph.user entity.
+     */
+    get sponsors(): SponsorsRequestBuilder;
+    /**
      * Provides operations to manage the teamwork property of the microsoft.graph.user entity.
      */
     get teamwork(): TeamworkRequestBuilder;
@@ -375,7 +380,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      * Deletes a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -386,11 +391,11 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
      exportDeviceAndAppManagementDataWithSkipWithTop(skip: number | undefined, top: number | undefined) : ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder;
     /**
-     * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the user and specify the properties in a $select OData query option. Because the user resource supports extensions, you can also use the GET operation to get custom properties and extension data in a user instance. Customers through Microsoft Entra ID for customers can also use this API operation to retrieve their details.
+     * Read properties and relationships of the user object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<User>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserItemRequestBuilderGetQueryParameters> | undefined) : Promise<User | undefined>;
     /**
@@ -416,7 +421,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the user and specify the properties in a $select OData query option. Because the user resource supports extensions, you can also use the GET operation to get custom properties and extension data in a user instance. Customers through Microsoft Entra ID for customers can also use this API operation to retrieve their details.
+     * Read properties and relationships of the user object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -430,7 +435,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      toPatchRequestInformation(body: User, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the user and specify the properties in a $select OData query option. Because the user resource supports extensions, you can also use the GET operation to get custom properties and extension data in a user instance. Customers through Microsoft Entra ID for customers can also use this API operation to retrieve their details.
+ * Read properties and relationships of the user object.
  */
 export interface UserItemRequestBuilderGetQueryParameters {
     /**
@@ -709,6 +714,10 @@ export const UserItemRequestBuilderNavigationMetadata: Record<Exclude<keyof User
     settings: {
         requestsMetadata: SettingsRequestBuilderRequestsMetadata,
         navigationMetadata: SettingsRequestBuilderNavigationMetadata,
+    },
+    sponsors: {
+        requestsMetadata: SponsorsRequestBuilderRequestsMetadata,
+        navigationMetadata: SponsorsRequestBuilderNavigationMetadata,
     },
     teamwork: {
         requestsMetadata: TeamworkRequestBuilderRequestsMetadata,

@@ -31,7 +31,7 @@ export interface AnalyticsRequestBuilder extends BaseRequestBuilder<AnalyticsReq
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Analytics about the view activities that took place in this site.
+     * Analytics about the view activities that took place on this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ItemAnalytics>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -52,7 +52,7 @@ export interface AnalyticsRequestBuilder extends BaseRequestBuilder<AnalyticsReq
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Analytics about the view activities that took place in this site.
+     * Analytics about the view activities that took place on this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +66,7 @@ export interface AnalyticsRequestBuilder extends BaseRequestBuilder<AnalyticsReq
      toPatchRequestInformation(body: ItemAnalytics, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Analytics about the view activities that took place in this site.
+ * Analytics about the view activities that took place on this site.
  */
 export interface AnalyticsRequestBuilderGetQueryParameters {
     /**

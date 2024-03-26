@@ -22,7 +22,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      */
      byCloudPcProvisioningPolicyAssignmentId(cloudPcProvisioningPolicyAssignmentId: string) : CloudPcProvisioningPolicyAssignmentItemRequestBuilder;
     /**
-     * Get assignments from deviceManagement
+     * A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have provisioning policy assigned. Returned only on $expand. For an example about how to get the assignments relationship, see Get cloudPcProvisioningPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcProvisioningPolicyAssignmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -37,7 +37,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      */
      post(body: CloudPcProvisioningPolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CloudPcProvisioningPolicyAssignment | undefined>;
     /**
-     * Get assignments from deviceManagement
+     * A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have provisioning policy assigned. Returned only on $expand. For an example about how to get the assignments relationship, see Get cloudPcProvisioningPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -51,7 +51,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      toPostRequestInformation(body: CloudPcProvisioningPolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get assignments from deviceManagement
+ * A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have provisioning policy assigned. Returned only on $expand. For an example about how to get the assignments relationship, see Get cloudPcProvisioningPolicy.
  */
 export interface AssignmentsRequestBuilderGetQueryParameters {
     /**

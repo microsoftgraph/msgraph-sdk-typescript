@@ -22,28 +22,30 @@ export interface UserSettingsRequestBuilder extends BaseRequestBuilder<UserSetti
      */
      byCloudPcUserSettingId(cloudPcUserSettingId: string) : CloudPcUserSettingItemRequestBuilder;
     /**
-     * Get userSettings from deviceManagement
+     * Get a list of cloudPcUserSetting objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcUserSettingCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualendpoint-list-usersettings?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserSettingsRequestBuilderGetQueryParameters> | undefined) : Promise<CloudPcUserSettingCollectionResponse | undefined>;
     /**
-     * Create new navigation property to userSettings for deviceManagement
+     * Create a new cloudPcUserSetting object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcUserSetting>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualendpoint-post-usersettings?view=graph-rest-1.0|Find more info here}
      */
      post(body: CloudPcUserSetting, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CloudPcUserSetting | undefined>;
     /**
-     * Get userSettings from deviceManagement
+     * Get a list of cloudPcUserSetting objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserSettingsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to userSettings for deviceManagement
+     * Create a new cloudPcUserSetting object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -51,7 +53,7 @@ export interface UserSettingsRequestBuilder extends BaseRequestBuilder<UserSetti
      toPostRequestInformation(body: CloudPcUserSetting, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get userSettings from deviceManagement
+ * Get a list of cloudPcUserSetting objects and their properties.
  */
 export interface UserSettingsRequestBuilderGetQueryParameters {
     /**

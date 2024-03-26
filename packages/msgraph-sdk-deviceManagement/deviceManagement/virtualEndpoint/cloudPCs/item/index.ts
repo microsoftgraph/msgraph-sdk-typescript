@@ -41,10 +41,11 @@ export interface CloudPCItemRequestBuilder extends BaseRequestBuilder<CloudPCIte
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get cloudPCs from deviceManagement
+     * Read the properties and relationships of a specific cloudPC object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPC>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/cloudpc-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CloudPCItemRequestBuilderGetQueryParameters> | undefined) : Promise<CloudPC | undefined>;
     /**
@@ -62,7 +63,7 @@ export interface CloudPCItemRequestBuilder extends BaseRequestBuilder<CloudPCIte
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get cloudPCs from deviceManagement
+     * Read the properties and relationships of a specific cloudPC object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -76,7 +77,7 @@ export interface CloudPCItemRequestBuilder extends BaseRequestBuilder<CloudPCIte
      toPatchRequestInformation(body: CloudPC, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get cloudPCs from deviceManagement
+ * Read the properties and relationships of a specific cloudPC object.
  */
 export interface CloudPCItemRequestBuilderGetQueryParameters {
     /**

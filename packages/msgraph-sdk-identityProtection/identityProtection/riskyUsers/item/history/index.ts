@@ -22,11 +22,11 @@ export interface HistoryRequestBuilder extends BaseRequestBuilder<HistoryRequest
      */
      byRiskyUserHistoryItemId(riskyUserHistoryItemId: string) : RiskyUserHistoryItemItemRequestBuilder;
     /**
-     * Read the properties and relationships of a riskyUserHistoryItem object.
+     * Get the riskyUserHistoryItems from the history navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RiskyUserHistoryItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/riskyuser-get-riskyuserhistoryitem?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/riskyuser-list-history?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HistoryRequestBuilderGetQueryParameters> | undefined) : Promise<RiskyUserHistoryItemCollectionResponse | undefined>;
     /**
@@ -38,7 +38,7 @@ export interface HistoryRequestBuilder extends BaseRequestBuilder<HistoryRequest
      */
      post(body: RiskyUserHistoryItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RiskyUserHistoryItem | undefined>;
     /**
-     * Read the properties and relationships of a riskyUserHistoryItem object.
+     * Get the riskyUserHistoryItems from the history navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -52,7 +52,7 @@ export interface HistoryRequestBuilder extends BaseRequestBuilder<HistoryRequest
      toPostRequestInformation(body: RiskyUserHistoryItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a riskyUserHistoryItem object.
+ * Get the riskyUserHistoryItems from the history navigation property.
  */
 export interface HistoryRequestBuilderGetQueryParameters {
     /**

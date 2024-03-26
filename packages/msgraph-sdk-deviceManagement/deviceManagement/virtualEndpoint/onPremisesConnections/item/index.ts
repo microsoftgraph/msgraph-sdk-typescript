@@ -15,40 +15,43 @@ export interface CloudPcOnPremisesConnectionItemRequestBuilder extends BaseReque
      */
     get runHealthChecks(): RunHealthChecksRequestBuilder;
     /**
-     * Delete navigation property onPremisesConnections for deviceManagement
+     * Delete a specific cloudPcOnPremisesConnection object. When you delete an Azure network connection, permissions to the service are removed from the specified Azure resources. You cannot delete an Azure network connection when it's in use, as indicated by the inUse property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/cloudpconpremisesconnection-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get onPremisesConnections from deviceManagement
+     * Read the properties and relationships of the cloudPcOnPremisesConnection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcOnPremisesConnection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/cloudpconpremisesconnection-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CloudPcOnPremisesConnectionItemRequestBuilderGetQueryParameters> | undefined) : Promise<CloudPcOnPremisesConnection | undefined>;
     /**
-     * Update the navigation property onPremisesConnections in deviceManagement
+     * Update the properties of a cloudPcOnPremisesConnection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcOnPremisesConnection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/cloudpconpremisesconnection-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: CloudPcOnPremisesConnection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CloudPcOnPremisesConnection | undefined>;
     /**
-     * Delete navigation property onPremisesConnections for deviceManagement
+     * Delete a specific cloudPcOnPremisesConnection object. When you delete an Azure network connection, permissions to the service are removed from the specified Azure resources. You cannot delete an Azure network connection when it's in use, as indicated by the inUse property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get onPremisesConnections from deviceManagement
+     * Read the properties and relationships of the cloudPcOnPremisesConnection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CloudPcOnPremisesConnectionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property onPremisesConnections in deviceManagement
+     * Update the properties of a cloudPcOnPremisesConnection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +59,7 @@ export interface CloudPcOnPremisesConnectionItemRequestBuilder extends BaseReque
      toPatchRequestInformation(body: CloudPcOnPremisesConnection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get onPremisesConnections from deviceManagement
+ * Read the properties and relationships of the cloudPcOnPremisesConnection object.
  */
 export interface CloudPcOnPremisesConnectionItemRequestBuilderGetQueryParameters {
     /**

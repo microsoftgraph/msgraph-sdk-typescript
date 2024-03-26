@@ -22,11 +22,11 @@ export interface ManagedEBooksRequestBuilder extends BaseRequestBuilder<ManagedE
      */
      byManagedEBookId(managedEBookId: string) : ManagedEBookItemRequestBuilder;
     /**
-     * List properties and relationships of the iosVppEBook objects.
+     * List properties and relationships of the managedEBook objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedEBookCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebook-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebook-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedEBooksRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedEBookCollectionResponse | undefined>;
     /**
@@ -39,7 +39,7 @@ export interface ManagedEBooksRequestBuilder extends BaseRequestBuilder<ManagedE
      */
      post(body: ManagedEBook, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedEBook | undefined>;
     /**
-     * List properties and relationships of the iosVppEBook objects.
+     * List properties and relationships of the managedEBook objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -53,7 +53,7 @@ export interface ManagedEBooksRequestBuilder extends BaseRequestBuilder<ManagedE
      toPostRequestInformation(body: ManagedEBook, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the iosVppEBook objects.
+ * List properties and relationships of the managedEBook objects.
  */
 export interface ManagedEBooksRequestBuilderGetQueryParameters {
     /**

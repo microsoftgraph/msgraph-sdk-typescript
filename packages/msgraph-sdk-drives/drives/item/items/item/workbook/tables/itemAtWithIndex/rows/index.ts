@@ -14,7 +14,7 @@ export interface RowsRequestBuilder extends BaseRequestBuilder<RowsRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTableRowCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/tablerow-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/table-list-rows?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RowsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookTableRowCollectionResponse | undefined>;
     /**
