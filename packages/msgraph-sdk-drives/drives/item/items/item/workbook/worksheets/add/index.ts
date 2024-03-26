@@ -24,7 +24,7 @@ export interface AddPostRequestBody extends AdditionalDataHolder, BackedModel, P
  */
 export interface AddRequestBuilder extends BaseRequestBuilder<AddRequestBuilder> {
     /**
-     * Adds a new worksheet to the workbook. The worksheet is added at the end of existing worksheets. If you wish to activate the newly added worksheet, call .activate() on it.
+     * Add a new worksheet to the workbook. The worksheet is added at the end of existing worksheets. If you want to activate the newly added worksheet, call .activate() on it.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookWorksheet>}
@@ -33,7 +33,7 @@ export interface AddRequestBuilder extends BaseRequestBuilder<AddRequestBuilder>
      */
      post(body: AddPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookWorksheet | undefined>;
     /**
-     * Adds a new worksheet to the workbook. The worksheet is added at the end of existing worksheets. If you wish to activate the newly added worksheet, call .activate() on it.
+     * Add a new worksheet to the workbook. The worksheet is added at the end of existing worksheets. If you want to activate the newly added worksheet, call .activate() on it.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

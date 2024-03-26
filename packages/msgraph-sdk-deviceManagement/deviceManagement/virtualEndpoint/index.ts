@@ -51,7 +51,7 @@ export interface VirtualEndpointRequestBuilder extends BaseRequestBuilder<Virtua
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get virtualEndpoint from deviceManagement
+     * Virtual endpoint
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEndpoint>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -72,7 +72,7 @@ export interface VirtualEndpointRequestBuilder extends BaseRequestBuilder<Virtua
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get virtualEndpoint from deviceManagement
+     * Virtual endpoint
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -86,7 +86,7 @@ export interface VirtualEndpointRequestBuilder extends BaseRequestBuilder<Virtua
      toPatchRequestInformation(body: VirtualEndpoint, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get virtualEndpoint from deviceManagement
+ * Virtual endpoint
  */
 export interface VirtualEndpointRequestBuilderGetQueryParameters {
     /**

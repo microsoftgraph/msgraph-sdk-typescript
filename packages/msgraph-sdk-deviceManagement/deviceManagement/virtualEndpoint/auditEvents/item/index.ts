@@ -16,10 +16,11 @@ export interface CloudPcAuditEventItemRequestBuilder extends BaseRequestBuilder<
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get auditEvents from deviceManagement
+     * Read the properties and relationships of a cloudPcAuditEvent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcAuditEvent>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/cloudpcauditevent-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CloudPcAuditEventItemRequestBuilderGetQueryParameters> | undefined) : Promise<CloudPcAuditEvent | undefined>;
     /**
@@ -37,7 +38,7 @@ export interface CloudPcAuditEventItemRequestBuilder extends BaseRequestBuilder<
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get auditEvents from deviceManagement
+     * Read the properties and relationships of a cloudPcAuditEvent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -51,7 +52,7 @@ export interface CloudPcAuditEventItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: CloudPcAuditEvent, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get auditEvents from deviceManagement
+ * Read the properties and relationships of a cloudPcAuditEvent object.
  */
 export interface CloudPcAuditEventItemRequestBuilderGetQueryParameters {
     /**

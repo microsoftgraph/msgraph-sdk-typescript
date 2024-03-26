@@ -22,21 +22,21 @@ export interface AssignedUsersRequestBuilder extends BaseRequestBuilder<Assigned
      */
      byUserId(userId: string) : UserItemRequestBuilder;
     /**
-     * Get assignedUsers from deviceManagement
+     * The assignment targeted users for the provisioning policy. This list of users is computed based on assignments, licenses, group memberships, and policies. Read-only. Supports$expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<AssignedUsersRequestBuilderGetQueryParameters> | undefined) : Promise<UserCollectionResponse | undefined>;
     /**
-     * Get assignedUsers from deviceManagement
+     * The assignment targeted users for the provisioning policy. This list of users is computed based on assignments, licenses, group memberships, and policies. Read-only. Supports$expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignedUsersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get assignedUsers from deviceManagement
+ * The assignment targeted users for the provisioning policy. This list of users is computed based on assignments, licenses, group memberships, and policies. Read-only. Supports$expand.
  */
 export interface AssignedUsersRequestBuilderGetQueryParameters {
     /**

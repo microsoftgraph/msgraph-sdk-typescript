@@ -27,10 +27,11 @@ export interface AuditEventsRequestBuilder extends BaseRequestBuilder<AuditEvent
      */
      byCloudPcAuditEventId(cloudPcAuditEventId: string) : CloudPcAuditEventItemRequestBuilder;
     /**
-     * Get auditEvents from deviceManagement
+     * List all the cloudPcAuditEvent objects for the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcAuditEventCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualendpoint-list-auditevents?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuditEventsRequestBuilderGetQueryParameters> | undefined) : Promise<CloudPcAuditEventCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface AuditEventsRequestBuilder extends BaseRequestBuilder<AuditEvent
      */
      post(body: CloudPcAuditEvent, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CloudPcAuditEvent | undefined>;
     /**
-     * Get auditEvents from deviceManagement
+     * List all the cloudPcAuditEvent objects for the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface AuditEventsRequestBuilder extends BaseRequestBuilder<AuditEvent
      toPostRequestInformation(body: CloudPcAuditEvent, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get auditEvents from deviceManagement
+ * List all the cloudPcAuditEvent objects for the tenant.
  */
 export interface AuditEventsRequestBuilderGetQueryParameters {
     /**
