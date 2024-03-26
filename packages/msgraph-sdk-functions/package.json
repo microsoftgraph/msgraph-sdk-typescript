@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-functions",
-  "version": "1.0.0-preview.18",
+  "version": "1.0.0-preview.19",
   "description": "Functions fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
@@ -37,7 +37,7 @@
     "@microsoft/kiota-serialization-json": "^1.0.0-preview.39",
     "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.18",
     "@microsoft/kiota-serialization-text": "^1.0.0-preview.36",
-    "@microsoft/msgraph-sdk": "^1.0.0-preview.18",
+    "@microsoft/msgraph-sdk": "^1.0.0-preview.19",
     "guid-typescript": "^1.0.9",
     "tslib": "^2.6.2"
   },
