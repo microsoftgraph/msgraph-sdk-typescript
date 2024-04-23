@@ -27,30 +27,28 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      */
      byDeviceCompliancePolicyAssignmentId(deviceCompliancePolicyAssignmentId: string) : DeviceCompliancePolicyAssignmentItemRequestBuilder;
     /**
-     * List properties and relationships of the deviceCompliancePolicyAssignment objects.
+     * The collection of assignments for this compliance policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicyAssignmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCompliancePolicyAssignmentCollectionResponse | undefined>;
     /**
-     * Create a new deviceCompliancePolicyAssignment object.
+     * Create new navigation property to assignments for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicyAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceCompliancePolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCompliancePolicyAssignment | undefined>;
     /**
-     * List properties and relationships of the deviceCompliancePolicyAssignment objects.
+     * The collection of assignments for this compliance policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new deviceCompliancePolicyAssignment object.
+     * Create new navigation property to assignments for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      toPostRequestInformation(body: DeviceCompliancePolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the deviceCompliancePolicyAssignment objects.
+ * The collection of assignments for this compliance policy.
  */
 export interface AssignmentsRequestBuilderGetQueryParameters {
     /**

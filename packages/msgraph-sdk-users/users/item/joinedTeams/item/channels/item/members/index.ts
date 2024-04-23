@@ -33,30 +33,28 @@ export interface MembersRequestBuilder extends BaseRequestBuilder<MembersRequest
      */
      byConversationMemberId(conversationMemberId: string) : ConversationMemberItemRequestBuilder;
     /**
-     * Retrieve a list of conversationMembers from a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve the channel member list.
+     * A collection of membership records associated with the channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationMemberCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/channel-list-members?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MembersRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationMemberCollectionResponse | undefined>;
     /**
-     * Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+     * Create new navigation property to members for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationMember>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0|Find more info here}
      */
      post(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConversationMember | undefined>;
     /**
-     * Retrieve a list of conversationMembers from a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve the channel member list.
+     * A collection of membership records associated with the channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MembersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+     * Create new navigation property to members for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,7 +62,7 @@ export interface MembersRequestBuilder extends BaseRequestBuilder<MembersRequest
      toPostRequestInformation(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of conversationMembers from a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve the channel member list.
+ * A collection of membership records associated with the channel.
  */
 export interface MembersRequestBuilderGetQueryParameters {
     /**

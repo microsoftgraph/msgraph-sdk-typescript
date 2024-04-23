@@ -19,20 +19,18 @@ export interface TitleRequestBuilder extends BaseRequestBuilder<TitleRequestBuil
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of charttitle object.
+     * Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartTitle>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/charttitle-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TitleRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartTitle | undefined>;
     /**
-     * Update the properties of charttitle object.
+     * Update the navigation property title in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartTitle>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/charttitle-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WorkbookChartTitle, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartTitle | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface TitleRequestBuilder extends BaseRequestBuilder<TitleRequestBuil
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of charttitle object.
+     * Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TitleRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of charttitle object.
+     * Update the navigation property title in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface TitleRequestBuilder extends BaseRequestBuilder<TitleRequestBuil
      toPatchRequestInformation(body: WorkbookChartTitle, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of charttitle object.
+ * Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.
  */
 export interface TitleRequestBuilderGetQueryParameters {
     /**

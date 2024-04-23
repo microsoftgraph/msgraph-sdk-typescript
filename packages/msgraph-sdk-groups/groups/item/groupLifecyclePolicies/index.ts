@@ -27,11 +27,10 @@ export interface GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder
      */
      byGroupLifecyclePolicyId(groupLifecyclePolicyId: string) : GroupLifecyclePolicyItemRequestBuilder;
     /**
-     * Retrieves a list of groupLifecyclePolicy objects to which a group belongs.
+     * The collection of lifecycle policies for this group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GroupLifecyclePolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/group-list-grouplifecyclepolicies?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GroupLifecyclePoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<GroupLifecyclePolicyCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder
      */
      post(body: GroupLifecyclePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GroupLifecyclePolicy | undefined>;
     /**
-     * Retrieves a list of groupLifecyclePolicy objects to which a group belongs.
+     * The collection of lifecycle policies for this group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder
      toPostRequestInformation(body: GroupLifecyclePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieves a list of groupLifecyclePolicy objects to which a group belongs.
+ * The collection of lifecycle policies for this group. Read-only. Nullable.
  */
 export interface GroupLifecyclePoliciesRequestBuilderGetQueryParameters {
     /**

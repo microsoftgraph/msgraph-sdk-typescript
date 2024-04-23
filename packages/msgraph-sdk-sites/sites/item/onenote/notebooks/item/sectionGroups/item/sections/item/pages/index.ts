@@ -27,30 +27,28 @@ export interface PagesRequestBuilder extends BaseRequestBuilder<PagesRequestBuil
      */
      byOnenotePageId(onenotePageId: string) : OnenotePageItemRequestBuilder;
     /**
-     * Retrieve a list of page objects from the specified section.
+     * The collection of pages in the section.  Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OnenotePageCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/section-list-pages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PagesRequestBuilderGetQueryParameters> | undefined) : Promise<OnenotePageCollectionResponse | undefined>;
     /**
-     * Create a new page in the specified section.
+     * Create new navigation property to pages for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OnenotePage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/section-post-pages?view=graph-rest-1.0|Find more info here}
      */
      post(body: OnenotePage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OnenotePage | undefined>;
     /**
-     * Retrieve a list of page objects from the specified section.
+     * The collection of pages in the section.  Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new page in the specified section.
+     * Create new navigation property to pages for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface PagesRequestBuilder extends BaseRequestBuilder<PagesRequestBuil
      toPostRequestInformation(body: OnenotePage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of page objects from the specified section.
+ * The collection of pages in the section.  Read-only. Nullable.
  */
 export interface PagesRequestBuilderGetQueryParameters {
     /**

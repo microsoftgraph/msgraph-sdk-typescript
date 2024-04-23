@@ -37,11 +37,10 @@ export interface PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuild
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleInstance object.
+     * The instances of assignment schedules to activate a just-in-time access.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrivilegedAccessGroupAssignmentScheduleInstance>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroupassignmentscheduleinstance-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters> | undefined) : Promise<PrivilegedAccessGroupAssignmentScheduleInstance | undefined>;
     /**
@@ -59,7 +58,7 @@ export interface PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuild
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleInstance object.
+     * The instances of assignment schedules to activate a just-in-time access.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -73,7 +72,7 @@ export interface PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuild
      toPatchRequestInformation(body: PrivilegedAccessGroupAssignmentScheduleInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleInstance object.
+ * The instances of assignment schedules to activate a just-in-time access.
  */
 export interface PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters {
     /**

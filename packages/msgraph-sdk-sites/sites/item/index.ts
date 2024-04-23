@@ -127,7 +127,7 @@ export interface SiteItemRequestBuilder extends BaseRequestBuilder<SiteItemReque
      */
     get termStores(): TermStoresRequestBuilder;
     /**
-     * Retrieve properties and relationships for a [site][] resource.A site resource represents a team site in SharePoint.
+     * Retrieve properties and relationships for a site resource.A site resource represents a team site in SharePoint.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Site>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -163,7 +163,7 @@ export interface SiteItemRequestBuilder extends BaseRequestBuilder<SiteItemReque
      */
      patch(body: Site, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Site | undefined>;
     /**
-     * Retrieve properties and relationships for a [site][] resource.A site resource represents a team site in SharePoint.
+     * Retrieve properties and relationships for a site resource.A site resource represents a team site in SharePoint.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -177,7 +177,7 @@ export interface SiteItemRequestBuilder extends BaseRequestBuilder<SiteItemReque
      toPatchRequestInformation(body: Site, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve properties and relationships for a [site][] resource.A site resource represents a team site in SharePoint.
+ * Retrieve properties and relationships for a site resource.A site resource represents a team site in SharePoint.
  */
 export interface SiteItemRequestBuilderGetQueryParameters {
     /**

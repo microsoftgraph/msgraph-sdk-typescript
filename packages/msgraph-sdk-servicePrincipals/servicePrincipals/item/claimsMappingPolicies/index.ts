@@ -33,22 +33,21 @@ export interface ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder<
      */
      byClaimsMappingPolicyId(claimsMappingPolicyId: string) : ClaimsMappingPolicyItemRequestBuilder;
     /**
-     * List the claimsMappingPolicy objects that are assigned to a servicePrincipal.
+     * The claimsMappingPolicies assigned to this service principal. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ClaimsMappingPolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-list-claimsmappingpolicies?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ClaimsMappingPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<ClaimsMappingPolicyCollectionResponse | undefined>;
     /**
-     * List the claimsMappingPolicy objects that are assigned to a servicePrincipal.
+     * The claimsMappingPolicies assigned to this service principal. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ClaimsMappingPoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * List the claimsMappingPolicy objects that are assigned to a servicePrincipal.
+ * The claimsMappingPolicies assigned to this service principal. Supports $expand.
  */
 export interface ClaimsMappingPoliciesRequestBuilderGetQueryParameters {
     /**

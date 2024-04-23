@@ -13,22 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface LastIndexOperationRequestBuilder extends BaseRequestBuilder<LastIndexOperationRequestBuilder> {
     /**
-     * Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian.
+     * Operation entity that represents the latest indexing for the custodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryIndexOperation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-list-lastindexoperation?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LastIndexOperationRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryIndexOperation | undefined>;
     /**
-     * Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian.
+     * Operation entity that represents the latest indexing for the custodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LastIndexOperationRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian.
+ * Operation entity that represents the latest indexing for the custodian.
  */
 export interface LastIndexOperationRequestBuilderGetQueryParameters {
     /**

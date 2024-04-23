@@ -966,7 +966,7 @@ export interface MediaStream extends AdditionalDataHolder, BackedModel, Parsable
      */
     averageAudioDegradation?: number;
     /**
-     * Average jitter for the stream computed as specified in [RFC 3550][], denoted in [ISO 8601][] format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
+     * Average jitter for the stream computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
      */
     averageAudioNetworkJitter?: Duration;
     /**
@@ -978,7 +978,7 @@ export interface MediaStream extends AdditionalDataHolder, BackedModel, Parsable
      */
     averageFreezeDuration?: Duration;
     /**
-     * Average jitter for the stream computed as specified in [RFC 3550][], denoted in [ISO 8601][] format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
+     * Average jitter for the stream computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
      */
     averageJitter?: Duration;
     /**
@@ -994,7 +994,7 @@ export interface MediaStream extends AdditionalDataHolder, BackedModel, Parsable
      */
     averageReceivedFrameRate?: number;
     /**
-     * Average network propagation round-trip time computed as specified in [RFC 3550][], denoted in [ISO 8601][] format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
+     * Average network propagation round-trip time computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
      */
     averageRoundTripTime?: Duration;
     /**
@@ -1006,7 +1006,7 @@ export interface MediaStream extends AdditionalDataHolder, BackedModel, Parsable
      */
     averageVideoFrameRate?: number;
     /**
-     * Average fraction of packets lost, as specified in [RFC 3550][], computed over the duration of the session.
+     * Average fraction of packets lost, as specified in RFC 3550, computed over the duration of the session.
      */
     averageVideoPacketLossRate?: number;
     /**
@@ -1030,11 +1030,11 @@ export interface MediaStream extends AdditionalDataHolder, BackedModel, Parsable
      */
     lowVideoProcessingCapabilityRatio?: number;
     /**
-     * Maximum of audio network jitter computed over each of the 20 second windows during the session, denoted in [ISO 8601][] format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
+     * Maximum of audio network jitter computed over each of the 20 second windows during the session, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
      */
     maxAudioNetworkJitter?: Duration;
     /**
-     * Maximum jitter for the stream computed as specified in RFC 3550, denoted in [ISO 8601][] format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
+     * Maximum jitter for the stream computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
      */
     maxJitter?: Duration;
     /**
@@ -1046,7 +1046,7 @@ export interface MediaStream extends AdditionalDataHolder, BackedModel, Parsable
      */
     maxRatioOfConcealedSamples?: number;
     /**
-     * Maximum network propagation round-trip time computed as specified in [RFC 3550][], denoted in [ISO 8601][] format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
+     * Maximum network propagation round-trip time computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
      */
     maxRoundTripTime?: Duration;
     /**
@@ -1789,7 +1789,7 @@ export interface TraceRouteHop extends AdditionalDataHolder, BackedModel, Parsab
      */
     odataType?: string;
     /**
-     * The time from when the trace route packet was sent from the client to this hop and back to the client, denoted in [ISO 8601][] format. For example, 1 second is denoted as PT1S, where P is the duration designator, T is the time designator, and S is the second designator.
+     * The time from when the trace route packet was sent from the client to this hop and back to the client, denoted in ISO 8601 format. For example, 1 second is denoted as PT1S, where P is the duration designator, T is the time designator, and S is the second designator.
      */
     roundTripTime?: Duration;
 }

@@ -27,30 +27,28 @@ export interface StaffMembersRequestBuilder extends BaseRequestBuilder<StaffMemb
      */
      byBookingStaffMemberBaseId(bookingStaffMemberBaseId: string) : BookingStaffMemberBaseItemRequestBuilder;
     /**
-     * Get a list of bookingStaffMember objects in the specified bookingBusiness.
+     * All the staff members that provide services in this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingStaffMemberBaseCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-staffmembers?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<StaffMembersRequestBuilderGetQueryParameters> | undefined) : Promise<BookingStaffMemberBaseCollectionResponse | undefined>;
     /**
-     * Create a new bookingStaffMember in the specified bookingBusiness.
+     * Create new navigation property to staffMembers for solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingStaffMemberBase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-post-staffmembers?view=graph-rest-1.0|Find more info here}
      */
      post(body: BookingStaffMemberBase, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingStaffMemberBase | undefined>;
     /**
-     * Get a list of bookingStaffMember objects in the specified bookingBusiness.
+     * All the staff members that provide services in this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<StaffMembersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new bookingStaffMember in the specified bookingBusiness.
+     * Create new navigation property to staffMembers for solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface StaffMembersRequestBuilder extends BaseRequestBuilder<StaffMemb
      toPostRequestInformation(body: BookingStaffMemberBase, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of bookingStaffMember objects in the specified bookingBusiness.
+ * All the staff members that provide services in this business. Read-only. Nullable.
  */
 export interface StaffMembersRequestBuilderGetQueryParameters {
     /**

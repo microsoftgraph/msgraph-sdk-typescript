@@ -33,22 +33,21 @@ export interface TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder<
      */
      byTokenLifetimePolicyId(tokenLifetimePolicyId: string) : TokenLifetimePolicyItemRequestBuilder;
     /**
-     * List the tokenLifetimePolicy objects that are assigned to an application. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to an application.
+     * Get tokenLifetimePolicies from applications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TokenLifetimePolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/application-list-tokenlifetimepolicies?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TokenLifetimePoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<TokenLifetimePolicyCollectionResponse | undefined>;
     /**
-     * List the tokenLifetimePolicy objects that are assigned to an application. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to an application.
+     * Get tokenLifetimePolicies from applications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TokenLifetimePoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * List the tokenLifetimePolicy objects that are assigned to an application. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to an application.
+ * Get tokenLifetimePolicies from applications
  */
 export interface TokenLifetimePoliciesRequestBuilderGetQueryParameters {
     /**

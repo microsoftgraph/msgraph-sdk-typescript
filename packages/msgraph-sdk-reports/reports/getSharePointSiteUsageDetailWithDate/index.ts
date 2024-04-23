@@ -11,14 +11,15 @@ import { type BaseRequestBuilder, type DateOnly, type Parsable, type ParsableFac
  */
 export interface GetSharePointSiteUsageDetailWithDateRequestBuilder extends BaseRequestBuilder<GetSharePointSiteUsageDetailWithDateRequestBuilder> {
     /**
-     * Invoke function getSharePointSiteUsageDetail
+     * Get details about SharePoint site usage.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/reportroot-getsharepointsiteusagedetail?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Invoke function getSharePointSiteUsageDetail
+     * Get details about SharePoint site usage.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

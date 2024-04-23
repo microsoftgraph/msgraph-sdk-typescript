@@ -13,10 +13,9 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder<AppRoleAssignmentItemRequestBuilder> {
     /**
-     * Deletes an appRoleAssignment that a service principal has been granted. App roles which are assigned to service principals are also known as application permissions. Deleting an app role assignment for a service principal is equivalent to revoking the app-only permission grant.
+     * Delete navigation property appRoleAssignments for servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-delete-approleassignments?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -35,7 +34,7 @@ export interface AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder<
      */
      patch(body: AppRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AppRoleAssignment | undefined>;
     /**
-     * Deletes an appRoleAssignment that a service principal has been granted. App roles which are assigned to service principals are also known as application permissions. Deleting an app role assignment for a service principal is equivalent to revoking the app-only permission grant.
+     * Delete navigation property appRoleAssignments for servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

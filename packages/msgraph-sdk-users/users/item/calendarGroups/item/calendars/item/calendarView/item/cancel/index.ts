@@ -55,7 +55,7 @@ export function createCancelPostRequestBodyFromDiscriminatorValue(parseNode: Par
 export function deserializeIntoCancelPostRequestBody(cancelPostRequestBody: Partial<CancelPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cancelPostRequestBody.backingStoreEnabled = true; },
-        "comment": n => { cancelPostRequestBody.comment = n.getStringValue(); },
+        "Comment": n => { cancelPostRequestBody.comment = n.getStringValue(); },
     }
 }
 /**

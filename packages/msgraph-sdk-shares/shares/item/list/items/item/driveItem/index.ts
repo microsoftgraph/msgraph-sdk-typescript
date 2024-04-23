@@ -19,21 +19,21 @@ export interface DriveItemRequestBuilder extends BaseRequestBuilder<DriveItemReq
      */
     get content(): ContentRequestBuilder;
     /**
-     * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
+     * For document libraries, the driveItem relationship exposes the listItem as a driveItem
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<DriveItemRequestBuilderGetQueryParameters> | undefined) : Promise<DriveItem | undefined>;
     /**
-     * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
+     * For document libraries, the driveItem relationship exposes the listItem as a driveItem
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DriveItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
+ * For document libraries, the driveItem relationship exposes the listItem as a driveItem
  */
 export interface DriveItemRequestBuilderGetQueryParameters {
     /**

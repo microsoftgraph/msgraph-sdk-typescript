@@ -23,8 +23,8 @@ export function createReplyAllPostRequestBodyFromDiscriminatorValue(parseNode: P
 export function deserializeIntoReplyAllPostRequestBody(replyAllPostRequestBody: Partial<ReplyAllPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { replyAllPostRequestBody.backingStoreEnabled = true; },
-        "comment": n => { replyAllPostRequestBody.comment = n.getStringValue(); },
-        "message": n => { replyAllPostRequestBody.message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
+        "Comment": n => { replyAllPostRequestBody.comment = n.getStringValue(); },
+        "Message": n => { replyAllPostRequestBody.message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
     }
 }
 export interface ReplyAllPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {

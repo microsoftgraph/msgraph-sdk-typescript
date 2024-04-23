@@ -27,11 +27,10 @@ export interface PermissionGrantsRequestBuilder extends BaseRequestBuilder<Permi
      */
      byResourceSpecificPermissionGrantId(resourceSpecificPermissionGrantId: string) : ResourceSpecificPermissionGrantItemRequestBuilder;
     /**
-     * List all resource-specific permission grants on the team. This list specifies the Microsoft Entra apps that have access to the team, along with each app's corresponding type of resource-specific access.
+     * A collection of permissions granted to apps to access the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ResourceSpecificPermissionGrantCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/team-list-permissiongrants?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PermissionGrantsRequestBuilderGetQueryParameters> | undefined) : Promise<ResourceSpecificPermissionGrantCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface PermissionGrantsRequestBuilder extends BaseRequestBuilder<Permi
      */
      post(body: ResourceSpecificPermissionGrant, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ResourceSpecificPermissionGrant | undefined>;
     /**
-     * List all resource-specific permission grants on the team. This list specifies the Microsoft Entra apps that have access to the team, along with each app's corresponding type of resource-specific access.
+     * A collection of permissions granted to apps to access the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface PermissionGrantsRequestBuilder extends BaseRequestBuilder<Permi
      toPostRequestInformation(body: ResourceSpecificPermissionGrant, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List all resource-specific permission grants on the team. This list specifies the Microsoft Entra apps that have access to the team, along with each app's corresponding type of resource-specific access.
+ * A collection of permissions granted to apps to access the team.
  */
 export interface PermissionGrantsRequestBuilderGetQueryParameters {
     /**

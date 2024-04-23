@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface BookingServiceItemRequestBuilder extends BaseRequestBuilder<BookingServiceItemRequestBuilder> {
     /**
-     * Delete a bookingService object in the specified bookingBusiness.
+     * Delete navigation property services for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingservice-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the properties and relationships of a bookingService object in the specified bookingBusiness.
+     * All the services offered by this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingService>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingservice-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BookingServiceItemRequestBuilderGetQueryParameters> | undefined) : Promise<BookingService | undefined>;
     /**
-     * Update the properties of a bookingService object in the specified bookingBusiness. The following are some examples you can customize for a service:- Price- Typical length of an appointment- Reminders- Any time buffer to set up before or finish up after the service- Scheduling policy parameters, such as minimum notice to book or cancel, and whether customers can select specific staff members for an appointment.
+     * Update the navigation property services in solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingService>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingservice-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: BookingService, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingService | undefined>;
     /**
-     * Delete a bookingService object in the specified bookingBusiness.
+     * Delete navigation property services for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the properties and relationships of a bookingService object in the specified bookingBusiness.
+     * All the services offered by this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BookingServiceItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a bookingService object in the specified bookingBusiness. The following are some examples you can customize for a service:- Price- Typical length of an appointment- Reminders- Any time buffer to set up before or finish up after the service- Scheduling policy parameters, such as minimum notice to book or cancel, and whether customers can select specific staff members for an appointment.
+     * Update the navigation property services in solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface BookingServiceItemRequestBuilder extends BaseRequestBuilder<Boo
      toPatchRequestInformation(body: BookingService, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the properties and relationships of a bookingService object in the specified bookingBusiness.
+ * All the services offered by this business. Read-only. Nullable.
  */
 export interface BookingServiceItemRequestBuilderGetQueryParameters {
     /**

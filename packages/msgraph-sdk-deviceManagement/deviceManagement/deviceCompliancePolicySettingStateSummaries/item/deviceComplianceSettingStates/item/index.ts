@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DeviceComplianceSettingStateItemRequestBuilder extends BaseRequestBuilder<DeviceComplianceSettingStateItemRequestBuilder> {
     /**
-     * Deletes a deviceComplianceSettingState.
+     * Delete navigation property deviceComplianceSettingStates for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the deviceComplianceSettingState object.
+     * Not yet documented
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceSettingState>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceComplianceSettingStateItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceComplianceSettingState | undefined>;
     /**
-     * Update the properties of a deviceComplianceSettingState object.
+     * Update the navigation property deviceComplianceSettingStates in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceSettingState>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceComplianceSettingState, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceComplianceSettingState | undefined>;
     /**
-     * Deletes a deviceComplianceSettingState.
+     * Delete navigation property deviceComplianceSettingStates for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the deviceComplianceSettingState object.
+     * Not yet documented
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceComplianceSettingStateItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a deviceComplianceSettingState object.
+     * Update the navigation property deviceComplianceSettingStates in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface DeviceComplianceSettingStateItemRequestBuilder extends BaseRequ
      toPatchRequestInformation(body: DeviceComplianceSettingState, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the deviceComplianceSettingState object.
+ * Not yet documented
  */
 export interface DeviceComplianceSettingStateItemRequestBuilderGetQueryParameters {
     /**

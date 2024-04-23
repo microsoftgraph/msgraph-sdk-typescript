@@ -27,30 +27,28 @@ export interface SchedulingGroupsRequestBuilder extends BaseRequestBuilder<Sched
      */
      bySchedulingGroupId(schedulingGroupId: string) : SchedulingGroupItemRequestBuilder;
     /**
-     * Get the list of schedulingGroups in this schedule.
+     * The logical grouping of users in the schedule (usually by role).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SchedulingGroupCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/schedule-list-schedulinggroups?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SchedulingGroupsRequestBuilderGetQueryParameters> | undefined) : Promise<SchedulingGroupCollectionResponse | undefined>;
     /**
-     * Create a new schedulingGroup.
+     * Create new navigation property to schedulingGroups for teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SchedulingGroup>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/schedule-post-schedulinggroups?view=graph-rest-1.0|Find more info here}
      */
      post(body: SchedulingGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SchedulingGroup | undefined>;
     /**
-     * Get the list of schedulingGroups in this schedule.
+     * The logical grouping of users in the schedule (usually by role).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SchedulingGroupsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new schedulingGroup.
+     * Create new navigation property to schedulingGroups for teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface SchedulingGroupsRequestBuilder extends BaseRequestBuilder<Sched
      toPostRequestInformation(body: SchedulingGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the list of schedulingGroups in this schedule.
+ * The logical grouping of users in the schedule (usually by role).
  */
 export interface SchedulingGroupsRequestBuilderGetQueryParameters {
     /**

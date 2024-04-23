@@ -49,18 +49,16 @@ export interface AccessPackageAssignmentRequestItemRequestBuilder extends BaseRe
      */
     get resume(): ResumeRequestBuilder;
     /**
-     * Delete an accessPackageAssignmentRequest object. This request can be made to remove a denied or completed request.  You cannot delete an access package assignment request if it has any accessPackageAssignment objects.
+     * Delete navigation property assignmentRequests for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentrequest-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * In Microsoft Entra entitlement management, retrieve the properties and relationships of an  accessPackageAssignmentRequest object.
+     * Access package assignment requests created by or on behalf of a subject.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageAssignmentRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentrequest-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AccessPackageAssignmentRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageAssignmentRequest | undefined>;
     /**
@@ -72,13 +70,13 @@ export interface AccessPackageAssignmentRequestItemRequestBuilder extends BaseRe
      */
      patch(body: AccessPackageAssignmentRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackageAssignmentRequest | undefined>;
     /**
-     * Delete an accessPackageAssignmentRequest object. This request can be made to remove a denied or completed request.  You cannot delete an access package assignment request if it has any accessPackageAssignment objects.
+     * Delete navigation property assignmentRequests for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * In Microsoft Entra entitlement management, retrieve the properties and relationships of an  accessPackageAssignmentRequest object.
+     * Access package assignment requests created by or on behalf of a subject.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -92,7 +90,7 @@ export interface AccessPackageAssignmentRequestItemRequestBuilder extends BaseRe
      toPatchRequestInformation(body: AccessPackageAssignmentRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * In Microsoft Entra entitlement management, retrieve the properties and relationships of an  accessPackageAssignmentRequest object.
+ * Access package assignment requests created by or on behalf of a subject.
  */
 export interface AccessPackageAssignmentRequestItemRequestBuilderGetQueryParameters {
     /**

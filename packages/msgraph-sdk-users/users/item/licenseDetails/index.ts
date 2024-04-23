@@ -33,11 +33,10 @@ export interface LicenseDetailsRequestBuilder extends BaseRequestBuilder<License
      */
      byLicenseDetailsId(licenseDetailsId: string) : LicenseDetailsItemRequestBuilder;
     /**
-     * Retrieve a list of licenseDetails objects for enterprise users. This API returns details for licenses that are directly assigned and those transitively assigned through memberships in licensed groups.
+     * A collection of this user's license details. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LicenseDetailsCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-list-licensedetails?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LicenseDetailsRequestBuilderGetQueryParameters> | undefined) : Promise<LicenseDetailsCollectionResponse | undefined>;
     /**
@@ -49,7 +48,7 @@ export interface LicenseDetailsRequestBuilder extends BaseRequestBuilder<License
      */
      post(body: LicenseDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LicenseDetails | undefined>;
     /**
-     * Retrieve a list of licenseDetails objects for enterprise users. This API returns details for licenses that are directly assigned and those transitively assigned through memberships in licensed groups.
+     * A collection of this user's license details. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -63,7 +62,7 @@ export interface LicenseDetailsRequestBuilder extends BaseRequestBuilder<License
      toPostRequestInformation(body: LicenseDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of licenseDetails objects for enterprise users. This API returns details for licenses that are directly assigned and those transitively assigned through memberships in licensed groups.
+ * A collection of this user's license details. Read-only.
  */
 export interface LicenseDetailsRequestBuilderGetQueryParameters {
     /**

@@ -33,11 +33,10 @@ export interface PivotTablesRequestBuilder extends BaseRequestBuilder<PivotTable
      */
      byWorkbookPivotTableId(workbookPivotTableId: string) : WorkbookPivotTableItemRequestBuilder;
     /**
-     * Retrieve a list of workbookpivottable objects.
+     * Collection of PivotTables that are part of the worksheet.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookPivotTableCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/workbookworksheet-list-pivottables?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PivotTablesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookPivotTableCollectionResponse | undefined>;
     /**
@@ -49,7 +48,7 @@ export interface PivotTablesRequestBuilder extends BaseRequestBuilder<PivotTable
      */
      post(body: WorkbookPivotTable, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookPivotTable | undefined>;
     /**
-     * Retrieve a list of workbookpivottable objects.
+     * Collection of PivotTables that are part of the worksheet.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -63,7 +62,7 @@ export interface PivotTablesRequestBuilder extends BaseRequestBuilder<PivotTable
      toPostRequestInformation(body: WorkbookPivotTable, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of workbookpivottable objects.
+ * Collection of PivotTables that are part of the worksheet.
  */
 export interface PivotTablesRequestBuilderGetQueryParameters {
     /**

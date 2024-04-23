@@ -31,20 +31,18 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the user and organization userSettings object.To learn how to update the properties of the userSettings object, see update user settings.
+     * Get settings from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/usersettings-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SettingsRequestBuilderGetQueryParameters> | undefined) : Promise<UserSettings | undefined>;
     /**
-     * Update the properties of the userSettings object. Users in the same organization can have different settings based on their preference or on the organization policies. To get the user current settings, see current user settings. 
+     * Update the navigation property settings in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/usersettings-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: UserSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserSettings | undefined>;
     /**
@@ -54,13 +52,13 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the user and organization userSettings object.To learn how to update the properties of the userSettings object, see update user settings.
+     * Get settings from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SettingsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of the userSettings object. Users in the same organization can have different settings based on their preference or on the organization policies. To get the user current settings, see current user settings. 
+     * Update the navigation property settings in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -68,7 +66,7 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      toPatchRequestInformation(body: UserSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the user and organization userSettings object.To learn how to update the properties of the userSettings object, see update user settings.
+ * Get settings from users
  */
 export interface SettingsRequestBuilderGetQueryParameters {
     /**

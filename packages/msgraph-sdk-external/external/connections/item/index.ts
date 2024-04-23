@@ -37,43 +37,40 @@ export interface ExternalConnectionItemRequestBuilder extends BaseRequestBuilder
      */
     get schema(): SchemaRequestBuilder;
     /**
-     * Deletes an externalConnection object.
+     * Delete navigation property connections for external
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an externalConnection object.
+     * Get connections from external
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExternalConnection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ExternalConnectionItemRequestBuilderGetQueryParameters> | undefined) : Promise<ExternalConnection | undefined>;
     /**
-     * Update the properties of an externalConnection object.
+     * Update the navigation property connections in external
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExternalConnection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ExternalConnection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ExternalConnection | undefined>;
     /**
-     * Deletes an externalConnection object.
+     * Delete navigation property connections for external
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an externalConnection object.
+     * Get connections from external
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ExternalConnectionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an externalConnection object.
+     * Update the navigation property connections in external
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -81,7 +78,7 @@ export interface ExternalConnectionItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: ExternalConnection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an externalConnection object.
+ * Get connections from external
  */
 export interface ExternalConnectionItemRequestBuilderGetQueryParameters {
     /**

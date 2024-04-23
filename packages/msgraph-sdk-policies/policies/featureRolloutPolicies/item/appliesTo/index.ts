@@ -40,12 +40,11 @@ export interface AppliesToRequestBuilder extends BaseRequestBuilder<AppliesToReq
      */
      get(requestConfiguration?: RequestConfiguration<AppliesToRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined>;
     /**
-     * Add an appliesTo on a featureRolloutPolicy object to specify the directoryObject to which the featureRolloutPolicy should be applied.
+     * Create new navigation property to appliesTo for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObject>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/featurerolloutpolicy-post-appliesto?view=graph-rest-1.0|Find more info here}
      */
      post(body: DirectoryObject, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DirectoryObject | undefined>;
     /**
@@ -55,7 +54,7 @@ export interface AppliesToRequestBuilder extends BaseRequestBuilder<AppliesToReq
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppliesToRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Add an appliesTo on a featureRolloutPolicy object to specify the directoryObject to which the featureRolloutPolicy should be applied.
+     * Create new navigation property to appliesTo for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

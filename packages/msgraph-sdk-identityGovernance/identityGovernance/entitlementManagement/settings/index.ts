@@ -19,20 +19,18 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties of an entitlementManagementSettings object.
+     * The settings that control the behavior of Microsoft Entra entitlement management.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EntitlementManagementSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagementsettings-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SettingsRequestBuilderGetQueryParameters> | undefined) : Promise<EntitlementManagementSettings | undefined>;
     /**
-     * Update an existing entitlementManagementSettings object to change one or more of its properties.
+     * Update the navigation property settings in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EntitlementManagementSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagementsettings-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EntitlementManagementSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EntitlementManagementSettings | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties of an entitlementManagementSettings object.
+     * The settings that control the behavior of Microsoft Entra entitlement management.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SettingsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update an existing entitlementManagementSettings object to change one or more of its properties.
+     * Update the navigation property settings in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      toPatchRequestInformation(body: EntitlementManagementSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties of an entitlementManagementSettings object.
+ * The settings that control the behavior of Microsoft Entra entitlement management.
  */
 export interface SettingsRequestBuilderGetQueryParameters {
     /**

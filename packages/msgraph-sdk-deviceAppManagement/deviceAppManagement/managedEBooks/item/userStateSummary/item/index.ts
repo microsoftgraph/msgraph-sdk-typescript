@@ -19,43 +19,40 @@ export interface UserInstallStateSummaryItemRequestBuilder extends BaseRequestBu
      */
     get deviceStates(): DeviceStatesRequestBuilder;
     /**
-     * Deletes a userInstallStateSummary.
+     * Delete navigation property userStateSummary for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-userinstallstatesummary-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the userInstallStateSummary object.
+     * The list of installation states for this eBook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserInstallStateSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-userinstallstatesummary-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserInstallStateSummaryItemRequestBuilderGetQueryParameters> | undefined) : Promise<UserInstallStateSummary | undefined>;
     /**
-     * Update the properties of a userInstallStateSummary object.
+     * Update the navigation property userStateSummary in deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserInstallStateSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-userinstallstatesummary-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: UserInstallStateSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserInstallStateSummary | undefined>;
     /**
-     * Deletes a userInstallStateSummary.
+     * Delete navigation property userStateSummary for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the userInstallStateSummary object.
+     * The list of installation states for this eBook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserInstallStateSummaryItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a userInstallStateSummary object.
+     * Update the navigation property userStateSummary in deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface UserInstallStateSummaryItemRequestBuilder extends BaseRequestBu
      toPatchRequestInformation(body: UserInstallStateSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the userInstallStateSummary object.
+ * The list of installation states for this eBook.
  */
 export interface UserInstallStateSummaryItemRequestBuilderGetQueryParameters {
     /**

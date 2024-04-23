@@ -27,7 +27,7 @@ export interface OnPremisesSynchronizationRequestBuilder extends BaseRequestBuil
      */
      byOnPremisesDirectorySynchronizationId(onPremisesDirectorySynchronizationId: string) : OnPremisesDirectorySynchronizationItemRequestBuilder;
     /**
-     * Read the properties and relationships of an onPremisesDirectorySynchronization object.
+     * A container for on-premises directory synchronization functionalities that are available for the organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OnPremisesDirectorySynchronizationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface OnPremisesSynchronizationRequestBuilder extends BaseRequestBuil
      */
      post(body: OnPremisesDirectorySynchronization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OnPremisesDirectorySynchronization | undefined>;
     /**
-     * Read the properties and relationships of an onPremisesDirectorySynchronization object.
+     * A container for on-premises directory synchronization functionalities that are available for the organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface OnPremisesSynchronizationRequestBuilder extends BaseRequestBuil
      toPostRequestInformation(body: OnPremisesDirectorySynchronization, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an onPremisesDirectorySynchronization object.
+ * A container for on-premises directory synchronization functionalities that are available for the organization.
  */
 export interface OnPremisesSynchronizationRequestBuilderGetQueryParameters {
     /**

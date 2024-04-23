@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ConversationMemberItemRequestBuilder extends BaseRequestBuilder<ConversationMemberItemRequestBuilder> {
     /**
-     * Delete a conversationMember from a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+     * Delete navigation property members for teamwork
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/channel-delete-members?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get a conversationMember from a channel.
+     * A collection of membership records associated with the channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationMember>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/channel-get-members?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConversationMemberItemRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationMember | undefined>;
     /**
-     * Update the role of a conversationMember in a team or channel.
+     * Update the navigation property members in teamwork
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationMember>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/conversationmember-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConversationMember | undefined>;
     /**
-     * Delete a conversationMember from a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+     * Delete navigation property members for teamwork
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get a conversationMember from a channel.
+     * A collection of membership records associated with the channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConversationMemberItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the role of a conversationMember in a team or channel.
+     * Update the navigation property members in teamwork
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface ConversationMemberItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a conversationMember from a channel.
+ * A collection of membership records associated with the channel.
  */
 export interface ConversationMemberItemRequestBuilderGetQueryParameters {
     /**

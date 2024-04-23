@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface MessageRuleItemRequestBuilder extends BaseRequestBuilder<MessageRuleItemRequestBuilder> {
     /**
-     * Delete the specified messageRule object.
+     * Delete navigation property messageRules for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/messagerule-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the properties and relationships of a messageRule object.
+     * The collection of rules that apply to the user's Inbox folder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MessageRule>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/messagerule-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MessageRuleItemRequestBuilderGetQueryParameters> | undefined) : Promise<MessageRule | undefined>;
     /**
-     * Change writable properties on a messageRule object and save the changes.
+     * Update the navigation property messageRules in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MessageRule>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/messagerule-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: MessageRule, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MessageRule | undefined>;
     /**
-     * Delete the specified messageRule object.
+     * Delete navigation property messageRules for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the properties and relationships of a messageRule object.
+     * The collection of rules that apply to the user's Inbox folder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MessageRuleItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Change writable properties on a messageRule object and save the changes.
+     * Update the navigation property messageRules in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface MessageRuleItemRequestBuilder extends BaseRequestBuilder<Messag
      toPatchRequestInformation(body: MessageRule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the properties and relationships of a messageRule object.
+ * The collection of rules that apply to the user's Inbox folder.
  */
 export interface MessageRuleItemRequestBuilderGetQueryParameters {
     /**

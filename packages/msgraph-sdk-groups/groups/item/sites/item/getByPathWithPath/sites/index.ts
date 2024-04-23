@@ -13,22 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface SitesRequestBuilder extends BaseRequestBuilder<SitesRequestBuilder> {
     /**
-     * Get a collection of subsites defined for a [site][].
+     * The collection of the sub-sites under this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SiteCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/site-list-subsites?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SitesRequestBuilderGetQueryParameters> | undefined) : Promise<SiteCollectionResponse | undefined>;
     /**
-     * Get a collection of subsites defined for a [site][].
+     * The collection of the sub-sites under this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SitesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a collection of subsites defined for a [site][].
+ * The collection of the sub-sites under this site.
  */
 export interface SitesRequestBuilderGetQueryParameters {
     /**

@@ -31,8 +31,8 @@ export function createGetMailTipsPostResponseFromDiscriminatorValue(parseNode: P
 export function deserializeIntoGetMailTipsPostRequestBody(getMailTipsPostRequestBody: Partial<GetMailTipsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getMailTipsPostRequestBody.backingStoreEnabled = true; },
-        "emailAddresses": n => { getMailTipsPostRequestBody.emailAddresses = n.getCollectionOfPrimitiveValues<string>(); },
-        "mailTipsOptions": n => { getMailTipsPostRequestBody.mailTipsOptions = n.getCollectionOfEnumValues<MailTipsType>(MailTipsTypeObject); },
+        "EmailAddresses": n => { getMailTipsPostRequestBody.emailAddresses = n.getCollectionOfPrimitiveValues<string>(); },
+        "MailTipsOptions": n => { getMailTipsPostRequestBody.mailTipsOptions = n.getCollectionOfEnumValues<MailTipsType>(MailTipsTypeObject); },
     }
 }
 /**

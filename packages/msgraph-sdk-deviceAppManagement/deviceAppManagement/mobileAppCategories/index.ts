@@ -27,30 +27,28 @@ export interface MobileAppCategoriesRequestBuilder extends BaseRequestBuilder<Mo
      */
      byMobileAppCategoryId(mobileAppCategoryId: string) : MobileAppCategoryItemRequestBuilder;
     /**
-     * List properties and relationships of the mobileAppCategory objects.
+     * The mobile app categories.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppCategoryCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappcategory-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppCategoriesRequestBuilderGetQueryParameters> | undefined) : Promise<MobileAppCategoryCollectionResponse | undefined>;
     /**
-     * Create a new mobileAppCategory object.
+     * Create new navigation property to mobileAppCategories for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppCategory>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappcategory-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: MobileAppCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileAppCategory | undefined>;
     /**
-     * List properties and relationships of the mobileAppCategory objects.
+     * The mobile app categories.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileAppCategoriesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new mobileAppCategory object.
+     * Create new navigation property to mobileAppCategories for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface MobileAppCategoriesRequestBuilder extends BaseRequestBuilder<Mo
      toPostRequestInformation(body: MobileAppCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the mobileAppCategory objects.
+ * The mobile app categories.
  */
 export interface MobileAppCategoriesRequestBuilderGetQueryParameters {
     /**

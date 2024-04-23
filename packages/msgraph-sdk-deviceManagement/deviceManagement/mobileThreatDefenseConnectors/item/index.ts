@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface MobileThreatDefenseConnectorItemRequestBuilder extends BaseRequestBuilder<MobileThreatDefenseConnectorItemRequestBuilder> {
     /**
-     * Deletes a mobileThreatDefenseConnector.
+     * Delete navigation property mobileThreatDefenseConnectors for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-mobilethreatdefenseconnector-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the mobileThreatDefenseConnector object.
+     * The list of Mobile threat Defense connectors configured by the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileThreatDefenseConnector>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-mobilethreatdefenseconnector-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileThreatDefenseConnectorItemRequestBuilderGetQueryParameters> | undefined) : Promise<MobileThreatDefenseConnector | undefined>;
     /**
-     * Update the properties of a mobileThreatDefenseConnector object.
+     * Update the navigation property mobileThreatDefenseConnectors in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileThreatDefenseConnector>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-mobilethreatdefenseconnector-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: MobileThreatDefenseConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileThreatDefenseConnector | undefined>;
     /**
-     * Deletes a mobileThreatDefenseConnector.
+     * Delete navigation property mobileThreatDefenseConnectors for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the mobileThreatDefenseConnector object.
+     * The list of Mobile threat Defense connectors configured by the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileThreatDefenseConnectorItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a mobileThreatDefenseConnector object.
+     * Update the navigation property mobileThreatDefenseConnectors in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface MobileThreatDefenseConnectorItemRequestBuilder extends BaseRequ
      toPatchRequestInformation(body: MobileThreatDefenseConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the mobileThreatDefenseConnector object.
+ * The list of Mobile threat Defense connectors configured by the tenant.
  */
 export interface MobileThreatDefenseConnectorItemRequestBuilderGetQueryParameters {
     /**

@@ -76,9 +76,9 @@ export function createBeta_DistPostRequestBodyFromDiscriminatorValue(parseNode: 
  */
 export function deserializeIntoBeta_DistPostRequestBody(beta_DistPostRequestBody: Partial<Beta_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "a": n => { beta_DistPostRequestBody.a = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
+        "A": n => { beta_DistPostRequestBody.a = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "alpha": n => { beta_DistPostRequestBody.alpha = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
-        "b": n => { beta_DistPostRequestBody.b = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
+        "B": n => { beta_DistPostRequestBody.b = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "backingStoreEnabled": n => { beta_DistPostRequestBody.backingStoreEnabled = true; },
         "beta": n => { beta_DistPostRequestBody.beta = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         "cumulative": n => { beta_DistPostRequestBody.cumulative = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },

@@ -27,11 +27,10 @@ export interface VersionsRequestBuilder extends BaseRequestBuilder<VersionsReque
      */
      byDriveItemVersionId(driveItemVersionId: string) : DriveItemVersionItemRequestBuilder;
     /**
-     * OneDrive and SharePoint can be configured to retain the history for files.Depending on the service and configuration, a new version can be created for each edit, each time the file is saved, manually, or never. Previous versions of a document may be retained for a finite period of time depending on admin settings that may be unique per user or location.
+     * The list of previous versions of the item. For more info, see getting previous versions. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveItemVersionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/driveitem-list-versions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<VersionsRequestBuilderGetQueryParameters> | undefined) : Promise<DriveItemVersionCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface VersionsRequestBuilder extends BaseRequestBuilder<VersionsReque
      */
      post(body: DriveItemVersion, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DriveItemVersion | undefined>;
     /**
-     * OneDrive and SharePoint can be configured to retain the history for files.Depending on the service and configuration, a new version can be created for each edit, each time the file is saved, manually, or never. Previous versions of a document may be retained for a finite period of time depending on admin settings that may be unique per user or location.
+     * The list of previous versions of the item. For more info, see getting previous versions. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface VersionsRequestBuilder extends BaseRequestBuilder<VersionsReque
      toPostRequestInformation(body: DriveItemVersion, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * OneDrive and SharePoint can be configured to retain the history for files.Depending on the service and configuration, a new version can be created for each edit, each time the file is saved, manually, or never. Previous versions of a document may be retained for a finite period of time depending on admin settings that may be unique per user or location.
+ * The list of previous versions of the item. For more info, see getting previous versions. Read-only. Nullable.
  */
 export interface VersionsRequestBuilderGetQueryParameters {
     /**

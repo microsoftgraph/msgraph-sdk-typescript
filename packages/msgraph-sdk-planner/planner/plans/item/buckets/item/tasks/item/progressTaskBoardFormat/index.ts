@@ -19,11 +19,10 @@ export interface ProgressTaskBoardFormatRequestBuilder extends BaseRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of plannerProgressTaskBoardTaskFormat object.
+     * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerProgressTaskBoardTaskFormat>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/plannerprogresstaskboardtaskformat-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ProgressTaskBoardFormatRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerProgressTaskBoardTaskFormat | undefined>;
     /**
@@ -32,7 +31,6 @@ export interface ProgressTaskBoardFormatRequestBuilder extends BaseRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerProgressTaskBoardTaskFormat>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/plannerprogresstaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PlannerProgressTaskBoardTaskFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerProgressTaskBoardTaskFormat | undefined>;
     /**
@@ -42,7 +40,7 @@ export interface ProgressTaskBoardFormatRequestBuilder extends BaseRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of plannerProgressTaskBoardTaskFormat object.
+     * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +54,7 @@ export interface ProgressTaskBoardFormatRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: PlannerProgressTaskBoardTaskFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of plannerProgressTaskBoardTaskFormat object.
+ * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
  */
 export interface ProgressTaskBoardFormatRequestBuilderGetQueryParameters {
     /**

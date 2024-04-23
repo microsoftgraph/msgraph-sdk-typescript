@@ -19,11 +19,10 @@ export interface SwapShiftsChangeRequestItemRequestBuilder extends BaseRequestBu
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a swapShiftsChangeRequest object.
+     * The swap requests for shifts in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SwapShiftsChangeRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/swapshiftschangerequest-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SwapShiftsChangeRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<SwapShiftsChangeRequest | undefined>;
     /**
@@ -41,7 +40,7 @@ export interface SwapShiftsChangeRequestItemRequestBuilder extends BaseRequestBu
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a swapShiftsChangeRequest object.
+     * The swap requests for shifts in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -55,7 +54,7 @@ export interface SwapShiftsChangeRequestItemRequestBuilder extends BaseRequestBu
      toPatchRequestInformation(body: SwapShiftsChangeRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a swapShiftsChangeRequest object.
+ * The swap requests for shifts in the schedule.
  */
 export interface SwapShiftsChangeRequestItemRequestBuilderGetQueryParameters {
     /**

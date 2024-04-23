@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder<EmailAuthenticationMethodItemRequestBuilder> {
     /**
-     * Deletes a user's emailAuthenticationMethod object.
+     * Delete navigation property emailMethods for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/emailauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve a user's single email authentication method object.
+     * The email address registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EmailAuthenticationMethod>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/emailauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EmailAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : Promise<EmailAuthenticationMethod | undefined>;
     /**
-     * Update a user's email address represented by an emailAuthenticationMethod object.
+     * Update the navigation property emailMethods in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EmailAuthenticationMethod>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/emailauthenticationmethod-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EmailAuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EmailAuthenticationMethod | undefined>;
     /**
-     * Deletes a user's emailAuthenticationMethod object.
+     * Delete navigation property emailMethods for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve a user's single email authentication method object.
+     * The email address registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EmailAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update a user's email address represented by an emailAuthenticationMethod object.
+     * Update the navigation property emailMethods in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface EmailAuthenticationMethodItemRequestBuilder extends BaseRequest
      toPatchRequestInformation(body: EmailAuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a user's single email authentication method object.
+ * The email address registered to a user for authentication.
  */
 export interface EmailAuthenticationMethodItemRequestBuilderGetQueryParameters {
     /**

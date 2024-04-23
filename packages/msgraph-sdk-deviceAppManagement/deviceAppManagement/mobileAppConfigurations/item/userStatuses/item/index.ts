@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder extends BaseRequestBuilder<ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder> {
     /**
-     * Deletes a managedDeviceMobileAppConfigurationUserStatus.
+     * Delete navigation property userStatuses for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationuserstatus-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the managedDeviceMobileAppConfigurationUserStatus object.
+     * List of ManagedDeviceMobileAppConfigurationUserStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfigurationUserStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationuserstatus-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserStatus | undefined>;
     /**
-     * Update the properties of a managedDeviceMobileAppConfigurationUserStatus object.
+     * Update the navigation property userStatuses in deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfigurationUserStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationuserstatus-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ManagedDeviceMobileAppConfigurationUserStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserStatus | undefined>;
     /**
-     * Deletes a managedDeviceMobileAppConfigurationUserStatus.
+     * Delete navigation property userStatuses for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the managedDeviceMobileAppConfigurationUserStatus object.
+     * List of ManagedDeviceMobileAppConfigurationUserStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a managedDeviceMobileAppConfigurationUserStatus object.
+     * Update the navigation property userStatuses in deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder
      toPatchRequestInformation(body: ManagedDeviceMobileAppConfigurationUserStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the managedDeviceMobileAppConfigurationUserStatus object.
+ * List of ManagedDeviceMobileAppConfigurationUserStatus.
  */
 export interface ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetQueryParameters {
     /**

@@ -27,7 +27,7 @@ export interface HostsRequestBuilder extends BaseRequestBuilder<HostsRequestBuil
      */
      byHostId(hostId: string) : HostItemRequestBuilder;
     /**
-     * Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
+     * Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface HostsRequestBuilder extends BaseRequestBuilder<HostsRequestBuil
      */
      post(body: Host, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Host | undefined>;
     /**
-     * Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
+     * Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface HostsRequestBuilder extends BaseRequestBuilder<HostsRequestBuil
      toPostRequestInformation(body: Host, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
+ * Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
  */
 export interface HostsRequestBuilderGetQueryParameters {
     /**

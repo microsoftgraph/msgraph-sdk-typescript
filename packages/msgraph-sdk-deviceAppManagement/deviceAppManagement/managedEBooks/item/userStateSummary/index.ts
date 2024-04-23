@@ -27,30 +27,28 @@ export interface UserStateSummaryRequestBuilder extends BaseRequestBuilder<UserS
      */
      byUserInstallStateSummaryId(userInstallStateSummaryId: string) : UserInstallStateSummaryItemRequestBuilder;
     /**
-     * List properties and relationships of the userInstallStateSummary objects.
+     * The list of installation states for this eBook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserInstallStateSummaryCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-userinstallstatesummary-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserStateSummaryRequestBuilderGetQueryParameters> | undefined) : Promise<UserInstallStateSummaryCollectionResponse | undefined>;
     /**
-     * Create a new userInstallStateSummary object.
+     * Create new navigation property to userStateSummary for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserInstallStateSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-userinstallstatesummary-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: UserInstallStateSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserInstallStateSummary | undefined>;
     /**
-     * List properties and relationships of the userInstallStateSummary objects.
+     * The list of installation states for this eBook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserStateSummaryRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new userInstallStateSummary object.
+     * Create new navigation property to userStateSummary for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface UserStateSummaryRequestBuilder extends BaseRequestBuilder<UserS
      toPostRequestInformation(body: UserInstallStateSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the userInstallStateSummary objects.
+ * The list of installation states for this eBook.
  */
 export interface UserStateSummaryRequestBuilderGetQueryParameters {
     /**

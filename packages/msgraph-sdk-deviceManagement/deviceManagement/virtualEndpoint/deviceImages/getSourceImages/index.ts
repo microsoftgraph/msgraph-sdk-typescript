@@ -37,21 +37,22 @@ export interface GetSourceImagesGetResponse extends BaseCollectionPaginationCoun
  */
 export interface GetSourceImagesRequestBuilder extends BaseRequestBuilder<GetSourceImagesRequestBuilder> {
     /**
-     * Invoke function getSourceImages
+     * Get cloudPcSourceDeviceImage objects that can be uploaded and used on Cloud PCs. View a list of all the managed image resources from your Microsoft Entra subscriptions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetSourceImagesGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/cloudpcdeviceimage-getsourceimages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetSourceImagesRequestBuilderGetQueryParameters> | undefined) : Promise<GetSourceImagesGetResponse | undefined>;
     /**
-     * Invoke function getSourceImages
+     * Get cloudPcSourceDeviceImage objects that can be uploaded and used on Cloud PCs. View a list of all the managed image resources from your Microsoft Entra subscriptions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetSourceImagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getSourceImages
+ * Get cloudPcSourceDeviceImage objects that can be uploaded and used on Cloud PCs. View a list of all the managed image resources from your Microsoft Entra subscriptions.
  */
 export interface GetSourceImagesRequestBuilderGetQueryParameters {
     /**

@@ -27,11 +27,10 @@ export interface ServiceManagementDetailsRequestBuilder extends BaseRequestBuild
      */
      byDelegatedAdminServiceManagementDetailId(delegatedAdminServiceManagementDetailId: string) : DelegatedAdminServiceManagementDetailItemRequestBuilder;
     /**
-     * Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
+     * Contains the management details of a service in the customer tenant that's managed by delegated administration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedAdminServiceManagementDetailCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/delegatedadmincustomer-list-servicemanagementdetails?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ServiceManagementDetailsRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedAdminServiceManagementDetailCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface ServiceManagementDetailsRequestBuilder extends BaseRequestBuild
      */
      post(body: DelegatedAdminServiceManagementDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DelegatedAdminServiceManagementDetail | undefined>;
     /**
-     * Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
+     * Contains the management details of a service in the customer tenant that's managed by delegated administration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface ServiceManagementDetailsRequestBuilder extends BaseRequestBuild
      toPostRequestInformation(body: DelegatedAdminServiceManagementDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
+ * Contains the management details of a service in the customer tenant that's managed by delegated administration.
  */
 export interface ServiceManagementDetailsRequestBuilderGetQueryParameters {
     /**

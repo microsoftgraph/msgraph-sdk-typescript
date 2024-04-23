@@ -27,30 +27,28 @@ export interface ColumnsRequestBuilder extends BaseRequestBuilder<ColumnsRequest
      */
      byColumnDefinitionId(columnDefinitionId: string) : ColumnDefinitionItemRequestBuilder;
     /**
-     * Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [site][site].
+     * The collection of column definitions reusable across lists under this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ColumnDefinitionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/site-list-columns?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ColumnsRequestBuilderGetQueryParameters> | undefined) : Promise<ColumnDefinitionCollectionResponse | undefined>;
     /**
-     * Create a column for a [site][site] with a request that specifies a [columnDefinition][columnDefinition].
+     * Create new navigation property to columns for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ColumnDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/site-post-columns?view=graph-rest-1.0|Find more info here}
      */
      post(body: ColumnDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ColumnDefinition | undefined>;
     /**
-     * Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [site][site].
+     * The collection of column definitions reusable across lists under this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ColumnsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a column for a [site][site] with a request that specifies a [columnDefinition][columnDefinition].
+     * Create new navigation property to columns for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface ColumnsRequestBuilder extends BaseRequestBuilder<ColumnsRequest
      toPostRequestInformation(body: ColumnDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [site][site].
+ * The collection of column definitions reusable across lists under this site.
  */
 export interface ColumnsRequestBuilderGetQueryParameters {
     /**

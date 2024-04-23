@@ -19,43 +19,40 @@ export interface IdentityUserFlowAttributeAssignmentItemRequestBuilder extends B
      */
     get userAttribute(): UserAttributeRequestBuilder;
     /**
-     * Delete an identityUserFlowAttributeAssignment object.
+     * Delete navigation property userAttributeAssignments for identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattributeassignment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an identityUserFlowAttributeAssignment object.
+     * The user attribute assignments included in the user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IdentityUserFlowAttributeAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattributeassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IdentityUserFlowAttributeAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<IdentityUserFlowAttributeAssignment | undefined>;
     /**
-     * Update the properties of a identityUserFlowAttributeAssignment object.
+     * Update the navigation property userAttributeAssignments in identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IdentityUserFlowAttributeAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattributeassignment-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: IdentityUserFlowAttributeAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IdentityUserFlowAttributeAssignment | undefined>;
     /**
-     * Delete an identityUserFlowAttributeAssignment object.
+     * Delete navigation property userAttributeAssignments for identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an identityUserFlowAttributeAssignment object.
+     * The user attribute assignments included in the user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IdentityUserFlowAttributeAssignmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a identityUserFlowAttributeAssignment object.
+     * Update the navigation property userAttributeAssignments in identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface IdentityUserFlowAttributeAssignmentItemRequestBuilder extends B
      toPatchRequestInformation(body: IdentityUserFlowAttributeAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an identityUserFlowAttributeAssignment object.
+ * The user attribute assignments included in the user flow.
  */
 export interface IdentityUserFlowAttributeAssignmentItemRequestBuilderGetQueryParameters {
     /**

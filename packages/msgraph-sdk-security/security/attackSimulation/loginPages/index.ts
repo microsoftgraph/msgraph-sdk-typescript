@@ -27,11 +27,10 @@ export interface LoginPagesRequestBuilder extends BaseRequestBuilder<LoginPagesR
      */
      byLoginPageId(loginPageId: string) : LoginPageItemRequestBuilder;
     /**
-     * Get a list of the loginPage objects and their properties.
+     * Represents an attack simulation training login page.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LoginPageCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-list-loginpage?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LoginPagesRequestBuilderGetQueryParameters> | undefined) : Promise<LoginPageCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface LoginPagesRequestBuilder extends BaseRequestBuilder<LoginPagesR
      */
      post(body: LoginPage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LoginPage | undefined>;
     /**
-     * Get a list of the loginPage objects and their properties.
+     * Represents an attack simulation training login page.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface LoginPagesRequestBuilder extends BaseRequestBuilder<LoginPagesR
      toPostRequestInformation(body: LoginPage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the loginPage objects and their properties.
+ * Represents an attack simulation training login page.
  */
 export interface LoginPagesRequestBuilderGetQueryParameters {
     /**

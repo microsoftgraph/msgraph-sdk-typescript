@@ -27,30 +27,28 @@ export interface MembersRequestBuilder extends BaseRequestBuilder<MembersRequest
      */
      byTeamworkTagMemberId(teamworkTagMemberId: string) : TeamworkTagMemberItemRequestBuilder;
     /**
-     * Get a list of the members of a standard tag in a team and their properties.
+     * Users assigned to the tag.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamworkTagMemberCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/teamworktagmember-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MembersRequestBuilderGetQueryParameters> | undefined) : Promise<TeamworkTagMemberCollectionResponse | undefined>;
     /**
-     * Create a new teamworkTagMember object in a team.
+     * Create new navigation property to members for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamworkTagMember>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/teamworktagmember-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: TeamworkTagMember, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamworkTagMember | undefined>;
     /**
-     * Get a list of the members of a standard tag in a team and their properties.
+     * Users assigned to the tag.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MembersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new teamworkTagMember object in a team.
+     * Create new navigation property to members for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface MembersRequestBuilder extends BaseRequestBuilder<MembersRequest
      toPostRequestInformation(body: TeamworkTagMember, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the members of a standard tag in a team and their properties.
+ * Users assigned to the tag.
  */
 export interface MembersRequestBuilderGetQueryParameters {
     /**

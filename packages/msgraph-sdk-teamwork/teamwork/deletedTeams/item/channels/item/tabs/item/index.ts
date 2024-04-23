@@ -19,43 +19,40 @@ export interface TeamsTabItemRequestBuilder extends BaseRequestBuilder<TeamsTabI
      */
     get teamsApp(): TeamsAppRequestBuilder;
     /**
-     * Removes (unpins) a tab from the specified channel within a team. 
+     * Delete navigation property tabs for teamwork
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/channel-delete-tabs?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of the specified tab in a channel within a team. 
+     * A collection of all the tabs in the channel. A navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsTab>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/channel-get-tabs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TeamsTabItemRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsTab | undefined>;
     /**
-     * Update the properties of the specified tab.This API can be used to configure the content of the tab.
+     * Update the navigation property tabs in teamwork
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsTab>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/channel-patch-tabs?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TeamsTab, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamsTab | undefined>;
     /**
-     * Removes (unpins) a tab from the specified channel within a team. 
+     * Delete navigation property tabs for teamwork
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of the specified tab in a channel within a team. 
+     * A collection of all the tabs in the channel. A navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeamsTabItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of the specified tab.This API can be used to configure the content of the tab.
+     * Update the navigation property tabs in teamwork
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface TeamsTabItemRequestBuilder extends BaseRequestBuilder<TeamsTabI
      toPatchRequestInformation(body: TeamsTab, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of the specified tab in a channel within a team. 
+ * A collection of all the tabs in the channel. A navigation property.
  */
 export interface TeamsTabItemRequestBuilderGetQueryParameters {
     /**

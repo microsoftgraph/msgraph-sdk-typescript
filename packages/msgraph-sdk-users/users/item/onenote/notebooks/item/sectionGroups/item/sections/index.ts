@@ -27,30 +27,28 @@ export interface SectionsRequestBuilder extends BaseRequestBuilder<SectionsReque
      */
      byOnenoteSectionId(onenoteSectionId: string) : OnenoteSectionItemRequestBuilder;
     /**
-     * Retrieve a list of onenoteSection objects from the specified section group.
+     * The sections in the section group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OnenoteSectionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/sectiongroup-list-sections?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SectionsRequestBuilderGetQueryParameters> | undefined) : Promise<OnenoteSectionCollectionResponse | undefined>;
     /**
-     * Create a new onenoteSection in the specified section group.
+     * Create new navigation property to sections for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OnenoteSection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/sectiongroup-post-sections?view=graph-rest-1.0|Find more info here}
      */
      post(body: OnenoteSection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OnenoteSection | undefined>;
     /**
-     * Retrieve a list of onenoteSection objects from the specified section group.
+     * The sections in the section group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SectionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new onenoteSection in the specified section group.
+     * Create new navigation property to sections for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface SectionsRequestBuilder extends BaseRequestBuilder<SectionsReque
      toPostRequestInformation(body: OnenoteSection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of onenoteSection objects from the specified section group.
+ * The sections in the section group. Read-only. Nullable.
  */
 export interface SectionsRequestBuilderGetQueryParameters {
     /**

@@ -35,30 +35,28 @@ export interface AccessPackagesRequestBuilder extends BaseRequestBuilder<AccessP
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs.
+     * Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AccessPackagesRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageCollectionResponse | undefined>;
     /**
-     * Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog.
+     * Create new navigation property to accessPackages for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-post-accesspackages?view=graph-rest-1.0|Find more info here}
      */
      post(body: AccessPackage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackage | undefined>;
     /**
-     * Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs.
+     * Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AccessPackagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog.
+     * Create new navigation property to accessPackages for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -66,7 +64,7 @@ export interface AccessPackagesRequestBuilder extends BaseRequestBuilder<AccessP
      toPostRequestInformation(body: AccessPackage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs.
+ * Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.
  */
 export interface AccessPackagesRequestBuilderGetQueryParameters {
     /**

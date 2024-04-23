@@ -73,43 +73,40 @@ export interface ContentTypeItemRequestBuilder extends BaseRequestBuilder<Conten
      */
     get unpublish(): UnpublishRequestBuilder;
     /**
-     * Remove a [content type][contentType] from a [list][] or a [site][].
+     * Delete navigation property contentTypes for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/contenttype-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the metadata for a [content type][contentType] in a [site][] or a [list][].
+     * The collection of content types defined for this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ContentType>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/contenttype-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ContentTypeItemRequestBuilderGetQueryParameters> | undefined) : Promise<ContentType | undefined>;
     /**
-     * Update a [content type][contentType].
+     * Update the navigation property contentTypes in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ContentType>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/contenttype-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ContentType, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ContentType | undefined>;
     /**
-     * Remove a [content type][contentType] from a [list][] or a [site][].
+     * Delete navigation property contentTypes for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the metadata for a [content type][contentType] in a [site][] or a [list][].
+     * The collection of content types defined for this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ContentTypeItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update a [content type][contentType].
+     * Update the navigation property contentTypes in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -117,7 +114,7 @@ export interface ContentTypeItemRequestBuilder extends BaseRequestBuilder<Conten
      toPatchRequestInformation(body: ContentType, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the metadata for a [content type][contentType] in a [site][] or a [list][].
+ * The collection of content types defined for this site.
  */
 export interface ContentTypeItemRequestBuilderGetQueryParameters {
     /**

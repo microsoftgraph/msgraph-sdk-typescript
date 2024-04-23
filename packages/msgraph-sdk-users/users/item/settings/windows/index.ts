@@ -27,11 +27,10 @@ export interface WindowsRequestBuilder extends BaseRequestBuilder<WindowsRequest
      */
      byWindowsSettingId(windowsSettingId: string) : WindowsSettingItemRequestBuilder;
     /**
-     * Get a list of windowsSetting objects and their properties for the signed in user.
+     * Get windows from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsSettingCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/usersettings-list-windows?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WindowsRequestBuilderGetQueryParameters> | undefined) : Promise<WindowsSettingCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface WindowsRequestBuilder extends BaseRequestBuilder<WindowsRequest
      */
      post(body: WindowsSetting, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WindowsSetting | undefined>;
     /**
-     * Get a list of windowsSetting objects and their properties for the signed in user.
+     * Get windows from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface WindowsRequestBuilder extends BaseRequestBuilder<WindowsRequest
      toPostRequestInformation(body: WindowsSetting, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of windowsSetting objects and their properties for the signed in user.
+ * Get windows from users
  */
 export interface WindowsRequestBuilderGetQueryParameters {
     /**

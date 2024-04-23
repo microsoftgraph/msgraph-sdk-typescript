@@ -33,22 +33,21 @@ export interface AllowedUsersRequestBuilder extends BaseRequestBuilder<AllowedUs
      */
      byUserId(userId: string) : UserItemRequestBuilder;
     /**
-     * Retrieve a list of users who have been granted access to submit print jobs to the associated printerShare.
+     * The users who have access to print using the printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/printershare-list-allowedusers?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AllowedUsersRequestBuilderGetQueryParameters> | undefined) : Promise<UserCollectionResponse | undefined>;
     /**
-     * Retrieve a list of users who have been granted access to submit print jobs to the associated printerShare.
+     * The users who have access to print using the printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AllowedUsersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of users who have been granted access to submit print jobs to the associated printerShare.
+ * The users who have access to print using the printer.
  */
 export interface AllowedUsersRequestBuilderGetQueryParameters {
     /**

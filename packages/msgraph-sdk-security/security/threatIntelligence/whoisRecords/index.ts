@@ -27,11 +27,10 @@ export interface WhoisRecordsRequestBuilder extends BaseRequestBuilder<WhoisReco
      */
      byWhoisRecordId(whoisRecordId: string) : WhoisRecordItemRequestBuilder;
     /**
-     * Get a list of whoisRecord objects.
+     * A list of whoisRecord objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WhoisRecordCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-threatintelligence-list-whoisrecords?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WhoisRecordsRequestBuilderGetQueryParameters> | undefined) : Promise<WhoisRecordCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface WhoisRecordsRequestBuilder extends BaseRequestBuilder<WhoisReco
      */
      post(body: WhoisRecord, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WhoisRecord | undefined>;
     /**
-     * Get a list of whoisRecord objects.
+     * A list of whoisRecord objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface WhoisRecordsRequestBuilder extends BaseRequestBuilder<WhoisReco
      toPostRequestInformation(body: WhoisRecord, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of whoisRecord objects.
+ * A list of whoisRecord objects.
  */
 export interface WhoisRecordsRequestBuilderGetQueryParameters {
     /**

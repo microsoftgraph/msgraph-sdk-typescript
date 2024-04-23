@@ -27,30 +27,28 @@ export interface ChecklistItemsRequestBuilder extends BaseRequestBuilder<Checkli
      */
      byChecklistItemId(checklistItemId: string) : ChecklistItemItemRequestBuilder;
     /**
-     * Get the checklistItem resources associated to a todoTask from the checklistItems navigation property.
+     * A collection of checklistItems linked to a task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ChecklistItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/todotask-list-checklistitems?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ChecklistItemsRequestBuilderGetQueryParameters> | undefined) : Promise<ChecklistItemCollectionResponse | undefined>;
     /**
-     * Create a new checklistItem object.
+     * Create new navigation property to checklistItems for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ChecklistItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/todotask-post-checklistitems?view=graph-rest-1.0|Find more info here}
      */
      post(body: ChecklistItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ChecklistItem | undefined>;
     /**
-     * Get the checklistItem resources associated to a todoTask from the checklistItems navigation property.
+     * A collection of checklistItems linked to a task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ChecklistItemsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new checklistItem object.
+     * Create new navigation property to checklistItems for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface ChecklistItemsRequestBuilder extends BaseRequestBuilder<Checkli
      toPostRequestInformation(body: ChecklistItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the checklistItem resources associated to a todoTask from the checklistItems navigation property.
+ * A collection of checklistItems linked to a task.
  */
 export interface ChecklistItemsRequestBuilderGetQueryParameters {
     /**

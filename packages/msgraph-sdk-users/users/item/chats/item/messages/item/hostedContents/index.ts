@@ -27,11 +27,10 @@ export interface HostedContentsRequestBuilder extends BaseRequestBuilder<HostedC
      */
      byChatMessageHostedContentId(chatMessageHostedContentId: string) : ChatMessageHostedContentItemRequestBuilder;
     /**
-     * Retrieve the list of chatMessageHostedContent objects from a message. This API only lists the hosted content objects. To get the content bytes, see get chatmessage hosted content.
+     * Content in a message hosted by Microsoft Teams - for example, images or code snippets.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ChatMessageHostedContentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-list-hostedcontents?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HostedContentsRequestBuilderGetQueryParameters> | undefined) : Promise<ChatMessageHostedContentCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface HostedContentsRequestBuilder extends BaseRequestBuilder<HostedC
      */
      post(body: ChatMessageHostedContent, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ChatMessageHostedContent | undefined>;
     /**
-     * Retrieve the list of chatMessageHostedContent objects from a message. This API only lists the hosted content objects. To get the content bytes, see get chatmessage hosted content.
+     * Content in a message hosted by Microsoft Teams - for example, images or code snippets.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface HostedContentsRequestBuilder extends BaseRequestBuilder<HostedC
      toPostRequestInformation(body: ChatMessageHostedContent, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the list of chatMessageHostedContent objects from a message. This API only lists the hosted content objects. To get the content bytes, see get chatmessage hosted content.
+ * Content in a message hosted by Microsoft Teams - for example, images or code snippets.
  */
 export interface HostedContentsRequestBuilderGetQueryParameters {
     /**

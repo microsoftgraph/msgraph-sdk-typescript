@@ -33,30 +33,28 @@ export interface MessagesRequestBuilder extends BaseRequestBuilder<MessagesReque
      */
      byChatMessageId(chatMessageId: string) : ChatMessageItemRequestBuilder;
     /**
-     * Retrieve the list of messages (without the replies) in a channel of a team.  To get the replies for a message, call the list message replies or the get message reply API.  This method supports federation. To list channel messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).
+     * A collection of all the messages in the channel. A navigation property. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ChatMessageCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/channel-list-messages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MessagesRequestBuilderGetQueryParameters> | undefined) : Promise<ChatMessageCollectionResponse | undefined>;
     /**
-     * Send a new chatMessage in the specified channel or a chat.
+     * Create new navigation property to messages for teamwork
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ChatMessage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: ChatMessage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ChatMessage | undefined>;
     /**
-     * Retrieve the list of messages (without the replies) in a channel of a team.  To get the replies for a message, call the list message replies or the get message reply API.  This method supports federation. To list channel messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).
+     * A collection of all the messages in the channel. A navigation property. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MessagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Send a new chatMessage in the specified channel or a chat.
+     * Create new navigation property to messages for teamwork
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,7 +62,7 @@ export interface MessagesRequestBuilder extends BaseRequestBuilder<MessagesReque
      toPostRequestInformation(body: ChatMessage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the list of messages (without the replies) in a channel of a team.  To get the replies for a message, call the list message replies or the get message reply API.  This method supports federation. To list channel messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).
+ * A collection of all the messages in the channel. A navigation property. Nullable.
  */
 export interface MessagesRequestBuilderGetQueryParameters {
     /**

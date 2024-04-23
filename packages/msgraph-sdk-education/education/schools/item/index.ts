@@ -31,43 +31,40 @@ export interface EducationSchoolItemRequestBuilder extends BaseRequestBuilder<Ed
      */
     get users(): UsersRequestBuilder;
     /**
-     * Delete a school.
+     * Delete navigation property schools for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationschool-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an educationSchool object.
+     * Get schools from education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationSchool>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationschool-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EducationSchoolItemRequestBuilderGetQueryParameters> | undefined) : Promise<EducationSchool | undefined>;
     /**
-     * Update the properties of an educationSchool object.
+     * Update the navigation property schools in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationSchool>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationschool-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EducationSchool, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationSchool | undefined>;
     /**
-     * Delete a school.
+     * Delete navigation property schools for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an educationSchool object.
+     * Get schools from education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EducationSchoolItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an educationSchool object.
+     * Update the navigation property schools in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -75,7 +72,7 @@ export interface EducationSchoolItemRequestBuilder extends BaseRequestBuilder<Ed
      toPatchRequestInformation(body: EducationSchool, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an educationSchool object.
+ * Get schools from education
  */
 export interface EducationSchoolItemRequestBuilderGetQueryParameters {
     /**

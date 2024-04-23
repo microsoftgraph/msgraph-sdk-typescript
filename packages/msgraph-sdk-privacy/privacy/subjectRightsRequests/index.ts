@@ -29,33 +29,31 @@ export interface SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder<
      */
      bySubjectRightsRequestId(subjectRightsRequestId: string) : SubjectRightsRequestItemRequestBuilder;
     /**
-     * Get a list of subjectRightsRequest objects and their properties.
+     * Get subjectRightsRequests from privacy
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SubjectRightsRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
-     * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SubjectRightsRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<SubjectRightsRequestCollectionResponse | undefined>;
     /**
-     * Create a new subjectRightsRequest object.
+     * Create new navigation property to subjectRightsRequests for privacy
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SubjectRightsRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
-     * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: SubjectRightsRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SubjectRightsRequest | undefined>;
     /**
-     * Get a list of subjectRightsRequest objects and their properties.
+     * Get subjectRightsRequests from privacy
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SubjectRightsRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new subjectRightsRequest object.
+     * Create new navigation property to subjectRightsRequests for privacy
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,7 +62,7 @@ export interface SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder<
      toPostRequestInformation(body: SubjectRightsRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of subjectRightsRequest objects and their properties.
+ * Get subjectRightsRequests from privacy
  */
 export interface SubjectRightsRequestsRequestBuilderGetQueryParameters {
     /**

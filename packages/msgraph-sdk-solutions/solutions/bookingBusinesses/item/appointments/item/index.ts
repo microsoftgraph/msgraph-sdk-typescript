@@ -19,43 +19,40 @@ export interface BookingAppointmentItemRequestBuilder extends BaseRequestBuilder
      */
     get cancel(): CancelRequestBuilder;
     /**
-     * Delete a bookingAppointment in the specified bookingBusiness.
+     * Delete navigation property appointments for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingappointment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness. The startDateTime and endDateTime properties are always returned in UTC.
+     * All the appointments of this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingAppointment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingappointment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BookingAppointmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<BookingAppointment | undefined>;
     /**
-     * Update the properties of a bookingAppointment object in the specified bookingBusiness.
+     * Update the navigation property appointments in solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingAppointment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingappointment-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: BookingAppointment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingAppointment | undefined>;
     /**
-     * Delete a bookingAppointment in the specified bookingBusiness.
+     * Delete navigation property appointments for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness. The startDateTime and endDateTime properties are always returned in UTC.
+     * All the appointments of this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BookingAppointmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a bookingAppointment object in the specified bookingBusiness.
+     * Update the navigation property appointments in solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface BookingAppointmentItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: BookingAppointment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness. The startDateTime and endDateTime properties are always returned in UTC.
+ * All the appointments of this business. Read-only. Nullable.
  */
 export interface BookingAppointmentItemRequestBuilderGetQueryParameters {
     /**

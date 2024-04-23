@@ -13,22 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DriveRequestBuilder extends BaseRequestBuilder<DriveRequestBuilder> {
     /**
-     * Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
+     * The user's OneDrive. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Drive>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/drive-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DriveRequestBuilderGetQueryParameters> | undefined) : Promise<Drive | undefined>;
     /**
-     * Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
+     * The user's OneDrive. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DriveRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
+ * The user's OneDrive. Read-only.
  */
 export interface DriveRequestBuilderGetQueryParameters {
     /**

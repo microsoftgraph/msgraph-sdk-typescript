@@ -25,43 +25,40 @@ export interface ContactItemRequestBuilder extends BaseRequestBuilder<ContactIte
      */
     get photo(): PhotoRequestBuilder;
     /**
-     * Delete a contact.
+     * Delete navigation property contacts for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/contact-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a contact object. There are two scenarios where an app can get a contact in another user's contact folder:
+     * The user's contacts. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Contact>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/contact-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ContactItemRequestBuilderGetQueryParameters> | undefined) : Promise<Contact | undefined>;
     /**
-     * Update the properties of a contact object.
+     * Update the navigation property contacts in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Contact>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/contact-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Contact, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Contact | undefined>;
     /**
-     * Delete a contact.
+     * Delete navigation property contacts for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a contact object. There are two scenarios where an app can get a contact in another user's contact folder:
+     * The user's contacts. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ContactItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a contact object.
+     * Update the navigation property contacts in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -69,7 +66,7 @@ export interface ContactItemRequestBuilder extends BaseRequestBuilder<ContactIte
      toPatchRequestInformation(body: Contact, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a contact object. There are two scenarios where an app can get a contact in another user's contact folder:
+ * The user's contacts. Read-only. Nullable.
  */
 export interface ContactItemRequestBuilderGetQueryParameters {
     /**

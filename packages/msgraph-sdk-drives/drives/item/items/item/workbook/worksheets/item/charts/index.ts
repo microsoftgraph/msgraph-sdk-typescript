@@ -37,11 +37,10 @@ export interface ChartsRequestBuilder extends BaseRequestBuilder<ChartsRequestBu
      */
      byWorkbookChartId(workbookChartId: string) : WorkbookChartItemRequestBuilder;
     /**
-     * Retrieve a list of chart objects.
+     * Returns collection of charts that are part of the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/worksheet-list-charts?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ChartsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartCollectionResponse | undefined>;
     /**
@@ -57,22 +56,21 @@ export interface ChartsRequestBuilder extends BaseRequestBuilder<ChartsRequestBu
      */
      itemWithName(name: string | undefined) : ItemWithNameRequestBuilder;
     /**
-     * Use this API to create a new Chart.
+     * Create new navigation property to charts for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChart>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/worksheet-post-charts?view=graph-rest-1.0|Find more info here}
      */
      post(body: WorkbookChart, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChart | undefined>;
     /**
-     * Retrieve a list of chart objects.
+     * Returns collection of charts that are part of the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ChartsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Use this API to create a new Chart.
+     * Create new navigation property to charts for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -80,7 +78,7 @@ export interface ChartsRequestBuilder extends BaseRequestBuilder<ChartsRequestBu
      toPostRequestInformation(body: WorkbookChart, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of chart objects.
+ * Returns collection of charts that are part of the worksheet. Read-only.
  */
 export interface ChartsRequestBuilderGetQueryParameters {
     /**

@@ -37,21 +37,22 @@ export interface GetAttackSimulationTrainingUserCoverageGetResponse extends Base
  */
 export interface GetAttackSimulationTrainingUserCoverageRequestBuilder extends BaseRequestBuilder<GetAttackSimulationTrainingUserCoverageRequestBuilder> {
     /**
-     * Invoke function getAttackSimulationTrainingUserCoverage
+     * List training coverage for tenant users in attack simulation and training campaigns. This function supports @odata.nextLink for pagination.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetAttackSimulationTrainingUserCoverageGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/securityreportsroot-getattacksimulationtrainingusercoverage?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters> | undefined) : Promise<GetAttackSimulationTrainingUserCoverageGetResponse | undefined>;
     /**
-     * Invoke function getAttackSimulationTrainingUserCoverage
+     * List training coverage for tenant users in attack simulation and training campaigns. This function supports @odata.nextLink for pagination.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getAttackSimulationTrainingUserCoverage
+ * List training coverage for tenant users in attack simulation and training campaigns. This function supports @odata.nextLink for pagination.
  */
 export interface GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters {
     /**

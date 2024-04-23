@@ -34,12 +34,11 @@ export interface LearningCourseActivitiesRequestBuilder extends BaseRequestBuild
      */
      get(requestConfiguration?: RequestConfiguration<LearningCourseActivitiesRequestBuilderGetQueryParameters> | undefined) : Promise<LearningCourseActivityCollectionResponse | undefined>;
     /**
-     * Create a new learningCourseActivity object. A learning course activity can be one of two types: - Assignment- Self-initiated Use this method to create either type of activity.
+     * Create new navigation property to learningCourseActivities for employeeExperience
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LearningCourseActivity>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/employeeexperienceuser-post-learningcourseactivities?view=graph-rest-1.0|Find more info here}
      */
      post(body: LearningCourseActivity, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LearningCourseActivity | undefined>;
     /**
@@ -49,7 +48,7 @@ export interface LearningCourseActivitiesRequestBuilder extends BaseRequestBuild
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LearningCourseActivitiesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new learningCourseActivity object. A learning course activity can be one of two types: - Assignment- Self-initiated Use this method to create either type of activity.
+     * Create new navigation property to learningCourseActivities for employeeExperience
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

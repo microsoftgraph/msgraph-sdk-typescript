@@ -31,11 +31,10 @@ export interface DriveItemVersionItemRequestBuilder extends BaseRequestBuilder<D
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the metadata for a specific version of a DriveItem.
+     * The list of previous versions of the item. For more info, see getting previous versions. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveItemVersion>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/driveitemversion-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DriveItemVersionItemRequestBuilderGetQueryParameters> | undefined) : Promise<DriveItemVersion | undefined>;
     /**
@@ -53,7 +52,7 @@ export interface DriveItemVersionItemRequestBuilder extends BaseRequestBuilder<D
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the metadata for a specific version of a DriveItem.
+     * The list of previous versions of the item. For more info, see getting previous versions. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -67,7 +66,7 @@ export interface DriveItemVersionItemRequestBuilder extends BaseRequestBuilder<D
      toPatchRequestInformation(body: DriveItemVersion, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the metadata for a specific version of a DriveItem.
+ * The list of previous versions of the item. For more info, see getting previous versions. Read-only. Nullable.
  */
 export interface DriveItemVersionItemRequestBuilderGetQueryParameters {
     /**

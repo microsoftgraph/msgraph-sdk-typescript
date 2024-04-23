@@ -27,22 +27,21 @@ export interface AgreementAcceptancesRequestBuilder extends BaseRequestBuilder<A
      */
      byAgreementAcceptanceId(agreementAcceptanceId: string) : AgreementAcceptanceItemRequestBuilder;
     /**
-     * Retrieve the signed-in user's agreementAcceptance objects.
+     * The user's terms of use acceptance statuses. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AgreementAcceptanceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-list-agreementacceptances?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AgreementAcceptancesRequestBuilderGetQueryParameters> | undefined) : Promise<AgreementAcceptanceCollectionResponse | undefined>;
     /**
-     * Retrieve the signed-in user's agreementAcceptance objects.
+     * The user's terms of use acceptance statuses. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AgreementAcceptancesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the signed-in user's agreementAcceptance objects.
+ * The user's terms of use acceptance statuses. Read-only. Nullable.
  */
 export interface AgreementAcceptancesRequestBuilderGetQueryParameters {
     /**

@@ -33,11 +33,10 @@ export interface OnlineMeetingsRequestBuilder extends BaseRequestBuilder<OnlineM
      */
      byOnlineMeetingId(onlineMeetingId: string) : OnlineMeetingItemRequestBuilder;
     /**
-     * Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report (deprecated) is an online meeting artifact. For details, see Online meeting artifacts and permissions.
+     * Get onlineMeetings from communications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OnlineMeetingCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OnlineMeetingsRequestBuilderGetQueryParameters> | undefined) : Promise<OnlineMeetingCollectionResponse | undefined>;
     /**
@@ -49,7 +48,7 @@ export interface OnlineMeetingsRequestBuilder extends BaseRequestBuilder<OnlineM
      */
      post(body: OnlineMeeting, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OnlineMeeting | undefined>;
     /**
-     * Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report (deprecated) is an online meeting artifact. For details, see Online meeting artifacts and permissions.
+     * Get onlineMeetings from communications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -63,7 +62,7 @@ export interface OnlineMeetingsRequestBuilder extends BaseRequestBuilder<OnlineM
      toPostRequestInformation(body: OnlineMeeting, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report (deprecated) is an online meeting artifact. For details, see Online meeting artifacts and permissions.
+ * Get onlineMeetings from communications
  */
 export interface OnlineMeetingsRequestBuilderGetQueryParameters {
     /**

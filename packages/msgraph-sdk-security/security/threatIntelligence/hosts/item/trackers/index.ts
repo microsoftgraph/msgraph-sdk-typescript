@@ -27,22 +27,21 @@ export interface TrackersRequestBuilder extends BaseRequestBuilder<TrackersReque
      */
      byHostTrackerId(hostTrackerId: string) : HostTrackerItemRequestBuilder;
     /**
-     * Get a list of hostTracker resources.
+     * The hostTrackers that are associated with this host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostTrackerCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-host-list-trackers?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TrackersRequestBuilderGetQueryParameters> | undefined) : Promise<HostTrackerCollectionResponse | undefined>;
     /**
-     * Get a list of hostTracker resources.
+     * The hostTrackers that are associated with this host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TrackersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a list of hostTracker resources.
+ * The hostTrackers that are associated with this host.
  */
 export interface TrackersRequestBuilderGetQueryParameters {
     /**

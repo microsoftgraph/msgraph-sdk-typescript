@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface LocalizedNotificationMessageItemRequestBuilder extends BaseRequestBuilder<LocalizedNotificationMessageItemRequestBuilder> {
     /**
-     * Deletes a localizedNotificationMessage.
+     * Delete navigation property localizedNotificationMessages for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-localizednotificationmessage-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the localizedNotificationMessage object.
+     * The list of localized messages for this Notification Message Template.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LocalizedNotificationMessage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-localizednotificationmessage-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LocalizedNotificationMessageItemRequestBuilderGetQueryParameters> | undefined) : Promise<LocalizedNotificationMessage | undefined>;
     /**
-     * Update the properties of a localizedNotificationMessage object.
+     * Update the navigation property localizedNotificationMessages in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LocalizedNotificationMessage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-localizednotificationmessage-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: LocalizedNotificationMessage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LocalizedNotificationMessage | undefined>;
     /**
-     * Deletes a localizedNotificationMessage.
+     * Delete navigation property localizedNotificationMessages for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the localizedNotificationMessage object.
+     * The list of localized messages for this Notification Message Template.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LocalizedNotificationMessageItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a localizedNotificationMessage object.
+     * Update the navigation property localizedNotificationMessages in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface LocalizedNotificationMessageItemRequestBuilder extends BaseRequ
      toPatchRequestInformation(body: LocalizedNotificationMessage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the localizedNotificationMessage object.
+ * The list of localized messages for this Notification Message Template.
  */
 export interface LocalizedNotificationMessageItemRequestBuilderGetQueryParameters {
     /**

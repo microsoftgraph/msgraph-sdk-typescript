@@ -25,11 +25,10 @@ export interface ServiceHealthIssueItemRequestBuilder extends BaseRequestBuilder
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a serviceHealthIssue object. This operation retrieves a specified service health issue for tenant. The operation returns an error if the issue does not exist for the tenant.
+     * A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServiceHealthIssue>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/servicehealthissue-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ServiceHealthIssueItemRequestBuilderGetQueryParameters> | undefined) : Promise<ServiceHealthIssue | undefined>;
     /**
@@ -47,7 +46,7 @@ export interface ServiceHealthIssueItemRequestBuilder extends BaseRequestBuilder
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a serviceHealthIssue object. This operation retrieves a specified service health issue for tenant. The operation returns an error if the issue does not exist for the tenant.
+     * A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -61,7 +60,7 @@ export interface ServiceHealthIssueItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: ServiceHealthIssue, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a serviceHealthIssue object. This operation retrieves a specified service health issue for tenant. The operation returns an error if the issue does not exist for the tenant.
+ * A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
  */
 export interface ServiceHealthIssueItemRequestBuilderGetQueryParameters {
     /**

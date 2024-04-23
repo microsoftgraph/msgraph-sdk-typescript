@@ -51,7 +51,7 @@ export interface SitesRequestBuilder extends BaseRequestBuilder<SitesRequestBuil
      */
      bySiteId(siteId: string) : SiteItemRequestBuilder;
     /**
-     * Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is createdDateTime. The search filter is a free text search that uses multiple properties when retrieving the search results.
+     * Search across a SharePoint tenant for sites that match keywords provided. The only property that works for sorting is createdDateTime. The search filter is a free text search that uses multiple properties when retrieving the search results.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SiteCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -59,14 +59,14 @@ export interface SitesRequestBuilder extends BaseRequestBuilder<SitesRequestBuil
      */
      get(requestConfiguration?: RequestConfiguration<SitesRequestBuilderGetQueryParameters> | undefined) : Promise<SiteCollectionResponse | undefined>;
     /**
-     * Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is createdDateTime. The search filter is a free text search that uses multiple properties when retrieving the search results.
+     * Search across a SharePoint tenant for sites that match keywords provided. The only property that works for sorting is createdDateTime. The search filter is a free text search that uses multiple properties when retrieving the search results.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SitesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is createdDateTime. The search filter is a free text search that uses multiple properties when retrieving the search results.
+ * Search across a SharePoint tenant for sites that match keywords provided. The only property that works for sorting is createdDateTime. The search filter is a free text search that uses multiple properties when retrieving the search results.
  */
 export interface SitesRequestBuilderGetQueryParameters {
     /**

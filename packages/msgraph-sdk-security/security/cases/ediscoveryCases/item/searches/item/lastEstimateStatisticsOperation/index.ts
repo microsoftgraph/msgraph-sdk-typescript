@@ -13,22 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface LastEstimateStatisticsOperationRequestBuilder extends BaseRequestBuilder<LastEstimateStatisticsOperationRequestBuilder> {
     /**
-     * Get the last  ediscoveryEstimateOperation objects and their properties.
+     * The last estimate operation associated with the eDiscovery search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryEstimateOperation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-list-lastestimatestatisticsoperation?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LastEstimateStatisticsOperationRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryEstimateOperation | undefined>;
     /**
-     * Get the last  ediscoveryEstimateOperation objects and their properties.
+     * The last estimate operation associated with the eDiscovery search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LastEstimateStatisticsOperationRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the last  ediscoveryEstimateOperation objects and their properties.
+ * The last estimate operation associated with the eDiscovery search.
  */
 export interface LastEstimateStatisticsOperationRequestBuilderGetQueryParameters {
     /**

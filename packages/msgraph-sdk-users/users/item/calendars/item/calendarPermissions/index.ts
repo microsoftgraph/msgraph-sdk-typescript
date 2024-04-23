@@ -27,30 +27,28 @@ export interface CalendarPermissionsRequestBuilder extends BaseRequestBuilder<Ca
      */
      byCalendarPermissionId(calendarPermissionId: string) : CalendarPermissionItemRequestBuilder;
     /**
-     * Get a collection of calendarPermission resources that describe the identity and roles of users with whom the specified calendar has been shared or delegated. Here, the calendar can be a user calendar or group calendar.
+     * The permissions of the users with whom the calendar is shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CalendarPermissionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/calendar-list-calendarpermissions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CalendarPermissionsRequestBuilderGetQueryParameters> | undefined) : Promise<CalendarPermissionCollectionResponse | undefined>;
     /**
-     * Create a calendarPermission resource to specify the identity and role of the user with whom the specified calendar is being shared or delegated.
+     * Create new navigation property to calendarPermissions for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CalendarPermission>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/calendar-post-calendarpermissions?view=graph-rest-1.0|Find more info here}
      */
      post(body: CalendarPermission, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CalendarPermission | undefined>;
     /**
-     * Get a collection of calendarPermission resources that describe the identity and roles of users with whom the specified calendar has been shared or delegated. Here, the calendar can be a user calendar or group calendar.
+     * The permissions of the users with whom the calendar is shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CalendarPermissionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a calendarPermission resource to specify the identity and role of the user with whom the specified calendar is being shared or delegated.
+     * Create new navigation property to calendarPermissions for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface CalendarPermissionsRequestBuilder extends BaseRequestBuilder<Ca
      toPostRequestInformation(body: CalendarPermission, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a collection of calendarPermission resources that describe the identity and roles of users with whom the specified calendar has been shared or delegated. Here, the calendar can be a user calendar or group calendar.
+ * The permissions of the users with whom the calendar is shared.
  */
 export interface CalendarPermissionsRequestBuilderGetQueryParameters {
     /**

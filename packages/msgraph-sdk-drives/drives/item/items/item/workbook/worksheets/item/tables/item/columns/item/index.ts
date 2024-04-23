@@ -43,43 +43,40 @@ export interface WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilde
      */
     get totalRowRange(): TotalRowRangeRequestBuilder;
     /**
-     * Deletes the column from the table.
+     * Delete navigation property columns for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/tablecolumn-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of tablecolumn object.
+     * Represents a collection of all the columns in the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTableColumn>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/tablecolumn-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorkbookTableColumnItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookTableColumn | undefined>;
     /**
-     * Update the properties of tablecolumn object.
+     * Update the navigation property columns in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTableColumn>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/tablecolumn-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WorkbookTableColumn, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTableColumn | undefined>;
     /**
-     * Deletes the column from the table.
+     * Delete navigation property columns for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of tablecolumn object.
+     * Represents a collection of all the columns in the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkbookTableColumnItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of tablecolumn object.
+     * Update the navigation property columns in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -87,7 +84,7 @@ export interface WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: WorkbookTableColumn, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of tablecolumn object.
+ * Represents a collection of all the columns in the table. Read-only.
  */
 export interface WorkbookTableColumnItemRequestBuilderGetQueryParameters {
     /**

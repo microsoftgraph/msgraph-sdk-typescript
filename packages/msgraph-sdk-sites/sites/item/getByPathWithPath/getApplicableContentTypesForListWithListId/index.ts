@@ -37,21 +37,22 @@ export interface GetApplicableContentTypesForListWithListIdGetResponse extends B
  */
 export interface GetApplicableContentTypesForListWithListIdRequestBuilder extends BaseRequestBuilder<GetApplicableContentTypesForListWithListIdRequestBuilder> {
     /**
-     * Invoke function getApplicableContentTypesForList
+     * Get site contentTypes that can be added to a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetApplicableContentTypesForListWithListIdGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/site-getapplicablecontenttypesforlist?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters> | undefined) : Promise<GetApplicableContentTypesForListWithListIdGetResponse | undefined>;
     /**
-     * Invoke function getApplicableContentTypesForList
+     * Get site contentTypes that can be added to a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getApplicableContentTypesForList
+ * Get site contentTypes that can be added to a list.
  */
 export interface GetApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters {
     /**

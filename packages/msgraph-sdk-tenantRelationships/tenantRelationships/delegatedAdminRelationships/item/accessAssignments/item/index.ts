@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseRequestBuilder<DelegatedAdminAccessAssignmentItemRequestBuilder> {
     /**
-     * Delete a delegatedAdminAccessAssignment object.
+     * Delete navigation property accessAssignments for tenantRelationships
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminaccessassignment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties of a delegatedAdminAccessAssignment object.
+     * The access assignments associated with the delegated admin relationship.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedAdminAccessAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminaccessassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DelegatedAdminAccessAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedAdminAccessAssignment | undefined>;
     /**
-     * Update the properties of a delegatedAdminAccessAssignment object.
+     * Update the navigation property accessAssignments in tenantRelationships
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedAdminAccessAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminaccessassignment-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DelegatedAdminAccessAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DelegatedAdminAccessAssignment | undefined>;
     /**
-     * Delete a delegatedAdminAccessAssignment object.
+     * Delete navigation property accessAssignments for tenantRelationships
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties of a delegatedAdminAccessAssignment object.
+     * The access assignments associated with the delegated admin relationship.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DelegatedAdminAccessAssignmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a delegatedAdminAccessAssignment object.
+     * Update the navigation property accessAssignments in tenantRelationships
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseRe
      toPatchRequestInformation(body: DelegatedAdminAccessAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties of a delegatedAdminAccessAssignment object.
+ * The access assignments associated with the delegated admin relationship.
  */
 export interface DelegatedAdminAccessAssignmentItemRequestBuilderGetQueryParameters {
     /**

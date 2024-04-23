@@ -13,30 +13,28 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AlertItemRequestBuilder extends BaseRequestBuilder<AlertItemRequestBuilder> {
     /**
-     * Retrieve the properties and relationships of an alert object.
+     * Get alerts from security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Alert>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/alert-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AlertItemRequestBuilderGetQueryParameters> | undefined) : Promise<Alert | undefined>;
     /**
-     * Update an editable alert property within any integrated solution to keep alert status and assignments in sync across solutions. This method updates any solution that has a record of the referenced alert ID.
+     * Update the navigation property alerts in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Alert>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/alert-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Alert, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Alert | undefined>;
     /**
-     * Retrieve the properties and relationships of an alert object.
+     * Get alerts from security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AlertItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update an editable alert property within any integrated solution to keep alert status and assignments in sync across solutions. This method updates any solution that has a record of the referenced alert ID.
+     * Update the navigation property alerts in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -44,7 +42,7 @@ export interface AlertItemRequestBuilder extends BaseRequestBuilder<AlertItemReq
      toPatchRequestInformation(body: Alert, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of an alert object.
+ * Get alerts from security
  */
 export interface AlertItemRequestBuilderGetQueryParameters {
     /**

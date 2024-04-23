@@ -27,11 +27,10 @@ export interface TasksRequestBuilder extends BaseRequestBuilder<TasksRequestBuil
      */
      byPrintTaskId(printTaskId: string) : PrintTaskItemRequestBuilder;
     /**
-     * Retrieve a list of tasks associated with a task definition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+     * A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintTaskCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/printtaskdefinition-list-tasks?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TasksRequestBuilderGetQueryParameters> | undefined) : Promise<PrintTaskCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface TasksRequestBuilder extends BaseRequestBuilder<TasksRequestBuil
      */
      post(body: PrintTask, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintTask | undefined>;
     /**
-     * Retrieve a list of tasks associated with a task definition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+     * A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface TasksRequestBuilder extends BaseRequestBuilder<TasksRequestBuil
      toPostRequestInformation(body: PrintTask, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of tasks associated with a task definition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+ * A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.
  */
 export interface TasksRequestBuilderGetQueryParameters {
     /**

@@ -19,11 +19,10 @@ export interface DetailsRequestBuilder extends BaseRequestBuilder<DetailsRequest
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a plannerPlanDetails object.
+     * Read-only. Nullable. Extra details about the plan.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerPlanDetails>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/plannerplandetails-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DetailsRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerPlanDetails | undefined>;
     /**
@@ -32,7 +31,6 @@ export interface DetailsRequestBuilder extends BaseRequestBuilder<DetailsRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerPlanDetails>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/plannerplandetails-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PlannerPlanDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerPlanDetails | undefined>;
     /**
@@ -42,7 +40,7 @@ export interface DetailsRequestBuilder extends BaseRequestBuilder<DetailsRequest
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a plannerPlanDetails object.
+     * Read-only. Nullable. Extra details about the plan.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +54,7 @@ export interface DetailsRequestBuilder extends BaseRequestBuilder<DetailsRequest
      toPatchRequestInformation(body: PlannerPlanDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a plannerPlanDetails object.
+ * Read-only. Nullable. Extra details about the plan.
  */
 export interface DetailsRequestBuilderGetQueryParameters {
     /**

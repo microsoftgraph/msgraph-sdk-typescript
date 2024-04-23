@@ -13,18 +13,16 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface FilePlanReferenceTemplateItemRequestBuilder extends BaseRequestBuilder<FilePlanReferenceTemplateItemRequestBuilder> {
     /**
-     * Delete a filePlanReferenceTemplate object.
+     * Delete navigation property filePlanReferences for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-delete-fileplanreferences?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a filePlanReferenceTemplate object.
+     * Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FilePlanReferenceTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-fileplanreferencetemplate-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<FilePlanReferenceTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<FilePlanReferenceTemplate | undefined>;
     /**
@@ -36,13 +34,13 @@ export interface FilePlanReferenceTemplateItemRequestBuilder extends BaseRequest
      */
      patch(body: FilePlanReferenceTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<FilePlanReferenceTemplate | undefined>;
     /**
-     * Delete a filePlanReferenceTemplate object.
+     * Delete navigation property filePlanReferences for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a filePlanReferenceTemplate object.
+     * Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +54,7 @@ export interface FilePlanReferenceTemplateItemRequestBuilder extends BaseRequest
      toPatchRequestInformation(body: FilePlanReferenceTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a filePlanReferenceTemplate object.
+ * Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
  */
 export interface FilePlanReferenceTemplateItemRequestBuilderGetQueryParameters {
     /**

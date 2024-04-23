@@ -13,42 +13,39 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder> {
     /**
-     * Remove an educationRubric from an educationAssignment. This method doesn't delete the rubric itself and can only be performed by teachers.
+     * Delete ref of navigation property rubric for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-delete-rubric?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the educationRubric object attached to an educationAssignment, if one exists. Only teachers, students, and applications with application permissions can perform this operation.
+     * When set, the grading rubric attached to this assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<string>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-get-rubric?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<string | undefined>;
     /**
-     * Attach an existing educationRubric object to an educationAssignment. Only teachers can perform this operation.
+     * Update the ref of navigation property rubric in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-put-rubric?view=graph-rest-1.0|Find more info here}
      */
      put(body: ReferenceUpdate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Remove an educationRubric from an educationAssignment. This method doesn't delete the rubric itself and can only be performed by teachers.
+     * Delete ref of navigation property rubric for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the educationRubric object attached to an educationAssignment, if one exists. Only teachers, students, and applications with application permissions can perform this operation.
+     * When set, the grading rubric attached to this assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Attach an existing educationRubric object to an educationAssignment. Only teachers can perform this operation.
+     * Update the ref of navigation property rubric in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

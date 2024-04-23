@@ -19,18 +19,16 @@ export interface GroupItemRequestBuilder extends BaseRequestBuilder<GroupItemReq
      */
     get sets(): SetsRequestBuilder;
     /**
-     * Delete a group object in a term [store].
+     * Delete navigation property groups for sites
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/termstore-group-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a term store group object.
+     * Collection of all groups available in the term store.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Group>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/termstore-group-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GroupItemRequestBuilderGetQueryParameters> | undefined) : Promise<Group | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface GroupItemRequestBuilder extends BaseRequestBuilder<GroupItemReq
      */
      patch(body: Group, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Group | undefined>;
     /**
-     * Delete a group object in a term [store].
+     * Delete navigation property groups for sites
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a term store group object.
+     * Collection of all groups available in the term store.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -62,7 +60,7 @@ export interface GroupItemRequestBuilder extends BaseRequestBuilder<GroupItemReq
      toPatchRequestInformation(body: Group, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a term store group object.
+ * Collection of all groups available in the term store.
  */
 export interface GroupItemRequestBuilderGetQueryParameters {
     /**

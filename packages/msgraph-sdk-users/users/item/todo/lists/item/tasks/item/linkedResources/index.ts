@@ -27,30 +27,28 @@ export interface LinkedResourcesRequestBuilder extends BaseRequestBuilder<Linked
      */
      byLinkedResourceId(linkedResourceId: string) : LinkedResourceItemRequestBuilder;
     /**
-     * Get information of one or more items in a partner application, based on which a specified task was created. The information is represented in a linkedResource object for each item. It includes an external ID for the item in the partner application, and if applicable, a deep link to that item in the application.
+     * A collection of resources linked to the task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LinkedResourceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/todotask-list-linkedresources?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LinkedResourcesRequestBuilderGetQueryParameters> | undefined) : Promise<LinkedResourceCollectionResponse | undefined>;
     /**
-     * Create a linkedResource object to associate a specified task with an item in a partner application. For example, you can associate a task with an email item in Outlook that spurred the task, and you can create a linkedResource object to track its association. You can also create a linkedResource object while creating a task.
+     * Create new navigation property to linkedResources for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LinkedResource>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/todotask-post-linkedresources?view=graph-rest-1.0|Find more info here}
      */
      post(body: LinkedResource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LinkedResource | undefined>;
     /**
-     * Get information of one or more items in a partner application, based on which a specified task was created. The information is represented in a linkedResource object for each item. It includes an external ID for the item in the partner application, and if applicable, a deep link to that item in the application.
+     * A collection of resources linked to the task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LinkedResourcesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a linkedResource object to associate a specified task with an item in a partner application. For example, you can associate a task with an email item in Outlook that spurred the task, and you can create a linkedResource object to track its association. You can also create a linkedResource object while creating a task.
+     * Create new navigation property to linkedResources for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface LinkedResourcesRequestBuilder extends BaseRequestBuilder<Linked
      toPostRequestInformation(body: LinkedResource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get information of one or more items in a partner application, based on which a specified task was created. The information is represented in a linkedResource object for each item. It includes an external ID for the item in the partner application, and if applicable, a deep link to that item in the application.
+ * A collection of resources linked to the task.
  */
 export interface LinkedResourcesRequestBuilderGetQueryParameters {
     /**

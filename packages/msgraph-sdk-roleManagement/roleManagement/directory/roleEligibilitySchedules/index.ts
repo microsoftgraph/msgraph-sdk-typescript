@@ -35,11 +35,10 @@ export interface RoleEligibilitySchedulesRequestBuilder extends BaseRequestBuild
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Get the unifiedRoleEligibilitySchedule resources from the roleEligibilitySchedules navigation property.
+     * Schedules for role eligibility operations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleEligibilityScheduleCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-list-roleeligibilityschedules?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RoleEligibilitySchedulesRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleEligibilityScheduleCollectionResponse | undefined>;
     /**
@@ -51,7 +50,7 @@ export interface RoleEligibilitySchedulesRequestBuilder extends BaseRequestBuild
      */
      post(body: UnifiedRoleEligibilitySchedule, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleEligibilitySchedule | undefined>;
     /**
-     * Get the unifiedRoleEligibilitySchedule resources from the roleEligibilitySchedules navigation property.
+     * Schedules for role eligibility operations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -65,7 +64,7 @@ export interface RoleEligibilitySchedulesRequestBuilder extends BaseRequestBuild
      toPostRequestInformation(body: UnifiedRoleEligibilitySchedule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the unifiedRoleEligibilitySchedule resources from the roleEligibilitySchedules navigation property.
+ * Schedules for role eligibility operations.
  */
 export interface RoleEligibilitySchedulesRequestBuilderGetQueryParameters {
     /**

@@ -25,18 +25,16 @@ export interface ExternalItemItemRequestBuilder extends BaseRequestBuilder<Exter
      */
     get microsoftGraphExternalConnectorsAddActivities(): MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder;
     /**
-     * Delete an externalItem object.
+     * Delete navigation property items for external
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalitem-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an externalItem object.
+     * Get items from external
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExternalItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalitem-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ExternalItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<ExternalItem | undefined>;
     /**
@@ -48,13 +46,13 @@ export interface ExternalItemItemRequestBuilder extends BaseRequestBuilder<Exter
      */
      put(body: ExternalItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ExternalItem | undefined>;
     /**
-     * Delete an externalItem object.
+     * Delete navigation property items for external
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an externalItem object.
+     * Get items from external
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -68,7 +66,7 @@ export interface ExternalItemItemRequestBuilder extends BaseRequestBuilder<Exter
      toPutRequestInformation(body: ExternalItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an externalItem object.
+ * Get items from external
  */
 export interface ExternalItemItemRequestBuilderGetQueryParameters {
     /**

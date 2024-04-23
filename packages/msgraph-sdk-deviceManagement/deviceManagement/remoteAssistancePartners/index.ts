@@ -27,30 +27,28 @@ export interface RemoteAssistancePartnersRequestBuilder extends BaseRequestBuild
      */
      byRemoteAssistancePartnerId(remoteAssistancePartnerId: string) : RemoteAssistancePartnerItemRequestBuilder;
     /**
-     * List properties and relationships of the remoteAssistancePartner objects.
+     * The remote assist partners.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RemoteAssistancePartnerCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RemoteAssistancePartnersRequestBuilderGetQueryParameters> | undefined) : Promise<RemoteAssistancePartnerCollectionResponse | undefined>;
     /**
-     * Create a new remoteAssistancePartner object.
+     * Create new navigation property to remoteAssistancePartners for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RemoteAssistancePartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: RemoteAssistancePartner, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RemoteAssistancePartner | undefined>;
     /**
-     * List properties and relationships of the remoteAssistancePartner objects.
+     * The remote assist partners.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RemoteAssistancePartnersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new remoteAssistancePartner object.
+     * Create new navigation property to remoteAssistancePartners for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface RemoteAssistancePartnersRequestBuilder extends BaseRequestBuild
      toPostRequestInformation(body: RemoteAssistancePartner, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the remoteAssistancePartner objects.
+ * The remote assist partners.
  */
 export interface RemoteAssistancePartnersRequestBuilderGetQueryParameters {
     /**

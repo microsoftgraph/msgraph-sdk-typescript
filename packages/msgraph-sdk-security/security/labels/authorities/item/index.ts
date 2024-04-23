@@ -13,18 +13,16 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder<AuthorityTemplateItemRequestBuilder> {
     /**
-     * Delete a authorityTemplate object.
+     * Delete navigation property authorities for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-delete-authorities?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a authorityTemplate object.
+     * Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthorityTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-authoritytemplate-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuthorityTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<AuthorityTemplate | undefined>;
     /**
@@ -36,13 +34,13 @@ export interface AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder<
      */
      patch(body: AuthorityTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthorityTemplate | undefined>;
     /**
-     * Delete a authorityTemplate object.
+     * Delete navigation property authorities for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a authorityTemplate object.
+     * Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +54,7 @@ export interface AuthorityTemplateItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: AuthorityTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a authorityTemplate object.
+ * Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
  */
 export interface AuthorityTemplateItemRequestBuilderGetQueryParameters {
     /**

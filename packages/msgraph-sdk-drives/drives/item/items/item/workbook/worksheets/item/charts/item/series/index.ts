@@ -29,11 +29,10 @@ export interface SeriesRequestBuilder extends BaseRequestBuilder<SeriesRequestBu
      */
      byWorkbookChartSeriesId(workbookChartSeriesId: string) : WorkbookChartSeriesItemRequestBuilder;
     /**
-     * Retrieve a list of chartseries objects.
+     * Represents either a single series or collection of series in the chart. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartSeriesCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chart-list-series?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SeriesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartSeriesCollectionResponse | undefined>;
     /**
@@ -43,22 +42,21 @@ export interface SeriesRequestBuilder extends BaseRequestBuilder<SeriesRequestBu
      */
      itemAtWithIndex(index: number | undefined) : ItemAtWithIndexRequestBuilder;
     /**
-     * Use this API to create a new ChartSeries.
+     * Create new navigation property to series for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartSeries>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chart-post-series?view=graph-rest-1.0|Find more info here}
      */
      post(body: WorkbookChartSeries, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartSeries | undefined>;
     /**
-     * Retrieve a list of chartseries objects.
+     * Represents either a single series or collection of series in the chart. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SeriesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Use this API to create a new ChartSeries.
+     * Create new navigation property to series for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -66,7 +64,7 @@ export interface SeriesRequestBuilder extends BaseRequestBuilder<SeriesRequestBu
      toPostRequestInformation(body: WorkbookChartSeries, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of chartseries objects.
+ * Represents either a single series or collection of series in the chart. Read-only.
  */
 export interface SeriesRequestBuilderGetQueryParameters {
     /**

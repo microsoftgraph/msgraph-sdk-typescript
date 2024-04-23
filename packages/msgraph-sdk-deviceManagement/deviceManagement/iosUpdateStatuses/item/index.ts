@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface IosUpdateDeviceStatusItemRequestBuilder extends BaseRequestBuilder<IosUpdateDeviceStatusItemRequestBuilder> {
     /**
-     * Deletes a iosUpdateDeviceStatus.
+     * Delete navigation property iosUpdateStatuses for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the iosUpdateDeviceStatus object.
+     * The IOS software update installation statuses for this account.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IosUpdateDeviceStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IosUpdateDeviceStatusItemRequestBuilderGetQueryParameters> | undefined) : Promise<IosUpdateDeviceStatus | undefined>;
     /**
-     * Update the properties of a iosUpdateDeviceStatus object.
+     * Update the navigation property iosUpdateStatuses in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IosUpdateDeviceStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: IosUpdateDeviceStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IosUpdateDeviceStatus | undefined>;
     /**
-     * Deletes a iosUpdateDeviceStatus.
+     * Delete navigation property iosUpdateStatuses for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the iosUpdateDeviceStatus object.
+     * The IOS software update installation statuses for this account.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IosUpdateDeviceStatusItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a iosUpdateDeviceStatus object.
+     * Update the navigation property iosUpdateStatuses in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface IosUpdateDeviceStatusItemRequestBuilder extends BaseRequestBuil
      toPatchRequestInformation(body: IosUpdateDeviceStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the iosUpdateDeviceStatus object.
+ * The IOS software update installation statuses for this account.
  */
 export interface IosUpdateDeviceStatusItemRequestBuilderGetQueryParameters {
     /**

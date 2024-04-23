@@ -79,43 +79,40 @@ export interface WorkbookTableItemRequestBuilder extends BaseRequestBuilder<Work
      */
     get worksheet(): WorksheetRequestBuilder;
     /**
-     * Deletes the table.
+     * Delete navigation property tables for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/table-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of table object.
+     * Represents a collection of tables associated with the workbook. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTable>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/table-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorkbookTableItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookTable | undefined>;
     /**
-     * Update the properties of table object.
+     * Update the navigation property tables in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTable>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/table-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WorkbookTable, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTable | undefined>;
     /**
-     * Deletes the table.
+     * Delete navigation property tables for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of table object.
+     * Represents a collection of tables associated with the workbook. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkbookTableItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of table object.
+     * Update the navigation property tables in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -123,7 +120,7 @@ export interface WorkbookTableItemRequestBuilder extends BaseRequestBuilder<Work
      toPatchRequestInformation(body: WorkbookTable, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of table object.
+ * Represents a collection of tables associated with the workbook. Read-only.
  */
 export interface WorkbookTableItemRequestBuilderGetQueryParameters {
     /**

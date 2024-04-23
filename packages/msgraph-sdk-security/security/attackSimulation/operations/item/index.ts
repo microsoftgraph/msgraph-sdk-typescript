@@ -19,11 +19,10 @@ export interface AttackSimulationOperationItemRequestBuilder extends BaseRequest
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get an attack simulation operation to track a long-running operation request for a tenant.
+     * Represents an attack simulation training operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AttackSimulationOperation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationoperation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AttackSimulationOperationItemRequestBuilderGetQueryParameters> | undefined) : Promise<AttackSimulationOperation | undefined>;
     /**
@@ -41,7 +40,7 @@ export interface AttackSimulationOperationItemRequestBuilder extends BaseRequest
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get an attack simulation operation to track a long-running operation request for a tenant.
+     * Represents an attack simulation training operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -55,7 +54,7 @@ export interface AttackSimulationOperationItemRequestBuilder extends BaseRequest
      toPatchRequestInformation(body: AttackSimulationOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get an attack simulation operation to track a long-running operation request for a tenant.
+ * Represents an attack simulation training operation.
  */
 export interface AttackSimulationOperationItemRequestBuilderGetQueryParameters {
     /**

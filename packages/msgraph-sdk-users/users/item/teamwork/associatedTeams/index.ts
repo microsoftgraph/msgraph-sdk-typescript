@@ -27,11 +27,10 @@ export interface AssociatedTeamsRequestBuilder extends BaseRequestBuilder<Associ
      */
      byAssociatedTeamInfoId(associatedTeamInfoId: string) : AssociatedTeamInfoItemRequestBuilder;
     /**
-     * Get the list of teams in Microsoft Teams that a user is associated with.Currently, a user can be associated with a team in two different ways:
+     * The list of associatedTeamInfo objects that a user is associated with.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AssociatedTeamInfoCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/associatedteaminfo-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AssociatedTeamsRequestBuilderGetQueryParameters> | undefined) : Promise<AssociatedTeamInfoCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface AssociatedTeamsRequestBuilder extends BaseRequestBuilder<Associ
      */
      post(body: AssociatedTeamInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AssociatedTeamInfo | undefined>;
     /**
-     * Get the list of teams in Microsoft Teams that a user is associated with.Currently, a user can be associated with a team in two different ways:
+     * The list of associatedTeamInfo objects that a user is associated with.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface AssociatedTeamsRequestBuilder extends BaseRequestBuilder<Associ
      toPostRequestInformation(body: AssociatedTeamInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the list of teams in Microsoft Teams that a user is associated with.Currently, a user can be associated with a team in two different ways:
+ * The list of associatedTeamInfo objects that a user is associated with.
  */
 export interface AssociatedTeamsRequestBuilderGetQueryParameters {
     /**

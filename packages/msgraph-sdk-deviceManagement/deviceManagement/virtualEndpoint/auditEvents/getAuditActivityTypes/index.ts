@@ -37,21 +37,22 @@ export interface GetAuditActivityTypesGetResponse extends BaseCollectionPaginati
  */
 export interface GetAuditActivityTypesRequestBuilder extends BaseRequestBuilder<GetAuditActivityTypesRequestBuilder> {
     /**
-     * Invoke function getAuditActivityTypes
+     * Get audit activity types by tenant ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetAuditActivityTypesGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/cloudpcauditevent-getauditactivitytypes?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetAuditActivityTypesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAuditActivityTypesGetResponse | undefined>;
     /**
-     * Invoke function getAuditActivityTypes
+     * Get audit activity types by tenant ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetAuditActivityTypesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getAuditActivityTypes
+ * Get audit activity types by tenant ID.
  */
 export interface GetAuditActivityTypesRequestBuilderGetQueryParameters {
     /**

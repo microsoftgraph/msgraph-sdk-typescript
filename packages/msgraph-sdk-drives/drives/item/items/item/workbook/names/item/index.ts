@@ -31,20 +31,18 @@ export interface WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder<
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of nameditem object.
+     * Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookNamedItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/nameditem-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorkbookNamedItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookNamedItem | undefined>;
     /**
-     * Update the properties of nameditem object.
+     * Update the navigation property names in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookNamedItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/nameditem-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WorkbookNamedItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookNamedItem | undefined>;
     /**
@@ -54,13 +52,13 @@ export interface WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder<
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of nameditem object.
+     * Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkbookNamedItemItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of nameditem object.
+     * Update the navigation property names in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -68,7 +66,7 @@ export interface WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: WorkbookNamedItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of nameditem object.
+ * Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
  */
 export interface WorkbookNamedItemItemRequestBuilderGetQueryParameters {
     /**

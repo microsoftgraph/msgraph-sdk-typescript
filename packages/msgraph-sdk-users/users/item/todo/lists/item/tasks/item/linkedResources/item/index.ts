@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface LinkedResourceItemRequestBuilder extends BaseRequestBuilder<LinkedResourceItemRequestBuilder> {
     /**
-     * Delete a linkedResource object.
+     * Delete navigation property linkedResources for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/linkedresource-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a linkedResource object.
+     * A collection of resources linked to the task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LinkedResource>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/linkedresource-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LinkedResourceItemRequestBuilderGetQueryParameters> | undefined) : Promise<LinkedResource | undefined>;
     /**
-     * Update the properties of a linkedResource object.
+     * Update the navigation property linkedResources in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LinkedResource>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/linkedresource-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: LinkedResource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LinkedResource | undefined>;
     /**
-     * Delete a linkedResource object.
+     * Delete navigation property linkedResources for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a linkedResource object.
+     * A collection of resources linked to the task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LinkedResourceItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a linkedResource object.
+     * Update the navigation property linkedResources in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface LinkedResourceItemRequestBuilder extends BaseRequestBuilder<Lin
      toPatchRequestInformation(body: LinkedResource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a linkedResource object.
+ * A collection of resources linked to the task.
  */
 export interface LinkedResourceItemRequestBuilderGetQueryParameters {
     /**

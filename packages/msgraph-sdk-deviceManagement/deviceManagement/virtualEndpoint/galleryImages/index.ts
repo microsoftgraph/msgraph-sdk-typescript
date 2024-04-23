@@ -27,11 +27,10 @@ export interface GalleryImagesRequestBuilder extends BaseRequestBuilder<GalleryI
      */
      byCloudPcGalleryImageId(cloudPcGalleryImageId: string) : CloudPcGalleryImageItemRequestBuilder;
     /**
-     * List the properties and relationships of cloudPcGalleryImage objects.
+     * A collection of gallery image resources on Cloud PC.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcGalleryImageCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/virtualendpoint-list-galleryimages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GalleryImagesRequestBuilderGetQueryParameters> | undefined) : Promise<CloudPcGalleryImageCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface GalleryImagesRequestBuilder extends BaseRequestBuilder<GalleryI
      */
      post(body: CloudPcGalleryImage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CloudPcGalleryImage | undefined>;
     /**
-     * List the properties and relationships of cloudPcGalleryImage objects.
+     * A collection of gallery image resources on Cloud PC.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface GalleryImagesRequestBuilder extends BaseRequestBuilder<GalleryI
      toPostRequestInformation(body: CloudPcGalleryImage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List the properties and relationships of cloudPcGalleryImage objects.
+ * A collection of gallery image resources on Cloud PC.
  */
 export interface GalleryImagesRequestBuilderGetQueryParameters {
     /**

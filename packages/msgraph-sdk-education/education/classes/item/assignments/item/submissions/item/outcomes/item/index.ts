@@ -13,10 +13,9 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface EducationOutcomeItemRequestBuilder extends BaseRequestBuilder<EducationOutcomeItemRequestBuilder> {
     /**
-     * Delete a feedback resource from a submission. This can only be done by a teacher.
+     * Delete navigation property outcomes for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationfeedbackresourceoutcome-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -27,16 +26,15 @@ export interface EducationOutcomeItemRequestBuilder extends BaseRequestBuilder<E
      */
      get(requestConfiguration?: RequestConfiguration<EducationOutcomeItemRequestBuilderGetQueryParameters> | undefined) : Promise<EducationOutcome | undefined>;
     /**
-     * Update the properties of an educationOutcome object. Only teachers can perform this operation.
+     * Update the navigation property outcomes in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationOutcome>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationoutcome-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EducationOutcome, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationOutcome | undefined>;
     /**
-     * Delete a feedback resource from a submission. This can only be done by a teacher.
+     * Delete navigation property outcomes for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -48,7 +46,7 @@ export interface EducationOutcomeItemRequestBuilder extends BaseRequestBuilder<E
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EducationOutcomeItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an educationOutcome object. Only teachers can perform this operation.
+     * Update the navigation property outcomes in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

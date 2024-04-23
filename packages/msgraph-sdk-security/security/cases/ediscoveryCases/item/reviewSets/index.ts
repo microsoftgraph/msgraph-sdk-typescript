@@ -27,30 +27,28 @@ export interface ReviewSetsRequestBuilder extends BaseRequestBuilder<ReviewSetsR
      */
      byEdiscoveryReviewSetId(ediscoveryReviewSetId: string) : EdiscoveryReviewSetItemRequestBuilder;
     /**
-     * Get a list of ediscoveryReviewSet objects associated with an eDiscovery case.
+     * Returns a list of eDiscoveryReviewSet objects in the case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryReviewSetCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-reviewsets?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ReviewSetsRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryReviewSetCollectionResponse | undefined>;
     /**
-     * Create a new ediscoveryReviewSet object.
+     * Create new navigation property to reviewSets for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryReviewSet>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-reviewsets?view=graph-rest-1.0|Find more info here}
      */
      post(body: EdiscoveryReviewSet, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoveryReviewSet | undefined>;
     /**
-     * Get a list of ediscoveryReviewSet objects associated with an eDiscovery case.
+     * Returns a list of eDiscoveryReviewSet objects in the case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ReviewSetsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new ediscoveryReviewSet object.
+     * Create new navigation property to reviewSets for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface ReviewSetsRequestBuilder extends BaseRequestBuilder<ReviewSetsR
      toPostRequestInformation(body: EdiscoveryReviewSet, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of ediscoveryReviewSet objects associated with an eDiscovery case.
+ * Returns a list of eDiscoveryReviewSet objects in the case.
  */
 export interface ReviewSetsRequestBuilderGetQueryParameters {
     /**

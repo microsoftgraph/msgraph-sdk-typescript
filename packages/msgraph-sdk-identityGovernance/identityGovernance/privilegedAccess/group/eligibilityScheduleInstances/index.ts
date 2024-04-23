@@ -35,11 +35,10 @@ export interface EligibilityScheduleInstancesRequestBuilder extends BaseRequestB
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Get a list of the privilegedAccessGroupEligibilityScheduleInstance objects and their properties.
+     * The instances of eligibility schedules to activate a just-in-time access.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrivilegedAccessGroupEligibilityScheduleInstanceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroup-list-eligibilityscheduleinstances?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EligibilityScheduleInstancesRequestBuilderGetQueryParameters> | undefined) : Promise<PrivilegedAccessGroupEligibilityScheduleInstanceCollectionResponse | undefined>;
     /**
@@ -51,7 +50,7 @@ export interface EligibilityScheduleInstancesRequestBuilder extends BaseRequestB
      */
      post(body: PrivilegedAccessGroupEligibilityScheduleInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrivilegedAccessGroupEligibilityScheduleInstance | undefined>;
     /**
-     * Get a list of the privilegedAccessGroupEligibilityScheduleInstance objects and their properties.
+     * The instances of eligibility schedules to activate a just-in-time access.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -65,7 +64,7 @@ export interface EligibilityScheduleInstancesRequestBuilder extends BaseRequestB
      toPostRequestInformation(body: PrivilegedAccessGroupEligibilityScheduleInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the privilegedAccessGroupEligibilityScheduleInstance objects and their properties.
+ * The instances of eligibility schedules to activate a just-in-time access.
  */
 export interface EligibilityScheduleInstancesRequestBuilderGetQueryParameters {
     /**

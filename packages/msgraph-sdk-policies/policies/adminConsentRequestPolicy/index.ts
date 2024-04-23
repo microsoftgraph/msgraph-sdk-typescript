@@ -19,20 +19,18 @@ export interface AdminConsentRequestPolicyRequestBuilder extends BaseRequestBuil
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an adminConsentRequestPolicy object.
+     * The policy by which consent requests are created and managed for the entire tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AdminConsentRequestPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/adminconsentrequestpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AdminConsentRequestPolicyRequestBuilderGetQueryParameters> | undefined) : Promise<AdminConsentRequestPolicy | undefined>;
     /**
-     * Update the properties of an adminConsentRequestPolicy object.
+     * Update the navigation property adminConsentRequestPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AdminConsentRequestPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/adminconsentrequestpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AdminConsentRequestPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AdminConsentRequestPolicy | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface AdminConsentRequestPolicyRequestBuilder extends BaseRequestBuil
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an adminConsentRequestPolicy object.
+     * The policy by which consent requests are created and managed for the entire tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AdminConsentRequestPolicyRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an adminConsentRequestPolicy object.
+     * Update the navigation property adminConsentRequestPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface AdminConsentRequestPolicyRequestBuilder extends BaseRequestBuil
      toPatchRequestInformation(body: AdminConsentRequestPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an adminConsentRequestPolicy object.
+ * The policy by which consent requests are created and managed for the entire tenant.
  */
 export interface AdminConsentRequestPolicyRequestBuilderGetQueryParameters {
     /**

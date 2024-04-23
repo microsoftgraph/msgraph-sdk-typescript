@@ -27,30 +27,28 @@ export interface LearningProvidersRequestBuilder extends BaseRequestBuilder<Lear
      */
      byLearningProviderId(learningProviderId: string) : LearningProviderItemRequestBuilder;
     /**
-     * Get a list of the learningProvider resources registered in Viva Learning for a tenant.
+     * A collection of learning providers.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LearningProviderCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/employeeexperience-list-learningproviders?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LearningProvidersRequestBuilderGetQueryParameters> | undefined) : Promise<LearningProviderCollectionResponse | undefined>;
     /**
-     * Create a new learningProvider object and register it with Viva Learning using the specified display name and logos for different themes.
+     * Create new navigation property to learningProviders for employeeExperience
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LearningProvider>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/employeeexperience-post-learningproviders?view=graph-rest-1.0|Find more info here}
      */
      post(body: LearningProvider, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LearningProvider | undefined>;
     /**
-     * Get a list of the learningProvider resources registered in Viva Learning for a tenant.
+     * A collection of learning providers.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LearningProvidersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new learningProvider object and register it with Viva Learning using the specified display name and logos for different themes.
+     * Create new navigation property to learningProviders for employeeExperience
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface LearningProvidersRequestBuilder extends BaseRequestBuilder<Lear
      toPostRequestInformation(body: LearningProvider, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the learningProvider resources registered in Viva Learning for a tenant.
+ * A collection of learning providers.
  */
 export interface LearningProvidersRequestBuilderGetQueryParameters {
     /**

@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder<BrowserSharedCookieItemRequestBuilder> {
     /**
-     * Delete a browserSharedCookie from a browserSiteList.
+     * Delete navigation property sharedCookies for admin
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-delete-sharedcookies?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode.
+     * A collection of shared cookies defined for the site list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BrowserSharedCookie>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/browsersharedcookie-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BrowserSharedCookieItemRequestBuilderGetQueryParameters> | undefined) : Promise<BrowserSharedCookie | undefined>;
     /**
-     * Update the properties of a browserSharedCookie object.
+     * Update the navigation property sharedCookies in admin
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BrowserSharedCookie>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/browsersharedcookie-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: BrowserSharedCookie, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BrowserSharedCookie | undefined>;
     /**
-     * Delete a browserSharedCookie from a browserSiteList.
+     * Delete navigation property sharedCookies for admin
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode.
+     * A collection of shared cookies defined for the site list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BrowserSharedCookieItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a browserSharedCookie object.
+     * Update the navigation property sharedCookies in admin
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: BrowserSharedCookie, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode.
+ * A collection of shared cookies defined for the site list.
  */
 export interface BrowserSharedCookieItemRequestBuilderGetQueryParameters {
     /**

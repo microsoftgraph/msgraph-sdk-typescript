@@ -27,30 +27,28 @@ export interface CertificateBasedAuthConfigurationRequestBuilder extends BaseReq
      */
      byCertificateBasedAuthConfigurationId(certificateBasedAuthConfigurationId: string) : CertificateBasedAuthConfigurationItemRequestBuilder;
     /**
-     * Get a list of certificateBasedAuthConfiguration objects.
+     * Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CertificateBasedAuthConfigurationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/certificatebasedauthconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CertificateBasedAuthConfigurationRequestBuilderGetQueryParameters> | undefined) : Promise<CertificateBasedAuthConfigurationCollectionResponse | undefined>;
     /**
-     * Create a new certificateBasedAuthConfiguration object.
+     * Create new navigation property to certificateBasedAuthConfiguration for organization
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CertificateBasedAuthConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/certificatebasedauthconfiguration-post-certificatebasedauthconfiguration?view=graph-rest-1.0|Find more info here}
      */
      post(body: CertificateBasedAuthConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CertificateBasedAuthConfiguration | undefined>;
     /**
-     * Get a list of certificateBasedAuthConfiguration objects.
+     * Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CertificateBasedAuthConfigurationRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new certificateBasedAuthConfiguration object.
+     * Create new navigation property to certificateBasedAuthConfiguration for organization
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface CertificateBasedAuthConfigurationRequestBuilder extends BaseReq
      toPostRequestInformation(body: CertificateBasedAuthConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of certificateBasedAuthConfiguration objects.
+ * Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
  */
 export interface CertificateBasedAuthConfigurationRequestBuilderGetQueryParameters {
     /**

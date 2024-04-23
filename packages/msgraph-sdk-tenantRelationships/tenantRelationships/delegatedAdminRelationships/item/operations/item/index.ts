@@ -19,11 +19,10 @@ export interface DelegatedAdminRelationshipOperationItemRequestBuilder extends B
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties of a delegatedAdminRelationshipOperation object.
+     * The long running operations associated with the delegated admin relationship.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedAdminRelationshipOperation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationshipoperation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DelegatedAdminRelationshipOperationItemRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedAdminRelationshipOperation | undefined>;
     /**
@@ -41,7 +40,7 @@ export interface DelegatedAdminRelationshipOperationItemRequestBuilder extends B
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties of a delegatedAdminRelationshipOperation object.
+     * The long running operations associated with the delegated admin relationship.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -55,7 +54,7 @@ export interface DelegatedAdminRelationshipOperationItemRequestBuilder extends B
      toPatchRequestInformation(body: DelegatedAdminRelationshipOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties of a delegatedAdminRelationshipOperation object.
+ * The long running operations associated with the delegated admin relationship.
  */
 export interface DelegatedAdminRelationshipOperationItemRequestBuilderGetQueryParameters {
     /**

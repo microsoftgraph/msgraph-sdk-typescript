@@ -49,11 +49,10 @@ export interface ChatMessageItemRequestBuilder extends BaseRequestBuilder<ChatMe
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve a single message or a message reply in a channel or a chat.
+     * Replies for a specified message. Supports $expand for channel messages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ChatMessage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ChatMessageItemRequestBuilderGetQueryParameters> | undefined) : Promise<ChatMessage | undefined>;
     /**
@@ -71,7 +70,7 @@ export interface ChatMessageItemRequestBuilder extends BaseRequestBuilder<ChatMe
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve a single message or a message reply in a channel or a chat.
+     * Replies for a specified message. Supports $expand for channel messages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -85,7 +84,7 @@ export interface ChatMessageItemRequestBuilder extends BaseRequestBuilder<ChatMe
      toPatchRequestInformation(body: ChatMessage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a single message or a message reply in a channel or a chat.
+ * Replies for a specified message. Supports $expand for channel messages.
  */
 export interface ChatMessageItemRequestBuilderGetQueryParameters {
     /**

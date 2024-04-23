@@ -62,8 +62,8 @@ export interface CreateReplyAllRequestBuilder extends BaseRequestBuilder<CreateR
 export function deserializeIntoCreateReplyAllPostRequestBody(createReplyAllPostRequestBody: Partial<CreateReplyAllPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createReplyAllPostRequestBody.backingStoreEnabled = true; },
-        "comment": n => { createReplyAllPostRequestBody.comment = n.getStringValue(); },
-        "message": n => { createReplyAllPostRequestBody.message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
+        "Comment": n => { createReplyAllPostRequestBody.comment = n.getStringValue(); },
+        "Message": n => { createReplyAllPostRequestBody.message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
     }
 }
 /**

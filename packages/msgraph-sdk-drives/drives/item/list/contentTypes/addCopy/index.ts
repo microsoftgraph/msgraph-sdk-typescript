@@ -27,7 +27,7 @@ export interface AddCopyPostRequestBody extends AdditionalDataHolder, BackedMode
  */
 export interface AddCopyRequestBuilder extends BaseRequestBuilder<AddCopyRequestBuilder> {
     /**
-     * Add a copy of a [content type][contentType] from a [site][site] to a [list][list].
+     * Add a copy of a content type from a site to a list.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ContentType>}
@@ -36,7 +36,7 @@ export interface AddCopyRequestBuilder extends BaseRequestBuilder<AddCopyRequest
      */
      post(body: AddCopyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ContentType | undefined>;
     /**
-     * Add a copy of a [content type][contentType] from a [site][site] to a [list][list].
+     * Add a copy of a content type from a site to a list.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

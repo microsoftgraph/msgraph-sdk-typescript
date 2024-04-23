@@ -27,11 +27,10 @@ export interface ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder<R
      */
      byAccessPackageResourceEnvironmentId(accessPackageResourceEnvironmentId: string) : AccessPackageResourceEnvironmentItemRequestBuilder;
     /**
-     * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
+     * A reference to the geolocation environments in which a resource is located.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageResourceEnvironmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-resourceenvironments?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ResourceEnvironmentsRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageResourceEnvironmentCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder<R
      */
      post(body: AccessPackageResourceEnvironment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackageResourceEnvironment | undefined>;
     /**
-     * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
+     * A reference to the geolocation environments in which a resource is located.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder<R
      toPostRequestInformation(body: AccessPackageResourceEnvironment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
+ * A reference to the geolocation environments in which a resource is located.
  */
 export interface ResourceEnvironmentsRequestBuilderGetQueryParameters {
     /**

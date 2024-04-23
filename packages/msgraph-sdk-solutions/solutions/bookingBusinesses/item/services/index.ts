@@ -27,30 +27,28 @@ export interface ServicesRequestBuilder extends BaseRequestBuilder<ServicesReque
      */
      byBookingServiceId(bookingServiceId: string) : BookingServiceItemRequestBuilder;
     /**
-     * Get a list of bookingService objects in the specified bookingBusiness.
+     * All the services offered by this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingServiceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-services?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ServicesRequestBuilderGetQueryParameters> | undefined) : Promise<BookingServiceCollectionResponse | undefined>;
     /**
-     * Create a new bookingService for the specified bookingBusiness.
+     * Create new navigation property to services for solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingService>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-post-services?view=graph-rest-1.0|Find more info here}
      */
      post(body: BookingService, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingService | undefined>;
     /**
-     * Get a list of bookingService objects in the specified bookingBusiness.
+     * All the services offered by this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ServicesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new bookingService for the specified bookingBusiness.
+     * Create new navigation property to services for solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface ServicesRequestBuilder extends BaseRequestBuilder<ServicesReque
      toPostRequestInformation(body: BookingService, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of bookingService objects in the specified bookingBusiness.
+ * All the services offered by this business. Read-only. Nullable.
  */
 export interface ServicesRequestBuilderGetQueryParameters {
     /**

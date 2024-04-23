@@ -13,30 +13,28 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsRequestBuilder> {
     /**
-     * Read the properties and relationships of a lifecycleManagementSettings object.
+     * The settings of the lifecycle workflows instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LifecycleManagementSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecyclemanagementsettings-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SettingsRequestBuilderGetQueryParameters> | undefined) : Promise<LifecycleManagementSettings | undefined>;
     /**
-     * Update the properties of a lifecycleManagementSettings object.
+     * Update the navigation property settings in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LifecycleManagementSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecyclemanagementsettings-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: LifecycleManagementSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LifecycleManagementSettings | undefined>;
     /**
-     * Read the properties and relationships of a lifecycleManagementSettings object.
+     * The settings of the lifecycle workflows instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SettingsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a lifecycleManagementSettings object.
+     * Update the navigation property settings in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -44,7 +42,7 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      toPatchRequestInformation(body: LifecycleManagementSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a lifecycleManagementSettings object.
+ * The settings of the lifecycle workflows instance.
  */
 export interface SettingsRequestBuilderGetQueryParameters {
     /**

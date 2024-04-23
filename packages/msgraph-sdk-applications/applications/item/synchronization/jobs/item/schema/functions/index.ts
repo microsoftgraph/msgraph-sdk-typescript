@@ -37,21 +37,22 @@ export interface FunctionsGetResponse extends BaseCollectionPaginationCountRespo
  */
 export interface FunctionsRequestBuilder extends BaseRequestBuilder<FunctionsRequestBuilder> {
     /**
-     * Invoke function functions
+     * List all the functions currently supported in the attributeMappingSource.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FunctionsGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-functions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<FunctionsRequestBuilderGetQueryParameters> | undefined) : Promise<FunctionsGetResponse | undefined>;
     /**
-     * Invoke function functions
+     * List all the functions currently supported in the attributeMappingSource.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FunctionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function functions
+ * List all the functions currently supported in the attributeMappingSource.
  */
 export interface FunctionsRequestBuilderGetQueryParameters {
     /**

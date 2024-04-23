@@ -27,30 +27,28 @@ export interface AuthenticationStrengthPoliciesRequestBuilder extends BaseReques
      */
      byAuthenticationStrengthPolicyId(authenticationStrengthPolicyId: string) : AuthenticationStrengthPolicyItemRequestBuilder;
     /**
-     * Get a list of the authenticationStrengthPolicy objects and their properties. This API returns both built-in and custom policies.
+     * The authentication method combinations that are to be used in scenarios defined by Microsoft Entra Conditional Access.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationStrengthPolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthroot-list-policies?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuthenticationStrengthPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationStrengthPolicyCollectionResponse | undefined>;
     /**
-     * Create a new custom authenticationStrengthPolicy object.
+     * Create new navigation property to authenticationStrengthPolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationStrengthPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthroot-post-policies?view=graph-rest-1.0|Find more info here}
      */
      post(body: AuthenticationStrengthPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationStrengthPolicy | undefined>;
     /**
-     * Get a list of the authenticationStrengthPolicy objects and their properties. This API returns both built-in and custom policies.
+     * The authentication method combinations that are to be used in scenarios defined by Microsoft Entra Conditional Access.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuthenticationStrengthPoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new custom authenticationStrengthPolicy object.
+     * Create new navigation property to authenticationStrengthPolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface AuthenticationStrengthPoliciesRequestBuilder extends BaseReques
      toPostRequestInformation(body: AuthenticationStrengthPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the authenticationStrengthPolicy objects and their properties. This API returns both built-in and custom policies.
+ * The authentication method combinations that are to be used in scenarios defined by Microsoft Entra Conditional Access.
  */
 export interface AuthenticationStrengthPoliciesRequestBuilderGetQueryParameters {
     /**

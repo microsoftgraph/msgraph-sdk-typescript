@@ -66,9 +66,9 @@ export interface CreateForwardRequestBuilder extends BaseRequestBuilder<CreateFo
 export function deserializeIntoCreateForwardPostRequestBody(createForwardPostRequestBody: Partial<CreateForwardPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createForwardPostRequestBody.backingStoreEnabled = true; },
-        "comment": n => { createForwardPostRequestBody.comment = n.getStringValue(); },
-        "message": n => { createForwardPostRequestBody.message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
-        "toRecipients": n => { createForwardPostRequestBody.toRecipients = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
+        "Comment": n => { createForwardPostRequestBody.comment = n.getStringValue(); },
+        "Message": n => { createForwardPostRequestBody.message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
+        "ToRecipients": n => { createForwardPostRequestBody.toRecipients = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
     }
 }
 /**

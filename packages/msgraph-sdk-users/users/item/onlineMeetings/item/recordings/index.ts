@@ -27,7 +27,7 @@ export interface RecordingsRequestBuilder extends BaseRequestBuilder<RecordingsR
      */
      byCallRecordingId(callRecordingId: string) : CallRecordingItemRequestBuilder;
     /**
-     * Get a callRecording object associated with a scheduled onlineMeeting. This API doesn't support getting call recordings from channel meetings. For a recording, this API returns the metadata of the single recording associated with the online meeting. For the content of a recording, this API returns the stream of bytes associated with the recording.
+     * The recordings of an online meeting. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CallRecordingCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface RecordingsRequestBuilder extends BaseRequestBuilder<RecordingsR
      */
      post(body: CallRecording, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CallRecording | undefined>;
     /**
-     * Get a callRecording object associated with a scheduled onlineMeeting. This API doesn't support getting call recordings from channel meetings. For a recording, this API returns the metadata of the single recording associated with the online meeting. For the content of a recording, this API returns the stream of bytes associated with the recording.
+     * The recordings of an online meeting. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface RecordingsRequestBuilder extends BaseRequestBuilder<RecordingsR
      toPostRequestInformation(body: CallRecording, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a callRecording object associated with a scheduled onlineMeeting. This API doesn't support getting call recordings from channel meetings. For a recording, this API returns the metadata of the single recording associated with the online meeting. For the content of a recording, this API returns the stream of bytes associated with the recording.
+ * The recordings of an online meeting. Read-only.
  */
 export interface RecordingsRequestBuilderGetQueryParameters {
     /**

@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface QnaItemRequestBuilder extends BaseRequestBuilder<QnaItemRequestBuilder> {
     /**
-     * Delete a qna object.
+     * Delete navigation property qnas for search
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/search-qna-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a qna object.
+     * Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Qna>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/search-qna-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<QnaItemRequestBuilderGetQueryParameters> | undefined) : Promise<Qna | undefined>;
     /**
-     * Update the properties of a qna object.
+     * Update the navigation property qnas in search
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Qna>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/search-qna-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Qna, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Qna | undefined>;
     /**
-     * Delete a qna object.
+     * Delete navigation property qnas for search
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a qna object.
+     * Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<QnaItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a qna object.
+     * Update the navigation property qnas in search
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface QnaItemRequestBuilder extends BaseRequestBuilder<QnaItemRequest
      toPatchRequestInformation(body: Qna, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a qna object.
+ * Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.
  */
 export interface QnaItemRequestBuilderGetQueryParameters {
     /**

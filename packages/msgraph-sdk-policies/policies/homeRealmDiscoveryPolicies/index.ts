@@ -27,30 +27,28 @@ export interface HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBui
      */
      byHomeRealmDiscoveryPolicyId(homeRealmDiscoveryPolicyId: string) : HomeRealmDiscoveryPolicyItemRequestBuilder;
     /**
-     * Get a list of homeRealmDiscoveryPolicy objects.
+     * The policy to control Microsoft Entra authentication behavior for federated users.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HomeRealmDiscoveryPolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<HomeRealmDiscoveryPolicyCollectionResponse | undefined>;
     /**
-     * Create a new homeRealmDiscoveryPolicy object.
+     * Create new navigation property to homeRealmDiscoveryPolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HomeRealmDiscoveryPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-post-homerealmdiscoverypolicies?view=graph-rest-1.0|Find more info here}
      */
      post(body: HomeRealmDiscoveryPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<HomeRealmDiscoveryPolicy | undefined>;
     /**
-     * Get a list of homeRealmDiscoveryPolicy objects.
+     * The policy to control Microsoft Entra authentication behavior for federated users.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new homeRealmDiscoveryPolicy object.
+     * Create new navigation property to homeRealmDiscoveryPolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBui
      toPostRequestInformation(body: HomeRealmDiscoveryPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of homeRealmDiscoveryPolicy objects.
+ * The policy to control Microsoft Entra authentication behavior for federated users.
  */
 export interface HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters {
     /**

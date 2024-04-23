@@ -45,43 +45,28 @@ export interface CalendarRequestBuilder extends BaseRequestBuilder<CalendarReque
      */
      allowedCalendarSharingRolesWithUser(user: string | undefined) : AllowedCalendarSharingRolesWithUserRequestBuilder;
     /**
-     * Delete a calendar other than the default calendar.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/calendar-delete?view=graph-rest-1.0|Find more info here}
-     */
-     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
-    /**
-     * Get the properties and relationships of a calendar object. The calendar can be one for a user,or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
+     * The user's primary calendar. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Calendar>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/calendar-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CalendarRequestBuilderGetQueryParameters> | undefined) : Promise<Calendar | undefined>;
     /**
-     * Update the properties of a calendar object. The calendar can be one for a user,or the default calendar of a Microsoft 365 group.
+     * Update the navigation property calendar in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Calendar>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/calendar-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Calendar, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Calendar | undefined>;
     /**
-     * Delete a calendar other than the default calendar.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {RequestInformation}
-     */
-     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
-    /**
-     * Get the properties and relationships of a calendar object. The calendar can be one for a user,or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
+     * The user's primary calendar. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CalendarRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a calendar object. The calendar can be one for a user,or the default calendar of a Microsoft 365 group.
+     * Update the navigation property calendar in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -89,7 +74,7 @@ export interface CalendarRequestBuilder extends BaseRequestBuilder<CalendarReque
      toPatchRequestInformation(body: Calendar, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the properties and relationships of a calendar object. The calendar can be one for a user,or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
+ * The user's primary calendar. Read-only.
  */
 export interface CalendarRequestBuilderGetQueryParameters {
     /**
@@ -134,14 +119,6 @@ export const CalendarRequestBuilderNavigationMetadata: Record<Exclude<keyof Cale
  * Metadata for all the requests in the request builder.
  */
 export const CalendarRequestBuilderRequestsMetadata: RequestsMetadata = {
-    delete: {
-        uriTemplate: CalendarRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
-        errorMappings: {
-            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
-        },
-        adapterMethodName: "sendNoResponseContent",
-    },
     get: {
         uriTemplate: CalendarRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",

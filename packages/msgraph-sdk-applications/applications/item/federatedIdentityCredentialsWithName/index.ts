@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface FederatedIdentityCredentialsWithNameRequestBuilder extends BaseRequestBuilder<FederatedIdentityCredentialsWithNameRequestBuilder> {
     /**
-     * Delete a federatedIdentityCredential object from an application.
+     * Delete navigation property federatedIdentityCredentials for applications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/federatedidentitycredential-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a federatedIdentityCredential object.
+     * Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FederatedIdentityCredential>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/federatedidentitycredential-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<FederatedIdentityCredentialsWithNameRequestBuilderGetQueryParameters> | undefined) : Promise<FederatedIdentityCredential | undefined>;
     /**
-     * Update the properties of a federatedIdentityCredential object.
+     * Update the navigation property federatedIdentityCredentials in applications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FederatedIdentityCredential>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/federatedidentitycredential-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: FederatedIdentityCredential, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<FederatedIdentityCredential | undefined>;
     /**
-     * Delete a federatedIdentityCredential object from an application.
+     * Delete navigation property federatedIdentityCredentials for applications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a federatedIdentityCredential object.
+     * Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FederatedIdentityCredentialsWithNameRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a federatedIdentityCredential object.
+     * Update the navigation property federatedIdentityCredentials in applications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface FederatedIdentityCredentialsWithNameRequestBuilder extends Base
      toPatchRequestInformation(body: FederatedIdentityCredential, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a federatedIdentityCredential object.
+ * Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).
  */
 export interface FederatedIdentityCredentialsWithNameRequestBuilderGetQueryParameters {
     /**

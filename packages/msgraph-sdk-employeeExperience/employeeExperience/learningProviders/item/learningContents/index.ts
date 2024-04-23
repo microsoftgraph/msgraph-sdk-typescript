@@ -27,11 +27,10 @@ export interface LearningContentsRequestBuilder extends BaseRequestBuilder<Learn
      */
      byLearningContentId(learningContentId: string) : LearningContentItemRequestBuilder;
     /**
-     * Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider's content in Viva Learning.
+     * Learning catalog items for the provider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LearningContentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/learningprovider-list-learningcontents?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LearningContentsRequestBuilderGetQueryParameters> | undefined) : Promise<LearningContentCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface LearningContentsRequestBuilder extends BaseRequestBuilder<Learn
      */
      post(body: LearningContent, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LearningContent | undefined>;
     /**
-     * Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider's content in Viva Learning.
+     * Learning catalog items for the provider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface LearningContentsRequestBuilder extends BaseRequestBuilder<Learn
      toPostRequestInformation(body: LearningContent, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider's content in Viva Learning.
+ * Learning catalog items for the provider.
  */
 export interface LearningContentsRequestBuilderGetQueryParameters {
     /**

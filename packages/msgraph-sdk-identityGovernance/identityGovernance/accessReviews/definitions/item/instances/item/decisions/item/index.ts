@@ -25,11 +25,10 @@ export interface AccessReviewInstanceDecisionItemItemRequestBuilder extends Base
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an accessReviewInstanceDecisionItem object.
+     * Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewInstanceDecisionItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accessreviewinstancedecisionitem-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<AccessReviewInstanceDecisionItem | undefined>;
     /**
@@ -47,7 +46,7 @@ export interface AccessReviewInstanceDecisionItemItemRequestBuilder extends Base
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an accessReviewInstanceDecisionItem object.
+     * Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -61,7 +60,7 @@ export interface AccessReviewInstanceDecisionItemItemRequestBuilder extends Base
      toPatchRequestInformation(body: AccessReviewInstanceDecisionItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an accessReviewInstanceDecisionItem object.
+ * Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
  */
 export interface AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters {
     /**

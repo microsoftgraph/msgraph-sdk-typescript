@@ -25,43 +25,40 @@ export interface ConnectedOrganizationItemRequestBuilder extends BaseRequestBuil
      */
     get internalSponsors(): InternalSponsorsRequestBuilder;
     /**
-     * Delete a connectedOrganization object.
+     * Delete navigation property connectedOrganizations for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/connectedorganization-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a connectedOrganization object.
+     * References to a directory or domain of another organization whose users can request access.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConnectedOrganization>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/connectedorganization-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConnectedOrganizationItemRequestBuilderGetQueryParameters> | undefined) : Promise<ConnectedOrganization | undefined>;
     /**
-     * Update a connectedOrganization object to change one or more of its properties.
+     * Update the navigation property connectedOrganizations in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConnectedOrganization>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/connectedorganization-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ConnectedOrganization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConnectedOrganization | undefined>;
     /**
-     * Delete a connectedOrganization object.
+     * Delete navigation property connectedOrganizations for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a connectedOrganization object.
+     * References to a directory or domain of another organization whose users can request access.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConnectedOrganizationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update a connectedOrganization object to change one or more of its properties.
+     * Update the navigation property connectedOrganizations in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -69,7 +66,7 @@ export interface ConnectedOrganizationItemRequestBuilder extends BaseRequestBuil
      toPatchRequestInformation(body: ConnectedOrganization, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a connectedOrganization object.
+ * References to a directory or domain of another organization whose users can request access.
  */
 export interface ConnectedOrganizationItemRequestBuilderGetQueryParameters {
     /**

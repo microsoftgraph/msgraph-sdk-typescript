@@ -25,22 +25,21 @@ export interface UserRequestBuilder extends BaseRequestBuilder<UserRequestBuilde
      */
     get serviceProvisioningErrors(): ServiceProvisioningErrorsRequestBuilder;
     /**
-     * Retrieve the simple directory user that corresponds to this educationUser.
+     * The directory user that corresponds to this user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<User>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationuser-get-user?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserRequestBuilderGetQueryParameters> | undefined) : Promise<User | undefined>;
     /**
-     * Retrieve the simple directory user that corresponds to this educationUser.
+     * The directory user that corresponds to this user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the simple directory user that corresponds to this educationUser.
+ * The directory user that corresponds to this user.
  */
 export interface UserRequestBuilderGetQueryParameters {
     /**

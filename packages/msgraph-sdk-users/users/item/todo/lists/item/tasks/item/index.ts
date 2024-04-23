@@ -43,43 +43,40 @@ export interface TodoTaskItemRequestBuilder extends BaseRequestBuilder<TodoTaskI
      */
     get linkedResources(): LinkedResourcesRequestBuilder;
     /**
-     * Deletes a todoTask object.
+     * Delete navigation property tasks for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/todotask-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a todoTask object.
+     * The tasks in this task list. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TodoTask>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/todotask-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TodoTaskItemRequestBuilderGetQueryParameters> | undefined) : Promise<TodoTask | undefined>;
     /**
-     * Update the properties of a todoTask object.
+     * Update the navigation property tasks in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TodoTask>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/todotask-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TodoTask, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TodoTask | undefined>;
     /**
-     * Deletes a todoTask object.
+     * Delete navigation property tasks for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a todoTask object.
+     * The tasks in this task list. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TodoTaskItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a todoTask object.
+     * Update the navigation property tasks in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -87,7 +84,7 @@ export interface TodoTaskItemRequestBuilder extends BaseRequestBuilder<TodoTaskI
      toPatchRequestInformation(body: TodoTask, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a todoTask object.
+ * The tasks in this task list. Read-only. Nullable.
  */
 export interface TodoTaskItemRequestBuilderGetQueryParameters {
     /**

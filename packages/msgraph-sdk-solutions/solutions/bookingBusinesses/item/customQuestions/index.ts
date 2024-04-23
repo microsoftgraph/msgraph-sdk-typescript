@@ -27,30 +27,28 @@ export interface CustomQuestionsRequestBuilder extends BaseRequestBuilder<Custom
      */
      byBookingCustomQuestionId(bookingCustomQuestionId: string) : BookingCustomQuestionItemRequestBuilder;
     /**
-     * Get the bookingCustomQuestion resources associated with a bookingBusiness.
+     * All the custom questions of this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingCustomQuestionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-customquestions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CustomQuestionsRequestBuilderGetQueryParameters> | undefined) : Promise<BookingCustomQuestionCollectionResponse | undefined>;
     /**
-     * Create a new bookingCustomQuestion object.
+     * Create new navigation property to customQuestions for solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingCustomQuestion>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-post-customquestions?view=graph-rest-1.0|Find more info here}
      */
      post(body: BookingCustomQuestion, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingCustomQuestion | undefined>;
     /**
-     * Get the bookingCustomQuestion resources associated with a bookingBusiness.
+     * All the custom questions of this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CustomQuestionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new bookingCustomQuestion object.
+     * Create new navigation property to customQuestions for solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface CustomQuestionsRequestBuilder extends BaseRequestBuilder<Custom
      toPostRequestInformation(body: BookingCustomQuestion, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the bookingCustomQuestion resources associated with a bookingBusiness.
+ * All the custom questions of this business. Read-only. Nullable.
  */
 export interface CustomQuestionsRequestBuilderGetQueryParameters {
     /**

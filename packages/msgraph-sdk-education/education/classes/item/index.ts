@@ -67,43 +67,40 @@ export interface EducationClassItemRequestBuilder extends BaseRequestBuilder<Edu
      */
     get teachers(): TeachersRequestBuilder;
     /**
-     * Delete an educationClass. Because a class is also a universal group, deleting a class deletes the group.
+     * Delete navigation property classes for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationclass-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve a class from the system. A class is a universal group with a special property that indicates to the system that the group is a class. Group members represent the students; group admins represent the teachers in the class. If you're using the delegated token, the user will only see classes in which they are members.
+     * Get classes from education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationClass>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationclass-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EducationClassItemRequestBuilderGetQueryParameters> | undefined) : Promise<EducationClass | undefined>;
     /**
-     * Update the properties of an educationClass object.
+     * Update the navigation property classes in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationClass>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationclass-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EducationClass, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationClass | undefined>;
     /**
-     * Delete an educationClass. Because a class is also a universal group, deleting a class deletes the group.
+     * Delete navigation property classes for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve a class from the system. A class is a universal group with a special property that indicates to the system that the group is a class. Group members represent the students; group admins represent the teachers in the class. If you're using the delegated token, the user will only see classes in which they are members.
+     * Get classes from education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EducationClassItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an educationClass object.
+     * Update the navigation property classes in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -111,7 +108,7 @@ export interface EducationClassItemRequestBuilder extends BaseRequestBuilder<Edu
      toPatchRequestInformation(body: EducationClass, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a class from the system. A class is a universal group with a special property that indicates to the system that the group is a class. Group members represent the students; group admins represent the teachers in the class. If you're using the delegated token, the user will only see classes in which they are members.
+ * Get classes from education
  */
 export interface EducationClassItemRequestBuilderGetQueryParameters {
     /**

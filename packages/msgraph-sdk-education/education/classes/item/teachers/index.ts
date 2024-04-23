@@ -33,22 +33,21 @@ export interface TeachersRequestBuilder extends BaseRequestBuilder<TeachersReque
      */
      byEducationUserId(educationUserId: string) : EducationUserItemRequestBuilder;
     /**
-     * Retrieve a list of teachers for a class. Delegated tokens must be members of the class to get the teacher list.
+     * All teachers in the class. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationUserCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationclass-list-teachers?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TeachersRequestBuilderGetQueryParameters> | undefined) : Promise<EducationUserCollectionResponse | undefined>;
     /**
-     * Retrieve a list of teachers for a class. Delegated tokens must be members of the class to get the teacher list.
+     * All teachers in the class. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeachersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of teachers for a class. Delegated tokens must be members of the class to get the teacher list.
+ * All teachers in the class. Nullable.
  */
 export interface TeachersRequestBuilderGetQueryParameters {
     /**

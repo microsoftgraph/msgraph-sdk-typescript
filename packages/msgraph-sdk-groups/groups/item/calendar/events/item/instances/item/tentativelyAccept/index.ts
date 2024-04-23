@@ -23,9 +23,9 @@ export function createTentativelyAcceptPostRequestBodyFromDiscriminatorValue(par
 export function deserializeIntoTentativelyAcceptPostRequestBody(tentativelyAcceptPostRequestBody: Partial<TentativelyAcceptPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { tentativelyAcceptPostRequestBody.backingStoreEnabled = true; },
-        "comment": n => { tentativelyAcceptPostRequestBody.comment = n.getStringValue(); },
-        "proposedNewTime": n => { tentativelyAcceptPostRequestBody.proposedNewTime = n.getObjectValue<TimeSlot>(createTimeSlotFromDiscriminatorValue); },
-        "sendResponse": n => { tentativelyAcceptPostRequestBody.sendResponse = n.getBooleanValue(); },
+        "Comment": n => { tentativelyAcceptPostRequestBody.comment = n.getStringValue(); },
+        "ProposedNewTime": n => { tentativelyAcceptPostRequestBody.proposedNewTime = n.getObjectValue<TimeSlot>(createTimeSlotFromDiscriminatorValue); },
+        "SendResponse": n => { tentativelyAcceptPostRequestBody.sendResponse = n.getBooleanValue(); },
     }
 }
 /**

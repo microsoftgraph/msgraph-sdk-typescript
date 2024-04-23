@@ -33,29 +33,28 @@ export interface CallsRequestBuilder extends BaseRequestBuilder<CallsRequestBuil
      */
      byCallId(callId: string) : CallItemRequestBuilder;
     /**
-     * Retrieve the properties and relationships of a call object.
+     * Get calls from communications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CallCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<CallsRequestBuilderGetQueryParameters> | undefined) : Promise<CallCollectionResponse | undefined>;
     /**
-     * Create call enables your bot to create a new outgoing peer-to-peer or group call, or join an existing meeting. You will need to register the calling bot and go through the list of permissions needed as mentioned below.
+     * Create new navigation property to calls for communications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Call>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/application-post-calls?view=graph-rest-1.0|Find more info here}
      */
      post(body: Call, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Call | undefined>;
     /**
-     * Retrieve the properties and relationships of a call object.
+     * Get calls from communications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CallsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create call enables your bot to create a new outgoing peer-to-peer or group call, or join an existing meeting. You will need to register the calling bot and go through the list of permissions needed as mentioned below.
+     * Create new navigation property to calls for communications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +62,7 @@ export interface CallsRequestBuilder extends BaseRequestBuilder<CallsRequestBuil
      toPostRequestInformation(body: Call, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a call object.
+ * Get calls from communications
  */
 export interface CallsRequestBuilderGetQueryParameters {
     /**

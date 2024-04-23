@@ -27,30 +27,28 @@ export interface PartnersRequestBuilder extends BaseRequestBuilder<PartnersReque
      */
      byCrossTenantAccessPolicyConfigurationPartnerTenantId(crossTenantAccessPolicyConfigurationPartnerTenantId: string) : CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder;
     /**
-     * Get a list of all partner configurations within a cross-tenant access policy. You can also use the $expand parameter to list the user synchronization policy for all partner configurations.
+     * Defines partner-specific configurations for external Microsoft Entra organizations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CrossTenantAccessPolicyConfigurationPartnerCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-list-partners?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PartnersRequestBuilderGetQueryParameters> | undefined) : Promise<CrossTenantAccessPolicyConfigurationPartnerCollectionResponse | undefined>;
     /**
-     * Create a new partner configuration in a cross-tenant access policy.
+     * Create new navigation property to partners for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CrossTenantAccessPolicyConfigurationPartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-1.0|Find more info here}
      */
      post(body: CrossTenantAccessPolicyConfigurationPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CrossTenantAccessPolicyConfigurationPartner | undefined>;
     /**
-     * Get a list of all partner configurations within a cross-tenant access policy. You can also use the $expand parameter to list the user synchronization policy for all partner configurations.
+     * Defines partner-specific configurations for external Microsoft Entra organizations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PartnersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new partner configuration in a cross-tenant access policy.
+     * Create new navigation property to partners for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface PartnersRequestBuilder extends BaseRequestBuilder<PartnersReque
      toPostRequestInformation(body: CrossTenantAccessPolicyConfigurationPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of all partner configurations within a cross-tenant access policy. You can also use the $expand parameter to list the user synchronization policy for all partner configurations.
+ * Defines partner-specific configurations for external Microsoft Entra organizations.
  */
 export interface PartnersRequestBuilderGetQueryParameters {
     /**

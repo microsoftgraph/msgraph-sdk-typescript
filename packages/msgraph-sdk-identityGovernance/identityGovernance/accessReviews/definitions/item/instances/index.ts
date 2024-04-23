@@ -35,11 +35,10 @@ export interface InstancesRequestBuilder extends BaseRequestBuilder<InstancesReq
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Get a list of the accessReviewInstance objects and their properties.
+     * If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that doesn't recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource has a unique instance for each recurrence.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewInstanceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-list-instances?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<InstancesRequestBuilderGetQueryParameters> | undefined) : Promise<AccessReviewInstanceCollectionResponse | undefined>;
     /**
@@ -51,7 +50,7 @@ export interface InstancesRequestBuilder extends BaseRequestBuilder<InstancesReq
      */
      post(body: AccessReviewInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessReviewInstance | undefined>;
     /**
-     * Get a list of the accessReviewInstance objects and their properties.
+     * If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that doesn't recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource has a unique instance for each recurrence.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -65,7 +64,7 @@ export interface InstancesRequestBuilder extends BaseRequestBuilder<InstancesReq
      toPostRequestInformation(body: AccessReviewInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the accessReviewInstance objects and their properties.
+ * If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that doesn't recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource has a unique instance for each recurrence.
  */
 export interface InstancesRequestBuilderGetQueryParameters {
     /**

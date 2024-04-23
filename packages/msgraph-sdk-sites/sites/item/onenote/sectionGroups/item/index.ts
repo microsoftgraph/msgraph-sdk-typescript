@@ -43,11 +43,10 @@ export interface SectionGroupItemRequestBuilder extends BaseRequestBuilder<Secti
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a sectionGroup object.
+     * The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SectionGroup>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/sectiongroup-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SectionGroupItemRequestBuilderGetQueryParameters> | undefined) : Promise<SectionGroup | undefined>;
     /**
@@ -65,7 +64,7 @@ export interface SectionGroupItemRequestBuilder extends BaseRequestBuilder<Secti
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a sectionGroup object.
+     * The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -79,7 +78,7 @@ export interface SectionGroupItemRequestBuilder extends BaseRequestBuilder<Secti
      toPatchRequestInformation(body: SectionGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a sectionGroup object.
+ * The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
  */
 export interface SectionGroupItemRequestBuilderGetQueryParameters {
     /**

@@ -27,30 +27,28 @@ export interface ManagedDevicesRequestBuilder extends BaseRequestBuilder<Managed
      */
      byManagedDeviceId(managedDeviceId: string) : ManagedDeviceItemRequestBuilder;
     /**
-     * List properties and relationships of the managedDevice objects.
+     * The list of managed devices.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedDevicesRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceCollectionResponse | undefined>;
     /**
-     * Create a new managedDevice object.
+     * Create new navigation property to managedDevices for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDevice>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: ManagedDevice, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDevice | undefined>;
     /**
-     * List properties and relationships of the managedDevice objects.
+     * The list of managed devices.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedDevicesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new managedDevice object.
+     * Create new navigation property to managedDevices for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface ManagedDevicesRequestBuilder extends BaseRequestBuilder<Managed
      toPostRequestInformation(body: ManagedDevice, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the managedDevice objects.
+ * The list of managed devices.
  */
 export interface ManagedDevicesRequestBuilderGetQueryParameters {
     /**

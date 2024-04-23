@@ -13,42 +13,39 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder> {
     /**
-     * Remove a group from the list of groups that have been marked as incompatible on an accessPackage.  
+     * Delete ref of navigation property incompatibleGroups for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-delete-incompatiblegroup?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : Promise<void>;
     /**
-     * Retrieve a list of the group objects that have been marked as incompatible on an accessPackage.  
+     * The groups whose members are ineligible to be assigned this access package.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<StringCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-list-incompatiblegroups?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RefRequestBuilderGetQueryParameters> | undefined) : Promise<StringCollectionResponse | undefined>;
     /**
-     * Add a group to the list of groups that have been marked as incompatible on an accessPackage.  
+     * Create new navigation property ref to incompatibleGroups for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-post-incompatiblegroup?view=graph-rest-1.0|Find more info here}
      */
      post(body: ReferenceCreate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Remove a group from the list of groups that have been marked as incompatible on an accessPackage.  
+     * Delete ref of navigation property incompatibleGroups for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : RequestInformation;
     /**
-     * Retrieve a list of the group objects that have been marked as incompatible on an accessPackage.  
+     * The groups whose members are ineligible to be assigned this access package.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RefRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Add a group to the list of groups that have been marked as incompatible on an accessPackage.  
+     * Create new navigation property ref to incompatibleGroups for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +53,7 @@ export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder>
      toPostRequestInformation(body: ReferenceCreate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Remove a group from the list of groups that have been marked as incompatible on an accessPackage.  
+ * Delete ref of navigation property incompatibleGroups for identityGovernance
  */
 export interface RefRequestBuilderDeleteQueryParameters {
     /**
@@ -65,7 +62,7 @@ export interface RefRequestBuilderDeleteQueryParameters {
     id?: string;
 }
 /**
- * Retrieve a list of the group objects that have been marked as incompatible on an accessPackage.  
+ * The groups whose members are ineligible to be assigned this access package.
  */
 export interface RefRequestBuilderGetQueryParameters {
     /**

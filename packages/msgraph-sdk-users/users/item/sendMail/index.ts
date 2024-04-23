@@ -23,8 +23,8 @@ export function createSendMailPostRequestBodyFromDiscriminatorValue(parseNode: P
 export function deserializeIntoSendMailPostRequestBody(sendMailPostRequestBody: Partial<SendMailPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sendMailPostRequestBody.backingStoreEnabled = true; },
-        "message": n => { sendMailPostRequestBody.message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
-        "saveToSentItems": n => { sendMailPostRequestBody.saveToSentItems = n.getBooleanValue(); },
+        "Message": n => { sendMailPostRequestBody.message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
+        "SaveToSentItems": n => { sendMailPostRequestBody.saveToSentItems = n.getBooleanValue(); },
     }
 }
 export interface SendMailPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {

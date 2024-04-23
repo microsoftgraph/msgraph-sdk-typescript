@@ -25,11 +25,10 @@ export interface RiskyServicePrincipalItemRequestBuilder extends BaseRequestBuil
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a riskyServicePrincipal object.
+     * Microsoft Entra service principals that are at risk.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RiskyServicePrincipal>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/riskyserviceprincipal-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RiskyServicePrincipalItemRequestBuilderGetQueryParameters> | undefined) : Promise<RiskyServicePrincipal | undefined>;
     /**
@@ -47,7 +46,7 @@ export interface RiskyServicePrincipalItemRequestBuilder extends BaseRequestBuil
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a riskyServicePrincipal object.
+     * Microsoft Entra service principals that are at risk.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -61,7 +60,7 @@ export interface RiskyServicePrincipalItemRequestBuilder extends BaseRequestBuil
      toPatchRequestInformation(body: RiskyServicePrincipal, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a riskyServicePrincipal object.
+ * Microsoft Entra service principals that are at risk.
  */
 export interface RiskyServicePrincipalItemRequestBuilderGetQueryParameters {
     /**

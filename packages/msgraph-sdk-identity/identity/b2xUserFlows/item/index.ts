@@ -43,18 +43,16 @@ export interface B2xIdentityUserFlowItemRequestBuilder extends BaseRequestBuilde
      */
     get userFlowIdentityProviders(): UserFlowIdentityProvidersRequestBuilder;
     /**
-     * Delete a b2xIdentityUserFlow object.
+     * Delete navigation property b2xUserFlows for identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/b2xidentityuserflow-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a b2xIdentityUserFlow object.
+     * Represents entry point for B2X/self-service sign-up identity userflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<B2xIdentityUserFlow>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/b2xidentityuserflow-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<B2xIdentityUserFlowItemRequestBuilderGetQueryParameters> | undefined) : Promise<B2xIdentityUserFlow | undefined>;
     /**
@@ -66,13 +64,13 @@ export interface B2xIdentityUserFlowItemRequestBuilder extends BaseRequestBuilde
      */
      patch(body: B2xIdentityUserFlow, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<B2xIdentityUserFlow | undefined>;
     /**
-     * Delete a b2xIdentityUserFlow object.
+     * Delete navigation property b2xUserFlows for identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a b2xIdentityUserFlow object.
+     * Represents entry point for B2X/self-service sign-up identity userflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -86,7 +84,7 @@ export interface B2xIdentityUserFlowItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: B2xIdentityUserFlow, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a b2xIdentityUserFlow object.
+ * Represents entry point for B2X/self-service sign-up identity userflows.
  */
 export interface B2xIdentityUserFlowItemRequestBuilderGetQueryParameters {
     /**

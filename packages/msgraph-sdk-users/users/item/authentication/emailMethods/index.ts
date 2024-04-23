@@ -27,30 +27,28 @@ export interface EmailMethodsRequestBuilder extends BaseRequestBuilder<EmailMeth
      */
      byEmailAuthenticationMethodId(emailAuthenticationMethodId: string) : EmailAuthenticationMethodItemRequestBuilder;
     /**
-     * Retrieve a list of a user's emailAuthenticationMethod objects and their properties. This API will return only a single object in the collection as only one email method can be set for a user.
+     * The email address registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EmailAuthenticationMethodCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/authentication-list-emailmethods?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EmailMethodsRequestBuilderGetQueryParameters> | undefined) : Promise<EmailAuthenticationMethodCollectionResponse | undefined>;
     /**
-     * Set a user's emailAuthenticationMethod object. Email authentication is a self-service password reset method. A user may only have one email authentication method.
+     * Create new navigation property to emailMethods for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EmailAuthenticationMethod>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/authentication-post-emailmethods?view=graph-rest-1.0|Find more info here}
      */
      post(body: EmailAuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EmailAuthenticationMethod | undefined>;
     /**
-     * Retrieve a list of a user's emailAuthenticationMethod objects and their properties. This API will return only a single object in the collection as only one email method can be set for a user.
+     * The email address registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EmailMethodsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Set a user's emailAuthenticationMethod object. Email authentication is a self-service password reset method. A user may only have one email authentication method.
+     * Create new navigation property to emailMethods for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface EmailMethodsRequestBuilder extends BaseRequestBuilder<EmailMeth
      toPostRequestInformation(body: EmailAuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of a user's emailAuthenticationMethod objects and their properties. This API will return only a single object in the collection as only one email method can be set for a user.
+ * The email address registered to a user for authentication.
  */
 export interface EmailMethodsRequestBuilderGetQueryParameters {
     /**

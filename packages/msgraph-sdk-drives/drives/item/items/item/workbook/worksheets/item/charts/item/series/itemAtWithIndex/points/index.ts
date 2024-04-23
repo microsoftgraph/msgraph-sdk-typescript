@@ -13,30 +13,28 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface PointsRequestBuilder extends BaseRequestBuilder<PointsRequestBuilder> {
     /**
-     * Retrieve a list of chartpoints objects.
+     * Represents a collection of all points in the series. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartPointCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartseries-list-points?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PointsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartPointCollectionResponse | undefined>;
     /**
-     * Use this API to create a new ChartPoints.
+     * Create new navigation property to points for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartPoint>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartseries-post-points?view=graph-rest-1.0|Find more info here}
      */
      post(body: WorkbookChartPoint, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartPoint | undefined>;
     /**
-     * Retrieve a list of chartpoints objects.
+     * Represents a collection of all points in the series. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PointsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Use this API to create a new ChartPoints.
+     * Create new navigation property to points for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -44,7 +42,7 @@ export interface PointsRequestBuilder extends BaseRequestBuilder<PointsRequestBu
      toPostRequestInformation(body: WorkbookChartPoint, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of chartpoints objects.
+ * Represents a collection of all points in the series. Read-only.
  */
 export interface PointsRequestBuilderGetQueryParameters {
     /**

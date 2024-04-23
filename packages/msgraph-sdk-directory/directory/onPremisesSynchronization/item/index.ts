@@ -19,20 +19,18 @@ export interface OnPremisesDirectorySynchronizationItemRequestBuilder extends Ba
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an onPremisesDirectorySynchronization object.
+     * A container for on-premises directory synchronization functionalities that are available for the organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OnPremisesDirectorySynchronization>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/onpremisesdirectorysynchronization-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters> | undefined) : Promise<OnPremisesDirectorySynchronization | undefined>;
     /**
-     * Update the properties of an onPremisesDirectorySynchronization object.
+     * Update the navigation property onPremisesSynchronization in directory
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OnPremisesDirectorySynchronization>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/onpremisesdirectorysynchronization-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: OnPremisesDirectorySynchronization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OnPremisesDirectorySynchronization | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface OnPremisesDirectorySynchronizationItemRequestBuilder extends Ba
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an onPremisesDirectorySynchronization object.
+     * A container for on-premises directory synchronization functionalities that are available for the organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an onPremisesDirectorySynchronization object.
+     * Update the navigation property onPremisesSynchronization in directory
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface OnPremisesDirectorySynchronizationItemRequestBuilder extends Ba
      toPatchRequestInformation(body: OnPremisesDirectorySynchronization, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an onPremisesDirectorySynchronization object.
+ * A container for on-premises directory synchronization functionalities that are available for the organization.
  */
 export interface OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters {
     /**

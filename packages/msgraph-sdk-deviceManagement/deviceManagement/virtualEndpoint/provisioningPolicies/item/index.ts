@@ -25,43 +25,40 @@ export interface CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequest
      */
     get assignments(): AssignmentsRequestBuilder;
     /**
-     * Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use.
+     * Delete navigation property provisioningPolicies for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a cloudPcProvisioningPolicy object.
+     * A collection of Cloud PC provisioning policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcProvisioningPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CloudPcProvisioningPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<CloudPcProvisioningPolicy | undefined>;
     /**
-     * Update the properties of a cloudPcProvisioningPolicy object.
+     * Update the navigation property provisioningPolicies in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcProvisioningPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: CloudPcProvisioningPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CloudPcProvisioningPolicy | undefined>;
     /**
-     * Delete a cloudPcProvisioningPolicy object. You can’t delete a policy that’s in use.
+     * Delete navigation property provisioningPolicies for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a cloudPcProvisioningPolicy object.
+     * A collection of Cloud PC provisioning policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CloudPcProvisioningPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a cloudPcProvisioningPolicy object.
+     * Update the navigation property provisioningPolicies in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -69,7 +66,7 @@ export interface CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequest
      toPatchRequestInformation(body: CloudPcProvisioningPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a cloudPcProvisioningPolicy object.
+ * A collection of Cloud PC provisioning policies.
  */
 export interface CloudPcProvisioningPolicyItemRequestBuilderGetQueryParameters {
     /**

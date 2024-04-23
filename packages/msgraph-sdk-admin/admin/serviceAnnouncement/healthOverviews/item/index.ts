@@ -25,11 +25,10 @@ export interface ServiceHealthItemRequestBuilder extends BaseRequestBuilder<Serv
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.
+     * A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServiceHealth>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/servicehealth-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ServiceHealthItemRequestBuilderGetQueryParameters> | undefined) : Promise<ServiceHealth | undefined>;
     /**
@@ -47,7 +46,7 @@ export interface ServiceHealthItemRequestBuilder extends BaseRequestBuilder<Serv
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.
+     * A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -61,7 +60,7 @@ export interface ServiceHealthItemRequestBuilder extends BaseRequestBuilder<Serv
      toPatchRequestInformation(body: ServiceHealth, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.
+ * A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
  */
 export interface ServiceHealthItemRequestBuilderGetQueryParameters {
     /**

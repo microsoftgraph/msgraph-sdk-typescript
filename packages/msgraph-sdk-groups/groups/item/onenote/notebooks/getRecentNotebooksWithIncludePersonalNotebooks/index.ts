@@ -37,21 +37,22 @@ export interface GetRecentNotebooksWithIncludePersonalNotebooksGetResponse exten
  */
 export interface GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder extends BaseRequestBuilder<GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder> {
     /**
-     * Invoke function getRecentNotebooks
+     * Get a list of recentNotebook instances that have been accessed by the signed-in user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetRecentNotebooksWithIncludePersonalNotebooksGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/notebook-getrecentnotebooks?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters> | undefined) : Promise<GetRecentNotebooksWithIncludePersonalNotebooksGetResponse | undefined>;
     /**
-     * Invoke function getRecentNotebooks
+     * Get a list of recentNotebook instances that have been accessed by the signed-in user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getRecentNotebooks
+ * Get a list of recentNotebook instances that have been accessed by the signed-in user.
  */
 export interface GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters {
     /**

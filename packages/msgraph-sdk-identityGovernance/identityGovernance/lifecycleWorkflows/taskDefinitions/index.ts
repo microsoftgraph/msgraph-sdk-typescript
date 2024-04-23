@@ -27,22 +27,21 @@ export interface TaskDefinitionsRequestBuilder extends BaseRequestBuilder<TaskDe
      */
      byTaskDefinitionId(taskDefinitionId: string) : TaskDefinitionItemRequestBuilder;
     /**
-     * Get a list of the taskDefinition objects and their properties.
+     * The definition of tasks within the lifecycle workflows instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TaskDefinitionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-taskdefinitions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TaskDefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<TaskDefinitionCollectionResponse | undefined>;
     /**
-     * Get a list of the taskDefinition objects and their properties.
+     * The definition of tasks within the lifecycle workflows instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskDefinitionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the taskDefinition objects and their properties.
+ * The definition of tasks within the lifecycle workflows instance.
  */
 export interface TaskDefinitionsRequestBuilderGetQueryParameters {
     /**

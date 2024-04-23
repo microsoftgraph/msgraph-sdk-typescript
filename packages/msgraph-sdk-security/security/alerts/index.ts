@@ -27,11 +27,10 @@ export interface AlertsRequestBuilder extends BaseRequestBuilder<AlertsRequestBu
      */
      byAlertId(alertId: string) : AlertItemRequestBuilder;
     /**
-     * Retrieve a list of alert objects.
+     * Get alerts from security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AlertCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/alert-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AlertsRequestBuilderGetQueryParameters> | undefined) : Promise<AlertCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface AlertsRequestBuilder extends BaseRequestBuilder<AlertsRequestBu
      */
      post(body: Alert, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Alert | undefined>;
     /**
-     * Retrieve a list of alert objects.
+     * Get alerts from security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface AlertsRequestBuilder extends BaseRequestBuilder<AlertsRequestBu
      toPostRequestInformation(body: Alert, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of alert objects.
+ * Get alerts from security
  */
 export interface AlertsRequestBuilderGetQueryParameters {
     /**

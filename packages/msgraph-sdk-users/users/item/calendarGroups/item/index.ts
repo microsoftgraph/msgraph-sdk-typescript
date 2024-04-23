@@ -19,43 +19,40 @@ export interface CalendarGroupItemRequestBuilder extends BaseRequestBuilder<Cale
      */
     get calendars(): CalendarsRequestBuilder;
     /**
-     * Delete a calendar group other than the default calendar group.
+     * Delete navigation property calendarGroups for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/calendargroup-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a calendar group object.
+     * The user's calendar groups. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CalendarGroup>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/calendargroup-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CalendarGroupItemRequestBuilderGetQueryParameters> | undefined) : Promise<CalendarGroup | undefined>;
     /**
-     * Update the properties of calendargroup object.
+     * Update the navigation property calendarGroups in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CalendarGroup>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/calendargroup-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: CalendarGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CalendarGroup | undefined>;
     /**
-     * Delete a calendar group other than the default calendar group.
+     * Delete navigation property calendarGroups for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a calendar group object.
+     * The user's calendar groups. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CalendarGroupItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of calendargroup object.
+     * Update the navigation property calendarGroups in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface CalendarGroupItemRequestBuilder extends BaseRequestBuilder<Cale
      toPatchRequestInformation(body: CalendarGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a calendar group object.
+ * The user's calendar groups. Read-only. Nullable.
  */
 export interface CalendarGroupItemRequestBuilderGetQueryParameters {
     /**

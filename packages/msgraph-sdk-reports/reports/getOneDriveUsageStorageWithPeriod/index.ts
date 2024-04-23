@@ -11,14 +11,15 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface GetOneDriveUsageStorageWithPeriodRequestBuilder extends BaseRequestBuilder<GetOneDriveUsageStorageWithPeriodRequestBuilder> {
     /**
-     * Invoke function getOneDriveUsageStorage
+     * Get the trend on the amount of storage you're using in OneDrive for Business.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/reportroot-getonedriveusagestorage?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Invoke function getOneDriveUsageStorage
+     * Get the trend on the amount of storage you're using in OneDrive for Business.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

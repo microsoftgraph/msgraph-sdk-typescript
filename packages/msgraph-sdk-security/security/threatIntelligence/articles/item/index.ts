@@ -25,11 +25,10 @@ export interface ArticleItemRequestBuilder extends BaseRequestBuilder<ArticleIte
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an article object.
+     * A list of article objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Article>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-article-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ArticleItemRequestBuilderGetQueryParameters> | undefined) : Promise<Article | undefined>;
     /**
@@ -47,7 +46,7 @@ export interface ArticleItemRequestBuilder extends BaseRequestBuilder<ArticleIte
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an article object.
+     * A list of article objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -61,7 +60,7 @@ export interface ArticleItemRequestBuilder extends BaseRequestBuilder<ArticleIte
      toPatchRequestInformation(body: Article, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an article object.
+ * A list of article objects.
  */
 export interface ArticleItemRequestBuilderGetQueryParameters {
     /**

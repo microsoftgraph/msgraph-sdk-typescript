@@ -19,35 +19,33 @@ export interface MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder ex
      */
     get device(): DeviceRequestBuilder;
     /**
-     * Deletes a microsoftAuthenticatorAuthenticationMethod object.
+     * Delete navigation property microsoftAuthenticatorMethods for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a microsoftAuthenticatorAuthenticationMethod object.
+     * The details of the Microsoft Authenticator app registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MicrosoftAuthenticatorAuthenticationMethod>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : Promise<MicrosoftAuthenticatorAuthenticationMethod | undefined>;
     /**
-     * Deletes a microsoftAuthenticatorAuthenticationMethod object.
+     * Delete navigation property microsoftAuthenticatorMethods for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a microsoftAuthenticatorAuthenticationMethod object.
+     * The details of the Microsoft Authenticator app registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a microsoftAuthenticatorAuthenticationMethod object.
+ * The details of the Microsoft Authenticator app registered to a user for authentication.
  */
 export interface MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters {
     /**

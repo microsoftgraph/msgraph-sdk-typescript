@@ -33,30 +33,28 @@ export interface TagsRequestBuilder extends BaseRequestBuilder<TagsRequestBuilde
      */
      byEdiscoveryReviewTagId(ediscoveryReviewTagId: string) : EdiscoveryReviewTagItemRequestBuilder;
     /**
-     * Get a list of eDiscoveryReviewTag objects and their properties.
+     * Returns a list of ediscoveryReviewTag objects associated to this case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryReviewTagCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-tags?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TagsRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryReviewTagCollectionResponse | undefined>;
     /**
-     * Create a new ediscoveryReviewTag object.
+     * Create new navigation property to tags for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryReviewTag>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-tags?view=graph-rest-1.0|Find more info here}
      */
      post(body: EdiscoveryReviewTag, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoveryReviewTag | undefined>;
     /**
-     * Get a list of eDiscoveryReviewTag objects and their properties.
+     * Returns a list of ediscoveryReviewTag objects associated to this case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TagsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new ediscoveryReviewTag object.
+     * Create new navigation property to tags for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,7 +62,7 @@ export interface TagsRequestBuilder extends BaseRequestBuilder<TagsRequestBuilde
      toPostRequestInformation(body: EdiscoveryReviewTag, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of eDiscoveryReviewTag objects and their properties.
+ * Returns a list of ediscoveryReviewTag objects associated to this case.
  */
 export interface TagsRequestBuilderGetQueryParameters {
     /**

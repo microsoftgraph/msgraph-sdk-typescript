@@ -31,20 +31,18 @@ export interface CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a crossTenantAccessPolicy object.
+     * The custom rules that define an access scenario when interacting with external Microsoft Entra tenants.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CrossTenantAccessPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CrossTenantAccessPolicyRequestBuilderGetQueryParameters> | undefined) : Promise<CrossTenantAccessPolicy | undefined>;
     /**
-     * Update the properties of a cross-tenant access policy.
+     * Update the navigation property crossTenantAccessPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CrossTenantAccessPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: CrossTenantAccessPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CrossTenantAccessPolicy | undefined>;
     /**
@@ -54,13 +52,13 @@ export interface CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a crossTenantAccessPolicy object.
+     * The custom rules that define an access scenario when interacting with external Microsoft Entra tenants.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CrossTenantAccessPolicyRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a cross-tenant access policy.
+     * Update the navigation property crossTenantAccessPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -68,7 +66,7 @@ export interface CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: CrossTenantAccessPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a crossTenantAccessPolicy object.
+ * The custom rules that define an access scenario when interacting with external Microsoft Entra tenants.
  */
 export interface CrossTenantAccessPolicyRequestBuilderGetQueryParameters {
     /**

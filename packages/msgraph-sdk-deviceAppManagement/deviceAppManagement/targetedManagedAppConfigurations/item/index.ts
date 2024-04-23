@@ -43,43 +43,40 @@ export interface TargetedManagedAppConfigurationItemRequestBuilder extends BaseR
      */
     get targetApps(): TargetAppsRequestBuilder;
     /**
-     * Deletes a targetedManagedAppConfiguration.
+     * Delete navigation property targetedManagedAppConfigurations for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the targetedManagedAppConfiguration object.
+     * Targeted managed app configurations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TargetedManagedAppConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TargetedManagedAppConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<TargetedManagedAppConfiguration | undefined>;
     /**
-     * Update the properties of a targetedManagedAppConfiguration object.
+     * Update the navigation property targetedManagedAppConfigurations in deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TargetedManagedAppConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TargetedManagedAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TargetedManagedAppConfiguration | undefined>;
     /**
-     * Deletes a targetedManagedAppConfiguration.
+     * Delete navigation property targetedManagedAppConfigurations for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the targetedManagedAppConfiguration object.
+     * Targeted managed app configurations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TargetedManagedAppConfigurationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a targetedManagedAppConfiguration object.
+     * Update the navigation property targetedManagedAppConfigurations in deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -87,7 +84,7 @@ export interface TargetedManagedAppConfigurationItemRequestBuilder extends BaseR
      toPatchRequestInformation(body: TargetedManagedAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the targetedManagedAppConfiguration object.
+ * Targeted managed app configurations.
  */
 export interface TargetedManagedAppConfigurationItemRequestBuilderGetQueryParameters {
     /**

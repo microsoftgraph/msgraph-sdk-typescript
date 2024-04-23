@@ -43,43 +43,40 @@ export interface AccessPackageCatalogItemRequestBuilder extends BaseRequestBuild
      */
     get resourceScopes(): ResourceScopesRequestBuilder;
     /**
-     * Delete an accessPackageCatalog.
+     * Delete navigation property catalogs for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of an accessPackageCatalog object.
+     * A container for access packages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageCatalog>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackagecatalog-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AccessPackageCatalogItemRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageCatalog | undefined>;
     /**
-     * Update an existing accessPackageCatalog object to change one or more of its properties, such as the display name or description.
+     * Update the navigation property catalogs in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageCatalog>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackagecatalog-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AccessPackageCatalog, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackageCatalog | undefined>;
     /**
-     * Delete an accessPackageCatalog.
+     * Delete navigation property catalogs for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of an accessPackageCatalog object.
+     * A container for access packages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AccessPackageCatalogItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update an existing accessPackageCatalog object to change one or more of its properties, such as the display name or description.
+     * Update the navigation property catalogs in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -87,7 +84,7 @@ export interface AccessPackageCatalogItemRequestBuilder extends BaseRequestBuild
      toPatchRequestInformation(body: AccessPackageCatalog, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of an accessPackageCatalog object.
+ * A container for access packages.
  */
 export interface AccessPackageCatalogItemRequestBuilderGetQueryParameters {
     /**

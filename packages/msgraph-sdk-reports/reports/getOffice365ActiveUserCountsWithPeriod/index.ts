@@ -11,14 +11,15 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface GetOffice365ActiveUserCountsWithPeriodRequestBuilder extends BaseRequestBuilder<GetOffice365ActiveUserCountsWithPeriodRequestBuilder> {
     /**
-     * Invoke function getOffice365ActiveUserCounts
+     * Get the count of daily active users in the reporting period by product.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/reportroot-getoffice365activeusercounts?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Invoke function getOffice365ActiveUserCounts
+     * Get the count of daily active users in the reporting period by product.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

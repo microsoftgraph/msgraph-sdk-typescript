@@ -31,11 +31,10 @@ export interface WebinarsRequestBuilder extends BaseRequestBuilder<WebinarsReque
      */
      byVirtualEventWebinarId(virtualEventWebinarId: string) : VirtualEventWebinarItemRequestBuilder;
     /**
-     * Get the list of all virtualEventWebinar objects created in the tenant.
+     * Get webinars from solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventWebinarCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/virtualeventsroot-list-webinars?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WebinarsRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventWebinarCollectionResponse | undefined>;
     /**
@@ -60,7 +59,7 @@ export interface WebinarsRequestBuilder extends BaseRequestBuilder<WebinarsReque
      */
      post(body: VirtualEventWebinar, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventWebinar | undefined>;
     /**
-     * Get the list of all virtualEventWebinar objects created in the tenant.
+     * Get webinars from solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -74,7 +73,7 @@ export interface WebinarsRequestBuilder extends BaseRequestBuilder<WebinarsReque
      toPostRequestInformation(body: VirtualEventWebinar, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the list of all virtualEventWebinar objects created in the tenant.
+ * Get webinars from solutions
  */
 export interface WebinarsRequestBuilderGetQueryParameters {
     /**

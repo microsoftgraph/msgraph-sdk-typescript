@@ -13,14 +13,15 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface GetTeamsLicensingDetailsRequestBuilder extends BaseRequestBuilder<GetTeamsLicensingDetailsRequestBuilder> {
     /**
-     * Invoke function getTeamsLicensingDetails
+     * Get the license status of a user in Microsoft Teams.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsLicensingDetails>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/licensedetails-getteamslicensingdetails?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamsLicensingDetails | undefined>;
     /**
-     * Invoke function getTeamsLicensingDetails
+     * Get the license status of a user in Microsoft Teams.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

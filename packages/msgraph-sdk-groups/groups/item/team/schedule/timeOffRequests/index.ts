@@ -27,11 +27,10 @@ export interface TimeOffRequestsRequestBuilder extends BaseRequestBuilder<TimeOf
      */
      byTimeOffRequestId(timeOffRequestId: string) : TimeOffRequestItemRequestBuilder;
     /**
-     * Retrieve a list of timeOffRequest objects in the team.
+     * The time off requests in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TimeOffRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/timeoffrequest-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TimeOffRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<TimeOffRequestCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface TimeOffRequestsRequestBuilder extends BaseRequestBuilder<TimeOf
      */
      post(body: TimeOffRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TimeOffRequest | undefined>;
     /**
-     * Retrieve a list of timeOffRequest objects in the team.
+     * The time off requests in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface TimeOffRequestsRequestBuilder extends BaseRequestBuilder<TimeOf
      toPostRequestInformation(body: TimeOffRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of timeOffRequest objects in the team.
+ * The time off requests in the schedule.
  */
 export interface TimeOffRequestsRequestBuilderGetQueryParameters {
     /**

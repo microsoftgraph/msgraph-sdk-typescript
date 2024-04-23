@@ -19,11 +19,10 @@ export interface BotRequestBuilder extends BaseRequestBuilder<BotRequestBuilder>
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the bot associated with a specific definition of the  TeamsApp.
+     * The details of the bot specified in the Teams app manifest.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamworkBot>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/teamworkbot-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BotRequestBuilderGetQueryParameters> | undefined) : Promise<TeamworkBot | undefined>;
     /**
@@ -41,7 +40,7 @@ export interface BotRequestBuilder extends BaseRequestBuilder<BotRequestBuilder>
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the bot associated with a specific definition of the  TeamsApp.
+     * The details of the bot specified in the Teams app manifest.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -55,7 +54,7 @@ export interface BotRequestBuilder extends BaseRequestBuilder<BotRequestBuilder>
      toPatchRequestInformation(body: TeamworkBot, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the bot associated with a specific definition of the  TeamsApp.
+ * The details of the bot specified in the Teams app manifest.
  */
 export interface BotRequestBuilderGetQueryParameters {
     /**

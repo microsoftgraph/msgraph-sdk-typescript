@@ -27,30 +27,28 @@ export interface CustomersRequestBuilder extends BaseRequestBuilder<CustomersReq
      */
      byBookingCustomerBaseId(bookingCustomerBaseId: string) : BookingCustomerBaseItemRequestBuilder;
     /**
-     * Get a list of bookingCustomer objects of a business.
+     * All the customers of this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingCustomerBaseCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-customers?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CustomersRequestBuilderGetQueryParameters> | undefined) : Promise<BookingCustomerBaseCollectionResponse | undefined>;
     /**
-     * Create a new bookingCustomer object.
+     * Create new navigation property to customers for solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingCustomerBase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-post-customers?view=graph-rest-1.0|Find more info here}
      */
      post(body: BookingCustomerBase, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingCustomerBase | undefined>;
     /**
-     * Get a list of bookingCustomer objects of a business.
+     * All the customers of this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CustomersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new bookingCustomer object.
+     * Create new navigation property to customers for solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface CustomersRequestBuilder extends BaseRequestBuilder<CustomersReq
      toPostRequestInformation(body: BookingCustomerBase, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of bookingCustomer objects of a business.
+ * All the customers of this business. Read-only. Nullable.
  */
 export interface CustomersRequestBuilderGetQueryParameters {
     /**

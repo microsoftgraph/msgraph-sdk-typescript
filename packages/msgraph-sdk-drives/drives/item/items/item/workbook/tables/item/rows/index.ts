@@ -35,11 +35,10 @@ export interface RowsRequestBuilder extends BaseRequestBuilder<RowsRequestBuilde
      */
      byWorkbookTableRowId(workbookTableRowId: string) : WorkbookTableRowItemRequestBuilder;
     /**
-     * Retrieve a list of tablerow objects.
+     * Represents a collection of all the rows in the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTableRowCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/table-list-rows?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RowsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookTableRowCollectionResponse | undefined>;
     /**
@@ -49,22 +48,21 @@ export interface RowsRequestBuilder extends BaseRequestBuilder<RowsRequestBuilde
      */
      itemAtWithIndex(index: number | undefined) : ItemAtWithIndexRequestBuilder;
     /**
-     * Adds rows to the end of a table.  Note that this API can accept multiple rows of data. Adding one row at a time can affect performance. The recommended approach is to batch the rows together in a single call rather than inserting single rows. For best results, collect the rows to be inserted on the application side and perform a single row add operation. Experiment with the number of rows to determine the ideal number of rows to use in a single API call.  This request might occasionally result in a 504 HTTP error. The appropriate response to this error is to repeat the request.
+     * Create new navigation property to rows for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTableRow>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/table-post-rows?view=graph-rest-1.0|Find more info here}
      */
      post(body: WorkbookTableRow, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTableRow | undefined>;
     /**
-     * Retrieve a list of tablerow objects.
+     * Represents a collection of all the rows in the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RowsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Adds rows to the end of a table.  Note that this API can accept multiple rows of data. Adding one row at a time can affect performance. The recommended approach is to batch the rows together in a single call rather than inserting single rows. For best results, collect the rows to be inserted on the application side and perform a single row add operation. Experiment with the number of rows to determine the ideal number of rows to use in a single API call.  This request might occasionally result in a 504 HTTP error. The appropriate response to this error is to repeat the request.
+     * Create new navigation property to rows for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -72,7 +70,7 @@ export interface RowsRequestBuilder extends BaseRequestBuilder<RowsRequestBuilde
      toPostRequestInformation(body: WorkbookTableRow, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of tablerow objects.
+ * Represents a collection of all the rows in the table. Read-only.
  */
 export interface RowsRequestBuilderGetQueryParameters {
     /**

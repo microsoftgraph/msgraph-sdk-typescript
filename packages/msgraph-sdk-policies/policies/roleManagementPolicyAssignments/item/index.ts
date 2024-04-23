@@ -25,11 +25,10 @@ export interface UnifiedRoleManagementPolicyAssignmentItemRequestBuilder extends
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the details of a policy assignment in PIM that's assigned to Microsoft Entra roles or group membership or ownership.
+     * The assignment of a role management policy to a role definition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleManagementPolicyAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/unifiedrolemanagementpolicyassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleManagementPolicyAssignment | undefined>;
     /**
@@ -47,7 +46,7 @@ export interface UnifiedRoleManagementPolicyAssignmentItemRequestBuilder extends
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the details of a policy assignment in PIM that's assigned to Microsoft Entra roles or group membership or ownership.
+     * The assignment of a role management policy to a role definition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -61,7 +60,7 @@ export interface UnifiedRoleManagementPolicyAssignmentItemRequestBuilder extends
      toPatchRequestInformation(body: UnifiedRoleManagementPolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the details of a policy assignment in PIM that's assigned to Microsoft Entra roles or group membership or ownership.
+ * The assignment of a role management policy to a role definition object.
  */
 export interface UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetQueryParameters {
     /**

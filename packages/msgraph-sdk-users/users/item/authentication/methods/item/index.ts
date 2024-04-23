@@ -19,11 +19,10 @@ export interface AuthenticationMethodItemRequestBuilder extends BaseRequestBuild
      */
     get resetPassword(): ResetPasswordRequestBuilder;
     /**
-     * Retrieve the properties and relationships of an authenticationMethod object.
+     * Represents all authentication methods registered to a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationMethod>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/authenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationMethod | undefined>;
     /**
@@ -35,7 +34,7 @@ export interface AuthenticationMethodItemRequestBuilder extends BaseRequestBuild
      */
      patch(body: AuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationMethod | undefined>;
     /**
-     * Retrieve the properties and relationships of an authenticationMethod object.
+     * Represents all authentication methods registered to a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -49,7 +48,7 @@ export interface AuthenticationMethodItemRequestBuilder extends BaseRequestBuild
      toPatchRequestInformation(body: AuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of an authenticationMethod object.
+ * Represents all authentication methods registered to a user.
  */
 export interface AuthenticationMethodItemRequestBuilderGetQueryParameters {
     /**

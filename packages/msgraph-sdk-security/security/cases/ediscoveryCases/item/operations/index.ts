@@ -27,11 +27,10 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      */
      byCaseOperationId(caseOperationId: string) : CaseOperationItemRequestBuilder;
     /**
-     * Get a list of the caseOperation objects and their properties.
+     * Returns a list of case caseOperation objects for this case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CaseOperationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-operations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OperationsRequestBuilderGetQueryParameters> | undefined) : Promise<CaseOperationCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      */
      post(body: CaseOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CaseOperation | undefined>;
     /**
-     * Get a list of the caseOperation objects and their properties.
+     * Returns a list of case caseOperation objects for this case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      toPostRequestInformation(body: CaseOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the caseOperation objects and their properties.
+ * Returns a list of case caseOperation objects for this case.
  */
 export interface OperationsRequestBuilderGetQueryParameters {
     /**

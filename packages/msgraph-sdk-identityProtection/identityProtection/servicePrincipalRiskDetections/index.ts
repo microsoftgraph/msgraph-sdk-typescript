@@ -27,11 +27,10 @@ export interface ServicePrincipalRiskDetectionsRequestBuilder extends BaseReques
      */
      byServicePrincipalRiskDetectionId(servicePrincipalRiskDetectionId: string) : ServicePrincipalRiskDetectionItemRequestBuilder;
     /**
-     * Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
+     * Represents information about detected at-risk service principals in a Microsoft Entra tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServicePrincipalRiskDetectionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identityprotectionroot-list-serviceprincipalriskdetections?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters> | undefined) : Promise<ServicePrincipalRiskDetectionCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface ServicePrincipalRiskDetectionsRequestBuilder extends BaseReques
      */
      post(body: ServicePrincipalRiskDetection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ServicePrincipalRiskDetection | undefined>;
     /**
-     * Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
+     * Represents information about detected at-risk service principals in a Microsoft Entra tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface ServicePrincipalRiskDetectionsRequestBuilder extends BaseReques
      toPostRequestInformation(body: ServicePrincipalRiskDetection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
+ * Represents information about detected at-risk service principals in a Microsoft Entra tenant.
  */
 export interface ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters {
     /**

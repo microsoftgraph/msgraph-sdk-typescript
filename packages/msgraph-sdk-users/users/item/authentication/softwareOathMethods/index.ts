@@ -27,22 +27,21 @@ export interface SoftwareOathMethodsRequestBuilder extends BaseRequestBuilder<So
      */
      bySoftwareOathAuthenticationMethodId(softwareOathAuthenticationMethodId: string) : SoftwareOathAuthenticationMethodItemRequestBuilder;
     /**
-     * Retrieve a list of a user's software OATH token authentication method objects and their properties.
+     * The software OATH TOTP applications registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SoftwareOathAuthenticationMethodCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/authentication-list-softwareoathmethods?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SoftwareOathMethodsRequestBuilderGetQueryParameters> | undefined) : Promise<SoftwareOathAuthenticationMethodCollectionResponse | undefined>;
     /**
-     * Retrieve a list of a user's software OATH token authentication method objects and their properties.
+     * The software OATH TOTP applications registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SoftwareOathMethodsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of a user's software OATH token authentication method objects and their properties.
+ * The software OATH TOTP applications registered to a user for authentication.
  */
 export interface SoftwareOathMethodsRequestBuilderGetQueryParameters {
     /**

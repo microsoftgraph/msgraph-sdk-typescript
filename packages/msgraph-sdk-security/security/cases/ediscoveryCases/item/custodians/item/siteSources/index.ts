@@ -27,30 +27,28 @@ export interface SiteSourcesRequestBuilder extends BaseRequestBuilder<SiteSource
      */
      bySiteSourceId(siteSourceId: string) : SiteSourceItemRequestBuilder;
     /**
-     * Get a list of the siteSource objects associated with an ediscoveryCustodian.
+     * Data source entity for SharePoint sites associated with the custodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SiteSourceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-list-sitesources?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SiteSourcesRequestBuilderGetQueryParameters> | undefined) : Promise<SiteSourceCollectionResponse | undefined>;
     /**
-     * Create a new siteSource object associated with an eDiscovery custodian.
+     * Create new navigation property to siteSources for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SiteSource>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-post-sitesources?view=graph-rest-1.0|Find more info here}
      */
      post(body: SiteSource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SiteSource | undefined>;
     /**
-     * Get a list of the siteSource objects associated with an ediscoveryCustodian.
+     * Data source entity for SharePoint sites associated with the custodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SiteSourcesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new siteSource object associated with an eDiscovery custodian.
+     * Create new navigation property to siteSources for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface SiteSourcesRequestBuilder extends BaseRequestBuilder<SiteSource
      toPostRequestInformation(body: SiteSource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the siteSource objects associated with an ediscoveryCustodian.
+ * Data source entity for SharePoint sites associated with the custodian.
  */
 export interface SiteSourcesRequestBuilderGetQueryParameters {
     /**
