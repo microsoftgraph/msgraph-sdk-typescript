@@ -31,11 +31,10 @@ export interface WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of workbookPivotTable object.
+     * Collection of PivotTables that are part of the worksheet.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookPivotTable>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/workbookpivottable-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorkbookPivotTableItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookPivotTable | undefined>;
     /**
@@ -53,7 +52,7 @@ export interface WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of workbookPivotTable object.
+     * Collection of PivotTables that are part of the worksheet.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -67,7 +66,7 @@ export interface WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: WorkbookPivotTable, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of workbookPivotTable object.
+ * Collection of PivotTables that are part of the worksheet.
  */
 export interface WorkbookPivotTableItemRequestBuilderGetQueryParameters {
     /**

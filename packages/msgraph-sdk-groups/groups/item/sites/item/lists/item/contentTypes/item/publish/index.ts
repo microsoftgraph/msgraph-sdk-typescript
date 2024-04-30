@@ -11,14 +11,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface PublishRequestBuilder extends BaseRequestBuilder<PublishRequestBuilder> {
     /**
-     * Publishes a [contentType][] present in the content type hub site.
+     * Publishes a contentType present in the content type hub site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/contenttype-publish?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Publishes a [contentType][] present in the content type hub site.
+     * Publishes a contentType present in the content type hub site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

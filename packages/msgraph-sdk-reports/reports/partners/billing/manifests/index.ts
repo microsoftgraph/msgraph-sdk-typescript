@@ -27,7 +27,7 @@ export interface ManifestsRequestBuilder extends BaseRequestBuilder<ManifestsReq
      */
      byManifestId(manifestId: string) : ManifestItemRequestBuilder;
     /**
-     * Read the properties and relationships of a manifest object.
+     * Represents metadata for the exported data.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManifestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface ManifestsRequestBuilder extends BaseRequestBuilder<ManifestsReq
      */
      post(body: Manifest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Manifest | undefined>;
     /**
-     * Read the properties and relationships of a manifest object.
+     * Represents metadata for the exported data.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface ManifestsRequestBuilder extends BaseRequestBuilder<ManifestsReq
      toPostRequestInformation(body: Manifest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a manifest object.
+ * Represents metadata for the exported data.
  */
 export interface ManifestsRequestBuilderGetQueryParameters {
     /**

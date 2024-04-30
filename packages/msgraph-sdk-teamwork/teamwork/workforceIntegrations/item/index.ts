@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface WorkforceIntegrationItemRequestBuilder extends BaseRequestBuilder<WorkforceIntegrationItemRequestBuilder> {
     /**
-     * Delete an instance of a workforceIntegration.
+     * Delete navigation property workforceIntegrations for teamwork
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/workforceintegration-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a workforceIntegration object.
+     * Get workforceIntegrations from teamwork
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkforceIntegration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/workforceintegration-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorkforceIntegrationItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkforceIntegration | undefined>;
     /**
-     * Update the properties of a workforceIntegration object.
+     * Update the navigation property workforceIntegrations in teamwork
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkforceIntegration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/workforceintegration-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WorkforceIntegration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkforceIntegration | undefined>;
     /**
-     * Delete an instance of a workforceIntegration.
+     * Delete navigation property workforceIntegrations for teamwork
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a workforceIntegration object.
+     * Get workforceIntegrations from teamwork
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkforceIntegrationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a workforceIntegration object.
+     * Update the navigation property workforceIntegrations in teamwork
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface WorkforceIntegrationItemRequestBuilder extends BaseRequestBuild
      toPatchRequestInformation(body: WorkforceIntegration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a workforceIntegration object.
+ * Get workforceIntegrations from teamwork
  */
 export interface WorkforceIntegrationItemRequestBuilderGetQueryParameters {
     /**

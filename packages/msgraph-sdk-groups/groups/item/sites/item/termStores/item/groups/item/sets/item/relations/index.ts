@@ -27,11 +27,10 @@ export interface RelationsRequestBuilder extends BaseRequestBuilder<RelationsReq
      */
      byRelationId(relationId: string) : RelationItemRequestBuilder;
     /**
-     * Get the different relation of a [term] or [set] from the relations navigation property.
+     * Indicates which terms have been pinned or reused directly under the set.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RelationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/termstore-term-list-relations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RelationsRequestBuilderGetQueryParameters> | undefined) : Promise<RelationCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface RelationsRequestBuilder extends BaseRequestBuilder<RelationsReq
      */
      post(body: Relation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Relation | undefined>;
     /**
-     * Get the different relation of a [term] or [set] from the relations navigation property.
+     * Indicates which terms have been pinned or reused directly under the set.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface RelationsRequestBuilder extends BaseRequestBuilder<RelationsReq
      toPostRequestInformation(body: Relation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the different relation of a [term] or [set] from the relations navigation property.
+ * Indicates which terms have been pinned or reused directly under the set.
  */
 export interface RelationsRequestBuilderGetQueryParameters {
     /**

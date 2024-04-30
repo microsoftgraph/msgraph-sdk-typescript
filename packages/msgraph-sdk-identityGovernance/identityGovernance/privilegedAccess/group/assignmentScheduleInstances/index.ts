@@ -35,11 +35,10 @@ export interface AssignmentScheduleInstancesRequestBuilder extends BaseRequestBu
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Get a list of the privilegedAccessGroupAssignmentScheduleInstance objects and their properties.
+     * The instances of assignment schedules to activate a just-in-time access.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrivilegedAccessGroupAssignmentScheduleInstanceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroup-list-assignmentscheduleinstances?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentScheduleInstancesRequestBuilderGetQueryParameters> | undefined) : Promise<PrivilegedAccessGroupAssignmentScheduleInstanceCollectionResponse | undefined>;
     /**
@@ -51,7 +50,7 @@ export interface AssignmentScheduleInstancesRequestBuilder extends BaseRequestBu
      */
      post(body: PrivilegedAccessGroupAssignmentScheduleInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrivilegedAccessGroupAssignmentScheduleInstance | undefined>;
     /**
-     * Get a list of the privilegedAccessGroupAssignmentScheduleInstance objects and their properties.
+     * The instances of assignment schedules to activate a just-in-time access.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -65,7 +64,7 @@ export interface AssignmentScheduleInstancesRequestBuilder extends BaseRequestBu
      toPostRequestInformation(body: PrivilegedAccessGroupAssignmentScheduleInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the privilegedAccessGroupAssignmentScheduleInstance objects and their properties.
+ * The instances of assignment schedules to activate a just-in-time access.
  */
 export interface AssignmentScheduleInstancesRequestBuilderGetQueryParameters {
     /**

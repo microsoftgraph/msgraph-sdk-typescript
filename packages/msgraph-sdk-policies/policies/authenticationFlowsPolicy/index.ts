@@ -19,20 +19,18 @@ export interface AuthenticationFlowsPolicyRequestBuilder extends BaseRequestBuil
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an authenticationFlowsPolicy object.
+     * The policy configuration of the self-service sign-up experience of external users.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationFlowsPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/authenticationflowspolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuthenticationFlowsPolicyRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationFlowsPolicy | undefined>;
     /**
-     * Update the selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified.
+     * Update the navigation property authenticationFlowsPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationFlowsPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/authenticationflowspolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AuthenticationFlowsPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationFlowsPolicy | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface AuthenticationFlowsPolicyRequestBuilder extends BaseRequestBuil
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an authenticationFlowsPolicy object.
+     * The policy configuration of the self-service sign-up experience of external users.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuthenticationFlowsPolicyRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified.
+     * Update the navigation property authenticationFlowsPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface AuthenticationFlowsPolicyRequestBuilder extends BaseRequestBuil
      toPatchRequestInformation(body: AuthenticationFlowsPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an authenticationFlowsPolicy object.
+ * The policy configuration of the self-service sign-up experience of external users.
  */
 export interface AuthenticationFlowsPolicyRequestBuilderGetQueryParameters {
     /**

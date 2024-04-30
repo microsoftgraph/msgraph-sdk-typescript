@@ -27,30 +27,28 @@ export interface AppLogCollectionRequestsRequestBuilder extends BaseRequestBuild
      */
      byAppLogCollectionRequestId(appLogCollectionRequestId: string) : AppLogCollectionRequestItemRequestBuilder;
     /**
-     * List properties and relationships of the appLogCollectionRequest objects.
+     * Indicates collection of App Log Upload Request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppLogCollectionRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applogcollectionrequest-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AppLogCollectionRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<AppLogCollectionRequestCollectionResponse | undefined>;
     /**
-     * Create a new appLogCollectionRequest object.
+     * Create new navigation property to appLogCollectionRequests for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppLogCollectionRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applogcollectionrequest-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: AppLogCollectionRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AppLogCollectionRequest | undefined>;
     /**
-     * List properties and relationships of the appLogCollectionRequest objects.
+     * Indicates collection of App Log Upload Request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppLogCollectionRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new appLogCollectionRequest object.
+     * Create new navigation property to appLogCollectionRequests for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface AppLogCollectionRequestsRequestBuilder extends BaseRequestBuild
      toPostRequestInformation(body: AppLogCollectionRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the appLogCollectionRequest objects.
+ * Indicates collection of App Log Upload Request.
  */
 export interface AppLogCollectionRequestsRequestBuilderGetQueryParameters {
     /**

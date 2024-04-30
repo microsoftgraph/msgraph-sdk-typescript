@@ -27,30 +27,28 @@ export interface AgreementsRequestBuilder extends BaseRequestBuilder<AgreementsR
      */
      byAgreementId(agreementId: string) : AgreementItemRequestBuilder;
     /**
-     * Retrieve a list of agreement objects.
+     * Represents a tenant's customizable terms of use agreement that's created and managed with Microsoft Entra ID Governance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AgreementCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/termsofusecontainer-list-agreements?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AgreementsRequestBuilderGetQueryParameters> | undefined) : Promise<AgreementCollectionResponse | undefined>;
     /**
-     * Create a new agreement object.
+     * Create new navigation property to agreements for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Agreement>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/termsofusecontainer-post-agreements?view=graph-rest-1.0|Find more info here}
      */
      post(body: Agreement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Agreement | undefined>;
     /**
-     * Retrieve a list of agreement objects.
+     * Represents a tenant's customizable terms of use agreement that's created and managed with Microsoft Entra ID Governance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AgreementsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new agreement object.
+     * Create new navigation property to agreements for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface AgreementsRequestBuilder extends BaseRequestBuilder<AgreementsR
      toPostRequestInformation(body: Agreement, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of agreement objects.
+ * Represents a tenant's customizable terms of use agreement that's created and managed with Microsoft Entra ID Governance.
  */
 export interface AgreementsRequestBuilderGetQueryParameters {
     /**

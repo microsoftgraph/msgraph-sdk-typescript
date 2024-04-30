@@ -35,30 +35,28 @@ export interface DefinitionsRequestBuilder extends BaseRequestBuilder<Definition
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Get a list of the accessReviewScheduleDefinition objects and their properties.
+     * Represents the template and scheduling for an access review.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewScheduleDefinitionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accessreviewset-list-definitions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<AccessReviewScheduleDefinitionCollectionResponse | undefined>;
     /**
-     * Create a new accessReviewScheduleDefinition object.
+     * Create new navigation property to definitions for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewScheduleDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accessreviewset-post-definitions?view=graph-rest-1.0|Find more info here}
      */
      post(body: AccessReviewScheduleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessReviewScheduleDefinition | undefined>;
     /**
-     * Get a list of the accessReviewScheduleDefinition objects and their properties.
+     * Represents the template and scheduling for an access review.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DefinitionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new accessReviewScheduleDefinition object.
+     * Create new navigation property to definitions for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -66,7 +64,7 @@ export interface DefinitionsRequestBuilder extends BaseRequestBuilder<Definition
      toPostRequestInformation(body: AccessReviewScheduleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the accessReviewScheduleDefinition objects and their properties.
+ * Represents the template and scheduling for an access review.
  */
 export interface DefinitionsRequestBuilderGetQueryParameters {
     /**

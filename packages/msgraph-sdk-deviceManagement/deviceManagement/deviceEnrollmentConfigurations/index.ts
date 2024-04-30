@@ -27,30 +27,28 @@ export interface DeviceEnrollmentConfigurationsRequestBuilder extends BaseReques
      */
      byDeviceEnrollmentConfigurationId(deviceEnrollmentConfigurationId: string) : DeviceEnrollmentConfigurationItemRequestBuilder;
     /**
-     * List properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration objects.
+     * The list of device enrollment configurations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceEnrollmentConfigurationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentplatformrestrictionsconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceEnrollmentConfigurationCollectionResponse | undefined>;
     /**
-     * Create a new deviceEnrollmentPlatformRestrictionsConfiguration object.
+     * Create new navigation property to deviceEnrollmentConfigurations for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceEnrollmentConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentplatformrestrictionsconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceEnrollmentConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceEnrollmentConfiguration | undefined>;
     /**
-     * List properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration objects.
+     * The list of device enrollment configurations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new deviceEnrollmentPlatformRestrictionsConfiguration object.
+     * Create new navigation property to deviceEnrollmentConfigurations for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface DeviceEnrollmentConfigurationsRequestBuilder extends BaseReques
      toPostRequestInformation(body: DeviceEnrollmentConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration objects.
+ * The list of device enrollment configurations
  */
 export interface DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters {
     /**

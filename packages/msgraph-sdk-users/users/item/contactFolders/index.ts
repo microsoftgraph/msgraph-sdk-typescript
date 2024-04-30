@@ -33,30 +33,28 @@ export interface ContactFoldersRequestBuilder extends BaseRequestBuilder<Contact
      */
      byContactFolderId(contactFolderId: string) : ContactFolderItemRequestBuilder;
     /**
-     * Get the contact folder collection in the default Contacts folder of the signed-in user.
+     * The user's contacts folders. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ContactFolderCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-list-contactfolders?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ContactFoldersRequestBuilderGetQueryParameters> | undefined) : Promise<ContactFolderCollectionResponse | undefined>;
     /**
-     * Create a new contactFolder under the user's default contacts folder. You can also create a new contactfolder as a child of any specified contact folder.
+     * Create new navigation property to contactFolders for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ContactFolder>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-post-contactfolders?view=graph-rest-1.0|Find more info here}
      */
      post(body: ContactFolder, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ContactFolder | undefined>;
     /**
-     * Get the contact folder collection in the default Contacts folder of the signed-in user.
+     * The user's contacts folders. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ContactFoldersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new contactFolder under the user's default contacts folder. You can also create a new contactfolder as a child of any specified contact folder.
+     * Create new navigation property to contactFolders for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,7 +62,7 @@ export interface ContactFoldersRequestBuilder extends BaseRequestBuilder<Contact
      toPostRequestInformation(body: ContactFolder, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the contact folder collection in the default Contacts folder of the signed-in user.
+ * The user's contacts folders. Read-only. Nullable.
  */
 export interface ContactFoldersRequestBuilderGetQueryParameters {
     /**

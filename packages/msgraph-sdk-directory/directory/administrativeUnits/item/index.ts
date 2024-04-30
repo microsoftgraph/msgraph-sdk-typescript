@@ -31,43 +31,40 @@ export interface AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder
      */
     get scopedRoleMembers(): ScopedRoleMembersRequestBuilder;
     /**
-     * Delete an administrativeUnit.
+     * Delete navigation property administrativeUnits for directory
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of an administrativeUnit object.
+     * Conceptual container for user and group directory objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AdministrativeUnit>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AdministrativeUnitItemRequestBuilderGetQueryParameters> | undefined) : Promise<AdministrativeUnit | undefined>;
     /**
-     * Update the properties of an administrativeUnit object.
+     * Update the navigation property administrativeUnits in directory
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AdministrativeUnit>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AdministrativeUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AdministrativeUnit | undefined>;
     /**
-     * Delete an administrativeUnit.
+     * Delete navigation property administrativeUnits for directory
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of an administrativeUnit object.
+     * Conceptual container for user and group directory objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AdministrativeUnitItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an administrativeUnit object.
+     * Update the navigation property administrativeUnits in directory
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -75,7 +72,7 @@ export interface AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: AdministrativeUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of an administrativeUnit object.
+ * Conceptual container for user and group directory objects.
  */
 export interface AdministrativeUnitItemRequestBuilderGetQueryParameters {
     /**

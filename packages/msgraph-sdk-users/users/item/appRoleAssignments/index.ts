@@ -31,16 +31,14 @@ export interface AppRoleAssignmentsRequestBuilder extends BaseRequestBuilder<App
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppRoleAssignmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-list-approleassignments?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AppRoleAssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<AppRoleAssignmentCollectionResponse | undefined>;
     /**
-     * Use this API to assign an app role to a user. To grant an app role assignment to a user, you need three identifiers:
+     * Create new navigation property to appRoleAssignments for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppRoleAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-post-approleassignments?view=graph-rest-1.0|Find more info here}
      */
      post(body: AppRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AppRoleAssignment | undefined>;
     /**
@@ -50,7 +48,7 @@ export interface AppRoleAssignmentsRequestBuilder extends BaseRequestBuilder<App
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppRoleAssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Use this API to assign an app role to a user. To grant an app role assignment to a user, you need three identifiers:
+     * Create new navigation property to appRoleAssignments for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

@@ -37,21 +37,22 @@ export interface FilterOperatorsGetResponse extends BaseCollectionPaginationCoun
  */
 export interface FilterOperatorsRequestBuilder extends BaseRequestBuilder<FilterOperatorsRequestBuilder> {
     /**
-     * Invoke function filterOperators
+     * List all operators supported in the scoping filters.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FilterOperatorsGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-filteroperators?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<FilterOperatorsRequestBuilderGetQueryParameters> | undefined) : Promise<FilterOperatorsGetResponse | undefined>;
     /**
-     * Invoke function filterOperators
+     * List all operators supported in the scoping filters.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FilterOperatorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function filterOperators
+ * List all operators supported in the scoping filters.
  */
 export interface FilterOperatorsRequestBuilderGetQueryParameters {
     /**

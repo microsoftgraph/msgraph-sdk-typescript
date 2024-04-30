@@ -27,30 +27,28 @@ export interface HistoryDefinitionsRequestBuilder extends BaseRequestBuilder<His
      */
      byAccessReviewHistoryDefinitionId(accessReviewHistoryDefinitionId: string) : AccessReviewHistoryDefinitionItemRequestBuilder;
     /**
-     * Retrieve the accessReviewHistoryDefinition objects created in the last 30 days, including all nested properties.
+     * Represents a collection of access review history data and the scopes used to collect that data.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewHistoryDefinitionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accessreviewset-list-historydefinitions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HistoryDefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<AccessReviewHistoryDefinitionCollectionResponse | undefined>;
     /**
-     * Create a new accessReviewHistoryDefinition object.
+     * Create new navigation property to historyDefinitions for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewHistoryDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accessreviewset-post-historydefinitions?view=graph-rest-1.0|Find more info here}
      */
      post(body: AccessReviewHistoryDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessReviewHistoryDefinition | undefined>;
     /**
-     * Retrieve the accessReviewHistoryDefinition objects created in the last 30 days, including all nested properties.
+     * Represents a collection of access review history data and the scopes used to collect that data.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<HistoryDefinitionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new accessReviewHistoryDefinition object.
+     * Create new navigation property to historyDefinitions for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface HistoryDefinitionsRequestBuilder extends BaseRequestBuilder<His
      toPostRequestInformation(body: AccessReviewHistoryDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the accessReviewHistoryDefinition objects created in the last 30 days, including all nested properties.
+ * Represents a collection of access review history data and the scopes used to collect that data.
  */
 export interface HistoryDefinitionsRequestBuilderGetQueryParameters {
     /**

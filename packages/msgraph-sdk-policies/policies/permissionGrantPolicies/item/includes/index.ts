@@ -27,30 +27,28 @@ export interface IncludesRequestBuilder extends BaseRequestBuilder<IncludesReque
      */
      byPermissionGrantConditionSetId(permissionGrantConditionSetId: string) : PermissionGrantConditionSetItemRequestBuilder;
     /**
-     * Retrieve the condition sets which are *included* in a permissionGrantPolicy.
+     * Condition sets that are included in this permission grant policy. Automatically expanded on GET.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PermissionGrantConditionSetCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-list-includes?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IncludesRequestBuilderGetQueryParameters> | undefined) : Promise<PermissionGrantConditionSetCollectionResponse | undefined>;
     /**
-     * Add conditions under which a permission grant event is *included* in a permission grant policy. You do this by adding a permissionGrantConditionSet to the includes collection of a  permissionGrantPolicy.
+     * Create new navigation property to includes for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PermissionGrantConditionSet>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-post-includes?view=graph-rest-1.0|Find more info here}
      */
      post(body: PermissionGrantConditionSet, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PermissionGrantConditionSet | undefined>;
     /**
-     * Retrieve the condition sets which are *included* in a permissionGrantPolicy.
+     * Condition sets that are included in this permission grant policy. Automatically expanded on GET.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IncludesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Add conditions under which a permission grant event is *included* in a permission grant policy. You do this by adding a permissionGrantConditionSet to the includes collection of a  permissionGrantPolicy.
+     * Create new navigation property to includes for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface IncludesRequestBuilder extends BaseRequestBuilder<IncludesReque
      toPostRequestInformation(body: PermissionGrantConditionSet, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the condition sets which are *included* in a permissionGrantPolicy.
+ * Condition sets that are included in this permission grant policy. Automatically expanded on GET.
  */
 export interface IncludesRequestBuilderGetQueryParameters {
     /**

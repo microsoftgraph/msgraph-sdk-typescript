@@ -13,14 +13,15 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface UsersRegisteredByFeatureRequestBuilder extends BaseRequestBuilder<UsersRegisteredByFeatureRequestBuilder> {
     /**
-     * Invoke function usersRegisteredByFeature
+     * Get the number of users capable of multi-factor authentication, self-service password reset, and passwordless authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserRegistrationFeatureSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationmethodsroot-usersregisteredbyfeature?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserRegistrationFeatureSummary | undefined>;
     /**
-     * Invoke function usersRegisteredByFeature
+     * Get the number of users capable of multi-factor authentication, self-service password reset, and passwordless authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

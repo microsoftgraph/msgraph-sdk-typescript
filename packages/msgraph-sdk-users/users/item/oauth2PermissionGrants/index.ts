@@ -27,22 +27,21 @@ export interface Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder
      */
      byOAuth2PermissionGrantId(oAuth2PermissionGrantId: string) : OAuth2PermissionGrantItemRequestBuilder;
     /**
-     * Retrieve a list of oAuth2PermissionGrant entities, which represent delegated permissions granted to enable a client application to access an API on behalf of the user.
+     * Get oauth2PermissionGrants from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OAuth2PermissionGrantCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-list-oauth2permissiongrants?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<Oauth2PermissionGrantsRequestBuilderGetQueryParameters> | undefined) : Promise<OAuth2PermissionGrantCollectionResponse | undefined>;
     /**
-     * Retrieve a list of oAuth2PermissionGrant entities, which represent delegated permissions granted to enable a client application to access an API on behalf of the user.
+     * Get oauth2PermissionGrants from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<Oauth2PermissionGrantsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of oAuth2PermissionGrant entities, which represent delegated permissions granted to enable a client application to access an API on behalf of the user.
+ * Get oauth2PermissionGrants from users
  */
 export interface Oauth2PermissionGrantsRequestBuilderGetQueryParameters {
     /**

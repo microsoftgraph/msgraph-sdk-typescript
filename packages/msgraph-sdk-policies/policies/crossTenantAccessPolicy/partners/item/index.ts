@@ -19,43 +19,40 @@ export interface CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBui
      */
     get identitySynchronization(): IdentitySynchronizationRequestBuilder;
     /**
-     * Delete a partner-specific configuration in a cross-tenant access policy. If a configuration includes a user synchronization policy, you must first delete the user synchronization policy before you can delete the partner-specific configuration.
+     * Delete navigation property partners for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a partner-specific configuration.
+     * Defines partner-specific configurations for external Microsoft Entra organizations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CrossTenantAccessPolicyConfigurationPartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetQueryParameters> | undefined) : Promise<CrossTenantAccessPolicyConfigurationPartner | undefined>;
     /**
-     * Update the properties of a partner-specific configuration.
+     * Update the navigation property partners in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CrossTenantAccessPolicyConfigurationPartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: CrossTenantAccessPolicyConfigurationPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CrossTenantAccessPolicyConfigurationPartner | undefined>;
     /**
-     * Delete a partner-specific configuration in a cross-tenant access policy. If a configuration includes a user synchronization policy, you must first delete the user synchronization policy before you can delete the partner-specific configuration.
+     * Delete navigation property partners for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a partner-specific configuration.
+     * Defines partner-specific configurations for external Microsoft Entra organizations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a partner-specific configuration.
+     * Update the navigation property partners in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBui
      toPatchRequestInformation(body: CrossTenantAccessPolicyConfigurationPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a partner-specific configuration.
+ * Defines partner-specific configurations for external Microsoft Entra organizations.
  */
 export interface CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetQueryParameters {
     /**

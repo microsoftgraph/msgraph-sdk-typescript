@@ -91,11 +91,10 @@ export interface ChatItemRequestBuilder extends BaseRequestBuilder<ChatItemReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
+     * Get chats from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Chat>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chat-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ChatItemRequestBuilderGetQueryParameters> | undefined) : Promise<Chat | undefined>;
     /**
@@ -113,7 +112,7 @@ export interface ChatItemRequestBuilder extends BaseRequestBuilder<ChatItemReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
+     * Get chats from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -127,7 +126,7 @@ export interface ChatItemRequestBuilder extends BaseRequestBuilder<ChatItemReque
      toPatchRequestInformation(body: Chat, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
+ * Get chats from users
  */
 export interface ChatItemRequestBuilderGetQueryParameters {
     /**

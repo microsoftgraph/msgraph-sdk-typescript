@@ -27,22 +27,21 @@ export interface SslCertificatesRequestBuilder extends BaseRequestBuilder<SslCer
      */
      byHostSslCertificateId(hostSslCertificateId: string) : HostSslCertificateItemRequestBuilder;
     /**
-     * Get a list of hostSslCertificate objects from the host navigation property.
+     * The hostSslCertificates that are associated with this host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostSslCertificateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-host-list-sslcertificates?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SslCertificatesRequestBuilderGetQueryParameters> | undefined) : Promise<HostSslCertificateCollectionResponse | undefined>;
     /**
-     * Get a list of hostSslCertificate objects from the host navigation property.
+     * The hostSslCertificates that are associated with this host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SslCertificatesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a list of hostSslCertificate objects from the host navigation property.
+ * The hostSslCertificates that are associated with this host.
  */
 export interface SslCertificatesRequestBuilderGetQueryParameters {
     /**

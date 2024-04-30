@@ -19,22 +19,21 @@ export interface WorkflowTemplateItemRequestBuilder extends BaseRequestBuilder<W
      */
     get tasks(): TasksRequestBuilder;
     /**
-     * Read the properties and relationships of a workflowTemplate object.
+     * The workflow templates in the lifecycle workflow instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkflowTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflowtemplate-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorkflowTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkflowTemplate | undefined>;
     /**
-     * Read the properties and relationships of a workflowTemplate object.
+     * The workflow templates in the lifecycle workflow instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkflowTemplateItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a workflowTemplate object.
+ * The workflow templates in the lifecycle workflow instance.
  */
 export interface WorkflowTemplateItemRequestBuilderGetQueryParameters {
     /**

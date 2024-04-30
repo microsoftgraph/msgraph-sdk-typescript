@@ -37,21 +37,22 @@ export interface FilterByCurrentUserWithOnGetResponse extends BaseCollectionPagi
  */
 export interface FilterByCurrentUserWithOnRequestBuilder extends BaseRequestBuilder<FilterByCurrentUserWithOnRequestBuilder> {
     /**
-     * Invoke function filterByCurrentUser
+     * In PIM, retrieve the requests for active role assignments for a particular principal. The principal can be the creator or approver of the unifiedRoleAssignmentScheduleRequest object, or they can be the target of the assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FilterByCurrentUserWithOnGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/unifiedroleassignmentschedulerequest-filterbycurrentuser?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<FilterByCurrentUserWithOnRequestBuilderGetQueryParameters> | undefined) : Promise<FilterByCurrentUserWithOnGetResponse | undefined>;
     /**
-     * Invoke function filterByCurrentUser
+     * In PIM, retrieve the requests for active role assignments for a particular principal. The principal can be the creator or approver of the unifiedRoleAssignmentScheduleRequest object, or they can be the target of the assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FilterByCurrentUserWithOnRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function filterByCurrentUser
+ * In PIM, retrieve the requests for active role assignments for a particular principal. The principal can be the creator or approver of the unifiedRoleAssignmentScheduleRequest object, or they can be the target of the assignment.
  */
 export interface FilterByCurrentUserWithOnRequestBuilderGetQueryParameters {
     /**

@@ -27,22 +27,21 @@ export interface RecoveryKeysRequestBuilder extends BaseRequestBuilder<RecoveryK
      */
      byBitlockerRecoveryKeyId(bitlockerRecoveryKeyId: string) : BitlockerRecoveryKeyItemRequestBuilder;
     /**
-     * Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the key property. For information about how to read the key property, see Get bitlockerRecoveryKey.
+     * The recovery keys associated with the bitlocker entity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BitlockerRecoveryKeyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bitlocker-list-recoverykeys?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RecoveryKeysRequestBuilderGetQueryParameters> | undefined) : Promise<BitlockerRecoveryKeyCollectionResponse | undefined>;
     /**
-     * Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the key property. For information about how to read the key property, see Get bitlockerRecoveryKey.
+     * The recovery keys associated with the bitlocker entity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RecoveryKeysRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the key property. For information about how to read the key property, see Get bitlockerRecoveryKey.
+ * The recovery keys associated with the bitlocker entity.
  */
 export interface RecoveryKeysRequestBuilderGetQueryParameters {
     /**

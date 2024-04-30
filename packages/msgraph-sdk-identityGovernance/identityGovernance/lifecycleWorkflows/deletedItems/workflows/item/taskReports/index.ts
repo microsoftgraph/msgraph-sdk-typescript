@@ -29,11 +29,10 @@ export interface TaskReportsRequestBuilder extends BaseRequestBuilder<TaskReport
      */
      byTaskReportId(taskReportId: string) : TaskReportItemRequestBuilder;
     /**
-     * Get a list of the taskReport objects and their properties.
+     * Represents the aggregation of task execution data for tasks within a workflow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TaskReportCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-list-taskreports?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TaskReportsRequestBuilderGetQueryParameters> | undefined) : Promise<TaskReportCollectionResponse | undefined>;
     /**
@@ -44,14 +43,14 @@ export interface TaskReportsRequestBuilder extends BaseRequestBuilder<TaskReport
      */
      microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime(endDateTime: Date | undefined, startDateTime: Date | undefined) : MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder;
     /**
-     * Get a list of the taskReport objects and their properties.
+     * Represents the aggregation of task execution data for tasks within a workflow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskReportsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the taskReport objects and their properties.
+ * Represents the aggregation of task execution data for tasks within a workflow object.
  */
 export interface TaskReportsRequestBuilderGetQueryParameters {
     /**

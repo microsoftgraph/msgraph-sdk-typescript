@@ -27,30 +27,28 @@ export interface ConnectionsRequestBuilder extends BaseRequestBuilder<Connection
      */
      byExternalConnectionId(externalConnectionId: string) : ExternalConnectionItemRequestBuilder;
     /**
-     * Get a list of the externalConnection objects and their properties.
+     * Get connections from external
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExternalConnectionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConnectionsRequestBuilderGetQueryParameters> | undefined) : Promise<ExternalConnectionCollectionResponse | undefined>;
     /**
-     * Create a new externalConnection object.
+     * Create new navigation property to connections for external
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExternalConnection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-external-post-connections?view=graph-rest-1.0|Find more info here}
      */
      post(body: ExternalConnection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ExternalConnection | undefined>;
     /**
-     * Get a list of the externalConnection objects and their properties.
+     * Get connections from external
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConnectionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new externalConnection object.
+     * Create new navigation property to connections for external
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface ConnectionsRequestBuilder extends BaseRequestBuilder<Connection
      toPostRequestInformation(body: ExternalConnection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the externalConnection objects and their properties.
+ * Get connections from external
  */
 export interface ConnectionsRequestBuilderGetQueryParameters {
     /**

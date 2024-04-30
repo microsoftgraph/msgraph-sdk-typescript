@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AuthenticationContextClassReferenceItemRequestBuilder extends BaseRequestBuilder<AuthenticationContextClassReferenceItemRequestBuilder> {
     /**
-     * Delete an authenticationContextClassReference object that's not published or used by a conditional access policy.
+     * Delete navigation property authenticationContextClassReferences for identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/authenticationcontextclassreference-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a authenticationContextClassReference object.
+     * Read-only. Nullable. Returns a collection of the specified authentication context class references.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationContextClassReference>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/authenticationcontextclassreference-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuthenticationContextClassReferenceItemRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationContextClassReference | undefined>;
     /**
-     * Create an authenticationContextClassReference object, if the ID has not been used. If ID has been used, this call updates the authenticationContextClassReference object.
+     * Update the navigation property authenticationContextClassReferences in identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationContextClassReference>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/authenticationcontextclassreference-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AuthenticationContextClassReference, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationContextClassReference | undefined>;
     /**
-     * Delete an authenticationContextClassReference object that's not published or used by a conditional access policy.
+     * Delete navigation property authenticationContextClassReferences for identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a authenticationContextClassReference object.
+     * Read-only. Nullable. Returns a collection of the specified authentication context class references.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuthenticationContextClassReferenceItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create an authenticationContextClassReference object, if the ID has not been used. If ID has been used, this call updates the authenticationContextClassReference object.
+     * Update the navigation property authenticationContextClassReferences in identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface AuthenticationContextClassReferenceItemRequestBuilder extends B
      toPatchRequestInformation(body: AuthenticationContextClassReference, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a authenticationContextClassReference object.
+ * Read-only. Nullable. Returns a collection of the specified authentication context class references.
  */
 export interface AuthenticationContextClassReferenceItemRequestBuilderGetQueryParameters {
     /**

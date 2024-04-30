@@ -27,21 +27,22 @@ export interface DeltaGetResponse extends BaseDeltaFunctionResponse, Parsable {
  */
 export interface DeltaRequestBuilder extends BaseRequestBuilder<DeltaRequestBuilder> {
     /**
-     * Invoke function delta
+     * Get newly created, updated, or deleted applications without performing a full read of the entire resource collection. For details, see Using delta query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeltaGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/application-delta?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : Promise<DeltaGetResponse | undefined>;
     /**
-     * Invoke function delta
+     * Get newly created, updated, or deleted applications without performing a full read of the entire resource collection. For details, see Using delta query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function delta
+ * Get newly created, updated, or deleted applications without performing a full read of the entire resource collection. For details, see Using delta query.
  */
 export interface DeltaRequestBuilderGetQueryParameters {
     /**

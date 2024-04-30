@@ -27,30 +27,28 @@ export interface InstalledAppsRequestBuilder extends BaseRequestBuilder<Installe
      */
      byTeamsAppInstallationId(teamsAppInstallationId: string) : TeamsAppInstallationItemRequestBuilder;
     /**
-     * Retrieve a list of apps installed in the specified team.
+     * The apps installed in this team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsAppInstallationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/team-list-installedapps?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<InstalledAppsRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsAppInstallationCollectionResponse | undefined>;
     /**
-     * Install an app to the specified team.
+     * Create new navigation property to installedApps for teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsAppInstallation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/team-post-installedapps?view=graph-rest-1.0|Find more info here}
      */
      post(body: TeamsAppInstallation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamsAppInstallation | undefined>;
     /**
-     * Retrieve a list of apps installed in the specified team.
+     * The apps installed in this team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<InstalledAppsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Install an app to the specified team.
+     * Create new navigation property to installedApps for teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface InstalledAppsRequestBuilder extends BaseRequestBuilder<Installe
      toPostRequestInformation(body: TeamsAppInstallation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of apps installed in the specified team.
+ * The apps installed in this team.
  */
 export interface InstalledAppsRequestBuilderGetQueryParameters {
     /**

@@ -13,18 +13,16 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface CitationTemplateItemRequestBuilder extends BaseRequestBuilder<CitationTemplateItemRequestBuilder> {
     /**
-     * Delete a citationTemplate object.
+     * Delete navigation property citations for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-delete-citations?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a citationTemplate object.
+     * The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CitationTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-citationtemplate-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CitationTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<CitationTemplate | undefined>;
     /**
@@ -36,13 +34,13 @@ export interface CitationTemplateItemRequestBuilder extends BaseRequestBuilder<C
      */
      patch(body: CitationTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CitationTemplate | undefined>;
     /**
-     * Delete a citationTemplate object.
+     * Delete navigation property citations for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a citationTemplate object.
+     * The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +54,7 @@ export interface CitationTemplateItemRequestBuilder extends BaseRequestBuilder<C
      toPatchRequestInformation(body: CitationTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a citationTemplate object.
+ * The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
  */
 export interface CitationTemplateItemRequestBuilderGetQueryParameters {
     /**

@@ -19,11 +19,10 @@ export interface LearningCourseActivityItemRequestBuilder extends BaseRequestBui
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
+     * Get learningCourseActivities from employeeExperience
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LearningCourseActivity>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/learningcourseactivity-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LearningCourseActivityItemRequestBuilderGetQueryParameters> | undefined) : Promise<LearningCourseActivity | undefined>;
     /**
@@ -41,7 +40,7 @@ export interface LearningCourseActivityItemRequestBuilder extends BaseRequestBui
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
+     * Get learningCourseActivities from employeeExperience
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -55,7 +54,7 @@ export interface LearningCourseActivityItemRequestBuilder extends BaseRequestBui
      toPatchRequestInformation(body: LearningCourseActivity, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
+ * Get learningCourseActivities from employeeExperience
  */
 export interface LearningCourseActivityItemRequestBuilderGetQueryParameters {
     /**

@@ -33,30 +33,28 @@ export interface ListsRequestBuilder extends BaseRequestBuilder<ListsRequestBuil
      */
      byTodoTaskListId(todoTaskListId: string) : TodoTaskListItemRequestBuilder;
     /**
-     * Get a list of the todoTaskList objects and their properties.
+     * The task lists in the users mailbox.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TodoTaskListCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/todo-list-lists?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ListsRequestBuilderGetQueryParameters> | undefined) : Promise<TodoTaskListCollectionResponse | undefined>;
     /**
-     * Create a new lists object.
+     * Create new navigation property to lists for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TodoTaskList>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/todo-post-lists?view=graph-rest-1.0|Find more info here}
      */
      post(body: TodoTaskList, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TodoTaskList | undefined>;
     /**
-     * Get a list of the todoTaskList objects and their properties.
+     * The task lists in the users mailbox.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ListsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new lists object.
+     * Create new navigation property to lists for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,7 +62,7 @@ export interface ListsRequestBuilder extends BaseRequestBuilder<ListsRequestBuil
      toPostRequestInformation(body: TodoTaskList, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the todoTaskList objects and their properties.
+ * The task lists in the users mailbox.
  */
 export interface ListsRequestBuilderGetQueryParameters {
     /**

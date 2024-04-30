@@ -27,11 +27,10 @@ export interface SecureScoresRequestBuilder extends BaseRequestBuilder<SecureSco
      */
      bySecureScoreId(secureScoreId: string) : SecureScoreItemRequestBuilder;
     /**
-     * Retrieve a list of secureScore objects.
+     * Get secureScores from security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SecureScoreCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-list-securescores?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SecureScoresRequestBuilderGetQueryParameters> | undefined) : Promise<SecureScoreCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface SecureScoresRequestBuilder extends BaseRequestBuilder<SecureSco
      */
      post(body: SecureScore, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SecureScore | undefined>;
     /**
-     * Retrieve a list of secureScore objects.
+     * Get secureScores from security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface SecureScoresRequestBuilder extends BaseRequestBuilder<SecureSco
      toPostRequestInformation(body: SecureScore, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of secureScore objects.
+ * Get secureScores from security
  */
 export interface SecureScoresRequestBuilderGetQueryParameters {
     /**

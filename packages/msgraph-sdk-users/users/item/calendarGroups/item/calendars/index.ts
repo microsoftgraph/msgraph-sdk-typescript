@@ -27,30 +27,28 @@ export interface CalendarsRequestBuilder extends BaseRequestBuilder<CalendarsReq
      */
      byCalendarId(calendarId: string) : CalendarItemRequestBuilder;
     /**
-     * Retrieve a list of calendars belonging to a calendar group.
+     * The calendars in the calendar group. Navigation property. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CalendarCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/calendargroup-list-calendars?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CalendarsRequestBuilderGetQueryParameters> | undefined) : Promise<CalendarCollectionResponse | undefined>;
     /**
-     * Use this API to create a new calendar in a calendar group for a user.
+     * Create new navigation property to calendars for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Calendar>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/calendargroup-post-calendars?view=graph-rest-1.0|Find more info here}
      */
      post(body: Calendar, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Calendar | undefined>;
     /**
-     * Retrieve a list of calendars belonging to a calendar group.
+     * The calendars in the calendar group. Navigation property. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CalendarsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Use this API to create a new calendar in a calendar group for a user.
+     * Create new navigation property to calendars for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface CalendarsRequestBuilder extends BaseRequestBuilder<CalendarsReq
      toPostRequestInformation(body: Calendar, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of calendars belonging to a calendar group.
+ * The calendars in the calendar group. Navigation property. Read-only. Nullable.
  */
 export interface CalendarsRequestBuilderGetQueryParameters {
     /**

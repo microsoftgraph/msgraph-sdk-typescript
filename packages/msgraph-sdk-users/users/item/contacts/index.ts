@@ -33,30 +33,28 @@ export interface ContactsRequestBuilder extends BaseRequestBuilder<ContactsReque
      */
      byContactId(contactId: string) : ContactItemRequestBuilder;
     /**
-     * Get a contact collection from the default contacts folder of the signed-in user. There are two scenarios where an app can get contacts in another user's contact folder:
+     * The user's contacts. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ContactCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-list-contacts?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ContactsRequestBuilderGetQueryParameters> | undefined) : Promise<ContactCollectionResponse | undefined>;
     /**
-     * Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder.
+     * Create new navigation property to contacts for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Contact>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-post-contacts?view=graph-rest-1.0|Find more info here}
      */
      post(body: Contact, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Contact | undefined>;
     /**
-     * Get a contact collection from the default contacts folder of the signed-in user. There are two scenarios where an app can get contacts in another user's contact folder:
+     * The user's contacts. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ContactsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder.
+     * Create new navigation property to contacts for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,7 +62,7 @@ export interface ContactsRequestBuilder extends BaseRequestBuilder<ContactsReque
      toPostRequestInformation(body: Contact, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a contact collection from the default contacts folder of the signed-in user. There are two scenarios where an app can get contacts in another user's contact folder:
+ * The user's contacts. Read-only. Nullable.
  */
 export interface ContactsRequestBuilderGetQueryParameters {
     /**

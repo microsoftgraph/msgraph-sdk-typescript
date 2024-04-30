@@ -31,11 +31,10 @@ export interface UnifiedRoleManagementPolicyItemRequestBuilder extends BaseReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the details of a role management policy.
+     * Specifies the various policies associated with scopes and roles.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleManagementPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/unifiedrolemanagementpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UnifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleManagementPolicy | undefined>;
     /**
@@ -53,7 +52,7 @@ export interface UnifiedRoleManagementPolicyItemRequestBuilder extends BaseReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the details of a role management policy.
+     * Specifies the various policies associated with scopes and roles.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -67,7 +66,7 @@ export interface UnifiedRoleManagementPolicyItemRequestBuilder extends BaseReque
      toPatchRequestInformation(body: UnifiedRoleManagementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the details of a role management policy.
+ * Specifies the various policies associated with scopes and roles.
  */
 export interface UnifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters {
     /**

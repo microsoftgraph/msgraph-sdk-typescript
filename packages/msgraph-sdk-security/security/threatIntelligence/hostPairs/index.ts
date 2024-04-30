@@ -27,7 +27,7 @@ export interface HostPairsRequestBuilder extends BaseRequestBuilder<HostPairsReq
      */
      byHostPairId(hostPairId: string) : HostPairItemRequestBuilder;
     /**
-     * Read the properties and relationships of a hostPair object.
+     * Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostPairCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface HostPairsRequestBuilder extends BaseRequestBuilder<HostPairsReq
      */
      post(body: HostPair, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<HostPair | undefined>;
     /**
-     * Read the properties and relationships of a hostPair object.
+     * Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface HostPairsRequestBuilder extends BaseRequestBuilder<HostPairsReq
      toPostRequestInformation(body: HostPair, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a hostPair object.
+ * Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
  */
 export interface HostPairsRequestBuilderGetQueryParameters {
     /**

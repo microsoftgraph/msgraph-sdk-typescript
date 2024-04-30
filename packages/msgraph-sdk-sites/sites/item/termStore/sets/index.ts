@@ -27,29 +27,28 @@ export interface SetsRequestBuilder extends BaseRequestBuilder<SetsRequestBuilde
      */
      bySetId(setId: string) : SetItemRequestBuilder;
     /**
-     * Read the properties and relationships of a set object.
+     * Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SetCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<SetsRequestBuilderGetQueryParameters> | undefined) : Promise<SetCollectionResponse | undefined>;
     /**
-     * Create a new set object.
+     * Create new navigation property to sets for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Set>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/termstore-set-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: Set, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Set | undefined>;
     /**
-     * Read the properties and relationships of a set object.
+     * Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SetsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new set object.
+     * Create new navigation property to sets for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +56,7 @@ export interface SetsRequestBuilder extends BaseRequestBuilder<SetsRequestBuilde
      toPostRequestInformation(body: Set, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a set object.
+ * Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
  */
 export interface SetsRequestBuilderGetQueryParameters {
     /**

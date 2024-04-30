@@ -37,11 +37,10 @@ export interface SortRequestBuilder extends BaseRequestBuilder<SortRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of tablesort object.
+     * Represents the sorting for the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTableSort>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/tablesort-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SortRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookTableSort | undefined>;
     /**
@@ -59,7 +58,7 @@ export interface SortRequestBuilder extends BaseRequestBuilder<SortRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of tablesort object.
+     * Represents the sorting for the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -73,7 +72,7 @@ export interface SortRequestBuilder extends BaseRequestBuilder<SortRequestBuilde
      toPatchRequestInformation(body: WorkbookTableSort, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of tablesort object.
+ * Represents the sorting for the table. Read-only.
  */
 export interface SortRequestBuilderGetQueryParameters {
     /**

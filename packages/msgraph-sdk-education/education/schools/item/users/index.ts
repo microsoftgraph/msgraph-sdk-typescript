@@ -33,22 +33,21 @@ export interface UsersRequestBuilder extends BaseRequestBuilder<UsersRequestBuil
      */
      byEducationUserId(educationUserId: string) : EducationUserItemRequestBuilder;
     /**
-     * Get the educationUser resources associated with an educationSchool.
+     * Users in the school. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationUserCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationschool-list-users?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UsersRequestBuilderGetQueryParameters> | undefined) : Promise<EducationUserCollectionResponse | undefined>;
     /**
-     * Get the educationUser resources associated with an educationSchool.
+     * Users in the school. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UsersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the educationUser resources associated with an educationSchool.
+ * Users in the school. Nullable.
  */
 export interface UsersRequestBuilderGetQueryParameters {
     /**

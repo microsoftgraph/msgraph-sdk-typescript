@@ -27,7 +27,7 @@ export interface HostComponentsRequestBuilder extends BaseRequestBuilder<HostCom
      */
      byHostComponentId(hostComponentId: string) : HostComponentItemRequestBuilder;
     /**
-     * Read the properties and relationships of a hostComponent object.
+     * Retrieve details about hostComponent objects.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostComponentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface HostComponentsRequestBuilder extends BaseRequestBuilder<HostCom
      */
      post(body: HostComponent, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<HostComponent | undefined>;
     /**
-     * Read the properties and relationships of a hostComponent object.
+     * Retrieve details about hostComponent objects.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface HostComponentsRequestBuilder extends BaseRequestBuilder<HostCom
      toPostRequestInformation(body: HostComponent, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a hostComponent object.
+ * Retrieve details about hostComponent objects.Note: List retrieval is not yet supported.
  */
 export interface HostComponentsRequestBuilderGetQueryParameters {
     /**

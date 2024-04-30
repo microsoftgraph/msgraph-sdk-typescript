@@ -19,18 +19,16 @@ export interface PlannerBucketItemRequestBuilder extends BaseRequestBuilder<Plan
      */
     get tasks(): TasksRequestBuilder;
     /**
-     * Delete plannerBucket.
+     * Delete navigation property buckets for planner
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/plannerbucket-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a plannerBucket object.
+     * Read-only. Nullable. Returns a collection of the specified buckets
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerBucket>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/plannerbucket-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PlannerBucketItemRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerBucket | undefined>;
     /**
@@ -39,17 +37,16 @@ export interface PlannerBucketItemRequestBuilder extends BaseRequestBuilder<Plan
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerBucket>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/plannerbucket-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PlannerBucket, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerBucket | undefined>;
     /**
-     * Delete plannerBucket.
+     * Delete navigation property buckets for planner
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a plannerBucket object.
+     * Read-only. Nullable. Returns a collection of the specified buckets
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -63,7 +60,7 @@ export interface PlannerBucketItemRequestBuilder extends BaseRequestBuilder<Plan
      toPatchRequestInformation(body: PlannerBucket, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a plannerBucket object.
+ * Read-only. Nullable. Returns a collection of the specified buckets
  */
 export interface PlannerBucketItemRequestBuilderGetQueryParameters {
     /**

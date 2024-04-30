@@ -19,43 +19,40 @@ export interface TeamsTabItemRequestBuilder extends BaseRequestBuilder<TeamsTabI
      */
     get teamsApp(): TeamsAppRequestBuilder;
     /**
-     * Remove (unpin) a tab from the specified chat. 
+     * Delete navigation property tabs for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chat-delete-tabs?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of the specified tab in a chat. 
+     * A collection of all the tabs in the chat. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsTab>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chat-get-tabs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TeamsTabItemRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsTab | undefined>;
     /**
-     * Update the properties of the specified tab in a chat. This can be used to configure the content of the tab.
+     * Update the navigation property tabs in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsTab>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chat-patch-tabs?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TeamsTab, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamsTab | undefined>;
     /**
-     * Remove (unpin) a tab from the specified chat. 
+     * Delete navigation property tabs for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of the specified tab in a chat. 
+     * A collection of all the tabs in the chat. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeamsTabItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of the specified tab in a chat. This can be used to configure the content of the tab.
+     * Update the navigation property tabs in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface TeamsTabItemRequestBuilder extends BaseRequestBuilder<TeamsTabI
      toPatchRequestInformation(body: TeamsTab, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of the specified tab in a chat. 
+ * A collection of all the tabs in the chat. Nullable.
  */
 export interface TeamsTabItemRequestBuilderGetQueryParameters {
     /**

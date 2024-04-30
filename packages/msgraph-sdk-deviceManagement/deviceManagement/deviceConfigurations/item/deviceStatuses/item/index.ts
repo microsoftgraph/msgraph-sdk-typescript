@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DeviceConfigurationDeviceStatusItemRequestBuilder extends BaseRequestBuilder<DeviceConfigurationDeviceStatusItemRequestBuilder> {
     /**
-     * Deletes a deviceConfigurationDeviceStatus.
+     * Delete navigation property deviceStatuses for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdevicestatus-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the deviceConfigurationDeviceStatus object.
+     * Device configuration installation status by device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfigurationDeviceStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdevicestatus-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceConfigurationDeviceStatusItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfigurationDeviceStatus | undefined>;
     /**
-     * Update the properties of a deviceConfigurationDeviceStatus object.
+     * Update the navigation property deviceStatuses in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfigurationDeviceStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdevicestatus-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceConfigurationDeviceStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfigurationDeviceStatus | undefined>;
     /**
-     * Deletes a deviceConfigurationDeviceStatus.
+     * Delete navigation property deviceStatuses for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the deviceConfigurationDeviceStatus object.
+     * Device configuration installation status by device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceConfigurationDeviceStatusItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a deviceConfigurationDeviceStatus object.
+     * Update the navigation property deviceStatuses in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface DeviceConfigurationDeviceStatusItemRequestBuilder extends BaseR
      toPatchRequestInformation(body: DeviceConfigurationDeviceStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the deviceConfigurationDeviceStatus object.
+ * Device configuration installation status by device.
  */
 export interface DeviceConfigurationDeviceStatusItemRequestBuilderGetQueryParameters {
     /**

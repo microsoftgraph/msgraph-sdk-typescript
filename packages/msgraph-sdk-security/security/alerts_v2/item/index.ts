@@ -25,20 +25,18 @@ export interface AlertItemRequestBuilder extends BaseRequestBuilder<AlertItemReq
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the properties and relationships of an alert object.
+     * A collection of alerts in Microsoft 365 Defender.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Alert>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-alert-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AlertItemRequestBuilderGetQueryParameters> | undefined) : Promise<Alert | undefined>;
     /**
-     * Update the properties of an alert object in an organization based on the specified alert id property.
+     * Update the navigation property alerts_v2 in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Alert>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-alert-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Alert, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Alert | undefined>;
     /**
@@ -48,13 +46,13 @@ export interface AlertItemRequestBuilder extends BaseRequestBuilder<AlertItemReq
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the properties and relationships of an alert object.
+     * A collection of alerts in Microsoft 365 Defender.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AlertItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an alert object in an organization based on the specified alert id property.
+     * Update the navigation property alerts_v2 in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +60,7 @@ export interface AlertItemRequestBuilder extends BaseRequestBuilder<AlertItemReq
      toPatchRequestInformation(body: Alert, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the properties and relationships of an alert object.
+ * A collection of alerts in Microsoft 365 Defender.
  */
 export interface AlertItemRequestBuilderGetQueryParameters {
     /**

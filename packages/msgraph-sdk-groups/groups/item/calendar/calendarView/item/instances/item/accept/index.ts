@@ -59,8 +59,8 @@ export function createAcceptPostRequestBodyFromDiscriminatorValue(parseNode: Par
 export function deserializeIntoAcceptPostRequestBody(acceptPostRequestBody: Partial<AcceptPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { acceptPostRequestBody.backingStoreEnabled = true; },
-        "comment": n => { acceptPostRequestBody.comment = n.getStringValue(); },
-        "sendResponse": n => { acceptPostRequestBody.sendResponse = n.getBooleanValue(); },
+        "Comment": n => { acceptPostRequestBody.comment = n.getStringValue(); },
+        "SendResponse": n => { acceptPostRequestBody.sendResponse = n.getBooleanValue(); },
     }
 }
 /**

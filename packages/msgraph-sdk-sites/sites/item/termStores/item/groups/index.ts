@@ -27,30 +27,28 @@ export interface GroupsRequestBuilder extends BaseRequestBuilder<GroupsRequestBu
      */
      byGroupId(groupId: string) : GroupItemRequestBuilder;
     /**
-     * Get a list of group objects in a term store.
+     * Collection of all groups available in the term store.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GroupCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/termstore-list-groups?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GroupsRequestBuilderGetQueryParameters> | undefined) : Promise<GroupCollectionResponse | undefined>;
     /**
-     * Create a new group object in a term store.
+     * Create new navigation property to groups for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Group>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/termstore-group-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: Group, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Group | undefined>;
     /**
-     * Get a list of group objects in a term store.
+     * Collection of all groups available in the term store.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GroupsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new group object in a term store.
+     * Create new navigation property to groups for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface GroupsRequestBuilder extends BaseRequestBuilder<GroupsRequestBu
      toPostRequestInformation(body: Group, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of group objects in a term store.
+ * Collection of all groups available in the term store.
  */
 export interface GroupsRequestBuilderGetQueryParameters {
     /**

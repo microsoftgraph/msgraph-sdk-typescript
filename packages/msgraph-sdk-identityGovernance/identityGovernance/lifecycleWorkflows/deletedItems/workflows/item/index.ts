@@ -79,35 +79,33 @@ export interface WorkflowItemRequestBuilder extends BaseRequestBuilder<WorkflowI
      */
     get versions(): VersionsRequestBuilder;
     /**
-     * Delete a workflow object.
+     * Delete navigation property workflows for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-deletedItemcontainer-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve a deleted workflow object.
+     * Deleted workflows that end up in the deletedItemsContainer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Workflow>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-deleteditemcontainer-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorkflowItemRequestBuilderGetQueryParameters> | undefined) : Promise<Workflow | undefined>;
     /**
-     * Delete a workflow object.
+     * Delete navigation property workflows for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve a deleted workflow object.
+     * Deleted workflows that end up in the deletedItemsContainer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkflowItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a deleted workflow object.
+ * Deleted workflows that end up in the deletedItemsContainer.
  */
 export interface WorkflowItemRequestBuilderGetQueryParameters {
     /**

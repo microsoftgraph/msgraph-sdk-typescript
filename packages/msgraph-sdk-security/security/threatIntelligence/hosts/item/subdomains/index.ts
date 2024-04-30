@@ -27,22 +27,21 @@ export interface SubdomainsRequestBuilder extends BaseRequestBuilder<SubdomainsR
      */
      bySubdomainId(subdomainId: string) : SubdomainItemRequestBuilder;
     /**
-     * Get the list of subdomain resources associated with a host.
+     * The subdomains that are associated with this host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SubdomainCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-host-list-subdomains?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SubdomainsRequestBuilderGetQueryParameters> | undefined) : Promise<SubdomainCollectionResponse | undefined>;
     /**
-     * Get the list of subdomain resources associated with a host.
+     * The subdomains that are associated with this host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SubdomainsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the list of subdomain resources associated with a host.
+ * The subdomains that are associated with this host.
  */
 export interface SubdomainsRequestBuilderGetQueryParameters {
     /**

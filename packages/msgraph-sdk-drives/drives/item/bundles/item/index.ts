@@ -19,21 +19,21 @@ export interface DriveItemItemRequestBuilder extends BaseRequestBuilder<DriveIte
      */
     get content(): ContentRequestBuilder;
     /**
-     * Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
+     * Collection of bundles (albums and multi-select-shared sets of items). Only in personal OneDrive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<DriveItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<DriveItem | undefined>;
     /**
-     * Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
+     * Collection of bundles (albums and multi-select-shared sets of items). Only in personal OneDrive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DriveItemItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
+ * Collection of bundles (albums and multi-select-shared sets of items). Only in personal OneDrive.
  */
 export interface DriveItemItemRequestBuilderGetQueryParameters {
     /**

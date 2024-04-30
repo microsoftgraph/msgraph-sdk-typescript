@@ -37,21 +37,22 @@ export interface GetAllMessagesGetResponse extends BaseCollectionPaginationCount
  */
 export interface GetAllMessagesRequestBuilder extends BaseRequestBuilder<GetAllMessagesRequestBuilder> {
     /**
-     * Invoke function getAllMessages
+     * Retrieve messages across all channels in a team, including text, audio, and video conversations. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetAllMessagesGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/channel-getallmessages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetAllMessagesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllMessagesGetResponse | undefined>;
     /**
-     * Invoke function getAllMessages
+     * Retrieve messages across all channels in a team, including text, audio, and video conversations. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetAllMessagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getAllMessages
+ * Retrieve messages across all channels in a team, including text, audio, and video conversations. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
  */
 export interface GetAllMessagesRequestBuilderGetQueryParameters {
     /**

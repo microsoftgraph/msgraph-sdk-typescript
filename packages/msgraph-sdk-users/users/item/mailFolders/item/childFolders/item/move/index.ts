@@ -23,7 +23,7 @@ export function createMovePostRequestBodyFromDiscriminatorValue(parseNode: Parse
 export function deserializeIntoMovePostRequestBody(movePostRequestBody: Partial<MovePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { movePostRequestBody.backingStoreEnabled = true; },
-        "destinationId": n => { movePostRequestBody.destinationId = n.getStringValue(); },
+        "DestinationId": n => { movePostRequestBody.destinationId = n.getStringValue(); },
     }
 }
 export interface MovePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {

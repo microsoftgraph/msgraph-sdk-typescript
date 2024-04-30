@@ -27,22 +27,21 @@ export interface IndicatorsRequestBuilder extends BaseRequestBuilder<IndicatorsR
      */
      byArticleIndicatorId(articleIndicatorId: string) : ArticleIndicatorItemRequestBuilder;
     /**
-     * Get a list of articleIndicator objects that represent indicators of threat or compromise related to the contents of an article.
+     * Indicators related to this article.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArticleIndicatorCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-article-list-indicators?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IndicatorsRequestBuilderGetQueryParameters> | undefined) : Promise<ArticleIndicatorCollectionResponse | undefined>;
     /**
-     * Get a list of articleIndicator objects that represent indicators of threat or compromise related to the contents of an article.
+     * Indicators related to this article.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IndicatorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a list of articleIndicator objects that represent indicators of threat or compromise related to the contents of an article.
+ * Indicators related to this article.
  */
 export interface IndicatorsRequestBuilderGetQueryParameters {
     /**

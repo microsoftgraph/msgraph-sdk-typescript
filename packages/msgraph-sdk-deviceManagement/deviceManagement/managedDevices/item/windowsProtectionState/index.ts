@@ -25,20 +25,18 @@ export interface WindowsProtectionStateRequestBuilder extends BaseRequestBuilder
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the windowsProtectionState object.
+     * The device protection status. This property is read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsProtectionState>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-windowsprotectionstate-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WindowsProtectionStateRequestBuilderGetQueryParameters> | undefined) : Promise<WindowsProtectionState | undefined>;
     /**
-     * Update the properties of a windowsProtectionState object.
+     * Update the navigation property windowsProtectionState in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsProtectionState>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-windowsprotectionstate-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WindowsProtectionState, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WindowsProtectionState | undefined>;
     /**
@@ -48,13 +46,13 @@ export interface WindowsProtectionStateRequestBuilder extends BaseRequestBuilder
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the windowsProtectionState object.
+     * The device protection status. This property is read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WindowsProtectionStateRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a windowsProtectionState object.
+     * Update the navigation property windowsProtectionState in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +60,7 @@ export interface WindowsProtectionStateRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: WindowsProtectionState, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the windowsProtectionState object.
+ * The device protection status. This property is read-only.
  */
 export interface WindowsProtectionStateRequestBuilderGetQueryParameters {
     /**

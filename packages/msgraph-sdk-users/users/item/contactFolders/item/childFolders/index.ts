@@ -33,30 +33,28 @@ export interface ChildFoldersRequestBuilder extends BaseRequestBuilder<ChildFold
      */
      byContactFolderId1(contactFolderId1: string) : ContactFolderItemRequestBuilder;
     /**
-     * Get a collection of child folders under the specified contact folder.
+     * The collection of child folders in the folder. Navigation property. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ContactFolderCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/contactfolder-list-childfolders?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ChildFoldersRequestBuilderGetQueryParameters> | undefined) : Promise<ContactFolderCollectionResponse | undefined>;
     /**
-     * Create a new contactFolder as a child of a specified folder.  You can also create a new contactFolder under the user's default contact folder.
+     * Create new navigation property to childFolders for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ContactFolder>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/contactfolder-post-childfolders?view=graph-rest-1.0|Find more info here}
      */
      post(body: ContactFolder, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ContactFolder | undefined>;
     /**
-     * Get a collection of child folders under the specified contact folder.
+     * The collection of child folders in the folder. Navigation property. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ChildFoldersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new contactFolder as a child of a specified folder.  You can also create a new contactFolder under the user's default contact folder.
+     * Create new navigation property to childFolders for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,7 +62,7 @@ export interface ChildFoldersRequestBuilder extends BaseRequestBuilder<ChildFold
      toPostRequestInformation(body: ContactFolder, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a collection of child folders under the specified contact folder.
+ * The collection of child folders in the folder. Navigation property. Read-only. Nullable.
  */
 export interface ChildFoldersRequestBuilderGetQueryParameters {
     /**

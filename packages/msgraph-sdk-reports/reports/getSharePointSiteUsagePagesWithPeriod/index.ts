@@ -11,14 +11,15 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface GetSharePointSiteUsagePagesWithPeriodRequestBuilder extends BaseRequestBuilder<GetSharePointSiteUsagePagesWithPeriodRequestBuilder> {
     /**
-     * Invoke function getSharePointSiteUsagePages
+     * Get the number of pages viewed across all sites.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/reportroot-getsharepointsiteusagepages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Invoke function getSharePointSiteUsagePages
+     * Get the number of pages viewed across all sites.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

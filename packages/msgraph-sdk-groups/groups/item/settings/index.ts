@@ -27,30 +27,28 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      */
      byGroupSettingId(groupSettingId: string) : GroupSettingItemRequestBuilder;
     /**
-     * Retrieve a list of tenant-level or group-specific group settings objects.
+     * Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GroupSettingCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/group-list-settings?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SettingsRequestBuilderGetQueryParameters> | undefined) : Promise<GroupSettingCollectionResponse | undefined>;
     /**
-     * Create a new setting based on the templates available in groupSettingTemplates. These settings can be at the tenant-level or at the group level. Group settings apply to only Microsoft 365 groups. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings.
+     * Create new navigation property to settings for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GroupSetting>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/group-post-settings?view=graph-rest-1.0|Find more info here}
      */
      post(body: GroupSetting, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GroupSetting | undefined>;
     /**
-     * Retrieve a list of tenant-level or group-specific group settings objects.
+     * Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SettingsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new setting based on the templates available in groupSettingTemplates. These settings can be at the tenant-level or at the group level. Group settings apply to only Microsoft 365 groups. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings.
+     * Create new navigation property to settings for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      toPostRequestInformation(body: GroupSetting, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of tenant-level or group-specific group settings objects.
+ * Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
  */
 export interface SettingsRequestBuilderGetQueryParameters {
     /**

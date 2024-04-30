@@ -39,11 +39,10 @@ export interface NamesRequestBuilder extends BaseRequestBuilder<NamesRequestBuil
      */
      byWorkbookNamedItemId(workbookNamedItemId: string) : WorkbookNamedItemItemRequestBuilder;
     /**
-     * Retrieve a list of nameditem objects.
+     * Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookNamedItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/nameditem-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<NamesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookNamedItemCollectionResponse | undefined>;
     /**
@@ -55,7 +54,7 @@ export interface NamesRequestBuilder extends BaseRequestBuilder<NamesRequestBuil
      */
      post(body: WorkbookNamedItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookNamedItem | undefined>;
     /**
-     * Retrieve a list of nameditem objects.
+     * Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -69,7 +68,7 @@ export interface NamesRequestBuilder extends BaseRequestBuilder<NamesRequestBuil
      toPostRequestInformation(body: WorkbookNamedItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of nameditem objects.
+ * Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
  */
 export interface NamesRequestBuilderGetQueryParameters {
     /**

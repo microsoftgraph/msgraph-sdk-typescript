@@ -27,22 +27,21 @@ export interface MicrosoftAuthenticatorMethodsRequestBuilder extends BaseRequest
      */
      byMicrosoftAuthenticatorAuthenticationMethodId(microsoftAuthenticatorAuthenticationMethodId: string) : MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder;
     /**
-     * Get a list of the microsoftAuthenticatorAuthenticationMethod objects and their properties.
+     * The details of the Microsoft Authenticator app registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MicrosoftAuthenticatorAuthenticationMethodCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MicrosoftAuthenticatorMethodsRequestBuilderGetQueryParameters> | undefined) : Promise<MicrosoftAuthenticatorAuthenticationMethodCollectionResponse | undefined>;
     /**
-     * Get a list of the microsoftAuthenticatorAuthenticationMethod objects and their properties.
+     * The details of the Microsoft Authenticator app registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MicrosoftAuthenticatorMethodsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the microsoftAuthenticatorAuthenticationMethod objects and their properties.
+ * The details of the Microsoft Authenticator app registered to a user for authentication.
  */
 export interface MicrosoftAuthenticatorMethodsRequestBuilderGetQueryParameters {
     /**

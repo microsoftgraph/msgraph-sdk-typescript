@@ -27,30 +27,28 @@ export interface BucketsRequestBuilder extends BaseRequestBuilder<BucketsRequest
      */
      byPlannerBucketId(plannerBucketId: string) : PlannerBucketItemRequestBuilder;
     /**
-     * Retrieve a list of plannerbucket objects.
+     * Read-only. Nullable. Returns a collection of the specified buckets
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerBucketCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/planner-list-buckets?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BucketsRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerBucketCollectionResponse | undefined>;
     /**
-     * Create a new plannerBucket object.
+     * Create new navigation property to buckets for planner
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerBucket>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/planner-post-buckets?view=graph-rest-1.0|Find more info here}
      */
      post(body: PlannerBucket, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerBucket | undefined>;
     /**
-     * Retrieve a list of plannerbucket objects.
+     * Read-only. Nullable. Returns a collection of the specified buckets
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BucketsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new plannerBucket object.
+     * Create new navigation property to buckets for planner
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface BucketsRequestBuilder extends BaseRequestBuilder<BucketsRequest
      toPostRequestInformation(body: PlannerBucket, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of plannerbucket objects.
+ * Read-only. Nullable. Returns a collection of the specified buckets
  */
 export interface BucketsRequestBuilderGetQueryParameters {
     /**

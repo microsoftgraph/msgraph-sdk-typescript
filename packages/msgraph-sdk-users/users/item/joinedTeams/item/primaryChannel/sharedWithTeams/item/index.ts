@@ -25,18 +25,16 @@ export interface SharedWithChannelTeamInfoItemRequestBuilder extends BaseRequest
      */
     get team(): TeamRequestBuilder;
     /**
-     * Unshare a channel with a team by deleting the corresponding sharedWithChannelTeamInfo resource. This operation is allowed only for channels with a membershipType value of shared.
+     * Delete navigation property sharedWithTeams for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/sharedwithchannelteaminfo-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get a team that has been shared with a specified channel. This operation is allowed only for channels with a membershipType value of shared.
+     * A collection of teams with which a channel is shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SharedWithChannelTeamInfo>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/sharedwithchannelteaminfo-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SharedWithChannelTeamInfoItemRequestBuilderGetQueryParameters> | undefined) : Promise<SharedWithChannelTeamInfo | undefined>;
     /**
@@ -48,13 +46,13 @@ export interface SharedWithChannelTeamInfoItemRequestBuilder extends BaseRequest
      */
      patch(body: SharedWithChannelTeamInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SharedWithChannelTeamInfo | undefined>;
     /**
-     * Unshare a channel with a team by deleting the corresponding sharedWithChannelTeamInfo resource. This operation is allowed only for channels with a membershipType value of shared.
+     * Delete navigation property sharedWithTeams for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get a team that has been shared with a specified channel. This operation is allowed only for channels with a membershipType value of shared.
+     * A collection of teams with which a channel is shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -68,7 +66,7 @@ export interface SharedWithChannelTeamInfoItemRequestBuilder extends BaseRequest
      toPatchRequestInformation(body: SharedWithChannelTeamInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a team that has been shared with a specified channel. This operation is allowed only for channels with a membershipType value of shared.
+ * A collection of teams with which a channel is shared.
  */
 export interface SharedWithChannelTeamInfoItemRequestBuilderGetQueryParameters {
     /**

@@ -55,7 +55,7 @@ export interface DomainItemRequestBuilder extends BaseRequestBuilder<DomainItemR
      */
     get verify(): VerifyRequestBuilder;
     /**
-     * Deletes a domain from a tenant.
+     * Delete a domain from a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/domain-delete?view=graph-rest-1.0|Find more info here}
@@ -70,7 +70,7 @@ export interface DomainItemRequestBuilder extends BaseRequestBuilder<DomainItemR
      */
      get(requestConfiguration?: RequestConfiguration<DomainItemRequestBuilderGetQueryParameters> | undefined) : Promise<Domain | undefined>;
     /**
-     * Update the properties of domain object.
+     * Update the properties of domain object. Only verified domains can be updated.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Domain>}
@@ -79,7 +79,7 @@ export interface DomainItemRequestBuilder extends BaseRequestBuilder<DomainItemR
      */
      patch(body: Domain, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Domain | undefined>;
     /**
-     * Deletes a domain from a tenant.
+     * Delete a domain from a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -91,7 +91,7 @@ export interface DomainItemRequestBuilder extends BaseRequestBuilder<DomainItemR
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DomainItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of domain object.
+     * Update the properties of domain object. Only verified domains can be updated.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

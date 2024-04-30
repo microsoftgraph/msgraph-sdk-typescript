@@ -13,18 +13,16 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface IdentitySynchronizationRequestBuilder extends BaseRequestBuilder<IdentitySynchronizationRequestBuilder> {
     /**
-     * Delete the user synchronization policy for a partner-specific configuration.
+     * Delete navigation property identitySynchronization for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the user synchronization policy of a partner-specific configuration.
+     * Defines the cross-tenant policy for the synchronization of users from a partner tenant. Use this user synchronization policy to streamline collaboration between users in a multitenant organization by automating the creation, update, and deletion of users from one tenant to another.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CrossTenantIdentitySyncPolicyPartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IdentitySynchronizationRequestBuilderGetQueryParameters> | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined>;
     /**
@@ -36,13 +34,13 @@ export interface IdentitySynchronizationRequestBuilder extends BaseRequestBuilde
      */
      put(body: CrossTenantIdentitySyncPolicyPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined>;
     /**
-     * Delete the user synchronization policy for a partner-specific configuration.
+     * Delete navigation property identitySynchronization for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the user synchronization policy of a partner-specific configuration.
+     * Defines the cross-tenant policy for the synchronization of users from a partner tenant. Use this user synchronization policy to streamline collaboration between users in a multitenant organization by automating the creation, update, and deletion of users from one tenant to another.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +54,7 @@ export interface IdentitySynchronizationRequestBuilder extends BaseRequestBuilde
      toPutRequestInformation(body: CrossTenantIdentitySyncPolicyPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the user synchronization policy of a partner-specific configuration.
+ * Defines the cross-tenant policy for the synchronization of users from a partner tenant. Use this user synchronization policy to streamline collaboration between users in a multitenant organization by automating the creation, update, and deletion of users from one tenant to another.
  */
 export interface IdentitySynchronizationRequestBuilderGetQueryParameters {
     /**

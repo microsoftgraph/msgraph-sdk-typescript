@@ -27,11 +27,10 @@ export interface VersionsRequestBuilder extends BaseRequestBuilder<VersionsReque
      */
      byListItemVersionId(listItemVersionId: string) : ListItemVersionItemRequestBuilder;
     /**
-     * SharePoint can be configured to retain the history for list items. Previous versions may be retained for a finite period of time depending on admin settings which may be unique per user or location.
+     * The list of previous versions of the list item.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ListItemVersionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/listitem-list-versions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<VersionsRequestBuilderGetQueryParameters> | undefined) : Promise<ListItemVersionCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface VersionsRequestBuilder extends BaseRequestBuilder<VersionsReque
      */
      post(body: ListItemVersion, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ListItemVersion | undefined>;
     /**
-     * SharePoint can be configured to retain the history for list items. Previous versions may be retained for a finite period of time depending on admin settings which may be unique per user or location.
+     * The list of previous versions of the list item.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface VersionsRequestBuilder extends BaseRequestBuilder<VersionsReque
      toPostRequestInformation(body: ListItemVersion, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * SharePoint can be configured to retain the history for list items. Previous versions may be retained for a finite period of time depending on admin settings which may be unique per user or location.
+ * The list of previous versions of the list item.
  */
 export interface VersionsRequestBuilderGetQueryParameters {
     /**

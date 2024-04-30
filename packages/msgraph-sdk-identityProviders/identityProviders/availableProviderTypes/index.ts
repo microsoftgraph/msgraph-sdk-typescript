@@ -19,15 +19,16 @@ export interface AvailableProviderTypesGetResponse extends BaseCollectionPaginat
  */
 export interface AvailableProviderTypesRequestBuilder extends BaseRequestBuilder<AvailableProviderTypesRequestBuilder> {
     /**
-     * Invoke function availableProviderTypes
+     * Retrieves all identity provider types available in a directory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AvailableProviderTypesGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
+     * @see {@link https://learn.microsoft.com/graph/api/identityprovider-list-availableprovidertypes?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters> | undefined) : Promise<AvailableProviderTypesGetResponse | undefined>;
     /**
-     * Invoke function availableProviderTypes
+     * Retrieves all identity provider types available in a directory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
@@ -35,7 +36,7 @@ export interface AvailableProviderTypesRequestBuilder extends BaseRequestBuilder
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function availableProviderTypes
+ * Retrieves all identity provider types available in a directory.
  */
 export interface AvailableProviderTypesRequestBuilderGetQueryParameters {
     /**

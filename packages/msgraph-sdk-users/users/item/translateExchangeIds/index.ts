@@ -31,9 +31,9 @@ export function createTranslateExchangeIdsPostResponseFromDiscriminatorValue(par
 export function deserializeIntoTranslateExchangeIdsPostRequestBody(translateExchangeIdsPostRequestBody: Partial<TranslateExchangeIdsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { translateExchangeIdsPostRequestBody.backingStoreEnabled = true; },
-        "inputIds": n => { translateExchangeIdsPostRequestBody.inputIds = n.getCollectionOfPrimitiveValues<string>(); },
-        "sourceIdType": n => { translateExchangeIdsPostRequestBody.sourceIdType = n.getEnumValue<ExchangeIdFormat>(ExchangeIdFormatObject); },
-        "targetIdType": n => { translateExchangeIdsPostRequestBody.targetIdType = n.getEnumValue<ExchangeIdFormat>(ExchangeIdFormatObject); },
+        "InputIds": n => { translateExchangeIdsPostRequestBody.inputIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "SourceIdType": n => { translateExchangeIdsPostRequestBody.sourceIdType = n.getEnumValue<ExchangeIdFormat>(ExchangeIdFormatObject); },
+        "TargetIdType": n => { translateExchangeIdsPostRequestBody.targetIdType = n.getEnumValue<ExchangeIdFormat>(ExchangeIdFormatObject); },
     }
 }
 /**

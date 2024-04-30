@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ConversationMemberItemRequestBuilder extends BaseRequestBuilder<ConversationMemberItemRequestBuilder> {
     /**
-     * Remove a conversationMember from a team.
+     * Delete navigation property members for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/team-delete-members?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get a conversationMember from a team.
+     * Members and owners of the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationMember>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/team-get-members?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConversationMemberItemRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationMember | undefined>;
     /**
-     * Update the role of a conversationMember in a team.
+     * Update the navigation property members in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationMember>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/team-update-members?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConversationMember | undefined>;
     /**
-     * Remove a conversationMember from a team.
+     * Delete navigation property members for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get a conversationMember from a team.
+     * Members and owners of the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConversationMemberItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the role of a conversationMember in a team.
+     * Update the navigation property members in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface ConversationMemberItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a conversationMember from a team.
+ * Members and owners of the team.
  */
 export interface ConversationMemberItemRequestBuilderGetQueryParameters {
     /**

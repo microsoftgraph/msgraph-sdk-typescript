@@ -27,22 +27,21 @@ export interface FollowingRequestBuilder extends BaseRequestBuilder<FollowingReq
      */
      byDriveItemId(driveItemId: string) : DriveItemItemRequestBuilder;
     /**
-     * List the items that have been followed by the signed in user.This collection includes items that are in the user's drive as well as items they have access to from other drives.
+     * The list of items the user is following. Only in OneDrive for Business.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/drive-list-following?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<FollowingRequestBuilderGetQueryParameters> | undefined) : Promise<DriveItemCollectionResponse | undefined>;
     /**
-     * List the items that have been followed by the signed in user.This collection includes items that are in the user's drive as well as items they have access to from other drives.
+     * The list of items the user is following. Only in OneDrive for Business.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FollowingRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * List the items that have been followed by the signed in user.This collection includes items that are in the user's drive as well as items they have access to from other drives.
+ * The list of items the user is following. Only in OneDrive for Business.
  */
 export interface FollowingRequestBuilderGetQueryParameters {
     /**

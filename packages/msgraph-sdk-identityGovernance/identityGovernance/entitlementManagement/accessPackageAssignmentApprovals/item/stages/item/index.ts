@@ -19,20 +19,18 @@ export interface ApprovalStageItemRequestBuilder extends BaseRequestBuilder<Appr
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties of an approvalStage object. An approval stage is contained within an approval object.
+     * A collection of stages in the approval decision.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ApprovalStage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/approvalstage-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ApprovalStageItemRequestBuilderGetQueryParameters> | undefined) : Promise<ApprovalStage | undefined>;
     /**
-     * Approve or deny an approvalStage object in an approval.
+     * Update the navigation property stages in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ApprovalStage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/approvalstage-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ApprovalStage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ApprovalStage | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface ApprovalStageItemRequestBuilder extends BaseRequestBuilder<Appr
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties of an approvalStage object. An approval stage is contained within an approval object.
+     * A collection of stages in the approval decision.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ApprovalStageItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Approve or deny an approvalStage object in an approval.
+     * Update the navigation property stages in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface ApprovalStageItemRequestBuilder extends BaseRequestBuilder<Appr
      toPatchRequestInformation(body: ApprovalStage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties of an approvalStage object. An approval stage is contained within an approval object.
+ * A collection of stages in the approval decision.
  */
 export interface ApprovalStageItemRequestBuilderGetQueryParameters {
     /**

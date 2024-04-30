@@ -27,30 +27,28 @@ export interface DelegatedPermissionClassificationsRequestBuilder extends BaseRe
      */
      byDelegatedPermissionClassificationId(delegatedPermissionClassificationId: string) : DelegatedPermissionClassificationItemRequestBuilder;
     /**
-     * Retrieve the list of delegatedPermissionClassification currently configured for the delegated permissions exposed by an API.
+     * Get delegatedPermissionClassifications from servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedPermissionClassificationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-list-delegatedpermissionclassifications?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DelegatedPermissionClassificationsRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedPermissionClassificationCollectionResponse | undefined>;
     /**
-     * Classify a delegated permission by adding a delegatedPermissionClassification to the servicePrincipal representing the API.
+     * Create new navigation property to delegatedPermissionClassifications for servicePrincipals
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedPermissionClassification>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-post-delegatedpermissionclassifications?view=graph-rest-1.0|Find more info here}
      */
      post(body: DelegatedPermissionClassification, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DelegatedPermissionClassification | undefined>;
     /**
-     * Retrieve the list of delegatedPermissionClassification currently configured for the delegated permissions exposed by an API.
+     * Get delegatedPermissionClassifications from servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DelegatedPermissionClassificationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Classify a delegated permission by adding a delegatedPermissionClassification to the servicePrincipal representing the API.
+     * Create new navigation property to delegatedPermissionClassifications for servicePrincipals
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface DelegatedPermissionClassificationsRequestBuilder extends BaseRe
      toPostRequestInformation(body: DelegatedPermissionClassification, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the list of delegatedPermissionClassification currently configured for the delegated permissions exposed by an API.
+ * Get delegatedPermissionClassifications from servicePrincipals
  */
 export interface DelegatedPermissionClassificationsRequestBuilderGetQueryParameters {
     /**

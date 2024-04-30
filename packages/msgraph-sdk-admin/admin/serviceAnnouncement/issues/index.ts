@@ -27,11 +27,10 @@ export interface IssuesRequestBuilder extends BaseRequestBuilder<IssuesRequestBu
      */
      byServiceHealthIssueId(serviceHealthIssueId: string) : ServiceHealthIssueItemRequestBuilder;
     /**
-     * Retrieve serviceHealthIssue resources from the issues navigation property. This operation retrieves information about all service health issues that exist for the tenant.
+     * A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServiceHealthIssueCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/serviceannouncement-list-issues?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IssuesRequestBuilderGetQueryParameters> | undefined) : Promise<ServiceHealthIssueCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface IssuesRequestBuilder extends BaseRequestBuilder<IssuesRequestBu
      */
      post(body: ServiceHealthIssue, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ServiceHealthIssue | undefined>;
     /**
-     * Retrieve serviceHealthIssue resources from the issues navigation property. This operation retrieves information about all service health issues that exist for the tenant.
+     * A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface IssuesRequestBuilder extends BaseRequestBuilder<IssuesRequestBu
      toPostRequestInformation(body: ServiceHealthIssue, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve serviceHealthIssue resources from the issues navigation property. This operation retrieves information about all service health issues that exist for the tenant.
+ * A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
  */
 export interface IssuesRequestBuilderGetQueryParameters {
     /**

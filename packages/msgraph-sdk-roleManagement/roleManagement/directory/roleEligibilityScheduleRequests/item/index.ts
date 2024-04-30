@@ -55,11 +55,10 @@ export interface UnifiedRoleEligibilityScheduleRequestItemRequestBuilder extends
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * In PIM, read the details of a request for for a role eligibility request made through the unifiedRoleEligibilityScheduleRequest object.
+     * Requests for role eligibilities for principals through PIM.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleEligibilityScheduleRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/unifiedroleeligibilityschedulerequest-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleEligibilityScheduleRequest | undefined>;
     /**
@@ -77,7 +76,7 @@ export interface UnifiedRoleEligibilityScheduleRequestItemRequestBuilder extends
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * In PIM, read the details of a request for for a role eligibility request made through the unifiedRoleEligibilityScheduleRequest object.
+     * Requests for role eligibilities for principals through PIM.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -91,7 +90,7 @@ export interface UnifiedRoleEligibilityScheduleRequestItemRequestBuilder extends
      toPatchRequestInformation(body: UnifiedRoleEligibilityScheduleRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * In PIM, read the details of a request for for a role eligibility request made through the unifiedRoleEligibilityScheduleRequest object.
+ * Requests for role eligibilities for principals through PIM.
  */
 export interface UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetQueryParameters {
     /**

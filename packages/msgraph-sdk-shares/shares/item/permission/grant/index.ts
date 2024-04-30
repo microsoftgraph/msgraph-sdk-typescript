@@ -74,7 +74,7 @@ export interface GrantPostResponse extends BaseCollectionPaginationCountResponse
  */
 export interface GrantRequestBuilder extends BaseRequestBuilder<GrantRequestBuilder> {
     /**
-     * Grant users access to a link represented by a [permission][].
+     * Grant users access to a link represented by a permission.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GrantPostResponse>}
@@ -83,7 +83,7 @@ export interface GrantRequestBuilder extends BaseRequestBuilder<GrantRequestBuil
      */
      post(body: GrantPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GrantPostResponse | undefined>;
     /**
-     * Grant users access to a link represented by a [permission][].
+     * Grant users access to a link represented by a permission.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

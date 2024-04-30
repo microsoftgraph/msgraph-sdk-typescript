@@ -27,29 +27,28 @@ export interface GroupsRequestBuilder extends BaseRequestBuilder<GroupsRequestBu
      */
      byExternalGroupId(externalGroupId: string) : ExternalGroupItemRequestBuilder;
     /**
-     * Get an externalGroup object.
+     * Get groups from external
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExternalGroupCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GroupsRequestBuilderGetQueryParameters> | undefined) : Promise<ExternalGroupCollectionResponse | undefined>;
     /**
-     * Create a new externalGroup object.
+     * Create new navigation property to groups for external
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExternalGroup>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-post-groups?view=graph-rest-1.0|Find more info here}
      */
      post(body: ExternalGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ExternalGroup | undefined>;
     /**
-     * Get an externalGroup object.
+     * Get groups from external
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GroupsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new externalGroup object.
+     * Create new navigation property to groups for external
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +56,7 @@ export interface GroupsRequestBuilder extends BaseRequestBuilder<GroupsRequestBu
      toPostRequestInformation(body: ExternalGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get an externalGroup object.
+ * Get groups from external
  */
 export interface GroupsRequestBuilderGetQueryParameters {
     /**

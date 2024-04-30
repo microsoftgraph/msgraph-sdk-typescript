@@ -35,11 +35,10 @@ export interface StagesRequestBuilder extends BaseRequestBuilder<StagesRequestBu
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Retrieve the stages in a multi-stage access review instance.
+     * If the instance has multiple stages, this returns the collection of stages. A new stage will only be created when the previous stage ends. The existence, number, and settings of stages on a review instance are created based on the accessReviewStageSettings on the parent accessReviewScheduleDefinition.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewStageCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accessreviewinstance-list-stages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<StagesRequestBuilderGetQueryParameters> | undefined) : Promise<AccessReviewStageCollectionResponse | undefined>;
     /**
@@ -51,7 +50,7 @@ export interface StagesRequestBuilder extends BaseRequestBuilder<StagesRequestBu
      */
      post(body: AccessReviewStage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessReviewStage | undefined>;
     /**
-     * Retrieve the stages in a multi-stage access review instance.
+     * If the instance has multiple stages, this returns the collection of stages. A new stage will only be created when the previous stage ends. The existence, number, and settings of stages on a review instance are created based on the accessReviewStageSettings on the parent accessReviewScheduleDefinition.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -65,7 +64,7 @@ export interface StagesRequestBuilder extends BaseRequestBuilder<StagesRequestBu
      toPostRequestInformation(body: AccessReviewStage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the stages in a multi-stage access review instance.
+ * If the instance has multiple stages, this returns the collection of stages. A new stage will only be created when the previous stage ends. The existence, number, and settings of stages on a review instance are created based on the accessReviewStageSettings on the parent accessReviewScheduleDefinition.
  */
 export interface StagesRequestBuilderGetQueryParameters {
     /**

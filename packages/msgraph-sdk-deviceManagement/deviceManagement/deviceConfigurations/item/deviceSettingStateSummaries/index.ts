@@ -27,30 +27,28 @@ export interface DeviceSettingStateSummariesRequestBuilder extends BaseRequestBu
      */
      bySettingStateDeviceSummaryId(settingStateDeviceSummaryId: string) : SettingStateDeviceSummaryItemRequestBuilder;
     /**
-     * List properties and relationships of the settingStateDeviceSummary objects.
+     * Device Configuration Setting State Device Summary
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SettingStateDeviceSummaryCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceSettingStateSummariesRequestBuilderGetQueryParameters> | undefined) : Promise<SettingStateDeviceSummaryCollectionResponse | undefined>;
     /**
-     * Create a new settingStateDeviceSummary object.
+     * Create new navigation property to deviceSettingStateSummaries for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SettingStateDeviceSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: SettingStateDeviceSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SettingStateDeviceSummary | undefined>;
     /**
-     * List properties and relationships of the settingStateDeviceSummary objects.
+     * Device Configuration Setting State Device Summary
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceSettingStateSummariesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new settingStateDeviceSummary object.
+     * Create new navigation property to deviceSettingStateSummaries for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface DeviceSettingStateSummariesRequestBuilder extends BaseRequestBu
      toPostRequestInformation(body: SettingStateDeviceSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the settingStateDeviceSummary objects.
+ * Device Configuration Setting State Device Summary
  */
 export interface DeviceSettingStateSummariesRequestBuilderGetQueryParameters {
     /**

@@ -13,22 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ManagerRequestBuilder extends BaseRequestBuilder<ManagerRequestBuilder> {
     /**
-     * Get this organizational contact's manager.
+     * The user or contact that is this contact's manager. Read-only. Supports $expand and $filter (eq) by id.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObject>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/orgcontact-get-manager?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagerRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObject | undefined>;
     /**
-     * Get this organizational contact's manager.
+     * The user or contact that is this contact's manager. Read-only. Supports $expand and $filter (eq) by id.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagerRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get this organizational contact's manager.
+ * The user or contact that is this contact's manager. Read-only. Supports $expand and $filter (eq) by id.
  */
 export interface ManagerRequestBuilderGetQueryParameters {
     /**

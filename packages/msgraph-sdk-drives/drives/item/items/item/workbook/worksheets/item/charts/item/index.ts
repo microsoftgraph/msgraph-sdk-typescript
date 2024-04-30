@@ -79,18 +79,16 @@ export interface WorkbookChartItemRequestBuilder extends BaseRequestBuilder<Work
      */
     get worksheet(): WorksheetRequestBuilder;
     /**
-     * Deletes the chart object.
+     * Delete navigation property charts for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chart-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of chart object.
+     * Returns collection of charts that are part of the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChart>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chart-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorkbookChartItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChart | undefined>;
     /**
@@ -115,28 +113,27 @@ export interface WorkbookChartItemRequestBuilder extends BaseRequestBuilder<Work
      */
      imageWithWidthWithHeightWithFittingMode(fittingMode: string | undefined, height: number | undefined, width: number | undefined) : ImageWithWidthWithHeightWithFittingModeRequestBuilder;
     /**
-     * Update the properties of chart object.
+     * Update the navigation property charts in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChart>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chart-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WorkbookChart, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChart | undefined>;
     /**
-     * Deletes the chart object.
+     * Delete navigation property charts for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of chart object.
+     * Returns collection of charts that are part of the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkbookChartItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of chart object.
+     * Update the navigation property charts in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -144,7 +141,7 @@ export interface WorkbookChartItemRequestBuilder extends BaseRequestBuilder<Work
      toPatchRequestInformation(body: WorkbookChart, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of chart object.
+ * Returns collection of charts that are part of the worksheet. Read-only.
  */
 export interface WorkbookChartItemRequestBuilderGetQueryParameters {
     /**

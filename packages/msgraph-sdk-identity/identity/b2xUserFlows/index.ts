@@ -27,30 +27,28 @@ export interface B2xUserFlowsRequestBuilder extends BaseRequestBuilder<B2xUserFl
      */
      byB2xIdentityUserFlowId(b2xIdentityUserFlowId: string) : B2xIdentityUserFlowItemRequestBuilder;
     /**
-     * Retrieve a list of b2xIdentityUserFlow objects.
+     * Represents entry point for B2X/self-service sign-up identity userflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<B2xIdentityUserFlowCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitycontainer-list-b2xuserflows?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<B2xUserFlowsRequestBuilderGetQueryParameters> | undefined) : Promise<B2xIdentityUserFlowCollectionResponse | undefined>;
     /**
-     * Create a new b2xIdentityUserFlow object.
+     * Create new navigation property to b2xUserFlows for identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<B2xIdentityUserFlow>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitycontainer-post-b2xuserflows?view=graph-rest-1.0|Find more info here}
      */
      post(body: B2xIdentityUserFlow, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<B2xIdentityUserFlow | undefined>;
     /**
-     * Retrieve a list of b2xIdentityUserFlow objects.
+     * Represents entry point for B2X/self-service sign-up identity userflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<B2xUserFlowsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new b2xIdentityUserFlow object.
+     * Create new navigation property to b2xUserFlows for identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface B2xUserFlowsRequestBuilder extends BaseRequestBuilder<B2xUserFl
      toPostRequestInformation(body: B2xIdentityUserFlow, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of b2xIdentityUserFlow objects.
+ * Represents entry point for B2X/self-service sign-up identity userflows.
  */
 export interface B2xUserFlowsRequestBuilderGetQueryParameters {
     /**

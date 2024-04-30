@@ -27,30 +27,28 @@ export interface AudioRoutingGroupsRequestBuilder extends BaseRequestBuilder<Aud
      */
      byAudioRoutingGroupId(audioRoutingGroupId: string) : AudioRoutingGroupItemRequestBuilder;
     /**
-     * Retrieve a list of audioRoutingGroup objects.
+     * Get audioRoutingGroups from communications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AudioRoutingGroupCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/call-list-audioroutinggroups?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AudioRoutingGroupsRequestBuilderGetQueryParameters> | undefined) : Promise<AudioRoutingGroupCollectionResponse | undefined>;
     /**
-     * Create a new audioRoutingGroup.
+     * Create new navigation property to audioRoutingGroups for communications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AudioRoutingGroup>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/call-post-audioroutinggroups?view=graph-rest-1.0|Find more info here}
      */
      post(body: AudioRoutingGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AudioRoutingGroup | undefined>;
     /**
-     * Retrieve a list of audioRoutingGroup objects.
+     * Get audioRoutingGroups from communications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AudioRoutingGroupsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new audioRoutingGroup.
+     * Create new navigation property to audioRoutingGroups for communications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface AudioRoutingGroupsRequestBuilder extends BaseRequestBuilder<Aud
      toPostRequestInformation(body: AudioRoutingGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of audioRoutingGroup objects.
+ * Get audioRoutingGroups from communications
  */
 export interface AudioRoutingGroupsRequestBuilderGetQueryParameters {
     /**

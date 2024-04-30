@@ -25,43 +25,40 @@ export interface CloudPcUserSettingItemRequestBuilder extends BaseRequestBuilder
      */
     get assignments(): AssignmentsRequestBuilder;
     /**
-     * Delete a cloudPcUserSetting object.
+     * Delete navigation property userSettings for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/cloudpcusersetting-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a cloudPcUserSetting object.
+     * A collection of Cloud PC user settings.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcUserSetting>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/cloudpcusersetting-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CloudPcUserSettingItemRequestBuilderGetQueryParameters> | undefined) : Promise<CloudPcUserSetting | undefined>;
     /**
-     * Update the properties of a cloudPcUserSetting object.
+     * Update the navigation property userSettings in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcUserSetting>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/cloudpcusersetting-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: CloudPcUserSetting, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CloudPcUserSetting | undefined>;
     /**
-     * Delete a cloudPcUserSetting object.
+     * Delete navigation property userSettings for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a cloudPcUserSetting object.
+     * A collection of Cloud PC user settings.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CloudPcUserSettingItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a cloudPcUserSetting object.
+     * Update the navigation property userSettings in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -69,7 +66,7 @@ export interface CloudPcUserSettingItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: CloudPcUserSetting, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a cloudPcUserSetting object.
+ * A collection of Cloud PC user settings.
  */
 export interface CloudPcUserSettingItemRequestBuilderGetQueryParameters {
     /**

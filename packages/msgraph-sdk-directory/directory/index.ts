@@ -20,6 +20,10 @@ import { FederationConfigurationsRequestBuilderNavigationMetadata, FederationCon
 // @ts-ignore
 import { OnPremisesSynchronizationRequestBuilderNavigationMetadata, OnPremisesSynchronizationRequestBuilderRequestsMetadata, type OnPremisesSynchronizationRequestBuilder } from './onPremisesSynchronization/';
 // @ts-ignore
+import { SubscriptionsRequestBuilderNavigationMetadata, SubscriptionsRequestBuilderRequestsMetadata, type SubscriptionsRequestBuilder } from './subscriptions/';
+// @ts-ignore
+import { SubscriptionsWithCommerceSubscriptionIdRequestBuilderRequestsMetadata, type SubscriptionsWithCommerceSubscriptionIdRequestBuilder } from './subscriptionsWithCommerceSubscriptionId/';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -55,6 +59,10 @@ export interface DirectoryRequestBuilder extends BaseRequestBuilder<DirectoryReq
      */
     get onPremisesSynchronization(): OnPremisesSynchronizationRequestBuilder;
     /**
+     * Provides operations to manage the subscriptions property of the microsoft.graph.directory entity.
+     */
+    get subscriptions(): SubscriptionsRequestBuilder;
+    /**
      * Get directory
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Directory>}
@@ -69,6 +77,12 @@ export interface DirectoryRequestBuilder extends BaseRequestBuilder<DirectoryReq
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: Directory, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Directory | undefined>;
+    /**
+     * Provides operations to manage the subscriptions property of the microsoft.graph.directory entity.
+     * @param commerceSubscriptionId Alternate key of companySubscription
+     * @returns {SubscriptionsWithCommerceSubscriptionIdRequestBuilder}
+     */
+     subscriptionsWithCommerceSubscriptionId(commerceSubscriptionId: string | undefined) : SubscriptionsWithCommerceSubscriptionIdRequestBuilder;
     /**
      * Get directory
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -111,6 +125,9 @@ const DirectoryRequestBuilderGetQueryParametersMapper: Record<string, string> = 
  * Metadata for all the navigation properties in the request builder.
  */
 export const DirectoryRequestBuilderNavigationMetadata: Record<Exclude<keyof DirectoryRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    subscriptionsWithCommerceSubscriptionId: {
+        requestsMetadata: SubscriptionsWithCommerceSubscriptionIdRequestBuilderRequestsMetadata,
+    },
     administrativeUnits: {
         requestsMetadata: AdministrativeUnitsRequestBuilderRequestsMetadata,
         navigationMetadata: AdministrativeUnitsRequestBuilderNavigationMetadata,
@@ -138,6 +155,10 @@ export const DirectoryRequestBuilderNavigationMetadata: Record<Exclude<keyof Dir
     onPremisesSynchronization: {
         requestsMetadata: OnPremisesSynchronizationRequestBuilderRequestsMetadata,
         navigationMetadata: OnPremisesSynchronizationRequestBuilderNavigationMetadata,
+    },
+    subscriptions: {
+        requestsMetadata: SubscriptionsRequestBuilderRequestsMetadata,
+        navigationMetadata: SubscriptionsRequestBuilderNavigationMetadata,
     },
 };
 /**

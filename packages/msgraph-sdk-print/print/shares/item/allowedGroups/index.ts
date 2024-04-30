@@ -33,22 +33,21 @@ export interface AllowedGroupsRequestBuilder extends BaseRequestBuilder<AllowedG
      */
      byGroupId(groupId: string) : GroupItemRequestBuilder;
     /**
-     * Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
+     * The groups whose users have access to print using the printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GroupCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/printershare-list-allowedgroups?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AllowedGroupsRequestBuilderGetQueryParameters> | undefined) : Promise<GroupCollectionResponse | undefined>;
     /**
-     * Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
+     * The groups whose users have access to print using the printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AllowedGroupsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
+ * The groups whose users have access to print using the printer.
  */
 export interface AllowedGroupsRequestBuilderGetQueryParameters {
     /**

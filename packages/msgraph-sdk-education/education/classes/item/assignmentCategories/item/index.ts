@@ -13,18 +13,16 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface EducationCategoryItemRequestBuilder extends BaseRequestBuilder<EducationCategoryItemRequestBuilder> {
     /**
-     * Delete an existing category. Only teachers can perform this operation.
+     * Delete navigation property assignmentCategories for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationcategory-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation.
+     * All categories associated with this class. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationCategory>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationcategory-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EducationCategoryItemRequestBuilderGetQueryParameters> | undefined) : Promise<EducationCategory | undefined>;
     /**
@@ -36,13 +34,13 @@ export interface EducationCategoryItemRequestBuilder extends BaseRequestBuilder<
      */
      patch(body: EducationCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationCategory | undefined>;
     /**
-     * Delete an existing category. Only teachers can perform this operation.
+     * Delete navigation property assignmentCategories for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation.
+     * All categories associated with this class. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +54,7 @@ export interface EducationCategoryItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: EducationCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation.
+ * All categories associated with this class. Nullable.
  */
 export interface EducationCategoryItemRequestBuilderGetQueryParameters {
     /**

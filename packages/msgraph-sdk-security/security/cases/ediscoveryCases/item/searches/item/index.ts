@@ -55,43 +55,40 @@ export interface EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder<E
      */
     get noncustodialSources(): NoncustodialSourcesRequestBuilder;
     /**
-     * Delete an ediscoverySearch object.
+     * Delete navigation property searches for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-delete-searches?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an ediscoverySearch object.
+     * Returns a list of eDiscoverySearch objects associated with this case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoverySearch>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EdiscoverySearchItemRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoverySearch | undefined>;
     /**
-     * Update the properties of an ediscoverySearch object.
+     * Update the navigation property searches in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoverySearch>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EdiscoverySearch, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoverySearch | undefined>;
     /**
-     * Delete an ediscoverySearch object.
+     * Delete navigation property searches for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an ediscoverySearch object.
+     * Returns a list of eDiscoverySearch objects associated with this case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EdiscoverySearchItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an ediscoverySearch object.
+     * Update the navigation property searches in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -99,7 +96,7 @@ export interface EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder<E
      toPatchRequestInformation(body: EdiscoverySearch, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an ediscoverySearch object.
+ * Returns a list of eDiscoverySearch objects associated with this case.
  */
 export interface EdiscoverySearchItemRequestBuilderGetQueryParameters {
     /**

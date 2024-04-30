@@ -19,14 +19,15 @@ export interface ItemAtWithIndexRequestBuilder extends BaseRequestBuilder<ItemAt
      */
     get format(): FormatRequestBuilder;
     /**
-     * Invoke function itemAt
+     * Retrieve a point based on its position within the series.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartPoint>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/chartpointscollection-itemat?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartPoint | undefined>;
     /**
-     * Invoke function itemAt
+     * Retrieve a point based on its position within the series.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

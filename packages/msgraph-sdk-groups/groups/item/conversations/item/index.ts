@@ -19,35 +19,33 @@ export interface ConversationItemRequestBuilder extends BaseRequestBuilder<Conve
      */
     get threads(): ThreadsRequestBuilder;
     /**
-     * Delete conversation.
+     * Delete navigation property conversations for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/conversation-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of conversation object.
+     * The group's conversations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Conversation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/conversation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConversationItemRequestBuilderGetQueryParameters> | undefined) : Promise<Conversation | undefined>;
     /**
-     * Delete conversation.
+     * Delete navigation property conversations for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of conversation object.
+     * The group's conversations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConversationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of conversation object.
+ * The group's conversations.
  */
 export interface ConversationItemRequestBuilderGetQueryParameters {
     /**

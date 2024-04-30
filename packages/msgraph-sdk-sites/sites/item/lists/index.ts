@@ -27,30 +27,28 @@ export interface ListsRequestBuilder extends BaseRequestBuilder<ListsRequestBuil
      */
      byListId(listId: string) : ListItemRequestBuilder;
     /**
-     * Get the collection of [lists][] for a [site][]. Lists with the [system][] facet are hidden by default.To list them, include system in your $select statement.
+     * The collection of lists under this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ListCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/list-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ListsRequestBuilderGetQueryParameters> | undefined) : Promise<ListCollectionResponse | undefined>;
     /**
-     * Create a new [list][] in a [site][].
+     * Create new navigation property to lists for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<List>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/list-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: List, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<List | undefined>;
     /**
-     * Get the collection of [lists][] for a [site][]. Lists with the [system][] facet are hidden by default.To list them, include system in your $select statement.
+     * The collection of lists under this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ListsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new [list][] in a [site][].
+     * Create new navigation property to lists for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface ListsRequestBuilder extends BaseRequestBuilder<ListsRequestBuil
      toPostRequestInformation(body: List, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the collection of [lists][] for a [site][]. Lists with the [system][] facet are hidden by default.To list them, include system in your $select statement.
+ * The collection of lists under this site.
  */
 export interface ListsRequestBuilderGetQueryParameters {
     /**

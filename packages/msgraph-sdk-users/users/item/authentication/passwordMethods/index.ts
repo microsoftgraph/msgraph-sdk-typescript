@@ -27,11 +27,10 @@ export interface PasswordMethodsRequestBuilder extends BaseRequestBuilder<Passwo
      */
      byPasswordAuthenticationMethodId(passwordAuthenticationMethodId: string) : PasswordAuthenticationMethodItemRequestBuilder;
     /**
-     * Retrieve a list of the passwords registered to a user, represented by a passwordAuthenticationMethod object. This API returns exactly one object, as a user can have exactly one password. For security, the password itself will never be returned in the object and the password property is always null.
+     * Represents the password that's registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PasswordAuthenticationMethodCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/authentication-list-passwordmethods?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PasswordMethodsRequestBuilderGetQueryParameters> | undefined) : Promise<PasswordAuthenticationMethodCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface PasswordMethodsRequestBuilder extends BaseRequestBuilder<Passwo
      */
      post(body: PasswordAuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PasswordAuthenticationMethod | undefined>;
     /**
-     * Retrieve a list of the passwords registered to a user, represented by a passwordAuthenticationMethod object. This API returns exactly one object, as a user can have exactly one password. For security, the password itself will never be returned in the object and the password property is always null.
+     * Represents the password that's registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface PasswordMethodsRequestBuilder extends BaseRequestBuilder<Passwo
      toPostRequestInformation(body: PasswordAuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of the passwords registered to a user, represented by a passwordAuthenticationMethod object. This API returns exactly one object, as a user can have exactly one password. For security, the password itself will never be returned in the object and the password property is always null.
+ * Represents the password that's registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
  */
 export interface PasswordMethodsRequestBuilderGetQueryParameters {
     /**

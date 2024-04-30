@@ -27,11 +27,10 @@ export interface SetsRequestBuilder extends BaseRequestBuilder<SetsRequestBuilde
      */
      bySetId1(setId1: string) : SetItemRequestBuilder;
     /**
-     * Get a list of the set objects and their properties.
+     * All sets under the group in a term [store].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SetCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/termstore-group-list-sets?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SetsRequestBuilderGetQueryParameters> | undefined) : Promise<SetCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface SetsRequestBuilder extends BaseRequestBuilder<SetsRequestBuilde
      */
      post(body: Set, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Set | undefined>;
     /**
-     * Get a list of the set objects and their properties.
+     * All sets under the group in a term [store].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface SetsRequestBuilder extends BaseRequestBuilder<SetsRequestBuilde
      toPostRequestInformation(body: Set, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the set objects and their properties.
+ * All sets under the group in a term [store].
  */
 export interface SetsRequestBuilderGetQueryParameters {
     /**

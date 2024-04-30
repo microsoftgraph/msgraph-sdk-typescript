@@ -19,20 +19,18 @@ export interface TeamsAppSettingsRequestBuilder extends BaseRequestBuilder<Teams
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the tenant-wide teamsAppSettings for all Teams apps in the tenant.
+     * Represents tenant-wide settings for all Teams apps in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsAppSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/teamsappsettings-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TeamsAppSettingsRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsAppSettings | undefined>;
     /**
-     * Update the tenant-wide teamsAppSettings for all Teams apps in the tenant.
+     * Update the navigation property teamsAppSettings in teamwork
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsAppSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/teamsappsettings-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TeamsAppSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamsAppSettings | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface TeamsAppSettingsRequestBuilder extends BaseRequestBuilder<Teams
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the tenant-wide teamsAppSettings for all Teams apps in the tenant.
+     * Represents tenant-wide settings for all Teams apps in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeamsAppSettingsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the tenant-wide teamsAppSettings for all Teams apps in the tenant.
+     * Update the navigation property teamsAppSettings in teamwork
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface TeamsAppSettingsRequestBuilder extends BaseRequestBuilder<Teams
      toPatchRequestInformation(body: TeamsAppSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the tenant-wide teamsAppSettings for all Teams apps in the tenant.
+ * Represents tenant-wide settings for all Teams apps in the tenant.
  */
 export interface TeamsAppSettingsRequestBuilderGetQueryParameters {
     /**

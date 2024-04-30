@@ -23,7 +23,7 @@ export function createErfC_PrecisePostRequestBodyFromDiscriminatorValue(parseNod
 export function deserializeIntoErfC_PrecisePostRequestBody(erfC_PrecisePostRequestBody: Partial<ErfC_PrecisePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { erfC_PrecisePostRequestBody.backingStoreEnabled = true; },
-        "x": n => { erfC_PrecisePostRequestBody.x = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
+        "X": n => { erfC_PrecisePostRequestBody.x = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
     }
 }
 export interface ErfC_PrecisePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {

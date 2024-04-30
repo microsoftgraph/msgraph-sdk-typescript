@@ -27,30 +27,28 @@ export interface TimeOffReasonsRequestBuilder extends BaseRequestBuilder<TimeOff
      */
      byTimeOffReasonId(timeOffReasonId: string) : TimeOffReasonItemRequestBuilder;
     /**
-     * Get the list of timeOffReasons in a schedule.
+     * The set of reasons for a time off in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TimeOffReasonCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/schedule-list-timeoffreasons?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TimeOffReasonsRequestBuilderGetQueryParameters> | undefined) : Promise<TimeOffReasonCollectionResponse | undefined>;
     /**
-     * Create a new timeOffReason.
+     * Create new navigation property to timeOffReasons for teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TimeOffReason>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/schedule-post-timeoffreasons?view=graph-rest-1.0|Find more info here}
      */
      post(body: TimeOffReason, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TimeOffReason | undefined>;
     /**
-     * Get the list of timeOffReasons in a schedule.
+     * The set of reasons for a time off in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TimeOffReasonsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new timeOffReason.
+     * Create new navigation property to timeOffReasons for teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface TimeOffReasonsRequestBuilder extends BaseRequestBuilder<TimeOff
      toPostRequestInformation(body: TimeOffReason, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the list of timeOffReasons in a schedule.
+ * The set of reasons for a time off in the schedule.
  */
 export interface TimeOffReasonsRequestBuilderGetQueryParameters {
     /**

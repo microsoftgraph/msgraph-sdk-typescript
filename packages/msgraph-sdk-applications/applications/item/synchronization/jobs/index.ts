@@ -33,30 +33,28 @@ export interface JobsRequestBuilder extends BaseRequestBuilder<JobsRequestBuilde
      */
      bySynchronizationJobId(synchronizationJobId: string) : SynchronizationJobItemRequestBuilder;
     /**
-     * List existing jobs for a given application instance (service principal).
+     * Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SynchronizationJobCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronization-list-jobs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<JobsRequestBuilderGetQueryParameters> | undefined) : Promise<SynchronizationJobCollectionResponse | undefined>;
     /**
-     * Create new synchronization job with a default synchronization schema. The job is created in a disabled state. Call Start job to start synchronization.
+     * Create new navigation property to jobs for applications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SynchronizationJob>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronization-post-jobs?view=graph-rest-1.0|Find more info here}
      */
      post(body: SynchronizationJob, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SynchronizationJob | undefined>;
     /**
-     * List existing jobs for a given application instance (service principal).
+     * Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<JobsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new synchronization job with a default synchronization schema. The job is created in a disabled state. Call Start job to start synchronization.
+     * Create new navigation property to jobs for applications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,7 +62,7 @@ export interface JobsRequestBuilder extends BaseRequestBuilder<JobsRequestBuilde
      toPostRequestInformation(body: SynchronizationJob, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List existing jobs for a given application instance (service principal).
+ * Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
  */
 export interface JobsRequestBuilderGetQueryParameters {
     /**

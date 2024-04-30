@@ -31,7 +31,7 @@ export interface CopyToDefaultContentLocationPostRequestBody extends AdditionalD
  */
 export interface CopyToDefaultContentLocationRequestBuilder extends BaseRequestBuilder<CopyToDefaultContentLocationRequestBuilder> {
     /**
-     * Copy a file to a default content location in a [content type][contentType]. The file can then be added as a default file or template via a POST operation.
+     * Copy a file to a default content location in a content type. The file can then be added as a default file or template via a POST operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -39,7 +39,7 @@ export interface CopyToDefaultContentLocationRequestBuilder extends BaseRequestB
      */
      post(body: CopyToDefaultContentLocationPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Copy a file to a default content location in a [content type][contentType]. The file can then be added as a default file or template via a POST operation.
+     * Copy a file to a default content location in a content type. The file can then be added as a default file or template via a POST operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

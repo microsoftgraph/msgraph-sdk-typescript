@@ -31,11 +31,10 @@ export interface HostPortItemRequestBuilder extends BaseRequestBuilder<HostPortI
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a hostPort object.
+     * Retrieve details about hostPort objects.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostPort>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-hostport-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HostPortItemRequestBuilderGetQueryParameters> | undefined) : Promise<HostPort | undefined>;
     /**
@@ -53,7 +52,7 @@ export interface HostPortItemRequestBuilder extends BaseRequestBuilder<HostPortI
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a hostPort object.
+     * Retrieve details about hostPort objects.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -67,7 +66,7 @@ export interface HostPortItemRequestBuilder extends BaseRequestBuilder<HostPortI
      toPatchRequestInformation(body: HostPort, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a hostPort object.
+ * Retrieve details about hostPort objects.Note: List retrieval is not yet supported.
  */
 export interface HostPortItemRequestBuilderGetQueryParameters {
     /**

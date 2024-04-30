@@ -25,11 +25,10 @@ export interface ChatMessageHostedContentItemRequestBuilder extends BaseRequestB
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of chatMessageHostedContent object.
+     * Content in a message hosted by Microsoft Teams - for example, images or code snippets.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ChatMessageHostedContent>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chatmessagehostedcontent-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ChatMessageHostedContentItemRequestBuilderGetQueryParameters> | undefined) : Promise<ChatMessageHostedContent | undefined>;
     /**
@@ -47,7 +46,7 @@ export interface ChatMessageHostedContentItemRequestBuilder extends BaseRequestB
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of chatMessageHostedContent object.
+     * Content in a message hosted by Microsoft Teams - for example, images or code snippets.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -61,7 +60,7 @@ export interface ChatMessageHostedContentItemRequestBuilder extends BaseRequestB
      toPatchRequestInformation(body: ChatMessageHostedContent, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of chatMessageHostedContent object.
+ * Content in a message hosted by Microsoft Teams - for example, images or code snippets.
  */
 export interface ChatMessageHostedContentItemRequestBuilderGetQueryParameters {
     /**

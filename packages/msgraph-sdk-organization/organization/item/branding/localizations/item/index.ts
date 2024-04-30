@@ -55,43 +55,40 @@ export interface OrganizationalBrandingLocalizationItemRequestBuilder extends Ba
      */
     get squareLogoDark(): SquareLogoDarkRequestBuilder;
     /**
-     * Delete a localized branding object. To delete the organizationalBrandingLocalization object, all images (Stream types) must first be removed from the object.
+     * Delete navigation property localizations for organization
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/organizationalbrandinglocalization-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an organizationalBrandingLocalization object. To retrieve a localization branding object, specify the value of id in the URL.
+     * Add different branding based on a locale.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OrganizationalBrandingLocalization>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/organizationalbrandinglocalization-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OrganizationalBrandingLocalizationItemRequestBuilderGetQueryParameters> | undefined) : Promise<OrganizationalBrandingLocalization | undefined>;
     /**
-     * Update the properties of an organizationalBrandingLocalization object for a specific localization.
+     * Update the navigation property localizations in organization
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OrganizationalBrandingLocalization>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/organizationalbrandinglocalization-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: OrganizationalBrandingLocalization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OrganizationalBrandingLocalization | undefined>;
     /**
-     * Delete a localized branding object. To delete the organizationalBrandingLocalization object, all images (Stream types) must first be removed from the object.
+     * Delete navigation property localizations for organization
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an organizationalBrandingLocalization object. To retrieve a localization branding object, specify the value of id in the URL.
+     * Add different branding based on a locale.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OrganizationalBrandingLocalizationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an organizationalBrandingLocalization object for a specific localization.
+     * Update the navigation property localizations in organization
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -99,7 +96,7 @@ export interface OrganizationalBrandingLocalizationItemRequestBuilder extends Ba
      toPatchRequestInformation(body: OrganizationalBrandingLocalization, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an organizationalBrandingLocalization object. To retrieve a localization branding object, specify the value of id in the URL.
+ * Add different branding based on a locale.
  */
 export interface OrganizationalBrandingLocalizationItemRequestBuilderGetQueryParameters {
     /**

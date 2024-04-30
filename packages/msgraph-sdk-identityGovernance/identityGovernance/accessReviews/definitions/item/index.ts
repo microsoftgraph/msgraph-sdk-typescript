@@ -25,18 +25,16 @@ export interface AccessReviewScheduleDefinitionItemRequestBuilder extends BaseRe
      */
     get stop(): StopRequestBuilder;
     /**
-     * Deletes an accessReviewScheduleDefinition object.
+     * Delete navigation property definitions for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an accessReviewScheduleDefinition object. To retrieve the instances of the access review series, use the list accessReviewInstance API.
+     * Represents the template and scheduling for an access review.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewScheduleDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AccessReviewScheduleDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<AccessReviewScheduleDefinition | undefined>;
     /**
@@ -48,13 +46,13 @@ export interface AccessReviewScheduleDefinitionItemRequestBuilder extends BaseRe
      */
      put(body: AccessReviewScheduleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessReviewScheduleDefinition | undefined>;
     /**
-     * Deletes an accessReviewScheduleDefinition object.
+     * Delete navigation property definitions for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an accessReviewScheduleDefinition object. To retrieve the instances of the access review series, use the list accessReviewInstance API.
+     * Represents the template and scheduling for an access review.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -68,7 +66,7 @@ export interface AccessReviewScheduleDefinitionItemRequestBuilder extends BaseRe
      toPutRequestInformation(body: AccessReviewScheduleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an accessReviewScheduleDefinition object. To retrieve the instances of the access review series, use the list accessReviewInstance API.
+ * Represents the template and scheduling for an access review.
  */
 export interface AccessReviewScheduleDefinitionItemRequestBuilderGetQueryParameters {
     /**

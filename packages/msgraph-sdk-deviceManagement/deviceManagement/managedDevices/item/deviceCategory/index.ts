@@ -19,20 +19,18 @@ export interface DeviceCategoryRequestBuilder extends BaseRequestBuilder<DeviceC
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the deviceCategory object.
+     * Device category
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCategory>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-devicecategory-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceCategoryRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCategory | undefined>;
     /**
-     * Update the properties of a deviceCategory object.
+     * Update the navigation property deviceCategory in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCategory>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-devicecategory-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCategory | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface DeviceCategoryRequestBuilder extends BaseRequestBuilder<DeviceC
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the deviceCategory object.
+     * Device category
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceCategoryRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a deviceCategory object.
+     * Update the navigation property deviceCategory in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface DeviceCategoryRequestBuilder extends BaseRequestBuilder<DeviceC
      toPatchRequestInformation(body: DeviceCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the deviceCategory object.
+ * Device category
  */
 export interface DeviceCategoryRequestBuilderGetQueryParameters {
     /**

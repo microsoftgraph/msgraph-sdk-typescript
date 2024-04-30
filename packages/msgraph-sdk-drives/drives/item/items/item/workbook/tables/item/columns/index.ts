@@ -35,11 +35,10 @@ export interface ColumnsRequestBuilder extends BaseRequestBuilder<ColumnsRequest
      */
      byWorkbookTableColumnId(workbookTableColumnId: string) : WorkbookTableColumnItemRequestBuilder;
     /**
-     * Retrieve a list of tablecolumn objects.
+     * Represents a collection of all the columns in the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTableColumnCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/tablecolumn-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ColumnsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookTableColumnCollectionResponse | undefined>;
     /**
@@ -49,22 +48,21 @@ export interface ColumnsRequestBuilder extends BaseRequestBuilder<ColumnsRequest
      */
      itemAtWithIndex(index: number | undefined) : ItemAtWithIndexRequestBuilder;
     /**
-     * Use this API to create a new TableColumn.
+     * Create new navigation property to columns for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTableColumn>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/table-post-columns?view=graph-rest-1.0|Find more info here}
      */
      post(body: WorkbookTableColumn, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTableColumn | undefined>;
     /**
-     * Retrieve a list of tablecolumn objects.
+     * Represents a collection of all the columns in the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ColumnsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Use this API to create a new TableColumn.
+     * Create new navigation property to columns for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -72,7 +70,7 @@ export interface ColumnsRequestBuilder extends BaseRequestBuilder<ColumnsRequest
      toPostRequestInformation(body: WorkbookTableColumn, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of tablecolumn objects.
+ * Represents a collection of all the columns in the table. Read-only.
  */
 export interface ColumnsRequestBuilderGetQueryParameters {
     /**

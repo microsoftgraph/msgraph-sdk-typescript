@@ -27,30 +27,28 @@ export interface NotesRequestBuilder extends BaseRequestBuilder<NotesRequestBuil
      */
      byAuthoredNoteId(authoredNoteId: string) : AuthoredNoteItemRequestBuilder;
     /**
-     * Get the list of authored notes assoicated with a subject rights request. 
+     * List of notes associated with the request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthoredNoteCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-list-notes?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<NotesRequestBuilderGetQueryParameters> | undefined) : Promise<AuthoredNoteCollectionResponse | undefined>;
     /**
-     * Create a new authoredNote object.
+     * Create new navigation property to notes for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthoredNote>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-post-notes?view=graph-rest-1.0|Find more info here}
      */
      post(body: AuthoredNote, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthoredNote | undefined>;
     /**
-     * Get the list of authored notes assoicated with a subject rights request. 
+     * List of notes associated with the request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<NotesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new authoredNote object.
+     * Create new navigation property to notes for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface NotesRequestBuilder extends BaseRequestBuilder<NotesRequestBuil
      toPostRequestInformation(body: AuthoredNote, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the list of authored notes assoicated with a subject rights request. 
+ * List of notes associated with the request.
  */
 export interface NotesRequestBuilderGetQueryParameters {
     /**

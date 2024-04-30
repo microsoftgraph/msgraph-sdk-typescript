@@ -27,30 +27,28 @@ export interface AndroidManagedAppProtectionsRequestBuilder extends BaseRequestB
      */
      byAndroidManagedAppProtectionId(androidManagedAppProtectionId: string) : AndroidManagedAppProtectionItemRequestBuilder;
     /**
-     * List properties and relationships of the androidManagedAppProtection objects.
+     * Android managed app policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AndroidManagedAppProtectionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AndroidManagedAppProtectionsRequestBuilderGetQueryParameters> | undefined) : Promise<AndroidManagedAppProtectionCollectionResponse | undefined>;
     /**
-     * Create a new androidManagedAppProtection object.
+     * Create new navigation property to androidManagedAppProtections for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AndroidManagedAppProtection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: AndroidManagedAppProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AndroidManagedAppProtection | undefined>;
     /**
-     * List properties and relationships of the androidManagedAppProtection objects.
+     * Android managed app policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AndroidManagedAppProtectionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new androidManagedAppProtection object.
+     * Create new navigation property to androidManagedAppProtections for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface AndroidManagedAppProtectionsRequestBuilder extends BaseRequestB
      toPostRequestInformation(body: AndroidManagedAppProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the androidManagedAppProtection objects.
+ * Android managed app policies.
  */
 export interface AndroidManagedAppProtectionsRequestBuilderGetQueryParameters {
     /**

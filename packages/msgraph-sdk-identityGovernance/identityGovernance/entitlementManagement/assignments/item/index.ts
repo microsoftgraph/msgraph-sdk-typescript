@@ -43,11 +43,10 @@ export interface AccessPackageAssignmentItemRequestBuilder extends BaseRequestBu
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * In Microsoft Entra entitlement management, retrieve the properties and relationships of an accessPackageAssignment object.
+     * The assignment of an access package to a subject for a period of time.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AccessPackageAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageAssignment | undefined>;
     /**
@@ -65,7 +64,7 @@ export interface AccessPackageAssignmentItemRequestBuilder extends BaseRequestBu
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * In Microsoft Entra entitlement management, retrieve the properties and relationships of an accessPackageAssignment object.
+     * The assignment of an access package to a subject for a period of time.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -79,7 +78,7 @@ export interface AccessPackageAssignmentItemRequestBuilder extends BaseRequestBu
      toPatchRequestInformation(body: AccessPackageAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * In Microsoft Entra entitlement management, retrieve the properties and relationships of an accessPackageAssignment object.
+ * The assignment of an access package to a subject for a period of time.
  */
 export interface AccessPackageAssignmentItemRequestBuilderGetQueryParameters {
     /**

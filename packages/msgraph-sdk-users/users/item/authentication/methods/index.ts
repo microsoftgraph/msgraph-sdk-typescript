@@ -27,11 +27,10 @@ export interface MethodsRequestBuilder extends BaseRequestBuilder<MethodsRequest
      */
      byAuthenticationMethodId(authenticationMethodId: string) : AuthenticationMethodItemRequestBuilder;
     /**
-     * Retrieve a list of authentication methods registered to a user. The authentication methods are defined by the types derived from the authenticationMethod resource type, and only the methods supported on this API version. See Microsoft Entra authentication methods API overview for a list of currently supported methods. We don't recommend using the authentication methods APIs for scenarios where you need to iterate over your entire user population for auditing or security check purposes. For these types of scenarios, we recommend using the authentication method registration and usage reporting APIs (available on the beta endpoint only).
+     * Represents all authentication methods registered to a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationMethodCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/authentication-list-methods?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MethodsRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationMethodCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface MethodsRequestBuilder extends BaseRequestBuilder<MethodsRequest
      */
      post(body: AuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationMethod | undefined>;
     /**
-     * Retrieve a list of authentication methods registered to a user. The authentication methods are defined by the types derived from the authenticationMethod resource type, and only the methods supported on this API version. See Microsoft Entra authentication methods API overview for a list of currently supported methods. We don't recommend using the authentication methods APIs for scenarios where you need to iterate over your entire user population for auditing or security check purposes. For these types of scenarios, we recommend using the authentication method registration and usage reporting APIs (available on the beta endpoint only).
+     * Represents all authentication methods registered to a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface MethodsRequestBuilder extends BaseRequestBuilder<MethodsRequest
      toPostRequestInformation(body: AuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of authentication methods registered to a user. The authentication methods are defined by the types derived from the authenticationMethod resource type, and only the methods supported on this API version. See Microsoft Entra authentication methods API overview for a list of currently supported methods. We don't recommend using the authentication methods APIs for scenarios where you need to iterate over your entire user population for auditing or security check purposes. For these types of scenarios, we recommend using the authentication method registration and usage reporting APIs (available on the beta endpoint only).
+ * Represents all authentication methods registered to a user.
  */
 export interface MethodsRequestBuilderGetQueryParameters {
     /**

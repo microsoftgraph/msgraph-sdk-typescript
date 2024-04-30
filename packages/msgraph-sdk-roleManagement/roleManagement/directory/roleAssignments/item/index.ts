@@ -37,18 +37,16 @@ export interface UnifiedRoleAssignmentItemRequestBuilder extends BaseRequestBuil
      */
     get roleDefinition(): RoleDefinitionRequestBuilder;
     /**
-     * Delete a unifiedRoleAssignment object.
+     * Delete navigation property roleAssignments for roleManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/unifiedroleassignment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a unifiedRoleAssignment object.
+     * Resource to grant access to users or groups.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/unifiedroleassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UnifiedRoleAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleAssignment | undefined>;
     /**
@@ -60,13 +58,13 @@ export interface UnifiedRoleAssignmentItemRequestBuilder extends BaseRequestBuil
      */
      patch(body: UnifiedRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleAssignment | undefined>;
     /**
-     * Delete a unifiedRoleAssignment object.
+     * Delete navigation property roleAssignments for roleManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a unifiedRoleAssignment object.
+     * Resource to grant access to users or groups.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -80,7 +78,7 @@ export interface UnifiedRoleAssignmentItemRequestBuilder extends BaseRequestBuil
      toPatchRequestInformation(body: UnifiedRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a unifiedRoleAssignment object.
+ * Resource to grant access to users or groups.
  */
 export interface UnifiedRoleAssignmentItemRequestBuilderGetQueryParameters {
     /**

@@ -19,20 +19,18 @@ export interface FontRequestBuilder extends BaseRequestBuilder<FontRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of chartfont object.
+     * Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartFont>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartfont-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<FontRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartFont | undefined>;
     /**
-     * Update the properties of chartfont object.
+     * Update the navigation property font in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartFont>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartfont-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WorkbookChartFont, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartFont | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface FontRequestBuilder extends BaseRequestBuilder<FontRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of chartfont object.
+     * Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FontRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of chartfont object.
+     * Update the navigation property font in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface FontRequestBuilder extends BaseRequestBuilder<FontRequestBuilde
      toPatchRequestInformation(body: WorkbookChartFont, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of chartfont object.
+ * Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
  */
 export interface FontRequestBuilderGetQueryParameters {
     /**

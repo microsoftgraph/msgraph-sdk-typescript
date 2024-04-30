@@ -27,30 +27,28 @@ export interface CitationsRequestBuilder extends BaseRequestBuilder<CitationsReq
      */
      byCitationTemplateId(citationTemplateId: string) : CitationTemplateItemRequestBuilder;
     /**
-     * Get a list of the citationTemplate objects and their properties.
+     * The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CitationTemplateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-list-citations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CitationsRequestBuilderGetQueryParameters> | undefined) : Promise<CitationTemplateCollectionResponse | undefined>;
     /**
-     * Create a new citationTemplate object.
+     * Create new navigation property to citations for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CitationTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-post-citations?view=graph-rest-1.0|Find more info here}
      */
      post(body: CitationTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CitationTemplate | undefined>;
     /**
-     * Get a list of the citationTemplate objects and their properties.
+     * The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CitationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new citationTemplate object.
+     * Create new navigation property to citations for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface CitationsRequestBuilder extends BaseRequestBuilder<CitationsReq
      toPostRequestInformation(body: CitationTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the citationTemplate objects and their properties.
+ * The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
  */
 export interface CitationsRequestBuilderGetQueryParameters {
     /**

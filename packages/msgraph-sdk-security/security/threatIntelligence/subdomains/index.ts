@@ -27,7 +27,7 @@ export interface SubdomainsRequestBuilder extends BaseRequestBuilder<SubdomainsR
      */
      bySubdomainId(subdomainId: string) : SubdomainItemRequestBuilder;
     /**
-     * Read the properties and relationships of a subdomain object.
+     * Retrieve details about the subdomain.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SubdomainCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface SubdomainsRequestBuilder extends BaseRequestBuilder<SubdomainsR
      */
      post(body: Subdomain, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Subdomain | undefined>;
     /**
-     * Read the properties and relationships of a subdomain object.
+     * Retrieve details about the subdomain.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface SubdomainsRequestBuilder extends BaseRequestBuilder<SubdomainsR
      toPostRequestInformation(body: Subdomain, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a subdomain object.
+ * Retrieve details about the subdomain.Note: List retrieval is not yet supported.
  */
 export interface SubdomainsRequestBuilderGetQueryParameters {
     /**

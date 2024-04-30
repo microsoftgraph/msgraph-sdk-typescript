@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface CalendarPermissionItemRequestBuilder extends BaseRequestBuilder<CalendarPermissionItemRequestBuilder> {
     /**
-     * Delete calendarPermission.
+     * Delete navigation property calendarPermissions for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/calendarpermission-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the specified permissions object of a user or group calendar that has been shared.
+     * The permissions of the users with whom the calendar is shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CalendarPermission>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/calendarpermission-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CalendarPermissionItemRequestBuilderGetQueryParameters> | undefined) : Promise<CalendarPermission | undefined>;
     /**
-     * Update the permissions assigned to an existing share recipient or delegate, through the corresponding <b>calendarPermission</b> object for a calendar.
+     * Update the navigation property calendarPermissions in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CalendarPermission>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/calendarpermission-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: CalendarPermission, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CalendarPermission | undefined>;
     /**
-     * Delete calendarPermission.
+     * Delete navigation property calendarPermissions for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the specified permissions object of a user or group calendar that has been shared.
+     * The permissions of the users with whom the calendar is shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CalendarPermissionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the permissions assigned to an existing share recipient or delegate, through the corresponding <b>calendarPermission</b> object for a calendar.
+     * Update the navigation property calendarPermissions in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface CalendarPermissionItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: CalendarPermission, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the specified permissions object of a user or group calendar that has been shared.
+ * The permissions of the users with whom the calendar is shared.
  */
 export interface CalendarPermissionItemRequestBuilderGetQueryParameters {
     /**

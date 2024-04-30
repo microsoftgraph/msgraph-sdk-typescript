@@ -13,18 +13,16 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DepartmentTemplateItemRequestBuilder extends BaseRequestBuilder<DepartmentTemplateItemRequestBuilder> {
     /**
-     * Delete a departmentTemplate object.
+     * Delete navigation property departments for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-delete-departments?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a departmentTemplate object.
+     * Specifies the department or business unit of an organization to which a label belongs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DepartmentTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-departmenttemplate-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DepartmentTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<DepartmentTemplate | undefined>;
     /**
@@ -36,13 +34,13 @@ export interface DepartmentTemplateItemRequestBuilder extends BaseRequestBuilder
      */
      patch(body: DepartmentTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DepartmentTemplate | undefined>;
     /**
-     * Delete a departmentTemplate object.
+     * Delete navigation property departments for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a departmentTemplate object.
+     * Specifies the department or business unit of an organization to which a label belongs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +54,7 @@ export interface DepartmentTemplateItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: DepartmentTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a departmentTemplate object.
+ * Specifies the department or business unit of an organization to which a label belongs.
  */
 export interface DepartmentTemplateItemRequestBuilderGetQueryParameters {
     /**

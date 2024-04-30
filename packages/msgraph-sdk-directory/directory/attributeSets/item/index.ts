@@ -19,20 +19,18 @@ export interface AttributeSetItemRequestBuilder extends BaseRequestBuilder<Attri
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an attributeSet object.
+     * Group of related custom security attribute definitions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AttributeSet>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/attributeset-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AttributeSetItemRequestBuilderGetQueryParameters> | undefined) : Promise<AttributeSet | undefined>;
     /**
-     * Update the properties of an attributeSet object.
+     * Update the navigation property attributeSets in directory
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AttributeSet>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/attributeset-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AttributeSet, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AttributeSet | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface AttributeSetItemRequestBuilder extends BaseRequestBuilder<Attri
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an attributeSet object.
+     * Group of related custom security attribute definitions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AttributeSetItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an attributeSet object.
+     * Update the navigation property attributeSets in directory
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface AttributeSetItemRequestBuilder extends BaseRequestBuilder<Attri
      toPatchRequestInformation(body: AttributeSet, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an attributeSet object.
+ * Group of related custom security attribute definitions.
  */
 export interface AttributeSetItemRequestBuilderGetQueryParameters {
     /**

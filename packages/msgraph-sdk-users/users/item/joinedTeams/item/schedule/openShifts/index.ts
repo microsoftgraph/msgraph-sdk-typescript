@@ -27,30 +27,28 @@ export interface OpenShiftsRequestBuilder extends BaseRequestBuilder<OpenShiftsR
      */
      byOpenShiftId(openShiftId: string) : OpenShiftItemRequestBuilder;
     /**
-     * List openShift objects in a team.
+     * The set of open shifts in a scheduling group in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OpenShiftCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/openshift-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OpenShiftsRequestBuilderGetQueryParameters> | undefined) : Promise<OpenShiftCollectionResponse | undefined>;
     /**
-     * Create an instance of an openShift object.
+     * Create new navigation property to openShifts for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OpenShift>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/openshift-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: OpenShift, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OpenShift | undefined>;
     /**
-     * List openShift objects in a team.
+     * The set of open shifts in a scheduling group in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OpenShiftsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create an instance of an openShift object.
+     * Create new navigation property to openShifts for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface OpenShiftsRequestBuilder extends BaseRequestBuilder<OpenShiftsR
      toPostRequestInformation(body: OpenShift, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List openShift objects in a team.
+ * The set of open shifts in a scheduling group in the schedule.
  */
 export interface OpenShiftsRequestBuilderGetQueryParameters {
     /**

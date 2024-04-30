@@ -19,43 +19,40 @@ export interface IdentityApiConnectorItemRequestBuilder extends BaseRequestBuild
      */
     get uploadClientCertificate(): UploadClientCertificateRequestBuilder;
     /**
-     * Delete an identityApiConnector object.
+     * Delete navigation property apiConnectors for identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identityapiconnector-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties of an identityApiConnector object.
+     * Represents entry point for API connectors.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IdentityApiConnector>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identityapiconnector-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IdentityApiConnectorItemRequestBuilderGetQueryParameters> | undefined) : Promise<IdentityApiConnector | undefined>;
     /**
-     * Update the properties of an identityApiConnector object.
+     * Update the navigation property apiConnectors in identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IdentityApiConnector>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identityapiconnector-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: IdentityApiConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IdentityApiConnector | undefined>;
     /**
-     * Delete an identityApiConnector object.
+     * Delete navigation property apiConnectors for identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties of an identityApiConnector object.
+     * Represents entry point for API connectors.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IdentityApiConnectorItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an identityApiConnector object.
+     * Update the navigation property apiConnectors in identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface IdentityApiConnectorItemRequestBuilder extends BaseRequestBuild
      toPatchRequestInformation(body: IdentityApiConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties of an identityApiConnector object.
+ * Represents entry point for API connectors.
  */
 export interface IdentityApiConnectorItemRequestBuilderGetQueryParameters {
     /**

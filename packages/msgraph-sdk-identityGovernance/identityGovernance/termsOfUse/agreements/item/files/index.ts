@@ -34,12 +34,11 @@ export interface FilesRequestBuilder extends BaseRequestBuilder<FilesRequestBuil
      */
      get(requestConfiguration?: RequestConfiguration<FilesRequestBuilderGetQueryParameters> | undefined) : Promise<AgreementFileLocalizationCollectionResponse | undefined>;
     /**
-     * Create a new localized agreement file.
+     * Create new navigation property to files for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AgreementFileLocalization>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/agreement-post-files?view=graph-rest-1.0|Find more info here}
      */
      post(body: AgreementFileLocalization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AgreementFileLocalization | undefined>;
     /**
@@ -49,7 +48,7 @@ export interface FilesRequestBuilder extends BaseRequestBuilder<FilesRequestBuil
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FilesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new localized agreement file.
+     * Create new navigation property to files for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

@@ -27,30 +27,28 @@ export interface ResourcesRequestBuilder extends BaseRequestBuilder<ResourcesReq
      */
      byEducationAssignmentResourceId(educationAssignmentResourceId: string) : EducationAssignmentResourceItemRequestBuilder;
     /**
-     * Get all the educationAssignmentResource objects associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+     * Learning objects that are associated with this assignment. Only teachers can modify this list. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationAssignmentResourceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-list-resources?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ResourcesRequestBuilderGetQueryParameters> | undefined) : Promise<EducationAssignmentResourceCollectionResponse | undefined>;
     /**
-     * Create an assignment resource. Only teachers can perform this operation. You can create the following types of assignment resources: Every resource has an @odata.type property to indicate which type of resource is being created.
+     * Create new navigation property to resources for education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationAssignmentResource>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-post-resource?view=graph-rest-1.0|Find more info here}
      */
      post(body: EducationAssignmentResource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationAssignmentResource | undefined>;
     /**
-     * Get all the educationAssignmentResource objects associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+     * Learning objects that are associated with this assignment. Only teachers can modify this list. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ResourcesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create an assignment resource. Only teachers can perform this operation. You can create the following types of assignment resources: Every resource has an @odata.type property to indicate which type of resource is being created.
+     * Create new navigation property to resources for education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface ResourcesRequestBuilder extends BaseRequestBuilder<ResourcesReq
      toPostRequestInformation(body: EducationAssignmentResource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get all the educationAssignmentResource objects associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+ * Learning objects that are associated with this assignment. Only teachers can modify this list. Nullable.
  */
 export interface ResourcesRequestBuilderGetQueryParameters {
     /**

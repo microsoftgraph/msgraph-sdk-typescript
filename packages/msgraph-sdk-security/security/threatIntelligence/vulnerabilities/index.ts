@@ -27,7 +27,7 @@ export interface VulnerabilitiesRequestBuilder extends BaseRequestBuilder<Vulner
      */
      byVulnerabilityId(vulnerabilityId: string) : VulnerabilityItemRequestBuilder;
     /**
-     * Read the properties and relationships of a vulnerability object.
+     * Retrieve details about vulnerabilities.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VulnerabilityCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface VulnerabilitiesRequestBuilder extends BaseRequestBuilder<Vulner
      */
      post(body: Vulnerability, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Vulnerability | undefined>;
     /**
-     * Read the properties and relationships of a vulnerability object.
+     * Retrieve details about vulnerabilities.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface VulnerabilitiesRequestBuilder extends BaseRequestBuilder<Vulner
      toPostRequestInformation(body: Vulnerability, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a vulnerability object.
+ * Retrieve details about vulnerabilities.Note: List retrieval is not yet supported.
  */
 export interface VulnerabilitiesRequestBuilderGetQueryParameters {
     /**

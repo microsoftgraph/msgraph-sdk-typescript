@@ -27,30 +27,28 @@ export interface AppManagementPoliciesRequestBuilder extends BaseRequestBuilder<
      */
      byAppManagementPolicyId(appManagementPolicyId: string) : AppManagementPolicyItemRequestBuilder;
     /**
-     * Retrieve a list of appManagementPolicy objects.
+     * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppManagementPolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/appmanagementpolicy-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AppManagementPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<AppManagementPolicyCollectionResponse | undefined>;
     /**
-     * Create an appManagementPolicy object.
+     * Create new navigation property to appManagementPolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppManagementPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/appmanagementpolicy-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: AppManagementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AppManagementPolicy | undefined>;
     /**
-     * Retrieve a list of appManagementPolicy objects.
+     * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppManagementPoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create an appManagementPolicy object.
+     * Create new navigation property to appManagementPolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface AppManagementPoliciesRequestBuilder extends BaseRequestBuilder<
      toPostRequestInformation(body: AppManagementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of appManagementPolicy objects.
+ * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
  */
 export interface AppManagementPoliciesRequestBuilderGetQueryParameters {
     /**

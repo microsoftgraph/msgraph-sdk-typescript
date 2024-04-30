@@ -27,30 +27,28 @@ export interface SectionGroupsRequestBuilder extends BaseRequestBuilder<SectionG
      */
      bySectionGroupId(sectionGroupId: string) : SectionGroupItemRequestBuilder;
     /**
-     * Retrieve a list of section groups from the specified notebook.
+     * The section groups in the notebook. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SectionGroupCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/notebook-list-sectiongroups?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SectionGroupsRequestBuilderGetQueryParameters> | undefined) : Promise<SectionGroupCollectionResponse | undefined>;
     /**
-     * Create a new section group in the specified notebook.
+     * Create new navigation property to sectionGroups for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SectionGroup>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/notebook-post-sectiongroups?view=graph-rest-1.0|Find more info here}
      */
      post(body: SectionGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SectionGroup | undefined>;
     /**
-     * Retrieve a list of section groups from the specified notebook.
+     * The section groups in the notebook. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SectionGroupsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new section group in the specified notebook.
+     * Create new navigation property to sectionGroups for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface SectionGroupsRequestBuilder extends BaseRequestBuilder<SectionG
      toPostRequestInformation(body: SectionGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of section groups from the specified notebook.
+ * The section groups in the notebook. Read-only. Nullable.
  */
 export interface SectionGroupsRequestBuilderGetQueryParameters {
     /**

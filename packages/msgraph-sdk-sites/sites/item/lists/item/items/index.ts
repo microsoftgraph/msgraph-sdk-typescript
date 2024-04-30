@@ -35,30 +35,28 @@ export interface ItemsRequestBuilder extends BaseRequestBuilder<ItemsRequestBuil
      */
      deltaWithToken(token: string | undefined) : DeltaWithTokenRequestBuilder;
     /**
-     * Get the collection of [items][item] in a [list][].
+     * All items contained in the list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ListItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/listitem-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ItemsRequestBuilderGetQueryParameters> | undefined) : Promise<ListItemCollectionResponse | undefined>;
     /**
-     * Create a new [listItem][] in a [list][].
+     * Create new navigation property to items for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ListItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/listitem-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: ListItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ListItem | undefined>;
     /**
-     * Get the collection of [items][item] in a [list][].
+     * All items contained in the list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ItemsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new [listItem][] in a [list][].
+     * Create new navigation property to items for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -66,7 +64,7 @@ export interface ItemsRequestBuilder extends BaseRequestBuilder<ItemsRequestBuil
      toPostRequestInformation(body: ListItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the collection of [items][item] in a [list][].
+ * All items contained in the list.
  */
 export interface ItemsRequestBuilderGetQueryParameters {
     /**

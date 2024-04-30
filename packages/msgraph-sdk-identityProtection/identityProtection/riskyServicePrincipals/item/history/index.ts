@@ -27,11 +27,10 @@ export interface HistoryRequestBuilder extends BaseRequestBuilder<HistoryRequest
      */
      byRiskyServicePrincipalHistoryItemId(riskyServicePrincipalHistoryItemId: string) : RiskyServicePrincipalHistoryItemItemRequestBuilder;
     /**
-     * Get the risk history of a riskyServicePrincipal object.
+     * Represents the risk history of Microsoft Entra service principals.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RiskyServicePrincipalHistoryItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/riskyserviceprincipal-list-history?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HistoryRequestBuilderGetQueryParameters> | undefined) : Promise<RiskyServicePrincipalHistoryItemCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface HistoryRequestBuilder extends BaseRequestBuilder<HistoryRequest
      */
      post(body: RiskyServicePrincipalHistoryItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RiskyServicePrincipalHistoryItem | undefined>;
     /**
-     * Get the risk history of a riskyServicePrincipal object.
+     * Represents the risk history of Microsoft Entra service principals.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface HistoryRequestBuilder extends BaseRequestBuilder<HistoryRequest
      toPostRequestInformation(body: RiskyServicePrincipalHistoryItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the risk history of a riskyServicePrincipal object.
+ * Represents the risk history of Microsoft Entra service principals.
  */
 export interface HistoryRequestBuilderGetQueryParameters {
     /**

@@ -68,27 +68,24 @@ export interface WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder<
      */
      cellWithRowWithColumn(column: number | undefined, row: number | undefined) : CellWithRowWithColumnRequestBuilder;
     /**
-     * Deletes the worksheet from the workbook.
+     * Delete navigation property worksheets for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/worksheet-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of worksheet object.
+     * Represents a collection of worksheets associated with the workbook. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookWorksheet>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/worksheet-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorkbookWorksheetItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookWorksheet | undefined>;
     /**
-     * Update the properties of worksheet object.
+     * Update the navigation property worksheets in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookWorksheet>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/worksheet-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WorkbookWorksheet, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookWorksheet | undefined>;
     /**
@@ -98,19 +95,19 @@ export interface WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder<
      */
      rangeWithAddress(address: string | undefined) : RangeWithAddressRequestBuilder;
     /**
-     * Deletes the worksheet from the workbook.
+     * Delete navigation property worksheets for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of worksheet object.
+     * Represents a collection of worksheets associated with the workbook. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkbookWorksheetItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of worksheet object.
+     * Update the navigation property worksheets in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -124,7 +121,7 @@ export interface WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder<
      usedRangeWithValuesOnly(valuesOnly: boolean | undefined) : UsedRangeWithValuesOnlyRequestBuilder;
 }
 /**
- * Retrieve the properties and relationships of worksheet object.
+ * Represents a collection of worksheets associated with the workbook. Read-only.
  */
 export interface WorkbookWorksheetItemRequestBuilderGetQueryParameters {
     /**

@@ -33,11 +33,10 @@ export interface WorksheetsRequestBuilder extends BaseRequestBuilder<WorksheetsR
      */
      byWorkbookWorksheetId(workbookWorksheetId: string) : WorkbookWorksheetItemRequestBuilder;
     /**
-     * Retrieve a list of worksheet objects.
+     * Represents a collection of worksheets associated with the workbook. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookWorksheetCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/workbook-list-worksheets?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorksheetsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookWorksheetCollectionResponse | undefined>;
     /**
@@ -49,7 +48,7 @@ export interface WorksheetsRequestBuilder extends BaseRequestBuilder<WorksheetsR
      */
      post(body: WorkbookWorksheet, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookWorksheet | undefined>;
     /**
-     * Retrieve a list of worksheet objects.
+     * Represents a collection of worksheets associated with the workbook. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -63,7 +62,7 @@ export interface WorksheetsRequestBuilder extends BaseRequestBuilder<WorksheetsR
      toPostRequestInformation(body: WorkbookWorksheet, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of worksheet objects.
+ * Represents a collection of worksheets associated with the workbook. Read-only.
  */
 export interface WorksheetsRequestBuilderGetQueryParameters {
     /**

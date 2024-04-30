@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface EducationModuleResourceItemRequestBuilder extends BaseRequestBuilder<EducationModuleResourceItemRequestBuilder> {
     /**
-     * Delete a specific educationModuleResource attached to a module. Only teachers in the class can remove a resource.
+     * Delete navigation property resources for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationmoduleresource-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the properties of a resource associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
+     * Learning objects that are associated with this module. Only teachers can modify this list. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationModuleResource>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationmoduleresource-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EducationModuleResourceItemRequestBuilderGetQueryParameters> | undefined) : Promise<EducationModuleResource | undefined>;
     /**
-     * Update a resource in a module. Only teachers can perform this operation. The only one property that can be updated is displayName, for all resource types.
+     * Update the navigation property resources in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationModuleResource>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationmoduleresource-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EducationModuleResource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationModuleResource | undefined>;
     /**
-     * Delete a specific educationModuleResource attached to a module. Only teachers in the class can remove a resource.
+     * Delete navigation property resources for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the properties of a resource associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
+     * Learning objects that are associated with this module. Only teachers can modify this list. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EducationModuleResourceItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update a resource in a module. Only teachers can perform this operation. The only one property that can be updated is displayName, for all resource types.
+     * Update the navigation property resources in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface EducationModuleResourceItemRequestBuilder extends BaseRequestBu
      toPatchRequestInformation(body: EducationModuleResource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the properties of a resource associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
+ * Learning objects that are associated with this module. Only teachers can modify this list. Nullable.
  */
 export interface EducationModuleResourceItemRequestBuilderGetQueryParameters {
     /**

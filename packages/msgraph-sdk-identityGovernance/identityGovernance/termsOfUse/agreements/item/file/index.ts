@@ -25,11 +25,10 @@ export interface FileRequestBuilder extends BaseRequestBuilder<FileRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the details of an agreement file, including the language and version information. The default file can have multiple versions, each with its own language, that can be retrieved by specifying the Accept-Language header.
+     * Default PDF linked to this agreement.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AgreementFile>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/agreementfile-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<FileRequestBuilderGetQueryParameters> | undefined) : Promise<AgreementFile | undefined>;
     /**
@@ -47,7 +46,7 @@ export interface FileRequestBuilder extends BaseRequestBuilder<FileRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the details of an agreement file, including the language and version information. The default file can have multiple versions, each with its own language, that can be retrieved by specifying the Accept-Language header.
+     * Default PDF linked to this agreement.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -61,7 +60,7 @@ export interface FileRequestBuilder extends BaseRequestBuilder<FileRequestBuilde
      toPatchRequestInformation(body: AgreementFile, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the details of an agreement file, including the language and version information. The default file can have multiple versions, each with its own language, that can be retrieved by specifying the Accept-Language header.
+ * Default PDF linked to this agreement.
  */
 export interface FileRequestBuilderGetQueryParameters {
     /**

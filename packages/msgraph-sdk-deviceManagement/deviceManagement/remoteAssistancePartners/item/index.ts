@@ -25,43 +25,40 @@ export interface RemoteAssistancePartnerItemRequestBuilder extends BaseRequestBu
      */
     get disconnect(): DisconnectRequestBuilder;
     /**
-     * Deletes a remoteAssistancePartner.
+     * Delete navigation property remoteAssistancePartners for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the remoteAssistancePartner object.
+     * The remote assist partners.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RemoteAssistancePartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RemoteAssistancePartnerItemRequestBuilderGetQueryParameters> | undefined) : Promise<RemoteAssistancePartner | undefined>;
     /**
-     * Update the properties of a remoteAssistancePartner object.
+     * Update the navigation property remoteAssistancePartners in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RemoteAssistancePartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: RemoteAssistancePartner, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RemoteAssistancePartner | undefined>;
     /**
-     * Deletes a remoteAssistancePartner.
+     * Delete navigation property remoteAssistancePartners for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the remoteAssistancePartner object.
+     * The remote assist partners.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RemoteAssistancePartnerItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a remoteAssistancePartner object.
+     * Update the navigation property remoteAssistancePartners in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -69,7 +66,7 @@ export interface RemoteAssistancePartnerItemRequestBuilder extends BaseRequestBu
      toPatchRequestInformation(body: RemoteAssistancePartner, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the remoteAssistancePartner object.
+ * The remote assist partners.
  */
 export interface RemoteAssistancePartnerItemRequestBuilderGetQueryParameters {
     /**

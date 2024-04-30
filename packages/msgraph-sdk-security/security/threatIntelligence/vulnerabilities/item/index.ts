@@ -31,11 +31,10 @@ export interface VulnerabilityItemRequestBuilder extends BaseRequestBuilder<Vuln
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a vulnerability object.
+     * Retrieve details about vulnerabilities.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Vulnerability>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-vulnerability-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<VulnerabilityItemRequestBuilderGetQueryParameters> | undefined) : Promise<Vulnerability | undefined>;
     /**
@@ -53,7 +52,7 @@ export interface VulnerabilityItemRequestBuilder extends BaseRequestBuilder<Vuln
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a vulnerability object.
+     * Retrieve details about vulnerabilities.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -67,7 +66,7 @@ export interface VulnerabilityItemRequestBuilder extends BaseRequestBuilder<Vuln
      toPatchRequestInformation(body: Vulnerability, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a vulnerability object.
+ * Retrieve details about vulnerabilities.Note: List retrieval is not yet supported.
  */
 export interface VulnerabilityItemRequestBuilderGetQueryParameters {
     /**

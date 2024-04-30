@@ -13,22 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface TaskDefinitionItemRequestBuilder extends BaseRequestBuilder<TaskDefinitionItemRequestBuilder> {
     /**
-     * Read the details of a built-in workflow task.
+     * The definition of tasks within the lifecycle workflows instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TaskDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-taskdefinition-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TaskDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<TaskDefinition | undefined>;
     /**
-     * Read the details of a built-in workflow task.
+     * The definition of tasks within the lifecycle workflows instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskDefinitionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Read the details of a built-in workflow task.
+ * The definition of tasks within the lifecycle workflows instance.
  */
 export interface TaskDefinitionItemRequestBuilderGetQueryParameters {
     /**

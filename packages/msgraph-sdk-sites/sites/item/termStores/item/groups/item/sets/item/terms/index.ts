@@ -27,7 +27,7 @@ export interface TermsRequestBuilder extends BaseRequestBuilder<TermsRequestBuil
      */
      byTermId(termId: string) : TermItemRequestBuilder;
     /**
-     * Read the properties and relationships of a term object.
+     * All the terms under the set.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TermCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface TermsRequestBuilder extends BaseRequestBuilder<TermsRequestBuil
      */
      post(body: Term, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Term | undefined>;
     /**
-     * Read the properties and relationships of a term object.
+     * All the terms under the set.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface TermsRequestBuilder extends BaseRequestBuilder<TermsRequestBuil
      toPostRequestInformation(body: Term, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a term object.
+ * All the terms under the set.
  */
 export interface TermsRequestBuilderGetQueryParameters {
     /**

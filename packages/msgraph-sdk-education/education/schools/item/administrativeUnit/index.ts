@@ -13,11 +13,10 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AdministrativeUnitRequestBuilder extends BaseRequestBuilder<AdministrativeUnitRequestBuilder> {
     /**
-     * Get a list of administrativeUnits associated with an educationSchool object.
+     * The underlying administrativeUnit for this school.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AdministrativeUnit>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationschool-list-administrativeunit?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AdministrativeUnitRequestBuilderGetQueryParameters> | undefined) : Promise<AdministrativeUnit | undefined>;
     /**
@@ -29,7 +28,7 @@ export interface AdministrativeUnitRequestBuilder extends BaseRequestBuilder<Adm
      */
      patch(body: AdministrativeUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AdministrativeUnit | undefined>;
     /**
-     * Get a list of administrativeUnits associated with an educationSchool object.
+     * The underlying administrativeUnit for this school.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -43,7 +42,7 @@ export interface AdministrativeUnitRequestBuilder extends BaseRequestBuilder<Adm
      toPatchRequestInformation(body: AdministrativeUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of administrativeUnits associated with an educationSchool object.
+ * The underlying administrativeUnit for this school.
  */
 export interface AdministrativeUnitRequestBuilderGetQueryParameters {
     /**

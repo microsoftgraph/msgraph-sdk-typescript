@@ -27,11 +27,10 @@ export interface ServicesRequestBuilder extends BaseRequestBuilder<ServicesReque
      */
      byPrintServiceId(printServiceId: string) : PrintServiceItemRequestBuilder;
     /**
-     * Retrieve a list of printService objects that represent the services available to your tenant.
+     * The list of available Universal Print service endpoints.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintServiceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/print-list-services?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ServicesRequestBuilderGetQueryParameters> | undefined) : Promise<PrintServiceCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface ServicesRequestBuilder extends BaseRequestBuilder<ServicesReque
      */
      post(body: PrintService, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintService | undefined>;
     /**
-     * Retrieve a list of printService objects that represent the services available to your tenant.
+     * The list of available Universal Print service endpoints.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface ServicesRequestBuilder extends BaseRequestBuilder<ServicesReque
      toPostRequestInformation(body: PrintService, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of printService objects that represent the services available to your tenant.
+ * The list of available Universal Print service endpoints.
  */
 export interface ServicesRequestBuilderGetQueryParameters {
     /**

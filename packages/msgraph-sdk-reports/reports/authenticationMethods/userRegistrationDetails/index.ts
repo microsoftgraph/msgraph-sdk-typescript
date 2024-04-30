@@ -27,11 +27,10 @@ export interface UserRegistrationDetailsRequestBuilder extends BaseRequestBuilde
      */
      byUserRegistrationDetailsId(userRegistrationDetailsId: string) : UserRegistrationDetailsItemRequestBuilder;
     /**
-     * Get a list of the authentication methods registered for a user as defined in the userRegistrationDetails object.
+     * Represents the state of a user's authentication methods, including which methods are registered and which features the user is registered and capable of (such as multifactor authentication, self-service password reset, and passwordless authentication).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserRegistrationDetailsCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/authenticationmethodsroot-list-userregistrationdetails?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserRegistrationDetailsRequestBuilderGetQueryParameters> | undefined) : Promise<UserRegistrationDetailsCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface UserRegistrationDetailsRequestBuilder extends BaseRequestBuilde
      */
      post(body: UserRegistrationDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserRegistrationDetails | undefined>;
     /**
-     * Get a list of the authentication methods registered for a user as defined in the userRegistrationDetails object.
+     * Represents the state of a user's authentication methods, including which methods are registered and which features the user is registered and capable of (such as multifactor authentication, self-service password reset, and passwordless authentication).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface UserRegistrationDetailsRequestBuilder extends BaseRequestBuilde
      toPostRequestInformation(body: UserRegistrationDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the authentication methods registered for a user as defined in the userRegistrationDetails object.
+ * Represents the state of a user's authentication methods, including which methods are registered and which features the user is registered and capable of (such as multifactor authentication, self-service password reset, and passwordless authentication).
  */
 export interface UserRegistrationDetailsRequestBuilderGetQueryParameters {
     /**

@@ -27,30 +27,28 @@ export interface ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestB
      */
      byActivityBasedTimeoutPolicyId(activityBasedTimeoutPolicyId: string) : ActivityBasedTimeoutPolicyItemRequestBuilder;
     /**
-     * Get a list of activityBasedTimeoutPolicy objects.
+     * The policy that controls the idle time out for web sessions for applications.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ActivityBasedTimeoutPolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ActivityBasedTimeoutPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<ActivityBasedTimeoutPolicyCollectionResponse | undefined>;
     /**
-     * Create a new activityBasedTimeoutPolicy object.
+     * Create new navigation property to activityBasedTimeoutPolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ActivityBasedTimeoutPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-post-activitybasedtimeoutpolicies?view=graph-rest-1.0|Find more info here}
      */
      post(body: ActivityBasedTimeoutPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ActivityBasedTimeoutPolicy | undefined>;
     /**
-     * Get a list of activityBasedTimeoutPolicy objects.
+     * The policy that controls the idle time out for web sessions for applications.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ActivityBasedTimeoutPoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new activityBasedTimeoutPolicy object.
+     * Create new navigation property to activityBasedTimeoutPolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestB
      toPostRequestInformation(body: ActivityBasedTimeoutPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of activityBasedTimeoutPolicy objects.
+ * The policy that controls the idle time out for web sessions for applications.
  */
 export interface ActivityBasedTimeoutPoliciesRequestBuilderGetQueryParameters {
     /**

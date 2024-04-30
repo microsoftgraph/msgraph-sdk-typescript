@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface TermsAndConditionsAssignmentItemRequestBuilder extends BaseRequestBuilder<TermsAndConditionsAssignmentItemRequestBuilder> {
     /**
-     * Deletes a termsAndConditionsAssignment.
+     * Delete navigation property assignments for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the termsAndConditionsAssignment object.
+     * The list of assignments for this T&C policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TermsAndConditionsAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TermsAndConditionsAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<TermsAndConditionsAssignment | undefined>;
     /**
-     * Update the properties of a termsAndConditionsAssignment object.
+     * Update the navigation property assignments in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TermsAndConditionsAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TermsAndConditionsAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TermsAndConditionsAssignment | undefined>;
     /**
-     * Deletes a termsAndConditionsAssignment.
+     * Delete navigation property assignments for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the termsAndConditionsAssignment object.
+     * The list of assignments for this T&C policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TermsAndConditionsAssignmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a termsAndConditionsAssignment object.
+     * Update the navigation property assignments in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface TermsAndConditionsAssignmentItemRequestBuilder extends BaseRequ
      toPatchRequestInformation(body: TermsAndConditionsAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the termsAndConditionsAssignment object.
+ * The list of assignments for this T&C policy.
  */
 export interface TermsAndConditionsAssignmentItemRequestBuilderGetQueryParameters {
     /**

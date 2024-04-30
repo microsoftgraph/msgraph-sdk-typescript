@@ -19,43 +19,40 @@ export interface ClaimsMappingPolicyItemRequestBuilder extends BaseRequestBuilde
      */
     get appliesTo(): AppliesToRequestBuilder;
     /**
-     * Delete a claimsMappingPolicy object.
+     * Delete navigation property claimsMappingPolicies for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/claimsmappingpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a claimsMappingPolicy object.
+     * The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ClaimsMappingPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/claimsmappingpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ClaimsMappingPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<ClaimsMappingPolicy | undefined>;
     /**
-     * Update the properties of a claimsMappingPolicy object.
+     * Update the navigation property claimsMappingPolicies in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ClaimsMappingPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/claimsmappingpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ClaimsMappingPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ClaimsMappingPolicy | undefined>;
     /**
-     * Delete a claimsMappingPolicy object.
+     * Delete navigation property claimsMappingPolicies for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a claimsMappingPolicy object.
+     * The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ClaimsMappingPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a claimsMappingPolicy object.
+     * Update the navigation property claimsMappingPolicies in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface ClaimsMappingPolicyItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: ClaimsMappingPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a claimsMappingPolicy object.
+ * The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
  */
 export interface ClaimsMappingPolicyItemRequestBuilderGetQueryParameters {
     /**

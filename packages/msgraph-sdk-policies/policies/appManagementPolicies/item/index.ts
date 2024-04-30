@@ -19,43 +19,40 @@ export interface AppManagementPolicyItemRequestBuilder extends BaseRequestBuilde
      */
     get appliesTo(): AppliesToRequestBuilder;
     /**
-     * Delete an appManagementPolicy object.
+     * Delete navigation property appManagementPolicies for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/appmanagementpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties of an appManagementPolicy object.
+     * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppManagementPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/appmanagementpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AppManagementPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<AppManagementPolicy | undefined>;
     /**
-     * Update an appManagementPolicy object.
+     * Update the navigation property appManagementPolicies in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppManagementPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/appmanagementpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AppManagementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AppManagementPolicy | undefined>;
     /**
-     * Delete an appManagementPolicy object.
+     * Delete navigation property appManagementPolicies for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties of an appManagementPolicy object.
+     * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppManagementPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update an appManagementPolicy object.
+     * Update the navigation property appManagementPolicies in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface AppManagementPolicyItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: AppManagementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties of an appManagementPolicy object.
+ * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
  */
 export interface AppManagementPolicyItemRequestBuilderGetQueryParameters {
     /**

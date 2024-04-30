@@ -13,10 +13,9 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder<AppRoleAssignmentItemRequestBuilder> {
     /**
-     * Delete an appRoleAssignment that has been granted to a user.
+     * Delete navigation property appRoleAssignments for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-delete-approleassignments?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -35,7 +34,7 @@ export interface AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder<
      */
      patch(body: AppRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AppRoleAssignment | undefined>;
     /**
-     * Delete an appRoleAssignment that has been granted to a user.
+     * Delete navigation property appRoleAssignments for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

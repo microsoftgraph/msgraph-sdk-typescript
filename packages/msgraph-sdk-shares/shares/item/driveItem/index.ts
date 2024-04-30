@@ -19,22 +19,21 @@ export interface DriveItemRequestBuilder extends BaseRequestBuilder<DriveItemReq
      */
     get content(): ContentRequestBuilder;
     /**
-     * Access a shared DriveItem or a collection of shared items by using a shareId or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
+     * Used to access the underlying driveItem
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/shares-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DriveItemRequestBuilderGetQueryParameters> | undefined) : Promise<DriveItem | undefined>;
     /**
-     * Access a shared DriveItem or a collection of shared items by using a shareId or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
+     * Used to access the underlying driveItem
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DriveItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Access a shared DriveItem or a collection of shared items by using a shareId or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
+ * Used to access the underlying driveItem
  */
 export interface DriveItemRequestBuilderGetQueryParameters {
     /**

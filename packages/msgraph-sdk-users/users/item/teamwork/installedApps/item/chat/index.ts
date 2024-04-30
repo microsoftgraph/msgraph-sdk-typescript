@@ -13,22 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ChatRequestBuilder extends BaseRequestBuilder<ChatRequestBuilder> {
     /**
-     * Retrieve the chat of the specified user and Teams app.
+     * The chat between the user and Teams app.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Chat>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/userscopeteamsappinstallation-get-chat?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ChatRequestBuilderGetQueryParameters> | undefined) : Promise<Chat | undefined>;
     /**
-     * Retrieve the chat of the specified user and Teams app.
+     * The chat between the user and Teams app.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ChatRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the chat of the specified user and Teams app.
+ * The chat between the user and Teams app.
  */
 export interface ChatRequestBuilderGetQueryParameters {
     /**

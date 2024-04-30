@@ -187,10 +187,9 @@ export interface DriveItemItemRequestBuilder extends BaseRequestBuilder<DriveIte
      */
     get workbook(): WorkbookRequestBuilder;
     /**
-     * Delete a DriveItem by using its ID or path.Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item.
+     * Delete navigation property items for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/driveitem-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -215,12 +214,11 @@ export interface DriveItemItemRequestBuilder extends BaseRequestBuilder<DriveIte
      */
      getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(endDateTime: string | undefined, interval: string | undefined, startDateTime: string | undefined) : GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
     /**
-     * Update the metadata for a driveItem by ID or path. You can also use update to move an item to another parent by updating the item's parentReference property.
+     * Update the navigation property items in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/driveitem-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DriveItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DriveItem | undefined>;
     /**
@@ -230,7 +228,7 @@ export interface DriveItemItemRequestBuilder extends BaseRequestBuilder<DriveIte
      */
      searchWithQ(q: string | undefined) : SearchWithQRequestBuilder;
     /**
-     * Delete a DriveItem by using its ID or path.Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item.
+     * Delete navigation property items for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -242,7 +240,7 @@ export interface DriveItemItemRequestBuilder extends BaseRequestBuilder<DriveIte
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DriveItemItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the metadata for a driveItem by ID or path. You can also use update to move an item to another parent by updating the item's parentReference property.
+     * Update the navigation property items in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

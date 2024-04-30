@@ -37,21 +37,22 @@ export interface RecentGetResponse extends BaseCollectionPaginationCountResponse
  */
 export interface RecentRequestBuilder extends BaseRequestBuilder<RecentRequestBuilder> {
     /**
-     * Invoke function recent
+     * List a set of items that have been recently used by the signed in user.This collection includes items that are in the user's drive and items they have access to from other drives.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RecentGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/drive-recent?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RecentRequestBuilderGetQueryParameters> | undefined) : Promise<RecentGetResponse | undefined>;
     /**
-     * Invoke function recent
+     * List a set of items that have been recently used by the signed in user.This collection includes items that are in the user's drive and items they have access to from other drives.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RecentRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function recent
+ * List a set of items that have been recently used by the signed in user.This collection includes items that are in the user's drive and items they have access to from other drives.
  */
 export interface RecentRequestBuilderGetQueryParameters {
     /**

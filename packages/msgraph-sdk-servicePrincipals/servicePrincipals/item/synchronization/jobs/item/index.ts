@@ -55,18 +55,16 @@ export interface SynchronizationJobItemRequestBuilder extends BaseRequestBuilder
      */
     get validateCredentials(): ValidateCredentialsRequestBuilder;
     /**
-     * Stop the synchronization job, and permanently delete all the state associated with it. Synchronized accounts are left as-is.
+     * Delete navigation property jobs for servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the existing synchronization job and its properties.
+     * Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SynchronizationJob>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SynchronizationJobItemRequestBuilderGetQueryParameters> | undefined) : Promise<SynchronizationJob | undefined>;
     /**
@@ -78,13 +76,13 @@ export interface SynchronizationJobItemRequestBuilder extends BaseRequestBuilder
      */
      patch(body: SynchronizationJob, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SynchronizationJob | undefined>;
     /**
-     * Stop the synchronization job, and permanently delete all the state associated with it. Synchronized accounts are left as-is.
+     * Delete navigation property jobs for servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the existing synchronization job and its properties.
+     * Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -98,7 +96,7 @@ export interface SynchronizationJobItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: SynchronizationJob, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the existing synchronization job and its properties.
+ * Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
  */
 export interface SynchronizationJobItemRequestBuilderGetQueryParameters {
     /**

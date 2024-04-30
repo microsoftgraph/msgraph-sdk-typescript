@@ -27,30 +27,28 @@ export interface SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuild
      */
      bySwapShiftsChangeRequestId(swapShiftsChangeRequestId: string) : SwapShiftsChangeRequestItemRequestBuilder;
     /**
-     * Retrieve a list of swapShiftsChangeRequest objects in the team.
+     * The swap requests for shifts in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SwapShiftsChangeRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/swapshiftschangerequest-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SwapShiftsChangeRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<SwapShiftsChangeRequestCollectionResponse | undefined>;
     /**
-     * Create an instance of a swapShiftsChangeRequest object.
+     * Create new navigation property to swapShiftsChangeRequests for teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SwapShiftsChangeRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/swapshiftschangerequest-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: SwapShiftsChangeRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SwapShiftsChangeRequest | undefined>;
     /**
-     * Retrieve a list of swapShiftsChangeRequest objects in the team.
+     * The swap requests for shifts in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SwapShiftsChangeRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create an instance of a swapShiftsChangeRequest object.
+     * Create new navigation property to swapShiftsChangeRequests for teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuild
      toPostRequestInformation(body: SwapShiftsChangeRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of swapShiftsChangeRequest objects in the team.
+ * The swap requests for shifts in the schedule.
  */
 export interface SwapShiftsChangeRequestsRequestBuilderGetQueryParameters {
     /**

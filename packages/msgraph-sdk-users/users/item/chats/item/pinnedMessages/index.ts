@@ -27,30 +27,28 @@ export interface PinnedMessagesRequestBuilder extends BaseRequestBuilder<PinnedM
      */
      byPinnedChatMessageInfoId(pinnedChatMessageInfoId: string) : PinnedChatMessageInfoItemRequestBuilder;
     /**
-     * Get a list of pinnedChatMessages in a chat.
+     * A collection of all the pinned messages in the chat. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PinnedChatMessageInfoCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chat-list-pinnedmessages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PinnedMessagesRequestBuilderGetQueryParameters> | undefined) : Promise<PinnedChatMessageInfoCollectionResponse | undefined>;
     /**
-     * Pin a chat message in the specified chat. This API cannot create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can pin a chat message.
+     * Create new navigation property to pinnedMessages for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PinnedChatMessageInfo>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chat-post-pinnedmessages?view=graph-rest-1.0|Find more info here}
      */
      post(body: PinnedChatMessageInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PinnedChatMessageInfo | undefined>;
     /**
-     * Get a list of pinnedChatMessages in a chat.
+     * A collection of all the pinned messages in the chat. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PinnedMessagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Pin a chat message in the specified chat. This API cannot create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can pin a chat message.
+     * Create new navigation property to pinnedMessages for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface PinnedMessagesRequestBuilder extends BaseRequestBuilder<PinnedM
      toPostRequestInformation(body: PinnedChatMessageInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of pinnedChatMessages in a chat.
+ * A collection of all the pinned messages in the chat. Nullable.
  */
 export interface PinnedMessagesRequestBuilderGetQueryParameters {
     /**
