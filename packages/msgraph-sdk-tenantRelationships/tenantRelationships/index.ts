@@ -14,6 +14,8 @@ import { FindTenantInformationByDomainNameWithDomainNameRequestBuilderRequestsMe
 // @ts-ignore
 import { FindTenantInformationByTenantIdWithTenantIdRequestBuilderRequestsMetadata, type FindTenantInformationByTenantIdWithTenantIdRequestBuilder } from './findTenantInformationByTenantIdWithTenantId/';
 // @ts-ignore
+import { MultiTenantOrganizationRequestBuilderNavigationMetadata, MultiTenantOrganizationRequestBuilderRequestsMetadata, type MultiTenantOrganizationRequestBuilder } from './multiTenantOrganization/';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -28,6 +30,10 @@ export interface TenantRelationshipsRequestBuilder extends BaseRequestBuilder<Te
      * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
      */
     get delegatedAdminRelationships(): DelegatedAdminRelationshipsRequestBuilder;
+    /**
+     * Provides operations to manage the multiTenantOrganization property of the microsoft.graph.tenantRelationship entity.
+     */
+    get multiTenantOrganization(): MultiTenantOrganizationRequestBuilder;
     /**
      * Provides operations to call the findTenantInformationByDomainName method.
      * @param domainName Usage: domainName='{domainName}'
@@ -110,6 +116,10 @@ export const TenantRelationshipsRequestBuilderNavigationMetadata: Record<Exclude
     delegatedAdminRelationships: {
         requestsMetadata: DelegatedAdminRelationshipsRequestBuilderRequestsMetadata,
         navigationMetadata: DelegatedAdminRelationshipsRequestBuilderNavigationMetadata,
+    },
+    multiTenantOrganization: {
+        requestsMetadata: MultiTenantOrganizationRequestBuilderRequestsMetadata,
+        navigationMetadata: MultiTenantOrganizationRequestBuilderNavigationMetadata,
     },
 };
 /**

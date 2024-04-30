@@ -27,7 +27,7 @@ export interface PassiveDnsRecordsRequestBuilder extends BaseRequestBuilder<Pass
      */
      byPassiveDnsRecordId(passiveDnsRecordId: string) : PassiveDnsRecordItemRequestBuilder;
     /**
-     * Read the properties and relationships of a passiveDnsRecord object.
+     * Retrieve details about passiveDnsRecord objects.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PassiveDnsRecordCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface PassiveDnsRecordsRequestBuilder extends BaseRequestBuilder<Pass
      */
      post(body: PassiveDnsRecord, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PassiveDnsRecord | undefined>;
     /**
-     * Read the properties and relationships of a passiveDnsRecord object.
+     * Retrieve details about passiveDnsRecord objects.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface PassiveDnsRecordsRequestBuilder extends BaseRequestBuilder<Pass
      toPostRequestInformation(body: PassiveDnsRecord, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a passiveDnsRecord object.
+ * Retrieve details about passiveDnsRecord objects.Note: List retrieval is not yet supported.
  */
 export interface PassiveDnsRecordsRequestBuilderGetQueryParameters {
     /**

@@ -157,43 +157,40 @@ export interface ManagedDeviceItemRequestBuilder extends BaseRequestBuilder<Mana
      */
     get wipe(): WipeRequestBuilder;
     /**
-     * Deletes a managedDevice.
+     * Delete navigation property managedDevices for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the managedDevice object.
+     * The list of managed devices.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDevice>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedDeviceItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDevice | undefined>;
     /**
-     * Update the properties of a managedDevice object.
+     * Update the navigation property managedDevices in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDevice>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ManagedDevice, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDevice | undefined>;
     /**
-     * Deletes a managedDevice.
+     * Delete navigation property managedDevices for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the managedDevice object.
+     * The list of managed devices.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedDeviceItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a managedDevice object.
+     * Update the navigation property managedDevices in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -201,7 +198,7 @@ export interface ManagedDeviceItemRequestBuilder extends BaseRequestBuilder<Mana
      toPatchRequestInformation(body: ManagedDevice, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the managedDevice object.
+ * The list of managed devices.
  */
 export interface ManagedDeviceItemRequestBuilderGetQueryParameters {
     /**

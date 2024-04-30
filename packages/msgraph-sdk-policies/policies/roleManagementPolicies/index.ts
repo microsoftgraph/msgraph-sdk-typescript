@@ -27,11 +27,10 @@ export interface RoleManagementPoliciesRequestBuilder extends BaseRequestBuilder
      */
      byUnifiedRoleManagementPolicyId(unifiedRoleManagementPolicyId: string) : UnifiedRoleManagementPolicyItemRequestBuilder;
     /**
-     * Get the details of the policies in PIM that can be applied to Microsoft Entra roles or group membership or ownership. To retrieve policies that apply to Azure RBAC, use the Azure REST PIM API for role management policies.
+     * Specifies the various policies associated with scopes and roles.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleManagementPolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/policyroot-list-rolemanagementpolicies?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RoleManagementPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleManagementPolicyCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface RoleManagementPoliciesRequestBuilder extends BaseRequestBuilder
      */
      post(body: UnifiedRoleManagementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleManagementPolicy | undefined>;
     /**
-     * Get the details of the policies in PIM that can be applied to Microsoft Entra roles or group membership or ownership. To retrieve policies that apply to Azure RBAC, use the Azure REST PIM API for role management policies.
+     * Specifies the various policies associated with scopes and roles.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface RoleManagementPoliciesRequestBuilder extends BaseRequestBuilder
      toPostRequestInformation(body: UnifiedRoleManagementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the details of the policies in PIM that can be applied to Microsoft Entra roles or group membership or ownership. To retrieve policies that apply to Azure RBAC, use the Azure REST PIM API for role management policies.
+ * Specifies the various policies associated with scopes and roles.
  */
 export interface RoleManagementPoliciesRequestBuilderGetQueryParameters {
     /**

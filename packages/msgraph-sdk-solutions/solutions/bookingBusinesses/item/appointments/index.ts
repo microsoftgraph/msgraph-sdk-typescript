@@ -27,30 +27,28 @@ export interface AppointmentsRequestBuilder extends BaseRequestBuilder<Appointme
      */
      byBookingAppointmentId(bookingAppointmentId: string) : BookingAppointmentItemRequestBuilder;
     /**
-     * Get a list of bookingAppointment objects for the specified bookingBusiness.
+     * All the appointments of this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingAppointmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-appointments?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AppointmentsRequestBuilderGetQueryParameters> | undefined) : Promise<BookingAppointmentCollectionResponse | undefined>;
     /**
-     * Create a new bookingAppointment for the specified bookingBusiness.
+     * Create new navigation property to appointments for solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingAppointment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-post-appointments?view=graph-rest-1.0|Find more info here}
      */
      post(body: BookingAppointment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingAppointment | undefined>;
     /**
-     * Get a list of bookingAppointment objects for the specified bookingBusiness.
+     * All the appointments of this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppointmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new bookingAppointment for the specified bookingBusiness.
+     * Create new navigation property to appointments for solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface AppointmentsRequestBuilder extends BaseRequestBuilder<Appointme
      toPostRequestInformation(body: BookingAppointment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of bookingAppointment objects for the specified bookingBusiness.
+ * All the appointments of this business. Read-only. Nullable.
  */
 export interface AppointmentsRequestBuilderGetQueryParameters {
     /**

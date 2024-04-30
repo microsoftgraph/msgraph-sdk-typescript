@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface InternalDomainFederationItemRequestBuilder extends BaseRequestBuilder<InternalDomainFederationItemRequestBuilder> {
     /**
-     * Delete an internalDomainFederation object.
+     * Delete navigation property federationConfiguration for domains
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/internaldomainfederation-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an internalDomainFederation object.
+     * Domain settings configured by a customer when federated with Microsoft Entra ID. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<InternalDomainFederation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/internaldomainfederation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<InternalDomainFederationItemRequestBuilderGetQueryParameters> | undefined) : Promise<InternalDomainFederation | undefined>;
     /**
-     * Update the properties of an internalDomainFederation object.
+     * Update the navigation property federationConfiguration in domains
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<InternalDomainFederation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/internaldomainfederation-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: InternalDomainFederation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<InternalDomainFederation | undefined>;
     /**
-     * Delete an internalDomainFederation object.
+     * Delete navigation property federationConfiguration for domains
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an internalDomainFederation object.
+     * Domain settings configured by a customer when federated with Microsoft Entra ID. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<InternalDomainFederationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an internalDomainFederation object.
+     * Update the navigation property federationConfiguration in domains
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface InternalDomainFederationItemRequestBuilder extends BaseRequestB
      toPatchRequestInformation(body: InternalDomainFederation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an internalDomainFederation object.
+ * Domain settings configured by a customer when federated with Microsoft Entra ID. Supports $expand.
  */
 export interface InternalDomainFederationItemRequestBuilderGetQueryParameters {
     /**

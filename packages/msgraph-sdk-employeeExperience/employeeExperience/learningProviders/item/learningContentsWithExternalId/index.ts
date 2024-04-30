@@ -13,18 +13,16 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface LearningContentsWithExternalIdRequestBuilder extends BaseRequestBuilder<LearningContentsWithExternalIdRequestBuilder> {
     /**
-     * Delete the specified learningContent resource that represents the metadata of the specified provider's ingested content.
+     * Delete navigation property learningContents for employeeExperience
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/learningprovider-delete-learningcontents?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the specified learningContent resource which represents the metadata of the specified provider's ingested content.
+     * Learning catalog items for the provider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LearningContent>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/learningcontent-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LearningContentsWithExternalIdRequestBuilderGetQueryParameters> | undefined) : Promise<LearningContent | undefined>;
     /**
@@ -36,13 +34,13 @@ export interface LearningContentsWithExternalIdRequestBuilder extends BaseReques
      */
      patch(body: LearningContent, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LearningContent | undefined>;
     /**
-     * Delete the specified learningContent resource that represents the metadata of the specified provider's ingested content.
+     * Delete navigation property learningContents for employeeExperience
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the specified learningContent resource which represents the metadata of the specified provider's ingested content.
+     * Learning catalog items for the provider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +54,7 @@ export interface LearningContentsWithExternalIdRequestBuilder extends BaseReques
      toPatchRequestInformation(body: LearningContent, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the specified learningContent resource which represents the metadata of the specified provider's ingested content.
+ * Learning catalog items for the provider.
  */
 export interface LearningContentsWithExternalIdRequestBuilderGetQueryParameters {
     /**

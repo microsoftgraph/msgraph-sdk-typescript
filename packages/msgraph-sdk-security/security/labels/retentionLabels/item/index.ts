@@ -31,10 +31,9 @@ export interface RetentionLabelItemRequestBuilder extends BaseRequestBuilder<Ret
      */
     get retentionEventType(): RetentionEventTypeRequestBuilder;
     /**
-     * Delete a retentionLabel object.
+     * Delete navigation property retentionLabels for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-retentionlabel-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -45,16 +44,15 @@ export interface RetentionLabelItemRequestBuilder extends BaseRequestBuilder<Ret
      */
      get(requestConfiguration?: RequestConfiguration<RetentionLabelItemRequestBuilderGetQueryParameters> | undefined) : Promise<RetentionLabel | undefined>;
     /**
-     * Update the properties of a retentionLabel object. To update a disposition review stage, include the actionAfterRetentionPeriod property in the request body with one of the possible values specified.
+     * Update the navigation property retentionLabels in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RetentionLabel>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-retentionlabel-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: RetentionLabel, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RetentionLabel | undefined>;
     /**
-     * Delete a retentionLabel object.
+     * Delete navigation property retentionLabels for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +64,7 @@ export interface RetentionLabelItemRequestBuilder extends BaseRequestBuilder<Ret
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RetentionLabelItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a retentionLabel object. To update a disposition review stage, include the actionAfterRetentionPeriod property in the request body with one of the possible values specified.
+     * Update the navigation property retentionLabels in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

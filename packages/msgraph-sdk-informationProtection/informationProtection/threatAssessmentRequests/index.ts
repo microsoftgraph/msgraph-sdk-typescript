@@ -27,30 +27,28 @@ export interface ThreatAssessmentRequestsRequestBuilder extends BaseRequestBuild
      */
      byThreatAssessmentRequestId(threatAssessmentRequestId: string) : ThreatAssessmentRequestItemRequestBuilder;
     /**
-     * Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:
+     * Get threatAssessmentRequests from informationProtection
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ThreatAssessmentRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/informationprotection-list-threatassessmentrequests?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ThreatAssessmentRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<ThreatAssessmentRequestCollectionResponse | undefined>;
     /**
-     * Create a new threat assessment request. A threat assessment request can be one of the following types:
+     * Create new navigation property to threatAssessmentRequests for informationProtection
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ThreatAssessmentRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/informationprotection-post-threatassessmentrequests?view=graph-rest-1.0|Find more info here}
      */
      post(body: ThreatAssessmentRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ThreatAssessmentRequest | undefined>;
     /**
-     * Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:
+     * Get threatAssessmentRequests from informationProtection
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ThreatAssessmentRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new threat assessment request. A threat assessment request can be one of the following types:
+     * Create new navigation property to threatAssessmentRequests for informationProtection
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface ThreatAssessmentRequestsRequestBuilder extends BaseRequestBuild
      toPostRequestInformation(body: ThreatAssessmentRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:
+ * Get threatAssessmentRequests from informationProtection
  */
 export interface ThreatAssessmentRequestsRequestBuilderGetQueryParameters {
     /**

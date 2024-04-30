@@ -27,30 +27,28 @@ export interface TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder<
      */
      byTokenLifetimePolicyId(tokenLifetimePolicyId: string) : TokenLifetimePolicyItemRequestBuilder;
     /**
-     * Get a list of tokenLifetimePolicy objects.
+     * The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Microsoft Entra ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TokenLifetimePolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/tokenlifetimepolicy-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TokenLifetimePoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<TokenLifetimePolicyCollectionResponse | undefined>;
     /**
-     * Create a new tokenLifetimePolicy object.
+     * Create new navigation property to tokenLifetimePolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TokenLifetimePolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/tokenlifetimepolicy-post-tokenlifetimepolicies?view=graph-rest-1.0|Find more info here}
      */
      post(body: TokenLifetimePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TokenLifetimePolicy | undefined>;
     /**
-     * Get a list of tokenLifetimePolicy objects.
+     * The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Microsoft Entra ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TokenLifetimePoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new tokenLifetimePolicy object.
+     * Create new navigation property to tokenLifetimePolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder<
      toPostRequestInformation(body: TokenLifetimePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of tokenLifetimePolicy objects.
+ * The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Microsoft Entra ID.
  */
 export interface TokenLifetimePoliciesRequestBuilderGetQueryParameters {
     /**

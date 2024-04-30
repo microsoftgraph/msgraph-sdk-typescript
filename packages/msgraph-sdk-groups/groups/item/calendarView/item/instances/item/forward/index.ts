@@ -23,8 +23,8 @@ export function createForwardPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 export function deserializeIntoForwardPostRequestBody(forwardPostRequestBody: Partial<ForwardPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { forwardPostRequestBody.backingStoreEnabled = true; },
-        "comment": n => { forwardPostRequestBody.comment = n.getStringValue(); },
-        "toRecipients": n => { forwardPostRequestBody.toRecipients = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
+        "Comment": n => { forwardPostRequestBody.comment = n.getStringValue(); },
+        "ToRecipients": n => { forwardPostRequestBody.toRecipients = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
     }
 }
 export interface ForwardPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {

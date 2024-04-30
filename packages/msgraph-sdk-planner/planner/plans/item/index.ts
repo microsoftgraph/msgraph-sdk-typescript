@@ -31,43 +31,40 @@ export interface PlannerPlanItemRequestBuilder extends BaseRequestBuilder<Planne
      */
     get tasks(): TasksRequestBuilder;
     /**
-     * Delete a plannerPlan object.
+     * Delete navigation property plans for planner
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/plannerplan-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a plannerplan object.
+     * Read-only. Nullable. Returns a collection of the specified plans
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerPlan>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/plannerplan-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PlannerPlanItemRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerPlan | undefined>;
     /**
-     * Update the properties of a plannerPlan object.
+     * Update the navigation property plans in planner
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerPlan>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/plannerplan-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PlannerPlan, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerPlan | undefined>;
     /**
-     * Delete a plannerPlan object.
+     * Delete navigation property plans for planner
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a plannerplan object.
+     * Read-only. Nullable. Returns a collection of the specified plans
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PlannerPlanItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a plannerPlan object.
+     * Update the navigation property plans in planner
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -75,7 +72,7 @@ export interface PlannerPlanItemRequestBuilder extends BaseRequestBuilder<Planne
      toPatchRequestInformation(body: PlannerPlan, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a plannerplan object.
+ * Read-only. Nullable. Returns a collection of the specified plans
  */
 export interface PlannerPlanItemRequestBuilderGetQueryParameters {
     /**

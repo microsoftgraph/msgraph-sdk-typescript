@@ -62,8 +62,8 @@ export interface CreateReplyRequestBuilder extends BaseRequestBuilder<CreateRepl
 export function deserializeIntoCreateReplyPostRequestBody(createReplyPostRequestBody: Partial<CreateReplyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createReplyPostRequestBody.backingStoreEnabled = true; },
-        "comment": n => { createReplyPostRequestBody.comment = n.getStringValue(); },
-        "message": n => { createReplyPostRequestBody.message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
+        "Comment": n => { createReplyPostRequestBody.comment = n.getStringValue(); },
+        "Message": n => { createReplyPostRequestBody.message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
     }
 }
 /**

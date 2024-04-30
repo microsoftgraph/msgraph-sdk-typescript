@@ -27,22 +27,21 @@ export interface ClassesRequestBuilder extends BaseRequestBuilder<ClassesRequest
      */
      byEducationClassId(educationClassId: string) : EducationClassItemRequestBuilder;
     /**
-     * Get the educationClass resources an educationUser is a member of.
+     * Classes to which the user belongs. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationClassCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationuser-list-classes?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ClassesRequestBuilderGetQueryParameters> | undefined) : Promise<EducationClassCollectionResponse | undefined>;
     /**
-     * Get the educationClass resources an educationUser is a member of.
+     * Classes to which the user belongs. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ClassesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the educationClass resources an educationUser is a member of.
+ * Classes to which the user belongs. Nullable.
  */
 export interface ClassesRequestBuilderGetQueryParameters {
     /**

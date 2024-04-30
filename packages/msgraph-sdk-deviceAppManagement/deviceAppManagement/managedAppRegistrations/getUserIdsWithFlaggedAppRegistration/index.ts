@@ -37,21 +37,22 @@ export interface GetUserIdsWithFlaggedAppRegistrationGetResponse extends BaseCol
  */
 export interface GetUserIdsWithFlaggedAppRegistrationRequestBuilder extends BaseRequestBuilder<GetUserIdsWithFlaggedAppRegistrationRequestBuilder> {
     /**
-     * Invoke function getUserIdsWithFlaggedAppRegistration
+     * Not yet documented
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetUserIdsWithFlaggedAppRegistrationGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappregistration-getuseridswithflaggedappregistration?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParameters> | undefined) : Promise<GetUserIdsWithFlaggedAppRegistrationGetResponse | undefined>;
     /**
-     * Invoke function getUserIdsWithFlaggedAppRegistration
+     * Not yet documented
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getUserIdsWithFlaggedAppRegistration
+ * Not yet documented
  */
 export interface GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParameters {
     /**

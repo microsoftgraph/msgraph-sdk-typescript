@@ -27,30 +27,28 @@ export interface SharesRequestBuilder extends BaseRequestBuilder<SharesRequestBu
      */
      byPrinterShareId(printerShareId: string) : PrinterShareItemRequestBuilder;
     /**
-     * Retrieve a list of printerShares.
+     * The list of printer shares registered in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrinterShareCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/print-list-shares?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SharesRequestBuilderGetQueryParameters> | undefined) : Promise<PrinterShareCollectionResponse | undefined>;
     /**
-     * Create a new printerShare for the specified printer.
+     * Create new navigation property to shares for print
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrinterShare>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/print-post-shares?view=graph-rest-1.0|Find more info here}
      */
      post(body: PrinterShare, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrinterShare | undefined>;
     /**
-     * Retrieve a list of printerShares.
+     * The list of printer shares registered in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SharesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new printerShare for the specified printer.
+     * Create new navigation property to shares for print
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface SharesRequestBuilder extends BaseRequestBuilder<SharesRequestBu
      toPostRequestInformation(body: PrinterShare, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of printerShares.
+ * The list of printer shares registered in the tenant.
  */
 export interface SharesRequestBuilderGetQueryParameters {
     /**

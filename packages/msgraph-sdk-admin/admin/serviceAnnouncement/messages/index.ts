@@ -63,11 +63,10 @@ export interface MessagesRequestBuilder extends BaseRequestBuilder<MessagesReque
      */
      byServiceUpdateMessageId(serviceUpdateMessageId: string) : ServiceUpdateMessageItemRequestBuilder;
     /**
-     * Retrieve the serviceUpdateMessage resources from the messages navigation property. This operation retrieves all service update messages that exist for the tenant.
+     * A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServiceUpdateMessageCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/serviceannouncement-list-messages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MessagesRequestBuilderGetQueryParameters> | undefined) : Promise<ServiceUpdateMessageCollectionResponse | undefined>;
     /**
@@ -79,7 +78,7 @@ export interface MessagesRequestBuilder extends BaseRequestBuilder<MessagesReque
      */
      post(body: ServiceUpdateMessage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ServiceUpdateMessage | undefined>;
     /**
-     * Retrieve the serviceUpdateMessage resources from the messages navigation property. This operation retrieves all service update messages that exist for the tenant.
+     * A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -93,7 +92,7 @@ export interface MessagesRequestBuilder extends BaseRequestBuilder<MessagesReque
      toPostRequestInformation(body: ServiceUpdateMessage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the serviceUpdateMessage resources from the messages navigation property. This operation retrieves all service update messages that exist for the tenant.
+ * A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
  */
 export interface MessagesRequestBuilderGetQueryParameters {
     /**

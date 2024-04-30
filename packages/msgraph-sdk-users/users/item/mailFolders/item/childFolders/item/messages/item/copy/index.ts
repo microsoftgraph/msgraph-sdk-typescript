@@ -58,7 +58,7 @@ export function createCopyPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 export function deserializeIntoCopyPostRequestBody(copyPostRequestBody: Partial<CopyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { copyPostRequestBody.backingStoreEnabled = true; },
-        "destinationId": n => { copyPostRequestBody.destinationId = n.getStringValue(); },
+        "DestinationId": n => { copyPostRequestBody.destinationId = n.getStringValue(); },
     }
 }
 /**

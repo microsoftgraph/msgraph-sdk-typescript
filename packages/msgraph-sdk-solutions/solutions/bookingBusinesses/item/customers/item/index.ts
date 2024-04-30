@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface BookingCustomerBaseItemRequestBuilder extends BaseRequestBuilder<BookingCustomerBaseItemRequestBuilder> {
     /**
-     * Delete the specified bookingCustomer object.
+     * Delete navigation property customers for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingcustomer-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the properties and relationships of a bookingCustomer object.
+     * All the customers of this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingCustomerBase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingcustomer-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BookingCustomerBaseItemRequestBuilderGetQueryParameters> | undefined) : Promise<BookingCustomerBase | undefined>;
     /**
-     * Update the properties of a bookingCustomer object.
+     * Update the navigation property customers in solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingCustomerBase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/bookingcustomer-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: BookingCustomerBase, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingCustomerBase | undefined>;
     /**
-     * Delete the specified bookingCustomer object.
+     * Delete navigation property customers for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the properties and relationships of a bookingCustomer object.
+     * All the customers of this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BookingCustomerBaseItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a bookingCustomer object.
+     * Update the navigation property customers in solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface BookingCustomerBaseItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: BookingCustomerBase, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the properties and relationships of a bookingCustomer object.
+ * All the customers of this business. Read-only. Nullable.
  */
 export interface BookingCustomerBaseItemRequestBuilderGetQueryParameters {
     /**

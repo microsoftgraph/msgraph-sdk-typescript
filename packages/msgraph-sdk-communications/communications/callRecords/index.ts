@@ -31,7 +31,7 @@ export interface CallRecordsRequestBuilder extends BaseRequestBuilder<CallRecord
      */
      byCallRecordId(callRecordId: string) : CallRecordItemRequestBuilder;
     /**
-     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord: You can use the $expand query parameter to optionally include session and segment details, as shown in the Get full details example. When you expand session details, the maximum page size is 60 sessions.
+     * Get callRecords from communications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CallRecordCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -60,7 +60,7 @@ export interface CallRecordsRequestBuilder extends BaseRequestBuilder<CallRecord
      */
      post(body: CallRecord, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CallRecord | undefined>;
     /**
-     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord: You can use the $expand query parameter to optionally include session and segment details, as shown in the Get full details example. When you expand session details, the maximum page size is 60 sessions.
+     * Get callRecords from communications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -74,7 +74,7 @@ export interface CallRecordsRequestBuilder extends BaseRequestBuilder<CallRecord
      toPostRequestInformation(body: CallRecord, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord: You can use the $expand query parameter to optionally include session and segment details, as shown in the Get full details example. When you expand session details, the maximum page size is 60 sessions.
+ * Get callRecords from communications
  */
 export interface CallRecordsRequestBuilderGetQueryParameters {
     /**

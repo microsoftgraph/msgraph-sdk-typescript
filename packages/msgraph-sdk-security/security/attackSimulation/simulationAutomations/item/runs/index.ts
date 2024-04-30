@@ -27,11 +27,10 @@ export interface RunsRequestBuilder extends BaseRequestBuilder<RunsRequestBuilde
      */
      bySimulationAutomationRunId(simulationAutomationRunId: string) : SimulationAutomationRunItemRequestBuilder;
     /**
-     * Get a list of the attack simulation automation runs for a tenant.
+     * A collection of simulation automation runs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SimulationAutomationRunCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/simulationautomation-list-runs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RunsRequestBuilderGetQueryParameters> | undefined) : Promise<SimulationAutomationRunCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface RunsRequestBuilder extends BaseRequestBuilder<RunsRequestBuilde
      */
      post(body: SimulationAutomationRun, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SimulationAutomationRun | undefined>;
     /**
-     * Get a list of the attack simulation automation runs for a tenant.
+     * A collection of simulation automation runs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface RunsRequestBuilder extends BaseRequestBuilder<RunsRequestBuilde
      toPostRequestInformation(body: SimulationAutomationRun, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the attack simulation automation runs for a tenant.
+ * A collection of simulation automation runs.
  */
 export interface RunsRequestBuilderGetQueryParameters {
     /**

@@ -37,21 +37,22 @@ export interface GetActivitiesByIntervalGetResponse extends BaseCollectionPagina
  */
 export interface GetActivitiesByIntervalRequestBuilder extends BaseRequestBuilder<GetActivitiesByIntervalRequestBuilder> {
     /**
-     * Invoke function getActivitiesByInterval
+     * Get a collection of itemActivityStats resources for the activities that took place on this resource within the specified time interval. Analytics aggregates might not be available for all action types.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetActivitiesByIntervalGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/itemactivitystat-getactivitybyinterval?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetActivitiesByIntervalRequestBuilderGetQueryParameters> | undefined) : Promise<GetActivitiesByIntervalGetResponse | undefined>;
     /**
-     * Invoke function getActivitiesByInterval
+     * Get a collection of itemActivityStats resources for the activities that took place on this resource within the specified time interval. Analytics aggregates might not be available for all action types.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetActivitiesByIntervalRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getActivitiesByInterval
+ * Get a collection of itemActivityStats resources for the activities that took place on this resource within the specified time interval. Analytics aggregates might not be available for all action types.
  */
 export interface GetActivitiesByIntervalRequestBuilderGetQueryParameters {
     /**

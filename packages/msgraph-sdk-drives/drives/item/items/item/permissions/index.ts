@@ -27,11 +27,10 @@ export interface PermissionsRequestBuilder extends BaseRequestBuilder<Permission
      */
      byPermissionId(permissionId: string) : PermissionItemRequestBuilder;
     /**
-     * List the effective sharing permissions on a driveItem.
+     * The set of permissions for the item. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PermissionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/driveitem-list-permissions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PermissionsRequestBuilderGetQueryParameters> | undefined) : Promise<PermissionCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface PermissionsRequestBuilder extends BaseRequestBuilder<Permission
      */
      post(body: Permission, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Permission | undefined>;
     /**
-     * List the effective sharing permissions on a driveItem.
+     * The set of permissions for the item. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface PermissionsRequestBuilder extends BaseRequestBuilder<Permission
      toPostRequestInformation(body: Permission, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List the effective sharing permissions on a driveItem.
+ * The set of permissions for the item. Read-only. Nullable.
  */
 export interface PermissionsRequestBuilderGetQueryParameters {
     /**

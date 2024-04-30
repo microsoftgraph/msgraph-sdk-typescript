@@ -27,30 +27,28 @@ export interface ConversationsRequestBuilder extends BaseRequestBuilder<Conversa
      */
      byConversationId(conversationId: string) : ConversationItemRequestBuilder;
     /**
-     * Retrieve the list of conversations in this group.
+     * The group's conversations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/group-list-conversations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConversationsRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationCollectionResponse | undefined>;
     /**
-     * Use reply thread or reply post to further post to that conversation.
+     * Create new navigation property to conversations for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Conversation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/group-post-conversations?view=graph-rest-1.0|Find more info here}
      */
      post(body: Conversation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Conversation | undefined>;
     /**
-     * Retrieve the list of conversations in this group.
+     * The group's conversations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConversationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Use reply thread or reply post to further post to that conversation.
+     * Create new navigation property to conversations for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface ConversationsRequestBuilder extends BaseRequestBuilder<Conversa
      toPostRequestInformation(body: Conversation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the list of conversations in this group.
+ * The group's conversations.
  */
 export interface ConversationsRequestBuilderGetQueryParameters {
     /**

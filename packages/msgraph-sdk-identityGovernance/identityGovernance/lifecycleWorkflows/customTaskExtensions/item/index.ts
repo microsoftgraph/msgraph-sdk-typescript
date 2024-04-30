@@ -25,43 +25,40 @@ export interface CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilde
      */
     get lastModifiedBy(): LastModifiedByRequestBuilder;
     /**
-     * Delete a customTaskExtension object. A custom task extension  can only be deleted if it is not referenced in any task objects in a lifecycle workflow.
+     * Delete navigation property customTaskExtensions for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-customtaskextension-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a customTaskExtension object.
+     * The customTaskExtension instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CustomTaskExtension>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-customtaskextension-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CustomTaskExtensionItemRequestBuilderGetQueryParameters> | undefined) : Promise<CustomTaskExtension | undefined>;
     /**
-     * Update the properties of a customTaskExtension object.
+     * Update the navigation property customTaskExtensions in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CustomTaskExtension>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-customtaskextension-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: CustomTaskExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CustomTaskExtension | undefined>;
     /**
-     * Delete a customTaskExtension object. A custom task extension  can only be deleted if it is not referenced in any task objects in a lifecycle workflow.
+     * Delete navigation property customTaskExtensions for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a customTaskExtension object.
+     * The customTaskExtension instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CustomTaskExtensionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a customTaskExtension object.
+     * Update the navigation property customTaskExtensions in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -69,7 +66,7 @@ export interface CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: CustomTaskExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a customTaskExtension object.
+ * The customTaskExtension instance.
  */
 export interface CustomTaskExtensionItemRequestBuilderGetQueryParameters {
     /**

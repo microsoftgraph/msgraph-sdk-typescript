@@ -25,11 +25,10 @@ export interface ApplicationRequestBuilder extends BaseRequestBuilder<Applicatio
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a workbookApplication object.
+     * Get application from drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookApplication>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/workbookapplication-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ApplicationRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookApplication | undefined>;
     /**
@@ -47,7 +46,7 @@ export interface ApplicationRequestBuilder extends BaseRequestBuilder<Applicatio
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a workbookApplication object.
+     * Get application from drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -61,7 +60,7 @@ export interface ApplicationRequestBuilder extends BaseRequestBuilder<Applicatio
      toPatchRequestInformation(body: WorkbookApplication, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a workbookApplication object.
+ * Get application from drives
  */
 export interface ApplicationRequestBuilderGetQueryParameters {
     /**

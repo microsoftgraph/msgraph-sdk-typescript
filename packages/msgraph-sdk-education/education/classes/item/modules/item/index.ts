@@ -43,43 +43,40 @@ export interface EducationModuleItemRequestBuilder extends BaseRequestBuilder<Ed
      */
     get unpin(): UnpinRequestBuilder;
     /**
-     * Delete an existing module in a class. Only teachers within a class can delete modules.
+     * Delete navigation property modules for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationmodule-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the properties and relationships of a module. Only teachers, students, and applications with application permissions can perform this operation. Students can only see published modules; teachers and applications with application permissions can see all modules in a class.
+     * All modules in the class. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationModule>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationmodule-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EducationModuleItemRequestBuilderGetQueryParameters> | undefined) : Promise<EducationModule | undefined>;
     /**
-     * Update an educationModule object in a class. Only teachers in the class can perform this operation. You can't use a PATCH request to change the status of a module. Use the publish action to change the module status.
+     * Update the navigation property modules in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationModule>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationmodule-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EducationModule, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationModule | undefined>;
     /**
-     * Delete an existing module in a class. Only teachers within a class can delete modules.
+     * Delete navigation property modules for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the properties and relationships of a module. Only teachers, students, and applications with application permissions can perform this operation. Students can only see published modules; teachers and applications with application permissions can see all modules in a class.
+     * All modules in the class. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EducationModuleItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update an educationModule object in a class. Only teachers in the class can perform this operation. You can't use a PATCH request to change the status of a module. Use the publish action to change the module status.
+     * Update the navigation property modules in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -87,7 +84,7 @@ export interface EducationModuleItemRequestBuilder extends BaseRequestBuilder<Ed
      toPatchRequestInformation(body: EducationModule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the properties and relationships of a module. Only teachers, students, and applications with application permissions can perform this operation. Students can only see published modules; teachers and applications with application permissions can see all modules in a class.
+ * All modules in the class. Nullable.
  */
 export interface EducationModuleItemRequestBuilderGetQueryParameters {
     /**

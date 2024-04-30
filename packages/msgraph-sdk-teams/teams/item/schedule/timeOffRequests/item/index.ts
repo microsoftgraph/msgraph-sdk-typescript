@@ -13,18 +13,16 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface TimeOffRequestItemRequestBuilder extends BaseRequestBuilder<TimeOffRequestItemRequestBuilder> {
     /**
-     * Delete a timeOffRequest object.
+     * Delete navigation property timeOffRequests for teams
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/timeoffrequest-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a timeoffrequest object.
+     * The time off requests in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TimeOffRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/timeoffrequest-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TimeOffRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<TimeOffRequest | undefined>;
     /**
@@ -36,13 +34,13 @@ export interface TimeOffRequestItemRequestBuilder extends BaseRequestBuilder<Tim
      */
      patch(body: TimeOffRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TimeOffRequest | undefined>;
     /**
-     * Delete a timeOffRequest object.
+     * Delete navigation property timeOffRequests for teams
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a timeoffrequest object.
+     * The time off requests in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +54,7 @@ export interface TimeOffRequestItemRequestBuilder extends BaseRequestBuilder<Tim
      toPatchRequestInformation(body: TimeOffRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a timeoffrequest object.
+ * The time off requests in the schedule.
  */
 export interface TimeOffRequestItemRequestBuilderGetQueryParameters {
     /**

@@ -27,30 +27,28 @@ export interface OfferShiftRequestsRequestBuilder extends BaseRequestBuilder<Off
      */
      byOfferShiftRequestId(offerShiftRequestId: string) : OfferShiftRequestItemRequestBuilder;
     /**
-     * Retrieve the properties and relationships of all offerShiftRequest objects in a team.
+     * The offer requests for shifts in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OfferShiftRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/offershiftrequest-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OfferShiftRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<OfferShiftRequestCollectionResponse | undefined>;
     /**
-     * Create an instance of an offerShiftRequest.
+     * Create new navigation property to offerShiftRequests for teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OfferShiftRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/offershiftrequest-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: OfferShiftRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OfferShiftRequest | undefined>;
     /**
-     * Retrieve the properties and relationships of all offerShiftRequest objects in a team.
+     * The offer requests for shifts in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OfferShiftRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create an instance of an offerShiftRequest.
+     * Create new navigation property to offerShiftRequests for teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface OfferShiftRequestsRequestBuilder extends BaseRequestBuilder<Off
      toPostRequestInformation(body: OfferShiftRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of all offerShiftRequest objects in a team.
+ * The offer requests for shifts in the schedule.
  */
 export interface OfferShiftRequestsRequestBuilderGetQueryParameters {
     /**

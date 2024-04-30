@@ -19,35 +19,33 @@ export interface AttachmentBaseItemRequestBuilder extends BaseRequestBuilder<Att
      */
     get content(): ContentRequestBuilder;
     /**
-     * Delete a taskFileAttachment object from a todoTask resource.
+     * Delete navigation property attachments for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/taskfileattachment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a taskFileAttachment object.
+     * A collection of file attachments for the task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AttachmentBase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/taskfileattachment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AttachmentBaseItemRequestBuilderGetQueryParameters> | undefined) : Promise<AttachmentBase | undefined>;
     /**
-     * Delete a taskFileAttachment object from a todoTask resource.
+     * Delete navigation property attachments for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a taskFileAttachment object.
+     * A collection of file attachments for the task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AttachmentBaseItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a taskFileAttachment object.
+ * A collection of file attachments for the task.
  */
 export interface AttachmentBaseItemRequestBuilderGetQueryParameters {
     /**

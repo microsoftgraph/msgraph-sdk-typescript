@@ -27,30 +27,28 @@ export interface AdditionalSourcesRequestBuilder extends BaseRequestBuilder<Addi
      */
      byDataSourceId(dataSourceId: string) : DataSourceItemRequestBuilder;
     /**
-     * Get the list of additional sources associated with an eDiscovery search.
+     * Adds an additional source to the eDiscovery search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DataSourceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-list-additionalsources?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AdditionalSourcesRequestBuilderGetQueryParameters> | undefined) : Promise<DataSourceCollectionResponse | undefined>;
     /**
-     * Create a new additional source associated with an eDiscovery search.
+     * Create new navigation property to additionalSources for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DataSource>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-post-additionalsources?view=graph-rest-1.0|Find more info here}
      */
      post(body: DataSource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DataSource | undefined>;
     /**
-     * Get the list of additional sources associated with an eDiscovery search.
+     * Adds an additional source to the eDiscovery search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AdditionalSourcesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new additional source associated with an eDiscovery search.
+     * Create new navigation property to additionalSources for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface AdditionalSourcesRequestBuilder extends BaseRequestBuilder<Addi
      toPostRequestInformation(body: DataSource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the list of additional sources associated with an eDiscovery search.
+ * Adds an additional source to the eDiscovery search.
  */
 export interface AdditionalSourcesRequestBuilderGetQueryParameters {
     /**

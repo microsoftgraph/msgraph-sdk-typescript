@@ -27,11 +27,10 @@ export interface TrendingRequestBuilder extends BaseRequestBuilder<TrendingReque
      */
      byTrendingId(trendingId: string) : TrendingItemRequestBuilder;
     /**
-     * Calculated insight that includes a list of documents trending around the user.
+     * Calculated relationship identifying documents trending around a user. Trending documents are calculated based on activity of the user's closest network of people and include files stored in OneDrive for Business and SharePoint. Trending insights help the user to discover potentially useful content that the user has access to, but has never viewed before.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TrendingCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/insights-list-trending?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TrendingRequestBuilderGetQueryParameters> | undefined) : Promise<TrendingCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface TrendingRequestBuilder extends BaseRequestBuilder<TrendingReque
      */
      post(body: Trending, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Trending | undefined>;
     /**
-     * Calculated insight that includes a list of documents trending around the user.
+     * Calculated relationship identifying documents trending around a user. Trending documents are calculated based on activity of the user's closest network of people and include files stored in OneDrive for Business and SharePoint. Trending insights help the user to discover potentially useful content that the user has access to, but has never viewed before.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface TrendingRequestBuilder extends BaseRequestBuilder<TrendingReque
      toPostRequestInformation(body: Trending, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Calculated insight that includes a list of documents trending around the user.
+ * Calculated relationship identifying documents trending around a user. Trending documents are calculated based on activity of the user's closest network of people and include files stored in OneDrive for Business and SharePoint. Trending insights help the user to discover potentially useful content that the user has access to, but has never viewed before.
  */
 export interface TrendingRequestBuilderGetQueryParameters {
     /**

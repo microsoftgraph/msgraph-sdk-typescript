@@ -19,11 +19,10 @@ export interface VirtualEventRegistrationItemRequestBuilder extends BaseRequestB
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the properties and relationships of a virtualEventRegistration object.
+     * Registration records of the webinar.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventRegistration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/virtualeventregistration-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<VirtualEventRegistrationItemRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventRegistration | undefined>;
     /**
@@ -41,7 +40,7 @@ export interface VirtualEventRegistrationItemRequestBuilder extends BaseRequestB
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the properties and relationships of a virtualEventRegistration object.
+     * Registration records of the webinar.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -55,7 +54,7 @@ export interface VirtualEventRegistrationItemRequestBuilder extends BaseRequestB
      toPatchRequestInformation(body: VirtualEventRegistration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the properties and relationships of a virtualEventRegistration object.
+ * Registration records of the webinar.
  */
 export interface VirtualEventRegistrationItemRequestBuilderGetQueryParameters {
     /**

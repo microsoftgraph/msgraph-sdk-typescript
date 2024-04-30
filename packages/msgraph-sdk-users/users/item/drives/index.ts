@@ -27,22 +27,21 @@ export interface DrivesRequestBuilder extends BaseRequestBuilder<DrivesRequestBu
      */
      byDriveId(driveId: string) : DriveItemRequestBuilder;
     /**
-     * Retrieve the list of Drive resources available for a target User, Group, or Site.
+     * A collection of drives available for this user. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/drive-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DrivesRequestBuilderGetQueryParameters> | undefined) : Promise<DriveCollectionResponse | undefined>;
     /**
-     * Retrieve the list of Drive resources available for a target User, Group, or Site.
+     * A collection of drives available for this user. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DrivesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the list of Drive resources available for a target User, Group, or Site.
+ * A collection of drives available for this user. Read-only.
  */
 export interface DrivesRequestBuilderGetQueryParameters {
     /**

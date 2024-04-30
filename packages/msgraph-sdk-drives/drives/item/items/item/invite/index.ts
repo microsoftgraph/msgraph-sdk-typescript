@@ -104,7 +104,7 @@ export interface InvitePostResponse extends BaseCollectionPaginationCountRespons
  */
 export interface InviteRequestBuilder extends BaseRequestBuilder<InviteRequestBuilder> {
     /**
-     * Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends them an email with a [sharing link][].
+     * Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends them an email with a sharing link.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<InvitePostResponse>}
@@ -113,7 +113,7 @@ export interface InviteRequestBuilder extends BaseRequestBuilder<InviteRequestBu
      */
      post(body: InvitePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<InvitePostResponse | undefined>;
     /**
-     * Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends them an email with a [sharing link][].
+     * Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends them an email with a sharing link.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

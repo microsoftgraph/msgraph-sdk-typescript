@@ -25,20 +25,18 @@ export interface TitleRequestBuilder extends BaseRequestBuilder<TitleRequestBuil
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of chartaxistitle object.
+     * Represents the axis title. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartAxisTitle>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartaxistitle-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TitleRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartAxisTitle | undefined>;
     /**
-     * Update the properties of chartaxistitle object.
+     * Update the navigation property title in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartAxisTitle>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartaxistitle-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WorkbookChartAxisTitle, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartAxisTitle | undefined>;
     /**
@@ -48,13 +46,13 @@ export interface TitleRequestBuilder extends BaseRequestBuilder<TitleRequestBuil
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of chartaxistitle object.
+     * Represents the axis title. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TitleRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of chartaxistitle object.
+     * Update the navigation property title in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +60,7 @@ export interface TitleRequestBuilder extends BaseRequestBuilder<TitleRequestBuil
      toPatchRequestInformation(body: WorkbookChartAxisTitle, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of chartaxistitle object.
+ * Represents the axis title. Read-only.
  */
 export interface TitleRequestBuilderGetQueryParameters {
     /**

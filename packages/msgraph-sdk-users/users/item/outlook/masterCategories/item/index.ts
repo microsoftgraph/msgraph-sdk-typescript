@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface OutlookCategoryItemRequestBuilder extends BaseRequestBuilder<OutlookCategoryItemRequestBuilder> {
     /**
-     * Delete the specified outlookCategory object.
+     * Delete navigation property masterCategories for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/outlookcategory-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the properties and relationships of the specified outlookCategory object.
+     * A list of categories defined for the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OutlookCategory>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/outlookcategory-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OutlookCategoryItemRequestBuilderGetQueryParameters> | undefined) : Promise<OutlookCategory | undefined>;
     /**
-     * Update the writable property, color, of the specified outlookCategory object. You can't modify the displayName property once you have created the category.
+     * Update the navigation property masterCategories in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OutlookCategory>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/outlookcategory-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: OutlookCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OutlookCategory | undefined>;
     /**
-     * Delete the specified outlookCategory object.
+     * Delete navigation property masterCategories for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the properties and relationships of the specified outlookCategory object.
+     * A list of categories defined for the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OutlookCategoryItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the writable property, color, of the specified outlookCategory object. You can't modify the displayName property once you have created the category.
+     * Update the navigation property masterCategories in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface OutlookCategoryItemRequestBuilder extends BaseRequestBuilder<Ou
      toPatchRequestInformation(body: OutlookCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the properties and relationships of the specified outlookCategory object.
+ * A list of categories defined for the user.
  */
 export interface OutlookCategoryItemRequestBuilderGetQueryParameters {
     /**

@@ -19,11 +19,10 @@ export interface SignInItemRequestBuilder extends BaseRequestBuilder<SignInItemR
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve a specific Microsoft Entra user sign-in event for your tenant. Sign-ins that are interactive in nature (where a username/password is passed as part of auth token) and successful federated sign-ins are currently included in the sign-in logs.
+     * Get signIns from auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SignIn>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/signin-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SignInItemRequestBuilderGetQueryParameters> | undefined) : Promise<SignIn | undefined>;
     /**
@@ -41,7 +40,7 @@ export interface SignInItemRequestBuilder extends BaseRequestBuilder<SignInItemR
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve a specific Microsoft Entra user sign-in event for your tenant. Sign-ins that are interactive in nature (where a username/password is passed as part of auth token) and successful federated sign-ins are currently included in the sign-in logs.
+     * Get signIns from auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -55,7 +54,7 @@ export interface SignInItemRequestBuilder extends BaseRequestBuilder<SignInItemR
      toPatchRequestInformation(body: SignIn, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a specific Microsoft Entra user sign-in event for your tenant. Sign-ins that are interactive in nature (where a username/password is passed as part of auth token) and successful federated sign-ins are currently included in the sign-in logs.
+ * Get signIns from auditLogs
  */
 export interface SignInItemRequestBuilderGetQueryParameters {
     /**

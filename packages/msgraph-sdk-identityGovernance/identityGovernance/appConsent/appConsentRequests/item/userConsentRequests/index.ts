@@ -35,11 +35,10 @@ export interface UserConsentRequestsRequestBuilder extends BaseRequestBuilder<Us
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Retrieve a collection of userConsentRequest objects and their properties.
+     * A list of pending user consent requests. Supports $filter (eq).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserConsentRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/appconsentrequest-list-userconsentrequests?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserConsentRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<UserConsentRequestCollectionResponse | undefined>;
     /**
@@ -51,7 +50,7 @@ export interface UserConsentRequestsRequestBuilder extends BaseRequestBuilder<Us
      */
      post(body: UserConsentRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserConsentRequest | undefined>;
     /**
-     * Retrieve a collection of userConsentRequest objects and their properties.
+     * A list of pending user consent requests. Supports $filter (eq).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -65,7 +64,7 @@ export interface UserConsentRequestsRequestBuilder extends BaseRequestBuilder<Us
      toPostRequestInformation(body: UserConsentRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a collection of userConsentRequest objects and their properties.
+ * A list of pending user consent requests. Supports $filter (eq).
  */
 export interface UserConsentRequestsRequestBuilderGetQueryParameters {
     /**

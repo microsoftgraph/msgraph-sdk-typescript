@@ -69,18 +69,16 @@ export interface ListItemItemRequestBuilder extends BaseRequestBuilder<ListItemI
      */
     get versions(): VersionsRequestBuilder;
     /**
-     * Removes an item from a [list][].
+     * Delete navigation property items for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/listitem-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Returns the metadata for an [item][] in a [list][].
+     * All items contained in the list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ListItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/listitem-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ListItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<ListItem | undefined>;
     /**
@@ -100,13 +98,13 @@ export interface ListItemItemRequestBuilder extends BaseRequestBuilder<ListItemI
      */
      patch(body: ListItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ListItem | undefined>;
     /**
-     * Removes an item from a [list][].
+     * Delete navigation property items for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Returns the metadata for an [item][] in a [list][].
+     * All items contained in the list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -120,7 +118,7 @@ export interface ListItemItemRequestBuilder extends BaseRequestBuilder<ListItemI
      toPatchRequestInformation(body: ListItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Returns the metadata for an [item][] in a [list][].
+ * All items contained in the list.
  */
 export interface ListItemItemRequestBuilderGetQueryParameters {
     /**

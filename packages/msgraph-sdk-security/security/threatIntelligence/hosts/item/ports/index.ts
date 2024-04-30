@@ -27,22 +27,21 @@ export interface PortsRequestBuilder extends BaseRequestBuilder<PortsRequestBuil
      */
      byHostPortId(hostPortId: string) : HostPortItemRequestBuilder;
     /**
-     * Get the list of hostPort resources associated with a host.
+     * The hostPorts associated with a host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostPortCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-host-list-ports?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PortsRequestBuilderGetQueryParameters> | undefined) : Promise<HostPortCollectionResponse | undefined>;
     /**
-     * Get the list of hostPort resources associated with a host.
+     * The hostPorts associated with a host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PortsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the list of hostPort resources associated with a host.
+ * The hostPorts associated with a host.
  */
 export interface PortsRequestBuilderGetQueryParameters {
     /**

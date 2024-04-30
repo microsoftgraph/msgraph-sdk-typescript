@@ -27,30 +27,28 @@ export interface LocalizationsRequestBuilder extends BaseRequestBuilder<Localiza
      */
      byOrganizationalBrandingLocalizationId(organizationalBrandingLocalizationId: string) : OrganizationalBrandingLocalizationItemRequestBuilder;
     /**
-     * Retrieve all localization branding objects, including the default branding.
+     * Add different branding based on a locale.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OrganizationalBrandingLocalizationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/organizationalbranding-list-localizations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LocalizationsRequestBuilderGetQueryParameters> | undefined) : Promise<OrganizationalBrandingLocalizationCollectionResponse | undefined>;
     /**
-     * Create a new organizationalBrandingLocalization object. This creates a localized branding and at the same time, the default branding if it doesn't exist. The default branding is created only once. It's loaded when a localized branding isn't configured for the user's browser language. To retrieve the default branding, see Get branding.
+     * Create new navigation property to localizations for organization
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OrganizationalBrandingLocalization>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/organizationalbranding-post-localizations?view=graph-rest-1.0|Find more info here}
      */
      post(body: OrganizationalBrandingLocalization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OrganizationalBrandingLocalization | undefined>;
     /**
-     * Retrieve all localization branding objects, including the default branding.
+     * Add different branding based on a locale.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LocalizationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new organizationalBrandingLocalization object. This creates a localized branding and at the same time, the default branding if it doesn't exist. The default branding is created only once. It's loaded when a localized branding isn't configured for the user's browser language. To retrieve the default branding, see Get branding.
+     * Create new navigation property to localizations for organization
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface LocalizationsRequestBuilder extends BaseRequestBuilder<Localiza
      toPostRequestInformation(body: OrganizationalBrandingLocalization, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve all localization branding objects, including the default branding.
+ * Add different branding based on a locale.
  */
 export interface LocalizationsRequestBuilderGetQueryParameters {
     /**

@@ -27,30 +27,28 @@ export interface WorkforceIntegrationsRequestBuilder extends BaseRequestBuilder<
      */
      byWorkforceIntegrationId(workforceIntegrationId: string) : WorkforceIntegrationItemRequestBuilder;
     /**
-     * Retrieve a list of workforceIntegration objects.
+     * Get workforceIntegrations from teamwork
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkforceIntegrationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/workforceintegration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorkforceIntegrationsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkforceIntegrationCollectionResponse | undefined>;
     /**
-     * Create a new workforceIntegration object.You can set up which entities you want to receive Shifts synchronous change notifications on and set entities to configure filtering by WFM rules eligibility for, including swap requests.
+     * Create new navigation property to workforceIntegrations for teamwork
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkforceIntegration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/workforceintegration-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: WorkforceIntegration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkforceIntegration | undefined>;
     /**
-     * Retrieve a list of workforceIntegration objects.
+     * Get workforceIntegrations from teamwork
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkforceIntegrationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new workforceIntegration object.You can set up which entities you want to receive Shifts synchronous change notifications on and set entities to configure filtering by WFM rules eligibility for, including swap requests.
+     * Create new navigation property to workforceIntegrations for teamwork
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface WorkforceIntegrationsRequestBuilder extends BaseRequestBuilder<
      toPostRequestInformation(body: WorkforceIntegration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of workforceIntegration objects.
+ * Get workforceIntegrations from teamwork
  */
 export interface WorkforceIntegrationsRequestBuilderGetQueryParameters {
     /**

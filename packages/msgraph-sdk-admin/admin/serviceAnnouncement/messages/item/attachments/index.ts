@@ -27,11 +27,10 @@ export interface AttachmentsRequestBuilder extends BaseRequestBuilder<Attachment
      */
      byServiceAnnouncementAttachmentId(serviceAnnouncementAttachmentId: string) : ServiceAnnouncementAttachmentItemRequestBuilder;
     /**
-     * Get the list of attachments associated with a service message.
+     * A collection of serviceAnnouncementAttachments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServiceAnnouncementAttachmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-list-attachments?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AttachmentsRequestBuilderGetQueryParameters> | undefined) : Promise<ServiceAnnouncementAttachmentCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface AttachmentsRequestBuilder extends BaseRequestBuilder<Attachment
      */
      post(body: ServiceAnnouncementAttachment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ServiceAnnouncementAttachment | undefined>;
     /**
-     * Get the list of attachments associated with a service message.
+     * A collection of serviceAnnouncementAttachments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface AttachmentsRequestBuilder extends BaseRequestBuilder<Attachment
      toPostRequestInformation(body: ServiceAnnouncementAttachment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the list of attachments associated with a service message.
+ * A collection of serviceAnnouncementAttachments.
  */
 export interface AttachmentsRequestBuilderGetQueryParameters {
     /**

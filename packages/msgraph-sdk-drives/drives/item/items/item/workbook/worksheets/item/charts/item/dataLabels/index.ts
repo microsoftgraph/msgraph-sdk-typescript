@@ -25,20 +25,18 @@ export interface DataLabelsRequestBuilder extends BaseRequestBuilder<DataLabelsR
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of chartdatalabels object.
+     * Represents the datalabels on the chart. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartDataLabels>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartdatalabels-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DataLabelsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartDataLabels | undefined>;
     /**
-     * Update the properties of chartdatalabels object.
+     * Update the navigation property dataLabels in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartDataLabels>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartdatalabels-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WorkbookChartDataLabels, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartDataLabels | undefined>;
     /**
@@ -48,13 +46,13 @@ export interface DataLabelsRequestBuilder extends BaseRequestBuilder<DataLabelsR
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of chartdatalabels object.
+     * Represents the datalabels on the chart. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DataLabelsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of chartdatalabels object.
+     * Update the navigation property dataLabels in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +60,7 @@ export interface DataLabelsRequestBuilder extends BaseRequestBuilder<DataLabelsR
      toPatchRequestInformation(body: WorkbookChartDataLabels, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of chartdatalabels object.
+ * Represents the datalabels on the chart. Read-only.
  */
 export interface DataLabelsRequestBuilderGetQueryParameters {
     /**

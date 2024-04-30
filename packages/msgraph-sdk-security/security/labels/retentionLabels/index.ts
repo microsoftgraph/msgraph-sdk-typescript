@@ -27,30 +27,28 @@ export interface RetentionLabelsRequestBuilder extends BaseRequestBuilder<Retent
      */
      byRetentionLabelId(retentionLabelId: string) : RetentionLabelItemRequestBuilder;
     /**
-     * Get a list of the retentionLabel objects and their properties.
+     * Represents how customers can manage their data, whether and for how long to retain or delete it.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RetentionLabelCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-list-retentionlabel?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RetentionLabelsRequestBuilderGetQueryParameters> | undefined) : Promise<RetentionLabelCollectionResponse | undefined>;
     /**
-     * Create a new retentionLabel object. To create a disposition review stage, include the actionAfterRetentionPeriod property in the request body with one of the possible values specified.
+     * Create new navigation property to retentionLabels for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RetentionLabel>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-post-retentionlabel?view=graph-rest-1.0|Find more info here}
      */
      post(body: RetentionLabel, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RetentionLabel | undefined>;
     /**
-     * Get a list of the retentionLabel objects and their properties.
+     * Represents how customers can manage their data, whether and for how long to retain or delete it.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RetentionLabelsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new retentionLabel object. To create a disposition review stage, include the actionAfterRetentionPeriod property in the request body with one of the possible values specified.
+     * Create new navigation property to retentionLabels for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface RetentionLabelsRequestBuilder extends BaseRequestBuilder<Retent
      toPostRequestInformation(body: RetentionLabel, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the retentionLabel objects and their properties.
+ * Represents how customers can manage their data, whether and for how long to retain or delete it.
  */
 export interface RetentionLabelsRequestBuilderGetQueryParameters {
     /**

@@ -27,30 +27,28 @@ export interface MasterCategoriesRequestBuilder extends BaseRequestBuilder<Maste
      */
      byOutlookCategoryId(outlookCategoryId: string) : OutlookCategoryItemRequestBuilder;
     /**
-     * Get all the categories that have been defined for a user.
+     * A list of categories defined for the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OutlookCategoryCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/outlookuser-list-mastercategories?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MasterCategoriesRequestBuilderGetQueryParameters> | undefined) : Promise<OutlookCategoryCollectionResponse | undefined>;
     /**
-     * Create an outlookCategory object in the user's master list of categories.
+     * Create new navigation property to masterCategories for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OutlookCategory>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/outlookuser-post-mastercategories?view=graph-rest-1.0|Find more info here}
      */
      post(body: OutlookCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OutlookCategory | undefined>;
     /**
-     * Get all the categories that have been defined for a user.
+     * A list of categories defined for the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MasterCategoriesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create an outlookCategory object in the user's master list of categories.
+     * Create new navigation property to masterCategories for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface MasterCategoriesRequestBuilder extends BaseRequestBuilder<Maste
      toPostRequestInformation(body: OutlookCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get all the categories that have been defined for a user.
+ * A list of categories defined for the user.
  */
 export interface MasterCategoriesRequestBuilderGetQueryParameters {
     /**

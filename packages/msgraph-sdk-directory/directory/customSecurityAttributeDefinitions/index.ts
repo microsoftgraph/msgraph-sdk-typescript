@@ -27,30 +27,28 @@ export interface CustomSecurityAttributeDefinitionsRequestBuilder extends BaseRe
      */
      byCustomSecurityAttributeDefinitionId(customSecurityAttributeDefinitionId: string) : CustomSecurityAttributeDefinitionItemRequestBuilder;
     /**
-     * Get a list of the customSecurityAttributeDefinition objects and their properties.
+     * Schema of a custom security attributes (key-value pairs).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CustomSecurityAttributeDefinitionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/directory-list-customsecurityattributedefinitions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<CustomSecurityAttributeDefinitionCollectionResponse | undefined>;
     /**
-     * Create a new customSecurityAttributeDefinition object.
+     * Create new navigation property to customSecurityAttributeDefinitions for directory
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CustomSecurityAttributeDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/directory-post-customsecurityattributedefinitions?view=graph-rest-1.0|Find more info here}
      */
      post(body: CustomSecurityAttributeDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CustomSecurityAttributeDefinition | undefined>;
     /**
-     * Get a list of the customSecurityAttributeDefinition objects and their properties.
+     * Schema of a custom security attributes (key-value pairs).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new customSecurityAttributeDefinition object.
+     * Create new navigation property to customSecurityAttributeDefinitions for directory
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface CustomSecurityAttributeDefinitionsRequestBuilder extends BaseRe
      toPostRequestInformation(body: CustomSecurityAttributeDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the customSecurityAttributeDefinition objects and their properties.
+ * Schema of a custom security attributes (key-value pairs).
  */
 export interface CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParameters {
     /**

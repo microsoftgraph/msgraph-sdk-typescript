@@ -13,14 +13,15 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface GetOrderRequestBuilder extends BaseRequestBuilder<GetOrderRequestBuilder> {
     /**
-     * Invoke function getOrder
+     * Get the order of identityUserFlowAttributeAssignments being collected within a user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AssignmentOrder>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattributeassignment-getorder?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AssignmentOrder | undefined>;
     /**
-     * Invoke function getOrder
+     * Get the order of identityUserFlowAttributeAssignments being collected within a user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

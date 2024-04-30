@@ -27,11 +27,10 @@ export interface ArticlesRequestBuilder extends BaseRequestBuilder<ArticlesReque
      */
      byArticleId(articleId: string) : ArticleItemRequestBuilder;
     /**
-     * Get a list of article objects, including their properties and relationships.
+     * A list of article objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArticleCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-threatintelligence-list-articles?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ArticlesRequestBuilderGetQueryParameters> | undefined) : Promise<ArticleCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface ArticlesRequestBuilder extends BaseRequestBuilder<ArticlesReque
      */
      post(body: Article, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Article | undefined>;
     /**
-     * Get a list of article objects, including their properties and relationships.
+     * A list of article objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface ArticlesRequestBuilder extends BaseRequestBuilder<ArticlesReque
      toPostRequestInformation(body: Article, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of article objects, including their properties and relationships.
+ * A list of article objects.
  */
 export interface ArticlesRequestBuilderGetQueryParameters {
     /**

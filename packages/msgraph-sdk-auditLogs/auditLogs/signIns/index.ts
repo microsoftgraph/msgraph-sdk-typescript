@@ -27,11 +27,10 @@ export interface SignInsRequestBuilder extends BaseRequestBuilder<SignInsRequest
      */
      bySignInId(signInId: string) : SignInItemRequestBuilder;
     /**
-     * Retrieve the Microsoft Entra user sign-ins for your tenant. Sign-ins that are interactive in nature (where a username/password is passed as part of auth token) and successful federated sign-ins are currently included in the sign-in logs.  The maximum and default page size is 1,000 objects and by default, the most recent sign-ins are returned first. Only sign-in events that occurred within the Microsoft Entra ID default retention period are available.
+     * Get signIns from auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SignInCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/signin-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SignInsRequestBuilderGetQueryParameters> | undefined) : Promise<SignInCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface SignInsRequestBuilder extends BaseRequestBuilder<SignInsRequest
      */
      post(body: SignIn, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SignIn | undefined>;
     /**
-     * Retrieve the Microsoft Entra user sign-ins for your tenant. Sign-ins that are interactive in nature (where a username/password is passed as part of auth token) and successful federated sign-ins are currently included in the sign-in logs.  The maximum and default page size is 1,000 objects and by default, the most recent sign-ins are returned first. Only sign-in events that occurred within the Microsoft Entra ID default retention period are available.
+     * Get signIns from auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface SignInsRequestBuilder extends BaseRequestBuilder<SignInsRequest
      toPostRequestInformation(body: SignIn, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the Microsoft Entra user sign-ins for your tenant. Sign-ins that are interactive in nature (where a username/password is passed as part of auth token) and successful federated sign-ins are currently included in the sign-in logs.  The maximum and default page size is 1,000 objects and by default, the most recent sign-ins are returned first. Only sign-in events that occurred within the Microsoft Entra ID default retention period are available.
+ * Get signIns from auditLogs
  */
 export interface SignInsRequestBuilderGetQueryParameters {
     /**

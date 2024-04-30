@@ -27,30 +27,28 @@ export interface TimesOffRequestBuilder extends BaseRequestBuilder<TimesOffReque
      */
      byTimeOffId(timeOffId: string) : TimeOffItemRequestBuilder;
     /**
-     * Get the list of timeOff instances in a schedule.
+     * The instances of times off in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TimeOffCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/schedule-list-timesoff?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TimesOffRequestBuilderGetQueryParameters> | undefined) : Promise<TimeOffCollectionResponse | undefined>;
     /**
-     * Create a new timeOff instance in a schedule.
+     * Create new navigation property to timesOff for teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TimeOff>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/schedule-post-timesoff?view=graph-rest-1.0|Find more info here}
      */
      post(body: TimeOff, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TimeOff | undefined>;
     /**
-     * Get the list of timeOff instances in a schedule.
+     * The instances of times off in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TimesOffRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new timeOff instance in a schedule.
+     * Create new navigation property to timesOff for teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface TimesOffRequestBuilder extends BaseRequestBuilder<TimesOffReque
      toPostRequestInformation(body: TimeOff, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the list of timeOff instances in a schedule.
+ * The instances of times off in the schedule.
  */
 export interface TimesOffRequestBuilderGetQueryParameters {
     /**

@@ -37,21 +37,22 @@ export interface GetAllSitesGetResponse extends BaseCollectionPaginationCountRes
  */
 export interface GetAllSitesRequestBuilder extends BaseRequestBuilder<GetAllSitesRequestBuilder> {
     /**
-     * Invoke function getAllSites
+     * List sites across geographies in an organization. This API can also be used to enumerate all sites in a non-multi-geo tenant. For more information, see Best practices for discovering files and detecting changes at scale.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetAllSitesGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/site-getallsites?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetAllSitesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllSitesGetResponse | undefined>;
     /**
-     * Invoke function getAllSites
+     * List sites across geographies in an organization. This API can also be used to enumerate all sites in a non-multi-geo tenant. For more information, see Best practices for discovering files and detecting changes at scale.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetAllSitesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getAllSites
+ * List sites across geographies in an organization. This API can also be used to enumerate all sites in a non-multi-geo tenant. For more information, see Best practices for discovering files and detecting changes at scale.
  */
 export interface GetAllSitesRequestBuilderGetQueryParameters {
     /**

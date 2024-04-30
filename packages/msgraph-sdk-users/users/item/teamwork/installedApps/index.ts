@@ -27,30 +27,28 @@ export interface InstalledAppsRequestBuilder extends BaseRequestBuilder<Installe
      */
      byUserScopeTeamsAppInstallationId(userScopeTeamsAppInstallationId: string) : UserScopeTeamsAppInstallationItemRequestBuilder;
     /**
-     * Retrieve the list of apps installed in the personal scope of the specified user.
+     * The apps installed in the personal scope of this user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserScopeTeamsAppInstallationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/userteamwork-list-installedapps?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<InstalledAppsRequestBuilderGetQueryParameters> | undefined) : Promise<UserScopeTeamsAppInstallationCollectionResponse | undefined>;
     /**
-     * Install an app in the personal scope of the specified user.
+     * Create new navigation property to installedApps for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserScopeTeamsAppInstallation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/userteamwork-post-installedapps?view=graph-rest-1.0|Find more info here}
      */
      post(body: UserScopeTeamsAppInstallation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserScopeTeamsAppInstallation | undefined>;
     /**
-     * Retrieve the list of apps installed in the personal scope of the specified user.
+     * The apps installed in the personal scope of this user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<InstalledAppsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Install an app in the personal scope of the specified user.
+     * Create new navigation property to installedApps for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface InstalledAppsRequestBuilder extends BaseRequestBuilder<Installe
      toPostRequestInformation(body: UserScopeTeamsAppInstallation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the list of apps installed in the personal scope of the specified user.
+ * The apps installed in the personal scope of this user.
  */
 export interface InstalledAppsRequestBuilderGetQueryParameters {
     /**

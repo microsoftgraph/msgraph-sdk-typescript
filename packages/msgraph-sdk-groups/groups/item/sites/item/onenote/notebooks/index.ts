@@ -35,11 +35,10 @@ export interface NotebooksRequestBuilder extends BaseRequestBuilder<NotebooksReq
      */
      byNotebookId(notebookId: string) : NotebookItemRequestBuilder;
     /**
-     * Retrieve a list of notebook objects.
+     * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<NotebookCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/onenote-list-notebooks?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<NotebooksRequestBuilderGetQueryParameters> | undefined) : Promise<NotebookCollectionResponse | undefined>;
     /**
@@ -49,22 +48,21 @@ export interface NotebooksRequestBuilder extends BaseRequestBuilder<NotebooksReq
      */
      getRecentNotebooksWithIncludePersonalNotebooks(includePersonalNotebooks: boolean | undefined) : GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder;
     /**
-     * Create a new OneNote notebook.
+     * Create new navigation property to notebooks for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Notebook>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/onenote-post-notebooks?view=graph-rest-1.0|Find more info here}
      */
      post(body: Notebook, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Notebook | undefined>;
     /**
-     * Retrieve a list of notebook objects.
+     * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<NotebooksRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new OneNote notebook.
+     * Create new navigation property to notebooks for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -72,7 +70,7 @@ export interface NotebooksRequestBuilder extends BaseRequestBuilder<NotebooksReq
      toPostRequestInformation(body: Notebook, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of notebook objects.
+ * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
  */
 export interface NotebooksRequestBuilderGetQueryParameters {
     /**

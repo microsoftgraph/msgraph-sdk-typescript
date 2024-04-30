@@ -33,11 +33,10 @@ export interface ActivitiesRequestBuilder extends BaseRequestBuilder<ActivitiesR
      */
      byUserActivityId(userActivityId: string) : UserActivityItemRequestBuilder;
     /**
-     * Get activities for a given user. Unlike the recent OData function, activities without histories will be returned. The permission UserActivity.ReadWrite.CreatedByApp will apply extra filtering to the response, so that only activities created by your application are returned. This server-side filtering might result in empty pages if the user is particularly active and other applications have created more recent activities. To get your application's activities, use the nextLink property to paginate.
+     * The user's activities across devices. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserActivityCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/projectrome-get-activities?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ActivitiesRequestBuilderGetQueryParameters> | undefined) : Promise<UserActivityCollectionResponse | undefined>;
     /**
@@ -49,7 +48,7 @@ export interface ActivitiesRequestBuilder extends BaseRequestBuilder<ActivitiesR
      */
      post(body: UserActivity, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserActivity | undefined>;
     /**
-     * Get activities for a given user. Unlike the recent OData function, activities without histories will be returned. The permission UserActivity.ReadWrite.CreatedByApp will apply extra filtering to the response, so that only activities created by your application are returned. This server-side filtering might result in empty pages if the user is particularly active and other applications have created more recent activities. To get your application's activities, use the nextLink property to paginate.
+     * The user's activities across devices. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -63,7 +62,7 @@ export interface ActivitiesRequestBuilder extends BaseRequestBuilder<ActivitiesR
      toPostRequestInformation(body: UserActivity, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get activities for a given user. Unlike the recent OData function, activities without histories will be returned. The permission UserActivity.ReadWrite.CreatedByApp will apply extra filtering to the response, so that only activities created by your application are returned. This server-side filtering might result in empty pages if the user is particularly active and other applications have created more recent activities. To get your application's activities, use the nextLink property to paginate.
+ * The user's activities across devices. Read-only. Nullable.
  */
 export interface ActivitiesRequestBuilderGetQueryParameters {
     /**

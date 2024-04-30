@@ -13,14 +13,13 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface PermissionGrantConditionSetItemRequestBuilder extends BaseRequestBuilder<PermissionGrantConditionSetItemRequestBuilder> {
     /**
-     * Deletes a permissionGrantConditionSet from the includes collection of a permissionGrantPolicy.
+     * Delete navigation property includes for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-delete-includes?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Condition sets which are included in this permission grant policy. Automatically expanded on GET.
+     * Condition sets that are included in this permission grant policy. Automatically expanded on GET.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PermissionGrantConditionSet>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -35,13 +34,13 @@ export interface PermissionGrantConditionSetItemRequestBuilder extends BaseReque
      */
      patch(body: PermissionGrantConditionSet, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PermissionGrantConditionSet | undefined>;
     /**
-     * Deletes a permissionGrantConditionSet from the includes collection of a permissionGrantPolicy.
+     * Delete navigation property includes for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Condition sets which are included in this permission grant policy. Automatically expanded on GET.
+     * Condition sets that are included in this permission grant policy. Automatically expanded on GET.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -55,7 +54,7 @@ export interface PermissionGrantConditionSetItemRequestBuilder extends BaseReque
      toPatchRequestInformation(body: PermissionGrantConditionSet, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Condition sets which are included in this permission grant policy. Automatically expanded on GET.
+ * Condition sets that are included in this permission grant policy. Automatically expanded on GET.
  */
 export interface PermissionGrantConditionSetItemRequestBuilderGetQueryParameters {
     /**

@@ -19,11 +19,10 @@ export interface WorkbookCommentReplyItemRequestBuilder extends BaseRequestBuild
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of workbookCommentReply object.
+     * Get replies from drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookCommentReply>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/workbookcommentreply-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorkbookCommentReplyItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookCommentReply | undefined>;
     /**
@@ -41,7 +40,7 @@ export interface WorkbookCommentReplyItemRequestBuilder extends BaseRequestBuild
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of workbookCommentReply object.
+     * Get replies from drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -55,7 +54,7 @@ export interface WorkbookCommentReplyItemRequestBuilder extends BaseRequestBuild
      toPatchRequestInformation(body: WorkbookCommentReply, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of workbookCommentReply object.
+ * Get replies from drives
  */
 export interface WorkbookCommentReplyItemRequestBuilderGetQueryParameters {
     /**

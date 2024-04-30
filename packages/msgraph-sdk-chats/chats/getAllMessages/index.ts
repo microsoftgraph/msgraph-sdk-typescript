@@ -37,21 +37,22 @@ export interface GetAllMessagesGetResponse extends BaseCollectionPaginationCount
  */
 export interface GetAllMessagesRequestBuilder extends BaseRequestBuilder<GetAllMessagesRequestBuilder> {
     /**
-     * Invoke function getAllMessages
+     * Get all messages from all chats that a user is a participant in, including one-on-one chats, group chats, and meeting chats.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetAllMessagesGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/chats-getallmessages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetAllMessagesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllMessagesGetResponse | undefined>;
     /**
-     * Invoke function getAllMessages
+     * Get all messages from all chats that a user is a participant in, including one-on-one chats, group chats, and meeting chats.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetAllMessagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getAllMessages
+ * Get all messages from all chats that a user is a participant in, including one-on-one chats, group chats, and meeting chats.
  */
 export interface GetAllMessagesRequestBuilderGetQueryParameters {
     /**

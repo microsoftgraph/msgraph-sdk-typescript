@@ -33,11 +33,10 @@ export interface JoinedTeamsRequestBuilder extends BaseRequestBuilder<JoinedTeam
      */
      byTeamId(teamId: string) : TeamItemRequestBuilder;
     /**
-     * Get the teams in Microsoft Teams that the user is a direct member of.
+     * Get joinedTeams from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-list-joinedteams?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<JoinedTeamsRequestBuilderGetQueryParameters> | undefined) : Promise<TeamCollectionResponse | undefined>;
     /**
@@ -49,7 +48,7 @@ export interface JoinedTeamsRequestBuilder extends BaseRequestBuilder<JoinedTeam
      */
      post(body: Team, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Team | undefined>;
     /**
-     * Get the teams in Microsoft Teams that the user is a direct member of.
+     * Get joinedTeams from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -63,7 +62,7 @@ export interface JoinedTeamsRequestBuilder extends BaseRequestBuilder<JoinedTeam
      toPostRequestInformation(body: Team, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the teams in Microsoft Teams that the user is a direct member of.
+ * Get joinedTeams from users
  */
 export interface JoinedTeamsRequestBuilderGetQueryParameters {
     /**

@@ -30,11 +30,11 @@ export function createGetSchedulePostResponseFromDiscriminatorValue(parseNode: P
  */
 export function deserializeIntoGetSchedulePostRequestBody(getSchedulePostRequestBody: Partial<GetSchedulePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "availabilityViewInterval": n => { getSchedulePostRequestBody.availabilityViewInterval = n.getNumberValue(); },
+        "AvailabilityViewInterval": n => { getSchedulePostRequestBody.availabilityViewInterval = n.getNumberValue(); },
         "backingStoreEnabled": n => { getSchedulePostRequestBody.backingStoreEnabled = true; },
-        "endTime": n => { getSchedulePostRequestBody.endTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
-        "schedules": n => { getSchedulePostRequestBody.schedules = n.getCollectionOfPrimitiveValues<string>(); },
-        "startTime": n => { getSchedulePostRequestBody.startTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
+        "EndTime": n => { getSchedulePostRequestBody.endTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
+        "Schedules": n => { getSchedulePostRequestBody.schedules = n.getCollectionOfPrimitiveValues<string>(); },
+        "StartTime": n => { getSchedulePostRequestBody.startTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
     }
 }
 /**

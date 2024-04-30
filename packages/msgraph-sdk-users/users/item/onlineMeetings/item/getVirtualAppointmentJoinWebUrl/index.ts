@@ -43,14 +43,15 @@ export interface GetVirtualAppointmentJoinWebUrlGetResponse extends AdditionalDa
  */
 export interface GetVirtualAppointmentJoinWebUrlRequestBuilder extends BaseRequestBuilder<GetVirtualAppointmentJoinWebUrlRequestBuilder> {
     /**
-     * Invoke function getVirtualAppointmentJoinWebUrl
+     * Get a join web URL for a Microsoft Virtual Appointment. This web URL includes enhanced business-to-customer experiences such as mobile browser join and virtual lobby rooms. With Teams Premium, you can configure a custom lobby room experience for attendees by adding your company logo and access the Virtual Appointments usage report for organizational analytics.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetVirtualAppointmentJoinWebUrlGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualappointment-getvirtualappointmentjoinweburl?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetVirtualAppointmentJoinWebUrlGetResponse | undefined>;
     /**
-     * Invoke function getVirtualAppointmentJoinWebUrl
+     * Get a join web URL for a Microsoft Virtual Appointment. This web URL includes enhanced business-to-customer experiences such as mobile browser join and virtual lobby rooms. With Teams Premium, you can configure a custom lobby room experience for attendees by adding your company logo and access the Virtual Appointments usage report for organizational analytics.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

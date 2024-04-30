@@ -27,22 +27,21 @@ export interface ConnectorsRequestBuilder extends BaseRequestBuilder<ConnectorsR
      */
      byPrintConnectorId(printConnectorId: string) : PrintConnectorItemRequestBuilder;
     /**
-     * Retrieve a list of printConnectors associated with the printer.
+     * The connectors that are associated with the printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintConnectorCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/printer-list-connectors?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConnectorsRequestBuilderGetQueryParameters> | undefined) : Promise<PrintConnectorCollectionResponse | undefined>;
     /**
-     * Retrieve a list of printConnectors associated with the printer.
+     * The connectors that are associated with the printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConnectorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of printConnectors associated with the printer.
+ * The connectors that are associated with the printer.
  */
 export interface ConnectorsRequestBuilderGetQueryParameters {
     /**

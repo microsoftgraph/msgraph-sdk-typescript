@@ -25,43 +25,40 @@ export interface ConversationThreadItemRequestBuilder extends BaseRequestBuilder
      */
     get reply(): ReplyRequestBuilder;
     /**
-     * Delete conversationThread.
+     * Delete navigation property threads for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/group-delete-thread?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. 
+     * The group's conversation threads. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationThread>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/conversationthread-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConversationThreadItemRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationThread | undefined>;
     /**
-     * Update conversation thread
+     * Update the navigation property threads in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationThread>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/group-update-thread?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ConversationThread, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConversationThread | undefined>;
     /**
-     * Delete conversationThread.
+     * Delete navigation property threads for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. 
+     * The group's conversation threads. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConversationThreadItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update conversation thread
+     * Update the navigation property threads in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -69,7 +66,7 @@ export interface ConversationThreadItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: ConversationThread, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. 
+ * The group's conversation threads. Nullable.
  */
 export interface ConversationThreadItemRequestBuilderGetQueryParameters {
     /**

@@ -29,16 +29,15 @@ export interface IdentityProvidersRequestBuilder extends BaseRequestBuilder<Iden
      */
      byIdentityProviderId(identityProviderId: string) : IdentityProviderItemRequestBuilder;
     /**
-     * Get the identity providers in a b2xIdentityUserFlow object.
+     * The identity providers included in the user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IdentityProviderCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
-     * @see {@link https://learn.microsoft.com/graph/api/b2xidentityuserflow-list-identityproviders?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IdentityProvidersRequestBuilderGetQueryParameters> | undefined) : Promise<IdentityProviderCollectionResponse | undefined>;
     /**
-     * Get the identity providers in a b2xIdentityUserFlow object.
+     * The identity providers included in the user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
@@ -46,7 +45,7 @@ export interface IdentityProvidersRequestBuilder extends BaseRequestBuilder<Iden
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IdentityProvidersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the identity providers in a b2xIdentityUserFlow object.
+ * The identity providers included in the user flow.
  */
 export interface IdentityProvidersRequestBuilderGetQueryParameters {
     /**

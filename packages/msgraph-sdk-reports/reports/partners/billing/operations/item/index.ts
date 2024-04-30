@@ -19,11 +19,10 @@ export interface OperationItemRequestBuilder extends BaseRequestBuilder<Operatio
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an operation object.
+     * Represents an operation to export the billing data of a partner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Operation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/partners-billing-operation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OperationItemRequestBuilderGetQueryParameters> | undefined) : Promise<Operation | undefined>;
     /**
@@ -41,7 +40,7 @@ export interface OperationItemRequestBuilder extends BaseRequestBuilder<Operatio
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an operation object.
+     * Represents an operation to export the billing data of a partner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -55,7 +54,7 @@ export interface OperationItemRequestBuilder extends BaseRequestBuilder<Operatio
      toPatchRequestInformation(body: Operation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an operation object.
+ * Represents an operation to export the billing data of a partner.
  */
 export interface OperationItemRequestBuilderGetQueryParameters {
     /**

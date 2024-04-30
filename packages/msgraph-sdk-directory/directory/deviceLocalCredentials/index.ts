@@ -27,11 +27,10 @@ export interface DeviceLocalCredentialsRequestBuilder extends BaseRequestBuilder
      */
      byDeviceLocalCredentialInfoId(deviceLocalCredentialInfoId: string) : DeviceLocalCredentialInfoItemRequestBuilder;
     /**
-     * Get a list of the deviceLocalCredentialInfo objects and their properties, excluding the credentials property. 
+     * The credentials of the device's local administrator account backed up to Microsoft Entra ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceLocalCredentialInfoCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/directory-list-devicelocalcredentials?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceLocalCredentialsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceLocalCredentialInfoCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface DeviceLocalCredentialsRequestBuilder extends BaseRequestBuilder
      */
      post(body: DeviceLocalCredentialInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceLocalCredentialInfo | undefined>;
     /**
-     * Get a list of the deviceLocalCredentialInfo objects and their properties, excluding the credentials property. 
+     * The credentials of the device's local administrator account backed up to Microsoft Entra ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface DeviceLocalCredentialsRequestBuilder extends BaseRequestBuilder
      toPostRequestInformation(body: DeviceLocalCredentialInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the deviceLocalCredentialInfo objects and their properties, excluding the credentials property. 
+ * The credentials of the device's local administrator account backed up to Microsoft Entra ID.
  */
 export interface DeviceLocalCredentialsRequestBuilderGetQueryParameters {
     /**

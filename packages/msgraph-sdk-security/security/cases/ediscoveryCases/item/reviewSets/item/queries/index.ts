@@ -27,30 +27,28 @@ export interface QueriesRequestBuilder extends BaseRequestBuilder<QueriesRequest
      */
      byEdiscoveryReviewSetQueryId(ediscoveryReviewSetQueryId: string) : EdiscoveryReviewSetQueryItemRequestBuilder;
     /**
-     * Get the list of queries associated with an eDiscovery review set.
+     * Represents queries within the review set.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryReviewSetQueryCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-list-queries?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<QueriesRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryReviewSetQueryCollectionResponse | undefined>;
     /**
-     * Create a new ediscoveryReviewSetQuery object.
+     * Create new navigation property to queries for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryReviewSetQuery>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-post-queries?view=graph-rest-1.0|Find more info here}
      */
      post(body: EdiscoveryReviewSetQuery, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoveryReviewSetQuery | undefined>;
     /**
-     * Get the list of queries associated with an eDiscovery review set.
+     * Represents queries within the review set.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<QueriesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new ediscoveryReviewSetQuery object.
+     * Create new navigation property to queries for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface QueriesRequestBuilder extends BaseRequestBuilder<QueriesRequest
      toPostRequestInformation(body: EdiscoveryReviewSetQuery, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the list of queries associated with an eDiscovery review set.
+ * Represents queries within the review set.
  */
 export interface QueriesRequestBuilderGetQueryParameters {
     /**

@@ -27,22 +27,21 @@ export interface Fido2MethodsRequestBuilder extends BaseRequestBuilder<Fido2Meth
      */
      byFido2AuthenticationMethodId(fido2AuthenticationMethodId: string) : Fido2AuthenticationMethodItemRequestBuilder;
     /**
-     * Retrieve a list of a user's FIDO2 Security Key Authentication Method objects and their properties.
+     * Represents the FIDO2 security keys registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Fido2AuthenticationMethodCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/fido2authenticationmethod-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<Fido2MethodsRequestBuilderGetQueryParameters> | undefined) : Promise<Fido2AuthenticationMethodCollectionResponse | undefined>;
     /**
-     * Retrieve a list of a user's FIDO2 Security Key Authentication Method objects and their properties.
+     * Represents the FIDO2 security keys registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<Fido2MethodsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of a user's FIDO2 Security Key Authentication Method objects and their properties.
+ * Represents the FIDO2 security keys registered to a user for authentication.
  */
 export interface Fido2MethodsRequestBuilderGetQueryParameters {
     /**

@@ -27,11 +27,10 @@ export interface IntelProfilesRequestBuilder extends BaseRequestBuilder<IntelPro
      */
      byIntelligenceProfileId(intelligenceProfileId: string) : IntelligenceProfileItemRequestBuilder;
     /**
-     * Get a list of the intelligenceProfile objects and their properties.
+     * A list of intelligenceProfile objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IntelligenceProfileCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-threatintelligence-list-intelprofiles?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IntelProfilesRequestBuilderGetQueryParameters> | undefined) : Promise<IntelligenceProfileCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface IntelProfilesRequestBuilder extends BaseRequestBuilder<IntelPro
      */
      post(body: IntelligenceProfile, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IntelligenceProfile | undefined>;
     /**
-     * Get a list of the intelligenceProfile objects and their properties.
+     * A list of intelligenceProfile objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface IntelProfilesRequestBuilder extends BaseRequestBuilder<IntelPro
      toPostRequestInformation(body: IntelligenceProfile, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the intelligenceProfile objects and their properties.
+ * A list of intelligenceProfile objects.
  */
 export interface IntelProfilesRequestBuilderGetQueryParameters {
     /**

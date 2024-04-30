@@ -27,22 +27,21 @@ export interface HistoryRequestBuilder extends BaseRequestBuilder<HistoryRequest
      */
      byWhoisHistoryRecordId(whoisHistoryRecordId: string) : WhoisHistoryRecordItemRequestBuilder;
     /**
-     * Get the history for a whoisRecord, as represented by a collection of whoisHistoryRecord resources.
+     * The collection of historical records associated to this WHOIS object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WhoisHistoryRecordCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-whoisrecord-list-history?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HistoryRequestBuilderGetQueryParameters> | undefined) : Promise<WhoisHistoryRecordCollectionResponse | undefined>;
     /**
-     * Get the history for a whoisRecord, as represented by a collection of whoisHistoryRecord resources.
+     * The collection of historical records associated to this WHOIS object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<HistoryRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the history for a whoisRecord, as represented by a collection of whoisHistoryRecord resources.
+ * The collection of historical records associated to this WHOIS object.
  */
 export interface HistoryRequestBuilderGetQueryParameters {
     /**

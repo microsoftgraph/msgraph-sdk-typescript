@@ -57,7 +57,7 @@ export interface CreateUploadSessionRequestBuilder extends BaseRequestBuilder<Cr
  */
 export function deserializeIntoCreateUploadSessionPostRequestBody(createUploadSessionPostRequestBody: Partial<CreateUploadSessionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "attachmentItem": n => { createUploadSessionPostRequestBody.attachmentItem = n.getObjectValue<AttachmentItem>(createAttachmentItemFromDiscriminatorValue); },
+        "AttachmentItem": n => { createUploadSessionPostRequestBody.attachmentItem = n.getObjectValue<AttachmentItem>(createAttachmentItemFromDiscriminatorValue); },
         "backingStoreEnabled": n => { createUploadSessionPostRequestBody.backingStoreEnabled = true; },
     }
 }

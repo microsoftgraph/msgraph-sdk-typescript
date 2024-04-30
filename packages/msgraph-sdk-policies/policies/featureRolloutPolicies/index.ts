@@ -27,30 +27,28 @@ export interface FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder
      */
      byFeatureRolloutPolicyId(featureRolloutPolicyId: string) : FeatureRolloutPolicyItemRequestBuilder;
     /**
-     * Retrieve a list of featureRolloutPolicy objects.
+     * The feature rollout policy associated with a directory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FeatureRolloutPolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/featurerolloutpolicies-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<FeatureRolloutPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<FeatureRolloutPolicyCollectionResponse | undefined>;
     /**
-     * Create a new featureRolloutPolicy object.
+     * Create new navigation property to featureRolloutPolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FeatureRolloutPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/featurerolloutpolicies-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: FeatureRolloutPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<FeatureRolloutPolicy | undefined>;
     /**
-     * Retrieve a list of featureRolloutPolicy objects.
+     * The feature rollout policy associated with a directory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FeatureRolloutPoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new featureRolloutPolicy object.
+     * Create new navigation property to featureRolloutPolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder
      toPostRequestInformation(body: FeatureRolloutPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of featureRolloutPolicy objects.
+ * The feature rollout policy associated with a directory object.
  */
 export interface FeatureRolloutPoliciesRequestBuilderGetQueryParameters {
     /**

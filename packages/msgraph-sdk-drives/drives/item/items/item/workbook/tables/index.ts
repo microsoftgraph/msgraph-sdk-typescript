@@ -35,11 +35,10 @@ export interface TablesRequestBuilder extends BaseRequestBuilder<TablesRequestBu
      */
      byWorkbookTableId(workbookTableId: string) : WorkbookTableItemRequestBuilder;
     /**
-     * Retrieve a list of table objects.
+     * Represents a collection of tables associated with the workbook. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTableCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/workbook-list-tables?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TablesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookTableCollectionResponse | undefined>;
     /**
@@ -57,7 +56,7 @@ export interface TablesRequestBuilder extends BaseRequestBuilder<TablesRequestBu
      */
      post(body: WorkbookTable, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTable | undefined>;
     /**
-     * Retrieve a list of table objects.
+     * Represents a collection of tables associated with the workbook. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -71,7 +70,7 @@ export interface TablesRequestBuilder extends BaseRequestBuilder<TablesRequestBu
      toPostRequestInformation(body: WorkbookTable, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of table objects.
+ * Represents a collection of tables associated with the workbook. Read-only.
  */
 export interface TablesRequestBuilderGetQueryParameters {
     /**

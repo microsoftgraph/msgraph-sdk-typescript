@@ -19,21 +19,22 @@ export interface AdditionalAccessGetResponse extends BaseCollectionPaginationCou
  */
 export interface AdditionalAccessRequestBuilder extends BaseRequestBuilder<AdditionalAccessRequestBuilder> {
     /**
-     * Invoke function additionalAccess
+     * In Microsoft Entra Entitlement Management, retrieve a collection of accessPackageAssignment objects that indicate a target user has an assignment to a specified access package and also an assignment to another, potentially incompatible, access package.  This can be used to prepare to configure the incompatible access packages for a specific access package.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AdditionalAccessGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignment-additionalaccess?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AdditionalAccessRequestBuilderGetQueryParameters> | undefined) : Promise<AdditionalAccessGetResponse | undefined>;
     /**
-     * Invoke function additionalAccess
+     * In Microsoft Entra Entitlement Management, retrieve a collection of accessPackageAssignment objects that indicate a target user has an assignment to a specified access package and also an assignment to another, potentially incompatible, access package.  This can be used to prepare to configure the incompatible access packages for a specific access package.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AdditionalAccessRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function additionalAccess
+ * In Microsoft Entra Entitlement Management, retrieve a collection of accessPackageAssignment objects that indicate a target user has an assignment to a specified access package and also an assignment to another, potentially incompatible, access package.  This can be used to prepare to configure the incompatible access packages for a specific access package.
  */
 export interface AdditionalAccessRequestBuilderGetQueryParameters {
     /**

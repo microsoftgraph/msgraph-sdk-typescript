@@ -25,20 +25,18 @@ export interface MinorGridlinesRequestBuilder extends BaseRequestBuilder<MinorGr
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of chartgridlines object.
+     * Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartGridlines>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartgridlines-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MinorGridlinesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartGridlines | undefined>;
     /**
-     * Update the properties of chartgridlines object.
+     * Update the navigation property minorGridlines in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartGridlines>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartgridlines-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WorkbookChartGridlines, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartGridlines | undefined>;
     /**
@@ -48,13 +46,13 @@ export interface MinorGridlinesRequestBuilder extends BaseRequestBuilder<MinorGr
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of chartgridlines object.
+     * Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MinorGridlinesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of chartgridlines object.
+     * Update the navigation property minorGridlines in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +60,7 @@ export interface MinorGridlinesRequestBuilder extends BaseRequestBuilder<MinorGr
      toPatchRequestInformation(body: WorkbookChartGridlines, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of chartgridlines object.
+ * Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.
  */
 export interface MinorGridlinesRequestBuilderGetQueryParameters {
     /**

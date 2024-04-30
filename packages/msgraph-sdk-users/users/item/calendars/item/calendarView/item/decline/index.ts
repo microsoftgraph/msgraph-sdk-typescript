@@ -65,9 +65,9 @@ export interface DeclineRequestBuilder extends BaseRequestBuilder<DeclineRequest
 export function deserializeIntoDeclinePostRequestBody(declinePostRequestBody: Partial<DeclinePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { declinePostRequestBody.backingStoreEnabled = true; },
-        "comment": n => { declinePostRequestBody.comment = n.getStringValue(); },
-        "proposedNewTime": n => { declinePostRequestBody.proposedNewTime = n.getObjectValue<TimeSlot>(createTimeSlotFromDiscriminatorValue); },
-        "sendResponse": n => { declinePostRequestBody.sendResponse = n.getBooleanValue(); },
+        "Comment": n => { declinePostRequestBody.comment = n.getStringValue(); },
+        "ProposedNewTime": n => { declinePostRequestBody.proposedNewTime = n.getObjectValue<TimeSlot>(createTimeSlotFromDiscriminatorValue); },
+        "SendResponse": n => { declinePostRequestBody.sendResponse = n.getBooleanValue(); },
     }
 }
 /**

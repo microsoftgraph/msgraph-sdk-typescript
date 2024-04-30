@@ -21,22 +21,21 @@ export interface PhotosRequestBuilder extends BaseRequestBuilder<PhotosRequestBu
      */
      byProfilePhotoId(profilePhotoId: string) : ProfilePhotoItemRequestBuilder;
     /**
-     * Retrieve a list of profilePhoto objects.
+     * The profile photos owned by the group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ProfilePhotoCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/group-list-photos?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PhotosRequestBuilderGetQueryParameters> | undefined) : Promise<ProfilePhotoCollectionResponse | undefined>;
     /**
-     * Retrieve a list of profilePhoto objects.
+     * The profile photos owned by the group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PhotosRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of profilePhoto objects.
+ * The profile photos owned by the group. Read-only. Nullable.
  */
 export interface PhotosRequestBuilderGetQueryParameters {
     /**

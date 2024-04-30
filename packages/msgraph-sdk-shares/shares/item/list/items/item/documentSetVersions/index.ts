@@ -27,30 +27,28 @@ export interface DocumentSetVersionsRequestBuilder extends BaseRequestBuilder<Do
      */
      byDocumentSetVersionId(documentSetVersionId: string) : DocumentSetVersionItemRequestBuilder;
     /**
-     * Get a list of the versions of a document set item in a list.
+     * Version information for a document set version created by a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DocumentSetVersionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/listitem-list-documentsetversions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DocumentSetVersionsRequestBuilderGetQueryParameters> | undefined) : Promise<DocumentSetVersionCollectionResponse | undefined>;
     /**
-     * Create a new version of a document set item in a list.
+     * Create new navigation property to documentSetVersions for shares
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DocumentSetVersion>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/listitem-post-documentsetversions?view=graph-rest-1.0|Find more info here}
      */
      post(body: DocumentSetVersion, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DocumentSetVersion | undefined>;
     /**
-     * Get a list of the versions of a document set item in a list.
+     * Version information for a document set version created by a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DocumentSetVersionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new version of a document set item in a list.
+     * Create new navigation property to documentSetVersions for shares
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface DocumentSetVersionsRequestBuilder extends BaseRequestBuilder<Do
      toPostRequestInformation(body: DocumentSetVersion, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the versions of a document set item in a list.
+ * Version information for a document set version created by a user.
  */
 export interface DocumentSetVersionsRequestBuilderGetQueryParameters {
     /**

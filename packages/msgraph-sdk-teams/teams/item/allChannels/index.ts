@@ -27,22 +27,21 @@ export interface AllChannelsRequestBuilder extends BaseRequestBuilder<AllChannel
      */
      byChannelId(channelId: string) : ChannelItemRequestBuilder;
     /**
-     * Get the list of channels either in this team or shared with this team (incoming channels).
+     * List of channels either hosted in or shared with the team (incoming channels).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ChannelCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/team-list-allchannels?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AllChannelsRequestBuilderGetQueryParameters> | undefined) : Promise<ChannelCollectionResponse | undefined>;
     /**
-     * Get the list of channels either in this team or shared with this team (incoming channels).
+     * List of channels either hosted in or shared with the team (incoming channels).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AllChannelsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the list of channels either in this team or shared with this team (incoming channels).
+ * List of channels either hosted in or shared with the team (incoming channels).
  */
 export interface AllChannelsRequestBuilderGetQueryParameters {
     /**

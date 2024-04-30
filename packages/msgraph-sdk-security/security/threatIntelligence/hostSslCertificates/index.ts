@@ -27,7 +27,7 @@ export interface HostSslCertificatesRequestBuilder extends BaseRequestBuilder<Ho
      */
      byHostSslCertificateId(hostSslCertificateId: string) : HostSslCertificateItemRequestBuilder;
     /**
-     * Get the properties and relationships of a hostSslCertificate object.
+     * Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostSslCertificateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface HostSslCertificatesRequestBuilder extends BaseRequestBuilder<Ho
      */
      post(body: HostSslCertificate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<HostSslCertificate | undefined>;
     /**
-     * Get the properties and relationships of a hostSslCertificate object.
+     * Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface HostSslCertificatesRequestBuilder extends BaseRequestBuilder<Ho
      toPostRequestInformation(body: HostSslCertificate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the properties and relationships of a hostSslCertificate object.
+ * Retrieve details about hostSslCertificate objects.Note: List retrieval is not yet supported.
  */
 export interface HostSslCertificatesRequestBuilderGetQueryParameters {
     /**

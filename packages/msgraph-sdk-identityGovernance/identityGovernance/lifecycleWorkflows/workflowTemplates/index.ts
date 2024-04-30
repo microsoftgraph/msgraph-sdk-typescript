@@ -27,22 +27,21 @@ export interface WorkflowTemplatesRequestBuilder extends BaseRequestBuilder<Work
      */
      byWorkflowTemplateId(workflowTemplateId: string) : WorkflowTemplateItemRequestBuilder;
     /**
-     * Get a list of the workflowTemplate objects and their properties.
+     * The workflow templates in the lifecycle workflow instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkflowTemplateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-workflowtemplates?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorkflowTemplatesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkflowTemplateCollectionResponse | undefined>;
     /**
-     * Get a list of the workflowTemplate objects and their properties.
+     * The workflow templates in the lifecycle workflow instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkflowTemplatesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the workflowTemplate objects and their properties.
+ * The workflow templates in the lifecycle workflow instance.
  */
 export interface WorkflowTemplatesRequestBuilderGetQueryParameters {
     /**

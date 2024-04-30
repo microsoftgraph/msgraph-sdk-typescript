@@ -11,14 +11,15 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface GetEmailActivityUserCountsWithPeriodRequestBuilder extends BaseRequestBuilder<GetEmailActivityUserCountsWithPeriodRequestBuilder> {
     /**
-     * Invoke function getEmailActivityUserCounts
+     * Enables you to understand trends on the number of unique users who are performing email activities like send, read, and receive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/reportroot-getemailactivityusercounts?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Invoke function getEmailActivityUserCounts
+     * Enables you to understand trends on the number of unique users who are performing email activities like send, read, and receive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

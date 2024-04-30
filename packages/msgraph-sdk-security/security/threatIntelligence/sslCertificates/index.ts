@@ -27,11 +27,10 @@ export interface SslCertificatesRequestBuilder extends BaseRequestBuilder<SslCer
      */
      bySslCertificateId(sslCertificateId: string) : SslCertificateItemRequestBuilder;
     /**
-     * Get a list of sslCertificate objects and their properties.
+     * Retrieve details about sslCertificate objects.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SslCertificateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-threatintelligence-list-sslcertificates?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SslCertificatesRequestBuilderGetQueryParameters> | undefined) : Promise<SslCertificateCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface SslCertificatesRequestBuilder extends BaseRequestBuilder<SslCer
      */
      post(body: SslCertificate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SslCertificate | undefined>;
     /**
-     * Get a list of sslCertificate objects and their properties.
+     * Retrieve details about sslCertificate objects.Note: List retrieval is not yet supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface SslCertificatesRequestBuilder extends BaseRequestBuilder<SslCer
      toPostRequestInformation(body: SslCertificate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of sslCertificate objects and their properties.
+ * Retrieve details about sslCertificate objects.Note: List retrieval is not yet supported.
  */
 export interface SslCertificatesRequestBuilderGetQueryParameters {
     /**

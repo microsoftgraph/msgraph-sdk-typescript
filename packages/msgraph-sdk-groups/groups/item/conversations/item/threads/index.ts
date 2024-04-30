@@ -27,30 +27,28 @@ export interface ThreadsRequestBuilder extends BaseRequestBuilder<ThreadsRequest
      */
      byConversationThreadId(conversationThreadId: string) : ConversationThreadItemRequestBuilder;
     /**
-     * Get all the threads in a group conversation. Note: You can also get all the threads of a group.
+     * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationThreadCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/conversation-list-threads?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ThreadsRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationThreadCollectionResponse | undefined>;
     /**
-     * Create a new thread in the specified conversation.  A thread and post are created as specified. Use reply thread to further post to that thread. Or, if you get the post ID, you can also reply to that post in that thread. Note: You can also start a new conversation by first creating a thread.
+     * Create new navigation property to threads for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationThread>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/conversation-post-threads?view=graph-rest-1.0|Find more info here}
      */
      post(body: ConversationThread, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConversationThread | undefined>;
     /**
-     * Get all the threads in a group conversation. Note: You can also get all the threads of a group.
+     * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ThreadsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new thread in the specified conversation.  A thread and post are created as specified. Use reply thread to further post to that thread. Or, if you get the post ID, you can also reply to that post in that thread. Note: You can also start a new conversation by first creating a thread.
+     * Create new navigation property to threads for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface ThreadsRequestBuilder extends BaseRequestBuilder<ThreadsRequest
      toPostRequestInformation(body: ConversationThread, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get all the threads in a group conversation. Note: You can also get all the threads of a group.
+ * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
  */
 export interface ThreadsRequestBuilderGetQueryParameters {
     /**

@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AcronymItemRequestBuilder extends BaseRequestBuilder<AcronymItemRequestBuilder> {
     /**
-     * Delete an acronym object.
+     * Delete navigation property acronyms for search
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/search-acronym-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of an acronym object.
+     * Administrative answer in Microsoft Search results to define common acronyms in an organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Acronym>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/search-acronym-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AcronymItemRequestBuilderGetQueryParameters> | undefined) : Promise<Acronym | undefined>;
     /**
-     * Update the properties of an acronym object.
+     * Update the navigation property acronyms in search
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Acronym>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/search-acronym-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Acronym, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Acronym | undefined>;
     /**
-     * Delete an acronym object.
+     * Delete navigation property acronyms for search
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of an acronym object.
+     * Administrative answer in Microsoft Search results to define common acronyms in an organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AcronymItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an acronym object.
+     * Update the navigation property acronyms in search
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface AcronymItemRequestBuilder extends BaseRequestBuilder<AcronymIte
      toPatchRequestInformation(body: Acronym, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of an acronym object.
+ * Administrative answer in Microsoft Search results to define common acronyms in an organization.
  */
 export interface AcronymItemRequestBuilderGetQueryParameters {
     /**

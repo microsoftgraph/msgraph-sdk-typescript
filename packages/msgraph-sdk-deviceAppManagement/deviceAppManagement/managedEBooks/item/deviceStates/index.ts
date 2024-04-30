@@ -27,30 +27,28 @@ export interface DeviceStatesRequestBuilder extends BaseRequestBuilder<DeviceSta
      */
      byDeviceInstallStateId(deviceInstallStateId: string) : DeviceInstallStateItemRequestBuilder;
     /**
-     * List properties and relationships of the deviceInstallState objects.
+     * The list of installation states for this eBook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceInstallStateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-deviceinstallstate-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceStatesRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceInstallStateCollectionResponse | undefined>;
     /**
-     * Create a new deviceInstallState object.
+     * Create new navigation property to deviceStates for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceInstallState>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-deviceinstallstate-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceInstallState, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceInstallState | undefined>;
     /**
-     * List properties and relationships of the deviceInstallState objects.
+     * The list of installation states for this eBook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceStatesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new deviceInstallState object.
+     * Create new navigation property to deviceStates for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface DeviceStatesRequestBuilder extends BaseRequestBuilder<DeviceSta
      toPostRequestInformation(body: DeviceInstallState, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the deviceInstallState objects.
+ * The list of installation states for this eBook.
  */
 export interface DeviceStatesRequestBuilderGetQueryParameters {
     /**

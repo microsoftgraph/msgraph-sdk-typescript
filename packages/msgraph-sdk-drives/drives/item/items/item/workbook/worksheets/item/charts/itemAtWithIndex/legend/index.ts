@@ -19,20 +19,18 @@ export interface LegendRequestBuilder extends BaseRequestBuilder<LegendRequestBu
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of chartlegend object.
+     * Represents the legend for the chart. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartLegend>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartlegend-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LegendRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartLegend | undefined>;
     /**
-     * Update the properties of chartlegend object.
+     * Update the navigation property legend in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartLegend>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartlegend-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WorkbookChartLegend, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartLegend | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface LegendRequestBuilder extends BaseRequestBuilder<LegendRequestBu
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of chartlegend object.
+     * Represents the legend for the chart. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LegendRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of chartlegend object.
+     * Update the navigation property legend in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface LegendRequestBuilder extends BaseRequestBuilder<LegendRequestBu
      toPatchRequestInformation(body: WorkbookChartLegend, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of chartlegend object.
+ * Represents the legend for the chart. Read-only.
  */
 export interface LegendRequestBuilderGetQueryParameters {
     /**

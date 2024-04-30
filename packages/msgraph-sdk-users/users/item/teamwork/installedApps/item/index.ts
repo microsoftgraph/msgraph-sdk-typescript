@@ -31,18 +31,16 @@ export interface UserScopeTeamsAppInstallationItemRequestBuilder extends BaseReq
      */
     get teamsAppDefinition(): TeamsAppDefinitionRequestBuilder;
     /**
-     * Uninstall an app from the personal scope of the specified user.
+     * Delete navigation property installedApps for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/userteamwork-delete-installedapps?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the app installed in the personal scope of the specified user.
+     * The apps installed in the personal scope of this user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserScopeTeamsAppInstallation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/userteamwork-get-installedapps?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserScopeTeamsAppInstallationItemRequestBuilderGetQueryParameters> | undefined) : Promise<UserScopeTeamsAppInstallation | undefined>;
     /**
@@ -54,13 +52,13 @@ export interface UserScopeTeamsAppInstallationItemRequestBuilder extends BaseReq
      */
      patch(body: UserScopeTeamsAppInstallation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserScopeTeamsAppInstallation | undefined>;
     /**
-     * Uninstall an app from the personal scope of the specified user.
+     * Delete navigation property installedApps for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the app installed in the personal scope of the specified user.
+     * The apps installed in the personal scope of this user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -74,7 +72,7 @@ export interface UserScopeTeamsAppInstallationItemRequestBuilder extends BaseReq
      toPatchRequestInformation(body: UserScopeTeamsAppInstallation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the app installed in the personal scope of the specified user.
+ * The apps installed in the personal scope of this user.
  */
 export interface UserScopeTeamsAppInstallationItemRequestBuilderGetQueryParameters {
     /**

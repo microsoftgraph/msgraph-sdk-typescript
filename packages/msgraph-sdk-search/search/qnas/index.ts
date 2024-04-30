@@ -27,30 +27,28 @@ export interface QnasRequestBuilder extends BaseRequestBuilder<QnasRequestBuilde
      */
      byQnaId(qnaId: string) : QnaItemRequestBuilder;
     /**
-     * Get a list of the qna objects and their properties.
+     * Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<QnaCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/search-searchentity-list-qnas?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<QnasRequestBuilderGetQueryParameters> | undefined) : Promise<QnaCollectionResponse | undefined>;
     /**
-     * Create a new qna object.
+     * Create new navigation property to qnas for search
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Qna>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/search-searchentity-post-qnas?view=graph-rest-1.0|Find more info here}
      */
      post(body: Qna, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Qna | undefined>;
     /**
-     * Get a list of the qna objects and their properties.
+     * Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<QnasRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new qna object.
+     * Create new navigation property to qnas for search
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface QnasRequestBuilder extends BaseRequestBuilder<QnasRequestBuilde
      toPostRequestInformation(body: Qna, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the qna objects and their properties.
+ * Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.
  */
 export interface QnasRequestBuilderGetQueryParameters {
     /**

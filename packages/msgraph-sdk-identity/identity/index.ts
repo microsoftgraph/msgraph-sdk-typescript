@@ -8,9 +8,13 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { ApiConnectorsRequestBuilderNavigationMetadata, ApiConnectorsRequestBuilderRequestsMetadata, type ApiConnectorsRequestBuilder } from './apiConnectors/';
 // @ts-ignore
+import { AuthenticationEventListenersRequestBuilderNavigationMetadata, AuthenticationEventListenersRequestBuilderRequestsMetadata, type AuthenticationEventListenersRequestBuilder } from './authenticationEventListeners/';
+// @ts-ignore
 import { B2xUserFlowsRequestBuilderNavigationMetadata, B2xUserFlowsRequestBuilderRequestsMetadata, type B2xUserFlowsRequestBuilder } from './b2xUserFlows/';
 // @ts-ignore
 import { ConditionalAccessRequestBuilderNavigationMetadata, type ConditionalAccessRequestBuilder } from './conditionalAccess/';
+// @ts-ignore
+import { CustomAuthenticationExtensionsRequestBuilderNavigationMetadata, CustomAuthenticationExtensionsRequestBuilderRequestsMetadata, type CustomAuthenticationExtensionsRequestBuilder } from './customAuthenticationExtensions/';
 // @ts-ignore
 import { IdentityProvidersRequestBuilderNavigationMetadata, IdentityProvidersRequestBuilderRequestsMetadata, type IdentityProvidersRequestBuilder } from './identityProviders/';
 // @ts-ignore
@@ -27,6 +31,10 @@ export interface IdentityRequestBuilder extends BaseRequestBuilder<IdentityReque
      */
     get apiConnectors(): ApiConnectorsRequestBuilder;
     /**
+     * Provides operations to manage the authenticationEventListeners property of the microsoft.graph.identityContainer entity.
+     */
+    get authenticationEventListeners(): AuthenticationEventListenersRequestBuilder;
+    /**
      * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
      */
     get b2xUserFlows(): B2xUserFlowsRequestBuilder;
@@ -34,6 +42,10 @@ export interface IdentityRequestBuilder extends BaseRequestBuilder<IdentityReque
      * The conditionalAccess property
      */
     get conditionalAccess(): ConditionalAccessRequestBuilder;
+    /**
+     * Provides operations to manage the customAuthenticationExtensions property of the microsoft.graph.identityContainer entity.
+     */
+    get customAuthenticationExtensions(): CustomAuthenticationExtensionsRequestBuilder;
     /**
      * Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
      */
@@ -103,12 +115,20 @@ export const IdentityRequestBuilderNavigationMetadata: Record<Exclude<keyof Iden
         requestsMetadata: ApiConnectorsRequestBuilderRequestsMetadata,
         navigationMetadata: ApiConnectorsRequestBuilderNavigationMetadata,
     },
+    authenticationEventListeners: {
+        requestsMetadata: AuthenticationEventListenersRequestBuilderRequestsMetadata,
+        navigationMetadata: AuthenticationEventListenersRequestBuilderNavigationMetadata,
+    },
     b2xUserFlows: {
         requestsMetadata: B2xUserFlowsRequestBuilderRequestsMetadata,
         navigationMetadata: B2xUserFlowsRequestBuilderNavigationMetadata,
     },
     conditionalAccess: {
         navigationMetadata: ConditionalAccessRequestBuilderNavigationMetadata,
+    },
+    customAuthenticationExtensions: {
+        requestsMetadata: CustomAuthenticationExtensionsRequestBuilderRequestsMetadata,
+        navigationMetadata: CustomAuthenticationExtensionsRequestBuilderNavigationMetadata,
     },
     identityProviders: {
         requestsMetadata: IdentityProvidersRequestBuilderRequestsMetadata,

@@ -27,30 +27,28 @@ export interface TabsRequestBuilder extends BaseRequestBuilder<TabsRequestBuilde
      */
      byTeamsTabId(teamsTabId: string) : TeamsTabItemRequestBuilder;
     /**
-     * Retrieve the list of tabs in the specified chat.
+     * A collection of all the tabs in the chat. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsTabCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chat-list-tabs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TabsRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsTabCollectionResponse | undefined>;
     /**
-     * Add (pin) a tab to the specified chat. The corresponding app must already be installed in the chat.
+     * Create new navigation property to tabs for chats
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsTab>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chat-post-tabs?view=graph-rest-1.0|Find more info here}
      */
      post(body: TeamsTab, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamsTab | undefined>;
     /**
-     * Retrieve the list of tabs in the specified chat.
+     * A collection of all the tabs in the chat. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TabsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Add (pin) a tab to the specified chat. The corresponding app must already be installed in the chat.
+     * Create new navigation property to tabs for chats
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface TabsRequestBuilder extends BaseRequestBuilder<TabsRequestBuilde
      toPostRequestInformation(body: TeamsTab, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the list of tabs in the specified chat.
+ * A collection of all the tabs in the chat. Nullable.
  */
 export interface TabsRequestBuilderGetQueryParameters {
     /**

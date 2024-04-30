@@ -27,11 +27,10 @@ export interface LocalizationsRequestBuilder extends BaseRequestBuilder<Localiza
      */
      byAgreementFileLocalizationId(agreementFileLocalizationId: string) : AgreementFileLocalizationItemRequestBuilder;
     /**
-     * Get a list of the default and localized agreement files.
+     * The localized version of the terms of use agreement files attached to the agreement.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AgreementFileLocalizationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/agreementfile-list-localizations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LocalizationsRequestBuilderGetQueryParameters> | undefined) : Promise<AgreementFileLocalizationCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface LocalizationsRequestBuilder extends BaseRequestBuilder<Localiza
      */
      post(body: AgreementFileLocalization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AgreementFileLocalization | undefined>;
     /**
-     * Get a list of the default and localized agreement files.
+     * The localized version of the terms of use agreement files attached to the agreement.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface LocalizationsRequestBuilder extends BaseRequestBuilder<Localiza
      toPostRequestInformation(body: AgreementFileLocalization, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the default and localized agreement files.
+ * The localized version of the terms of use agreement files attached to the agreement.
  */
 export interface LocalizationsRequestBuilderGetQueryParameters {
     /**

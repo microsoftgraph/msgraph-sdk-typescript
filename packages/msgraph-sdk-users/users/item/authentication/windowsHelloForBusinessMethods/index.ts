@@ -27,22 +27,21 @@ export interface WindowsHelloForBusinessMethodsRequestBuilder extends BaseReques
      */
      byWindowsHelloForBusinessAuthenticationMethodId(windowsHelloForBusinessAuthenticationMethodId: string) : WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder;
     /**
-     * Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.
+     * Represents the Windows Hello for Business authentication method registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsHelloForBusinessAuthenticationMethodCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WindowsHelloForBusinessMethodsRequestBuilderGetQueryParameters> | undefined) : Promise<WindowsHelloForBusinessAuthenticationMethodCollectionResponse | undefined>;
     /**
-     * Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.
+     * Represents the Windows Hello for Business authentication method registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WindowsHelloForBusinessMethodsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.
+ * Represents the Windows Hello for Business authentication method registered to a user for authentication.
  */
 export interface WindowsHelloForBusinessMethodsRequestBuilderGetQueryParameters {
     /**

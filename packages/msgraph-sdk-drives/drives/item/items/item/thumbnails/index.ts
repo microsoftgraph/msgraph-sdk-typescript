@@ -27,11 +27,10 @@ export interface ThumbnailsRequestBuilder extends BaseRequestBuilder<ThumbnailsR
      */
      byThumbnailSetId(thumbnailSetId: string) : ThumbnailSetItemRequestBuilder;
     /**
-     * Retrieve a collection of ThumbnailSet resources for a DriveItem resource. A DriveItem can be represented by zero or more ThumbnailSet resources.Each thumbnailSet can have one or more thumbnail objects, which are images that represent the item.For example, a thumbnailSet may include thumbnail objects, such as common ones including small, medium, or large. There are many ways to work with thumbnails on OneDrive.Here are the most common ones:
+     * Collection of thumbnailSet objects associated with the item. For more information, see getting thumbnails. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ThumbnailSetCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/driveitem-list-thumbnails?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ThumbnailsRequestBuilderGetQueryParameters> | undefined) : Promise<ThumbnailSetCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface ThumbnailsRequestBuilder extends BaseRequestBuilder<ThumbnailsR
      */
      post(body: ThumbnailSet, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ThumbnailSet | undefined>;
     /**
-     * Retrieve a collection of ThumbnailSet resources for a DriveItem resource. A DriveItem can be represented by zero or more ThumbnailSet resources.Each thumbnailSet can have one or more thumbnail objects, which are images that represent the item.For example, a thumbnailSet may include thumbnail objects, such as common ones including small, medium, or large. There are many ways to work with thumbnails on OneDrive.Here are the most common ones:
+     * Collection of thumbnailSet objects associated with the item. For more information, see getting thumbnails. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface ThumbnailsRequestBuilder extends BaseRequestBuilder<ThumbnailsR
      toPostRequestInformation(body: ThumbnailSet, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a collection of ThumbnailSet resources for a DriveItem resource. A DriveItem can be represented by zero or more ThumbnailSet resources.Each thumbnailSet can have one or more thumbnail objects, which are images that represent the item.For example, a thumbnailSet may include thumbnail objects, such as common ones including small, medium, or large. There are many ways to work with thumbnails on OneDrive.Here are the most common ones:
+ * Collection of thumbnailSet objects associated with the item. For more information, see getting thumbnails. Read-only. Nullable.
  */
 export interface ThumbnailsRequestBuilderGetQueryParameters {
     /**

@@ -31,22 +31,21 @@ export interface WorkflowVersionVersionNumberItemRequestBuilder extends BaseRequ
      */
     get tasks(): TasksRequestBuilder;
     /**
-     * Read the properties and relationships of a workflowVersion object.
+     * The workflow versions that are available.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkflowVersion>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflowversion-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorkflowVersionVersionNumberItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkflowVersion | undefined>;
     /**
-     * Read the properties and relationships of a workflowVersion object.
+     * The workflow versions that are available.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkflowVersionVersionNumberItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a workflowVersion object.
+ * The workflow versions that are available.
  */
 export interface WorkflowVersionVersionNumberItemRequestBuilderGetQueryParameters {
     /**

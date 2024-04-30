@@ -37,21 +37,22 @@ export interface GetRelyingPartyDetailedSummaryWithPeriodGetResponse extends Bas
  */
 export interface GetRelyingPartyDetailedSummaryWithPeriodRequestBuilder extends BaseRequestBuilder<GetRelyingPartyDetailedSummaryWithPeriodRequestBuilder> {
     /**
-     * Invoke function getRelyingPartyDetailedSummary
+     * Get a summary of AD FS relying parties information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetRelyingPartyDetailedSummaryWithPeriodGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/reportroot-getrelyingpartydetailedsummary?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters> | undefined) : Promise<GetRelyingPartyDetailedSummaryWithPeriodGetResponse | undefined>;
     /**
-     * Invoke function getRelyingPartyDetailedSummary
+     * Get a summary of AD FS relying parties information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getRelyingPartyDetailedSummary
+ * Get a summary of AD FS relying parties information.
  */
 export interface GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters {
     /**

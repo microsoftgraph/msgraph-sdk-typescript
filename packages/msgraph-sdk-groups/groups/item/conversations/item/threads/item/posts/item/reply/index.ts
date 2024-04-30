@@ -23,7 +23,7 @@ export function createReplyPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 export function deserializeIntoReplyPostRequestBody(replyPostRequestBody: Partial<ReplyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { replyPostRequestBody.backingStoreEnabled = true; },
-        "post": n => { replyPostRequestBody.post = n.getObjectValue<Post>(createPostFromDiscriminatorValue); },
+        "Post": n => { replyPostRequestBody.post = n.getObjectValue<Post>(createPostFromDiscriminatorValue); },
     }
 }
 export interface ReplyPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {

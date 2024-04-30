@@ -27,30 +27,28 @@ export interface CatalogsRequestBuilder extends BaseRequestBuilder<CatalogsReque
      */
      byAccessPackageCatalogId(accessPackageCatalogId: string) : AccessPackageCatalogItemRequestBuilder;
     /**
-     * Retrieve a list of accessPackageCatalog objects.
+     * A container for access packages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageCatalogCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-catalogs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CatalogsRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageCatalogCollectionResponse | undefined>;
     /**
-     * Create a new accessPackageCatalog object.
+     * Create new navigation property to catalogs for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageCatalog>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-post-catalogs?view=graph-rest-1.0|Find more info here}
      */
      post(body: AccessPackageCatalog, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackageCatalog | undefined>;
     /**
-     * Retrieve a list of accessPackageCatalog objects.
+     * A container for access packages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CatalogsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new accessPackageCatalog object.
+     * Create new navigation property to catalogs for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface CatalogsRequestBuilder extends BaseRequestBuilder<CatalogsReque
      toPostRequestInformation(body: AccessPackageCatalog, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of accessPackageCatalog objects.
+ * A container for access packages.
  */
 export interface CatalogsRequestBuilderGetQueryParameters {
     /**

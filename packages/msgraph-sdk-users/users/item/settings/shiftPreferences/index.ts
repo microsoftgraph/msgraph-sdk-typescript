@@ -19,20 +19,18 @@ export interface ShiftPreferencesRequestBuilder extends BaseRequestBuilder<Shift
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a shiftPreferences object by ID.
+     * Get shiftPreferences from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ShiftPreferences>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/shiftpreferences-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ShiftPreferencesRequestBuilderGetQueryParameters> | undefined) : Promise<ShiftPreferences | undefined>;
     /**
-     * Update the properties and relationships of a shiftPreferences object.
+     * Update the navigation property shiftPreferences in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ShiftPreferences>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/shiftpreferences-put?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ShiftPreferences, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ShiftPreferences | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface ShiftPreferencesRequestBuilder extends BaseRequestBuilder<Shift
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a shiftPreferences object by ID.
+     * Get shiftPreferences from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ShiftPreferencesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties and relationships of a shiftPreferences object.
+     * Update the navigation property shiftPreferences in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface ShiftPreferencesRequestBuilder extends BaseRequestBuilder<Shift
      toPatchRequestInformation(body: ShiftPreferences, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a shiftPreferences object by ID.
+ * Get shiftPreferences from users
  */
 export interface ShiftPreferencesRequestBuilderGetQueryParameters {
     /**

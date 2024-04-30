@@ -25,20 +25,18 @@ export interface LineRequestBuilder extends BaseRequestBuilder<LineRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of chartlineformat object.
+     * Represents chart line formatting. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartLineFormat>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartlineformat-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LineRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartLineFormat | undefined>;
     /**
-     * Update the properties of chartlineformat object.
+     * Update the navigation property line in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartLineFormat>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/chartlineformat-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WorkbookChartLineFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartLineFormat | undefined>;
     /**
@@ -48,13 +46,13 @@ export interface LineRequestBuilder extends BaseRequestBuilder<LineRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of chartlineformat object.
+     * Represents chart line formatting. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LineRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of chartlineformat object.
+     * Update the navigation property line in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +60,7 @@ export interface LineRequestBuilder extends BaseRequestBuilder<LineRequestBuilde
      toPatchRequestInformation(body: WorkbookChartLineFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of chartlineformat object.
+ * Represents chart line formatting. Read-only.
  */
 export interface LineRequestBuilderGetQueryParameters {
     /**

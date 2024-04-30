@@ -33,30 +33,28 @@ export interface SchoolsRequestBuilder extends BaseRequestBuilder<SchoolsRequest
      */
      byEducationSchoolId(educationSchoolId: string) : EducationSchoolItemRequestBuilder;
     /**
-     * Get a list of the educationSchool objects and their properties.
+     * Get schools from education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationSchoolCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationschool-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SchoolsRequestBuilderGetQueryParameters> | undefined) : Promise<EducationSchoolCollectionResponse | undefined>;
     /**
-     * Create a new educationSchool object.
+     * Create new navigation property to schools for education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationSchool>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationschool-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: EducationSchool, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationSchool | undefined>;
     /**
-     * Get a list of the educationSchool objects and their properties.
+     * Get schools from education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SchoolsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new educationSchool object.
+     * Create new navigation property to schools for education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,7 +62,7 @@ export interface SchoolsRequestBuilder extends BaseRequestBuilder<SchoolsRequest
      toPostRequestInformation(body: EducationSchool, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the educationSchool objects and their properties.
+ * Get schools from education
  */
 export interface SchoolsRequestBuilderGetQueryParameters {
     /**

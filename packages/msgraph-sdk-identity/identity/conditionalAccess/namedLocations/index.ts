@@ -27,30 +27,28 @@ export interface NamedLocationsRequestBuilder extends BaseRequestBuilder<NamedLo
      */
      byNamedLocationId(namedLocationId: string) : NamedLocationItemRequestBuilder;
     /**
-     * Get a list of namedLocation objects.
+     * Read-only. Nullable. Returns a collection of the specified named locations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<NamedLocationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccessroot-list-namedlocations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<NamedLocationsRequestBuilderGetQueryParameters> | undefined) : Promise<NamedLocationCollectionResponse | undefined>;
     /**
-     * Create a new namedLocation object. Named locations can be either ipNamedLocation or countryNamedLocation objects.
+     * Create new navigation property to namedLocations for identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<NamedLocation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccessroot-post-namedlocations?view=graph-rest-1.0|Find more info here}
      */
      post(body: NamedLocation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<NamedLocation | undefined>;
     /**
-     * Get a list of namedLocation objects.
+     * Read-only. Nullable. Returns a collection of the specified named locations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<NamedLocationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new namedLocation object. Named locations can be either ipNamedLocation or countryNamedLocation objects.
+     * Create new navigation property to namedLocations for identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface NamedLocationsRequestBuilder extends BaseRequestBuilder<NamedLo
      toPostRequestInformation(body: NamedLocation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of namedLocation objects.
+ * Read-only. Nullable. Returns a collection of the specified named locations.
  */
 export interface NamedLocationsRequestBuilderGetQueryParameters {
     /**

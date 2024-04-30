@@ -23,7 +23,7 @@ export function createSnoozeReminderPostRequestBodyFromDiscriminatorValue(parseN
 export function deserializeIntoSnoozeReminderPostRequestBody(snoozeReminderPostRequestBody: Partial<SnoozeReminderPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { snoozeReminderPostRequestBody.backingStoreEnabled = true; },
-        "newReminderTime": n => { snoozeReminderPostRequestBody.newReminderTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
+        "NewReminderTime": n => { snoozeReminderPostRequestBody.newReminderTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
     }
 }
 /**

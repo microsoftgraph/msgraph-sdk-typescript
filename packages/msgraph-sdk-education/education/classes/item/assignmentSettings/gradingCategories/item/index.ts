@@ -26,12 +26,11 @@ export interface EducationGradingCategoryItemRequestBuilder extends BaseRequestB
      */
      get(requestConfiguration?: RequestConfiguration<EducationGradingCategoryItemRequestBuilderGetQueryParameters> | undefined) : Promise<EducationGradingCategory | undefined>;
     /**
-     * Update a single gradingCategory on the educationAssignmentSettings. Only teachers can perform this operation.
+     * Update the navigation property gradingCategories in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationGradingCategory>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationgradingcategory-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EducationGradingCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationGradingCategory | undefined>;
     /**
@@ -47,7 +46,7 @@ export interface EducationGradingCategoryItemRequestBuilder extends BaseRequestB
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EducationGradingCategoryItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update a single gradingCategory on the educationAssignmentSettings. Only teachers can perform this operation.
+     * Update the navigation property gradingCategories in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

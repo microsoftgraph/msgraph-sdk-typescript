@@ -19,11 +19,10 @@ export interface RichLongRunningOperationItemRequestBuilder extends BaseRequestB
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get the status of a rich long-running operation on a site or a list.
+     * The collection of long-running operations on the site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RichLongRunningOperation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/richlongrunningoperation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RichLongRunningOperationItemRequestBuilderGetQueryParameters> | undefined) : Promise<RichLongRunningOperation | undefined>;
     /**
@@ -41,7 +40,7 @@ export interface RichLongRunningOperationItemRequestBuilder extends BaseRequestB
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the status of a rich long-running operation on a site or a list.
+     * The collection of long-running operations on the site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -55,7 +54,7 @@ export interface RichLongRunningOperationItemRequestBuilder extends BaseRequestB
      toPatchRequestInformation(body: RichLongRunningOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the status of a rich long-running operation on a site or a list.
+ * The collection of long-running operations on the site.
  */
 export interface RichLongRunningOperationItemRequestBuilderGetQueryParameters {
     /**

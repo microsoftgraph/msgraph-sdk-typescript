@@ -27,30 +27,28 @@ export interface ResourcesRequestBuilder extends BaseRequestBuilder<ResourcesReq
      */
      byEducationModuleResourceId(educationModuleResourceId: string) : EducationModuleResourceItemRequestBuilder;
     /**
-     * Get all the educationModuleResource objects associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
+     * Learning objects that are associated with this module. Only teachers can modify this list. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationModuleResourceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationmodule-list-resources?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ResourcesRequestBuilderGetQueryParameters> | undefined) : Promise<EducationModuleResourceCollectionResponse | undefined>;
     /**
-     * Create a resource in a module. Only teachers can perform this operation. You can create the following types of module resources: Every resource has an @odata.type property to indicate which type of resource is being created.
+     * Create new navigation property to resources for education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationModuleResource>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationmodule-post-resources?view=graph-rest-1.0|Find more info here}
      */
      post(body: EducationModuleResource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationModuleResource | undefined>;
     /**
-     * Get all the educationModuleResource objects associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
+     * Learning objects that are associated with this module. Only teachers can modify this list. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ResourcesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a resource in a module. Only teachers can perform this operation. You can create the following types of module resources: Every resource has an @odata.type property to indicate which type of resource is being created.
+     * Create new navigation property to resources for education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface ResourcesRequestBuilder extends BaseRequestBuilder<ResourcesReq
      toPostRequestInformation(body: EducationModuleResource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get all the educationModuleResource objects associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
+ * Learning objects that are associated with this module. Only teachers can modify this list. Nullable.
  */
 export interface ResourcesRequestBuilderGetQueryParameters {
     /**

@@ -27,11 +27,10 @@ export interface LanguagesRequestBuilder extends BaseRequestBuilder<LanguagesReq
      */
      byUserFlowLanguageConfigurationId(userFlowLanguageConfigurationId: string) : UserFlowLanguageConfigurationItemRequestBuilder;
     /**
-     * Retrieve a list of languages supported for customization in a B2X user flow.
+     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You can't create custom languages in self-service sign-up user flows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserFlowLanguageConfigurationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/b2xidentityuserflow-list-languages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LanguagesRequestBuilderGetQueryParameters> | undefined) : Promise<UserFlowLanguageConfigurationCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface LanguagesRequestBuilder extends BaseRequestBuilder<LanguagesReq
      */
      post(body: UserFlowLanguageConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserFlowLanguageConfiguration | undefined>;
     /**
-     * Retrieve a list of languages supported for customization in a B2X user flow.
+     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You can't create custom languages in self-service sign-up user flows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface LanguagesRequestBuilder extends BaseRequestBuilder<LanguagesReq
      toPostRequestInformation(body: UserFlowLanguageConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of languages supported for customization in a B2X user flow.
+ * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You can't create custom languages in self-service sign-up user flows.
  */
 export interface LanguagesRequestBuilderGetQueryParameters {
     /**

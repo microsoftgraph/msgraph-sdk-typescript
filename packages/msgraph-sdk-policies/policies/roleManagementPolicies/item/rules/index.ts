@@ -27,11 +27,10 @@ export interface RulesRequestBuilder extends BaseRequestBuilder<RulesRequestBuil
      */
      byUnifiedRoleManagementPolicyRuleId(unifiedRoleManagementPolicyRuleId: string) : UnifiedRoleManagementPolicyRuleItemRequestBuilder;
     /**
-     * Get the rules or settings defined for a role management policy. The rules are a collection of following types that are derived from the unifiedRoleManagementPolicyRule object:
+     * The collection of rules like approval rules and expiration rules. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleManagementPolicyRuleCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/unifiedrolemanagementpolicy-list-rules?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RulesRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleManagementPolicyRuleCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface RulesRequestBuilder extends BaseRequestBuilder<RulesRequestBuil
      */
      post(body: UnifiedRoleManagementPolicyRule, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleManagementPolicyRule | undefined>;
     /**
-     * Get the rules or settings defined for a role management policy. The rules are a collection of following types that are derived from the unifiedRoleManagementPolicyRule object:
+     * The collection of rules like approval rules and expiration rules. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface RulesRequestBuilder extends BaseRequestBuilder<RulesRequestBuil
      toPostRequestInformation(body: UnifiedRoleManagementPolicyRule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the rules or settings defined for a role management policy. The rules are a collection of following types that are derived from the unifiedRoleManagementPolicyRule object:
+ * The collection of rules like approval rules and expiration rules. Supports $expand.
  */
 export interface RulesRequestBuilderGetQueryParameters {
     /**

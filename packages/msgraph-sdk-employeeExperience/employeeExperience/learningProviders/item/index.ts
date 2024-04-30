@@ -29,18 +29,16 @@ export interface LearningProviderItemRequestBuilder extends BaseRequestBuilder<L
      */
     get learningCourseActivities(): LearningCourseActivitiesRequestBuilder;
     /**
-     * Delete a learningProvider resource and remove its registration in Viva Learning for a tenant.
+     * Delete navigation property learningProviders for employeeExperience
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/employeeexperience-delete-learningproviders?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a learningProvider object.
+     * A collection of learning providers.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LearningProvider>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/learningprovider-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LearningProviderItemRequestBuilderGetQueryParameters> | undefined) : Promise<LearningProvider | undefined>;
     /**
@@ -56,28 +54,27 @@ export interface LearningProviderItemRequestBuilder extends BaseRequestBuilder<L
      */
      learningCourseActivitiesWithExternalcourseActivityId(externalcourseActivityId: string | undefined) : LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder;
     /**
-     * Update the properties of a learningProvider object.
+     * Update the navigation property learningProviders in employeeExperience
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LearningProvider>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/learningprovider-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: LearningProvider, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LearningProvider | undefined>;
     /**
-     * Delete a learningProvider resource and remove its registration in Viva Learning for a tenant.
+     * Delete navigation property learningProviders for employeeExperience
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a learningProvider object.
+     * A collection of learning providers.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LearningProviderItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a learningProvider object.
+     * Update the navigation property learningProviders in employeeExperience
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -85,7 +82,7 @@ export interface LearningProviderItemRequestBuilder extends BaseRequestBuilder<L
      toPatchRequestInformation(body: LearningProvider, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a learningProvider object.
+ * A collection of learning providers.
  */
 export interface LearningProviderItemRequestBuilderGetQueryParameters {
     /**

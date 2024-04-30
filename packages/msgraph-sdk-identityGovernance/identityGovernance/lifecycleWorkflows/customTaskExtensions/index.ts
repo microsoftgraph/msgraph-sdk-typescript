@@ -27,30 +27,28 @@ export interface CustomTaskExtensionsRequestBuilder extends BaseRequestBuilder<C
      */
      byCustomTaskExtensionId(customTaskExtensionId: string) : CustomTaskExtensionItemRequestBuilder;
     /**
-     * Get a list of the customTaskExtension objects and their properties.
+     * The customTaskExtension instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CustomTaskExtensionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-customtaskextensions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CustomTaskExtensionsRequestBuilderGetQueryParameters> | undefined) : Promise<CustomTaskExtensionCollectionResponse | undefined>;
     /**
-     * Create a new customTaskExtension object.
+     * Create new navigation property to customTaskExtensions for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CustomTaskExtension>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-post-customtaskextensions?view=graph-rest-1.0|Find more info here}
      */
      post(body: CustomTaskExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CustomTaskExtension | undefined>;
     /**
-     * Get a list of the customTaskExtension objects and their properties.
+     * The customTaskExtension instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CustomTaskExtensionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new customTaskExtension object.
+     * Create new navigation property to customTaskExtensions for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface CustomTaskExtensionsRequestBuilder extends BaseRequestBuilder<C
      toPostRequestInformation(body: CustomTaskExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the customTaskExtension objects and their properties.
+ * The customTaskExtension instance.
  */
 export interface CustomTaskExtensionsRequestBuilderGetQueryParameters {
     /**

@@ -35,11 +35,10 @@ export interface RoleEligibilityScheduleInstancesRequestBuilder extends BaseRequ
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Get the instances of role eligibilities.
+     * Instances for role eligibility requests.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleEligibilityScheduleInstanceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-list-roleeligibilityscheduleinstances?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleEligibilityScheduleInstanceCollectionResponse | undefined>;
     /**
@@ -51,7 +50,7 @@ export interface RoleEligibilityScheduleInstancesRequestBuilder extends BaseRequ
      */
      post(body: UnifiedRoleEligibilityScheduleInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleEligibilityScheduleInstance | undefined>;
     /**
-     * Get the instances of role eligibilities.
+     * Instances for role eligibility requests.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -65,7 +64,7 @@ export interface RoleEligibilityScheduleInstancesRequestBuilder extends BaseRequ
      toPostRequestInformation(body: UnifiedRoleEligibilityScheduleInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the instances of role eligibilities.
+ * Instances for role eligibility requests.
  */
 export interface RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameters {
     /**

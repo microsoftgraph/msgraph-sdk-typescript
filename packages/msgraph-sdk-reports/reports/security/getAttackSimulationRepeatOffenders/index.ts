@@ -37,21 +37,22 @@ export interface GetAttackSimulationRepeatOffendersGetResponse extends BaseColle
  */
 export interface GetAttackSimulationRepeatOffendersRequestBuilder extends BaseRequestBuilder<GetAttackSimulationRepeatOffendersRequestBuilder> {
     /**
-     * Invoke function getAttackSimulationRepeatOffenders
+     * List the tenant users who have yielded to attacks more than once in attack simulation and training campaigns. This function supports @odata.nextLink for pagination.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetAttackSimulationRepeatOffendersGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/securityreportsroot-getattacksimulationrepeatoffenders?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters> | undefined) : Promise<GetAttackSimulationRepeatOffendersGetResponse | undefined>;
     /**
-     * Invoke function getAttackSimulationRepeatOffenders
+     * List the tenant users who have yielded to attacks more than once in attack simulation and training campaigns. This function supports @odata.nextLink for pagination.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getAttackSimulationRepeatOffenders
+ * List the tenant users who have yielded to attacks more than once in attack simulation and training campaigns. This function supports @odata.nextLink for pagination.
  */
 export interface GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters {
     /**

@@ -27,11 +27,10 @@ export interface LandingPagesRequestBuilder extends BaseRequestBuilder<LandingPa
      */
      byLandingPageId(landingPageId: string) : LandingPageItemRequestBuilder;
     /**
-     * Get a list of the landingPage objects and their properties.
+     * Represents an attack simulation training landing page.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LandingPageCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-list-landingpage?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LandingPagesRequestBuilderGetQueryParameters> | undefined) : Promise<LandingPageCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface LandingPagesRequestBuilder extends BaseRequestBuilder<LandingPa
      */
      post(body: LandingPage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LandingPage | undefined>;
     /**
-     * Get a list of the landingPage objects and their properties.
+     * Represents an attack simulation training landing page.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface LandingPagesRequestBuilder extends BaseRequestBuilder<LandingPa
      toPostRequestInformation(body: LandingPage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the landingPage objects and their properties.
+ * Represents an attack simulation training landing page.
  */
 export interface LandingPagesRequestBuilderGetQueryParameters {
     /**

@@ -27,30 +27,28 @@ export interface SearchesRequestBuilder extends BaseRequestBuilder<SearchesReque
      */
      byEdiscoverySearchId(ediscoverySearchId: string) : EdiscoverySearchItemRequestBuilder;
     /**
-     * Get the list of ediscoverySearch resources from an eDiscoveryCase object.
+     * Returns a list of eDiscoverySearch objects associated with this case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoverySearchCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-searches?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SearchesRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoverySearchCollectionResponse | undefined>;
     /**
-     * Create a new ediscoverySearch object.
+     * Create new navigation property to searches for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoverySearch>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-searches?view=graph-rest-1.0|Find more info here}
      */
      post(body: EdiscoverySearch, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoverySearch | undefined>;
     /**
-     * Get the list of ediscoverySearch resources from an eDiscoveryCase object.
+     * Returns a list of eDiscoverySearch objects associated with this case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SearchesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new ediscoverySearch object.
+     * Create new navigation property to searches for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface SearchesRequestBuilder extends BaseRequestBuilder<SearchesReque
      toPostRequestInformation(body: EdiscoverySearch, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the list of ediscoverySearch resources from an eDiscoveryCase object.
+ * Returns a list of eDiscoverySearch objects associated with this case.
  */
 export interface SearchesRequestBuilderGetQueryParameters {
     /**

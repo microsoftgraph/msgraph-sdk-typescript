@@ -19,43 +19,40 @@ export interface TeamworkTagItemRequestBuilder extends BaseRequestBuilder<Teamwo
      */
     get members(): MembersRequestBuilder;
     /**
-     * Delete a tag object permanently.
+     * Delete navigation property tags for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/teamworktag-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a tag object.
+     * The tags associated with the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamworkTag>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/teamworktag-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TeamworkTagItemRequestBuilderGetQueryParameters> | undefined) : Promise<TeamworkTag | undefined>;
     /**
-     * Update the properties of a tag object.
+     * Update the navigation property tags in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamworkTag>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/teamworktag-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TeamworkTag, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamworkTag | undefined>;
     /**
-     * Delete a tag object permanently.
+     * Delete navigation property tags for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a tag object.
+     * The tags associated with the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeamworkTagItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a tag object.
+     * Update the navigation property tags in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface TeamworkTagItemRequestBuilder extends BaseRequestBuilder<Teamwo
      toPatchRequestInformation(body: TeamworkTag, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a tag object.
+ * The tags associated with the team.
  */
 export interface TeamworkTagItemRequestBuilderGetQueryParameters {
     /**

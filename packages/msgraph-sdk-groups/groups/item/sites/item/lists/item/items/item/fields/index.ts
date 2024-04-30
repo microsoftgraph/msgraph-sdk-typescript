@@ -26,12 +26,11 @@ export interface FieldsRequestBuilder extends BaseRequestBuilder<FieldsRequestBu
      */
      get(requestConfiguration?: RequestConfiguration<FieldsRequestBuilderGetQueryParameters> | undefined) : Promise<FieldValueSet | undefined>;
     /**
-     * Update the properties on a [listItem][].
+     * Update the navigation property fields in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FieldValueSet>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/listitem-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: FieldValueSet, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<FieldValueSet | undefined>;
     /**
@@ -47,7 +46,7 @@ export interface FieldsRequestBuilder extends BaseRequestBuilder<FieldsRequestBu
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FieldsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties on a [listItem][].
+     * Update the navigation property fields in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

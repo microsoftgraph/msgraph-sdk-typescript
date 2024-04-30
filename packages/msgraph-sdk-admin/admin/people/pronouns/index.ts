@@ -13,30 +13,28 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface PronounsRequestBuilder extends BaseRequestBuilder<PronounsRequestBuilder> {
     /**
-     * Get the properties of the pronounsSettings resource for an organization.  For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.
+     * Represents administrator settings that manage the support of pronouns in an organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PronounsSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/peopleadminsettings-list-pronouns?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PronounsRequestBuilderGetQueryParameters> | undefined) : Promise<PronounsSettings | undefined>;
     /**
-     * Update the properties of a pronounsSettings object in an organization. For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.
+     * Update the navigation property pronouns in admin
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PronounsSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/pronounssettings-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PronounsSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PronounsSettings | undefined>;
     /**
-     * Get the properties of the pronounsSettings resource for an organization.  For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.
+     * Represents administrator settings that manage the support of pronouns in an organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PronounsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a pronounsSettings object in an organization. For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.
+     * Update the navigation property pronouns in admin
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -44,7 +42,7 @@ export interface PronounsRequestBuilder extends BaseRequestBuilder<PronounsReque
      toPatchRequestInformation(body: PronounsSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the properties of the pronounsSettings resource for an organization.  For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.
+ * Represents administrator settings that manage the support of pronouns in an organization.
  */
 export interface PronounsRequestBuilderGetQueryParameters {
     /**

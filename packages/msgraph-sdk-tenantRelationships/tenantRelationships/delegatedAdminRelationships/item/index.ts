@@ -31,43 +31,40 @@ export interface DelegatedAdminRelationshipItemRequestBuilder extends BaseReques
      */
     get requests(): RequestsRequestBuilder;
     /**
-     * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status. 
+     * Delete navigation property delegatedAdminRelationships for tenantRelationships
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties of a delegatedAdminRelationship object.
+     * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedAdminRelationship>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedAdminRelationship | undefined>;
     /**
-     * Update the properties of a delegatedAdminRelationship object. You can only update a relationship when it's in the created status. However, you can update the autoExtendDuration property when the relationship is in either the created or active status.
+     * Update the navigation property delegatedAdminRelationships in tenantRelationships
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedAdminRelationship>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DelegatedAdminRelationship, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DelegatedAdminRelationship | undefined>;
     /**
-     * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status. 
+     * Delete navigation property delegatedAdminRelationships for tenantRelationships
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties of a delegatedAdminRelationship object.
+     * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a delegatedAdminRelationship object. You can only update a relationship when it's in the created status. However, you can update the autoExtendDuration property when the relationship is in either the created or active status.
+     * Update the navigation property delegatedAdminRelationships in tenantRelationships
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -75,7 +72,7 @@ export interface DelegatedAdminRelationshipItemRequestBuilder extends BaseReques
      toPatchRequestInformation(body: DelegatedAdminRelationship, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties of a delegatedAdminRelationship object.
+ * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
  */
 export interface DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters {
     /**
