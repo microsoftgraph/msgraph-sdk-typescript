@@ -19,18 +19,20 @@ export interface AllowedValueItemRequestBuilder extends BaseRequestBuilder<Allow
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Values that are predefined for this custom security attribute. This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues.
+     * Read the properties and relationships of an allowedValue object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AllowedValue>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/allowedvalue-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AllowedValueItemRequestBuilderGetQueryParameters> | undefined) : Promise<AllowedValue | undefined>;
     /**
-     * Update the navigation property allowedValues in directory
+     * Update the properties of an allowedValue object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AllowedValue>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/allowedvalue-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AllowedValue, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AllowedValue | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface AllowedValueItemRequestBuilder extends BaseRequestBuilder<Allow
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Values that are predefined for this custom security attribute. This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues.
+     * Read the properties and relationships of an allowedValue object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AllowedValueItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property allowedValues in directory
+     * Update the properties of an allowedValue object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface AllowedValueItemRequestBuilder extends BaseRequestBuilder<Allow
      toPatchRequestInformation(body: AllowedValue, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Values that are predefined for this custom security attribute. This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues.
+ * Read the properties and relationships of an allowedValue object.
  */
 export interface AllowedValueItemRequestBuilderGetQueryParameters {
     /**

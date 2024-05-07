@@ -27,28 +27,30 @@ export interface ExtensionPropertiesRequestBuilder extends BaseRequestBuilder<Ex
      */
      byExtensionPropertyId(extensionPropertyId: string) : ExtensionPropertyItemRequestBuilder;
     /**
-     * Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
+     * Retrieve the list of directory extension definitions, represented by extensionProperty objects on an application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExtensionPropertyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/application-list-extensionproperty?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ExtensionPropertiesRequestBuilderGetQueryParameters> | undefined) : Promise<ExtensionPropertyCollectionResponse | undefined>;
     /**
-     * Create new navigation property to extensionProperties for applications
+     * Create a new directory extension definition, represented by an extensionProperty object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExtensionProperty>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-1.0|Find more info here}
      */
      post(body: ExtensionProperty, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ExtensionProperty | undefined>;
     /**
-     * Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
+     * Retrieve the list of directory extension definitions, represented by extensionProperty objects on an application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ExtensionPropertiesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to extensionProperties for applications
+     * Create a new directory extension definition, represented by an extensionProperty object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ExtensionPropertiesRequestBuilder extends BaseRequestBuilder<Ex
      toPostRequestInformation(body: ExtensionProperty, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
+ * Retrieve the list of directory extension definitions, represented by extensionProperty objects on an application.
  */
 export interface ExtensionPropertiesRequestBuilderGetQueryParameters {
     /**

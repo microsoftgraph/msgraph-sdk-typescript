@@ -19,40 +19,43 @@ export interface RoleAssignmentItemRequestBuilder extends BaseRequestBuilder<Rol
      */
     get roleDefinition(): RoleDefinitionRequestBuilder;
     /**
-     * Delete navigation property roleAssignments for deviceManagement
+     * Deletes a roleAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roleassignment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * List of Role assignments for this role definition.
+     * Read properties and relationships of the roleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roleassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RoleAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<RoleAssignment | undefined>;
     /**
-     * Update the navigation property roleAssignments in deviceManagement
+     * Update the properties of a roleAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roleassignment-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: RoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RoleAssignment | undefined>;
     /**
-     * Delete navigation property roleAssignments for deviceManagement
+     * Deletes a roleAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * List of Role assignments for this role definition.
+     * Read properties and relationships of the roleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleAssignmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property roleAssignments in deviceManagement
+     * Update the properties of a roleAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +63,7 @@ export interface RoleAssignmentItemRequestBuilder extends BaseRequestBuilder<Rol
      toPatchRequestInformation(body: RoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List of Role assignments for this role definition.
+ * Read properties and relationships of the roleAssignment object.
  */
 export interface RoleAssignmentItemRequestBuilderGetQueryParameters {
     /**

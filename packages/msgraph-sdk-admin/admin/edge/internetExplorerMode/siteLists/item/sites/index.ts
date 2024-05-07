@@ -27,28 +27,30 @@ export interface SitesRequestBuilder extends BaseRequestBuilder<SitesRequestBuil
      */
      byBrowserSiteId(browserSiteId: string) : BrowserSiteItemRequestBuilder;
     /**
-     * A collection of sites defined for the site list.
+     * Get a list of the browserSite objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BrowserSiteCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-list-sites?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SitesRequestBuilderGetQueryParameters> | undefined) : Promise<BrowserSiteCollectionResponse | undefined>;
     /**
-     * Create new navigation property to sites for admin
+     * Create a new browserSite object in a browserSiteList.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BrowserSite>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-post-sites?view=graph-rest-1.0|Find more info here}
      */
      post(body: BrowserSite, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BrowserSite | undefined>;
     /**
-     * A collection of sites defined for the site list.
+     * Get a list of the browserSite objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SitesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to sites for admin
+     * Create a new browserSite object in a browserSiteList.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface SitesRequestBuilder extends BaseRequestBuilder<SitesRequestBuil
      toPostRequestInformation(body: BrowserSite, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of sites defined for the site list.
+ * Get a list of the browserSite objects and their properties.
  */
 export interface SitesRequestBuilderGetQueryParameters {
     /**

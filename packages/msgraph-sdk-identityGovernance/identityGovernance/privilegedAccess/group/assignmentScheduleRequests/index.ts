@@ -35,28 +35,30 @@ export interface AssignmentScheduleRequestsRequestBuilder extends BaseRequestBui
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * The schedule requests for operations to create, update, delete, extend, and renew an assignment.
+     * Get a list of the privilegedAccessGroupAssignmentScheduleRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrivilegedAccessGroupAssignmentScheduleRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroup-list-assignmentschedulerequests?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentScheduleRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<PrivilegedAccessGroupAssignmentScheduleRequestCollectionResponse | undefined>;
     /**
-     * Create new navigation property to assignmentScheduleRequests for identityGovernance
+     * Create a new privilegedAccessGroupAssignmentScheduleRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrivilegedAccessGroupAssignmentScheduleRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroup-post-assignmentschedulerequests?view=graph-rest-1.0|Find more info here}
      */
      post(body: PrivilegedAccessGroupAssignmentScheduleRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrivilegedAccessGroupAssignmentScheduleRequest | undefined>;
     /**
-     * The schedule requests for operations to create, update, delete, extend, and renew an assignment.
+     * Get a list of the privilegedAccessGroupAssignmentScheduleRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentScheduleRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to assignmentScheduleRequests for identityGovernance
+     * Create a new privilegedAccessGroupAssignmentScheduleRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,7 +66,7 @@ export interface AssignmentScheduleRequestsRequestBuilder extends BaseRequestBui
      toPostRequestInformation(body: PrivilegedAccessGroupAssignmentScheduleRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The schedule requests for operations to create, update, delete, extend, and renew an assignment.
+ * Get a list of the privilegedAccessGroupAssignmentScheduleRequest objects and their properties.
  */
 export interface AssignmentScheduleRequestsRequestBuilderGetQueryParameters {
     /**

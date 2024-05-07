@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface SchedulingGroupItemRequestBuilder extends BaseRequestBuilder<SchedulingGroupItemRequestBuilder> {
     /**
-     * Delete navigation property schedulingGroups for teams
+     * Mark a schedulingGroup as inactive by setting its isActive property.This method does not remove the schedulingGroup from the schedule. Existing shift instances assigned to the scheduling group remain part of the group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/schedulinggroup-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The logical grouping of users in the schedule (usually by role).
+     * Retrieve the properties and relationships of a schedulingGroup by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SchedulingGroup>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/schedulinggroup-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SchedulingGroupItemRequestBuilderGetQueryParameters> | undefined) : Promise<SchedulingGroup | undefined>;
     /**
-     * Update the navigation property schedulingGroups in teams
+     * Replace an existing schedulingGroup. If the specified schedulingGroup doesn't exist, this method returns 404 Not found.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SchedulingGroup>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/schedulinggroup-put?view=graph-rest-1.0|Find more info here}
      */
      patch(body: SchedulingGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SchedulingGroup | undefined>;
     /**
-     * Delete navigation property schedulingGroups for teams
+     * Mark a schedulingGroup as inactive by setting its isActive property.This method does not remove the schedulingGroup from the schedule. Existing shift instances assigned to the scheduling group remain part of the group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The logical grouping of users in the schedule (usually by role).
+     * Retrieve the properties and relationships of a schedulingGroup by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SchedulingGroupItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property schedulingGroups in teams
+     * Replace an existing schedulingGroup. If the specified schedulingGroup doesn't exist, this method returns 404 Not found.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface SchedulingGroupItemRequestBuilder extends BaseRequestBuilder<Sc
      toPatchRequestInformation(body: SchedulingGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The logical grouping of users in the schedule (usually by role).
+ * Retrieve the properties and relationships of a schedulingGroup by ID.
  */
 export interface SchedulingGroupItemRequestBuilderGetQueryParameters {
     /**

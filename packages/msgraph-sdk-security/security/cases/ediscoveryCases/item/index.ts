@@ -67,40 +67,43 @@ export interface EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder<Edi
      */
     get tags(): TagsRequestBuilder;
     /**
-     * Delete navigation property ediscoveryCases for security
+     * Delete an ediscoveryCase object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-casesroot-delete-ediscoverycases?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get ediscoveryCases from security
+     * Read the properties and relationships of an ediscoveryCase object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryCase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EdiscoveryCaseItemRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryCase | undefined>;
     /**
-     * Update the navigation property ediscoveryCases in security
+     * Update the properties of an ediscoveryCase object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryCase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EdiscoveryCase, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoveryCase | undefined>;
     /**
-     * Delete navigation property ediscoveryCases for security
+     * Delete an ediscoveryCase object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get ediscoveryCases from security
+     * Read the properties and relationships of an ediscoveryCase object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EdiscoveryCaseItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property ediscoveryCases in security
+     * Update the properties of an ediscoveryCase object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -108,7 +111,7 @@ export interface EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder<Edi
      toPatchRequestInformation(body: EdiscoveryCase, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get ediscoveryCases from security
+ * Read the properties and relationships of an ediscoveryCase object.
  */
 export interface EdiscoveryCaseItemRequestBuilderGetQueryParameters {
     /**

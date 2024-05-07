@@ -29,19 +29,32 @@ export interface CountRequestBuilder extends BaseRequestBuilder<CountRequestBuil
  */
 export interface CountRequestBuilderGetQueryParameters {
     /**
+     * The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00
+     */
+    endDateTime?: string;
+    /**
      * Filter items by property values
      */
     filter?: string;
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00
+     */
+    startDateTime?: string;
 }
 /**
  * Uri template for the request builder.
  */
-export const CountRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendarView/$count{?%24filter}";
+export const CountRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendarView/$count?endDateTime={endDateTime}&startDateTime={startDateTime}{&%24filter,%24search}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const CountRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "filter": "%24filter",
+    "search": "%24search",
 };
 /**
  * Metadata for all the requests in the request builder.

@@ -19,10 +19,11 @@ export interface CaseOperationItemRequestBuilder extends BaseRequestBuilder<Case
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Returns a list of case caseOperation objects for this case.
+     * Read the properties and relationships of a caseOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CaseOperation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-caseoperation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CaseOperationItemRequestBuilderGetQueryParameters> | undefined) : Promise<CaseOperation | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface CaseOperationItemRequestBuilder extends BaseRequestBuilder<Case
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Returns a list of case caseOperation objects for this case.
+     * Read the properties and relationships of a caseOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface CaseOperationItemRequestBuilder extends BaseRequestBuilder<Case
      toPatchRequestInformation(body: CaseOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Returns a list of case caseOperation objects for this case.
+ * Read the properties and relationships of a caseOperation object.
  */
 export interface CaseOperationItemRequestBuilderGetQueryParameters {
     /**

@@ -27,28 +27,30 @@ export interface ApiConnectorsRequestBuilder extends BaseRequestBuilder<ApiConne
      */
      byIdentityApiConnectorId(identityApiConnectorId: string) : IdentityApiConnectorItemRequestBuilder;
     /**
-     * Represents entry point for API connectors.
+     * Read the properties of an identityApiConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IdentityApiConnectorCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identityapiconnector-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ApiConnectorsRequestBuilderGetQueryParameters> | undefined) : Promise<IdentityApiConnectorCollectionResponse | undefined>;
     /**
-     * Create new navigation property to apiConnectors for identity
+     * Create a new identityApiConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IdentityApiConnector>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identityapiconnector-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: IdentityApiConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IdentityApiConnector | undefined>;
     /**
-     * Represents entry point for API connectors.
+     * Read the properties of an identityApiConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ApiConnectorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to apiConnectors for identity
+     * Create a new identityApiConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ApiConnectorsRequestBuilder extends BaseRequestBuilder<ApiConne
      toPostRequestInformation(body: IdentityApiConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents entry point for API connectors.
+ * Read the properties of an identityApiConnector object.
  */
 export interface ApiConnectorsRequestBuilderGetQueryParameters {
     /**

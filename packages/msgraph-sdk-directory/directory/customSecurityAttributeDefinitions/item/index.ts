@@ -25,18 +25,20 @@ export interface CustomSecurityAttributeDefinitionItemRequestBuilder extends Bas
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Schema of a custom security attributes (key-value pairs).
+     * Read the properties and relationships of a customSecurityAttributeDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CustomSecurityAttributeDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/customsecurityattributedefinition-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CustomSecurityAttributeDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<CustomSecurityAttributeDefinition | undefined>;
     /**
-     * Update the navigation property customSecurityAttributeDefinitions in directory
+     * Update the properties of a customSecurityAttributeDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CustomSecurityAttributeDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/customsecurityattributedefinition-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: CustomSecurityAttributeDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CustomSecurityAttributeDefinition | undefined>;
     /**
@@ -46,13 +48,13 @@ export interface CustomSecurityAttributeDefinitionItemRequestBuilder extends Bas
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Schema of a custom security attributes (key-value pairs).
+     * Read the properties and relationships of a customSecurityAttributeDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CustomSecurityAttributeDefinitionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property customSecurityAttributeDefinitions in directory
+     * Update the properties of a customSecurityAttributeDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +62,7 @@ export interface CustomSecurityAttributeDefinitionItemRequestBuilder extends Bas
      toPatchRequestInformation(body: CustomSecurityAttributeDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Schema of a custom security attributes (key-value pairs).
+ * Read the properties and relationships of a customSecurityAttributeDefinition object.
  */
 export interface CustomSecurityAttributeDefinitionItemRequestBuilderGetQueryParameters {
     /**

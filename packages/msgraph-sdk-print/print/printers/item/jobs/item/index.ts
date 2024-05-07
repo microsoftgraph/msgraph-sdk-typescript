@@ -55,18 +55,20 @@ export interface PrintJobItemRequestBuilder extends BaseRequestBuilder<PrintJobI
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The list of jobs that are queued for printing by the printer/printerShare.
+     * Retrieve the properties and relationships of a print job.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintJob>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printjob-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PrintJobItemRequestBuilderGetQueryParameters> | undefined) : Promise<PrintJob | undefined>;
     /**
-     * Update the navigation property jobs in print
+     * Update a print job. Only the configuration property can be updated. Updating a print job will only succeed if there is a printTask in a processing state on the associated print job, started by a trigger that the requesting app created. For details about how to register a task trigger, see Extending Universal Print to support pull printing.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintJob>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printjob-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PrintJob, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintJob | undefined>;
     /**
@@ -76,13 +78,13 @@ export interface PrintJobItemRequestBuilder extends BaseRequestBuilder<PrintJobI
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The list of jobs that are queued for printing by the printer/printerShare.
+     * Retrieve the properties and relationships of a print job.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PrintJobItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property jobs in print
+     * Update a print job. Only the configuration property can be updated. Updating a print job will only succeed if there is a printTask in a processing state on the associated print job, started by a trigger that the requesting app created. For details about how to register a task trigger, see Extending Universal Print to support pull printing.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -90,7 +92,7 @@ export interface PrintJobItemRequestBuilder extends BaseRequestBuilder<PrintJobI
      toPatchRequestInformation(body: PrintJob, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of jobs that are queued for printing by the printer/printerShare.
+ * Retrieve the properties and relationships of a print job.
  */
 export interface PrintJobItemRequestBuilderGetQueryParameters {
     /**

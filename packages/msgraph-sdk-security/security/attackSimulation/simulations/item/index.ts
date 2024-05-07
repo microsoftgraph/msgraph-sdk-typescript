@@ -31,40 +31,43 @@ export interface SimulationItemRequestBuilder extends BaseRequestBuilder<Simulat
      */
     get payload(): PayloadRequestBuilder;
     /**
-     * Delete navigation property simulations for security
+     * Delete an attack simulation campaign for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/simulation-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents an attack simulation training campaign in a tenant.
+     * Get an attack simulation campaign for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Simulation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/simulation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SimulationItemRequestBuilderGetQueryParameters> | undefined) : Promise<Simulation | undefined>;
     /**
-     * Update the navigation property simulations in security
+     * Update an attack simulation campaign for a tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Simulation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/simulation-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Simulation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Simulation | undefined>;
     /**
-     * Delete navigation property simulations for security
+     * Delete an attack simulation campaign for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents an attack simulation training campaign in a tenant.
+     * Get an attack simulation campaign for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SimulationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property simulations in security
+     * Update an attack simulation campaign for a tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -72,7 +75,7 @@ export interface SimulationItemRequestBuilder extends BaseRequestBuilder<Simulat
      toPatchRequestInformation(body: Simulation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents an attack simulation training campaign in a tenant.
+ * Get an attack simulation campaign for a tenant.
  */
 export interface SimulationItemRequestBuilderGetQueryParameters {
     /**

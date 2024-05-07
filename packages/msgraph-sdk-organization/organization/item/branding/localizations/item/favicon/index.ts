@@ -13,6 +13,12 @@ export interface FaviconRequestBuilder extends BaseRequestBuilder<FaviconRequest
     /**
      * A custom icon (favicon) to replace a default Microsoft product favicon on a Microsoft Entra tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     */
+     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
+    /**
+     * A custom icon (favicon) to replace a default Microsoft product favicon on a Microsoft Entra tenant.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
@@ -26,6 +32,12 @@ export interface FaviconRequestBuilder extends BaseRequestBuilder<FaviconRequest
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      put(body: ArrayBuffer | undefined, contentType: string | undefined, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
+    /**
+     * A custom icon (favicon) to replace a default Microsoft product favicon on a Microsoft Entra tenant.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns {RequestInformation}
+     */
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * A custom icon (favicon) to replace a default Microsoft product favicon on a Microsoft Entra tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -49,6 +61,14 @@ export const FaviconRequestBuilderUriTemplate = "{+baseurl}/organization/{organi
  * Metadata for all the requests in the request builder.
  */
 export const FaviconRequestBuilderRequestsMetadata: RequestsMetadata = {
+    delete: {
+        uriTemplate: FaviconRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
+        errorMappings: {
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+        },
+        adapterMethodName: "sendNoResponseContent",
+    },
     get: {
         uriTemplate: FaviconRequestBuilderUriTemplate,
         responseBodyContentType: "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff, application/json",

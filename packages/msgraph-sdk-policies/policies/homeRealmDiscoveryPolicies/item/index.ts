@@ -19,40 +19,43 @@ export interface HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestB
      */
     get appliesTo(): AppliesToRequestBuilder;
     /**
-     * Delete navigation property homeRealmDiscoveryPolicies for policies
+     * Delete a homeRealmDiscoveryPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The policy to control Microsoft Entra authentication behavior for federated users.
+     * Retrieve the properties and relationships of a homeRealmDiscoveryPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HomeRealmDiscoveryPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<HomeRealmDiscoveryPolicy | undefined>;
     /**
-     * Update the navigation property homeRealmDiscoveryPolicies in policies
+     * Update the properties of a homeRealmDiscoveryPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HomeRealmDiscoveryPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: HomeRealmDiscoveryPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<HomeRealmDiscoveryPolicy | undefined>;
     /**
-     * Delete navigation property homeRealmDiscoveryPolicies for policies
+     * Delete a homeRealmDiscoveryPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The policy to control Microsoft Entra authentication behavior for federated users.
+     * Retrieve the properties and relationships of a homeRealmDiscoveryPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property homeRealmDiscoveryPolicies in policies
+     * Update the properties of a homeRealmDiscoveryPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +63,7 @@ export interface HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestB
      toPatchRequestInformation(body: HomeRealmDiscoveryPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The policy to control Microsoft Entra authentication behavior for federated users.
+ * Retrieve the properties and relationships of a homeRealmDiscoveryPolicy object.
  */
 export interface HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParameters {
     /**

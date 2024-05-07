@@ -27,28 +27,30 @@ export interface AccessAssignmentsRequestBuilder extends BaseRequestBuilder<Acce
      */
      byDelegatedAdminAccessAssignmentId(delegatedAdminAccessAssignmentId: string) : DelegatedAdminAccessAssignmentItemRequestBuilder;
     /**
-     * The access assignments associated with the delegated admin relationship.
+     * Get a list of the delegatedAdminAccessAssignment objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedAdminAccessAssignmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-list-accessassignments?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AccessAssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedAdminAccessAssignmentCollectionResponse | undefined>;
     /**
-     * Create new navigation property to accessAssignments for tenantRelationships
+     * Create a new delegatedAdminAccessAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedAdminAccessAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-post-accessassignments?view=graph-rest-1.0|Find more info here}
      */
      post(body: DelegatedAdminAccessAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DelegatedAdminAccessAssignment | undefined>;
     /**
-     * The access assignments associated with the delegated admin relationship.
+     * Get a list of the delegatedAdminAccessAssignment objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AccessAssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to accessAssignments for tenantRelationships
+     * Create a new delegatedAdminAccessAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface AccessAssignmentsRequestBuilder extends BaseRequestBuilder<Acce
      toPostRequestInformation(body: DelegatedAdminAccessAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The access assignments associated with the delegated admin relationship.
+ * Get a list of the delegatedAdminAccessAssignment objects and their properties.
  */
 export interface AccessAssignmentsRequestBuilderGetQueryParameters {
     /**

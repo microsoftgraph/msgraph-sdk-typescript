@@ -27,28 +27,30 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      */
      byManagedAppOperationId(managedAppOperationId: string) : ManagedAppOperationItemRequestBuilder;
     /**
-     * Zero or more long running operations triggered on the app registration.
+     * List properties and relationships of the managedAppOperation objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedAppOperationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappoperation-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OperationsRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedAppOperationCollectionResponse | undefined>;
     /**
-     * Create new navigation property to operations for deviceAppManagement
+     * Create a new managedAppOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedAppOperation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappoperation-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: ManagedAppOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedAppOperation | undefined>;
     /**
-     * Zero or more long running operations triggered on the app registration.
+     * List properties and relationships of the managedAppOperation objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OperationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to operations for deviceAppManagement
+     * Create a new managedAppOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      toPostRequestInformation(body: ManagedAppOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Zero or more long running operations triggered on the app registration.
+ * List properties and relationships of the managedAppOperation objects.
  */
 export interface OperationsRequestBuilderGetQueryParameters {
     /**

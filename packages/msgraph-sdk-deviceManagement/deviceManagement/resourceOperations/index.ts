@@ -27,28 +27,30 @@ export interface ResourceOperationsRequestBuilder extends BaseRequestBuilder<Res
      */
      byResourceOperationId(resourceOperationId: string) : ResourceOperationItemRequestBuilder;
     /**
-     * The Resource Operations.
+     * List properties and relationships of the resourceOperation objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ResourceOperationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-resourceoperation-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ResourceOperationsRequestBuilderGetQueryParameters> | undefined) : Promise<ResourceOperationCollectionResponse | undefined>;
     /**
-     * Create new navigation property to resourceOperations for deviceManagement
+     * Create a new resourceOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ResourceOperation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-resourceoperation-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: ResourceOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ResourceOperation | undefined>;
     /**
-     * The Resource Operations.
+     * List properties and relationships of the resourceOperation objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ResourceOperationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to resourceOperations for deviceManagement
+     * Create a new resourceOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ResourceOperationsRequestBuilder extends BaseRequestBuilder<Res
      toPostRequestInformation(body: ResourceOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The Resource Operations.
+ * List properties and relationships of the resourceOperation objects.
  */
 export interface ResourceOperationsRequestBuilderGetQueryParameters {
     /**

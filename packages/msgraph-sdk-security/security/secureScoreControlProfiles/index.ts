@@ -27,10 +27,11 @@ export interface SecureScoreControlProfilesRequestBuilder extends BaseRequestBui
      */
      bySecureScoreControlProfileId(secureScoreControlProfileId: string) : SecureScoreControlProfileItemRequestBuilder;
     /**
-     * Get secureScoreControlProfiles from security
+     * Retrieve the properties and relationships of a secureScoreControlProfiles object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SecureScoreControlProfileCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-list-securescorecontrolprofiles?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SecureScoreControlProfilesRequestBuilderGetQueryParameters> | undefined) : Promise<SecureScoreControlProfileCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface SecureScoreControlProfilesRequestBuilder extends BaseRequestBui
      */
      post(body: SecureScoreControlProfile, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SecureScoreControlProfile | undefined>;
     /**
-     * Get secureScoreControlProfiles from security
+     * Retrieve the properties and relationships of a secureScoreControlProfiles object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface SecureScoreControlProfilesRequestBuilder extends BaseRequestBui
      toPostRequestInformation(body: SecureScoreControlProfile, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get secureScoreControlProfiles from security
+ * Retrieve the properties and relationships of a secureScoreControlProfiles object.
  */
 export interface SecureScoreControlProfilesRequestBuilderGetQueryParameters {
     /**

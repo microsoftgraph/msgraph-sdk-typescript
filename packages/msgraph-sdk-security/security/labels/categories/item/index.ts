@@ -19,16 +19,18 @@ export interface CategoryTemplateItemRequestBuilder extends BaseRequestBuilder<C
      */
     get subcategories(): SubcategoriesRequestBuilder;
     /**
-     * Delete navigation property categories for security
+     * Delete a categoryTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-delete-categories?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Specifies a group of similar types of content in a particular department.
+     * Read the properties and relationships of a categoryTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CategoryTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-categorytemplate-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CategoryTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<CategoryTemplate | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface CategoryTemplateItemRequestBuilder extends BaseRequestBuilder<C
      */
      patch(body: CategoryTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CategoryTemplate | undefined>;
     /**
-     * Delete navigation property categories for security
+     * Delete a categoryTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Specifies a group of similar types of content in a particular department.
+     * Read the properties and relationships of a categoryTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +62,7 @@ export interface CategoryTemplateItemRequestBuilder extends BaseRequestBuilder<C
      toPatchRequestInformation(body: CategoryTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Specifies a group of similar types of content in a particular department.
+ * Read the properties and relationships of a categoryTemplate object.
  */
 export interface CategoryTemplateItemRequestBuilderGetQueryParameters {
     /**

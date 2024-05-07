@@ -123,28 +123,30 @@ export interface MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsR
      */
      byMobileAppId(mobileAppId: string) : MobileAppItemRequestBuilder;
     /**
-     * The mobile apps.
+     * List properties and relationships of the androidStoreApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-androidstoreapp-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppsRequestBuilderGetQueryParameters> | undefined) : Promise<MobileAppCollectionResponse | undefined>;
     /**
-     * Create new navigation property to mobileApps for deviceAppManagement
+     * Create a new windowsWebApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowswebapp-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileApp | undefined>;
     /**
-     * The mobile apps.
+     * List properties and relationships of the androidStoreApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileAppsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to mobileApps for deviceAppManagement
+     * Create a new windowsWebApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -152,7 +154,7 @@ export interface MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsR
      toPostRequestInformation(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The mobile apps.
+ * List properties and relationships of the androidStoreApp objects.
  */
 export interface MobileAppsRequestBuilderGetQueryParameters {
     /**

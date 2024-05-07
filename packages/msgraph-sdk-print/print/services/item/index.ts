@@ -25,10 +25,11 @@ export interface PrintServiceItemRequestBuilder extends BaseRequestBuilder<Print
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The list of available Universal Print service endpoints.
+     * Retrieve the properties and relationships of a print service.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintService>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printservice-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PrintServiceItemRequestBuilderGetQueryParameters> | undefined) : Promise<PrintService | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface PrintServiceItemRequestBuilder extends BaseRequestBuilder<Print
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The list of available Universal Print service endpoints.
+     * Retrieve the properties and relationships of a print service.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface PrintServiceItemRequestBuilder extends BaseRequestBuilder<Print
      toPatchRequestInformation(body: PrintService, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of available Universal Print service endpoints.
+ * Retrieve the properties and relationships of a print service.
  */
 export interface PrintServiceItemRequestBuilderGetQueryParameters {
     /**

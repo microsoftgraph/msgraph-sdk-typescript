@@ -39,21 +39,22 @@ export interface TransitiveMemberOfRequestBuilder extends BaseRequestBuilder<Tra
      */
      byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder;
     /**
-     * Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand.
+     * Get the groups and administrative units that the device is a member of. This API request is transitive, and will also return all groups and administrative units the device is a nested member of.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObjectCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/device-list-transitivememberof?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TransitiveMemberOfRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined>;
     /**
-     * Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand.
+     * Get the groups and administrative units that the device is a member of. This API request is transitive, and will also return all groups and administrative units the device is a nested member of.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TransitiveMemberOfRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand.
+ * Get the groups and administrative units that the device is a member of. This API request is transitive, and will also return all groups and administrative units the device is a nested member of.
  */
 export interface TransitiveMemberOfRequestBuilderGetQueryParameters {
     /**

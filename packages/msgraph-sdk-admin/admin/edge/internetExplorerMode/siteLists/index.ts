@@ -27,28 +27,30 @@ export interface SiteListsRequestBuilder extends BaseRequestBuilder<SiteListsReq
      */
      byBrowserSiteListId(browserSiteListId: string) : BrowserSiteListItemRequestBuilder;
     /**
-     * A collection of site lists to support Internet Explorer mode.
+     * Get a list of the browserSiteList objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BrowserSiteListCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/internetexplorermode-list-sitelists?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SiteListsRequestBuilderGetQueryParameters> | undefined) : Promise<BrowserSiteListCollectionResponse | undefined>;
     /**
-     * Create new navigation property to siteLists for admin
+     * Create a new browserSiteList object to support Internet Explorer mode.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BrowserSiteList>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/internetexplorermode-post-sitelists?view=graph-rest-1.0|Find more info here}
      */
      post(body: BrowserSiteList, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BrowserSiteList | undefined>;
     /**
-     * A collection of site lists to support Internet Explorer mode.
+     * Get a list of the browserSiteList objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SiteListsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to siteLists for admin
+     * Create a new browserSiteList object to support Internet Explorer mode.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface SiteListsRequestBuilder extends BaseRequestBuilder<SiteListsReq
      toPostRequestInformation(body: BrowserSiteList, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of site lists to support Internet Explorer mode.
+ * Get a list of the browserSiteList objects and their properties.
  */
 export interface SiteListsRequestBuilderGetQueryParameters {
     /**

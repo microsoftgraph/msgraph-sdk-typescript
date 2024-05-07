@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DeviceCompliancePolicyAssignmentItemRequestBuilder extends BaseRequestBuilder<DeviceCompliancePolicyAssignmentItemRequestBuilder> {
     /**
-     * Delete navigation property assignments for deviceManagement
+     * Deletes a deviceCompliancePolicyAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The collection of assignments for this compliance policy.
+     * Read properties and relationships of the deviceCompliancePolicyAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicyAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicyAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCompliancePolicyAssignment | undefined>;
     /**
-     * Update the navigation property assignments in deviceManagement
+     * Update the properties of a deviceCompliancePolicyAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicyAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceCompliancePolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCompliancePolicyAssignment | undefined>;
     /**
-     * Delete navigation property assignments for deviceManagement
+     * Deletes a deviceCompliancePolicyAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The collection of assignments for this compliance policy.
+     * Read properties and relationships of the deviceCompliancePolicyAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicyAssignmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property assignments in deviceManagement
+     * Update the properties of a deviceCompliancePolicyAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface DeviceCompliancePolicyAssignmentItemRequestBuilder extends Base
      toPatchRequestInformation(body: DeviceCompliancePolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The collection of assignments for this compliance policy.
+ * Read properties and relationships of the deviceCompliancePolicyAssignment object.
  */
 export interface DeviceCompliancePolicyAssignmentItemRequestBuilderGetQueryParameters {
     /**

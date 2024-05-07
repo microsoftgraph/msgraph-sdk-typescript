@@ -19,40 +19,43 @@ export interface ExternalGroupItemRequestBuilder extends BaseRequestBuilder<Exte
      */
     get members(): MembersRequestBuilder;
     /**
-     * Delete navigation property groups for external
+     * Delete an externalGroup object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get groups from external
+     * Get an externalGroup object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExternalGroup>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ExternalGroupItemRequestBuilderGetQueryParameters> | undefined) : Promise<ExternalGroup | undefined>;
     /**
-     * Update the navigation property groups in external
+     * Update the properties of an externalGroup object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExternalGroup>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ExternalGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ExternalGroup | undefined>;
     /**
-     * Delete navigation property groups for external
+     * Delete an externalGroup object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get groups from external
+     * Get an externalGroup object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ExternalGroupItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property groups in external
+     * Update the properties of an externalGroup object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +63,7 @@ export interface ExternalGroupItemRequestBuilder extends BaseRequestBuilder<Exte
      toPatchRequestInformation(body: ExternalGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get groups from external
+ * Get an externalGroup object.
  */
 export interface ExternalGroupItemRequestBuilderGetQueryParameters {
     /**

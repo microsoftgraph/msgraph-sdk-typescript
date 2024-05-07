@@ -27,21 +27,22 @@ export interface LearningCourseActivitiesRequestBuilder extends BaseRequestBuild
      */
      byLearningCourseActivityId(learningCourseActivityId: string) : LearningCourseActivityItemRequestBuilder;
     /**
-     * Get learningCourseActivities from users
+     * Get a list of the learningCourseActivity objects (assigned or self-initiated) for a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LearningCourseActivityCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/learningcourseactivity-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LearningCourseActivitiesRequestBuilderGetQueryParameters> | undefined) : Promise<LearningCourseActivityCollectionResponse | undefined>;
     /**
-     * Get learningCourseActivities from users
+     * Get a list of the learningCourseActivity objects (assigned or self-initiated) for a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LearningCourseActivitiesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get learningCourseActivities from users
+ * Get a list of the learningCourseActivity objects (assigned or self-initiated) for a user.
  */
 export interface LearningCourseActivitiesRequestBuilderGetQueryParameters {
     /**

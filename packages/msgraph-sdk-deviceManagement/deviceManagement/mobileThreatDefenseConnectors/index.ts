@@ -27,28 +27,30 @@ export interface MobileThreatDefenseConnectorsRequestBuilder extends BaseRequest
      */
      byMobileThreatDefenseConnectorId(mobileThreatDefenseConnectorId: string) : MobileThreatDefenseConnectorItemRequestBuilder;
     /**
-     * The list of Mobile threat Defense connectors configured by the tenant.
+     * List properties and relationships of the mobileThreatDefenseConnector objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileThreatDefenseConnectorCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-mobilethreatdefenseconnector-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileThreatDefenseConnectorsRequestBuilderGetQueryParameters> | undefined) : Promise<MobileThreatDefenseConnectorCollectionResponse | undefined>;
     /**
-     * Create new navigation property to mobileThreatDefenseConnectors for deviceManagement
+     * Create a new mobileThreatDefenseConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileThreatDefenseConnector>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-mobilethreatdefenseconnector-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: MobileThreatDefenseConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileThreatDefenseConnector | undefined>;
     /**
-     * The list of Mobile threat Defense connectors configured by the tenant.
+     * List properties and relationships of the mobileThreatDefenseConnector objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileThreatDefenseConnectorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to mobileThreatDefenseConnectors for deviceManagement
+     * Create a new mobileThreatDefenseConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface MobileThreatDefenseConnectorsRequestBuilder extends BaseRequest
      toPostRequestInformation(body: MobileThreatDefenseConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of Mobile threat Defense connectors configured by the tenant.
+ * List properties and relationships of the mobileThreatDefenseConnector objects.
  */
 export interface MobileThreatDefenseConnectorsRequestBuilderGetQueryParameters {
     /**

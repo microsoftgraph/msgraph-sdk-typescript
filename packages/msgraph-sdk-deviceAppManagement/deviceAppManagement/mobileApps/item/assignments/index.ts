@@ -27,28 +27,30 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      */
      byMobileAppAssignmentId(mobileAppAssignmentId: string) : MobileAppAssignmentItemRequestBuilder;
     /**
-     * The list of group assignments for this mobile app.
+     * List properties and relationships of the mobileAppAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppAssignmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappassignment-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<MobileAppAssignmentCollectionResponse | undefined>;
     /**
-     * Create new navigation property to assignments for deviceAppManagement
+     * Create a new mobileAppAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappassignment-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: MobileAppAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileAppAssignment | undefined>;
     /**
-     * The list of group assignments for this mobile app.
+     * List properties and relationships of the mobileAppAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to assignments for deviceAppManagement
+     * Create a new mobileAppAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      toPostRequestInformation(body: MobileAppAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of group assignments for this mobile app.
+ * List properties and relationships of the mobileAppAssignment objects.
  */
 export interface AssignmentsRequestBuilderGetQueryParameters {
     /**

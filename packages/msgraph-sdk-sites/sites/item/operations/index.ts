@@ -27,10 +27,11 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      */
      byRichLongRunningOperationId(richLongRunningOperationId: string) : RichLongRunningOperationItemRequestBuilder;
     /**
-     * The collection of long-running operations on the site.
+     * Get a list of rich long-running operations associated with a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RichLongRunningOperationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/site-list-operations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OperationsRequestBuilderGetQueryParameters> | undefined) : Promise<RichLongRunningOperationCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      */
      post(body: RichLongRunningOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RichLongRunningOperation | undefined>;
     /**
-     * The collection of long-running operations on the site.
+     * Get a list of rich long-running operations associated with a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      toPostRequestInformation(body: RichLongRunningOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The collection of long-running operations on the site.
+ * Get a list of rich long-running operations associated with a site.
  */
 export interface OperationsRequestBuilderGetQueryParameters {
     /**

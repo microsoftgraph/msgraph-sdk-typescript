@@ -27,28 +27,30 @@ export interface JobsRequestBuilder extends BaseRequestBuilder<JobsRequestBuilde
      */
      byPrintJobId(printJobId: string) : PrintJobItemRequestBuilder;
     /**
-     * The list of jobs that are queued for printing by the printer/printerShare.
+     * Retrieve a list of print jobs associated with the printerShare.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintJobCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printershare-list-jobs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<JobsRequestBuilderGetQueryParameters> | undefined) : Promise<PrintJobCollectionResponse | undefined>;
     /**
-     * Create new navigation property to jobs for print
+     * Create a new printJob for a printerShare.  Also creates a new printDocument associated with the printJob.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintJob>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printershare-post-jobs?view=graph-rest-1.0|Find more info here}
      */
      post(body: PrintJob, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintJob | undefined>;
     /**
-     * The list of jobs that are queued for printing by the printer/printerShare.
+     * Retrieve a list of print jobs associated with the printerShare.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<JobsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to jobs for print
+     * Create a new printJob for a printerShare.  Also creates a new printDocument associated with the printJob.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface JobsRequestBuilder extends BaseRequestBuilder<JobsRequestBuilde
      toPostRequestInformation(body: PrintJob, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of jobs that are queued for printing by the printer/printerShare.
+ * Retrieve a list of print jobs associated with the printerShare.
  */
 export interface JobsRequestBuilderGetQueryParameters {
     /**

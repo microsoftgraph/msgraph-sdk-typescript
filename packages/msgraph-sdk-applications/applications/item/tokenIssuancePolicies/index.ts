@@ -33,21 +33,22 @@ export interface TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder<
      */
      byTokenIssuancePolicyId(tokenIssuancePolicyId: string) : TokenIssuancePolicyItemRequestBuilder;
     /**
-     * Get tokenIssuancePolicies from applications
+     * List the tokenIssuancePolicy objects that are assigned to an application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TokenIssuancePolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/application-list-tokenissuancepolicies?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TokenIssuancePoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<TokenIssuancePolicyCollectionResponse | undefined>;
     /**
-     * Get tokenIssuancePolicies from applications
+     * List the tokenIssuancePolicy objects that are assigned to an application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TokenIssuancePoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get tokenIssuancePolicies from applications
+ * List the tokenIssuancePolicy objects that are assigned to an application.
  */
 export interface TokenIssuancePoliciesRequestBuilderGetQueryParameters {
     /**

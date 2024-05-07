@@ -27,10 +27,11 @@ export interface ScopedMembersRequestBuilder extends BaseRequestBuilder<ScopedMe
      */
      byScopedRoleMembershipId(scopedRoleMembershipId: string) : ScopedRoleMembershipItemRequestBuilder;
     /**
-     * Members of this directory role that are scoped to administrative units. Read-only. Nullable.
+     * Retrieve a list of scopedRoleMembership objects for a directory role.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ScopedRoleMembershipCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/directoryrole-list-scopedmembers?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ScopedMembersRequestBuilderGetQueryParameters> | undefined) : Promise<ScopedRoleMembershipCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface ScopedMembersRequestBuilder extends BaseRequestBuilder<ScopedMe
      */
      post(body: ScopedRoleMembership, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ScopedRoleMembership | undefined>;
     /**
-     * Members of this directory role that are scoped to administrative units. Read-only. Nullable.
+     * Retrieve a list of scopedRoleMembership objects for a directory role.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface ScopedMembersRequestBuilder extends BaseRequestBuilder<ScopedMe
      toPostRequestInformation(body: ScopedRoleMembership, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Members of this directory role that are scoped to administrative units. Read-only. Nullable.
+ * Retrieve a list of scopedRoleMembership objects for a directory role.
  */
 export interface ScopedMembersRequestBuilderGetQueryParameters {
     /**

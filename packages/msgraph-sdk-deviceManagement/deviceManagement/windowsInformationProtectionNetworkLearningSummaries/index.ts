@@ -27,28 +27,30 @@ export interface WindowsInformationProtectionNetworkLearningSummariesRequestBuil
      */
      byWindowsInformationProtectionNetworkLearningSummaryId(windowsInformationProtectionNetworkLearningSummaryId: string) : WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder;
     /**
-     * The windows information protection network learning summaries.
+     * List properties and relationships of the windowsInformationProtectionNetworkLearningSummary objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsInformationProtectionNetworkLearningSummaryCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-wip-windowsinformationprotectionnetworklearningsummary-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WindowsInformationProtectionNetworkLearningSummariesRequestBuilderGetQueryParameters> | undefined) : Promise<WindowsInformationProtectionNetworkLearningSummaryCollectionResponse | undefined>;
     /**
-     * Create new navigation property to windowsInformationProtectionNetworkLearningSummaries for deviceManagement
+     * Create a new windowsInformationProtectionNetworkLearningSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsInformationProtectionNetworkLearningSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-wip-windowsinformationprotectionnetworklearningsummary-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: WindowsInformationProtectionNetworkLearningSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WindowsInformationProtectionNetworkLearningSummary | undefined>;
     /**
-     * The windows information protection network learning summaries.
+     * List properties and relationships of the windowsInformationProtectionNetworkLearningSummary objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WindowsInformationProtectionNetworkLearningSummariesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to windowsInformationProtectionNetworkLearningSummaries for deviceManagement
+     * Create a new windowsInformationProtectionNetworkLearningSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface WindowsInformationProtectionNetworkLearningSummariesRequestBuil
      toPostRequestInformation(body: WindowsInformationProtectionNetworkLearningSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The windows information protection network learning summaries.
+ * List properties and relationships of the windowsInformationProtectionNetworkLearningSummary objects.
  */
 export interface WindowsInformationProtectionNetworkLearningSummariesRequestBuilderGetQueryParameters {
     /**

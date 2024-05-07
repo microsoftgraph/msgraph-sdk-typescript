@@ -27,10 +27,11 @@ export interface AcceptancesRequestBuilder extends BaseRequestBuilder<Acceptance
      */
      byAgreementAcceptanceId(agreementAcceptanceId: string) : AgreementAcceptanceItemRequestBuilder;
     /**
-     * Read-only. Information about acceptances of this agreement.
+     * Get the details about the acceptance records for a specific agreement.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AgreementAcceptanceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/agreement-list-acceptances?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AcceptancesRequestBuilderGetQueryParameters> | undefined) : Promise<AgreementAcceptanceCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface AcceptancesRequestBuilder extends BaseRequestBuilder<Acceptance
      */
      post(body: AgreementAcceptance, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AgreementAcceptance | undefined>;
     /**
-     * Read-only. Information about acceptances of this agreement.
+     * Get the details about the acceptance records for a specific agreement.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface AcceptancesRequestBuilder extends BaseRequestBuilder<Acceptance
      toPostRequestInformation(body: AgreementAcceptance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read-only. Information about acceptances of this agreement.
+ * Get the details about the acceptance records for a specific agreement.
  */
 export interface AcceptancesRequestBuilderGetQueryParameters {
     /**

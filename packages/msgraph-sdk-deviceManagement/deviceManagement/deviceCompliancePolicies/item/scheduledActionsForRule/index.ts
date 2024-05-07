@@ -27,28 +27,30 @@ export interface ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilde
      */
      byDeviceComplianceScheduledActionForRuleId(deviceComplianceScheduledActionForRuleId: string) : DeviceComplianceScheduledActionForRuleItemRequestBuilder;
     /**
-     * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+     * List properties and relationships of the deviceComplianceScheduledActionForRule objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceScheduledActionForRuleCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancescheduledactionforrule-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ScheduledActionsForRuleRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceComplianceScheduledActionForRuleCollectionResponse | undefined>;
     /**
-     * Create new navigation property to scheduledActionsForRule for deviceManagement
+     * Create a new deviceComplianceScheduledActionForRule object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceScheduledActionForRule>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancescheduledactionforrule-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceComplianceScheduledActionForRule, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceComplianceScheduledActionForRule | undefined>;
     /**
-     * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+     * List properties and relationships of the deviceComplianceScheduledActionForRule objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ScheduledActionsForRuleRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to scheduledActionsForRule for deviceManagement
+     * Create a new deviceComplianceScheduledActionForRule object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilde
      toPostRequestInformation(body: DeviceComplianceScheduledActionForRule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+ * List properties and relationships of the deviceComplianceScheduledActionForRule objects.
  */
 export interface ScheduledActionsForRuleRequestBuilderGetQueryParameters {
     /**

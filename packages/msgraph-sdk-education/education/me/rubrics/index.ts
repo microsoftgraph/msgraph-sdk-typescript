@@ -27,28 +27,30 @@ export interface RubricsRequestBuilder extends BaseRequestBuilder<RubricsRequest
      */
      byEducationRubricId(educationRubricId: string) : EducationRubricItemRequestBuilder;
     /**
-     * When set, the grading rubric attached to the assignment.
+     * Retrieve a list of educationRubric objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationRubricCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationuser-list-rubrics?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RubricsRequestBuilderGetQueryParameters> | undefined) : Promise<EducationRubricCollectionResponse | undefined>;
     /**
-     * Create new navigation property to rubrics for education
+     * Create a new educationRubric object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationRubric>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationuser-post-rubrics?view=graph-rest-1.0|Find more info here}
      */
      post(body: EducationRubric, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationRubric | undefined>;
     /**
-     * When set, the grading rubric attached to the assignment.
+     * Retrieve a list of educationRubric objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RubricsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to rubrics for education
+     * Create a new educationRubric object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface RubricsRequestBuilder extends BaseRequestBuilder<RubricsRequest
      toPostRequestInformation(body: EducationRubric, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * When set, the grading rubric attached to the assignment.
+ * Retrieve a list of educationRubric objects.
  */
 export interface RubricsRequestBuilderGetQueryParameters {
     /**

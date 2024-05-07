@@ -27,7 +27,7 @@ export interface ArticleIndicatorsRequestBuilder extends BaseRequestBuilder<Arti
      */
      byArticleIndicatorId(articleIndicatorId: string) : ArticleIndicatorItemRequestBuilder;
     /**
-     * Refers to indicators of threat or compromise highlighted in an article.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of an articleIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArticleIndicatorCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface ArticleIndicatorsRequestBuilder extends BaseRequestBuilder<Arti
      */
      post(body: ArticleIndicator, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArticleIndicator | undefined>;
     /**
-     * Refers to indicators of threat or compromise highlighted in an article.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of an articleIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface ArticleIndicatorsRequestBuilder extends BaseRequestBuilder<Arti
      toPostRequestInformation(body: ArticleIndicator, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Refers to indicators of threat or compromise highlighted in an article.Note: List retrieval is not yet supported.
+ * Read the properties and relationships of an articleIndicator object.
  */
 export interface ArticleIndicatorsRequestBuilderGetQueryParameters {
     /**

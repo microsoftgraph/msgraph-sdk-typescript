@@ -27,10 +27,11 @@ export interface RegistrationsRequestBuilder extends BaseRequestBuilder<Registra
      */
      byVirtualEventRegistrationId(virtualEventRegistrationId: string) : VirtualEventRegistrationItemRequestBuilder;
     /**
-     * Registration records of the webinar.
+     * Get a list of all registration records of a webinar.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventRegistrationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualeventwebinar-list-registrations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RegistrationsRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventRegistrationCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface RegistrationsRequestBuilder extends BaseRequestBuilder<Registra
      */
      post(body: VirtualEventRegistration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventRegistration | undefined>;
     /**
-     * Registration records of the webinar.
+     * Get a list of all registration records of a webinar.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface RegistrationsRequestBuilder extends BaseRequestBuilder<Registra
      toPostRequestInformation(body: VirtualEventRegistration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Registration records of the webinar.
+ * Get a list of all registration records of a webinar.
  */
 export interface RegistrationsRequestBuilderGetQueryParameters {
     /**

@@ -25,10 +25,11 @@ export interface ArticleIndicatorItemRequestBuilder extends BaseRequestBuilder<A
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Refers to indicators of threat or compromise highlighted in an article.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of an articleIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArticleIndicator>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-articleindicator-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ArticleIndicatorItemRequestBuilderGetQueryParameters> | undefined) : Promise<ArticleIndicator | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface ArticleIndicatorItemRequestBuilder extends BaseRequestBuilder<A
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Refers to indicators of threat or compromise highlighted in an article.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of an articleIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface ArticleIndicatorItemRequestBuilder extends BaseRequestBuilder<A
      toPatchRequestInformation(body: ArticleIndicator, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Refers to indicators of threat or compromise highlighted in an article.Note: List retrieval is not yet supported.
+ * Read the properties and relationships of an articleIndicator object.
  */
 export interface ArticleIndicatorItemRequestBuilderGetQueryParameters {
     /**

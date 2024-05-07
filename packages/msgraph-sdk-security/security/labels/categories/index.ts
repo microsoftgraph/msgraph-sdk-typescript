@@ -27,28 +27,30 @@ export interface CategoriesRequestBuilder extends BaseRequestBuilder<CategoriesR
      */
      byCategoryTemplateId(categoryTemplateId: string) : CategoryTemplateItemRequestBuilder;
     /**
-     * Specifies a group of similar types of content in a particular department.
+     * Get a list of the categoryTemplate objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CategoryTemplateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-list-categories?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CategoriesRequestBuilderGetQueryParameters> | undefined) : Promise<CategoryTemplateCollectionResponse | undefined>;
     /**
-     * Create new navigation property to categories for security
+     * Create a new categoryTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CategoryTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-post-categories?view=graph-rest-1.0|Find more info here}
      */
      post(body: CategoryTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CategoryTemplate | undefined>;
     /**
-     * Specifies a group of similar types of content in a particular department.
+     * Get a list of the categoryTemplate objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CategoriesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to categories for security
+     * Create a new categoryTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface CategoriesRequestBuilder extends BaseRequestBuilder<CategoriesR
      toPostRequestInformation(body: CategoryTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Specifies a group of similar types of content in a particular department.
+ * Get a list of the categoryTemplate objects and their properties.
  */
 export interface CategoriesRequestBuilderGetQueryParameters {
     /**

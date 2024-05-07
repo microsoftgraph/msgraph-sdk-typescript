@@ -31,10 +31,11 @@ export interface PrivilegedAccessGroupEligibilityScheduleItemRequestBuilder exte
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The eligibility schedules to activate a just-in-time access.
+     * Read the properties and relationships of a privilegedAccessGroupEligibilitySchedule object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrivilegedAccessGroupEligibilitySchedule>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroupeligibilityschedule-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PrivilegedAccessGroupEligibilityScheduleItemRequestBuilderGetQueryParameters> | undefined) : Promise<PrivilegedAccessGroupEligibilitySchedule | undefined>;
     /**
@@ -52,7 +53,7 @@ export interface PrivilegedAccessGroupEligibilityScheduleItemRequestBuilder exte
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The eligibility schedules to activate a just-in-time access.
+     * Read the properties and relationships of a privilegedAccessGroupEligibilitySchedule object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +67,7 @@ export interface PrivilegedAccessGroupEligibilityScheduleItemRequestBuilder exte
      toPatchRequestInformation(body: PrivilegedAccessGroupEligibilitySchedule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The eligibility schedules to activate a just-in-time access.
+ * Read the properties and relationships of a privilegedAccessGroupEligibilitySchedule object.
  */
 export interface PrivilegedAccessGroupEligibilityScheduleItemRequestBuilderGetQueryParameters {
     /**

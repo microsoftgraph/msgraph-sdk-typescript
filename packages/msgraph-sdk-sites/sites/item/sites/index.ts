@@ -27,21 +27,22 @@ export interface SitesRequestBuilder extends BaseRequestBuilder<SitesRequestBuil
      */
      bySiteId1(siteId1: string) : SiteItemRequestBuilder;
     /**
-     * The collection of the sub-sites under this site.
+     * Get a collection of subsites defined for a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SiteCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/site-list-subsites?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SitesRequestBuilderGetQueryParameters> | undefined) : Promise<SiteCollectionResponse | undefined>;
     /**
-     * The collection of the sub-sites under this site.
+     * Get a collection of subsites defined for a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SitesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The collection of the sub-sites under this site.
+ * Get a collection of subsites defined for a site.
  */
 export interface SitesRequestBuilderGetQueryParameters {
     /**

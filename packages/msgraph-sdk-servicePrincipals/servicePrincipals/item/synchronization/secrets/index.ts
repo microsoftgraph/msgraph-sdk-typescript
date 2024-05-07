@@ -83,15 +83,16 @@ export interface SecretsRequestBuilder extends BaseRequestBuilder<SecretsRequest
      */
     get count(): CountRequestBuilder;
     /**
-     * Update property secrets value.
+     * Provide credentials for establishing connectivity with the target system.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SecretsPutResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/synchronization-serviceprincipal-put-synchronization?view=graph-rest-1.0|Find more info here}
      */
      put(body: SecretsPutRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SecretsPutResponse | undefined>;
     /**
-     * Update property secrets value.
+     * Provide credentials for establishing connectivity with the target system.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

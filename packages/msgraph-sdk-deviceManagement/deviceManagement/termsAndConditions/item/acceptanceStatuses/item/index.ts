@@ -19,40 +19,43 @@ export interface TermsAndConditionsAcceptanceStatusItemRequestBuilder extends Ba
      */
     get termsAndConditions(): TermsAndConditionsRequestBuilder;
     /**
-     * Delete navigation property acceptanceStatuses for deviceManagement
+     * Deletes a termsAndConditionsAcceptanceStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The list of acceptance statuses for this T&C policy.
+     * Read properties and relationships of the termsAndConditionsAcceptanceStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TermsAndConditionsAcceptanceStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TermsAndConditionsAcceptanceStatusItemRequestBuilderGetQueryParameters> | undefined) : Promise<TermsAndConditionsAcceptanceStatus | undefined>;
     /**
-     * Update the navigation property acceptanceStatuses in deviceManagement
+     * Update the properties of a termsAndConditionsAcceptanceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TermsAndConditionsAcceptanceStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TermsAndConditionsAcceptanceStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TermsAndConditionsAcceptanceStatus | undefined>;
     /**
-     * Delete navigation property acceptanceStatuses for deviceManagement
+     * Deletes a termsAndConditionsAcceptanceStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The list of acceptance statuses for this T&C policy.
+     * Read properties and relationships of the termsAndConditionsAcceptanceStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TermsAndConditionsAcceptanceStatusItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property acceptanceStatuses in deviceManagement
+     * Update the properties of a termsAndConditionsAcceptanceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +63,7 @@ export interface TermsAndConditionsAcceptanceStatusItemRequestBuilder extends Ba
      toPatchRequestInformation(body: TermsAndConditionsAcceptanceStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of acceptance statuses for this T&C policy.
+ * Read properties and relationships of the termsAndConditionsAcceptanceStatus object.
  */
 export interface TermsAndConditionsAcceptanceStatusItemRequestBuilderGetQueryParameters {
     /**

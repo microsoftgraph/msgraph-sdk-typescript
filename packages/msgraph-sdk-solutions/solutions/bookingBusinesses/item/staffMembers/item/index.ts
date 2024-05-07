@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface BookingStaffMemberBaseItemRequestBuilder extends BaseRequestBuilder<BookingStaffMemberBaseItemRequestBuilder> {
     /**
-     * Delete navigation property staffMembers for solutions
+     * Delete a bookingStaffMember in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/bookingstaffmember-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * All the staff members that provide services in this business. Read-only. Nullable.
+     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingStaffMemberBase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/bookingstaffmember-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BookingStaffMemberBaseItemRequestBuilderGetQueryParameters> | undefined) : Promise<BookingStaffMemberBase | undefined>;
     /**
-     * Update the navigation property staffMembers in solutions
+     * Update the properties of a bookingStaffMember in the specified bookingBusiness.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingStaffMemberBase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/bookingstaffmember-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: BookingStaffMemberBase, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingStaffMemberBase | undefined>;
     /**
-     * Delete navigation property staffMembers for solutions
+     * Delete a bookingStaffMember in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * All the staff members that provide services in this business. Read-only. Nullable.
+     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BookingStaffMemberBaseItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property staffMembers in solutions
+     * Update the properties of a bookingStaffMember in the specified bookingBusiness.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface BookingStaffMemberBaseItemRequestBuilder extends BaseRequestBui
      toPatchRequestInformation(body: BookingStaffMemberBase, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * All the staff members that provide services in this business. Read-only. Nullable.
+ * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
  */
 export interface BookingStaffMemberBaseItemRequestBuilderGetQueryParameters {
     /**

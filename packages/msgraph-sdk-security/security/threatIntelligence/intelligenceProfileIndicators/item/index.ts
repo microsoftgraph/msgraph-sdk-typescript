@@ -25,10 +25,11 @@ export interface IntelligenceProfileIndicatorItemRequestBuilder extends BaseRequ
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get intelligenceProfileIndicators from security
+     * Read the properties and relationships of a intelligenceProfileIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IntelligenceProfileIndicator>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-intelligenceprofileindicator-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IntelligenceProfileIndicatorItemRequestBuilderGetQueryParameters> | undefined) : Promise<IntelligenceProfileIndicator | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface IntelligenceProfileIndicatorItemRequestBuilder extends BaseRequ
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get intelligenceProfileIndicators from security
+     * Read the properties and relationships of a intelligenceProfileIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface IntelligenceProfileIndicatorItemRequestBuilder extends BaseRequ
      toPatchRequestInformation(body: IntelligenceProfileIndicator, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get intelligenceProfileIndicators from security
+ * Read the properties and relationships of a intelligenceProfileIndicator object.
  */
 export interface IntelligenceProfileIndicatorItemRequestBuilderGetQueryParameters {
     /**

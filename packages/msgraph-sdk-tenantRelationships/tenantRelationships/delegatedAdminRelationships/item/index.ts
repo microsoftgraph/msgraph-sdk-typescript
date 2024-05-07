@@ -31,40 +31,43 @@ export interface DelegatedAdminRelationshipItemRequestBuilder extends BaseReques
      */
     get requests(): RequestsRequestBuilder;
     /**
-     * Delete navigation property delegatedAdminRelationships for tenantRelationships
+     * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
+     * Read the properties of a delegatedAdminRelationship object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedAdminRelationship>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedAdminRelationship | undefined>;
     /**
-     * Update the navigation property delegatedAdminRelationships in tenantRelationships
+     * Update the properties of a delegatedAdminRelationship object.  The following restrictions apply:- You can update this relationship when its status property is created.- You can update the autoExtendDuration property when status is either created or active.- You can only remove the Microsoft Entra Global Administrator role when the status property is active, which indicates a long-running operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedAdminRelationship>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DelegatedAdminRelationship, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DelegatedAdminRelationship | undefined>;
     /**
-     * Delete navigation property delegatedAdminRelationships for tenantRelationships
+     * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
+     * Read the properties of a delegatedAdminRelationship object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property delegatedAdminRelationships in tenantRelationships
+     * Update the properties of a delegatedAdminRelationship object.  The following restrictions apply:- You can update this relationship when its status property is created.- You can update the autoExtendDuration property when status is either created or active.- You can only remove the Microsoft Entra Global Administrator role when the status property is active, which indicates a long-running operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -72,7 +75,7 @@ export interface DelegatedAdminRelationshipItemRequestBuilder extends BaseReques
      toPatchRequestInformation(body: DelegatedAdminRelationship, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
+ * Read the properties of a delegatedAdminRelationship object.
  */
 export interface DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters {
     /**

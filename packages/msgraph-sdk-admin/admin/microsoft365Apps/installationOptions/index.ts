@@ -19,18 +19,20 @@ export interface InstallationOptionsRequestBuilder extends BaseRequestBuilder<In
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * A container for tenant-level settings for Microsoft 365 applications.
+     * Read the properties and relationships of an m365AppsInstallationOptions object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<M365AppsInstallationOptions>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/m365appsinstallationoptions-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<InstallationOptionsRequestBuilderGetQueryParameters> | undefined) : Promise<M365AppsInstallationOptions | undefined>;
     /**
-     * Update the navigation property installationOptions in admin
+     * Update the properties of an m365AppsInstallationOptions object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<M365AppsInstallationOptions>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/m365appsinstallationoptions-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: M365AppsInstallationOptions, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<M365AppsInstallationOptions | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface InstallationOptionsRequestBuilder extends BaseRequestBuilder<In
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * A container for tenant-level settings for Microsoft 365 applications.
+     * Read the properties and relationships of an m365AppsInstallationOptions object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<InstallationOptionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property installationOptions in admin
+     * Update the properties of an m365AppsInstallationOptions object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface InstallationOptionsRequestBuilder extends BaseRequestBuilder<In
      toPatchRequestInformation(body: M365AppsInstallationOptions, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A container for tenant-level settings for Microsoft 365 applications.
+ * Read the properties and relationships of an m365AppsInstallationOptions object.
  */
 export interface InstallationOptionsRequestBuilderGetQueryParameters {
     /**

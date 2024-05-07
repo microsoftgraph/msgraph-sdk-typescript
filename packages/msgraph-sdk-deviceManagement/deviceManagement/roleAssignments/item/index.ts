@@ -19,40 +19,43 @@ export interface DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends 
      */
     get roleDefinition(): RoleDefinitionRequestBuilder;
     /**
-     * Delete navigation property roleAssignments for deviceManagement
+     * Deletes a deviceAndAppManagementRoleAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The Role Assignments.
+     * Read properties and relationships of the deviceAndAppManagementRoleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceAndAppManagementRoleAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceAndAppManagementRoleAssignment | undefined>;
     /**
-     * Update the navigation property roleAssignments in deviceManagement
+     * Update the properties of a deviceAndAppManagementRoleAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceAndAppManagementRoleAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceAndAppManagementRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceAndAppManagementRoleAssignment | undefined>;
     /**
-     * Delete navigation property roleAssignments for deviceManagement
+     * Deletes a deviceAndAppManagementRoleAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The Role Assignments.
+     * Read properties and relationships of the deviceAndAppManagementRoleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property roleAssignments in deviceManagement
+     * Update the properties of a deviceAndAppManagementRoleAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +63,7 @@ export interface DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends 
      toPatchRequestInformation(body: DeviceAndAppManagementRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The Role Assignments.
+ * Read properties and relationships of the deviceAndAppManagementRoleAssignment object.
  */
 export interface DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters {
     /**

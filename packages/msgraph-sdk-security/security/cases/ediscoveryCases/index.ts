@@ -27,28 +27,30 @@ export interface EdiscoveryCasesRequestBuilder extends BaseRequestBuilder<Edisco
      */
      byEdiscoveryCaseId(ediscoveryCaseId: string) : EdiscoveryCaseItemRequestBuilder;
     /**
-     * Get ediscoveryCases from security
+     * Get a list of the ediscoveryCase objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryCaseCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-casesroot-list-ediscoverycases?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EdiscoveryCasesRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryCaseCollectionResponse | undefined>;
     /**
-     * Create new navigation property to ediscoveryCases for security
+     * Create a new ediscoveryCase object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryCase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-casesroot-post-ediscoverycases?view=graph-rest-1.0|Find more info here}
      */
      post(body: EdiscoveryCase, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoveryCase | undefined>;
     /**
-     * Get ediscoveryCases from security
+     * Get a list of the ediscoveryCase objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EdiscoveryCasesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to ediscoveryCases for security
+     * Create a new ediscoveryCase object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface EdiscoveryCasesRequestBuilder extends BaseRequestBuilder<Edisco
      toPostRequestInformation(body: EdiscoveryCase, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get ediscoveryCases from security
+ * Get a list of the ediscoveryCase objects and their properties.
  */
 export interface EdiscoveryCasesRequestBuilderGetQueryParameters {
     /**

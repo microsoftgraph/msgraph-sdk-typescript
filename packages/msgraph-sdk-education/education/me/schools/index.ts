@@ -27,21 +27,22 @@ export interface SchoolsRequestBuilder extends BaseRequestBuilder<SchoolsRequest
      */
      byEducationSchoolId(educationSchoolId: string) : EducationSchoolItemRequestBuilder;
     /**
-     * Schools to which the user belongs. Nullable.
+     * Retrieve a list of schools for a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationSchoolCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationuser-list-schools?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SchoolsRequestBuilderGetQueryParameters> | undefined) : Promise<EducationSchoolCollectionResponse | undefined>;
     /**
-     * Schools to which the user belongs. Nullable.
+     * Retrieve a list of schools for a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SchoolsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Schools to which the user belongs. Nullable.
+ * Retrieve a list of schools for a user.
  */
 export interface SchoolsRequestBuilderGetQueryParameters {
     /**

@@ -27,10 +27,11 @@ export interface PayloadsRequestBuilder extends BaseRequestBuilder<PayloadsReque
      */
      byPayloadId(payloadId: string) : PayloadItemRequestBuilder;
     /**
-     * Represents an attack simulation training campaign payload in a tenant.
+     * Get a list of payloads for attack simulation campaigns. This operation expects the mandatory parameter source to filter and query the respective data source.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PayloadCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-list-payloads?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PayloadsRequestBuilderGetQueryParameters> | undefined) : Promise<PayloadCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface PayloadsRequestBuilder extends BaseRequestBuilder<PayloadsReque
      */
      post(body: Payload, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Payload | undefined>;
     /**
-     * Represents an attack simulation training campaign payload in a tenant.
+     * Get a list of payloads for attack simulation campaigns. This operation expects the mandatory parameter source to filter and query the respective data source.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface PayloadsRequestBuilder extends BaseRequestBuilder<PayloadsReque
      toPostRequestInformation(body: Payload, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents an attack simulation training campaign payload in a tenant.
+ * Get a list of payloads for attack simulation campaigns. This operation expects the mandatory parameter source to filter and query the respective data source.
  */
 export interface PayloadsRequestBuilderGetQueryParameters {
     /**

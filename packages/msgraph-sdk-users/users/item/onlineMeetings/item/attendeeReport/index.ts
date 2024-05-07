@@ -11,6 +11,12 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AttendeeReportRequestBuilder extends BaseRequestBuilder<AttendeeReportRequestBuilder> {
     /**
+     * Delete attendeeReport for the navigation property onlineMeetings in users
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     */
+     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
+    /**
      * Get attendeeReport for the navigation property onlineMeetings from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
@@ -25,6 +31,12 @@ export interface AttendeeReportRequestBuilder extends BaseRequestBuilder<Attende
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      put(body: ArrayBuffer | undefined, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
+    /**
+     * Delete attendeeReport for the navigation property onlineMeetings in users
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns {RequestInformation}
+     */
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Get attendeeReport for the navigation property onlineMeetings from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -47,6 +59,14 @@ export const AttendeeReportRequestBuilderUriTemplate = "{+baseurl}/users/{user%2
  * Metadata for all the requests in the request builder.
  */
 export const AttendeeReportRequestBuilderRequestsMetadata: RequestsMetadata = {
+    delete: {
+        uriTemplate: AttendeeReportRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
+        errorMappings: {
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+        },
+        adapterMethodName: "sendNoResponseContent",
+    },
     get: {
         uriTemplate: AttendeeReportRequestBuilderUriTemplate,
         responseBodyContentType: "application/octet-stream, application/json",

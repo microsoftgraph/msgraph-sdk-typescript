@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRequestBuilder<TargetedManagedAppPolicyAssignmentItemRequestBuilder> {
     /**
-     * Delete navigation property assignments for deviceAppManagement
+     * Deletes a targetedManagedAppPolicyAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedapppolicyassignment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
+     * Read properties and relationships of the targetedManagedAppPolicyAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TargetedManagedAppPolicyAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedapppolicyassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<TargetedManagedAppPolicyAssignment | undefined>;
     /**
-     * Update the navigation property assignments in deviceAppManagement
+     * Update the properties of a targetedManagedAppPolicyAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TargetedManagedAppPolicyAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedapppolicyassignment-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TargetedManagedAppPolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TargetedManagedAppPolicyAssignment | undefined>;
     /**
-     * Delete navigation property assignments for deviceAppManagement
+     * Deletes a targetedManagedAppPolicyAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
+     * Read properties and relationships of the targetedManagedAppPolicyAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property assignments in deviceAppManagement
+     * Update the properties of a targetedManagedAppPolicyAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface TargetedManagedAppPolicyAssignmentItemRequestBuilder extends Ba
      toPatchRequestInformation(body: TargetedManagedAppPolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
+ * Read properties and relationships of the targetedManagedAppPolicyAssignment object.
  */
 export interface TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters {
     /**

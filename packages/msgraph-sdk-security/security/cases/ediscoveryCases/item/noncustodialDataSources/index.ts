@@ -46,11 +46,12 @@ export interface NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilde
      */
      get(requestConfiguration?: RequestConfiguration<NoncustodialDataSourcesRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryNoncustodialDataSourceCollectionResponse | undefined>;
     /**
-     * Create new navigation property to noncustodialDataSources for security
+     * Create a new ediscoveryNoncustodialDataSource object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryNoncustodialDataSource>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-noncustodialdatasources?view=graph-rest-1.0|Find more info here}
      */
      post(body: EdiscoveryNoncustodialDataSource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoveryNoncustodialDataSource | undefined>;
     /**
@@ -60,7 +61,7 @@ export interface NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilde
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<NoncustodialDataSourcesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to noncustodialDataSources for security
+     * Create a new ediscoveryNoncustodialDataSource object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

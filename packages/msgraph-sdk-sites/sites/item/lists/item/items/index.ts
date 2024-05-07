@@ -35,28 +35,30 @@ export interface ItemsRequestBuilder extends BaseRequestBuilder<ItemsRequestBuil
      */
      deltaWithToken(token: string | undefined) : DeltaWithTokenRequestBuilder;
     /**
-     * All items contained in the list.
+     * Get the collection of items in a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ListItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/listitem-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ItemsRequestBuilderGetQueryParameters> | undefined) : Promise<ListItemCollectionResponse | undefined>;
     /**
-     * Create new navigation property to items for sites
+     * Create a new listItem in a list.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ListItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/listitem-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: ListItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ListItem | undefined>;
     /**
-     * All items contained in the list.
+     * Get the collection of items in a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ItemsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to items for sites
+     * Create a new listItem in a list.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,9 +66,13 @@ export interface ItemsRequestBuilder extends BaseRequestBuilder<ItemsRequestBuil
      toPostRequestInformation(body: ListItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * All items contained in the list.
+ * Get the collection of items in a list.
  */
 export interface ItemsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
     /**
      * Expand related entities
      */
@@ -99,11 +105,12 @@ export interface ItemsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ItemsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/items{?%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ItemsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/items{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ItemsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
     "expand": "%24expand",
     "filter": "%24filter",
     "orderby": "%24orderby",

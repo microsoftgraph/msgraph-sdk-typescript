@@ -45,28 +45,30 @@ export interface ContentTypesRequestBuilder extends BaseRequestBuilder<ContentTy
      */
      byContentTypeId(contentTypeId: string) : ContentTypeItemRequestBuilder;
     /**
-     * The collection of content types defined for this site.
+     * Get the collection of contentType resources in a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ContentTypeCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/site-list-contenttypes?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ContentTypesRequestBuilderGetQueryParameters> | undefined) : Promise<ContentTypeCollectionResponse | undefined>;
     /**
-     * Create new navigation property to contentTypes for sites
+     * Create a new contentType in a site.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ContentType>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/site-post-contenttypes?view=graph-rest-1.0|Find more info here}
      */
      post(body: ContentType, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ContentType | undefined>;
     /**
-     * The collection of content types defined for this site.
+     * Get the collection of contentType resources in a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ContentTypesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to contentTypes for sites
+     * Create a new contentType in a site.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -74,7 +76,7 @@ export interface ContentTypesRequestBuilder extends BaseRequestBuilder<ContentTy
      toPostRequestInformation(body: ContentType, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The collection of content types defined for this site.
+ * Get the collection of contentType resources in a site.
  */
 export interface ContentTypesRequestBuilderGetQueryParameters {
     /**

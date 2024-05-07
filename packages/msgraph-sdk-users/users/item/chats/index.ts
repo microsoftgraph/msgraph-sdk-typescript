@@ -33,10 +33,11 @@ export interface ChatsRequestBuilder extends BaseRequestBuilder<ChatsRequestBuil
      */
      byChatId(chatId: string) : ChatItemRequestBuilder;
     /**
-     * Get chats from users
+     * Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ChatCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/chat-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ChatsRequestBuilderGetQueryParameters> | undefined) : Promise<ChatCollectionResponse | undefined>;
     /**
@@ -48,7 +49,7 @@ export interface ChatsRequestBuilder extends BaseRequestBuilder<ChatsRequestBuil
      */
      post(body: Chat, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Chat | undefined>;
     /**
-     * Get chats from users
+     * Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -62,7 +63,7 @@ export interface ChatsRequestBuilder extends BaseRequestBuilder<ChatsRequestBuil
      toPostRequestInformation(body: Chat, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get chats from users
+ * Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.
  */
 export interface ChatsRequestBuilderGetQueryParameters {
     /**

@@ -13,16 +13,18 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder<AppRoleAssignmentItemRequestBuilder> {
     /**
-     * Delete navigation property appRoleAssignments for servicePrincipals
+     * Deletes an appRoleAssignment that a service principal has been granted. App roles which are assigned to service principals are also known as application permissions. Deleting an app role assignment for a service principal is equivalent to revoking the app-only permission grant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-delete-approleassignments?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * App role assignment for another app or service, granted to this service principal. Supports $expand.
+     * Read the properties and relationships of an appRoleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppRoleAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/approleassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AppRoleAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<AppRoleAssignment | undefined>;
     /**
@@ -34,13 +36,13 @@ export interface AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder<
      */
      patch(body: AppRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AppRoleAssignment | undefined>;
     /**
-     * Delete navigation property appRoleAssignments for servicePrincipals
+     * Deletes an appRoleAssignment that a service principal has been granted. App roles which are assigned to service principals are also known as application permissions. Deleting an app role assignment for a service principal is equivalent to revoking the app-only permission grant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * App role assignment for another app or service, granted to this service principal. Supports $expand.
+     * Read the properties and relationships of an appRoleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +56,7 @@ export interface AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: AppRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * App role assignment for another app or service, granted to this service principal. Supports $expand.
+ * Read the properties and relationships of an appRoleAssignment object.
  */
 export interface AppRoleAssignmentItemRequestBuilderGetQueryParameters {
     /**

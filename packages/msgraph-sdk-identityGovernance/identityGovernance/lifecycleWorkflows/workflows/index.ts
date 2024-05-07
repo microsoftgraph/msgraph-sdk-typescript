@@ -27,28 +27,30 @@ export interface WorkflowsRequestBuilder extends BaseRequestBuilder<WorkflowsReq
      */
      byWorkflowId(workflowId: string) : WorkflowItemRequestBuilder;
     /**
-     * The workflows in the lifecycle workflows instance.
+     * Get a list of workflow resources that are associated with lifecycle workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkflowCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-workflows?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WorkflowsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkflowCollectionResponse | undefined>;
     /**
-     * Create new navigation property to workflows for identityGovernance
+     * Create a new workflow object. You can create up to 100 workflows in a tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Workflow>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-post-workflows?view=graph-rest-1.0|Find more info here}
      */
      post(body: Workflow, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Workflow | undefined>;
     /**
-     * The workflows in the lifecycle workflows instance.
+     * Get a list of workflow resources that are associated with lifecycle workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkflowsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to workflows for identityGovernance
+     * Create a new workflow object. You can create up to 100 workflows in a tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface WorkflowsRequestBuilder extends BaseRequestBuilder<WorkflowsReq
      toPostRequestInformation(body: Workflow, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The workflows in the lifecycle workflows instance.
+ * Get a list of workflow resources that are associated with lifecycle workflows.
  */
 export interface WorkflowsRequestBuilderGetQueryParameters {
     /**

@@ -27,28 +27,30 @@ export interface ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder<
      */
      byClaimsMappingPolicyId(claimsMappingPolicyId: string) : ClaimsMappingPolicyItemRequestBuilder;
     /**
-     * The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
+     * Get a list of claimsMappingPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ClaimsMappingPolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/claimsmappingpolicy-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ClaimsMappingPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<ClaimsMappingPolicyCollectionResponse | undefined>;
     /**
-     * Create new navigation property to claimsMappingPolicies for policies
+     * Create a new claimsMappingPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ClaimsMappingPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/claimsmappingpolicy-post-claimsmappingpolicies?view=graph-rest-1.0|Find more info here}
      */
      post(body: ClaimsMappingPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ClaimsMappingPolicy | undefined>;
     /**
-     * The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
+     * Get a list of claimsMappingPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ClaimsMappingPoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to claimsMappingPolicies for policies
+     * Create a new claimsMappingPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder<
      toPostRequestInformation(body: ClaimsMappingPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
+ * Get a list of claimsMappingPolicy objects.
  */
 export interface ClaimsMappingPoliciesRequestBuilderGetQueryParameters {
     /**

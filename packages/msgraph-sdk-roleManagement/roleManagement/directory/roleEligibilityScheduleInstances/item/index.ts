@@ -43,10 +43,11 @@ export interface UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder extend
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Instances for role eligibility requests.
+     * Get the instance of a role eligibility.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleEligibilityScheduleInstance>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/unifiedroleeligibilityscheduleinstance-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleEligibilityScheduleInstance | undefined>;
     /**
@@ -64,7 +65,7 @@ export interface UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder extend
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Instances for role eligibility requests.
+     * Get the instance of a role eligibility.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -78,7 +79,7 @@ export interface UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder extend
      toPatchRequestInformation(body: UnifiedRoleEligibilityScheduleInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Instances for role eligibility requests.
+ * Get the instance of a role eligibility.
  */
 export interface UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetQueryParameters {
     /**

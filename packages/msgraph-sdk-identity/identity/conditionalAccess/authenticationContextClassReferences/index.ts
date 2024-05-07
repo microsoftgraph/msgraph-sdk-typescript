@@ -27,10 +27,11 @@ export interface AuthenticationContextClassReferencesRequestBuilder extends Base
      */
      byAuthenticationContextClassReferenceId(authenticationContextClassReferenceId: string) : AuthenticationContextClassReferenceItemRequestBuilder;
     /**
-     * Read-only. Nullable. Returns a collection of the specified authentication context class references.
+     * Retrieve a list of authenticationContextClassReference objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationContextClassReferenceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuthenticationContextClassReferencesRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationContextClassReferenceCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface AuthenticationContextClassReferencesRequestBuilder extends Base
      */
      post(body: AuthenticationContextClassReference, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationContextClassReference | undefined>;
     /**
-     * Read-only. Nullable. Returns a collection of the specified authentication context class references.
+     * Retrieve a list of authenticationContextClassReference objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface AuthenticationContextClassReferencesRequestBuilder extends Base
      toPostRequestInformation(body: AuthenticationContextClassReference, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read-only. Nullable. Returns a collection of the specified authentication context class references.
+ * Retrieve a list of authenticationContextClassReference objects.
  */
 export interface AuthenticationContextClassReferencesRequestBuilderGetQueryParameters {
     /**

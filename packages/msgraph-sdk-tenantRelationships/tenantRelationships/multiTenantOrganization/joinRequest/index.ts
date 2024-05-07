@@ -13,28 +13,30 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface JoinRequestRequestBuilder extends BaseRequestBuilder<JoinRequestRequestBuilder> {
     /**
-     * Defines the status of a tenant joining a multitenant organization.
+     * Get the status of a tenant joining a multitenant organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MultiTenantOrganizationJoinRequestRecord>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/multitenantorganizationjoinrequestrecord-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<JoinRequestRequestBuilderGetQueryParameters> | undefined) : Promise<MultiTenantOrganizationJoinRequestRecord | undefined>;
     /**
-     * Update the navigation property joinRequest in tenantRelationships
+     * Join a multitenant organization, after the owner of the multitenant organization has added your tenant to the multitenant organization as pending. Before a tenant added to a multitenant organization can participate in the multitenant organization, the administrator of the joining tenant must submit a join request. To allow for asynchronous processing, you must wait up to 2 hours before joining a multitenant organization is completed.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MultiTenantOrganizationJoinRequestRecord>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/multitenantorganizationjoinrequestrecord-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: MultiTenantOrganizationJoinRequestRecord, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MultiTenantOrganizationJoinRequestRecord | undefined>;
     /**
-     * Defines the status of a tenant joining a multitenant organization.
+     * Get the status of a tenant joining a multitenant organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<JoinRequestRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property joinRequest in tenantRelationships
+     * Join a multitenant organization, after the owner of the multitenant organization has added your tenant to the multitenant organization as pending. Before a tenant added to a multitenant organization can participate in the multitenant organization, the administrator of the joining tenant must submit a join request. To allow for asynchronous processing, you must wait up to 2 hours before joining a multitenant organization is completed.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -42,7 +44,7 @@ export interface JoinRequestRequestBuilder extends BaseRequestBuilder<JoinReques
      toPatchRequestInformation(body: MultiTenantOrganizationJoinRequestRecord, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Defines the status of a tenant joining a multitenant organization.
+ * Get the status of a tenant joining a multitenant organization.
  */
 export interface JoinRequestRequestBuilderGetQueryParameters {
     /**

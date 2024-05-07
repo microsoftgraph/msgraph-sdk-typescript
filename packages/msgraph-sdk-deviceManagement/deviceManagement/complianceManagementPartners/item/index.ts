@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ComplianceManagementPartnerItemRequestBuilder extends BaseRequestBuilder<ComplianceManagementPartnerItemRequestBuilder> {
     /**
-     * Delete navigation property complianceManagementPartners for deviceManagement
+     * Deletes a complianceManagementPartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The list of Compliance Management Partners configured by the tenant.
+     * Read properties and relationships of the complianceManagementPartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ComplianceManagementPartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ComplianceManagementPartnerItemRequestBuilderGetQueryParameters> | undefined) : Promise<ComplianceManagementPartner | undefined>;
     /**
-     * Update the navigation property complianceManagementPartners in deviceManagement
+     * Update the properties of a complianceManagementPartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ComplianceManagementPartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ComplianceManagementPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ComplianceManagementPartner | undefined>;
     /**
-     * Delete navigation property complianceManagementPartners for deviceManagement
+     * Deletes a complianceManagementPartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The list of Compliance Management Partners configured by the tenant.
+     * Read properties and relationships of the complianceManagementPartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ComplianceManagementPartnerItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property complianceManagementPartners in deviceManagement
+     * Update the properties of a complianceManagementPartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface ComplianceManagementPartnerItemRequestBuilder extends BaseReque
      toPatchRequestInformation(body: ComplianceManagementPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of Compliance Management Partners configured by the tenant.
+ * Read properties and relationships of the complianceManagementPartner object.
  */
 export interface ComplianceManagementPartnerItemRequestBuilderGetQueryParameters {
     /**

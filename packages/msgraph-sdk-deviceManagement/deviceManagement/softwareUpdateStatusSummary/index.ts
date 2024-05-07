@@ -13,21 +13,22 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface SoftwareUpdateStatusSummaryRequestBuilder extends BaseRequestBuilder<SoftwareUpdateStatusSummaryRequestBuilder> {
     /**
-     * The software update status summary.
+     * Read properties and relationships of the softwareUpdateStatusSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SoftwareUpdateStatusSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-softwareupdatestatussummary-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SoftwareUpdateStatusSummaryRequestBuilderGetQueryParameters> | undefined) : Promise<SoftwareUpdateStatusSummary | undefined>;
     /**
-     * The software update status summary.
+     * Read properties and relationships of the softwareUpdateStatusSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SoftwareUpdateStatusSummaryRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The software update status summary.
+ * Read properties and relationships of the softwareUpdateStatusSummary object.
  */
 export interface SoftwareUpdateStatusSummaryRequestBuilderGetQueryParameters {
     /**

@@ -27,10 +27,11 @@ export interface EndUserNotificationsRequestBuilder extends BaseRequestBuilder<E
      */
      byEndUserNotificationId(endUserNotificationId: string) : EndUserNotificationItemRequestBuilder;
     /**
-     * Represents an end user's notification for an attack simulation training.
+     * Get a list of endUserNotification objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EndUserNotificationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-list-endusernotifications?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EndUserNotificationsRequestBuilderGetQueryParameters> | undefined) : Promise<EndUserNotificationCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface EndUserNotificationsRequestBuilder extends BaseRequestBuilder<E
      */
      post(body: EndUserNotification, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EndUserNotification | undefined>;
     /**
-     * Represents an end user's notification for an attack simulation training.
+     * Get a list of endUserNotification objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface EndUserNotificationsRequestBuilder extends BaseRequestBuilder<E
      toPostRequestInformation(body: EndUserNotification, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents an end user's notification for an attack simulation training.
+ * Get a list of endUserNotification objects and their properties.
  */
 export interface EndUserNotificationsRequestBuilderGetQueryParameters {
     /**

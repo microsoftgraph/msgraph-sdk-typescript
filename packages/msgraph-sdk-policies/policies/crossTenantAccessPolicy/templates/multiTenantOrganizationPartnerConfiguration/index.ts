@@ -19,18 +19,20 @@ export interface MultiTenantOrganizationPartnerConfigurationRequestBuilder exten
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Defines an optional cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
+     * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MultiTenantOrganizationPartnerConfigurationTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/multitenantorganizationpartnerconfigurationtemplate-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MultiTenantOrganizationPartnerConfigurationRequestBuilderGetQueryParameters> | undefined) : Promise<MultiTenantOrganizationPartnerConfigurationTemplate | undefined>;
     /**
-     * Update the navigation property multiTenantOrganizationPartnerConfiguration in policies
+     * Update the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MultiTenantOrganizationPartnerConfigurationTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/multitenantorganizationpartnerconfigurationtemplate-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: MultiTenantOrganizationPartnerConfigurationTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MultiTenantOrganizationPartnerConfigurationTemplate | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface MultiTenantOrganizationPartnerConfigurationRequestBuilder exten
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Defines an optional cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
+     * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MultiTenantOrganizationPartnerConfigurationRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property multiTenantOrganizationPartnerConfiguration in policies
+     * Update the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface MultiTenantOrganizationPartnerConfigurationRequestBuilder exten
      toPatchRequestInformation(body: MultiTenantOrganizationPartnerConfigurationTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Defines an optional cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
+ * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
  */
 export interface MultiTenantOrganizationPartnerConfigurationRequestBuilderGetQueryParameters {
     /**

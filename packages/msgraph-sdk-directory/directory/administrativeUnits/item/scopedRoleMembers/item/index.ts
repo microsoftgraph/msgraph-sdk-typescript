@@ -13,16 +13,18 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuilder<ScopedRoleMembershipItemRequestBuilder> {
     /**
-     * Delete navigation property scopedRoleMembers for directory
+     * Remove a Microsoft Entra role assignment with administrative unit scope.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-delete-scopedrolemembers?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Scoped-role members of this administrative unit.
+     * Get a Microsoft Entra role assignment with administrative unit scope.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ScopedRoleMembership>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-get-scopedrolemembers?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ScopedRoleMembershipItemRequestBuilderGetQueryParameters> | undefined) : Promise<ScopedRoleMembership | undefined>;
     /**
@@ -34,13 +36,13 @@ export interface ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuild
      */
      patch(body: ScopedRoleMembership, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ScopedRoleMembership | undefined>;
     /**
-     * Delete navigation property scopedRoleMembers for directory
+     * Remove a Microsoft Entra role assignment with administrative unit scope.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Scoped-role members of this administrative unit.
+     * Get a Microsoft Entra role assignment with administrative unit scope.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +56,7 @@ export interface ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuild
      toPatchRequestInformation(body: ScopedRoleMembership, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Scoped-role members of this administrative unit.
+ * Get a Microsoft Entra role assignment with administrative unit scope.
  */
 export interface ScopedRoleMembershipItemRequestBuilderGetQueryParameters {
     /**

@@ -27,10 +27,11 @@ export interface ManagedAppPoliciesRequestBuilder extends BaseRequestBuilder<Man
      */
      byManagedAppPolicyId(managedAppPolicyId: string) : ManagedAppPolicyItemRequestBuilder;
     /**
-     * Managed app policies.
+     * List properties and relationships of the managedAppPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedAppPolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedapppolicy-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedAppPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedAppPolicyCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface ManagedAppPoliciesRequestBuilder extends BaseRequestBuilder<Man
      */
      post(body: ManagedAppPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedAppPolicy | undefined>;
     /**
-     * Managed app policies.
+     * List properties and relationships of the managedAppPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface ManagedAppPoliciesRequestBuilder extends BaseRequestBuilder<Man
      toPostRequestInformation(body: ManagedAppPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Managed app policies.
+ * List properties and relationships of the managedAppPolicy objects.
  */
 export interface ManagedAppPoliciesRequestBuilderGetQueryParameters {
     /**

@@ -19,40 +19,43 @@ export interface DeviceManagementPartnerItemRequestBuilder extends BaseRequestBu
      */
     get terminate(): TerminateRequestBuilder;
     /**
-     * Delete navigation property deviceManagementPartners for deviceManagement
+     * Deletes a deviceManagementPartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The list of Device Management Partners configured by the tenant.
+     * Read properties and relationships of the deviceManagementPartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagementPartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceManagementPartnerItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceManagementPartner | undefined>;
     /**
-     * Update the navigation property deviceManagementPartners in deviceManagement
+     * Update the properties of a deviceManagementPartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagementPartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceManagementPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceManagementPartner | undefined>;
     /**
-     * Delete navigation property deviceManagementPartners for deviceManagement
+     * Deletes a deviceManagementPartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The list of Device Management Partners configured by the tenant.
+     * Read properties and relationships of the deviceManagementPartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceManagementPartnerItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property deviceManagementPartners in deviceManagement
+     * Update the properties of a deviceManagementPartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +63,7 @@ export interface DeviceManagementPartnerItemRequestBuilder extends BaseRequestBu
      toPatchRequestInformation(body: DeviceManagementPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of Device Management Partners configured by the tenant.
+ * Read properties and relationships of the deviceManagementPartner object.
  */
 export interface DeviceManagementPartnerItemRequestBuilderGetQueryParameters {
     /**

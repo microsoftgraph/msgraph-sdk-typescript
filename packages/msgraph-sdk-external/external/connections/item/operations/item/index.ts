@@ -19,10 +19,11 @@ export interface ConnectionOperationItemRequestBuilder extends BaseRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get operations from external
+     * Read the properties and relationships of a connectionOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConnectionOperation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-connectionoperation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConnectionOperationItemRequestBuilderGetQueryParameters> | undefined) : Promise<ConnectionOperation | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface ConnectionOperationItemRequestBuilder extends BaseRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get operations from external
+     * Read the properties and relationships of a connectionOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface ConnectionOperationItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: ConnectionOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get operations from external
+ * Read the properties and relationships of a connectionOperation object.
  */
 export interface ConnectionOperationItemRequestBuilderGetQueryParameters {
     /**

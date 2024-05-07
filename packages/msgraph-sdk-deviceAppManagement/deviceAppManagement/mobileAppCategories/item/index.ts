@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface MobileAppCategoryItemRequestBuilder extends BaseRequestBuilder<MobileAppCategoryItemRequestBuilder> {
     /**
-     * Delete navigation property mobileAppCategories for deviceAppManagement
+     * Deletes a mobileAppCategory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappcategory-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The mobile app categories.
+     * Read properties and relationships of the mobileAppCategory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppCategory>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappcategory-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppCategoryItemRequestBuilderGetQueryParameters> | undefined) : Promise<MobileAppCategory | undefined>;
     /**
-     * Update the navigation property mobileAppCategories in deviceAppManagement
+     * Update the properties of a mobileAppCategory object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppCategory>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappcategory-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: MobileAppCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileAppCategory | undefined>;
     /**
-     * Delete navigation property mobileAppCategories for deviceAppManagement
+     * Deletes a mobileAppCategory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The mobile app categories.
+     * Read properties and relationships of the mobileAppCategory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileAppCategoryItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property mobileAppCategories in deviceAppManagement
+     * Update the properties of a mobileAppCategory object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface MobileAppCategoryItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: MobileAppCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The mobile app categories.
+ * Read properties and relationships of the mobileAppCategory object.
  */
 export interface MobileAppCategoryItemRequestBuilderGetQueryParameters {
     /**

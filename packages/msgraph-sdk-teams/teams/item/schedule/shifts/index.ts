@@ -27,28 +27,30 @@ export interface ShiftsRequestBuilder extends BaseRequestBuilder<ShiftsRequestBu
      */
      byShiftId(shiftId: string) : ShiftItemRequestBuilder;
     /**
-     * The shifts in the schedule.
+     * Get the list of shift instances in a schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ShiftCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/schedule-list-shifts?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ShiftsRequestBuilderGetQueryParameters> | undefined) : Promise<ShiftCollectionResponse | undefined>;
     /**
-     * Create new navigation property to shifts for teams
+     * Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Shift>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/schedule-post-shifts?view=graph-rest-1.0|Find more info here}
      */
      post(body: Shift, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Shift | undefined>;
     /**
-     * The shifts in the schedule.
+     * Get the list of shift instances in a schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ShiftsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to shifts for teams
+     * Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ShiftsRequestBuilder extends BaseRequestBuilder<ShiftsRequestBu
      toPostRequestInformation(body: Shift, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The shifts in the schedule.
+ * Get the list of shift instances in a schedule.
  */
 export interface ShiftsRequestBuilderGetQueryParameters {
     /**

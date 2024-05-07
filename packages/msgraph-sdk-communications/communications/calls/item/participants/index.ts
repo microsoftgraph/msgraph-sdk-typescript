@@ -33,10 +33,11 @@ export interface ParticipantsRequestBuilder extends BaseRequestBuilder<Participa
      */
      byParticipantId(participantId: string) : ParticipantItemRequestBuilder;
     /**
-     * Get participants from communications
+     * Retrieve a list of participant objects in the call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ParticipantCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/call-list-participants?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ParticipantsRequestBuilderGetQueryParameters> | undefined) : Promise<ParticipantCollectionResponse | undefined>;
     /**
@@ -48,7 +49,7 @@ export interface ParticipantsRequestBuilder extends BaseRequestBuilder<Participa
      */
      post(body: Participant, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Participant | undefined>;
     /**
-     * Get participants from communications
+     * Retrieve a list of participant objects in the call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -62,7 +63,7 @@ export interface ParticipantsRequestBuilder extends BaseRequestBuilder<Participa
      toPostRequestInformation(body: Participant, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get participants from communications
+ * Retrieve a list of participant objects in the call.
  */
 export interface ParticipantsRequestBuilderGetQueryParameters {
     /**

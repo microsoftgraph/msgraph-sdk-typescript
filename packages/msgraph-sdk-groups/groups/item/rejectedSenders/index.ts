@@ -33,21 +33,22 @@ export interface RejectedSendersRequestBuilder extends BaseRequestBuilder<Reject
      */
      byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder;
     /**
-     * The list of users or groups not allowed to create posts or calendar events in this group. Nullable
+     * Users in the rejected senders list can't post to conversations of the group (identified in the GET request URL). Make sure you don't specify the same user or group in the rejected senders and accepted senders lists, otherwise you get an error.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObjectCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/group-list-rejectedsenders?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RejectedSendersRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined>;
     /**
-     * The list of users or groups not allowed to create posts or calendar events in this group. Nullable
+     * Users in the rejected senders list can't post to conversations of the group (identified in the GET request URL). Make sure you don't specify the same user or group in the rejected senders and accepted senders lists, otherwise you get an error.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RejectedSendersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The list of users or groups not allowed to create posts or calendar events in this group. Nullable
+ * Users in the rejected senders list can't post to conversations of the group (identified in the GET request URL). Make sure you don't specify the same user or group in the rejected senders and accepted senders lists, otherwise you get an error.
  */
 export interface RejectedSendersRequestBuilderGetQueryParameters {
     /**
@@ -62,6 +63,10 @@ export interface RejectedSendersRequestBuilderGetQueryParameters {
      * Order items by property values
      */
     orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
     /**
      * Select properties to be returned
      */
@@ -78,7 +83,7 @@ export interface RejectedSendersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RejectedSendersRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/rejectedSenders{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}";
+export const RejectedSendersRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/rejectedSenders{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -86,6 +91,7 @@ const RejectedSendersRequestBuilderGetQueryParametersMapper: Record<string, stri
     "count": "%24count",
     "filter": "%24filter",
     "orderby": "%24orderby",
+    "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",
     "top": "%24top",

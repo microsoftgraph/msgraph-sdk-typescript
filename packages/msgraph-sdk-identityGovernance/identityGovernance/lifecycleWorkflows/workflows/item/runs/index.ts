@@ -29,10 +29,11 @@ export interface RunsRequestBuilder extends BaseRequestBuilder<RunsRequestBuilde
      */
      byRunId(runId: string) : RunItemRequestBuilder;
     /**
-     * Workflow runs.
+     * Get a list of the run objects and their properties for a lifecycle workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RunCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-list-runs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RunsRequestBuilderGetQueryParameters> | undefined) : Promise<RunCollectionResponse | undefined>;
     /**
@@ -43,14 +44,14 @@ export interface RunsRequestBuilder extends BaseRequestBuilder<RunsRequestBuilde
      */
      microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime(endDateTime: Date | undefined, startDateTime: Date | undefined) : MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder;
     /**
-     * Workflow runs.
+     * Get a list of the run objects and their properties for a lifecycle workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RunsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Workflow runs.
+ * Get a list of the run objects and their properties for a lifecycle workflow.
  */
 export interface RunsRequestBuilderGetQueryParameters {
     /**

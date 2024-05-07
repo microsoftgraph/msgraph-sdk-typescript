@@ -27,7 +27,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      */
      byConnectionOperationId(connectionOperationId: string) : ConnectionOperationItemRequestBuilder;
     /**
-     * Get operations from external
+     * Read the properties and relationships of a connectionOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConnectionOperationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      */
      post(body: ConnectionOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConnectionOperation | undefined>;
     /**
-     * Get operations from external
+     * Read the properties and relationships of a connectionOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      toPostRequestInformation(body: ConnectionOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get operations from external
+ * Read the properties and relationships of a connectionOperation object.
  */
 export interface OperationsRequestBuilderGetQueryParameters {
     /**

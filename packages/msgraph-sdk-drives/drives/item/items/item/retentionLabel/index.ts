@@ -13,9 +13,10 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RetentionLabelRequestBuilder extends BaseRequestBuilder<RetentionLabelRequestBuilder> {
     /**
-     * Delete navigation property retentionLabel for drives
+     * Remove a retention label from a driveItem. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/driveitem-removeretentionlabel?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -26,15 +27,16 @@ export interface RetentionLabelRequestBuilder extends BaseRequestBuilder<Retenti
      */
      get(requestConfiguration?: RequestConfiguration<RetentionLabelRequestBuilderGetQueryParameters> | undefined) : Promise<ItemRetentionLabel | undefined>;
     /**
-     * Update the navigation property retentionLabel in drives
+     * Lock or unlock a retention label on a driveItem that classifies content as records. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint. For more information about how you can lock and unlock retention labels, see Use record versioning to update records stored in SharePoint or OneDrive.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ItemRetentionLabel>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/driveitem-lockorunlockrecord?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ItemRetentionLabel, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ItemRetentionLabel | undefined>;
     /**
-     * Delete navigation property retentionLabel for drives
+     * Remove a retention label from a driveItem. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -46,7 +48,7 @@ export interface RetentionLabelRequestBuilder extends BaseRequestBuilder<Retenti
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RetentionLabelRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property retentionLabel in drives
+     * Lock or unlock a retention label on a driveItem that classifies content as records. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint. For more information about how you can lock and unlock retention labels, see Use record versioning to update records stored in SharePoint or OneDrive.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

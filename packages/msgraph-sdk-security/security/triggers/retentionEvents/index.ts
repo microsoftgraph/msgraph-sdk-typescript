@@ -27,28 +27,30 @@ export interface RetentionEventsRequestBuilder extends BaseRequestBuilder<Retent
      */
      byRetentionEventId(retentionEventId: string) : RetentionEventItemRequestBuilder;
     /**
-     * Get retentionEvents from security
+     * Get a list of the retentionEvent objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RetentionEventCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-retentionevent-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RetentionEventsRequestBuilderGetQueryParameters> | undefined) : Promise<RetentionEventCollectionResponse | undefined>;
     /**
-     * Create new navigation property to retentionEvents for security
+     * Create a new retentionEvent object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RetentionEvent>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-retentionevent-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: RetentionEvent, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RetentionEvent | undefined>;
     /**
-     * Get retentionEvents from security
+     * Get a list of the retentionEvent objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RetentionEventsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to retentionEvents for security
+     * Create a new retentionEvent object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface RetentionEventsRequestBuilder extends BaseRequestBuilder<Retent
      toPostRequestInformation(body: RetentionEvent, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get retentionEvents from security
+ * Get a list of the retentionEvent objects and their properties.
  */
 export interface RetentionEventsRequestBuilderGetQueryParameters {
     /**

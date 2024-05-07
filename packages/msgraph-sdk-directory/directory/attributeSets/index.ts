@@ -27,28 +27,30 @@ export interface AttributeSetsRequestBuilder extends BaseRequestBuilder<Attribut
      */
      byAttributeSetId(attributeSetId: string) : AttributeSetItemRequestBuilder;
     /**
-     * Group of related custom security attribute definitions.
+     * Get a list of the attributeSet objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AttributeSetCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/directory-list-attributesets?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AttributeSetsRequestBuilderGetQueryParameters> | undefined) : Promise<AttributeSetCollectionResponse | undefined>;
     /**
-     * Create new navigation property to attributeSets for directory
+     * Create a new attributeSet object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AttributeSet>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/directory-post-attributesets?view=graph-rest-1.0|Find more info here}
      */
      post(body: AttributeSet, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AttributeSet | undefined>;
     /**
-     * Group of related custom security attribute definitions.
+     * Get a list of the attributeSet objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AttributeSetsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to attributeSets for directory
+     * Create a new attributeSet object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface AttributeSetsRequestBuilder extends BaseRequestBuilder<Attribut
      toPostRequestInformation(body: AttributeSet, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Group of related custom security attribute definitions.
+ * Get a list of the attributeSet objects and their properties.
  */
 export interface AttributeSetsRequestBuilderGetQueryParameters {
     /**

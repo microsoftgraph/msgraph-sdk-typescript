@@ -37,10 +37,11 @@ export interface PrivilegedAccessGroupAssignmentScheduleItemRequestBuilder exten
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The assignment schedules to activate a just-in-time access.
+     * Read the properties and relationships of a privilegedAccessGroupAssignmentSchedule object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrivilegedAccessGroupAssignmentSchedule>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroupassignmentschedule-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PrivilegedAccessGroupAssignmentScheduleItemRequestBuilderGetQueryParameters> | undefined) : Promise<PrivilegedAccessGroupAssignmentSchedule | undefined>;
     /**
@@ -58,7 +59,7 @@ export interface PrivilegedAccessGroupAssignmentScheduleItemRequestBuilder exten
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The assignment schedules to activate a just-in-time access.
+     * Read the properties and relationships of a privilegedAccessGroupAssignmentSchedule object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -72,7 +73,7 @@ export interface PrivilegedAccessGroupAssignmentScheduleItemRequestBuilder exten
      toPatchRequestInformation(body: PrivilegedAccessGroupAssignmentSchedule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The assignment schedules to activate a just-in-time access.
+ * Read the properties and relationships of a privilegedAccessGroupAssignmentSchedule object.
  */
 export interface PrivilegedAccessGroupAssignmentScheduleItemRequestBuilderGetQueryParameters {
     /**

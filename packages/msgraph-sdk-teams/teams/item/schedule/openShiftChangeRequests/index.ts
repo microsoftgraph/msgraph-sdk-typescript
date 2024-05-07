@@ -27,28 +27,30 @@ export interface OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilde
      */
      byOpenShiftChangeRequestId(openShiftChangeRequestId: string) : OpenShiftChangeRequestItemRequestBuilder;
     /**
-     * The open shift requests in the schedule.
+     * Retrieve a list of openShiftChangeRequest objects in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OpenShiftChangeRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/openshiftchangerequest-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OpenShiftChangeRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<OpenShiftChangeRequestCollectionResponse | undefined>;
     /**
-     * Create new navigation property to openShiftChangeRequests for teams
+     * Create instance of an openShiftChangeRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OpenShiftChangeRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/openshiftchangerequest-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: OpenShiftChangeRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OpenShiftChangeRequest | undefined>;
     /**
-     * The open shift requests in the schedule.
+     * Retrieve a list of openShiftChangeRequest objects in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OpenShiftChangeRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to openShiftChangeRequests for teams
+     * Create instance of an openShiftChangeRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilde
      toPostRequestInformation(body: OpenShiftChangeRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The open shift requests in the schedule.
+ * Retrieve a list of openShiftChangeRequest objects in a team.
  */
 export interface OpenShiftChangeRequestsRequestBuilderGetQueryParameters {
     /**

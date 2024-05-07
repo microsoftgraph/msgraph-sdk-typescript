@@ -133,18 +133,20 @@ export interface ReportsRequestBuilder extends BaseRequestBuilder<ReportsRequest
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Reports singleton
+     * Read properties and relationships of the deviceManagementReports object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagementReports>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ReportsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceManagementReports | undefined>;
     /**
-     * Update the navigation property reports in deviceManagement
+     * Update the properties of a deviceManagementReports object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagementReports>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceManagementReports, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceManagementReports | undefined>;
     /**
@@ -154,13 +156,13 @@ export interface ReportsRequestBuilder extends BaseRequestBuilder<ReportsRequest
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Reports singleton
+     * Read properties and relationships of the deviceManagementReports object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ReportsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property reports in deviceManagement
+     * Update the properties of a deviceManagementReports object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -168,7 +170,7 @@ export interface ReportsRequestBuilder extends BaseRequestBuilder<ReportsRequest
      toPatchRequestInformation(body: DeviceManagementReports, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Reports singleton
+ * Read properties and relationships of the deviceManagementReports object.
  */
 export interface ReportsRequestBuilderGetQueryParameters {
     /**

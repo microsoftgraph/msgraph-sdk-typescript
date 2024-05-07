@@ -27,28 +27,30 @@ export interface DepartmentsRequestBuilder extends BaseRequestBuilder<Department
      */
      byDepartmentTemplateId(departmentTemplateId: string) : DepartmentTemplateItemRequestBuilder;
     /**
-     * Specifies the department or business unit of an organization to which a label belongs.
+     * Get a list of the departmentTemplate objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DepartmentTemplateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-list-departments?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DepartmentsRequestBuilderGetQueryParameters> | undefined) : Promise<DepartmentTemplateCollectionResponse | undefined>;
     /**
-     * Create new navigation property to departments for security
+     * Create a new departmentTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DepartmentTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-post-departments?view=graph-rest-1.0|Find more info here}
      */
      post(body: DepartmentTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DepartmentTemplate | undefined>;
     /**
-     * Specifies the department or business unit of an organization to which a label belongs.
+     * Get a list of the departmentTemplate objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DepartmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to departments for security
+     * Create a new departmentTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface DepartmentsRequestBuilder extends BaseRequestBuilder<Department
      toPostRequestInformation(body: DepartmentTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Specifies the department or business unit of an organization to which a label belongs.
+ * Get a list of the departmentTemplate objects and their properties.
  */
 export interface DepartmentsRequestBuilderGetQueryParameters {
     /**

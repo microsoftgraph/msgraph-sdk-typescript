@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface PrintConnectorItemRequestBuilder extends BaseRequestBuilder<PrintConnectorItemRequestBuilder> {
     /**
-     * Delete navigation property connectors for print
+     * Delete (unregister) a printConnector.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printconnector-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The list of available print connectors.
+     * Retrieve the properties and relationships of a printConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintConnector>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printconnector-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PrintConnectorItemRequestBuilderGetQueryParameters> | undefined) : Promise<PrintConnector | undefined>;
     /**
-     * Update the navigation property connectors in print
+     * Update the properties of a printConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintConnector>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printconnector-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PrintConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintConnector | undefined>;
     /**
-     * Delete navigation property connectors for print
+     * Delete (unregister) a printConnector.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The list of available print connectors.
+     * Retrieve the properties and relationships of a printConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PrintConnectorItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property connectors in print
+     * Update the properties of a printConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface PrintConnectorItemRequestBuilder extends BaseRequestBuilder<Pri
      toPatchRequestInformation(body: PrintConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of available print connectors.
+ * Retrieve the properties and relationships of a printConnector object.
  */
 export interface PrintConnectorItemRequestBuilderGetQueryParameters {
     /**

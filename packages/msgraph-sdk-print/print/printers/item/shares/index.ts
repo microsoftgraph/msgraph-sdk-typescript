@@ -27,21 +27,22 @@ export interface SharesRequestBuilder extends BaseRequestBuilder<SharesRequestBu
      */
      byPrinterShareId(printerShareId: string) : PrinterShareItemRequestBuilder;
     /**
-     * The list of printerShares that are associated with the printer. Currently, only one printerShare can be associated with the printer. Read-only. Nullable.
+     * Retrieve a list of printer shares associated with the printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrinterShareCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printer-list-shares?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SharesRequestBuilderGetQueryParameters> | undefined) : Promise<PrinterShareCollectionResponse | undefined>;
     /**
-     * The list of printerShares that are associated with the printer. Currently, only one printerShare can be associated with the printer. Read-only. Nullable.
+     * Retrieve a list of printer shares associated with the printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SharesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The list of printerShares that are associated with the printer. Currently, only one printerShare can be associated with the printer. Read-only. Nullable.
+ * Retrieve a list of printer shares associated with the printer.
  */
 export interface SharesRequestBuilderGetQueryParameters {
     /**

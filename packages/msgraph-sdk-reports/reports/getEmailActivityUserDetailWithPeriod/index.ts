@@ -11,14 +11,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface GetEmailActivityUserDetailWithPeriodRequestBuilder extends BaseRequestBuilder<GetEmailActivityUserDetailWithPeriodRequestBuilder> {
     /**
-     * Invoke function getEmailActivityUserDetail
+     * Get details about email activity users have performed.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Invoke function getEmailActivityUserDetail
+     * Get details about email activity users have performed.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

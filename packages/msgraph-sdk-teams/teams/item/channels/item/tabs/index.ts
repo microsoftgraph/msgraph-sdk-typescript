@@ -27,28 +27,30 @@ export interface TabsRequestBuilder extends BaseRequestBuilder<TabsRequestBuilde
      */
      byTeamsTabId(teamsTabId: string) : TeamsTabItemRequestBuilder;
     /**
-     * A collection of all the tabs in the channel. A navigation property.
+     * Retrieve the list of tabs in the specified channel within a team. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsTabCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/channel-list-tabs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TabsRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsTabCollectionResponse | undefined>;
     /**
-     * Create new navigation property to tabs for teams
+     * Add (pin) a tab to the specified channel within a team. The app must be preinstalled in the team and have the configurableTabs property defined in the app manifest.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsTab>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/channel-post-tabs?view=graph-rest-1.0|Find more info here}
      */
      post(body: TeamsTab, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamsTab | undefined>;
     /**
-     * A collection of all the tabs in the channel. A navigation property.
+     * Retrieve the list of tabs in the specified channel within a team. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TabsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to tabs for teams
+     * Add (pin) a tab to the specified channel within a team. The app must be preinstalled in the team and have the configurableTabs property defined in the app manifest.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface TabsRequestBuilder extends BaseRequestBuilder<TabsRequestBuilde
      toPostRequestInformation(body: TeamsTab, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of all the tabs in the channel. A navigation property.
+ * Retrieve the list of tabs in the specified channel within a team. 
  */
 export interface TabsRequestBuilderGetQueryParameters {
     /**

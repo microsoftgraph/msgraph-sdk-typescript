@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder<BookingCustomQuestionItemRequestBuilder> {
     /**
-     * Delete navigation property customQuestions for solutions
+     * Delete a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/bookingcustomquestion-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * All the custom questions of this business. Read-only. Nullable.
+     * Read the properties and relationships of a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingCustomQuestion>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/bookingcustomquestion-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BookingCustomQuestionItemRequestBuilderGetQueryParameters> | undefined) : Promise<BookingCustomQuestion | undefined>;
     /**
-     * Update the navigation property customQuestions in solutions
+     * Update the properties of a bookingCustomQuestion object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingCustomQuestion>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/bookingcustomquestion-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: BookingCustomQuestion, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingCustomQuestion | undefined>;
     /**
-     * Delete navigation property customQuestions for solutions
+     * Delete a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * All the custom questions of this business. Read-only. Nullable.
+     * Read the properties and relationships of a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BookingCustomQuestionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property customQuestions in solutions
+     * Update the properties of a bookingCustomQuestion object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface BookingCustomQuestionItemRequestBuilder extends BaseRequestBuil
      toPatchRequestInformation(body: BookingCustomQuestion, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * All the custom questions of this business. Read-only. Nullable.
+ * Read the properties and relationships of a bookingCustomQuestion object.
  */
 export interface BookingCustomQuestionItemRequestBuilderGetQueryParameters {
     /**

@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DeviceConfigurationAssignmentItemRequestBuilder extends BaseRequestBuilder<DeviceConfigurationAssignmentItemRequestBuilder> {
     /**
-     * Delete navigation property assignments for deviceManagement
+     * Deletes a deviceConfigurationAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The list of assignments for the device configuration profile.
+     * Read properties and relationships of the deviceConfigurationAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfigurationAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceConfigurationAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfigurationAssignment | undefined>;
     /**
-     * Update the navigation property assignments in deviceManagement
+     * Update the properties of a deviceConfigurationAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfigurationAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceConfigurationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfigurationAssignment | undefined>;
     /**
-     * Delete navigation property assignments for deviceManagement
+     * Deletes a deviceConfigurationAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The list of assignments for the device configuration profile.
+     * Read properties and relationships of the deviceConfigurationAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceConfigurationAssignmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property assignments in deviceManagement
+     * Update the properties of a deviceConfigurationAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface DeviceConfigurationAssignmentItemRequestBuilder extends BaseReq
      toPatchRequestInformation(body: DeviceConfigurationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of assignments for the device configuration profile.
+ * Read properties and relationships of the deviceConfigurationAssignment object.
  */
 export interface DeviceConfigurationAssignmentItemRequestBuilderGetQueryParameters {
     /**

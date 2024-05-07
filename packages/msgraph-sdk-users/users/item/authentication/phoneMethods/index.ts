@@ -34,11 +34,12 @@ export interface PhoneMethodsRequestBuilder extends BaseRequestBuilder<PhoneMeth
      */
      get(requestConfiguration?: RequestConfiguration<PhoneMethodsRequestBuilderGetQueryParameters> | undefined) : Promise<PhoneAuthenticationMethodCollectionResponse | undefined>;
     /**
-     * Create new navigation property to phoneMethods for users
+     * Add a new phone authentication method for a user. A user may only have one phone of each type, captured in the phoneType property. This means, for example, adding a mobile phone to a user with a pre-existing mobile phone fails. Additionally, a user must always have a mobile phone before adding an alternateMobile phone. Adding a phone number makes it available for use in both Azure multi-factor authentication (MFA) and self-service password reset (SSPR), if enabled. Additionally, if a user is enabled by policy to use SMS sign-in and a mobile number is added, the system attempts to register the number for use in that system.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PhoneAuthenticationMethod>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/authentication-post-phonemethods?view=graph-rest-1.0|Find more info here}
      */
      post(body: PhoneAuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PhoneAuthenticationMethod | undefined>;
     /**
@@ -48,7 +49,7 @@ export interface PhoneMethodsRequestBuilder extends BaseRequestBuilder<PhoneMeth
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PhoneMethodsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to phoneMethods for users
+     * Add a new phone authentication method for a user. A user may only have one phone of each type, captured in the phoneType property. This means, for example, adding a mobile phone to a user with a pre-existing mobile phone fails. Additionally, a user must always have a mobile phone before adding an alternateMobile phone. Adding a phone number makes it available for use in both Azure multi-factor authentication (MFA) and self-service password reset (SSPR), if enabled. Additionally, if a user is enabled by policy to use SMS sign-in and a mobile number is added, the system attempts to register the number for use in that system.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

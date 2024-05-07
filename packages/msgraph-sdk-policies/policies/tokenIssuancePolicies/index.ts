@@ -27,28 +27,30 @@ export interface TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder<
      */
      byTokenIssuancePolicyId(tokenIssuancePolicyId: string) : TokenIssuancePolicyItemRequestBuilder;
     /**
-     * The policy that specifies the characteristics of SAML tokens issued by Microsoft Entra ID.
+     * Get a list of tokenIssuancePolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TokenIssuancePolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tokenissuancepolicy-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TokenIssuancePoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<TokenIssuancePolicyCollectionResponse | undefined>;
     /**
-     * Create new navigation property to tokenIssuancePolicies for policies
+     * Create a new tokenIssuancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TokenIssuancePolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tokenissuancepolicy-post-tokenissuancepolicy?view=graph-rest-1.0|Find more info here}
      */
      post(body: TokenIssuancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TokenIssuancePolicy | undefined>;
     /**
-     * The policy that specifies the characteristics of SAML tokens issued by Microsoft Entra ID.
+     * Get a list of tokenIssuancePolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TokenIssuancePoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to tokenIssuancePolicies for policies
+     * Create a new tokenIssuancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder<
      toPostRequestInformation(body: TokenIssuancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The policy that specifies the characteristics of SAML tokens issued by Microsoft Entra ID.
+ * Get a list of tokenIssuancePolicy objects.
  */
 export interface TokenIssuancePoliciesRequestBuilderGetQueryParameters {
     /**

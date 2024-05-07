@@ -32,11 +32,12 @@ export interface TeamsAppDefinitionItemRequestBuilder extends BaseRequestBuilder
      */
      get(requestConfiguration?: RequestConfiguration<TeamsAppDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsAppDefinition | undefined>;
     /**
-     * Update the navigation property appDefinitions in appCatalogs
+     * Publish an app to the Microsoft Teams app catalog.Specifically, this API publishes the app to your organization's catalog (the tenant app catalog);the created resource has a distributionMethod property value of organization. The requiresReview property allows any user to submit an app for review by an administrator. Admins can approve or reject these apps via this API or the Microsoft Teams admin center.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsAppDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/teamsapp-publish?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TeamsAppDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamsAppDefinition | undefined>;
     /**
@@ -52,7 +53,7 @@ export interface TeamsAppDefinitionItemRequestBuilder extends BaseRequestBuilder
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeamsAppDefinitionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property appDefinitions in appCatalogs
+     * Publish an app to the Microsoft Teams app catalog.Specifically, this API publishes the app to your organization's catalog (the tenant app catalog);the created resource has a distributionMethod property value of organization. The requiresReview property allows any user to submit an app for review by an administrator. Admins can approve or reject these apps via this API or the Microsoft Teams admin center.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

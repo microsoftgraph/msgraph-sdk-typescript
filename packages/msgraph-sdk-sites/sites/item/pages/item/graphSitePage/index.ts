@@ -37,21 +37,22 @@ export interface GraphSitePageRequestBuilder extends BaseRequestBuilder<GraphSit
      */
     get webParts(): WebPartsRequestBuilder;
     /**
-     * Get the item of type microsoft.graph.baseSitePage as microsoft.graph.sitePage
+     * Returns the metadata for a sitePage in the site pages list in a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SitePage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/sitepage-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GraphSitePageRequestBuilderGetQueryParameters> | undefined) : Promise<SitePage | undefined>;
     /**
-     * Get the item of type microsoft.graph.baseSitePage as microsoft.graph.sitePage
+     * Returns the metadata for a sitePage in the site pages list in a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphSitePageRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the item of type microsoft.graph.baseSitePage as microsoft.graph.sitePage
+ * Returns the metadata for a sitePage in the site pages list in a site.
  */
 export interface GraphSitePageRequestBuilderGetQueryParameters {
     /**

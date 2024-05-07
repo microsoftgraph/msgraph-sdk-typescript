@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DeviceManagementExportJobItemRequestBuilder extends BaseRequestBuilder<DeviceManagementExportJobItemRequestBuilder> {
     /**
-     * Delete navigation property exportJobs for deviceManagement
+     * Deletes a deviceManagementExportJob.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Entity representing a job to export a report
+     * Read properties and relationships of the deviceManagementExportJob object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagementExportJob>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceManagementExportJobItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceManagementExportJob | undefined>;
     /**
-     * Update the navigation property exportJobs in deviceManagement
+     * Update the properties of a deviceManagementExportJob object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagementExportJob>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceManagementExportJob, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceManagementExportJob | undefined>;
     /**
-     * Delete navigation property exportJobs for deviceManagement
+     * Deletes a deviceManagementExportJob.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Entity representing a job to export a report
+     * Read properties and relationships of the deviceManagementExportJob object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceManagementExportJobItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property exportJobs in deviceManagement
+     * Update the properties of a deviceManagementExportJob object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface DeviceManagementExportJobItemRequestBuilder extends BaseRequest
      toPatchRequestInformation(body: DeviceManagementExportJob, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Entity representing a job to export a report
+ * Read properties and relationships of the deviceManagementExportJob object.
  */
 export interface DeviceManagementExportJobItemRequestBuilderGetQueryParameters {
     /**

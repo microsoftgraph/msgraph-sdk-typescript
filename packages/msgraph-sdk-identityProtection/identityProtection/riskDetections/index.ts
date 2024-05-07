@@ -27,10 +27,11 @@ export interface RiskDetectionsRequestBuilder extends BaseRequestBuilder<RiskDet
      */
      byRiskDetectionId(riskDetectionId: string) : RiskDetectionItemRequestBuilder;
     /**
-     * Risk detection in Microsoft Entra ID Protection and the associated information about the detection.
+     * Get a list of the riskDetection objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RiskDetectionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/riskdetection-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RiskDetectionsRequestBuilderGetQueryParameters> | undefined) : Promise<RiskDetectionCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface RiskDetectionsRequestBuilder extends BaseRequestBuilder<RiskDet
      */
      post(body: RiskDetection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RiskDetection | undefined>;
     /**
-     * Risk detection in Microsoft Entra ID Protection and the associated information about the detection.
+     * Get a list of the riskDetection objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface RiskDetectionsRequestBuilder extends BaseRequestBuilder<RiskDet
      toPostRequestInformation(body: RiskDetection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Risk detection in Microsoft Entra ID Protection and the associated information about the detection.
+ * Get a list of the riskDetection objects and their properties.
  */
 export interface RiskDetectionsRequestBuilderGetQueryParameters {
     /**

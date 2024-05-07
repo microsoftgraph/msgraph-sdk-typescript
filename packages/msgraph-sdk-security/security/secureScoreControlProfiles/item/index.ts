@@ -19,18 +19,20 @@ export interface SecureScoreControlProfileItemRequestBuilder extends BaseRequest
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get secureScoreControlProfiles from security
+     * Retrieve the properties and relationships of an securescorecontrolprofile object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SecureScoreControlProfile>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/securescorecontrolprofile-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SecureScoreControlProfileItemRequestBuilderGetQueryParameters> | undefined) : Promise<SecureScoreControlProfile | undefined>;
     /**
-     * Update the navigation property secureScoreControlProfiles in security
+     * Update an editable secureScoreControlProfile object within any integrated solution to change various properties, such as assignedTo or tenantNote.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SecureScoreControlProfile>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/securescorecontrolprofile-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: SecureScoreControlProfile, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SecureScoreControlProfile | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface SecureScoreControlProfileItemRequestBuilder extends BaseRequest
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get secureScoreControlProfiles from security
+     * Retrieve the properties and relationships of an securescorecontrolprofile object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SecureScoreControlProfileItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property secureScoreControlProfiles in security
+     * Update an editable secureScoreControlProfile object within any integrated solution to change various properties, such as assignedTo or tenantNote.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface SecureScoreControlProfileItemRequestBuilder extends BaseRequest
      toPatchRequestInformation(body: SecureScoreControlProfile, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get secureScoreControlProfiles from security
+ * Retrieve the properties and relationships of an securescorecontrolprofile object.
  */
 export interface SecureScoreControlProfileItemRequestBuilderGetQueryParameters {
     /**

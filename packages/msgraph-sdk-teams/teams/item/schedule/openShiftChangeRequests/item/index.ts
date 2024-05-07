@@ -19,10 +19,11 @@ export interface OpenShiftChangeRequestItemRequestBuilder extends BaseRequestBui
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The open shift requests in the schedule.
+     * Retrieve the properties and relationships of an openShiftChangeRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OpenShiftChangeRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/openshiftchangerequest-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OpenShiftChangeRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<OpenShiftChangeRequest | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface OpenShiftChangeRequestItemRequestBuilder extends BaseRequestBui
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The open shift requests in the schedule.
+     * Retrieve the properties and relationships of an openShiftChangeRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface OpenShiftChangeRequestItemRequestBuilder extends BaseRequestBui
      toPatchRequestInformation(body: OpenShiftChangeRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The open shift requests in the schedule.
+ * Retrieve the properties and relationships of an openShiftChangeRequest object.
  */
 export interface OpenShiftChangeRequestItemRequestBuilderGetQueryParameters {
     /**

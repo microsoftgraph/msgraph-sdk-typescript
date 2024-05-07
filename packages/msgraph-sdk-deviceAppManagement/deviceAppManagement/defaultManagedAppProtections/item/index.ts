@@ -25,40 +25,43 @@ export interface DefaultManagedAppProtectionItemRequestBuilder extends BaseReque
      */
     get deploymentSummary(): DeploymentSummaryRequestBuilder;
     /**
-     * Delete navigation property defaultManagedAppProtections for deviceAppManagement
+     * Deletes a defaultManagedAppProtection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-defaultmanagedappprotection-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Default managed app policies.
+     * Read properties and relationships of the defaultManagedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DefaultManagedAppProtection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-defaultmanagedappprotection-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DefaultManagedAppProtectionItemRequestBuilderGetQueryParameters> | undefined) : Promise<DefaultManagedAppProtection | undefined>;
     /**
-     * Update the navigation property defaultManagedAppProtections in deviceAppManagement
+     * Update the properties of a defaultManagedAppProtection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DefaultManagedAppProtection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-defaultmanagedappprotection-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DefaultManagedAppProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DefaultManagedAppProtection | undefined>;
     /**
-     * Delete navigation property defaultManagedAppProtections for deviceAppManagement
+     * Deletes a defaultManagedAppProtection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Default managed app policies.
+     * Read properties and relationships of the defaultManagedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DefaultManagedAppProtectionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property defaultManagedAppProtections in deviceAppManagement
+     * Update the properties of a defaultManagedAppProtection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -66,7 +69,7 @@ export interface DefaultManagedAppProtectionItemRequestBuilder extends BaseReque
      toPatchRequestInformation(body: DefaultManagedAppProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Default managed app policies.
+ * Read properties and relationships of the defaultManagedAppProtection object.
  */
 export interface DefaultManagedAppProtectionItemRequestBuilderGetQueryParameters {
     /**

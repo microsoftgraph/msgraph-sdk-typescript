@@ -27,28 +27,30 @@ export interface FilePlanReferencesRequestBuilder extends BaseRequestBuilder<Fil
      */
      byFilePlanReferenceTemplateId(filePlanReferenceTemplateId: string) : FilePlanReferenceTemplateItemRequestBuilder;
     /**
-     * Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
+     * Get a list of the filePlanReferenceTemplate objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FilePlanReferenceTemplateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-list-fileplanreferences?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<FilePlanReferencesRequestBuilderGetQueryParameters> | undefined) : Promise<FilePlanReferenceTemplateCollectionResponse | undefined>;
     /**
-     * Create new navigation property to filePlanReferences for security
+     * Create a new filePlanReferenceTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FilePlanReferenceTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-post-fileplanreferences?view=graph-rest-1.0|Find more info here}
      */
      post(body: FilePlanReferenceTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<FilePlanReferenceTemplate | undefined>;
     /**
-     * Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
+     * Get a list of the filePlanReferenceTemplate objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FilePlanReferencesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to filePlanReferences for security
+     * Create a new filePlanReferenceTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface FilePlanReferencesRequestBuilder extends BaseRequestBuilder<Fil
      toPostRequestInformation(body: FilePlanReferenceTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
+ * Get a list of the filePlanReferenceTemplate objects and their properties.
  */
 export interface FilePlanReferencesRequestBuilderGetQueryParameters {
     /**

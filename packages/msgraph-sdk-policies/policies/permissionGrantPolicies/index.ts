@@ -27,28 +27,30 @@ export interface PermissionGrantPoliciesRequestBuilder extends BaseRequestBuilde
      */
      byPermissionGrantPolicyId(permissionGrantPolicyId: string) : PermissionGrantPolicyItemRequestBuilder;
     /**
-     * The policy that specifies the conditions under which consent can be granted.
+     * Retrieve the list of permissionGrantPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PermissionGrantPolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PermissionGrantPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<PermissionGrantPolicyCollectionResponse | undefined>;
     /**
-     * Create new navigation property to permissionGrantPolicies for policies
+     * Creates a permissionGrantPolicy. A permission grant policy is used to describe the conditions under which permissions can be granted (for example, during application consent). After creating the permission grant policy, you can add include condition sets to add matching rules, and add exclude condition sets to add exclusion rules.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PermissionGrantPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-post-permissiongrantpolicies?view=graph-rest-1.0|Find more info here}
      */
      post(body: PermissionGrantPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PermissionGrantPolicy | undefined>;
     /**
-     * The policy that specifies the conditions under which consent can be granted.
+     * Retrieve the list of permissionGrantPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PermissionGrantPoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to permissionGrantPolicies for policies
+     * Creates a permissionGrantPolicy. A permission grant policy is used to describe the conditions under which permissions can be granted (for example, during application consent). After creating the permission grant policy, you can add include condition sets to add matching rules, and add exclude condition sets to add exclusion rules.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface PermissionGrantPoliciesRequestBuilder extends BaseRequestBuilde
      toPostRequestInformation(body: PermissionGrantPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The policy that specifies the conditions under which consent can be granted.
+ * Retrieve the list of permissionGrantPolicy objects.
  */
 export interface PermissionGrantPoliciesRequestBuilderGetQueryParameters {
     /**

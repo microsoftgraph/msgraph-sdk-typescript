@@ -39,21 +39,21 @@ export interface GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse 
  */
 export interface MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder extends BaseRequestBuilder<MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder> {
     /**
-     * Invoke function getDirectRoutingCalls
+     * Get a log of direct routing calls as a collection of directRoutingLogRow entries.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse | undefined>;
     /**
-     * Invoke function getDirectRoutingCalls
+     * Get a log of direct routing calls as a collection of directRoutingLogRow entries.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getDirectRoutingCalls
+ * Get a log of direct routing calls as a collection of directRoutingLogRow entries.
  */
 export interface MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters {
     /**

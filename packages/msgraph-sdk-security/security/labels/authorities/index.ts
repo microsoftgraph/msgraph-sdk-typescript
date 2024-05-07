@@ -27,28 +27,30 @@ export interface AuthoritiesRequestBuilder extends BaseRequestBuilder<Authoritie
      */
      byAuthorityTemplateId(authorityTemplateId: string) : AuthorityTemplateItemRequestBuilder;
     /**
-     * Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
+     * Get a list of the authorityTemplate objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthorityTemplateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-list-authorities?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuthoritiesRequestBuilderGetQueryParameters> | undefined) : Promise<AuthorityTemplateCollectionResponse | undefined>;
     /**
-     * Create new navigation property to authorities for security
+     * Create a new authorityTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthorityTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-labelsroot-post-authorities?view=graph-rest-1.0|Find more info here}
      */
      post(body: AuthorityTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthorityTemplate | undefined>;
     /**
-     * Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
+     * Get a list of the authorityTemplate objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuthoritiesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to authorities for security
+     * Create a new authorityTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface AuthoritiesRequestBuilder extends BaseRequestBuilder<Authoritie
      toPostRequestInformation(body: AuthorityTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
+ * Get a list of the authorityTemplate objects and their properties.
  */
 export interface AuthoritiesRequestBuilderGetQueryParameters {
     /**

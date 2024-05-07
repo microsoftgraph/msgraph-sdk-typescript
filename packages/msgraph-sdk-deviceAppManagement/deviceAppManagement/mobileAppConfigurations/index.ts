@@ -27,28 +27,30 @@ export interface MobileAppConfigurationsRequestBuilder extends BaseRequestBuilde
      */
      byManagedDeviceMobileAppConfigurationId(managedDeviceMobileAppConfigurationId: string) : ManagedDeviceMobileAppConfigurationItemRequestBuilder;
     /**
-     * The Managed Device Mobile Application Configurations.
+     * List properties and relationships of the managedDeviceMobileAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfigurationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceMobileAppConfigurationCollectionResponse | undefined>;
     /**
-     * Create new navigation property to mobileAppConfigurations for deviceAppManagement
+     * Create a new iosMobileAppConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: ManagedDeviceMobileAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined>;
     /**
-     * The Managed Device Mobile Application Configurations.
+     * List properties and relationships of the managedDeviceMobileAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileAppConfigurationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to mobileAppConfigurations for deviceAppManagement
+     * Create a new iosMobileAppConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface MobileAppConfigurationsRequestBuilder extends BaseRequestBuilde
      toPostRequestInformation(body: ManagedDeviceMobileAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The Managed Device Mobile Application Configurations.
+ * List properties and relationships of the managedDeviceMobileAppConfiguration objects.
  */
 export interface MobileAppConfigurationsRequestBuilderGetQueryParameters {
     /**

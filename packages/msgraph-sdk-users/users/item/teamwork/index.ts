@@ -37,10 +37,11 @@ export interface TeamworkRequestBuilder extends BaseRequestBuilder<TeamworkReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * A container for Microsoft Teams features available for the user. Read-only. Nullable.
+     * Get the userTeamwork settings for a specified user, which includes the Microsoft Teams region and the locale chosen by the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserTeamwork>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/userteamwork-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TeamworkRequestBuilderGetQueryParameters> | undefined) : Promise<UserTeamwork | undefined>;
     /**
@@ -58,7 +59,7 @@ export interface TeamworkRequestBuilder extends BaseRequestBuilder<TeamworkReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * A container for Microsoft Teams features available for the user. Read-only. Nullable.
+     * Get the userTeamwork settings for a specified user, which includes the Microsoft Teams region and the locale chosen by the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -72,7 +73,7 @@ export interface TeamworkRequestBuilder extends BaseRequestBuilder<TeamworkReque
      toPatchRequestInformation(body: UserTeamwork, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A container for Microsoft Teams features available for the user. Read-only. Nullable.
+ * Get the userTeamwork settings for a specified user, which includes the Microsoft Teams region and the locale chosen by the user.
  */
 export interface TeamworkRequestBuilderGetQueryParameters {
     /**

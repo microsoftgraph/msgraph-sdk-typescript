@@ -13,16 +13,18 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseRequestBuilder<ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder> {
     /**
-     * Delete navigation property importedWindowsAutopilotDeviceIdentities for deviceManagement
+     * Deletes a importedWindowsAutopilotDeviceIdentity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-importedwindowsautopilotdeviceidentity-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Collection of imported Windows autopilot devices.
+     * Read properties and relationships of the importedWindowsAutopilotDeviceIdentity object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ImportedWindowsAutopilotDeviceIdentity>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-importedwindowsautopilotdeviceidentity-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ImportedWindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters> | undefined) : Promise<ImportedWindowsAutopilotDeviceIdentity | undefined>;
     /**
@@ -34,13 +36,13 @@ export interface ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder extend
      */
      patch(body: ImportedWindowsAutopilotDeviceIdentity, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ImportedWindowsAutopilotDeviceIdentity | undefined>;
     /**
-     * Delete navigation property importedWindowsAutopilotDeviceIdentities for deviceManagement
+     * Deletes a importedWindowsAutopilotDeviceIdentity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Collection of imported Windows autopilot devices.
+     * Read properties and relationships of the importedWindowsAutopilotDeviceIdentity object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +56,7 @@ export interface ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder extend
      toPatchRequestInformation(body: ImportedWindowsAutopilotDeviceIdentity, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Collection of imported Windows autopilot devices.
+ * Read properties and relationships of the importedWindowsAutopilotDeviceIdentity object.
  */
 export interface ImportedWindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters {
     /**

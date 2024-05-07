@@ -19,10 +19,11 @@ export interface ServicePrincipalRiskDetectionItemRequestBuilder extends BaseReq
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents information about detected at-risk service principals in a Microsoft Entra tenant.
+     * Read the properties and relationships of a servicePrincipalRiskDetection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServicePrincipalRiskDetection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipalriskdetection-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ServicePrincipalRiskDetectionItemRequestBuilderGetQueryParameters> | undefined) : Promise<ServicePrincipalRiskDetection | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface ServicePrincipalRiskDetectionItemRequestBuilder extends BaseReq
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents information about detected at-risk service principals in a Microsoft Entra tenant.
+     * Read the properties and relationships of a servicePrincipalRiskDetection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface ServicePrincipalRiskDetectionItemRequestBuilder extends BaseReq
      toPatchRequestInformation(body: ServicePrincipalRiskDetection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents information about detected at-risk service principals in a Microsoft Entra tenant.
+ * Read the properties and relationships of a servicePrincipalRiskDetection object.
  */
 export interface ServicePrincipalRiskDetectionItemRequestBuilderGetQueryParameters {
     /**

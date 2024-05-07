@@ -31,16 +31,18 @@ export interface ParticipantItemRequestBuilder extends BaseRequestBuilder<Partic
      */
     get stopHoldMusic(): StopHoldMusicRequestBuilder;
     /**
-     * Delete navigation property participants for communications
+     * Delete a specific participant in a call. In some situations, it is appropriate for an application to remove a participant from an active call. This action can be done before or after the participant answers the call. When an active caller is removed, they are immediately dropped from the call with no pre- or post-removal notification. When an invited participant is removed, any outstanding add participant request is canceled. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/participant-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get participants from communications
+     * Retrieve the properties and relationships of a participant object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Participant>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/participant-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ParticipantItemRequestBuilderGetQueryParameters> | undefined) : Promise<Participant | undefined>;
     /**
@@ -52,13 +54,13 @@ export interface ParticipantItemRequestBuilder extends BaseRequestBuilder<Partic
      */
      patch(body: Participant, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Participant | undefined>;
     /**
-     * Delete navigation property participants for communications
+     * Delete a specific participant in a call. In some situations, it is appropriate for an application to remove a participant from an active call. This action can be done before or after the participant answers the call. When an active caller is removed, they are immediately dropped from the call with no pre- or post-removal notification. When an invited participant is removed, any outstanding add participant request is canceled. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get participants from communications
+     * Retrieve the properties and relationships of a participant object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -72,7 +74,7 @@ export interface ParticipantItemRequestBuilder extends BaseRequestBuilder<Partic
      toPatchRequestInformation(body: Participant, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get participants from communications
+ * Retrieve the properties and relationships of a participant object.
  */
 export interface ParticipantItemRequestBuilderGetQueryParameters {
     /**

@@ -6,6 +6,8 @@ import { createEducationSubmissionFromDiscriminatorValue, serializeEducationSubm
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 // @ts-ignore
+import { ExcuseRequestBuilderRequestsMetadata, type ExcuseRequestBuilder } from './excuse/';
+// @ts-ignore
 import { OutcomesRequestBuilderNavigationMetadata, OutcomesRequestBuilderRequestsMetadata, type OutcomesRequestBuilder } from './outcomes/';
 // @ts-ignore
 import { ReassignRequestBuilderRequestsMetadata, type ReassignRequestBuilder } from './reassign/';
@@ -28,6 +30,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
  */
 export interface EducationSubmissionItemRequestBuilder extends BaseRequestBuilder<EducationSubmissionItemRequestBuilder> {
+    /**
+     * Provides operations to call the excuse method.
+     */
+    get excuse(): ExcuseRequestBuilder;
     /**
      * Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.
      */
@@ -129,6 +135,9 @@ const EducationSubmissionItemRequestBuilderGetQueryParametersMapper: Record<stri
  * Metadata for all the navigation properties in the request builder.
  */
 export const EducationSubmissionItemRequestBuilderNavigationMetadata: Record<Exclude<keyof EducationSubmissionItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    excuse: {
+        requestsMetadata: ExcuseRequestBuilderRequestsMetadata,
+    },
     outcomes: {
         requestsMetadata: OutcomesRequestBuilderRequestsMetadata,
         navigationMetadata: OutcomesRequestBuilderNavigationMetadata,

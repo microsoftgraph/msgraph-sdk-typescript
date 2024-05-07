@@ -25,10 +25,11 @@ export interface ServiceAnnouncementAttachmentItemRequestBuilder extends BaseReq
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * A collection of serviceAnnouncementAttachments.
+     * Read the properties and relationships of a serviceAnnouncementAttachment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServiceAnnouncementAttachment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/serviceannouncementattachment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ServiceAnnouncementAttachmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<ServiceAnnouncementAttachment | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface ServiceAnnouncementAttachmentItemRequestBuilder extends BaseReq
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * A collection of serviceAnnouncementAttachments.
+     * Read the properties and relationships of a serviceAnnouncementAttachment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface ServiceAnnouncementAttachmentItemRequestBuilder extends BaseReq
      toPatchRequestInformation(body: ServiceAnnouncementAttachment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of serviceAnnouncementAttachments.
+ * Read the properties and relationships of a serviceAnnouncementAttachment object.
  */
 export interface ServiceAnnouncementAttachmentItemRequestBuilderGetQueryParameters {
     /**

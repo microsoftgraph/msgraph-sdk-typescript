@@ -27,10 +27,11 @@ export interface ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder<R
      */
      byAccessPackageResourceEnvironmentId(accessPackageResourceEnvironmentId: string) : AccessPackageResourceEnvironmentItemRequestBuilder;
     /**
-     * A reference to the geolocation environments in which a resource is located.
+     * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageResourceEnvironmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-resourceenvironments?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ResourceEnvironmentsRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageResourceEnvironmentCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder<R
      */
      post(body: AccessPackageResourceEnvironment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackageResourceEnvironment | undefined>;
     /**
-     * A reference to the geolocation environments in which a resource is located.
+     * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder<R
      toPostRequestInformation(body: AccessPackageResourceEnvironment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A reference to the geolocation environments in which a resource is located.
+ * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
  */
 export interface ResourceEnvironmentsRequestBuilderGetQueryParameters {
     /**

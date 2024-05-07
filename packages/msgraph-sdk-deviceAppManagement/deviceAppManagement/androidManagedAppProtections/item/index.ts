@@ -31,40 +31,43 @@ export interface AndroidManagedAppProtectionItemRequestBuilder extends BaseReque
      */
     get deploymentSummary(): DeploymentSummaryRequestBuilder;
     /**
-     * Delete navigation property androidManagedAppProtections for deviceAppManagement
+     * Deletes a androidManagedAppProtection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Android managed app policies.
+     * Read properties and relationships of the androidManagedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AndroidManagedAppProtection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AndroidManagedAppProtectionItemRequestBuilderGetQueryParameters> | undefined) : Promise<AndroidManagedAppProtection | undefined>;
     /**
-     * Update the navigation property androidManagedAppProtections in deviceAppManagement
+     * Update the properties of a androidManagedAppProtection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AndroidManagedAppProtection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AndroidManagedAppProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AndroidManagedAppProtection | undefined>;
     /**
-     * Delete navigation property androidManagedAppProtections for deviceAppManagement
+     * Deletes a androidManagedAppProtection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Android managed app policies.
+     * Read properties and relationships of the androidManagedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AndroidManagedAppProtectionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property androidManagedAppProtections in deviceAppManagement
+     * Update the properties of a androidManagedAppProtection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -72,7 +75,7 @@ export interface AndroidManagedAppProtectionItemRequestBuilder extends BaseReque
      toPatchRequestInformation(body: AndroidManagedAppProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Android managed app policies.
+ * Read properties and relationships of the androidManagedAppProtection object.
  */
 export interface AndroidManagedAppProtectionItemRequestBuilderGetQueryParameters {
     /**

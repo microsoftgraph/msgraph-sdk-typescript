@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ResourceOperationItemRequestBuilder extends BaseRequestBuilder<ResourceOperationItemRequestBuilder> {
     /**
-     * Delete navigation property resourceOperations for deviceManagement
+     * Deletes a resourceOperation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-resourceoperation-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The Resource Operations.
+     * Read properties and relationships of the resourceOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ResourceOperation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-resourceoperation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ResourceOperationItemRequestBuilderGetQueryParameters> | undefined) : Promise<ResourceOperation | undefined>;
     /**
-     * Update the navigation property resourceOperations in deviceManagement
+     * Update the properties of a resourceOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ResourceOperation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-resourceoperation-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ResourceOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ResourceOperation | undefined>;
     /**
-     * Delete navigation property resourceOperations for deviceManagement
+     * Deletes a resourceOperation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The Resource Operations.
+     * Read properties and relationships of the resourceOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ResourceOperationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property resourceOperations in deviceManagement
+     * Update the properties of a resourceOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface ResourceOperationItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: ResourceOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The Resource Operations.
+ * Read properties and relationships of the resourceOperation object.
  */
 export interface ResourceOperationItemRequestBuilderGetQueryParameters {
     /**

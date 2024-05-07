@@ -27,28 +27,30 @@ export interface RoleAssignmentsRequestBuilder extends BaseRequestBuilder<RoleAs
      */
      byRoleAssignmentId(roleAssignmentId: string) : RoleAssignmentItemRequestBuilder;
     /**
-     * List of Role assignments for this role definition.
+     * List properties and relationships of the roleAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleAssignmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roleassignment-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RoleAssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<RoleAssignmentCollectionResponse | undefined>;
     /**
-     * Create new navigation property to roleAssignments for deviceManagement
+     * Create a new roleAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roleassignment-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: RoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RoleAssignment | undefined>;
     /**
-     * List of Role assignments for this role definition.
+     * List properties and relationships of the roleAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleAssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to roleAssignments for deviceManagement
+     * Create a new roleAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface RoleAssignmentsRequestBuilder extends BaseRequestBuilder<RoleAs
      toPostRequestInformation(body: RoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List of Role assignments for this role definition.
+ * List properties and relationships of the roleAssignment objects.
  */
 export interface RoleAssignmentsRequestBuilderGetQueryParameters {
     /**

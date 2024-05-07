@@ -67,40 +67,43 @@ export interface ChannelItemRequestBuilder extends BaseRequestBuilder<ChannelIte
      */
     get tabs(): TabsRequestBuilder;
     /**
-     * Delete navigation property channels for teams
+     * Delete the channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/channel-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The collection of channels and messages associated with the team.
+     * Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Channel>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/channel-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ChannelItemRequestBuilderGetQueryParameters> | undefined) : Promise<Channel | undefined>;
     /**
-     * Update the navigation property channels in teams
+     * Update the properties of the specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Channel>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/channel-patch?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Channel, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Channel | undefined>;
     /**
-     * Delete navigation property channels for teams
+     * Delete the channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The collection of channels and messages associated with the team.
+     * Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ChannelItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property channels in teams
+     * Update the properties of the specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -108,7 +111,7 @@ export interface ChannelItemRequestBuilder extends BaseRequestBuilder<ChannelIte
      toPatchRequestInformation(body: Channel, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The collection of channels and messages associated with the team.
+ * Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information.
  */
 export interface ChannelItemRequestBuilderGetQueryParameters {
     /**

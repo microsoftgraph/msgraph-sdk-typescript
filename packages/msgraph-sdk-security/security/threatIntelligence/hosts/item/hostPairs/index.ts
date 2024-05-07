@@ -27,21 +27,22 @@ export interface HostPairsRequestBuilder extends BaseRequestBuilder<HostPairsReq
      */
      byHostPairId(hostPairId: string) : HostPairItemRequestBuilder;
     /**
-     * The hostPairs that are associated with this host, where this host is either the parentHost or childHost.
+     * Get the list of hostPair resources associated with a host, where that host is *either* the *parent* or the *child*.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostPairCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-host-list-hostpairs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HostPairsRequestBuilderGetQueryParameters> | undefined) : Promise<HostPairCollectionResponse | undefined>;
     /**
-     * The hostPairs that are associated with this host, where this host is either the parentHost or childHost.
+     * Get the list of hostPair resources associated with a host, where that host is *either* the *parent* or the *child*.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<HostPairsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The hostPairs that are associated with this host, where this host is either the parentHost or childHost.
+ * Get the list of hostPair resources associated with a host, where that host is *either* the *parent* or the *child*.
  */
 export interface HostPairsRequestBuilderGetQueryParameters {
     /**

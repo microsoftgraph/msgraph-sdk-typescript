@@ -13,9 +13,10 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface IdentityProviderBaseItemRequestBuilder extends BaseRequestBuilder<IdentityProviderBaseItemRequestBuilder> {
     /**
-     * Delete navigation property federationConfigurations for directory
+     * Delete a samlOrWsFedExternalDomainFederation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/samlorwsfedexternaldomainfederation-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -34,7 +35,7 @@ export interface IdentityProviderBaseItemRequestBuilder extends BaseRequestBuild
      */
      patch(body: IdentityProviderBase, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IdentityProviderBase | undefined>;
     /**
-     * Delete navigation property federationConfigurations for directory
+     * Delete a samlOrWsFedExternalDomainFederation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

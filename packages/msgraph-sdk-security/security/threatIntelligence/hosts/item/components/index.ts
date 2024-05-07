@@ -27,21 +27,22 @@ export interface ComponentsRequestBuilder extends BaseRequestBuilder<ComponentsR
      */
      byHostComponentId(hostComponentId: string) : HostComponentItemRequestBuilder;
     /**
-     * The hostComponents that are associated with this host.
+     * Get a list of hostComponent resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostComponentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-host-list-components?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ComponentsRequestBuilderGetQueryParameters> | undefined) : Promise<HostComponentCollectionResponse | undefined>;
     /**
-     * The hostComponents that are associated with this host.
+     * Get a list of hostComponent resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ComponentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The hostComponents that are associated with this host.
+ * Get a list of hostComponent resources.
  */
 export interface ComponentsRequestBuilderGetQueryParameters {
     /**

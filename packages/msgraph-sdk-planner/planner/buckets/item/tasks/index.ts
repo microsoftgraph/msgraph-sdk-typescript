@@ -27,10 +27,11 @@ export interface TasksRequestBuilder extends BaseRequestBuilder<TasksRequestBuil
      */
      byPlannerTaskId(plannerTaskId: string) : PlannerTaskItemRequestBuilder;
     /**
-     * Read-only. Nullable. The collection of tasks in the bucket.
+     * Retrieve a list of plannerTask objects associated to a plannerBucket object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerTaskCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/plannerbucket-list-tasks?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TasksRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerTaskCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface TasksRequestBuilder extends BaseRequestBuilder<TasksRequestBuil
      */
      post(body: PlannerTask, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerTask | undefined>;
     /**
-     * Read-only. Nullable. The collection of tasks in the bucket.
+     * Retrieve a list of plannerTask objects associated to a plannerBucket object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface TasksRequestBuilder extends BaseRequestBuilder<TasksRequestBuil
      toPostRequestInformation(body: PlannerTask, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read-only. Nullable. The collection of tasks in the bucket.
+ * Retrieve a list of plannerTask objects associated to a plannerBucket object.
  */
 export interface TasksRequestBuilderGetQueryParameters {
     /**

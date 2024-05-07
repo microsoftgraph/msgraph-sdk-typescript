@@ -19,15 +19,16 @@ export interface CommentsRequestBuilder extends BaseRequestBuilder<CommentsReque
      */
     get count(): CountRequestBuilder;
     /**
-     * Sets a new value for the collection of alertComment.
+     * Create a comment for an existing alert based on the specified alert id property.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AlertComment[]>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-alert-post-comments?view=graph-rest-1.0|Find more info here}
      */
      post(body: AlertComment[], requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AlertComment[] | undefined>;
     /**
-     * Sets a new value for the collection of alertComment.
+     * Create a comment for an existing alert based on the specified alert id property.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

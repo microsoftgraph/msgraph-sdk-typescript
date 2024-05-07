@@ -37,40 +37,43 @@ export interface PlannerTaskItemRequestBuilder extends BaseRequestBuilder<Planne
      */
     get progressTaskBoardFormat(): ProgressTaskBoardFormatRequestBuilder;
     /**
-     * Delete navigation property tasks for planner
+     * Delete a plannerTask object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/plannertask-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read-only. Nullable. Returns a collection of the specified tasks
+     * Retrieve the properties and relationships of plannerTask object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerTask>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/plannertask-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PlannerTaskItemRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerTask | undefined>;
     /**
-     * Update the navigation property tasks in planner
+     * Update the properties of plannerTask object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerTask>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/plannertask-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PlannerTask, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerTask | undefined>;
     /**
-     * Delete navigation property tasks for planner
+     * Delete a plannerTask object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read-only. Nullable. Returns a collection of the specified tasks
+     * Retrieve the properties and relationships of plannerTask object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PlannerTaskItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property tasks in planner
+     * Update the properties of plannerTask object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -78,7 +81,7 @@ export interface PlannerTaskItemRequestBuilder extends BaseRequestBuilder<Planne
      toPatchRequestInformation(body: PlannerTask, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read-only. Nullable. Returns a collection of the specified tasks
+ * Retrieve the properties and relationships of plannerTask object.
  */
 export interface PlannerTaskItemRequestBuilderGetQueryParameters {
     /**

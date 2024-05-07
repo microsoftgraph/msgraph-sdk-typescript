@@ -27,7 +27,7 @@ export interface IntelligenceProfileIndicatorsRequestBuilder extends BaseRequest
      */
      byIntelligenceProfileIndicatorId(intelligenceProfileIndicatorId: string) : IntelligenceProfileIndicatorItemRequestBuilder;
     /**
-     * Get intelligenceProfileIndicators from security
+     * Read the properties and relationships of a intelligenceProfileIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IntelligenceProfileIndicatorCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface IntelligenceProfileIndicatorsRequestBuilder extends BaseRequest
      */
      post(body: IntelligenceProfileIndicator, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IntelligenceProfileIndicator | undefined>;
     /**
-     * Get intelligenceProfileIndicators from security
+     * Read the properties and relationships of a intelligenceProfileIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface IntelligenceProfileIndicatorsRequestBuilder extends BaseRequest
      toPostRequestInformation(body: IntelligenceProfileIndicator, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get intelligenceProfileIndicators from security
+ * Read the properties and relationships of a intelligenceProfileIndicator object.
  */
 export interface IntelligenceProfileIndicatorsRequestBuilderGetQueryParameters {
     /**

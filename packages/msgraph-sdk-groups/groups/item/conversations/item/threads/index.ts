@@ -27,28 +27,30 @@ export interface ThreadsRequestBuilder extends BaseRequestBuilder<ThreadsRequest
      */
      byConversationThreadId(conversationThreadId: string) : ConversationThreadItemRequestBuilder;
     /**
-     * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
+     * Get all the threads in a group conversation. Note: You can also get all the threads of a group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationThreadCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/conversation-list-threads?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ThreadsRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationThreadCollectionResponse | undefined>;
     /**
-     * Create new navigation property to threads for groups
+     * Create a new thread in the specified conversation.  A thread and post are created as specified. Use reply thread to further post to that thread. Or, if you get the post ID, you can also reply to that post in that thread. Note: You can also start a new conversation by first creating a thread.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationThread>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/conversation-post-threads?view=graph-rest-1.0|Find more info here}
      */
      post(body: ConversationThread, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConversationThread | undefined>;
     /**
-     * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
+     * Get all the threads in a group conversation. Note: You can also get all the threads of a group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ThreadsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to threads for groups
+     * Create a new thread in the specified conversation.  A thread and post are created as specified. Use reply thread to further post to that thread. Or, if you get the post ID, you can also reply to that post in that thread. Note: You can also start a new conversation by first creating a thread.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ThreadsRequestBuilder extends BaseRequestBuilder<ThreadsRequest
      toPostRequestInformation(body: ConversationThread, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
+ * Get all the threads in a group conversation. Note: You can also get all the threads of a group.
  */
 export interface ThreadsRequestBuilderGetQueryParameters {
     /**
@@ -76,6 +78,10 @@ export interface ThreadsRequestBuilderGetQueryParameters {
      */
     orderby?: string[];
     /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -91,7 +97,7 @@ export interface ThreadsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ThreadsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}/threads{?%24count,%24expand,%24filter,%24orderby,%24select,%24skip,%24top}";
+export const ThreadsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}/threads{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -100,6 +106,7 @@ const ThreadsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "filter": "%24filter",
     "orderby": "%24orderby",
+    "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",
     "top": "%24top",

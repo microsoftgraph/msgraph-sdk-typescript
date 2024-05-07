@@ -19,9 +19,10 @@ export interface TeamsAppItemRequestBuilder extends BaseRequestBuilder<TeamsAppI
      */
     get appDefinitions(): AppDefinitionsRequestBuilder;
     /**
-     * Delete navigation property teamsApps for appCatalogs
+     * Delete an app from an organization's app catalog (the tenant app catalog). To delete an app, the distributionMethod property for the app must be set to organization. You can also use this API to remove a submitted app from the review process.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/teamsapp-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -40,7 +41,7 @@ export interface TeamsAppItemRequestBuilder extends BaseRequestBuilder<TeamsAppI
      */
      patch(body: TeamsApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamsApp | undefined>;
     /**
-     * Delete navigation property teamsApps for appCatalogs
+     * Delete an app from an organization's app catalog (the tenant app catalog). To delete an app, the distributionMethod property for the app must be set to organization. You can also use this API to remove a submitted app from the review process.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

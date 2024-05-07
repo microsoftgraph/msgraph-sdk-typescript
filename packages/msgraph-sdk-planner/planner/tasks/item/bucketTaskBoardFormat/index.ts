@@ -19,18 +19,20 @@ export interface BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder<
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.
+     * Retrieve the properties and relationships of plannerBucketTaskBoardTaskFormat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerBucketTaskBoardTaskFormat>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/plannerbuckettaskboardtaskformat-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BucketTaskBoardFormatRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerBucketTaskBoardTaskFormat | undefined>;
     /**
-     * Update the navigation property bucketTaskBoardFormat in planner
+     * Update the properties of a plannerBucketTaskBoardTaskFormat object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerBucketTaskBoardTaskFormat>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/plannerbuckettaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PlannerBucketTaskBoardTaskFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerBucketTaskBoardTaskFormat | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder<
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.
+     * Retrieve the properties and relationships of plannerBucketTaskBoardTaskFormat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BucketTaskBoardFormatRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property bucketTaskBoardFormat in planner
+     * Update the properties of a plannerBucketTaskBoardTaskFormat object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: PlannerBucketTaskBoardTaskFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.
+ * Retrieve the properties and relationships of plannerBucketTaskBoardTaskFormat object.
  */
 export interface BucketTaskBoardFormatRequestBuilderGetQueryParameters {
     /**

@@ -19,21 +19,22 @@ export interface FilesFolderRequestBuilder extends BaseRequestBuilder<FilesFolde
      */
     get content(): ContentRequestBuilder;
     /**
-     * Metadata for the location where the channel's files are stored.
+     * Get the metadata for the location where the files of a channel are stored. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/channel-get-filesfolder?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<FilesFolderRequestBuilderGetQueryParameters> | undefined) : Promise<DriveItem | undefined>;
     /**
-     * Metadata for the location where the channel's files are stored.
+     * Get the metadata for the location where the files of a channel are stored. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FilesFolderRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Metadata for the location where the channel's files are stored.
+ * Get the metadata for the location where the files of a channel are stored. 
  */
 export interface FilesFolderRequestBuilderGetQueryParameters {
     /**

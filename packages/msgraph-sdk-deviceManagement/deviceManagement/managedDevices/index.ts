@@ -34,11 +34,12 @@ export interface ManagedDevicesRequestBuilder extends BaseRequestBuilder<Managed
      */
      get(requestConfiguration?: RequestConfiguration<ManagedDevicesRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceCollectionResponse | undefined>;
     /**
-     * Create new navigation property to managedDevices for deviceManagement
+     * Create a new managedDevice object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDevice>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: ManagedDevice, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDevice | undefined>;
     /**
@@ -48,7 +49,7 @@ export interface ManagedDevicesRequestBuilder extends BaseRequestBuilder<Managed
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedDevicesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to managedDevices for deviceManagement
+     * Create a new managedDevice object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

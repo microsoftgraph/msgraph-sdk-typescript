@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface BrowserSiteItemRequestBuilder extends BaseRequestBuilder<BrowserSiteItemRequestBuilder> {
     /**
-     * Delete navigation property sites for admin
+     * Delete a browserSite from a browserSiteList.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-delete-sites?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * A collection of sites defined for the site list.
+     * Get a browserSite that resides on a browserSiteList.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BrowserSite>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/browsersite-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BrowserSiteItemRequestBuilderGetQueryParameters> | undefined) : Promise<BrowserSite | undefined>;
     /**
-     * Update the navigation property sites in admin
+     * Update the properties of a browserSite object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BrowserSite>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/browsersite-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: BrowserSite, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BrowserSite | undefined>;
     /**
-     * Delete navigation property sites for admin
+     * Delete a browserSite from a browserSiteList.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * A collection of sites defined for the site list.
+     * Get a browserSite that resides on a browserSiteList.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BrowserSiteItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property sites in admin
+     * Update the properties of a browserSite object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface BrowserSiteItemRequestBuilder extends BaseRequestBuilder<Browse
      toPatchRequestInformation(body: BrowserSite, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of sites defined for the site list.
+ * Get a browserSite that resides on a browserSiteList.
  */
 export interface BrowserSiteItemRequestBuilderGetQueryParameters {
     /**

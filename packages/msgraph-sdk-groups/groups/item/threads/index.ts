@@ -27,28 +27,30 @@ export interface ThreadsRequestBuilder extends BaseRequestBuilder<ThreadsRequest
      */
      byConversationThreadId(conversationThreadId: string) : ConversationThreadItemRequestBuilder;
     /**
-     * The group's conversation threads. Nullable.
+     * Get all the threads of a group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationThreadCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/group-list-threads?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ThreadsRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationThreadCollectionResponse | undefined>;
     /**
-     * Create new navigation property to threads for groups
+     * Start a new group conversation by first creating a thread. A new conversation, conversation thread, and post are created in the group.Use reply thread or reply post to further post to that thread. Note: You can also start a new thread in an existing conversation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationThread>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/group-post-threads?view=graph-rest-1.0|Find more info here}
      */
      post(body: ConversationThread, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConversationThread | undefined>;
     /**
-     * The group's conversation threads. Nullable.
+     * Get all the threads of a group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ThreadsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to threads for groups
+     * Start a new group conversation by first creating a thread. A new conversation, conversation thread, and post are created in the group.Use reply thread or reply post to further post to that thread. Note: You can also start a new thread in an existing conversation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ThreadsRequestBuilder extends BaseRequestBuilder<ThreadsRequest
      toPostRequestInformation(body: ConversationThread, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The group's conversation threads. Nullable.
+ * Get all the threads of a group.
  */
 export interface ThreadsRequestBuilderGetQueryParameters {
     /**
@@ -71,6 +73,10 @@ export interface ThreadsRequestBuilderGetQueryParameters {
      * Order items by property values
      */
     orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
     /**
      * Select properties to be returned
      */
@@ -87,7 +93,7 @@ export interface ThreadsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ThreadsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/threads{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}";
+export const ThreadsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/threads{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -95,6 +101,7 @@ const ThreadsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "count": "%24count",
     "filter": "%24filter",
     "orderby": "%24orderby",
+    "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",
     "top": "%24top",
